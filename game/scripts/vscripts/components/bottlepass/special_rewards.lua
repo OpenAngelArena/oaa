@@ -6,14 +6,14 @@ SPECIAL_BOTTLES = {
 
   -- TP master, and Lord of the Lotus Orb
 
-  [43305444] = {1,6}, -- baumi
+  [43305444] = {6}, -- baumi
 
 
 
   -- contributors
 
   --Yzanas
-  [7131038] = {1}, -- chrisinajar
+  [7131038] = {1,5,4,3}, -- chrisinajar
   [109151532] = {1}, -- Chronophylos
   [60408038] = {1}, -- Trildar
   [141335296] = {1}, -- SquawkyArctangent
@@ -48,7 +48,7 @@ SPECIAL_BOTTLES = {
   [110318967] = {7}, -- timo
   [34314091] = {8}, -- frej
   [370166341] = {9}, -- Melon
-  [110964954] = {10}, -- Karmatic
+  [110964954] = {10,3,4}, -- Karmatic
 
 
 
@@ -132,97 +132,98 @@ SPECIAL_BOTTLES = {
   -- twitch donators 20
 
   --KarmaticNeutral
-  [259101879] = {4}, --steam: http://steamcommunity.com/profiles/76561198219367607 - twitch: Chives donated 2x10 with same profile link and different message
-  [144379677] = {4}, --steam: http://steamcommunity.com/profiles/76561198104645405 - twitch: 99LuftBalloons
-  [106881079] = {4}, --steam: http://steamcommunity.com/profiles/76561198067146807 - twitch: Alsher7
-  [113199503] = {4}, --steam: http://steamcommunity.com/profiles/76561198073465231 - twitch: BananaCharge
-  [82995898] = {4}, --steam: http://steamcommunity.com/profiles/76561198043261626 - twitch: bobAKAbill
-  [102208419] = {4}, --steam: http://steamcommunity.com/profiles/76561198062474147 - twitch: CreepySniper
-  [98653735] = {4}, --steam: http://steamcommunity.com/profiles/76561198058919463 - twitch: CynicalDemon
-  [99112333] = {4}, --steam: http://steamcommunity.com/profiles/76561198059378061 - twitch: DazRoger
-  [83370901] = {4}, --steam: http://steamcommunity.com/profiles/76561198043636629 - twitch: flizzard95
-  [115235030] = {4}, --steam: http://steamcommunity.com/profiles/76561198075500758 - twitch: foorjee
-  [86398357] = {4}, --steam: http://steamcommunity.com/profiles/76561198046664085 - twitch: Kage40k
-  [89530957] = {4}, --steam: http://steamcommunity.com/profiles/76561198049796685 - twitch: LionMercen
-  [396954966] = {4}, --steam: http://steamcommunity.com/profiles/76561198357220694 - twitch: mcguyerm
-  [82850232] = {4}, --steam: http://steamcommunity.com/profiles/76561198043115960 - twitch: OomMini
-  [38349285] = {4}, --steam: http://steamcommunity.com/profiles/76561197998615013 - twitch: screwy
-  [169940994] = {4}, --steam: http://steamcommunity.com/profiles/76561198130206722 - twitch: SilverLicas
-  [84453930] = {4}, --steam: http://steamcommunity.com/profiles/76561198044719658 - twitch: Sir_Samuel_Vimes
-  [83886066] = {4}, --steam: http://steamcommunity.com/profiles/76561198044151794 - twitch: Stanno0
-  [269146136] = {4}, --steam: http://steamcommunity.com/profiles/76561198229411864 - twitch: ThatMusicWriter
-  [74822878] = {4}, --steam: http://steamcommunity.com/profiles/76561198035088606 - twitch: UrusMerek
-  [123104098] = {4}, --steam: http://steamcommunity.com/profiles/76561198083369826 - twitch: sir_mampfer
+  [259101879] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198219367607 - twitch: Chives donated 2x10 with same profile link and different message
+  [144379677] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198104645405 - twitch: 99LuftBalloons
+  [106881079] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198067146807 - twitch: Alsher7
+  [113199503] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198073465231 - twitch: BananaCharge
+  [82995898] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198043261626 - twitch: bobAKAbill
+  [102208419] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198062474147 - twitch: CreepySniper
+  [98653735] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198058919463 - twitch: CynicalDemon
+  [99112333] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198059378061 - twitch: DazRoger
+  [83370901] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198043636629 - twitch: flizzard95
+  [115235030] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198075500758 - twitch: foorjee
+  [86398357] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198046664085 - twitch: Kage40k
+  [89530957] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198049796685 - twitch: LionMercen
+  [396954966] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198357220694 - twitch: mcguyerm
+  [82850232] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198043115960 - twitch: OomMini
+  [38349285] = {3,4}, --steam: http://steamcommunity.com/profiles/76561197998615013 - twitch: screwy
+  [169940994] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198130206722 - twitch: SilverLicas
+  [84453930] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198044719658 - twitch: Sir_Samuel_Vimes
+  [83886066] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198044151794 - twitch: Stanno0
+  [269146136] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198229411864 - twitch: ThatMusicWriter
+  [74822878] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198035088606 - twitch: UrusMerek
+  [123104098] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198083369826 - twitch: sir_mampfer
 
 
 
   -- twitch donators 50
 
-  [116097701] = {5}, --steam: http://steamcommunity.com/profiles/76561198076363429 - twitch: Azure_Robe
-  [157755383] = {5}, --steam: http://steamcommunity.com/profiles/76561198118021111 - twitch: DawnoftheWraith}, no reply
-  [51178404] = {5}, --steam: http://steamcommunity.com/profiles/76561198011444132 - twitch: Norovat
-  [90567040] = {5}, --steam: http://steamcommunity.com/profiles/76561198050832768 - twitch: Teloba
-  [123352359] = {5}, --steam: http://steamcommunity.com/profiles/76561198083618087 - twitch: tobymhj
-  [70763083] = {5}, --steam: http://steamcommunity.com/profiles/76561198031028811 - twitch: vatsalyagoel
-  [144060401] = {5}, --steam: http://steamcommunity.com/profiles/76561198104326129 - twitch: abandonedking
-  [53067223] = {5}, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
-  [107719587] = {5}, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
-  [80434451] = {5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
+  [116097701] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198076363429 - twitch: Azure_Robe
+  [157755383] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198118021111 - twitch: DawnoftheWraith}, no reply
+  [51178404] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198011444132 - twitch: Norovat
+  [90567040] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198050832768 - twitch: Teloba
+  [123352359] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198083618087 - twitch: tobymhj
+  [70763083] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198031028811 - twitch: vatsalyagoel
+  [144060401] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198104326129 - twitch: abandonedking
+  [53067223] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
+  [107719587] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
+  [80434451] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
 
 
 
   -- twitch donators 50 Custom
 
-  [113802823] = {11}, --steam: http://steamcommunity.com/profiles/76561198074068551 - twitch: Athight
-  [75237487] = {12}, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
-  [66682246] = {13}, --steam: http://steamcommunity.com/profiles/76561198026947974 - twitch: GhostFromBE
-  [88736132] = {14}, --steam: http://steamcommunity.com/profiles/76561198049001860 - twitch: JamesGoodfellow
-  [303990598] = {14}, --steam: http://steamcommunity.com/profiles/76561198264256326 - twitch: JamesGoodfellow}, bought for friend
-  [36162710] = {15}, --steam: http://steamcommunity.com/profiles/76561197996428438 - twitch: Zedling
-  [157312955] = {16}, --steam: http://steamcommunity.com/profiles/76561198117578683 - twitch: adhesivejotun
-  [101264976] = {17}, --steam: http://steamcommunity.com/profiles/76561198061530704 - twitch: Archimo
-  [95159448] = {18}, --steam: http://steamcommunity.com/profiles/76561198055425176 - twitch: GodSend24
-  [99693825] = {19}, --steam: http://steamcommunity.com/profiles/76561198059959553 - twitch: Greenscreen
-  [196123536] = {20}, --steam: http://steamcommunity.com/profiles/76561198156389264 - twitch: Gymleadergiovani
-  [104604769] = {21}, --steam: http://steamcommunity.com/profiles/76561198064870497 - twitch: silver fennekin
-  [49746183] = {22}, --steam: http://steamcommunity.com/profiles/76561198010011911 - twitch: Takiru
-  [134237802] = {23}, --steam: http://steamcommunity.com/profiles/76561198094503530 - twitch: TheRealXAgent
-  [252879820] = {24}, --steam: http://steamcommunity.com/profiles/76561198213145548 - twitch: yommi1999
-  [177718580] = {25}, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
-  [184428872] = {26}, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: DevilSunrise
-  [28215809] = {27}, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
-  [119820692] = {28}, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
-  [59735209] = {29}, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77
-  [101238957] = {30}, --steam: http://steamcommunity.com/profiles/76561198061504685 - twitch: AssassinsFurr
-  [209872243] = {31}, --steam: http://steamcommunity.com/profiles/76561198170137971 - twitch: HL_Vortex
-  [148999070] = {32}, --steam: http://steamcommunity.com/profiles/76561198109264798 - twitch: Pavlav_
-  [159775101] = {33}, --steam: http://steamcommunity.com/profiles/76561198120040829 - twitch: TheManWithNoLogic
-  [185444775] = {34}, --steam: http://steamcommunity.com/profiles/76561198145710503 - twitch: -no name given}, current steam name original
-  [134290738] = {35}, --steam: http://steamcommunity.com/profiles/76561198094556466 - twitch: Firenere
-  [112815376] = {36}, --steam: https://steamcommunity.com/profiles/76561198073081104 - twitch: Golden_Hamster
-  [63114914] = {37}, --steam: http://steamcommunity.com/profiles/76561198023380642 - twitch: HylaGeo
-  [372975176] = {38}, --steam: http://steamcommunity.com/profiles/76561198333240904 - twitch: icedragon241
-  [100390464] = {39}, --steam: http://steamcommunity.com/profiles/76561198060656192 - twitch: JamesGoodfellow
-  [78069323] = {40}, --steam: http://steamcommunity.com/profiles/76561198038335051 - twitch: ll-NastyDaddy-ll
-  [108495619] = {41}, --steam: http://steamcommunity.com/profiles/76561198068761347 - twitch: LordSxey
-  [117601424] = {42}, --steam: http://steamcommunity.com/profiles/76561198077867152- twitch: Shonkjr
-  [105759579] = {43}, --steam: http://steamcommunity.com/profiles/76561198066025307 - twitch: Zapp
-  [94327365] = {44}, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
-  [196939910] = {45}, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
-  [147100058] = {46}, --steam: http://steamcommunity.com/profiles/76561198107365786 - twitch: YoloSwag420
-  [94579357] = {47}, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: -no name given}, current steam name Doctor Demon
-  [232219850] = {48}, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
-  [128386634] = {49}, --steam: https://steamcommunity.com/profiles/76561198088652362/ - twitch: -no name given}, Discord: TruffleHunt
-  [61476137] = {50}, --steam: http://steamcommunity.com/profiles/76561198021741865 - twitch: DarkNightHawk
-  [40292108] = {51}, --steam: https://steamcommunity.com/profiles/76561198000557836 - twitch: Zeldamasterrt
-  [80851899] = {52}, --steam: http://steamcommunity.com/profiles/76561198041117627 - twitch: Nohnius
-  [34885005] = {53}, --steam: http://steamcommunity.com/profiles/76561197995150733 - twitch: ArcheMagArch
+  [113802823] = {3,4,5,11}, --steam: http://steamcommunity.com/profiles/76561198074068551 - twitch: Athight
+  [75237487] = {3,4,5,12}, --steam: http://steamcommunity.com/profiles/76561198035503215 - twitch: CalmStormRed
+  [66682246] = {3,4,5,13}, --steam: http://steamcommunity.com/profiles/76561198026947974 - twitch: GhostFromBE
+  [88736132] = {3,4,5,14}, --steam: http://steamcommunity.com/profiles/76561198049001860 - twitch: JamesGoodfellow
+  [303990598] = {3,4,5,14}, --steam: http://steamcommunity.com/profiles/76561198264256326 - twitch: JamesGoodfellow}, bought for friend
+  [36162710] = {3,4,5,15}, --steam: http://steamcommunity.com/profiles/76561197996428438 - twitch: Zedling
+  [157312955] = {3,4,5,16}, --steam: http://steamcommunity.com/profiles/76561198117578683 - twitch: adhesivejotun
+  [101264976] = {3,4,5,17}, --steam: http://steamcommunity.com/profiles/76561198061530704 - twitch: Archimo
+  [95159448] = {3,4,5,18}, --steam: http://steamcommunity.com/profiles/76561198055425176 - twitch: GodSend24
+  [99693825] = {3,4,5,19}, --steam: http://steamcommunity.com/profiles/76561198059959553 - twitch: Greenscreen
+  [196123536] = {1,3,4,5,20}, --steam: http://steamcommunity.com/profiles/76561198156389264 - twitch: Gymleadergiovani
+  [104604769] = {3,4,5,21}, --steam: http://steamcommunity.com/profiles/76561198064870497 - twitch: silver fennekin
+  [49746183] = {3,4,5,22}, --steam: http://steamcommunity.com/profiles/76561198010011911 - twitch: Takiru
+  [134237802] = {3,4,5,23}, --steam: http://steamcommunity.com/profiles/76561198094503530 - twitch: TheRealXAgent
+  [252879820] = {3,4,5,24}, --steam: http://steamcommunity.com/profiles/76561198213145548 - twitch: yommi1999
+  [177718580] = {3,4,5,25}, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
+  [184428872] = {3,4,5,26}, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: DevilSunrise
+  [28215809] = {3,4,5,27}, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
+  [119820692] = {3,4,5,28}, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
+  [59735209] = {3,4,5,29}, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77
+  [101238957] = {3,4,5,30}, --steam: http://steamcommunity.com/profiles/76561198061504685 - twitch: AssassinsFurr
+  [209872243] = {3,4,5,31}, --steam: http://steamcommunity.com/profiles/76561198170137971 - twitch: HL_Vortex
+  [148999070] = {3,4,5,32}, --steam: http://steamcommunity.com/profiles/76561198109264798 - twitch: Pavlav_
+  [159775101] = {3,4,5,33}, --steam: http://steamcommunity.com/profiles/76561198120040829 - twitch: TheManWithNoLogic
+  [185444775] = {3,4,5,34}, --steam: http://steamcommunity.com/profiles/76561198145710503 - twitch: -no name given}, current steam name original
+  [134290738] = {3,4,5,35}, --steam: http://steamcommunity.com/profiles/76561198094556466 - twitch: Firenere
+  [112815376] = {3,4,5,36}, --steam: https://steamcommunity.com/profiles/76561198073081104 - twitch: Golden_Hamster
+  [63114914] = {3,4,5,37}, --steam: http://steamcommunity.com/profiles/76561198023380642 - twitch: HylaGeo
+  [372975176] = {3,4,5,38}, --steam: http://steamcommunity.com/profiles/76561198333240904 - twitch: icedragon241
+  [100390464] = {3,4,5,39}, --steam: http://steamcommunity.com/profiles/76561198060656192 - twitch: JamesGoodfellow
+  [78069323] = {3,4,5,40}, --steam: http://steamcommunity.com/profiles/76561198038335051 - twitch: ll-NastyDaddy-ll
+  [108495619] = {3,4,5,41}, --steam: http://steamcommunity.com/profiles/76561198068761347 - twitch: LordSxey
+  [117601424] = {3,4,5,42}, --steam: http://steamcommunity.com/profiles/76561198077867152- twitch: Shonkjr
+  [105759579] = {3,4,5,43}, --steam: http://steamcommunity.com/profiles/76561198066025307 - twitch: Zapp
+  [94327365] = {3,4,5,44}, --steam: http://steamcommunity.com/profiles/76561198054593093 - twitch: SDakFreezes
+  [196939910] = {3,4,5,45}, --steam: http://steamcommunity.com/profiles/76561198157205638 - twitch: brickbrack743
+  [147100058] = {3,4,5,46}, --steam: http://steamcommunity.com/profiles/76561198107365786 - twitch: YoloSwag420
+  [94579357] = {3,4,5,47}, --steam: http://steamcommunity.com/profiles/76561198054845085 - twitch: -no name given}, current steam name Doctor Demon
+  [232219850] = {3,4,5,48}, --steam: https://steamcommunity.com/profiles/76561198192485578/ - twitch: 24maxpower
+  [128386634] = {3,4,5,49}, --steam: https://steamcommunity.com/profiles/76561198088652362/ - twitch: -no name given}, Discord: TruffleHunt
+  [61476137] = {3,4,5,50}, --steam: http://steamcommunity.com/profiles/76561198021741865 - twitch: DarkNightHawk
+  [40292108] = {3,4,5,51}, --steam: https://steamcommunity.com/profiles/76561198000557836 - twitch: Zeldamasterrt
+  [80851899] = {3,4,5,52}, --steam: http://steamcommunity.com/profiles/76561198041117627 - twitch: Nohnius
+  [34885005] = {3,4,5,53}, --steam: http://steamcommunity.com/profiles/76561197995150733 - twitch: ArcheMagArch
 }
 
 SPECIAL_ARCANAS = {
   --comments with names indicate a person having access to that icon but another one being currently active
 
   [43305444] = {'DBZSohei'}, -- baumi
+  [7131038] = {'DBZSohei'}, -- baumi
 
   [53999591] = {'DBZSohei'}, -- carlosrpg
 

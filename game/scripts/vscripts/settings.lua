@@ -1,6 +1,11 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
 -----------------------------------------------------------------------------------
+-- General globals
+
+DOTA_TEAM_SPECTATOR = 1
+
+-----------------------------------------------------------------------------------
 -- OAA specific settings
 
 -- Respawn time settings
@@ -48,6 +53,10 @@ CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the 
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
+
+RANKED_PREGAME_TIME = 10
+RANKED_BAN_TIME = 30
+RANKED_PICK_TIME = 25
 
 -- Game timings
 PREGAME_TIME = 10
@@ -251,7 +260,7 @@ USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players 
 
 CUSTOM_TEAM_PLAYER_COUNT = {}           -- If we're not automatically setting the number of players per team, use this table
 
-if GetMapName() == "oaa_10v10" then
+if GetMapName() == "10v10" then
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 10
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 10
 else

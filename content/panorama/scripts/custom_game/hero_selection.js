@@ -23,6 +23,8 @@ var panelscreated = 0;
 var iscm = false;
 var selectedherocm = 'empty';
 var isPicking = true;
+var isBanning = true;
+var canRandom = true;
 var currentHeroPreview = '';
 var stepsCompleted = {
   2: 0,
@@ -91,6 +93,7 @@ onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selecti
 
 onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
 onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
 onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
 onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
 ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
@@ -139,6 +142,8 @@ function onPlayerStatChange (table, key, data) {
     Object.keys(data).forEach(function (heroName) {
       heroAbilities[heroName] = data[heroName];
     });
+  } else if (key === 'rankedData' && data != null) {
+    UpdatedRankedPickState(data);
   } else if (key === 'herolist' && data != null) {
     // do not move chat for ardm
     if (currentMap !== 'ardm') {
@@ -349,17 +354,21 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
-    if (data.mode === 'STRATEGY') {
+    if (data.mode === 'STRATEGY' || data.mode === 'PRE-GAME') {
       FindDotaHudElement('TimeLeft').text = 'VS';
-      FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
-      GoToStrategy();
-    } else if (data['time'] > -1) {
-      FindDotaHudElement('TimeLeft').text = data['time'];
-      FindDotaHudElement('GameMode').text = $.Localize(data['mode']);
+      FindDotaHudElement('GameMode').text = $.Localize(data.mode);
+      if (data.mode === 'STRATEGY') {
+        GoToStrategy();
+      }
+    } else if (data.time > -1) {
+      $('#TimeLeft').text = data.time;
+      $('#GameMode').text = $.Localize(data.mode);
+      // spammy
+      // $.Msg('Timer mode ' + data.mode);
     } else {
       // CM Hides the chat on last pick, before selecting plyer hero
       // ARDM don't have pick screen chat
-      if (currentMap === 'oaa' || currentMap === 'oaa_10v10' || currentMap === 'oaa_test') {
+      if (currentMap !== 'ardm' && currentMap !== 'captains_mode') {
         ReturnChatWindow();
       }
       HideStrategy();
@@ -367,8 +376,92 @@ function onPlayerStatChange (table, key, data) {
   }
 }
 
+function UpdatedRankedPickState (data) {
+  $.Msg(data);
+
+  var bans = Object.keys(data.bans)
+    .map(function (key) { return data.bans[key]; })
+    .filter(function (banned) { return banned !== 'empty'; });
+
+  Object.keys(data.banChoices)
+    .map(function (key) { return data.banChoices[key]; })
+    .filter(function (banned) { return banned !== 'empty'; })
+    .forEach(function (banned) {
+      if (data.phase === 'bans' || data.phase === 'start') {
+        if (!IsHeroDisabled(banned)) {
+          DisableHero(banned);
+        }
+      } else {
+        if (bans.indexOf(banned) === -1 && IsHeroDisabled(banned)) {
+          EnableHero(banned);
+        }
+      }
+    });
+
+  bans.forEach(function (banned) {
+    $.Msg('Banned hero: ' + banned);
+    if (!IsHeroDisabled(banned)) {
+      DisableHero(banned);
+    }
+  });
+
+  Object.keys(data.order)
+    .map(function (key) { return data.order[key].hero; })
+    .filter(function (banned) { return banned !== 'empty'; })
+    .forEach(function (banned) {
+      if (!IsHeroDisabled(banned)) {
+        DisableHero(banned);
+      }
+    });
+  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  var order = data.order[data.currentOrder + ''];
+
+  switch (data.phase) {
+    case 'start':
+      isPicking = false;
+      break;
+    case 'bans':
+      $.Msg(data.banChoices[Game.GetLocalPlayerID()]);
+      isPicking = !data.banChoices[Game.GetLocalPlayerID()];
+      herolocked = false;
+      canRandom = false;
+      isBanning = true;
+
+      break;
+    case 'picking':
+      isBanning = false;
+      if (order.team === teamID) {
+        var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
+        isPicking = !apData[Game.GetLocalPlayerID()] || apData[Game.GetLocalPlayerID()].selectedhero === 'empty';
+        herolocked = !isPicking;
+        canRandom = order.canRandom !== false;
+        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[Game.GetLocalPlayerID()].selectedhero + JSON.stringify(apData[Game.GetLocalPlayerID()]));
+      } else {
+        isPicking = false;
+        $.Msg('Not my turn ' + order.team + ' / ' + teamID);
+        $.Msg(data.currentOrder);
+        $.Msg(data.order);
+        $.Msg(order);
+      }
+      break;
+  }
+  UpdateButtons();
+}
+
+function UpdateButtons () {
+  if (IsHeroDisabled(selectedhero)) {
+    FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
+    FindDotaHudElement('HeroBan').style.visibility = 'collapse';
+    FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
+    return;
+  }
+  FindDotaHudElement('HeroLockIn').style.visibility = isPicking && !isBanning ? 'visible' : 'collapse';
+  FindDotaHudElement('HeroBan').style.visibility = isPicking && isBanning ? 'visible' : 'collapse';
+  FindDotaHudElement('HeroRandom').style.visibility = isPicking && canRandom ? 'visible' : 'collapse';
+}
+
 function SetupTopBar () {
-  if (currentMap !== 'oaa_10v10') {
+  if (currentMap !== '10v10') {
     return;
   }
 
@@ -541,6 +634,13 @@ function ReloadCMStatus (data) {
   }
 }
 
+function EnableHero (name) {
+  if (FindDotaHudElement(name) != null) {
+    FindDotaHudElement(name).RemoveClass('Disabled');
+    disabledheroes.splice(disabledheroes.indexOf(name), 1);
+  }
+}
+
 function DisableHero (name) {
   if (FindDotaHudElement(name) != null) {
     FindDotaHudElement(name).AddClass('Disabled');
@@ -549,10 +649,8 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
-  if (disabledheroes.indexOf(name) !== -1) {
-    return true;
-  }
-  return false;
+  // if it's not -1 it's in the disabled list
+  return disabledheroes.indexOf(name) !== -1;
 }
 
 function PreviewHero (name) {
@@ -592,8 +690,7 @@ function PreviewHero (name) {
     selectedhero = name;
     selectedherocm = name;
 
-    lockButton.style.visibility = (!isPicking || IsHeroDisabled(currentHeroPreview)) ? 'collapse' : 'visible';
-    $('#HeroRandom').style.visibility = !isPicking ? 'collapse' : 'visible';
+    UpdateButtons();
 
     GameEvents.SendCustomGameEventToServer('preview_hero', {
       hero: name

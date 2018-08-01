@@ -652,12 +652,12 @@ DOTAScenePanel {
   box-shadow: #999999ff -2px -2px 4px 4px;
 }
 
-#HeroLockIn {
+#HeroLockIn, #HeroBan {
   visibility: collapse;
   background-image: url("s2r://panorama/images/control_icons/lock_medium_png.vtex");
 }
 
-#HeroLockIn.Activated {
+#HeroLockIn.Activated, #HeroBan.Activated {
   sound: "ui.pick_play";
 }
 

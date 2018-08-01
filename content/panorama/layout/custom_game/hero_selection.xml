@@ -181,6 +181,9 @@
             <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
                 <Label text="#DOTA_Hero_Selection_LOCKIN" />
             </Button>
+            <Button class="HeroPickerButton" id="HeroBan" onactivate="SelectHero()">
+              <Label text="#DOTA_Hero_Selection_BanTitle" />
+            </Button>
             <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
               <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
               <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
