@@ -1,6 +1,11 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
 -----------------------------------------------------------------------------------
+-- General globals
+
+DOTA_TEAM_SPECTATOR = 1
+
+-----------------------------------------------------------------------------------
 -- OAA specific settings
 
 -- Respawn time settings
