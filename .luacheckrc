@@ -71,7 +71,10 @@ globals = { -- these globals can be set and accessed.
 "AUTO_ABANDON_IN_CM",
 "MIN_MATCH_TIME",
 "ABANDON_DIFF_NEEDED",
-"ABANDON_NEEDED"
+"ABANDON_NEEDED",
+"RANKED_PREGAME_TIME",
+"RANKED_BAN_TIME",
+"RANKED_PICK_TIME"
 }
 
 read_globals = { -- these globals can only be accessed.
