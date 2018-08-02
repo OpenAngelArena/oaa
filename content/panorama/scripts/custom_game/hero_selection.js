@@ -599,7 +599,7 @@ function ReloadCMStatus (data) {
     // the "select your hero at the end" thing
     if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
       ReturnChatWindow();
-      $('#MainContent').SetHasClass("CMHeroChoices", true);
+      $('#MainContent').SetHasClass('CMHeroChoices', true);
 
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
@@ -720,8 +720,7 @@ function UpdateBottlePassArcana (heroName) {
   var selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
   var selectedArcana = 'DefaultSet';
 
-  if(selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined )
-  {
+  if (selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined) {
     selectedArcana = selectedArcanas[playerID.toString()][heroName];
   }
 
@@ -782,17 +781,12 @@ function SelectArcana () {
   if (arcanasList.GetChildCount() > 0) {
     var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
 
-    if(selectedArcana.setName !== 'DefaultSet')
-    {
-      var id = 'Scene' + ~~(Math.random() * 100);
-      var preview = FindDotaHudElement('HeroPreview');
-      preview.RemoveAndDeleteChildren();
-      preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\'+ selectedArcana.setName +'"  renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
-    }
-    else{
-      var id = 'Scene' + ~~(Math.random() * 100);
-      var preview = FindDotaHudElement('HeroPreview');
-      preview.RemoveAndDeleteChildren();
+    var id = 'Scene' + ~~(Math.random() * 100);
+    var preview = FindDotaHudElement('HeroPreview');
+    preview.RemoveAndDeleteChildren();
+    if (selectedArcana.setName !== 'DefaultSet') {
+      preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\' + selectedArcana.setName + '"  renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+    } else {
       if (selectedArcana.hero === 'npc_dota_hero_sohei') {
         preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\sohei" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
       } else if (selectedArcana.hero === 'npc_dota_hero_electrician') {
@@ -816,8 +810,7 @@ function UpdateBottleList () {
   var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
   var bottles = specialBottles[playerID.toString()].Bottles;
 
-  if($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1)
-  {
+  if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
     // ignore repaint if radio is already filled
     return;
   }
@@ -825,34 +818,32 @@ function UpdateBottleList () {
   $('#BottleSelection').RemoveAndDeleteChildren();
   // Wait the parent be updated
   $.Schedule(0.2, function () {
-    var selectedBottle = undefined;
+    var selectedBottle;
 
     var selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
-    if(selectedBottles !== undefined && selectedBottles[playerID.toString()] !== undefined )
-    {
-      selectedBottle = selectedBottles[playerID.toString()] ;
+    if (selectedBottles !== undefined && selectedBottles[playerID.toString()] !== undefined) {
+      selectedBottle = selectedBottles[playerID.toString()];
     }
 
-    CreateBottleRadioElement(0, 0 === selectedBottle)
+    CreateBottleRadioElement(0, selectedBottle === 0);
     var bottleCount = Object.keys(bottles).length;
     Object.keys(bottles).forEach(function (bottleId, i) {
       var id = bottles[bottleId];
-      CreateBottleRadioElement(bottles[bottleId], selectedBottle === undefined ? i === bottleCount -1 : id === selectedBottle);
+      CreateBottleRadioElement(bottles[bottleId], selectedBottle === undefined ? i === bottleCount - 1 : id === selectedBottle);
     });
 
     SelectBottle();
   });
 }
 
-function CreateBottleRadioElement(id, isChecked)
-{
+function CreateBottleRadioElement (id, isChecked) {
   var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
   radio.BLoadLayoutSnippet('BottleRadio');
   radio.bottleId = id;
   radio.checked = isChecked;
 }
 
-function SelectBottle() {
+function SelectBottle () {
   var bottleId = 0;
   var btn = $('#Bottle0');
   if (btn != null) {
