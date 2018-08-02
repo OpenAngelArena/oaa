@@ -83,6 +83,8 @@ var hilariousLoadingPhrases = [
 
 SetupTopBar();
 
+$('#MainContent').SetHasClass(currentMap, true);
+
 CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
 CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
 
@@ -597,6 +599,8 @@ function ReloadCMStatus (data) {
     // the "select your hero at the end" thing
     if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
       ReturnChatWindow();
+      $('#MainContent').SetHasClass("CMHeroChoices", true);
+
       var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
       newbutton.group = 'CMHeroChoises';
       newbutton.AddClass('CMHeroPreviewItem');
@@ -704,6 +708,7 @@ function PreviewHero (name) {
 }
 
 function UpdateBottlePassArcana (heroName) {
+  var playerID = Game.GetLocalPlayerID();
   $('#ArcanaSelection').RemoveAndDeleteChildren();
 
   if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician') {
@@ -712,11 +717,18 @@ function UpdateBottlePassArcana (heroName) {
   }
   $('#ArcanaPanel').SetHasClass('HasArcana', true);
 
+  var selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
+  var selectedArcana = 'DefaultSet';
+
+  if(selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined )
+  {
+    selectedArcana = selectedArcanas[playerID.toString()][heroName];
+  }
+
   $.Schedule(0.2, function () {
     $.Msg('UpdateBottlePassArcana(' + heroName + ')');
     var arcanas = null;
 
-    var playerID = Game.GetLocalPlayerID();
     var specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
     for (var arcanaIndex in specialArcanas) {
       if (specialArcanas[arcanaIndex].PlayerId === playerID) {
@@ -727,9 +739,9 @@ function UpdateBottlePassArcana (heroName) {
     if (heroName === 'npc_dota_hero_sohei') {
       radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultSoheiSet');
       radio.BLoadLayoutSnippet('ArcanaRadio');
-      radio.checked = true;
       radio.hero = heroName;
       radio.setName = 'DefaultSet';
+      radio.checked = selectedArcana === radio.setName;
 
       // Disabled
       // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
@@ -743,14 +755,15 @@ function UpdateBottlePassArcana (heroName) {
           radio.BLoadLayoutSnippet('ArcanaRadio');
           radio.hero = heroName;
           radio.setName = 'DBZSohei';
+          radio.checked = selectedArcana === radio.setName;
         }
       }
     } else if (heroName === 'npc_dota_hero_electrician') {
       radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultElectricianSet');
       radio.BLoadLayoutSnippet('ArcanaRadio');
-      radio.checked = true;
       radio.hero = heroName;
       radio.setName = 'DefaultSet';
+      radio.checked = selectedArcana === radio.setName;
 
       // Disabled
 
@@ -758,6 +771,7 @@ function UpdateBottlePassArcana (heroName) {
       // radio.BLoadLayoutSnippet('ArcanaRadio');
       // radio.hero = heroName;
       // radio.setName = 'RockElectrician';
+      // radio.checked = selectedArcana === radio.setName;
     }
     SelectArcana();
   });
@@ -767,6 +781,24 @@ function SelectArcana () {
   var arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
     var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+
+    if(selectedArcana.setName !== 'DefaultSet')
+    {
+      var id = 'Scene' + ~~(Math.random() * 100);
+      var preview = FindDotaHudElement('HeroPreview');
+      preview.RemoveAndDeleteChildren();
+      preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\'+ selectedArcana.setName +'"  renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+    }
+    else{
+      var id = 'Scene' + ~~(Math.random() * 100);
+      var preview = FindDotaHudElement('HeroPreview');
+      preview.RemoveAndDeleteChildren();
+      if (selectedArcana.hero === 'npc_dota_hero_sohei') {
+        preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\sohei" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+      } else if (selectedArcana.hero === 'npc_dota_hero_electrician') {
+        preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\electrician" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+      }
+    }
 
     var data = {
       Hero: selectedArcana.hero,
@@ -780,38 +812,47 @@ function SelectArcana () {
 }
 
 function UpdateBottleList () {
+  var playerID = Game.GetLocalPlayerID();
+  var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
+  var bottles = specialBottles[playerID.toString()].Bottles;
+
+  if($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1)
+  {
+    // ignore repaint if radio is already filled
+    return;
+  }
+
   $('#BottleSelection').RemoveAndDeleteChildren();
-  SelectBottle();
   // Wait the parent be updated
   $.Schedule(0.2, function () {
-    var playerID = Game.GetLocalPlayerID();
-    var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
-    var bottles = null;
-    for (var bottleIndex in specialBottles) {
-      if (specialBottles[bottleIndex].PlayerId === playerID) {
-        bottles = specialBottles[bottleIndex].Bottles;
-      }
+    var selectedBottle = undefined;
+
+    var selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
+    if(selectedBottles !== undefined && selectedBottles[playerID.toString()] !== undefined )
+    {
+      selectedBottle = selectedBottles[playerID.toString()] ;
     }
-    // Default Bottle
-    // var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle0');
-    // radio.BLoadLayoutSnippet('BottleRadio');
-    // radio.checked = true;
-    // radio.bottleId = 0;
+
+    CreateBottleRadioElement(0, 0 === selectedBottle)
     var bottleCount = Object.keys(bottles).length;
     Object.keys(bottles).forEach(function (bottleId, i) {
       var id = bottles[bottleId];
-      var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
-      radio.BLoadLayoutSnippet('BottleRadio');
-      radio.bottleId = id;
-
-      if (i === bottleCount - 1) {
-        radio.checked = true;
-      }
+      CreateBottleRadioElement(bottles[bottleId], selectedBottle === undefined ? i === bottleCount -1 : id === selectedBottle);
     });
+
+    SelectBottle();
   });
 }
 
-function SelectBottle () {
+function CreateBottleRadioElement(id, isChecked)
+{
+  var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
+  radio.BLoadLayoutSnippet('BottleRadio');
+  radio.bottleId = id;
+  radio.checked = isChecked;
+}
+
+function SelectBottle() {
   var bottleId = 0;
   var btn = $('#Bottle0');
   if (btn != null) {
