@@ -10,8 +10,7 @@ if IsServer() then
     local attack_speed_bonus_pct = self:GetSpecialValueFor( "attack_speed_bonus_pct" )
 
     caster:AddNewModifier( self:GetCaster(), self, "modifier_clinkz_strafe", {
-      duration = duration,
-      attackspeed_bonus_constant = attack_speed_bonus_pct
+      duration = duration
     } )
   end
 
