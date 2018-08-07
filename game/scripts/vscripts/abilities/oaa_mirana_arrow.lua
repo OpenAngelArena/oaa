@@ -96,6 +96,8 @@ if IsServer() then
     local position = caster:GetAbsOrigin()
     local direction = self:GetForwardVector()
 
+    -- Maximum arrow range
+    local arrow_range = self:GetSpecialValueFor( "arrow_range" )
     -- Global cast range applies to global range for the arrow too
     if caster:HasTalent("special_bonus_mirana_arrow_global") then
       arrow_range = caster:FindTalentValue("special_bonus_mirana_arrow_global", "projectile_range")
@@ -105,7 +107,7 @@ if IsServer() then
       arrow_start_distance = self:GetSpecialValueFor( "arrow_start_distance" ), -- Arrow start distance from caster
       arrow_speed = self:GetSpecialValueFor( "arrow_speed" ), -- Arrow travel speed
       arrow_width = self:GetSpecialValueFor( "arrow_width" ), -- Arrow width
-      arrow_range = self:GetSpecialValueFor( "arrow_range" ), -- Maximum arrow range
+      arrow_range = arrow_range, -- Maximum arrow range
       arrow_min_stun = self:GetSpecialValueFor( "arrow_min_stun" ), -- Minimum stun duration
       arrow_max_stun = self:GetSpecialValueFor( "arrow_max_stun" ), -- Maximum stun duration
       arrow_max_stunrange = self:GetSpecialValueFor( "arrow_max_stunrange" ), -- Range for maximum stun
