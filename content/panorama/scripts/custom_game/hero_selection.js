@@ -24,6 +24,7 @@ var iscm = false;
 var selectedherocm = 'empty';
 var isPicking = true;
 var isBanning = false;
+var isCMLocking = false;
 var canRandom = true;
 var currentHeroPreview = '';
 var stepsCompleted = {
@@ -257,6 +258,7 @@ function onPlayerStatChange (table, key, data) {
         }
       });
     }
+    UpdatePreviews();
   } else if (key === 'CMdata' && data != null) {
     iscm = true;
     var teamName = teamID === 2 ? 'radiant' : 'dire';
@@ -355,6 +357,7 @@ function onPlayerStatChange (table, key, data) {
       disabledheroes = [];
       FindDotaHudElement('SectionTitle').style.visibility = 'collapse';
       FindDotaHudElement('CMHeroPreview').style.visibility = 'visible';
+      isCMLocking = true;
     }
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
@@ -539,6 +542,9 @@ function ReturnChatWindow () {
 }
 
 function UpdatePreviews (data) {
+  if (!data) {
+    data = CustomNetTables.GetTableValue('hero_selection', 'preview_table');
+  }
   if (!data) {
     return;
   }
@@ -880,11 +886,12 @@ function SelectHero (hero) {
       FindDotaHudElement('HeroLockIn').style.brightness = 0.5;
       FindDotaHudElement('HeroRandom').style.brightness = 0.5;
     }
-    $.Msg('Selecting ' + newhero);
 
-    if (iscm) {
+    if (iscm && !isCMLocking) {
+      $.Msg('CM order ' + newhero);
       CaptainSelectHero();
     } else {
+      $.Msg('Selecting ' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
         PlayerID: Game.GetLocalPlayerID(),
         hero: newhero
