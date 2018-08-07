@@ -25,7 +25,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "2000 2500 3000 3500 4000"
+    "AbilityCastRange"                                    "3000"
     "AbilityCastRangeBuffer"                              "600"
     "AbilityCastPoint"                                    "2.0"
 
@@ -57,7 +57,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "2000 2500 3000 3500 4000"
+        "tooltip_range"                                   "3000"
       }
       "03"
       {
