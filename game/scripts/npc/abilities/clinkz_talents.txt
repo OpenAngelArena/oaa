@@ -1,0 +1,26 @@
+﻿"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Clinkz right level 25 talent: Modify cooldown of Strafe
+  //=================================================================================================================
+  "special_bonus_clinkz_strafe_cooldown"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "86231"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"         "5"
+      }
+    }
+  }
+}
