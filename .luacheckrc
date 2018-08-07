@@ -74,7 +74,8 @@ globals = { -- these globals can be set and accessed.
 "ABANDON_NEEDED",
 "RANKED_PREGAME_TIME",
 "RANKED_BAN_TIME",
-"RANKED_PICK_TIME"
+"RANKED_PICK_TIME",
+"DUEL_START_PROTECTION_TIME"
 }
 
 read_globals = { -- these globals can only be accessed.

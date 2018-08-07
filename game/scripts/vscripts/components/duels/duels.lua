@@ -416,19 +416,19 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
   end
 
   --duel start invulnerability
-  for _,player in ipairs(badPlayers) do
+  for _,player in ipairs(playerSplit.BadPlayers) do
     if player.assigned ~= nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
-  for _,player in ipairs(goodPlayers) do
+  for _,player in ipairs(playerSplit.GoodPlayers) do
     if player.assigned ~= nil then
       local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
-  
+
   self.currentDuel = {
     goodLiving1 = playerSplit.PlayerSplitOffset,
     badLiving1 = playerSplit.PlayerSplitOffset,
