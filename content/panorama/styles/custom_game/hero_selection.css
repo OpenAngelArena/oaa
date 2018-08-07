@@ -505,7 +505,7 @@ RadioButton.Disabled:selected {
 }
 
 #HeroSelector {
-  width: 35%;
+  width: 37%;
   height: fill-parent-flow(1.0);
   flow-children: right;
   horizontal-align: center;
@@ -549,7 +549,8 @@ RadioButton.Disabled:selected {
 }
 
 DOTAScenePanel {
-  width: 100%;
+  horizontal-align: middle;
+  width: 80%;
   height: 100%;
 }
 
@@ -605,15 +606,18 @@ DOTAScenePanel {
 }
 
 #AbilityPreview {
-  width: fill-parent-flow(1.0);
+  horizontal-align: center;
   vertical-align: bottom;
   flow-children: right;
+  overflow: scroll squish;
 }
 
 #AbilityPreview DOTAAbilityImage {
-  width: fill-parent-flow(1.0);
   tooltip-position: top;
-  margin: 0px 3px;
+  max-width: 67px;
+  margin: 0px 5px;
+  border: 2px solid grey;
+  border-radius: 8px;
 }
 
 #HeroPickContainer {
@@ -898,7 +902,7 @@ DOTAScenePanel {
   margin-top: 10%;
   transition-delay: 7s;
 }
-.CaptainsMode .BottlePassSelection{
+.captains_mode .BottlePassSelection{
   margin-top: -45px;
 }
 
@@ -908,6 +912,10 @@ DOTAScenePanel {
 
 .CMHeroChoices #AbilityPreview{
   visibility: collapse;
+}
+
+.captains_mode #AbilityPreview{
+  height: 80px;
 }
 
 .BottlePassSelection

@@ -1,0 +1,43 @@
+﻿"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Clinkz: Strafe
+  //=================================================================================================================
+  "clinkz_strafe_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "ability_lua"
+    "ID"                  "85259"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"      "clinkz_strafe"
+    "ScriptFile"          "abilities/oaa_clinkz_strafe.lua"
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30 25 20 15 15 15"
+    "AbilityCastPoint"                                    "0.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_bonus_pct"                "110 160 210 260 320 380"
+      }
+    }
+  }
+}

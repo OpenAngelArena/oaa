@@ -44,7 +44,7 @@ end
 -- Returns a table with our custom game tracking.
 function BuildGameArray()
   local game = {
-    gl = math.floor(HudTimer:GetGameTime()), -- Game length, from the horn sound, in seconds
+    gl = math.floor(HudTimer:GetGameTime() or 0), -- Game length, from the horn sound, in seconds
     wt = GAME_WINNER_TEAM, -- Winning team
 
     -- Score stats

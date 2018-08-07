@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
 
+Debug:EnableDebugging()
+
 if HeroSelection == nil then
   DebugPrint ( 'Starteng HeroSelection' )
   HeroSelection = class({})
@@ -206,12 +208,14 @@ end
 function HeroSelection:OnBottleSelected (selectedBottle)
   if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
   HeroSelection.SelectedBottle[selectedBottle.PlayerId] = selectedBottle.BottleId
+  CustomNetTables:SetTableValue( 'bottlepass', 'selected_bottles', HeroSelection.SelectedBottle )
 end
 
 function HeroSelection:OnArcanaSelected (selectedArcana)
   if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
   if HeroSelection.SelectedArcana[selectedArcana.PlayerId] == nil then HeroSelection.SelectedArcana[selectedArcana.PlayerId] = {} end
   HeroSelection.SelectedArcana[selectedArcana.PlayerId][selectedArcana.Hero] = selectedArcana.Arcana
+  CustomNetTables:SetTableValue( 'bottlepass', 'selected_arcanas', HeroSelection.SelectedArcana )
 end
 
 function HeroSelection:GetSelectedBottleForPlayer(playerId)
@@ -702,7 +706,7 @@ function HeroSelection:RandomHero ()
 end
 function HeroSelection:UnsafeRandomHero ()
   local curstate = 0
-  local rndhero = RandomInt(0, totalheroes)
+  local rndhero = RandomInt(0, totalheroes - 1)
   for name, _ in pairs(herolist) do
     if curstate == rndhero then
       return name
@@ -762,6 +766,9 @@ function HeroSelection:HeroSelected (event)
   if HeroSelection.isRanked then
     return HeroSelection:RankedManager(event)
   end
+  -- if HeroSelection.isCM then
+  --   return HeroSelection:CMManager(event)
+  -- end
   HeroSelection:UpdateTable(event.PlayerID, event.hero)
 end
 
