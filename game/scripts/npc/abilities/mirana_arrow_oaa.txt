@@ -1,4 +1,4 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Mirana Arrow
@@ -13,7 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam"							               	  "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"								                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"						 	                "DOTA_UNIT_TARGET_FLAG_NONE"
+    "AbilityUnitTargetFlags"						 	                "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
@@ -87,13 +87,25 @@
       }
       "08"
       {
+        // Radius around the arrow while flying
         "var_type"                                        "FIELD_INTEGER"
         "arrow_vision"                                    "500"
       }
       "09"
       {
+        // Duration of vision after
+        "var_type"                                        "FIELD_FLOAT"
+        "arrow_vision_duration"                           "3"
+      }
+      "10"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_multishot_angle"                           "30"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_start_distance"                            "51"
       }
     }
   }

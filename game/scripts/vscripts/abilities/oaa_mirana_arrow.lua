@@ -4,16 +4,16 @@ mirana_arrow_oaa = class( AbilityBaseClass )
 
 if IsServer() then
 
-  -- There are so many values passed to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
-  function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_speed, arrow_width, arrow_range, arrow_data)
+  -- There are so many values passed (in arrow_data) to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
+  function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_data)
     local info =
     {
       Ability = self,
       EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf",
-      vSpawnOrigin = caster:GetAbsOrigin() + (caster:GetForwardVector() * arrow_width),
-      fDistance = arrow_range,
-      fStartRadius = arrow_width,
-      fEndRadius = arrow_width,
+      vSpawnOrigin = caster:GetAbsOrigin() + (caster:GetForwardVector() * arrow_data.arrow_start_distance),
+      fDistance = arrow_data.arrow_range,
+      fStartRadius = arrow_data.arrow_width,
+      fEndRadius = arrow_data.arrow_width,
       Source = caster,
       bHasFrontalCone = false,
       bReplaceExisting = false,
@@ -21,7 +21,7 @@ if IsServer() then
       iUnitTargetType = self:GetAbilityTargetType(),
       iUnitTargetFlags = self:GetAbilityTargetFlags(),
       bDeleteOnHit = true,
-      vVelocity = direction * arrow_speed,
+      vVelocity = direction * arrow_data.arrow_speed,
       bProvidesVision = true,
       iVisionRadius = arrow_data.arrow_vision,
       iVisionTeamNumber = caster:GetTeamNumber(),
@@ -32,7 +32,8 @@ if IsServer() then
         arrow_bonus_damage = arrow_data.arrow_bonus_damage,
         arrow_base_damage = arrow_data.arrow_base_damage,
         arrow_damage_type = arrow_data.arrow_damage_type,
-        arrow_vision = arrow_data.arrow_vision
+        arrow_vision = arrow_data.arrow_vision,
+        arrow_vision_duration = arrow_data.arrow_vision_duration
       },
     }
     self.arrow_start_position = position
@@ -43,43 +44,49 @@ if IsServer() then
     local caster = self:GetCaster()
 
     -- Target must exist and not be immune (to magic or in general)
-    if target == nil or target:IsMagicImmune() or target:IsInvulnerable() then
+    if target == nil or target:IsInvulnerable() then
       return false
     end
 
     -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple arrows
-    local stunned_modifier = FindModifierByNameAndCaster("modifier_stunned", caster)
+    local stunned_modifier = target:FindModifierByNameAndCaster("modifier_stunned", caster)
     if stunned_modifier ~= nil then
       return false
     end
 
-    -- Traveled distance limited to arrow_max_stunrange
-    local arrow_traveled_distance = math.min( ( self.arrow_start_position - target:GetAbsOrigin() ):Length(), data.arrow_max_stunrange )
-    -- Multiplier from 0.0 to 1.0 for Arrow's stun duration (and damage based on distance)
-    local dist_mult = arrow_traveled_distance / data.arrow_max_stunrange
+    if not target:IsMagicImmune() then
+      if target:IsCreep() and (not target:IsConsideredHero()) and (not target:IsAncient()) then
+        target:ForceKill( false )
+      end
 
-    -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
-    local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
-    -- Stun
-    target:AddNewModifier(caster, self, "modifier_stunned", {
-      duration=stun_duration
-    })
+      -- Traveled distance limited to arrow_max_stunrange
+      local arrow_traveled_distance = math.min( ( self.arrow_start_position - target:GetAbsOrigin() ):Length(), data.arrow_max_stunrange )
+      -- Multiplier from 0.0 to 1.0 for Arrow's stun duration (and damage based on distance)
+      local dist_mult = arrow_traveled_distance / data.arrow_max_stunrange
 
-    -- Damage arrow_base_damage with damage based on traveled distance
-    local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
+      -- Damage arrow_base_damage with damage based on traveled distance
+      local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
+      -- Damage
+      local damageTable = {
+        victim = target,
+        attacker = caster,
+        damage = damage,
+        damage_type = data.arrow_damage_type,
+        --damage_flags = DOTA_DAMAGE_FLAG_NONE, --Optional.
+        ability = self, --Optional.
+      }
+      ApplyDamage(damageTable)
 
-    -- Damage
-    local damageTable = {
-      victim = target,
-      attacker = caster,
-      damage = damage,
-      damage_type = data.arrow_damage_type,
-      --damage_flags = DOTA_DAMAGE_FLAG_NONE, --Optional.
-      ability = self, --Optional.
-    }
-    ApplyDamage(damageTable)
-      -- Add vision
-  AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), data.arrow_vision, stun_duration, false)
+      -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
+      local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+      -- Stun
+      target:AddNewModifier(caster, self, "modifier_stunned", {
+        duration=stun_duration
+      })
+    end
+
+    -- Add vision
+    AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), data.arrow_vision, data.arrow_vision_duration, false)
 
     return true
   end
@@ -89,27 +96,28 @@ if IsServer() then
     local position = caster:GetAbsOrigin()
     local direction = self:GetForwardVector()
 
-    local arrow_speed = self:GetSpecialValueFor( "arrow_speed" ) -- Arrow travel speed
-    local arrow_width = self:GetSpecialValueFor( "arrow_width" ) -- Arrow width
-    local arrow_range = self:GetSpecialValueFor( "arrow_range" ) -- Maximum arrow range
-
     -- Global cast range applies to global range for the arrow too
     if caster:HasTalent("special_bonus_mirana_arrow_global") then
       arrow_range = caster:FindTalentValue("special_bonus_mirana_arrow_global", "projectile_range")
     end
 
     local arrow_data = {
-      arrow_vision = self:GetSpecialValueFor( "arrow_vision" ),
+      arrow_start_distance = self:GetSpecialValueFor( "arrow_start_distance" ), -- Arrow start distance from caster
+      arrow_speed = self:GetSpecialValueFor( "arrow_speed" ), -- Arrow travel speed
+      arrow_width = self:GetSpecialValueFor( "arrow_width" ), -- Arrow width
+      arrow_range = self:GetSpecialValueFor( "arrow_range" ), -- Maximum arrow range
       arrow_min_stun = self:GetSpecialValueFor( "arrow_min_stun" ), -- Minimum stun duration
       arrow_max_stun = self:GetSpecialValueFor( "arrow_max_stun" ), -- Maximum stun duration
       arrow_max_stunrange = self:GetSpecialValueFor( "arrow_max_stunrange" ), -- Range for maximum stun
       arrow_bonus_damage = self:GetSpecialValueFor( "arrow_bonus_damage" ), -- Maximum bonus damage
       arrow_base_damage = self:GetAbilityDamage(), -- Base damage
-      arrow_damage_type = self:GetAbilityDamageType()
+      arrow_damage_type = self:GetAbilityDamageType(),
+      arrow_vision = self:GetSpecialValueFor( "arrow_vision" ), -- Arrow vision radius
+      arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ) -- VIsion duration after hit
     }
 
     -- Send arrow
-    self:SendArrow(caster, position, direction, arrow_speed, arrow_width, arrow_range, arrow_data)
+    self:SendArrow(caster, position, direction, arrow_data)
 
     -- Send multishot arrows
     if caster:HasTalent("special_bonus_unique_mirana_2") then
@@ -131,7 +139,7 @@ if IsServer() then
         local direction_multishot = RotatePosition(Vector(0,0,0), QAngle(0, angle, 0), direction):Normalized()
 
         -- Send arrow
-        self:SendArrow(caster, position, direction_multishot, arrow_speed, arrow_width, arrow_range, arrow_data)
+        self:SendArrow(caster, position, direction_multishot, arrow_data)
 
       end
     end
