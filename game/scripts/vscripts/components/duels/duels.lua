@@ -401,30 +401,20 @@ end
 
 function Duels:PreparePlayersToStartDuel(options, playerSplit)
   for _,player in ipairs(playerSplit.BadPlayers) do
+    local hero = PlayerResource:GetSelectedHeroEntity(player.id)
     if player.assigned == nil then
-      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:Stop()
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
-    end
-  end
-  for _,player in ipairs(playerSplit.GoodPlayers) do
-    if player.assigned == nil then
-      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
-      hero:Stop()
-      hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
-    end
-  end
-
-  --duel start invulnerability
-  for _,player in ipairs(playerSplit.BadPlayers) do
-    if player.assigned ~= nil then
-      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+    else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
   for _,player in ipairs(playerSplit.GoodPlayers) do
-    if player.assigned ~= nil then
-      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+    local hero = PlayerResource:GetSelectedHeroEntity(player.id)
+    if player.assigned == nil then
+      hero:Stop()
+      hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
