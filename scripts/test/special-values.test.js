@@ -500,10 +500,12 @@ function buildItemTree (t, data, cb) {
       }
       var requirements = recipeData.ItemRequirements.values;
       var numIndex = 1;
-      requirements = Object.keys(requirements).map(function (index) {
-        t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
-        return requirements[index].split(';').filter(a => !!a);
-      });
+      requirements = Object.keys(requirements)
+        .sort(function (a, b) { return Number(a) - Number(b); })
+        .map(function (index) {
+          t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
+          return requirements[index].split(';').filter(a => !!a);
+        });
 
       itemData.cost = Number.MAX_VALUE;
       itemData.totalCost = Number.MAX_VALUE;
