@@ -23,7 +23,9 @@
     "ItemResult"                                          "item_giant_form_2"
     "ItemRequirements"
     {
-      "01"                                                "item_giant_form;item_upgrade_core_4"
+      "01"                                                "item_dragon_lance_4;item_upgrade_core_4"
+      "02"                                                "item_hurricane_pike_4;item_upgrade_core_4"
+      "03"                                                "item_giant_form;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38700"
+    "ItemCost"                                            "34900"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

@@ -23,8 +23,12 @@
     "ItemResult"                                          "item_giant_form"
     "ItemRequirements"
     {
-      "01"                                                "item_dragon_lance_3;item_upgrade_core_3;item_relic"  //item added so that it doesn't clash with dragon lance 3
-      "02"                                                "item_dragon_lance_3;item_upgrade_core_4;item_relic"  //item added so that it doesn't clash with dragon lance 3
+      "01"                                                "item_dragon_lance_3;item_upgrade_core_3"
+      "02"                                                "item_dragon_lance_3;item_upgrade_core_4"
+      "03"                                                "item_hurricane_pike_3;item_upgrade_core_3"
+      "04"                                                "item_hurricane_pike_3;item_upgrade_core_4"
+      "05"                                                "item_dragon_lance_3;item_upgrade_core_3"
+      "06"                                                "item_dragon_lance_3;item_upgrade_core_4"
     }
   }
 
@@ -49,7 +53,7 @@
     "AbilityCooldown"                                     "6.0"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18700"
+    "ItemCost"                                            "14900"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

@@ -15,10 +15,10 @@
     "ItemResult"                                          "item_bfury_2"
     "ItemRequirements"
     {
-      "01"                                                "item_bfury;item_upgrade_core"
-      "02"                                                "item_bfury;item_upgrade_core_2"
-      "03"                                                "item_bfury;item_upgrade_core_3"
-      "04"                                                "item_bfury;item_upgrade_core_4"
+      "01"                                                "item_desolator;item_upgrade_core"
+      "02"                                                "item_desolator;item_upgrade_core_2"
+      "03"                                                "item_desolator;item_upgrade_core_3"
+      "04"                                                "item_desolator;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5900"
+    "ItemCost"                                            "5000"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf 2;battle fury 2"

@@ -23,8 +23,10 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodthorn_3;item_upgrade_core_3"
-      "02"                                                "item_bloodthorn_3;item_upgrade_core_4"
+      "01"                                                "item_greater_crit_3;item_upgrade_core_3"
+      "02"                                                "item_greater_crit_3;item_upgrade_core_4"
+      "03"                                                "item_bloodthorn_3;item_upgrade_core_3"
+      "04"                                                "item_bloodthorn_3;item_upgrade_core_4"
     }
   }
 
@@ -58,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "20205"
+    "ItemCost"                                            "18330"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 4"

@@ -23,12 +23,15 @@
     "ItemResult"                    "item_meteor_hammer_3"
     "ItemRequirements"
     {
-      "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
-      "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
-      "03"                                                "item_rod_of_atos_2;item_upgrade_core_4"
-      "04"                                                "item_meteor_hammer_2;item_upgrade_core_2"
-      "05"                                                "item_meteor_hammer_2;item_upgrade_core_3"
-      "06"                                                "item_meteor_hammer_2;item_upgrade_core_4"
+      "01"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "02"                                                "item_meteor_hammer_2;item_upgrade_core_3"
+      "03"                                                "item_meteor_hammer_2;item_upgrade_core_4"
+      "04"                                                "item_rod_of_atos_2;item_upgrade_core_2"
+      "05"                                                "item_rod_of_atos_2;item_upgrade_core_3"
+      "06"                                                "item_rod_of_atos_2;item_upgrade_core_4"
+      "07"                                                "item_cyclone_2;item_upgrade_core_2"
+      "08"                                                "item_cyclone_2;item_upgrade_core_3"
+      "09"                                                "item_cyclone_2;item_upgrade_core_4"
     }
   }
 
@@ -67,7 +70,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "7930"
+    "ItemCost"                      "7750"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 3;meteor hammer 3"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

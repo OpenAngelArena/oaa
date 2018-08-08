@@ -23,7 +23,9 @@
     "ItemResult"          "item_hurricane_pike_5"
     "ItemRequirements"
     {
-      "01"                                                "item_hurricane_pike_4;item_upgrade_core_4"
+      "01"                                                "item_dragon_lance_4;item_upgrade_core_4"
+      "02"                                                "item_hurricane_pike_4;item_upgrade_core_4"
+      "03"                                                "item_giant_form;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "37615"
+    "ItemCost"            "34900"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "hurricane pike 5;pike 5"

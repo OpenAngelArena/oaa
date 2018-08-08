@@ -23,7 +23,10 @@
     "ItemResult"                                          "item_heavens_halberd_5"
     "ItemRequirements"
     {
-      "01"                                                "item_heavens_halberd_4;item_upgrade_core_4"
+      "01"                                                "item_skadi_4;item_upgrade_core_4"
+      "02"                                                "item_heavens_halberd_4;item_upgrade_core_4"
+      "03"                                                "item_abyssal_blade_4;item_upgrade_core_4"
+      "04"                                                "item_trumps_fists;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "32050"
+    "ItemCost"                                            "34000"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
