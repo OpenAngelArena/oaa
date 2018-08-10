@@ -11,3 +11,8 @@ if IsClient() then -- Load clientside utility lib
 else
 	require("libraries/talents/talents_server")
 end
+
+-- Library for not-pure cleave (server-side only)
+if IsServer() then
+  require("libraries/cleave")
+end

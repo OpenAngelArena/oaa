@@ -1,0 +1,51 @@
+﻿"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sven: Great Cleave
+  //=================================================================================================================
+  "sven_great_cleave_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "85095"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				                            "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityTextureName"                                  "sven_great_cleave"
+    "ScriptFile"                                          "abilities/oaa_sven_great_cleave.lua"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+		"AbilityCastAnimation"		                            "ACT_DOTA_CAST_ABILITY_2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "330"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "625"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "great_cleave_damage"                             "40 50 60 70 82 94"
+      }
+    }
+  }
+}
