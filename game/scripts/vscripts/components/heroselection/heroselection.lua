@@ -649,13 +649,13 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if hero and hero:GetUnitName() ~= FORCE_PICKED_HERO then
     table.insert(self.spawnedHeroes, hero)
     self.spawnedPlayers[playerId] = true
+    HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
   else
     self.attemptedSpawnPlayers[playerId] = heroName
     Timers:CreateTimer(2, function ()
       self:GiveStartingHero(playerId, heroName)
     end)
   end
-  HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
 
 end
 
