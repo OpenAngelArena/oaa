@@ -22,10 +22,10 @@
     "ItemResult"                                          "item_heavens_halberd_2"
     "ItemRequirements"
     {
-      "01"                                                "item_skadi;item_upgrade_core"
-      "02"                                                "item_skadi;item_upgrade_core_2"
-      "03"                                                "item_skadi;item_upgrade_core_3"
-      "04"                                                "item_skadi;item_upgrade_core_4"
+      "01"                                                "item_heavens_halberd;item_upgrade_core"
+      "02"                                                "item_heavens_halberd;item_upgrade_core_2"
+      "03"                                                "item_heavens_halberd;item_upgrade_core_3"
+      "04"                                                "item_heavens_halberd;item_upgrade_core_4"
     }
   }
 
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "7000"
+    "ItemCost"                                            "5050"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -112,7 +112,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "maim_duration"                                   "5.0"
+        "maim_duration"                                   "4.0 4.5 5.0 5.5 6.0"
       }
       "10"
       {

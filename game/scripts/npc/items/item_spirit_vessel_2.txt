@@ -23,14 +23,10 @@
     "ItemResult"          "item_spirit_vessel_2"
     "ItemRequirements"
     {
-      "01"            "item_magic_wand;item_upgrade_core"
-      "02"            "item_magic_wand;item_upgrade_core_2"
-      "03"            "item_magic_wand;item_upgrade_core_3"
-      "04"            "item_magic_wand;item_upgrade_core_4"
-      "05"            "item_spirit_vessel;item_upgrade_core"
-      "06"            "item_spirit_vessel;item_upgrade_core_2"
-      "07"            "item_spirit_vessel;item_upgrade_core_3"
-      "08"            "item_spirit_vessel;item_upgrade_core_4"
+      "01"            "item_spirit_vessel;item_upgrade_core"
+      "02"            "item_spirit_vessel;item_upgrade_core_2"
+      "03"            "item_spirit_vessel;item_upgrade_core_3"
+      "04"            "item_spirit_vessel;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "1950"
+    "ItemCost"            "4475"
     "ItemAliases"         "sv 2;spirit vessel 2"
 
     // Special
