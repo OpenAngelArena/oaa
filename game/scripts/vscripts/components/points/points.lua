@@ -113,6 +113,10 @@ end
 function PointsManager:GetPoints(teamID)
   local score = CustomNetTables:GetTableValue('team_scores', 'score')
 
+  if not score then
+    return 0
+  end
+
   if teamID == DOTA_TEAM_GOODGUYS then
     return score.goodguys
   elseif teamID == DOTA_TEAM_BADGUYS then
