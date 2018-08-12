@@ -223,11 +223,15 @@ function CapturePoints:ActuallyStartCapture()
   self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
+
+  local leftVector = Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 256)
+  local rightVector = Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 256)
+
   -- Create under spectator team so that spectators can always see the capture point
-  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, CurrentZones.left, DOTA_TEAM_SPECTATOR, false)
+  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier1:SetCallback(partial(self.Reward, self))
-  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  CurrentZones.right, DOTA_TEAM_SPECTATOR, false)
+  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  rightVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier2:SetCallback(partial(self.Reward, self))
 end
