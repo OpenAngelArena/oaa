@@ -48,17 +48,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_targets"                                     "3 4 5 6 8 16"
+        "max_targets"                                     "2 3 4 5 6 7"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_max_targets_inc_dazzle"                  "4 5 6 7 9 17"
+        "tooltip_max_targets_inc_dazzle"                  "3 4 5 6 7 8"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 100 120 140 310 480"
+        "damage"                                          "80 120 160 200 400 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_2"
 
       }
