@@ -40,7 +40,7 @@ TEN_V_TEN_KILL_LIMIT = 150
 -- poop wards
 POOP_WARD_DURATION = 360
 POOP_WARD_COOLDOWN = 120
-POOP_WARD_RADIUS = 200
+POOP_WARD_RADIUS = 150
 
 -- scan reveal
 SCAN_REVEAL_COOLDOWN = 60
@@ -85,7 +85,7 @@ CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
-BOSS_LEASH_SIZE = 1500                  -- number of units a boss will walk before starting to head back
+BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
 
 -- Creeps
@@ -131,7 +131,7 @@ POST_GAME_TIME = 60.0                   -- How long should we let people look at
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
 GOLD_PER_TICK = 1                       -- How much gold should players get per tick?
-GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
+GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes
 CAMERA_DISTANCE_OVERRIDE = -1           -- How far out should we allow the camera to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes
@@ -215,7 +215,7 @@ MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum at
 
 GAME_END_DELAY = -1                     -- How long should we wait after the game winner is set to display the victory banner and End Screen?  Use -1 to keep the default (about 10 seconds)
 VICTORY_MESSAGE_DURATION = 3            -- How long should we wait after the victory message displays to show the End Screen?  Use
-STARTING_GOLD = 625                     -- How much starting gold should we give to each player?
+STARTING_GOLD = 825                     -- How much starting gold should we give to each player?
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
 DISABLE_KILLING_SPREE_ANNOUNCER = false -- Shuold we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
