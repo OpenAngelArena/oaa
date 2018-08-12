@@ -5,9 +5,34 @@
   //=================================================================================================================
   "npc_dota_hero_jakiro"
   {
+    // Attributes
+    //-------------------------------------------------------------------------------------------------------------
+	"ArmorPhysical"		"10"
+	"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+	"AttackDamageMin"		"27"
+	"AttackDamageMax"		"35"
+	"AttackRate"		"1.700000"
+	"AttackAnimationPoint"		"0.400000"
+	"AttackAcquisitionRange"		"800"
+	"AttackRange"		"400"
+	"ProjectileModel"		"particles/units/heroes/hero_jakiro/jakiro_base_attack.vpcf"
+	"ProjectileSpeed"		"1100"
+	"AttributePrimary"		"DOTA_ATTRIBUTE_INTELLECT"
+	"AttributeBaseStrength"		"27"
+	"AttributeStrengthGain"		"2.600000"
+	"AttributeBaseIntelligence"		"26"
+	"AttributeIntelligenceGain"		"2.800000"
+	"AttributeBaseAgility"		"10"
+	"AttributeAgilityGain"		"2.600000"
+	"StatusHealthRegen"		"4.7500000"
+	"MovementSpeed"		"290"
+	"MovementTurnRate"		"0.500000"
+
+
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
     "Ability10"   "special_bonus_intelligence_10" // replaces special_bonus_exp_boost_30
     "Ability15"   "special_bonus_armor_8" // replaces special_bonus_gold_income_25
   }
 }
+
