@@ -1,9 +1,23 @@
+--cleaveInfo = {
+--    startRadius = 150,
+--    endRadius = 330,
+--    length = 625
+--}
+--damageMult = 1.0
+--damageType = DAMAGE_TYPE_PHYSICAL
+--damageFlags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR -- Original Cleave
+--damageFlags = DOTA_DAMAGE_FLAG_NONE -- OAA Cleave
+--damageFlags = DOTA_DAMAGE_FLAG_REFLECTION -- If we do not want them to return damage from cleave
+
+--targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
+--targetUnit = DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO
+--targetFlags = DOTA_UNIT_TARGET_FLAG_NONE
 
 -- Does not work for illusions (still play sound and show particle when provided)
 -- Does not work on allies, towers, barracks, buildings and wards
 -- Does not work with BREAK effect ( unit:PassivesDisabled() )
 -- Does not work if event == nil or event.target == nil or event.target ~= self:GetParent()
-function CDOTABaseAbility:PerformCleaveOnAttack(event, damageMult, cleaveInfo, soundName, particleNameCleave, particleNameHit)
+function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, soundName, particleNameCleave, particleNameHit)
   if event == nil or event.target == nil or event.attacker ~= self:GetCaster() then
     return false
   end

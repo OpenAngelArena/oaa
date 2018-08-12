@@ -46,10 +46,10 @@ end
 
 if IsServer() then
   function modifier_sven_great_cleave_oaa_passive:OnAttackLanded( event )
-  	if self:GetParent() ~= event.attacker then
-		return
-	end
-	local ability = self:GetAbility()
+    if self:GetParent() ~= event.attacker then
+      return
+    end
+    local ability = self:GetAbility()
     local cleaveInfo = {
       startRadius = ability:GetSpecialValueFor("cleave_starting_width"),
       endRadius = ability:GetSpecialValueFor("cleave_ending_width"),
@@ -57,8 +57,8 @@ if IsServer() then
     }
     ability:PerformCleaveOnAttack(
       event,
-      ability:GetSpecialValueFor("great_cleave_damage") / 100.0,
       cleaveInfo,
+      ability:GetSpecialValueFor("great_cleave_damage") / 100.0,
       "Sven.GreatCleave",
       "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
     )

@@ -11,7 +11,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_magnataur_empower.lua"
     "AbilityTextureName"                                  "magnataur_empower"
-    "ID"                                                  "85519"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85519" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -42,34 +42,40 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "empower_duration"                                "40.0 40.0 40.0 40.0 40.0 40.0"
+        "empower_duration"                                "40"
+        // Allows talent
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_pct"                                "10 20 30 40 50 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
+        // Allows talent
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cleave_damage_pct"                               "10 20 30 40 50 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
+        // Allows talent
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cleave_starting_width"                           "150"
+        // Allows talent
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cleave_ending_width"                             "330"
+        // Allows talent
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cleave_distance"                                 "625"
+        // Allows talent
       }
       "07" // Unused
       {

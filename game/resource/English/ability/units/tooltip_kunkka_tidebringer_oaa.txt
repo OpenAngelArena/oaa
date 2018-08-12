@@ -1,0 +1,18 @@
+//=============================================================================
+// Kunkka Tidebringer
+//=============================================================================
+
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa"                           "#{DOTA_Tooltip_ability_kunkka_tidebringer}"
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_Description"               "#{DOTA_Tooltip_ability_kunkka_tidebringer_Description}<br/><br/><font color='#FFA500'>Cleave no longer pierces armor.</font>"
+//"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_Description"               "Kunkka's legendary sword grants increased damage and cleaves a large area of effect in front of him for a single strike.<br/><br/><font color='#FFA500'>Cleave no longer pierces armor.</font>"
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_Lore"                      "#{DOTA_Tooltip_ability_kunkka_tidebringer_Lore}"
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_Note0"                     "Cleave damage is reduced by both armor type and armor value." // replaces "Cleave damage is reduced by armor type but not by armor value."
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_Note1"                     "#{DOTA_Tooltip_ability_kunkka_tidebringer_Note1}"
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_damage_bonus"              "#{DOTA_Tooltip_ability_kunkka_tidebringer_damage_bonus}"
+"DOTA_Tooltip_ability_kunkka_tidebringer_oaa_cleave_damage"             "#{DOTA_Tooltip_ability_kunkka_tidebringer_cleave_damage}"
+
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_active"						        "Active #{DOTA_Tooltip_ability_kunkka_tidebringer}"
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_active_Description"			  "Ability is learned and off cooldown.<br/>Provides functionality to #{DOTA_Tooltip_ability_kunkka_tidebringer}."
+
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_cooldown"						      "#{DOTA_Tooltip_ability_kunkka_tidebringer}"
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_cooldown_Description"			"Ability is on cooldown."
