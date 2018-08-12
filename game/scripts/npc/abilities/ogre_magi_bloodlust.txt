@@ -40,7 +40,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"10 12 14 16 20 36"
+				"bonus_movement_speed"		"20 22 24 26 30 34" //OAA
 			}
 			"03"
 			{
@@ -51,7 +51,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"self_bonus"	"30 50 70 90 130 180"
+				"self_bonus"	"50 70 90 110 150 190" //OAA
 				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
 			}
 			"05"
