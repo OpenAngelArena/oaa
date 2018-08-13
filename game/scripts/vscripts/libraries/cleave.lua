@@ -13,6 +13,11 @@
 --targetUnit = DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO
 --targetFlags = DOTA_UNIT_TARGET_FLAG_NONE
 
+-- Cleave from target's location
+-- self.cleaveFromTarget
+-- event.cleaveFromTarget
+-- parent.cleaveFromTarget
+
 -- Does not work for illusions (still play sound and show particle when provided)
 -- Does not work on allies, towers, barracks, buildings and wards
 -- Does not work with BREAK effect ( unit:PassivesDisabled() )
