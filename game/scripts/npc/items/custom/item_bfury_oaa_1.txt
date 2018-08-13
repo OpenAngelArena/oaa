@@ -6,11 +6,13 @@
   "item_recipe_bfury_oaa_1"
   {
     "ID"                                                  "80144"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemCost"                                            "300"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury_oaa_1"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_demon_edge;item_pers;item_quelling_blade"
