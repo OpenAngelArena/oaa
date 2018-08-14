@@ -7,6 +7,7 @@
     <include src="file://{resources}/styles/custom_game/timer.css" />
   </styles>
   <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/timer.js" />
   </scripts>
   <Panel class="CustomTimer">
@@ -17,6 +18,14 @@
         <Panel id="NightTime" class="TimeOfDayIcon NightIcon"/>
         <DOTAHeroImage id="NightstalkerNight" class="TimeOfDayIcon" heroname="npc_dota_hero_night_stalker" heroimagestyle="icon"/>
         <Label id="GameTime" text="{s:time_of_day}" hittest="false"/>
+      </Panel>
+      <Panel id="ExtraInfo">
+        <Label id="TimeToNextCapture" text="#NextCaptureLabel" hittest="false"/>
+        <Label id="TimeToNextDuel" text="#NextDuelLabel" hittest="false"/>
+        <Label id="KillLimit" text="#ScoreLimit" hittest="false"/>
+        <Label id="TimeToNextCaptureValue" hittest="false"/>
+        <Label id="KillLimitValue" hittest="false"/>
+        <Label id="TimeToNextDuelValue" text="{s:time_of_day}" hittest="false"/>
       </Panel>
     </Panel>
   </Panel>

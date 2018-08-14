@@ -23,9 +23,12 @@
     "ItemResult"                    "item_black_king_bar_3"
     "ItemRequirements"
     {
-      "01"                        "item_black_king_bar_2;item_upgrade_core_2"
-      "02"                        "item_black_king_bar_2;item_upgrade_core_3"
-      "03"                        "item_black_king_bar_2;item_upgrade_core_4"
+      "01"                                                "item_charge_bkb;item_upgrade_core_2"
+      "02"                                                "item_charge_bkb;item_upgrade_core_3"
+      "03"                                                "item_charge_bkb;item_upgrade_core_4"
+      "04"                                                "item_black_king_bar_2;item_upgrade_core_2"
+      "05"                                                "item_black_king_bar_2;item_upgrade_core_3"
+      "06"                                                "item_black_king_bar_2;item_upgrade_core_4"
     }
   }
 
@@ -77,7 +80,7 @@
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "duration"              "7.0"
+        "duration"              "6.0 6.5 7.0 7.5 8.0"
       }
       "05"
       {

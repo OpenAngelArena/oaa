@@ -23,7 +23,10 @@
     "ItemResult"                                          "item_regen_crystal_3"
     "ItemRequirements"
     {
-      "01"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "01"                                                "item_heart_4;item_upgrade_core_4"
+      "02"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "03"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -76,7 +79,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                              "200 225 250"
+        "active_health_regen"                              "150 200 250"
       }
       "04"
       {

@@ -23,8 +23,12 @@
     "ItemResult"                                          "item_regen_crystal_2"
     "ItemRequirements"
     {
-      "01"                                                "item_regen_crystal_1;item_upgrade_core_3"
-      "02"                                                "item_regen_crystal_1;item_upgrade_core_4"
+      "01"                                                "item_heart_3;item_upgrade_core_3"
+      "02"                                                "item_heart_3;item_upgrade_core_4"
+      "03"                                                "item_heart_3;item_upgrade_core_3"
+      "04"                                                "item_heart_3;item_upgrade_core_4"
+      "05"                                                "item_regen_crystal_1;item_upgrade_core_3"
+      "06"                                                "item_regen_crystal_1;item_upgrade_core_4"
     }
   }
 
@@ -77,7 +81,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                              "200 225 250"
+        "active_health_regen"                              "150 200 250"
       }
       "04"
       {

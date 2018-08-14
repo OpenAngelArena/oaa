@@ -34,8 +34,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "255"    // Damage range min.
-    "AttackDamageMax"                                     "265"    // Damage range max.  
+    "AttackDamageMin"                                     "355"    // Damage range min.
+    "AttackDamageMax"                                     "365"    // Damage range max.  
     "AttackRate"                                          "1.5"    // Speed of attack.
     "AttackAnimationPoint"                                "0.4"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -57,7 +57,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "6400"    // Base health.
+    "StatusHealth"                                        "10000"    // Base health.
     "StatusHealthRegen"                                   "20"      // Health regeneration rate.
     "StatusMana"                                          "1600"    // Base mana.
     "StatusManaRegen"                                     "1.5"    // Mana regeneration rate.

@@ -55,6 +55,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
 
+  CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + INITIAL_CAPTURE_POINT_DELAY
   Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
     self:ScheduleCapture()
   end)
@@ -113,12 +114,20 @@ function CapturePoints:MinimapPing()
   end
 end
 
+function CapturePoints:GetCaptureTime()
+  if CapturePoints.nextCaptureTime == nil or CapturePoints.nextCaptureTime < 0 then return 0 end
+  return CapturePoints.nextCaptureTime
+end
+
 function CapturePoints:ScheduleCapture()
   if self.scheduleCaptureTimer then
     Timers:RemoveTimer(self.scheduleCaptureTimer)
     self.scheduleCaptureTimer = nil
   end
   PrepareCapture.broadcast(true)
+
+  CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_INTERVAL + CAPTURE_FIRST_WARN
+
   self.scheduleCaptureTimer = Timers:CreateTimer(CAPTURE_INTERVAL, function ()
     self:ScheduleCapture()
   end)
@@ -151,6 +160,8 @@ function CapturePoints:ScheduleCapture()
 end
 
 function CapturePoints:StartCapture(color)
+  CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_FIRST_WARN
+
   self.currentCapture = {
     y = 1
   }
@@ -169,6 +180,7 @@ function CapturePoints:StartCapture(color)
 
   Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
     self:ActuallyStartCapture()
+    CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_INTERVAL + CAPTURE_FIRST_WARN
   end)
 end
 
@@ -211,10 +223,15 @@ function CapturePoints:ActuallyStartCapture()
   self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
-  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, CurrentZones.left, DOTA_TEAM_NEUTRALS, false)
+
+  local leftVector = Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 256)
+  local rightVector = Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 256)
+
+  -- Create under spectator team so that spectators can always see the capture point
+  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier1:SetCallback(partial(self.Reward, self))
-  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  CurrentZones.right, DOTA_TEAM_NEUTRALS, false)
+  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  rightVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier2:SetCallback(partial(self.Reward, self))
 end

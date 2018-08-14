@@ -24,6 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_core_2;item_upgrade_core_4"
+      "02"                                                "item_octarine_core_4;item_upgrade_core_4"
+      "03"                                                "item_refresher_4;item_upgrade_core_4"
     }
   }
 
@@ -53,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "44400"
+    "ItemCost"                                            "38900"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 3"

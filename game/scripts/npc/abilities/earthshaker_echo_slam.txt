@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "150.0 130.0 110.0 105.0 100.0"
+    "AbilityCooldown"                                     "100.0" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -37,17 +37,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_damage_range"                          "600"
+        "echo_slam_damage_range"                          "800" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_search_range"                     "600"
+        "echo_slam_echo_search_range"                     "800" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_range"                            "600"
+        "echo_slam_echo_range"                            "800" //OAA
       }
       "04"
       {

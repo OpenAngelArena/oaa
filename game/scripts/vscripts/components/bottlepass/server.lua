@@ -164,7 +164,9 @@ function Bottlepass:Ready ()
     gametime = GameStartTime,
     toolsMode = IsInToolsMode(),
     hostId = hostId,
-    cheatsMode = GameRules:IsCheatMode()
+    cheatsMode = GameRules:IsCheatMode(),
+    isRanked = HeroSelection.isRanked,
+    isCM = HeroSelection.isCM,
   }, function (err, data)
     if err then
       DebugPrint(err)

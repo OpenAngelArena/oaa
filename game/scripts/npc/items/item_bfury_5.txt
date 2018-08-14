@@ -15,7 +15,9 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_bfury_4;item_upgrade_core_4"
+      "01"                                                "item_desolator_4;item_upgrade_core_4"
+      "02"                                                "item_bfury_4;item_upgrade_core_4"
+      "03"                                                "item_devastator_4;item_upgrade_core_4"
     }
   }
 
@@ -42,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37400"
+    "ItemCost"                                            "36500"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf 5;battle fury 5"

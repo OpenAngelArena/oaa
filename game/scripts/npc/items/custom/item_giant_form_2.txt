@@ -23,7 +23,9 @@
     "ItemResult"                                          "item_giant_form_2"
     "ItemRequirements"
     {
-      "01"                                                "item_giant_form;item_upgrade_core_4"
+      "01"                                                "item_dragon_lance_4;item_upgrade_core_4"
+      "02"                                                "item_hurricane_pike_4;item_upgrade_core_4"
+      "03"                                                "item_giant_form;item_upgrade_core_4"
     }
   }
 
@@ -43,12 +45,12 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/giant_form_2"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
+    "AbilityManaCost"                                     "50"
+    "AbilityCooldown"                                     "6.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38700"
+    "ItemCost"                                            "34900"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -88,7 +90,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "giant_attack_rate"                               "1.2"
+        "giant_attack_rate"                               "1.0"
       }
       "07"
       {
@@ -103,7 +105,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_splash"                                    "100"
+        "giant_splash"                                    "80"
       }
       "10"
       {

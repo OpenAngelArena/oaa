@@ -23,7 +23,10 @@
     "ItemResult"                                          "item_charge_bkb"
     "ItemRequirements"
     {
-      "01"                                                "item_black_king_bar_2;item_magic_wand"
+      "01"                        "item_black_king_bar_1;item_upgrade_core"
+      "02"                        "item_black_king_bar_1;item_upgrade_core_2"
+      "03"                        "item_black_king_bar_1;item_upgrade_core_3"
+      "04"                        "item_black_king_bar_1;item_upgrade_core_4"
     }
   }
 
@@ -51,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7425"
+    "ItemCost"                                            "5475"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb;cbkb;charge"

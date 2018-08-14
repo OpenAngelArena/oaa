@@ -26,6 +26,9 @@
       "01"                                                "item_heart_2;item_upgrade_core_2"
       "02"                                                "item_heart_2;item_upgrade_core_3"
       "03"                                                "item_heart_2;item_upgrade_core_4"
+      "04"                                                "item_crimson_guard_2;item_upgrade_core_2"
+      "05"                                                "item_crimson_guard_2;item_upgrade_core_3"
+      "06"                                                "item_crimson_guard_2;item_upgrade_core_4"
     }
   }
 
@@ -78,7 +81,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                              "200 225 250"
+        "active_health_regen"                              "150 200 250"
       }
       "04"
       {

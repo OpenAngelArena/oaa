@@ -24,6 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_skadi_4;item_upgrade_core_4"
+      "02"                                                "item_abyssal_blade_4;item_upgrade_core_4"
+      "03"                                                "item_trumps_fists;item_upgrade_core_4"
     }
   }
 
@@ -40,7 +42,7 @@
     "AbilityTextureName"                                  "custom/skadi_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38500"
+    "ItemCost"                                            "36550"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 5;eye of skadi 5;skadi 5"

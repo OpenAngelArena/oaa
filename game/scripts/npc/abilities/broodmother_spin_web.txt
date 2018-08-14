@@ -33,7 +33,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "2 4 6 8 12 28"
+        "count"                                           "6 8 10 12 14 16" //OAA
       }
       "03"
       {
@@ -43,7 +43,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed"                                 "40 50 60 70 85 100"
+        "bonus_movespeed"                                 "25 40 55 70 90 120"
       }
       "05"
       {
@@ -53,7 +53,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "40.0"
+        "charge_restore_time"                             "45.0"
       }
     }
   }
