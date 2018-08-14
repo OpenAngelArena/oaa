@@ -1,5 +1,11 @@
 /* global $, GameEvents, Game, DOTA_GameState */
 
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    MMRShuffle: MMRShuffle
+  };
+}
+
 (function () {
   hideShowUI(Game.GetState());
   if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
