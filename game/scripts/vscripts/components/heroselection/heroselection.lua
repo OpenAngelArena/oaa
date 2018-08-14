@@ -434,7 +434,7 @@ function HeroSelection:MMRShuffle (event)
     local radChange = math.abs((direMMR / direTeam) - ((radMMR + mmr) / (radTeam + 1)))
     local direChange = math.abs((radMMR / radTeam) - ((direMMR + mmr) / (direTeam + 1)))
 
-    if radChange < direChange or direTeam > totalPlayers / 2 and radTeam < totalPlayers / 2 then
+    if (radChange < direChange or direTeam > totalPlayers / 2) and radTeam < totalPlayers / 2 then
       PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_GOODGUYS)
     else
       PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_BADGUYS)
