@@ -526,7 +526,7 @@ function buildItemTree (t, data, cb) {
             if (!firstReq) {
               firstReq = reqItem;
             } else {
-              if (baseItemName(reqItem) === baseItemName(item)) {
+              if (baseItemName(reqItem) === baseItemName(item) && reqItem !== item) {
                 t.equals(baseItemName(firstReq), baseItemName(item), item + ' builds out of itself, so it needs to build out of itself first.');
               }
             }
