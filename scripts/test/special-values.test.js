@@ -113,6 +113,9 @@ function checkKVData (t, name, data, isItem, cb) {
       root = root.DOTAAbilities;
       foundRoot = true;
     }
+    if (!foundRoot) {
+      console.log(root);
+    }
     t.ok(foundRoot, 'Starts with either DOTAItems or DOTAAbilities');
 
     var keys = Object.keys(root).filter(a => a !== 'values');
