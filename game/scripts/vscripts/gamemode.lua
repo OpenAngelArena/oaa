@@ -198,6 +198,10 @@ function GameMode:OnGameInProgress()
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
   CreateModifierThinker( nil, nil, "modifier_xpm_thinker", {}, Vector( 0, 0, 0 ), DOTA_TEAM_NEUTRALS, false )
+
+  -- Custom Cleave talents
+  LinkLuaModifier( "modifier_cleave_talents_oaa", "modifiers/modifier_cleave_talents_oaa.lua", LUA_MODIFIER_MOTION_NONE )
+  CreateModifierThinker( nil, nil, "modifier_cleave_talents_oaa", {}, Vector( 0, 0, 0 ), DOTA_TEAM_NEUTRALS, false )
 end
 
 function InitModule(myModule)
