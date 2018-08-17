@@ -86,11 +86,15 @@ function modifier_kunkka_tidebringer_oaa_passive:DeclareFunctions()
   }
 end
 
-function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamage( event )
-  if self:GetParent() ~= event.attacker then
-    return
-  end
+function modifier_kunkka_tidebringer_oaa_passive:RemoveOnDeath()
+  return false
+end
 
+function modifier_kunkka_tidebringer_oaa_passive:IsPermanent()
+  return true
+end
+
+function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamage( event )
   -- Toggled on
   local ability = self:GetAbility()
   if ability:GetAutoCastState() and ability:IsCooldownReady() then
@@ -157,7 +161,15 @@ function modifier_kunkka_tidebringer_oaa_cooldown:IsDebuff()
 end
 
 function modifier_kunkka_tidebringer_oaa_cooldown:GetAttributes()
-  return bit.bor(MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE, MODIFIER_ATTRIBUTE_PERMANENT)
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_kunkka_tidebringer_oaa_cooldown:RemoveOnDeath()
+  return false
+end
+
+function modifier_kunkka_tidebringer_oaa_cooldown:IsPermanent()
+  return false
 end
 
 if IsServer() then
@@ -207,7 +219,15 @@ function modifier_kunkka_tidebringer_oaa_weapon_effect:IsDebuff()
 end
 
 function modifier_kunkka_tidebringer_oaa_weapon_effect:GetAttributes()
-  return bit.bor(MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE, MODIFIER_ATTRIBUTE_PERMANENT)
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_kunkka_tidebringer_oaa_weapon_effect:RemoveOnDeath()
+  return false
+end
+
+function modifier_kunkka_tidebringer_oaa_weapon_effect:IsPermanent()
+  return false
 end
 
 function modifier_kunkka_tidebringer_oaa_weapon_effect:OnDestroy()
