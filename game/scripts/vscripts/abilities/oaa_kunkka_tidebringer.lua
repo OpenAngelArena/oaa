@@ -23,6 +23,10 @@ function kunkka_tidebringer_oaa:GetIntrinsicModifierName()
   return "modifier_kunkka_tidebringer_oaa_passive"
 end
 
+function kunkka_tidebringer_oaa:ShouldUseResources()
+  return true
+end
+
 --------------------------------------------------------------------------------
 
 function kunkka_tidebringer_oaa:OnUpgrade()
@@ -77,12 +81,18 @@ function modifier_kunkka_tidebringer_oaa_passive:OnCreated()
   local parent = self:GetParent()
   -- Add weapon glow
   parent:AddNewModifier(parent, self:GetAbility(), "modifier_kunkka_tidebringer_oaa_weapon_effect", {})
+  -- Attack procs
+  if not self.procRecords then
+    self.procRecords = {}
+  end
 end
 
 function modifier_kunkka_tidebringer_oaa_passive:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_EVENT_ON_ATTACK,
+    MODIFIER_EVENT_ON_ATTACK_FAIL,
+    MODIFIER_EVENT_ON_ATTACK_LANDED
   }
 end
 
@@ -103,19 +113,54 @@ function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamag
   return 0
 end
 
+function modifier_kunkka_tidebringer_oaa_passive:OnAttack(keys)
+  local parent = self:GetParent()
+
+  -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
+  if keys.attacker ~= parent or keys.process_procs then
+    return
+  end
+
+  local ability = self:GetAbility()
+  local target = keys.target
+  -- Wrap in function to defer evaluation
+  local function autocast()
+    return (
+      target.GetUnitName and -- Check for existence of GetUnitName method to determine if target is a unit
+      ability:GetAutoCastState() and
+      not parent:IsSilenced() and
+      ability:IsOwnersManaEnough() and
+      ability:IsOwnersGoldEnough(parent:GetPlayerOwnerID()) and
+      ability:IsCooldownReady() and
+      ability:CastFilterResultTarget(target) == UF_SUCCESS
+    )
+  end
+
+  if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
+    return
+  end
+
+  ability:CastAbility()
+  -- Enable proc for this attack record number
+  self.procRecords[keys.record] = true
+end
+
+function modifier_oaa_arcane_orb:OnAttackFail(keys)
+  if keys.attacker == self:GetParent() and self.procRecords[keys.record] then
+    self.procRecords[keys.record] = nil
+  end
+end
+
 function modifier_kunkka_tidebringer_oaa_passive:OnAttackLanded( event )
   -- Only attacks FROM parent
-  if self:GetParent() ~= event.attacker then
-    return
-  end
-
+  -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
   local parent = self:GetParent()
-  local ability = self:GetAbility()
-
-  -- Toggled off
-  if ( not ability:GetAutoCastState() ) or ( not ability:IsCooldownReady() ) then
+  if event.attacker ~= parent or not self.procRecords[keys.record] or not event.process_procs then
     return
   end
+  self.procRecords[keys.record] = nil
+
+  local ability = self:GetAbility()
 
   local cleaveInfo = {
     startRadius = ability:GetTalentSpecialValueFor("cleave_starting_width"),
