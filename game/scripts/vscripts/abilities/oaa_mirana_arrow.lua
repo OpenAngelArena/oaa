@@ -6,6 +6,8 @@ if IsServer() then
 
   -- There are so many values passed (in arrow_data) to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
   function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_data)
+    caster:EmitSound("Hero_Mirana.ArrowCast")
+
     local info =
     {
       Ability = self,
@@ -87,6 +89,9 @@ if IsServer() then
 
     -- Add vision
     AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), data.arrow_vision, data.arrow_vision_duration, false)
+
+    -- Add hit sound
+    caster:EmitSound("Hero_Mirana.ArrowImpact")
 
     return true
   end
