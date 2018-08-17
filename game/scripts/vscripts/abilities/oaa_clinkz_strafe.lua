@@ -13,7 +13,7 @@ if IsServer() then
       duration = duration
     } )
 
-    caster:EmitSound("Hero_Clinkz.SearingArrows")
+    caster:EmitSound("Hero_Clinkz.Strafe")
   end
 
 end
