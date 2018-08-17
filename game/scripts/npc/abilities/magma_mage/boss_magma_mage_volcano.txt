@@ -1,0 +1,118 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // 
+  //=================================================================================================================
+  "boss_magma_mage_volcano"
+  {
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"								"ability_lua"
+		"ScriptFile"					        "abilities/magma_mage/boss_magma_mage_volcano.lua"
+		"MaxLevel"								"3"																
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"					"meepo_poof"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.33"															
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"	
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"torrent_aoe"					"225"  
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"torrents_casted"					"1 2 3"   
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"torrent_damage"					"100" 
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"torrent_delay"					"2.0"   
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"torrent_stun_duration"					"4.0"   
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"torrent_range"					"200"   
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"totem_health"					"5000"   
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"magma_initial_aoe"					"225"   
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"magma_spread_speed"					"30000" // currently AREA per second not distance (to look more natural)
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"magma_damage_per_second"					"100"   
+			}
+			"11"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"magma_heal_per_second"					"250"   
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"torrent_knockup_duration"					"2.0"   
+			}
+			"13"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"volcano_model_scale"					"0.4"   
+			}
+			"14"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"magma_damage_interval"					"0.33"   
+			}
+			"15"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"magma_radius_max"					"1000"   
+			}
+			"16"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"totem_duration_max"					"60"   
+			}
+		}
+	}
+}
+
