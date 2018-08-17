@@ -7,6 +7,7 @@
   {
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"									"8486"
 		"BaseClass"								"ability_lua"
 		"ScriptFile"					        "abilities/magma_mage/boss_magma_mage_volcano.lua"
 		"MaxLevel"								"3"																
@@ -16,12 +17,12 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1"
+		"AbilityCooldown"				"10"
 		
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.33"															
+		"AbilityCastPoint"				"0.01"															
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -45,7 +46,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"torrent_damage"					"100" 
+				"torrent_damage"					"500" 
 			}
 			"04"
 			{
@@ -60,12 +61,12 @@
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"torrent_range"					"200"   
+				"torrent_range"					"1000"   
 			}
 			"07"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"totem_health"					"5000"   
+				"totem_health"					"32"  //8 damage from heroes, 1 damage from non-heroes
 			}
 			"08"
 			{
@@ -75,17 +76,17 @@
 			"09"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"magma_spread_speed"					"30000" // currently AREA per second not distance (to look more natural)
+				"magma_spread_speed"					"10000" // currently AREA per second not distance (to look more natural)
 			}
 			"10"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"magma_damage_per_second"					"100"   
+				"magma_damage_per_second"					"1000"   
 			}
 			"11"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"magma_heal_per_second"					"250"   
+				"magma_heal_per_second"					"25"   
 			}
 			"12"
 			{
@@ -110,7 +111,7 @@
 			"16"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"totem_duration_max"					"60"   
+				"totem_duration_max"					"120"   
 			}
 		}
 	}

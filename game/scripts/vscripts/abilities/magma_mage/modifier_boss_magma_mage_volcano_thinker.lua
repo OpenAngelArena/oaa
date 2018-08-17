@@ -16,6 +16,8 @@ end
 
 function modifier_boss_magma_mage_volcano_thinker:DeclareFunctions()
   local funcs = {
+  MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+  MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
   return funcs
 end
@@ -162,6 +164,31 @@ end
   return
 
  end
+
+function modifier_boss_magma_mage_volcano_thinker:OnAttackLanded( params )
+  if IsServer() then
+    local hParent = self:GetParent()
+    for k,v in pairs(params) do
+      print(k,v)
+    end
+    if params.target == hParent then
+      local hAttacker = params.attacker
+      if hAttacker ~= nil then
+        local damage_dealt = nil
+        if hAttacker:IsHero() then
+          damage_dealt = 8
+        else 
+          damage_dealt = 1
+        end
+        hParent:SetHealth(hParent:GetHealth()-damage_dealt)
+      end
+    end
+  end
+end
+
+function modifier_boss_magma_mage_volcano_thinker:GetModifierIncomingDamage_Percentage()
+  return -100
+end
 
 function modifier_boss_magma_mage_volcano_thinker:GetMagmaRadius()
   return self.magma_radius

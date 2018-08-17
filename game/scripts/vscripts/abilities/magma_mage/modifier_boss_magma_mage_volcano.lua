@@ -43,7 +43,8 @@ end
 
 function modifier_boss_magma_mage_volcano:OnCreated( kv )
   if IsServer() then
-    self.speed = kv.duration*GRAVITY_DECEL/2
+    --set speed so that the rise/fall will match the knockup duration
+    self.speed = kv.duration*GRAVITY_DECEL/2 
     if self:ApplyVerticalMotionController() == false then 
       self:Destroy()
     end
