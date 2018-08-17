@@ -59,7 +59,8 @@ if IsServer() then
       event,
       cleaveInfo,
       ability:GetSpecialValueFor("great_cleave_damage") / 100.0,
-      "Sven.GreatCleave",
+      "Hero_Sven.GreatCleave",
+      nil,
       "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
     )
   end

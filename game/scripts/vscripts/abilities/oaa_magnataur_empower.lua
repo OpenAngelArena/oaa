@@ -14,6 +14,9 @@ if IsServer() then
       return
     end
 
+    caster:EmitSound("Hero_Magnataur.Empower.Cast")
+    target:EmitSound("Hero_Magnataur.Empower.Target")
+
     local duration = self:GetTalentSpecialValueFor("empower_duration")
 
     -- Add modifier or increate duration
@@ -103,7 +106,8 @@ if IsServer() then
       event,
       self.cleaveInfo,
       self.cleaveDamageMult,
-      "Magnataur.Empower",
+      nil,
+      nil,
       "particles/units/heroes/hero_magnataur/magnataur_empower_cleave_effect.vpcf",
       "particles/units/heroes/hero_magnataur/magnataur_empower_cleave_hit.vpcf"
     )

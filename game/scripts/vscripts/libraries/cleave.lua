@@ -22,7 +22,7 @@
 -- Does not work on allies, towers, barracks, buildings and wards
 -- Does not work with BREAK effect ( unit:PassivesDisabled() )
 -- Does not work if event == nil or event.target == nil or event.target ~= self:GetParent()
-function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, soundName, particleNameCleave, particleNameHit)
+function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, soundName, hitSoundName, particleNameCleave, particleNameHit)
   if event == nil or event.target == nil or event.attacker ~= self:GetCaster() then
     return false
   end
@@ -85,8 +85,14 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
   if particleNameHit ~= nil then
     for _,unit in pairs(hitUnits) do
       local cleave_hit_pfx = ParticleManager:CreateParticle( particleNameHit, PATTACH_ABSORIGIN, unit )
-      ParticleManager:SetParticleControl( cleave_hit_pfx, 0, target:GetAbsOrigin() )
+      ParticleManager:SetParticleControl( cleave_hit_pfx, 0, unit:GetAbsOrigin() )
       ParticleManager:ReleaseParticleIndex( cleave_hit_pfx )
+    end
+  end
+
+  if hitSoundName ~= nil then
+    for _,unit in pairs(hitUnits) do
+      EmitSound(hitSoundName)
     end
   end
 

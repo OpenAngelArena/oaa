@@ -71,7 +71,7 @@ function modifier_bfury_oaa_passive:IsDebuff()
 end
 
 function modifier_bfury_oaa_passive:GetAttributes()
-  return bit.bor(MODIFIER_ATTRIBUTE_PERMANENT, MODIFIER_ATTRIBUTE_MULTIPLE)
+  return bit.bor(MODIFIER_ATTRIBUTE_PERMANENT, MODIFIER_ATTRIBUTE_MULTIPLE, MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE)
 end
 
 --------------------------------------------------------------------------------
@@ -124,7 +124,8 @@ if IsServer() then
       cleaveInfo,
       ability:GetSpecialValueFor("cleave_damage_percent") / 100.0,
       nil,
-      nil --TODO cleave effect
+      nil,
+      "particles/items_fx/battlefury_cleave.vpcf"
     )
   end
 end

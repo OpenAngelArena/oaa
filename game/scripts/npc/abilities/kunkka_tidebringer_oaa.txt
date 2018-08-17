@@ -24,6 +24,13 @@
     "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 4.0 4.0" // Talent special_bonus_unique_kunkka_5
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
+      // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle" 	"particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf"
+      "particle" 	"particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

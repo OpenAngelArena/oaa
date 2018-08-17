@@ -40,7 +40,7 @@ if IsServer() then
     local ability = nil
     for _,ab in pairs(cleaveTalents) do
       if ability == nil or ability:GetLevel() <= 0 then
-        ability = attacker:GetActiveAbility(ab)
+        ability = attacker:FindAbilityByName(ab)
       end
     end
 
@@ -77,7 +77,8 @@ if IsServer() then
       event,
       cleaveInfo,
       cleaveDmgPct / 100.0,
-      nil, -- Sound
+      nil, -- Sound on attack
+      nil, -- Sound on target
       nil, -- Wave particle
       nil -- Hit particle
     )

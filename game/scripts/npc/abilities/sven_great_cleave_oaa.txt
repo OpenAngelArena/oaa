@@ -21,6 +21,12 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
     "AbilityCastAnimation"		                            "ACT_DOTA_CAST_ABILITY_2"
+      // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle" 	"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

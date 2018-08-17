@@ -73,7 +73,7 @@ function modifier_dev_attack_aura:OnIntervalThink()
     local targetMaxMana = target:GetMaxMana()
     local manaReductionAmount = targetMaxMana / killTicks
 
-    target:MakeVisibleDueToAttack(teamID)
+    target:MakeVisibleDueToAttack(teamID, 1)
     target:Purge(true, false, false, false, true)
     target:ReduceMana(manaReductionAmount)
     caster:GiveMana(manaReductionAmount)

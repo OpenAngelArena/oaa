@@ -34,6 +34,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.3"  // Easy to spam
+      // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle" 	"particles/units/heroes/hero_magnataur/magnataur_empower_cleave_effect.vpcf"
+      "particle" 	"particles/units/heroes/hero_magnataur/magnataur_empower_cleave_hit.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
