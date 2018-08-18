@@ -65,4 +65,4 @@ function listenToGameEvent (event, handler) {
   }
 }
 
-$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');
+$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');
