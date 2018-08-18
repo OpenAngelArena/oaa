@@ -18,16 +18,17 @@ function modifier_cleave_talents_oaa:DeclareFunctions()
   }
 end
 
+--TODO replace by string.match
 local cleaveTalents =
 {
-  "special_bonus_cleave_oaa_150",
-  "special_bonus_cleave_oaa_100",
-  "special_bonus_cleave_oaa_60",
-  "special_bonus_cleave_oaa_30",
-  "special_bonus_cleave_oaa_25",
-  "special_bonus_cleave_oaa_20",
-  "special_bonus_cleave_oaa_15",
-  "special_bonus_cleave_oaa_5"
+  "special_bonus_cleave_150_oaa",
+  "special_bonus_cleave_100_oaa",
+  "special_bonus_cleave_60_oaa",
+  "special_bonus_cleave_30_oaa",
+  "special_bonus_cleave_25_oaa",
+  "special_bonus_cleave_20_oaa",
+  "special_bonus_cleave_15_oaa",
+  "special_bonus_cleave_5_oaa"
 }
 
 if IsServer() then
