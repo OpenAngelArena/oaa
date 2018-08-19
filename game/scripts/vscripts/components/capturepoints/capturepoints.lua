@@ -231,9 +231,16 @@ function CapturePoints:ActuallyStartCapture()
   local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier1:SetCallback(partial(self.Reward, self))
+  -- Give the thinker some vision so that spectators can always see the capture point
+  capturePointThinker1:SetDayTimeVisionRange(1)
+  capturePointThinker1:SetNightTimeVisionRange(1)
+
   local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  rightVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier2:SetCallback(partial(self.Reward, self))
+  -- Give the thinker some vision so that spectators can always see the capture point
+  capturePointThinker2:SetDayTimeVisionRange(1)
+  capturePointThinker2:SetNightTimeVisionRange(1)
 end
 
 function CapturePoints:EndCapture ()

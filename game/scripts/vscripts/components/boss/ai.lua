@@ -155,6 +155,9 @@ function BossAI:DeathHandler (state, keys)
   local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
   capturePointModifier:SetCallback(partial(self.RewardBossKill, self, state, keys))
+  -- Give the thinker some vision so that spectators can always see the capture point
+  capturePointThinker:SetDayTimeVisionRange(1)
+  capturePointThinker:SetNightTimeVisionRange(1)
 
   state.handle = nil
 end
