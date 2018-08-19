@@ -74,7 +74,7 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
   end
 
   local hitUnits = PerformCleave(
-    parent, self, startEntity,
+    parent, self, target,
     parent:GetTeamNumber(),
     startPos,
     (target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized(), --parent:GetForwardVector(),

@@ -2,6 +2,10 @@ modifier_cleave_talents_oaa = class( {} )
 
 --------------------------------------------------------------------------------
 
+function modifier_cleave_talents_oaa:IsHidden()
+  return true
+end
+
 function modifier_cleave_talents_oaa:IsPurgable()
   return false
 end
@@ -20,8 +24,8 @@ end
 
 if IsServer() then
   function modifier_cleave_talents_oaa:OnAttackLanded( event )
-    local attacker = event.attacker
-    if attacker == nil then
+    local parent = self:GetParent()
+    if event.attacker == nil or event.attacker ~= parent then
       return
     end
 
@@ -62,7 +66,10 @@ if IsServer() then
   end
 end
 
---TODO on inventory change
 function modifier_cleave_talents_oaa:OnInventoryContentsChanged()
-
+  local ability = self:GetAbility()
+  if ability == nil or ability:GetLevel() == 0 then
+    self:GetParent():RemoveModifierByName("modifier_cleave_talents_oaa")
+    return
+  end
 end

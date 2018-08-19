@@ -85,19 +85,19 @@ function modifier_bfury_oaa_passive:DeclareFunctions()
   }
 end
 
+function modifier_bfury_oaa_passive:GetModifierPreAttack_BonusDamage()
+  return self:GetAbility():GetSpecialValueFor("bonus_damage")
+end
+
+function modifier_bfury_oaa_passive:GetModifierConstantManaRegen()
+  return self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_bfury_oaa_passive:GetModifierConstantHealthRegen()
+  return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
 if IsServer() then
-  function modifier_bfury_oaa_passive:GetModifierPreAttack_BonusDamage()
-    return self:GetAbility():GetSpecialValueFor("bonus_damage")
-  end
-
-  function modifier_bfury_oaa_passive:GetModifierConstantManaRegen()
-    return self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
-  end
-
-  function modifier_bfury_oaa_passive:GetModifierConstantHealthRegen()
-    return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-  end
-
   function modifier_bfury_oaa_passive:OnAttackLanded( event )
     if self:GetParent() ~= event.attacker then
       return
