@@ -113,16 +113,16 @@ function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamag
   return 0
 end
 
-function modifier_kunkka_tidebringer_oaa_passive:OnAttack(keys)
+function modifier_kunkka_tidebringer_oaa_passive:OnAttack(event)
   local parent = self:GetParent()
 
   -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
-  if keys.attacker ~= parent or keys.process_procs then
+  if event.attacker ~= parent or event.process_procs then
     return
   end
 
   local ability = self:GetAbility()
-  local target = keys.target
+  local target = event.target
   -- Wrap in function to defer evaluation
   local function autocast()
     return (
@@ -142,12 +142,12 @@ function modifier_kunkka_tidebringer_oaa_passive:OnAttack(keys)
 
   ability:CastAbility()
   -- Enable proc for this attack record number
-  self.procRecords[keys.record] = true
+  self.procRecords[event.record] = true
 end
 
-function modifier_oaa_arcane_orb:OnAttackFail(keys)
-  if keys.attacker == self:GetParent() and self.procRecords[keys.record] then
-    self.procRecords[keys.record] = nil
+function modifier_oaa_arcane_orb:OnAttackFail(event)
+  if event.attacker == self:GetParent() and self.procRecords[event.record] then
+    self.procRecords[event.record] = nil
   end
 end
 
@@ -155,10 +155,10 @@ function modifier_kunkka_tidebringer_oaa_passive:OnAttackLanded( event )
   -- Only attacks FROM parent
   -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
   local parent = self:GetParent()
-  if event.attacker ~= parent or not self.procRecords[keys.record] or not event.process_procs then
+  if event.attacker ~= parent or not self.procRecords[event.record] or not event.process_procs then
     return
   end
-  self.procRecords[keys.record] = nil
+  self.procRecords[event.record] = nil
 
   local ability = self:GetAbility()
 
@@ -218,7 +218,7 @@ function modifier_kunkka_tidebringer_oaa_cooldown:IsPermanent()
 end
 
 if IsServer() then
-  function modifier_kunkka_tidebringer_oaa_cooldown:OnRefresh( keys )
+  function modifier_kunkka_tidebringer_oaa_cooldown:OnRefresh( event )
     local ability = self:GetAbility()
     if ability:IsCooldownReady() then
 

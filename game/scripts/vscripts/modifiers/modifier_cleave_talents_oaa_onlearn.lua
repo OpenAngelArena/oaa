@@ -19,11 +19,12 @@ if IsServer() then
     local player = EntIndexToHScript(keys.player)
     local abilityname = keys.abilityname
     local pID = keys.PlayerID
-    if pID and string.match(abilityname, "special_bonus_cleave_oaa") then
+    -- string.match(input, regex)
+    if pID and string.match(abilityname, "special_bonus_cleave_[0-9]*_oaa") then
       local ability = player:FindAbilityByName(abilityname)
-
-
-      local modifier = caster:AddNewModifier(caster, ability, "modifier_cleave_talents_oaa", {});
+      if ability ~= nil then
+        local modifier = player:AddNewModifier(player, ability, "modifier_cleave_talents_oaa", {});
+      end
     end
   end)
 end

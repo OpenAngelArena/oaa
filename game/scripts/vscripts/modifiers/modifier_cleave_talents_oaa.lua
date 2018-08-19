@@ -18,19 +18,6 @@ function modifier_cleave_talents_oaa:DeclareFunctions()
   }
 end
 
---TODO replace by string.match
-local cleaveTalents =
-{
-  "special_bonus_cleave_150_oaa",
-  "special_bonus_cleave_100_oaa",
-  "special_bonus_cleave_60_oaa",
-  "special_bonus_cleave_30_oaa",
-  "special_bonus_cleave_25_oaa",
-  "special_bonus_cleave_20_oaa",
-  "special_bonus_cleave_15_oaa",
-  "special_bonus_cleave_5_oaa"
-}
-
 if IsServer() then
   function modifier_cleave_talents_oaa:OnAttackLanded( event )
     local attacker = event.attacker
@@ -38,13 +25,7 @@ if IsServer() then
       return
     end
 
-    local ability = nil
-    for _,ab in pairs(cleaveTalents) do
-      if ability == nil or ability:GetLevel() <= 0 then
-        ability = attacker:FindAbilityByName(ab)
-      end
-    end
-
+    local ability = self:GetAbility()
     if ability == nil then
       return
     end
@@ -68,11 +49,6 @@ if IsServer() then
     if cleaveDmgPct == nil then
       cleaveDmgPct = ability:GetSpecialValueFor("cleave_damage")
     end
-    --[[
-    if cleaveDmgPct == nil then
-      cleaveDmgPct = ability:GetSpecialValueFor("damage")
-    end
-    ]]
 
     ability:PerformCleaveOnAttack(
       event,
@@ -84,4 +60,9 @@ if IsServer() then
       nil -- Hit particle
     )
   end
+end
+
+--TODO on inventory change
+function modifier_cleave_talents_oaa:OnInventoryContentsChanged()
+
 end
