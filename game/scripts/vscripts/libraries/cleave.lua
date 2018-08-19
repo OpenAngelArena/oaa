@@ -39,6 +39,12 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
     return
   end
 
+  -- Do not proc from Monkey King's Boundless Strike
+  local activeAbility = parent:GetCurrentActiveAbility();
+  if activeAbility ~= nil and activeAbility:GetAbilityName() == "monkey_king_boundless_strike" then
+    return
+  end
+
   -- Does not cleave upon attacking wards, buildings or allied units.
   if target:GetTeamNumber() == parent:GetTeamNumber() or
       target == nil or
@@ -56,7 +62,9 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
   end
 
   local startEntity = parent
-  if self.cleaveFromTarget or event.cleaveFromTarget or parent.cleaveFromTarget then
+  -- Should cleave from target (set anywhere - unit, ability or event)
+  -- Or is PA
+  if self.cleaveFromTarget or event.cleaveFromTarget or parent.cleaveFromTarget or parent:GetName() == "npc_dota_hero_phantom_assassin" then
     startEntity = target
   end
   local startPos = startEntity:GetAbsOrigin()
@@ -92,7 +100,7 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
 
   if hitSoundName ~= nil then
     for _,unit in pairs(hitUnits) do
-      EmitSound(hitSoundName)
+      unit:EmitSound(hitSoundName)
     end
   end
 

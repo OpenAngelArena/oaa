@@ -107,11 +107,6 @@ if IsServer() then
       return
     end
 
-    local activeAbility = self:GetParent():GetCurrentActiveAbility();
-    if activeAbility ~= nil and activeAbility:GetAbilityName() == "monkey_king_boundless_strike" then
-      return
-    end
-
     local ability = self:GetAbility()
     local cleaveInfo = {
       startRadius = ability:GetSpecialValueFor("cleave_starting_width"),

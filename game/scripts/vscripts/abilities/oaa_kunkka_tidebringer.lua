@@ -61,29 +61,17 @@ function modifier_kunkka_tidebringer_oaa_passive:GetAttributes()
   return bit.bor(MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE, MODIFIER_ATTRIBUTE_PERMANENT)
 end
 
---[[
-function modifier_kunkka_tidebringer_oaa_passive:GetEffectName()
-  return "particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf"
-end
-
-function modifier_kunkka_tidebringer_oaa_passive:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW
-end
-
-function modifier_kunkka_tidebringer_oaa_passive:GetStatusEffectName()
-  return "particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf"
-end
-]]
-
 --------------------------------------------------------------------------------
 
-function modifier_kunkka_tidebringer_oaa_passive:OnCreated()
-  local parent = self:GetParent()
-  -- Add weapon glow
-  parent:AddNewModifier(parent, self:GetAbility(), "modifier_kunkka_tidebringer_oaa_weapon_effect", {})
-  -- Attack procs
-  if not self.procRecords then
+if IsServer() then
+  function modifier_kunkka_tidebringer_oaa_passive:OnCreated()
+    local parent = self:GetParent()
+    -- Add weapon glow
+    parent:AddNewModifier(parent, self:GetAbility(), "modifier_kunkka_tidebringer_oaa_weapon_effect", {})
+    -- Attack procs
+    if not self.procRecords then
     self.procRecords = {}
+    end
   end
 end
 
@@ -104,6 +92,7 @@ function modifier_kunkka_tidebringer_oaa_passive:IsPermanent()
   return true
 end
 
+if IsServer() then
 function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamage( event )
   -- Toggled on
   local ability = self:GetAbility()
@@ -112,19 +101,25 @@ function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamag
   end
   return 0
 end
+else
+function modifier_kunkka_tidebringer_oaa_passive:GetModifierPreAttack_BonusDamage( event )
+  return 0
+end
+end
 
-function modifier_kunkka_tidebringer_oaa_passive:OnAttack(event)
-  local parent = self:GetParent()
+if IsServer() then
+  function modifier_kunkka_tidebringer_oaa_passive:OnAttack(event)
+    local parent = self:GetParent()
 
-  -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
-  if event.attacker ~= parent or event.process_procs then
+    -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
+    if event.attacker ~= parent or event.process_procs then
     return
-  end
+    end
 
-  local ability = self:GetAbility()
-  local target = event.target
-  -- Wrap in function to defer evaluation
-  local function autocast()
+    local ability = self:GetAbility()
+    local target = event.target
+    -- Wrap in function to defer evaluation
+    local function autocast()
     return (
       target.GetUnitName and -- Check for existence of GetUnitName method to determine if target is a unit
       ability:GetAutoCastState() and
@@ -134,57 +129,58 @@ function modifier_kunkka_tidebringer_oaa_passive:OnAttack(event)
       ability:IsCooldownReady() and
       ability:CastFilterResultTarget(target) == UF_SUCCESS
     )
-  end
+    end
 
-  if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
+    if parent:GetCurrentActiveAbility() ~= ability and not autocast() then
     return
+    end
+
+    ability:CastAbility()
+    -- Enable proc for this attack record number
+    self.procRecords[event.record] = true
   end
 
-  ability:CastAbility()
-  -- Enable proc for this attack record number
-  self.procRecords[event.record] = true
-end
-
-function modifier_oaa_arcane_orb:OnAttackFail(event)
-  if event.attacker == self:GetParent() and self.procRecords[event.record] then
+  function modifier_kunkka_tidebringer_oaa_passive:OnAttackFail(event)
+    if event.attacker == self:GetParent() and self.procRecords[event.record] then
     self.procRecords[event.record] = nil
+    end
   end
-end
 
-function modifier_kunkka_tidebringer_oaa_passive:OnAttackLanded( event )
-  -- Only attacks FROM parent
-  -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
-  local parent = self:GetParent()
-  if event.attacker ~= parent or not self.procRecords[event.record] or not event.process_procs then
+  function modifier_kunkka_tidebringer_oaa_passive:OnAttackLanded( event )
+    -- Only attacks FROM parent
+    -- process_procs == true in OnAttack means this is an attack that attack modifiers should not apply to
+    local parent = self:GetParent()
+    if event.attacker ~= parent or not self.procRecords[event.record] or not event.process_procs then
     return
-  end
-  self.procRecords[event.record] = nil
+    end
+    self.procRecords[event.record] = nil
 
-  local ability = self:GetAbility()
+    local ability = self:GetAbility()
 
-  local cleaveInfo = {
+    local cleaveInfo = {
     startRadius = ability:GetTalentSpecialValueFor("cleave_starting_width"),
     endRadius = ability:GetTalentSpecialValueFor("cleave_ending_width"),
     length = ability:GetTalentSpecialValueFor("cleave_distance")
-  }
-  local hitUnits = ability:PerformCleaveOnAttack(
+    }
+    local hitUnits = ability:PerformCleaveOnAttack(
     event,
     cleaveInfo,
     ability:GetTalentSpecialValueFor("cleave_damage") / 100.0,
     "Hero_Kunkka.Tidebringer.Attack",
     "Hero_Kunkka.TidebringerDamage",
     "particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf"
-  )
+    )
 
-  -- Force cooldown
-  -- Including cooldown reduction which is why we do not use StartCooldown()
-  ability:UseResources(true, true, true)
-  -- Remove weapon glow effect
-  parent:RemoveModifierByName("modifier_kunkka_tidebringer_oaa_weapon_effect")
-  -- Add cooldown timer
-  parent:AddNewModifier(parent, ability, "modifier_kunkka_tidebringer_oaa_cooldown", {
+    -- Force cooldown
+    -- Including cooldown reduction which is why we do not use StartCooldown()
+    ability:UseResources(true, true, true)
+    -- Add cooldown timer
+    parent:AddNewModifier(parent, ability, "modifier_kunkka_tidebringer_oaa_cooldown", {
     duration = ability:GetCooldownTimeRemaining()
-  })
+    })
+    -- Remove weapon glow effect
+    parent:RemoveModifierByName("modifier_kunkka_tidebringer_oaa_weapon_effect")
+  end
 end
 
 --------------------------------------------------------------------------------

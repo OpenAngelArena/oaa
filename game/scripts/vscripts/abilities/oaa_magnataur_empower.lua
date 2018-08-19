@@ -19,7 +19,7 @@ if IsServer() then
 
     local duration = self:GetTalentSpecialValueFor("empower_duration")
 
-    -- Add modifier or increate duration
+    -- Add modifier or increase duration
     local modif = target:FindModifierByNameAndCaster("modifier_magnataur_empower_oaa_buff", caster)
     if modif ~= nil then
       target:RemoveModifierByNameAndCaster("modifier_magnataur_empower_oaa_buff", caster)
@@ -57,10 +57,10 @@ end
 function modifier_magnataur_empower_oaa_buff:OnCreated(data)
   local ability = self:GetAbility()
   self.cleveInfo = {
-      startRadius = ability:GetTalentSpecialValueFor("cleave_starting_width"),
-      endRadius = ability:GetTalentSpecialValueFor("cleave_ending_width"),
-      length = ability:GetTalentSpecialValueFor("cleave_distance")
-    }
+    startRadius = ability:GetTalentSpecialValueFor("cleave_starting_width"),
+    endRadius = ability:GetTalentSpecialValueFor("cleave_ending_width"),
+    length = ability:GetTalentSpecialValueFor("cleave_distance")
+  }
   self.cleaveDamageMult = ability:GetTalentSpecialValueFor("cleave_damage_pct") / 100.0
   self.damagePct = ability:GetTalentSpecialValueFor("bonus_damage_pct")
 end
@@ -71,7 +71,7 @@ function modifier_magnataur_empower_oaa_buff:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-  MODIFIER_PROPERTY_TOOLTIP
+    MODIFIER_PROPERTY_TOOLTIP
   }
 end
 
