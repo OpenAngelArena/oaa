@@ -11,8 +11,11 @@
 "DOTA_Tooltip_ability_kunkka_tidebringer_oaa_damage_bonus"              "#{DOTA_Tooltip_ability_kunkka_tidebringer_damage_bonus}"
 "DOTA_Tooltip_ability_kunkka_tidebringer_oaa_cleave_damage"             "#{DOTA_Tooltip_ability_kunkka_tidebringer_cleave_damage}"
 
-"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_active"						        "Active #{DOTA_Tooltip_ability_kunkka_tidebringer}"
-"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_active_Description"			  "Ability is learned and off cooldown.<br/>Provides functionality to #{DOTA_Tooltip_ability_kunkka_tidebringer}."
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_passive"						      "#{DOTA_Tooltip_ability_kunkka_tidebringer}"
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_passive_Description"			"Provides functionality to #{DOTA_Tooltip_ability_kunkka_tidebringer}."
 
-"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_cooldown"						      "#{DOTA_Tooltip_ability_kunkka_tidebringer}"
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_cooldown"						      "#{DOTA_Tooltip_ability_kunkka_tidebringer} On Cooldown"
 "DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_cooldown_Description"			"Ability is on cooldown."
+
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_weapon_effect"						 "Weapon Effect of #{DOTA_Tooltip_ability_kunkka_tidebringer}"
+"DOTA_Tooltip_modifier_kunkka_tidebringer_oaa_weapon_effect_Description" "Provides visual effect on Kunkka's Weapon while #{DOTA_Tooltip_ability_kunkka_tidebringer} is off cooldown."
