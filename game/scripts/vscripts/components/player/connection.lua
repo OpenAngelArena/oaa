@@ -54,7 +54,7 @@ function PlayerConnection:Init()
 
   GameEvents:OnPlayerAbandon(function (keys)
     DebugPrint('A player has abandoned!')
-    if self.isValid and HudTimer:GetGameTime() < MIN_MATCH_TIME and HeroSelection.isRanked then
+    if self.isValid and HudTimer:GetGameTime() < MIN_MATCH_TIME and ( HeroSelection.isRanked or HeroSelection.isCM ) then
       self.isValid = false
       Notifications:TopToAll({
         text="#abandon_game_invalid",
