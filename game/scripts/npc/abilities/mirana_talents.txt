@@ -25,8 +25,31 @@
       {
         "var_type"        "FIELD_FLOAT"
         // Cannot be 0 because is used to calculate lifetime of the arrow
-    // Destroyed on map border hit
+        // Destroyed on map border hit
         "projectile_range"         "1000000000"          // 1,000,000,000
+      }
+    }
+  }
+  //=================================================================================================================
+  // Mirana left level 25 talent: Sacred Arrow Pierces targets
+  //=================================================================================================================
+  "special_bonus_mirana_arrow_pierce"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "86398"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"           "4"
       }
     }
   }

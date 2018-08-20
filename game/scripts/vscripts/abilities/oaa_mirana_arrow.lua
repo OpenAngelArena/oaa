@@ -35,7 +35,8 @@ if IsServer() then
         arrow_base_damage = arrow_data.arrow_base_damage,
         arrow_damage_type = arrow_data.arrow_damage_type,
         arrow_vision = arrow_data.arrow_vision,
-        arrow_vision_duration = arrow_data.arrow_vision_duration
+        arrow_vision_duration = arrow_data.arrow_vision_duration,
+        arrow_pierce_count = arrow_data.arrow_pierce_count
       },
     }
     self.arrow_start_position = position
@@ -93,7 +94,13 @@ if IsServer() then
     -- Add hit sound
     caster:EmitSound("Hero_Mirana.ArrowImpact")
 
-    return true
+    -- Are there pierces remaining
+    if not data.arrow_pierce_count or data.arrow_pierce_count == 0 then
+      return true -- End the arrow
+    else
+      data.arrow_pierce_count = data.arrow_pierce_count - 1
+      return false -- Do not end
+    end
   end
 
   function mirana_arrow_oaa:OnSpellStart()
@@ -120,7 +127,8 @@ if IsServer() then
       arrow_base_damage = self:GetAbilityDamage(), -- Base damage
       arrow_damage_type = self:GetAbilityDamageType(),
       arrow_vision = self:GetSpecialValueFor( "arrow_vision" ), -- Arrow vision radius
-      arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ) -- VIsion duration after hit
+      arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ), -- Vision duration after hit
+      arrow_pierce_count = self:GetTalentSpecialValueFor("arrow_pierce_count") -- Pierce targets count
     }
 
     -- Send arrow

@@ -20,6 +20,7 @@
     "AbilityTextureName"                                  "mirana_arrow"
     "ScriptFile"                                          "abilities/oaa_mirana_arrow.lua"
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "3000"
@@ -106,6 +107,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_start_distance"                            "51"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_pierce_count"                              "0"
+        "LinkedSpecialBonus"                              "special_bonus_mirana_arrow_pierce"
       }
     }
   }
