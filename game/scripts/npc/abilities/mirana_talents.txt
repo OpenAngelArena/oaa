@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "ID"                  "86397"
 
     // Special
@@ -19,14 +19,14 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "cast_range"         "0"
+        "cast_range"      "0"
       }
       "02"
       {
         "var_type"        "FIELD_FLOAT"
         // Cannot be 0 because is used to calculate lifetime of the arrow
         // Destroyed on map border hit
-        "projectile_range"         "1000000000"          // 1,000,000,000
+        "projectile_range" "1000000000"          // 1,000,000,000
       }
     }
   }
@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"           "special_bonus_undefined"
     "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "ID"                  "86398"
 
     // Special
