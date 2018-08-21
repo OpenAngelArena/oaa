@@ -74,7 +74,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "4 6 9 12 16"
+        "bonus_health_regen"                              "4 8 12 16 20"
       }
       "05"
       {
@@ -89,7 +89,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_strength"                           "25 45 65 90 120"
+        "unholy_bonus_strength"                           "25 55 85 110 140"
       }
       "08"
       {
@@ -99,17 +99,17 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 7 10 15 20"
+        "unholy_health_drain_per_tick"                    "6 11 15 19 22"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 63 90 135 180"
+        "unholy_health_drain_per_second_tooltip"          "54 100 140 175 200"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "toggle_cooldown"                                 "0.036f"
+        "toggle_cooldown"                                 "0.036"
       }
     }
   }
