@@ -5,9 +5,8 @@
 --}
 --damageMult = 1.0
 --damageType = DAMAGE_TYPE_PHYSICAL
---damageFlags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR -- Original Cleave
---damageFlags = DOTA_DAMAGE_FLAG_NONE -- OAA Cleave
---damageFlags = DOTA_DAMAGE_FLAG_REFLECTION -- If we do not want them to return damage from cleave
+--damageFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION | DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL | DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR -- Original Cleave
+--damageFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION | DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL -- OAA Cleave
 
 --targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
 --targetUnit = DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO
@@ -134,9 +133,9 @@ function CDOTABaseAbility:PerformCleave(
       targetTeam, targetUnit, targetFlags)
 end
 -- damageFlags
--- DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR -- Original Cleave
--- DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL -- No spell lifesteal or amplification (DEFAULT for OAA)
--- DOTA_DAMAGE_FLAG_REFLECTION -- If we do not want them to return damage from cleave
+-- DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR -- Original Cleave
+-- DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL -- No spell lifesteal or amplification (DEFAULT for OAA)
+-- DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_REFLECTION -- If we do not want them to return damage from cleave
 
 -- Required: attacker
 -- Recommended: cleaveInfo (no value can be <= 0)
@@ -192,7 +191,7 @@ function PerformCleave(
     damageType = DAMAGE_TYPE_PHYSICAL
   end
   if damageFlags == nil then
-    damageFlags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    damageFlags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
   end
 
   if targetTeam == nil then
