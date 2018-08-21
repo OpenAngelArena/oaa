@@ -25,6 +25,10 @@
     {
       "01"                                                "item_regen_crystal_1;item_upgrade_core_3"
       "02"                                                "item_regen_crystal_1;item_upgrade_core_4"
+      "03"                                                "item_heart_3;item_upgrade_core_3"
+      "04"                                                "item_heart_3;item_upgrade_core_4"
+      "05"                                                "item_crimson_guard_3;item_upgrade_core_3"
+      "06"                                                "item_crimson_guard_3;item_upgrade_core_4"
     }
   }
 
@@ -67,17 +71,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "600 1000 1400"
+        "bonus_health"                                    "1300 2300 3200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "105 145 185"
+        "bonus_strength"                                  "60 70 80"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                              "200 225 250"
+        "active_health_regen"                              "150 200 250"
       }
       "04"
       {

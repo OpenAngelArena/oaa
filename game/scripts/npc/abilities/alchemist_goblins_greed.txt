@@ -31,17 +31,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_bonus_gold"                                "4"
+        "bonus_bonus_gold"                                "4 6 8 10 24 48" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_cap"                                  "20 24 28 32 60 88"
+        "bonus_gold_cap"                                  "999999"  //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bounty_multiplier_tooltip"                       "3.5"
+        "bounty_multiplier_tooltip"                       "10"  //OAA
       }
     }
   }

@@ -7,7 +7,10 @@ end
 function RespawnManager:OnHeroKilled(keys)
   local killer = keys.killer
   local killed = keys.killed
-  local killerTeam = killer:GetTeam()
+  local killerTeam = DOTA_TEAM_NEUTRALS
+  if killer then
+    killerTeam = killer:GetTeam()
+  end
   local respawnTime = RESPAWN_TIME_TABLE[killed:GetLevel()]
 
 

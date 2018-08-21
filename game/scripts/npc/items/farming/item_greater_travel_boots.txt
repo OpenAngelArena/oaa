@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_greater_travel_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_travel_boots_2;item_farming_core"
+      "01"                                                "item_travel_boots;item_farming_core"
     }
   }
 
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1600"
+    "ItemCost"                                            "1100"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"

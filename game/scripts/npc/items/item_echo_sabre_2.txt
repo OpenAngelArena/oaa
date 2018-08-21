@@ -23,10 +23,10 @@
     "ItemResult"                                          "item_echo_sabre_2"
     "ItemRequirements"
     {
-      "01"                                                "item_echo_sabre;item_upgrade_core"
-      "02"                                                "item_echo_sabre;item_upgrade_core_2"
-      "03"                                                "item_echo_sabre;item_upgrade_core_3"
-      "04"                                                "item_echo_sabre;item_upgrade_core_4"
+      "01"                                                "item_heavens_halberd;item_upgrade_core"
+      "02"                                                "item_heavens_halberd;item_upgrade_core_2"
+      "03"                                                "item_heavens_halberd;item_upgrade_core_3"
+      "04"                                                "item_heavens_halberd;item_upgrade_core_4"
     }
   }
 
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "4150"
+    "ItemCost"                                            "5050"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre 2"

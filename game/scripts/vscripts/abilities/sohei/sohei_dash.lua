@@ -356,8 +356,14 @@ if IsServer() then
 			return
 		end
 
+    local particleName = "particles/hero/sohei/sohei_trail.vpcf"
+
+    if parent:HasModifier('modifier_arcana_dbz') then
+      particleName = "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
+    end
+
 		-- Trail particle
-		local trail_pfx = ParticleManager:CreateParticle( "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf", PATTACH_CUSTOMORIGIN, parent )
+		local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
 		ParticleManager:SetParticleControl( trail_pfx, 0, parent:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( trail_pfx, 1, parent:GetAbsOrigin() + parent:GetForwardVector() * self.distance )
 		ParticleManager:ReleaseParticleIndex( trail_pfx )

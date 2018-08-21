@@ -27,6 +27,9 @@
       "01"                        "item_helm_of_the_dominator_2;item_upgrade_core_2"
       "02"                        "item_helm_of_the_dominator_2;item_upgrade_core_3"
       "03"                        "item_helm_of_the_dominator_2;item_upgrade_core_4"
+      "04"                        "item_vladmir_2;item_upgrade_core_2"
+      "05"                        "item_vladmir_2;item_upgrade_core_3"
+      "06"                        "item_vladmir_2;item_upgrade_core_4"
     }
   }
 
@@ -56,7 +59,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"            "7000"
+    "ItemCost"            "7250"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd 3;helm of the dominator 3;helm 3;dominator 3"
@@ -70,7 +73,7 @@
       "01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_stats"			"2"
+				"bonus_stats"			"2 25 40 55 70"
 			}
 			"02"
 			{

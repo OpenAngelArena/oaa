@@ -26,6 +26,9 @@
       "01"                                                "item_heart_2;item_upgrade_core_2"
       "02"                                                "item_heart_2;item_upgrade_core_3"
       "03"                                                "item_heart_2;item_upgrade_core_4"
+      "04"                                                "item_crimson_guard_2;item_upgrade_core_2"
+      "05"                                                "item_crimson_guard_2;item_upgrade_core_3"
+      "06"                                                "item_crimson_guard_2;item_upgrade_core_4"
     }
   }
 
@@ -63,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "45 60 75 95 115"
+        "bonus_strength"                                  "35 50 65 85 105" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "500 700 1200 2000 2800"
+        "bonus_health"                                    "300 700 1200 2000 2700"  //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "3 4 5 6 7"
+        "health_regen_rate"                               "3 4 5 6 7" //OAA
       }
       "04"
       {

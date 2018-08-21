@@ -1,6 +1,11 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
 -----------------------------------------------------------------------------------
+-- General globals
+
+DOTA_TEAM_SPECTATOR = 1
+
+-----------------------------------------------------------------------------------
 -- OAA specific settings
 
 -- Respawn time settings
@@ -21,6 +26,13 @@ setmetatable(RESPAWN_TIME_TABLE, {
   end
 })
 
+-- safe to leave
+TIME_TO_ABANDON = 300                     -- how long a player can be disconnected before they're forced to abandon
+AUTO_ABANDON_IN_CM = false                -- if force abandon should be enabled in captains mode
+MIN_MATCH_TIME = 180                      -- if someone abandons before this point, the match doesn't count
+ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on your team for the countdown to start
+ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
+
 -- kill limits
 NORMAL_KILL_LIMIT = 100
 TEN_V_TEN_KILL_LIMIT = 150
@@ -28,7 +40,7 @@ TEN_V_TEN_KILL_LIMIT = 150
 -- poop wards
 POOP_WARD_DURATION = 360
 POOP_WARD_COOLDOWN = 120
-POOP_WARD_RADIUS = 200
+POOP_WARD_RADIUS = 150
 
 -- scan reveal
 SCAN_REVEAL_COOLDOWN = 60
@@ -41,6 +53,10 @@ CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the 
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
+
+RANKED_PREGAME_TIME = 10
+RANKED_BAN_TIME = 30
+RANKED_PICK_TIME = 25
 
 -- Game timings
 PREGAME_TIME = 10
@@ -56,11 +72,12 @@ FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game 
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
 DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
+DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
 INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
-CAPTURE_FIRST_WARN = 60                 -- how many seconds first ping on minimap of CapturePoint
-CAPTURE_SECOND_WARN = 30                -- how many seconds before second ping on minimap of CapturePoint
+CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
+CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
 CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
 CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
@@ -68,7 +85,7 @@ CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
-BOSS_LEASH_SIZE = 1500                  -- number of units a boss will walk before starting to head back
+BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
 
 -- Creeps
@@ -198,9 +215,9 @@ MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum at
 
 GAME_END_DELAY = -1                     -- How long should we wait after the game winner is set to display the victory banner and End Screen?  Use -1 to keep the default (about 10 seconds)
 VICTORY_MESSAGE_DURATION = 3            -- How long should we wait after the victory message displays to show the End Screen?  Use
-STARTING_GOLD = 625                     -- How much starting gold should we give to each player?
+STARTING_GOLD = 825                     -- How much starting gold should we give to each player?
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
-DISABLE_KILLING_SPREE_ANNOUNCER = false -- Shuold we disable the killing spree announcer?
+DISABLE_KILLING_SPREE_ANNOUNCER = false -- Should we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
 SKIP_TEAM_SETUP = false                 -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
@@ -244,7 +261,7 @@ USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players 
 
 CUSTOM_TEAM_PLAYER_COUNT = {}           -- If we're not automatically setting the number of players per team, use this table
 
-if GetMapName() == "oaa_10v10" then
+if GetMapName() == "10v10" then
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 10
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 10
 else

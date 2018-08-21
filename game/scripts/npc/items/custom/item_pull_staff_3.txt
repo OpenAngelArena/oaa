@@ -25,6 +25,8 @@
     {
       "01"                                                "item_pull_staff_2;item_upgrade_core_3"
       "02"                                                "item_pull_staff_2;item_upgrade_core_4"
+      "03"                                                "item_force_staff_3;item_upgrade_core_3"
+      "04"                                                "item_force_staff_3;item_upgrade_core_4"
     }
   }
 
@@ -121,7 +123,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "500"
+        "distance"                                        "500 600 700 800"
       }
     }
   }

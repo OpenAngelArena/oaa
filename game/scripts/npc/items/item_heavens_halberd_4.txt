@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -25,6 +25,8 @@
     {
       "01"                                                "item_heavens_halberd_3;item_upgrade_core_3"
       "02"                                                "item_heavens_halberd_3;item_upgrade_core_4"
+      "03"                                                "item_echo_sabre_3;item_upgrade_core_3"
+      "04"                                                "item_echo_sabre_3;item_upgrade_core_4"
     }
   }
 
@@ -53,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "12050"
+    "ItemCost"                                            "16550"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -116,12 +118,12 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_range"                                    "5.0"
+        "disarm_range"                                    "4.0 4.5 5.0 5.5 6.0" //OAA
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_melee"                                    "3.0"
+        "disarm_melee"                                    "2.0 2.5 3.0 3.5 4.0" //OAA
       }
       "12"
       {

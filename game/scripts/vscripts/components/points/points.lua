@@ -23,9 +23,20 @@ function PointsManager:Init ()
 
   GameEvents:OnHeroKilled(function (keys)
     -- increment points
+    if not keys.killer or not keys.killed then
+      return
+    end
     if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() and keys.killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
       self:AddPoints(keys.killer:GetTeam())
     end
+  end)
+
+  GameEvents:OnPlayerAbandon(function (keys)
+    local limit = self:GetLimit()
+    local maxPoints = math.max(self:GetPoints(DOTA_TEAM_GOODGUYS), self:GetPoints(DOTA_TEAM_BADGUYS))
+    limit = math.min(limit, math.max(maxPoints + 10, limit - 10))
+
+    self:SetLimit(limit)
   end)
 
   -- Register chat commands
@@ -101,6 +112,10 @@ end
 
 function PointsManager:GetPoints(teamID)
   local score = CustomNetTables:GetTableValue('team_scores', 'score')
+
+  if not score then
+    return 0
+  end
 
   if teamID == DOTA_TEAM_GOODGUYS then
     return score.goodguys

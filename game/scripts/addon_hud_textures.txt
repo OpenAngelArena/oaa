@@ -34,45 +34,53 @@
           "width"		"32"
           "height"		"32"
         }
+        "minimap_boss_tier5"
+        {
+          "file"    "materials/vgui/hud/minimap_boss_tier5.vmat"
+          "x"   "0"
+          "y"   "0"
+          "width"   "32"
+          "height"   "32"
+        }
         "minimap_ancient_camp"
         {
           "file"		"materials/vgui/hud/minimap_ancient_camp.vmat"
           "x"		"0"
           "y"		"0"
-          "width"		"16"
-          "height"		"16"
+          "width"		"32"
+          "height"		"32"
         }
         "minimap_hard_camp"
         {
           "file"		"materials/vgui/hud/minimap_hard_camp.vmat"
           "x"		"0"
           "y"		"0"
-          "width"		"16"
-          "height"		"16"
+          "width"		"32"
+          "height"		"32"
         }
         "minimap_medium_camp"
         {
           "file"		"materials/vgui/hud/minimap_medium_camp.vmat"
           "x"		"0"
           "y"		"0"
-          "width"		"16"
-          "height"		"16"
+          "width"		"32"
+          "height"		"32"
         }
         "minimap_small_camp"
         {
           "file"		"materials/vgui/hud/minimap_small_camp.vmat"
           "x"		"0"
           "y"		"0"
-          "width"		"16"
-          "height"		"16"
+          "width"		"32"
+          "height"		"32"
         }
         "minimap_capture_point"
         {
           "file"		"materials/vgui/hud/minimap_capture_point.vmat"
           "x"		"0"
           "y"		"0"
-          "width"		"32"
-          "height"		"32"
+          "width"		"64"
+          "height"		"64"
         }
     }
 }

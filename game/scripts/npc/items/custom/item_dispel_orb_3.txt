@@ -24,6 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_dispel_orb_2;item_upgrade_core_4"
+      "02"                                                "item_lotus_orb_4;item_upgrade_core_4"
+      "03"                                                "item_bubble_orb_1;item_upgrade_core_4"
     }
   }
 
@@ -46,8 +48,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "20"
+    "AbilityManaCost"                                     "150"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "purge"
     "AbilityCastPoint"                                    "0.0"
 
@@ -93,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.5 6.0"
+        "duration"                                        "4.0 5.0 6.0"
       }
     }
   }
