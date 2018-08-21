@@ -103,6 +103,13 @@ if IsServer() then
     end
   end
 
+  function mirana_arrow_oaa:CastFilterResultTarget (unit)
+    if unit == self:GetCaster() then
+      return UF_SUCCESS
+    end
+    return UF_FAIL_INVALID_LOCATION
+  end
+
   function mirana_arrow_oaa:OnSpellStart()
     local caster = self:GetCaster()
     local position = caster:GetAbsOrigin()
@@ -130,6 +137,11 @@ if IsServer() then
       arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ), -- Vision duration after hit
       arrow_pierce_count = self:GetTalentSpecialValueFor("arrow_pierce_count") -- Pierce targets count
     }
+
+    -- Reverse cast direction for doubletap cast
+    if ( not self:GetCursorTargetingNothing() ) and self:GetCursorTarget() == caster then
+      direction = direction * -1
+    end
 
     -- Send arrow
     self:SendArrow(caster, position, direction, arrow_data)

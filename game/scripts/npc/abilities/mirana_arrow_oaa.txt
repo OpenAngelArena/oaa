@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ID"                                                  "85048" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam"							               	  "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"								                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
