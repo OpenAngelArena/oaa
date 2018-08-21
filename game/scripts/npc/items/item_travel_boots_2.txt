@@ -10,7 +10,7 @@
     "ID"                                                  "219"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_movement_speed"  "50 100" // OAA -- you get these boots a lot earlier, so lvl 1 has move speed nerf
+        "bonus_movement_speed"  "75" // OAA -- you get these boots a lot earlier, so lvl 1 has move speed nerf
       }
       "02"
       {

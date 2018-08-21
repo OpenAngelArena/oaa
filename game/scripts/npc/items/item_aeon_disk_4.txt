@@ -20,6 +20,8 @@
     {
       "01"                                                "item_bloodstone_3;item_upgrade_core_3"
       "02"                                                "item_bloodstone_3;item_upgrade_core_4"
+      "03"                                                "item_bloodstone_3;item_upgrade_core_3"
+      "04"                                                "item_bloodstone_3;item_upgrade_core_4"
     }
   }
 
@@ -40,7 +42,7 @@
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "90.0 75.0 60.0 45.0 30.0"
+    "AbilityCooldown"                                     "115.0 95.0 75.0 55.0 35.0"
     "AbilityTextureName"                                  "custom/combo_breaker_4"
 
     // Special

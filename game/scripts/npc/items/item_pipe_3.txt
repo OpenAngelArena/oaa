@@ -26,6 +26,9 @@
       "01"                                                "item_pipe_2;item_upgrade_core_2"
       "02"                                                "item_pipe_2;item_upgrade_core_3"
       "03"                                                "item_pipe_2;item_upgrade_core_4"
+      "04"                                                "item_glimmer_cape_2;item_upgrade_core_2"
+      "05"                                                "item_glimmer_cape_2;item_upgrade_core_3"
+      "06"                                                "item_glimmer_cape_2;item_upgrade_core_4"
     }
   }
 
@@ -103,7 +106,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 500 600 700 800"
+        "barrier_block"                                   "400 500 700 1000 1400"
       }
       "09"
       {

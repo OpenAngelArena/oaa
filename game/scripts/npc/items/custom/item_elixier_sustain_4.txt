@@ -1,0 +1,102 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Elixier - Sustain 4
+  //=================================================================================================================
+  "item_recipe_elixier_sustain_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "10025"
+    "BaseClass"                             "item_datadriven"
+    "AbilityTextureName"                    "custom/recipe/recipe_4"
+    "Model"                                 "models/props_gameplay/recipe.mdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "SecretShop"                            "1"
+    "ItemShopTags"                          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                            "1"
+    "ItemResult"                            "item_elixier_sustain_4"
+    "ItemRequirements"  // OAA
+    {
+      "01"                                  "item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Elixier - Sustain 4
+  //=================================================================================================================
+  "item_elixier_sustain_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "10026"
+    "BaseClass"                             "item_lua"
+    "ScriptFile"                            "items/elixier_sustain.lua"
+    "AbilityTextureName"                    "custom/elixier_sustain_4"
+    "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                      "0"
+    "AbilityCastPoint"                      "0.0"
+    "AbilitySharedCooldown"                 "elixier"
+    "AbilityCooldown"                       "60.0"
+    "AbilityManaCost"                       "0"
+    "MaxUpgradeLevel"                       "4"
+    "ItemBaseLevel"                         "4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                          "consumable"
+    "ItemQuality"                           "epic"
+    "ItemAliases"                           "elixier, elixir, sustain, sustainability"
+    "ItemStackable"                         "0"
+    "ItemPermanent"                         "0"
+    "ItemInitialCharges"                    "1"
+    "ItemRequiresCharges"                   "1"
+    "ItemKillable"                          "1"
+    "ItemPurchasable"                       "1"
+    "ItemSellable"                          "0"
+    "SecretShop"                            "1"
+    "SecretShopType"                        "Elixirs"
+    "IsTempestDoubleClonable"               "0"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                           "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
+      "particle"                            "particles/generic_gameplay/rune_regeneration.vpcf"
+      "particle"                            "particles/generic_gameplay/rune_regeneration_sparks.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "bonus_regen"                       "20 30 40 50"
+      }
+      "02"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "bonus_dmg_reduction"               "20 30 40 50"
+      }
+      "03"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "bonus_duration"                    "60"
+      }
+    }
+  }
+}

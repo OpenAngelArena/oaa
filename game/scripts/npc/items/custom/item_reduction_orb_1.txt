@@ -45,8 +45,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "20"
+    "AbilityManaCost"                                     "200"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
 
@@ -57,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8550"
+    "ItemCost"                                            "10200"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "half damage reduction orb"

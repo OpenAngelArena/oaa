@@ -9,7 +9,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1450"
+    "ItemCost"                                            "1400"
     "ItemShopTags"                                        "evasion"
     "ItemQuality"                                         "secret_shop"
     "ItemAliases"                                         "talisman of evasion"
@@ -22,7 +22,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20"
+        "bonus_evasion"                                   "15"
       }
     }
   }

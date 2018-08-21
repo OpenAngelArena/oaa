@@ -22,13 +22,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_shield_resistance"                         "20 30 40 50 60 70"
+        "spell_shield_resistance"                         "10 20 30 40 50 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_antimage_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "12"
+        "scepter_cooldown"                                "15" //OAA
       }
     }
   }

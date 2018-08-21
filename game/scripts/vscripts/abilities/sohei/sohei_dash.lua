@@ -21,9 +21,13 @@ if IsServer() then
 		if not modifier_charges then
 			modifier_charges = caster:AddNewModifier( self:GetCaster(), self, "modifier_sohei_dash_charges", {} )
 			modifier_charges:SetStackCount( chargesMax )
-		elseif modifier_charges:GetStackCount() < chargesMax then
+    elseif modifier_charges:GetStackCount() < chargesMax then
+      -- Reset the cooldown on the modifier
 			modifier_charges:SetDuration( self:GetChargeRefreshTime(), true )
-			modifier_charges:StartIntervalThink( 0.1 )
+      modifier_charges:StartIntervalThink( 0.1 )
+      if modifier_charges:GetStackCount() < 1 then
+        self:StartCooldown( modifier_charges:GetRemainingTime() )
+      end
 		end
 	end
 
@@ -76,16 +80,28 @@ if IsServer() then
 		self:EndCooldown()
 
 		if modifier_charges and not modifier_charges:IsNull() then
-			-- Perform the dash if there is at least one charge remaining
-			if modifier_charges:GetStackCount() >= 1 then
-				modifier_charges:SetStackCount( modifier_charges:GetStackCount() - 1 )
-
-				local shortCD = dashDistance / dashSpeed
-				if self:GetCooldownTimeRemaining() < shortCD then
-					self:EndCooldown()
-					self:StartCooldown( dashDistance / dashSpeed )
-				end
-			end
+      -- Perform the dash if there is at least one charge remaining
+      local currentStackCount = modifier_charges:GetStackCount()
+			if currentStackCount >= 1 then
+        if currentStackCount > 1 then
+          -- enable short cooldown if has enough charges for the next dash
+          local shortCD = dashDistance / dashSpeed
+          if self:GetCooldownTimeRemaining() < shortCD then
+            self:EndCooldown()
+            self:StartCooldown( dashDistance / dashSpeed )
+          end
+        else
+          -- if does not have charges for the next dash, set the cd to the remain time of the modifier
+          self:StartCooldown( modifier_charges:GetRemainingTime() )
+        end
+        modifier_charges:SetStackCount( currentStackCount - 1 )
+      else
+        -- should not enter here, but if it does :
+        -- set the cd to the remain time of the modifier
+        self:StartCooldown( modifier_charges:GetRemainingTime() )
+        -- and return without performing the spell action (this will still consume resources)
+        return
+      end
 		else
 			caster:AddNewModifier( caster, self, "modifier_sohei_dash_charges", {
 				duration = self:GetChargeRefreshTime()
@@ -340,8 +356,14 @@ if IsServer() then
 			return
 		end
 
+    local particleName = "particles/hero/sohei/sohei_trail.vpcf"
+
+    if parent:HasModifier('modifier_arcana_dbz') then
+      particleName = "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
+    end
+
 		-- Trail particle
-		local trail_pfx = ParticleManager:CreateParticle( "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf", PATTACH_CUSTOMORIGIN, parent )
+		local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
 		ParticleManager:SetParticleControl( trail_pfx, 0, parent:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( trail_pfx, 1, parent:GetAbsOrigin() + parent:GetForwardVector() * self.distance )
 		ParticleManager:ReleaseParticleIndex( trail_pfx )

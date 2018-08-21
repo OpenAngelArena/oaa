@@ -1,0 +1,26 @@
+<root>
+  <styles>
+    <include src='file://{resources}/styles/hud/dota_hud_gg.css' />
+    <include src='file://{resources}/styles/dotastyles.css' />
+    <include src='file://{resources}/styles/custom_game/surrender.css' />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/surrender.js"/>
+  </scripts>
+  <Panel class='Surrender' hittest='false'>
+    <Panel id='SurrenderGG'>
+      <Label id='Header' text='#DOTA_HeroGuideViewer_Vote' />
+      <Label id='LoseCounter' text='#surrender_suggestion' />
+      <Label id='Time' text='time_left' />
+      <Button id='Yes' class='PopupButton' onactivate='SelectYes()' oncontextmenu='SelectYes()'>
+        <Label text='#UI_Yes'/>
+      </Button>
+      <Button id='No' class='PopupButton' onactivate='SelectNo()' oncontextmenu='SelectNo()'>
+        <Label text='#UI_No'/>
+      </Button>
+    </Panel>
+    <Button id='SurrenderBtn' onactivate='StartSurrenderVote()' oncontextmenu='StartSurrenderVote()'>
+        <Image class='SurrenderFlag'/>
+    </Button>
+  </Panel>
+</root>

@@ -61,6 +61,21 @@ globals = { -- these globals can be set and accessed.
 "CAPTURE_START_COUNTDOWN",
 "CAPTURE_INTERVAL",
 "CAPTURE_LENTGH",
+"SURRENDER_MINIMUM_KILLS_BEHIND",
+"SURRENDER_REQUIRED_YES_VOTES",
+"SURRENDER_TIME_TO_DISPLAY",
+"SAVE_STATE_ENABLED",
+"SAVE_STATE_INTERVAL",
+"SAVE_STATE_AP",
+"TIME_TO_ABANDON",
+"AUTO_ABANDON_IN_CM",
+"MIN_MATCH_TIME",
+"ABANDON_DIFF_NEEDED",
+"ABANDON_NEEDED",
+"RANKED_PREGAME_TIME",
+"RANKED_BAN_TIME",
+"RANKED_PICK_TIME",
+"DUEL_START_PROTECTION_TIME"
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -164,6 +179,8 @@ read_globals = { -- these globals can only be accessed.
 
 -- logging
 "D2CustomLogging",
+
+"DOTA_TEAM_SPECTATOR",
 
 "ACT_MELEE_VM_RELOAD",
 "DOTA_LOADOUT_TYPE_OFFHAND_WEAPON",
@@ -2782,7 +2799,10 @@ read_globals = { -- these globals can only be accessed.
 "GetDedicatedServerKey",
 "sha256",
 "TEN_V_TEN_KILL_LIMIT",
-"NORMAL_KILL_LIMIT"
+"NORMAL_KILL_LIMIT",
+"SPECIAL_BOTTLES",
+"SPECIAL_ARCANAS",
+"HeroSelection"
 }
 
 ignore = {

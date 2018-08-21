@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian: Hammer Throw
+  //=================================================================================================================
+  "temple_guardian_hammer_throw_tier5"
+  {
+    "ID"                            "599455"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_hammer_throw_tier5.lua"
+    "AbilityTextureName"            "sven_storm_bolt"
+
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL" // it's actually pure
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_REFRACTION"
+
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "1300"
+    "AbilityCastPoint"              "0.7"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "10"
+
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "radius"                    "200"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "throw_duration"            "2.3"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "stun_duration"             "2.0"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "hammer_damage"             "3000"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                    "particles/test_particle/omniknight_wildaxe.vpcf"
+    }
+  }
+}

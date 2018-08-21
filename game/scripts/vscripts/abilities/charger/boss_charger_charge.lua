@@ -1,4 +1,3 @@
-
 require('libraries/timers')
 
 LinkLuaModifier("modifier_boss_charger_charge", "abilities/charger/boss_charger_charge.lua", LUA_MODIFIER_MOTION_BOTH) --- BATHS HEAVY IMPORTED

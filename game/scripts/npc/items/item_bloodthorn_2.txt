@@ -60,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "8695"
+    "ItemCost"                                            "8705"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 2"
@@ -83,7 +83,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 135 200 270"
+        "bonus_damage"                                    "60 90 125 165 210"
       }
       "04"
       {
@@ -98,7 +98,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "175 195 215 235 255"
+        "crit_multiplier"                                 "175 185 195 205 215"
       }
       "07"
       {
@@ -113,7 +113,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "140 155 170 185 200"
+        "target_crit_multiplier"                          "140 150 160 170 180"
       }
       "10"
       {

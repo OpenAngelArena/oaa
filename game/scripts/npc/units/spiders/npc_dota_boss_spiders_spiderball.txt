@@ -62,7 +62,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "200"     // Base health
+    "StatusHealth"                                        "2000"     // Base health
     "StatusHealthRegen"                                   "1"        // Health regeneration rate.
     "StatusMana"                                          "0"     // Base mana.
     "StatusManaRegen"                                     "0"     // Mana regeneration rate.
@@ -79,7 +79,7 @@
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision
     //----------------------------------------------------------------

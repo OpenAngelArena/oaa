@@ -17,6 +17,8 @@
     {
       "01"                                                "item_ancient_janggo_3;item_upgrade_core_3"
       "02"                                                "item_ancient_janggo_3;item_upgrade_core_4"
+      "03"                                                "item_lucience;item_upgrade_core_3"
+      "04"                                                "item_lucience;item_upgrade_core_4"
     }
   }
 
@@ -52,10 +54,9 @@
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance 4;drums 4"
-    //  Infinite Charges:
-    "ItemInitialCharges"                                  "-1"
-    "ItemDisplayCharges"                                  "0"
-    "ItemRequiresCharges"                                 "0"
+    "ItemInitialCharges"                                  "322"
+    "ItemDisplayCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

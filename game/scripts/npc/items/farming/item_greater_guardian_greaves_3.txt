@@ -10,7 +10,7 @@
     "ID"                                                  "3032"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "17050"
+    "ItemCost"                                            "16650"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 3;guardian greaves 3;ggg 3"

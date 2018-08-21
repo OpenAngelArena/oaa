@@ -54,10 +54,9 @@
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance 2;drums 2"
-    //  Infinite Charges:
-    "ItemInitialCharges"                                  "-1"
-    "ItemDisplayCharges"                                  "0"
-    "ItemRequiresCharges"                                 "0"
+    "ItemInitialCharges"                                  "322"
+    "ItemDisplayCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

@@ -113,6 +113,9 @@ function checkKVData (t, name, data, isItem, cb) {
       root = root.DOTAAbilities;
       foundRoot = true;
     }
+    if (!foundRoot) {
+      console.log(root);
+    }
     t.ok(foundRoot, 'Starts with either DOTAItems or DOTAAbilities');
 
     var keys = Object.keys(root).filter(a => a !== 'values');
@@ -433,7 +436,7 @@ function buildItemTree (t, data, cb) {
         }
 
         if (items[item]) {
-          t.fail(item + ' was defined twice, not bothing with tree');
+          t.fail(item + ' was defined twice, not bothering with tree');
           return;
         }
 
@@ -500,10 +503,12 @@ function buildItemTree (t, data, cb) {
       }
       var requirements = recipeData.ItemRequirements.values;
       var numIndex = 1;
-      requirements = Object.keys(requirements).map(function (index) {
-        t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
-        return requirements[index].split(';').filter(a => !!a);
-      });
+      requirements = Object.keys(requirements)
+        .sort(function (a, b) { return Number(a) - Number(b); })
+        .map(function (index) {
+          t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
+          return requirements[index].split(';').filter(a => !!a);
+        });
 
       itemData.cost = Number.MAX_VALUE;
       itemData.totalCost = Number.MAX_VALUE;
@@ -514,21 +519,35 @@ function buildItemTree (t, data, cb) {
       calculateCost(item);
 
       var upgradeCores = [];
+      var firstReq = null;
+      var firstCore = null;
       requirements.forEach(function (reqList) {
         var coreTier = null;
         reqList.forEach(function (reqItem) {
           var match = reqItem.match(/item_upgrade_core_?([0-9])?/);
           if (!match) {
+            if (!firstReq) {
+              firstReq = reqItem;
+            } else {
+              if (baseItemName(reqItem) === baseItemName(item) && reqItem !== item) {
+                t.equals(baseItemName(firstReq), baseItemName(item), item + ' builds out of itself, so it needs to build out of itself first.');
+              }
+            }
             return;
           }
           coreTier = Number(match[1] || 1);
+          if (!firstCore) {
+            firstCore = coreTier;
+          } else {
+            t.ok(firstCore <= coreTier, item + ' cores should prefer lower tier over higher tier');
+          }
         });
         if (coreTier) {
           upgradeCores.push(coreTier);
         }
       });
 
-      if (upgradeCores.length) {
+      if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
         var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
         // console.log(item, 'is made with tier', minCore, 'items');
         for (var i = minCore; i < 5; ++i) {
@@ -676,4 +695,12 @@ function buildItemTree (t, data, cb) {
       itemData.children.forEach(calculateCost);
     }
   }
+}
+
+function baseItemName (name) {
+  var nameParts = name.split('_');
+  if (Number.isFinite(Number(nameParts.pop()))) {
+    return nameParts.join('_');
+  }
+  return name;
 }

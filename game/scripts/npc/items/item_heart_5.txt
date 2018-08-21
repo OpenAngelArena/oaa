@@ -24,6 +24,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_4;item_upgrade_core_4"
+      "02"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "03"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -59,17 +62,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "45 60 75 95 115"
+        "bonus_strength"                                  "35 50 65 85 105" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "500 700 1200 2000 2800"
+        "bonus_health"                                    "300 700 1200 2000 2700"  //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "3 4 5 6 7"
+        "health_regen_rate"                               "3 4 5 6 7" //OAA
       }
       "04"
       {

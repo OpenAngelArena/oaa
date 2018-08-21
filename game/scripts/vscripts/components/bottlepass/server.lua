@@ -9,13 +9,34 @@ AUTH_KEY = GetDedicatedServerKey('1')
 
 if IsInToolsMode() then
   -- test server
-  BATTLE_PASS_SERVER = 'http://10.0.10.169:9969/'
+  BATTLE_PASS_SERVER = 'http://10.0.10.197:9969/'
 end
 
 function Bottlepass:Init ()
   Debug:EnableDebugging()
   GameEvents:OnCustomGameSetup(partial(Bottlepass.Ready, self))
   GameEvents:OnGameInProgress(partial(Bottlepass.SendTeams, self))
+end
+
+function Bottlepass:StateLoad (players, callback)
+  self:Request('state/load', {
+    players = players
+  }, function (err, data)
+    if data and data.state then
+      callback(data)
+    else
+      callback(nil)
+    end
+  end)
+end
+
+function Bottlepass:StateSave (players, state)
+  self:Request('state/save', {
+    state = state,
+    players = players
+  }, function (err, data)
+    -- state saved! cool!
+  end)
 end
 
 function Bottlepass:SendWinner (winner)
@@ -34,6 +55,7 @@ function Bottlepass:SendWinner (winner)
   local endTime = GetSystemDate() .. GetSystemTime()
   local gameLength = HudTimer.gameTime
   local connectedPlayers = {}
+  local abandonedPlayers = {}
 
   local playerBySteamid = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
@@ -43,6 +65,8 @@ function Bottlepass:SendWinner (winner)
 
     if player then
       table.insert(connectedPlayers, tostring(steamid))
+    elseif PlayerConnection:IsAbandoned(playerID) then
+      table.insert(abandonedPlayers, tostring(steamid))
     end
   end
 
@@ -50,7 +74,10 @@ function Bottlepass:SendWinner (winner)
     winner = winner,
     endTime = endTime,
     gameLength = gameLength,
-    players = connectedPlayers
+    players = connectedPlayers,
+    abandoned = abandonedPlayers,
+    -- let player connection decide if this game should count
+    isValid = PlayerConnection:IsValid()
   }, function (err, data)
     if data and data.ok then
       local mmrDiffs = {}
@@ -137,7 +164,9 @@ function Bottlepass:Ready ()
     gametime = GameStartTime,
     toolsMode = IsInToolsMode(),
     hostId = hostId,
-    cheatsMode = GameRules:IsCheatMode()
+    cheatsMode = GameRules:IsCheatMode(),
+    isRanked = HeroSelection.isRanked,
+    isCM = HeroSelection.isCM,
   }, function (err, data)
     if err then
       DebugPrint(err)

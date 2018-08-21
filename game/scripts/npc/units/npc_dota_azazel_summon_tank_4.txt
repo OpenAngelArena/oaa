@@ -1,0 +1,82 @@
+"DOTAUnits"
+{
+//=================================================================================
+// Azazel's Tank 4
+//=================================================================================
+  "npc_dota_azazel_summon_tank_4"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creature"
+    "SoundSet"                                            "n_creep_ogres"
+    "Level"                                               "4"
+    "ModelScale"                                          "1.1"
+    "ConsideredHero"                                      "1"
+    "UnitLabel"                                           "azazel_tank"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""      // Ability 1
+    "Ability2"                                            ""      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "50"      // Physical protection.
+    "MagicalResistance"                                   "0"    // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "100"    // Damage range min.
+    "AttackDamageMax"                                     "100"    // Damage range max.
+    "AttackRate"                                          "2.0"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "215"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"    // Experience earn.
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "250"    // Speed.
+    "MovementTurnRate"                                    "1.0"    // Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "40000"    // Base health.
+    "StatusHealthRegen"                                   "0"      // Health regeneration rate.
+    "StatusMana"                                          "0"    // Base mana.
+    "StatusManaRegen"                                     "0"    // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    //Inventory
+    "HasInventory"                                        "0"
+  }
+
+}

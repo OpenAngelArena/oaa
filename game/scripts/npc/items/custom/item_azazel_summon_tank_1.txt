@@ -1,0 +1,125 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Azazel Summon - Tank 1
+  //=================================================================================================================
+  "item_recipe_azazel_summon_tank_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "7564"
+    "BaseClass"                             "item_datadriven"
+    "AbilityTextureName"                    "custom/recipe/recipe_1"
+    "Model"                                 "models/props_gameplay/recipe.mdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "SecretShop"                            "1"
+    "ItemShopTags"                          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                            "1"
+    "ItemResult"                            "item_azazel_summon_tank_1"
+    "ItemRequirements" // OAA
+    {
+      "01"                                  "item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Azazel Summon - Tank 1
+  //=================================================================================================================
+  "item_azazel_summon_tank_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "7565"
+    "BaseClass"                             "item_lua"
+    "ScriptFile"                            "items/azazel_summon.lua"
+    "AbilityTextureName"                    "custom/azazel_summon_tank_1"
+    "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                      "0"
+    "AbilityCastPoint"                      "0.0"
+    "AbilitySharedCooldown"                 "azazel_summon"
+    "AbilityCooldown"                       "1.0"
+    "AbilityManaCost"                       "0"
+    "MaxUpgradeLevel"                       "4"
+    "ItemBaseLevel"                         "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                          "consumable"
+    "ItemQuality"                           "epic"
+    "ItemAliases"                           "summon, tank, azazel"
+    "ItemStackable"                         "0"
+    "ItemPermanent"                         "0"
+    "ItemInitialCharges"                    "1"
+    "ItemRequiresCharges"                   "1"
+    "ItemKillable"                          "1"
+    "ItemPurchasable"                       "1"
+    "ItemSellable"                          "0"
+    "SecretShop"                            "1"
+    "SecretShopType"                        "Summons"
+    "IsTempestDoubleClonable"               "0"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                           "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_health"                     "10000 20000 30000 40000"
+      }
+      "02"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_armor"                      "50"
+      }
+      "03"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_ms"                         "250"
+      }
+      "04"
+      {
+        "var_type"                          "FIELD_FLOAT"
+        "summon_bat"                        "2.0"
+      }
+      "05"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_damage"                     "100"
+      }
+      "06"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_vision"                     "800"
+      }
+      "07"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_duration"                   "300"
+      }
+      "08"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_duration_tooltip"           "5"
+      }
+    }
+  }
+}

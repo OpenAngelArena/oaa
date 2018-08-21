@@ -47,7 +47,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leap_speedbonus_as"                              "40 60 80 100 163 225"
+        "leap_speedbonus_as"                              "60 80 100 120 170 250"
         "LinkedSpecialBonus"                              "special_bonus_unique_mirana_1"
       }
       "06"
@@ -63,7 +63,7 @@
       "08"
       {
         "var_type"        "FIELD_INTEGER"
-        "charge_restore_time" "60 50 40 30 25 20"
+        "charge_restore_time" "30" //OAA
       }
     }
   }

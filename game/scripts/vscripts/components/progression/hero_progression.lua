@@ -39,12 +39,23 @@ function HeroProgression:Init()
   self.customLevellingPatterns = {}
   self.statStorage = {} -- Cache for calculated reduced stats
   self.XPStorage = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
-  GameEvents:OnPlayerReconnect(function(keys)
-    local playerID = keys.PlayerID
+
+  local function GivePlayerExperience (playerID)
+    if not HeroProgression.XPStorage[playerID] or PlayerResource:GetConnectionState(playerID) ~= DOTA_CONNECTION_STATE_CONNECTED then
+      return
+    end
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 
-    hero:AddExperience(HeroProgression.XPStorage[playerID], DOTA_ModifyXP_Unspecified, false, true)
-    HeroProgression.XPStorage[playerID] = 0
+    if hero then
+      hero:AddExperience(HeroProgression.XPStorage[playerID], DOTA_ModifyXP_Unspecified, false, true)
+      HeroProgression.XPStorage[playerID] = 0
+    else
+      Timers:CreateTimer(partial(GivePlayerExperience, playerID), 1)
+    end
+  end
+  GameEvents:OnPlayerReconnect(function(keys)
+    local playerID = keys.PlayerID
+    GivePlayerExperience(playerID)
   end)
 
   FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(HeroProgression, "ExperienceFilter"))

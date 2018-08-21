@@ -23,7 +23,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_skadi_4;item_upgrade_core_4"
+      "01"                                                "item_echo_sabre_4;item_upgrade_core_4"
+      "02"                                                "item_nullifier_4;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +49,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "38500"
+    "ItemCost"                                            "36550"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre 5"
@@ -68,7 +69,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 25 35 50"
+        "bonus_strength"                                  "12 18 30 42 60"
       }
       "03"
       {
@@ -78,7 +79,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 50 75"
+        "bonus_damage"                                    "12 18 30 42 60"
       }
       "05"
       {
@@ -103,7 +104,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.7"
+        "slow_duration"                                   "0.8"
       }
     }
   }

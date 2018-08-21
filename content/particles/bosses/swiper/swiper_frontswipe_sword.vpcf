@@ -70,6 +70,11 @@
 		{
 			_class = "C_OP_PositionLock"
 		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_flOffset = 1.0
+			m_bDisableOperator = true
+		},
 	]
 	m_Renderers = 
 	[
@@ -90,7 +95,7 @@
 		{
 			_class = "C_INIT_RingWave"
 			m_flParticlesPerOrbit = 18.0
-			m_flInitialRadius = 125.0
+			m_flInitialRadius = 195.0
 			m_bEvenDistribution = true
 			m_flRoll = 180.0
 			m_flYaw = 110.0
@@ -101,6 +106,11 @@
 			m_nInputMin = 8
 			m_nInputMax = 9
 			m_flOutputMin = 0.5
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_vecWarpMin = [ 0.8, 1.0, 1.0 ]
+			m_vecWarpMax = [ 0.8, 1.0, 0.0 ]
 		},
 	]
 	m_Emitters = 

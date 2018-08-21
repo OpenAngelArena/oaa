@@ -64,7 +64,11 @@ end
 
 function modifier_creep_bounty_effect:OnCreated(keys)
   AuraEffectBaseClass.OnCreated(self, keys)
-  self.creepBountyPercent = self:GetAbility():GetSpecialValueFor("creep_bounty_percent")
+
+  self.creepBountyPercent = self:SafeCallWithAbility(
+    "creepBountyPercent",
+    CallMethod("GetSpecialValueFor", "creep_bounty_percent")
+  )
 end
 
 function modifier_creep_bounty_effect:DeclareFunctions()

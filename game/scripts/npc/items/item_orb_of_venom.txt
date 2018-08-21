@@ -22,19 +22,24 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "poison_damage"                                   "5.0"
+        "poison_damage_melee"                             "5.0"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "poison_movement_speed_melee"                     "-12"
+        "var_type"                                        "FIELD_FLOAT"
+        "poison_damage_range"                             "3.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "poison_movement_speed_range"                     "-4"
+        "poison_movement_speed_melee"                     "-12"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "poison_movement_speed_range"                     "-4"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "poison_duration"                                 "3.0"

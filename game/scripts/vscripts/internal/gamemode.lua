@@ -30,8 +30,6 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
 
-  GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT, 0.0007)
-
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
@@ -43,15 +41,6 @@ function GameMode:_InitGameMode()
     GameRules:LockCustomGameSetupTeamAssignment( LOCK_TEAM_SETUP )
     GameRules:EnableCustomGameSetupAutoLaunch( ENABLE_AUTO_LAUNCH )
   end
-
-  -- exponential gpm increase
-  local goldTickCount = 0
-  Timers:CreateTimer(5, function ()
-    goldTickCount = goldTickCount + 1
-    GameRules:SetGoldPerTick((goldTickCount*goldTickCount - 31*goldTickCount + 8624)*15/19200)
-    return 5
-  end)
-
 
   -- This is multiteam configuration stuff
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then

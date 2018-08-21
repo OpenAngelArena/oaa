@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5488"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "5"
@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130.0 110.0 90.0 70.0 50.0"
+    "AbilityCooldown"                                     "130.0 110.0 90.0 90.0 90.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

@@ -22,6 +22,7 @@
     "Ability2"                                            "boss_spiders_spidershot"
     "Ability3"                                            "boss_resistance"
     "Ability4"                                            "boss_cliffwalk"
+    "Ability5"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
@@ -59,7 +60,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "8500"     // Base health
+    "StatusHealth"                                        "10000"     // Base health
     "StatusHealthRegen"                                   "5.0"        // Health regeneration rate.
     "StatusMana"                                          "1000"     // Base mana.
     "StatusManaRegen"                                     "5.0"     // Mana regeneration rate.

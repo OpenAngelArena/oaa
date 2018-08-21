@@ -172,7 +172,15 @@ function LoadGameKeyValues()
 			print("[KeyValues] Warning: Duplicated unit/hero entry for " .. key)
 			table.deepmerge(KeyValues.UnitKV[key], value)
 		end
-	end
+  end
+
+  for key,value in pairs(KeyValues.ItemKV) do
+    if type(KeyValues.ItemKV[key]) == "table" and KeyValues.ItemKV[key].SecretShopType ~= nil then
+      -- Reusing info net table cause we can't create new net tables (max limit)
+      CustomNetTables:SetTableValue( "info", tostring(key), value )
+    end
+  end
+
 end
 
 -- Works for heroes and units on the same table due to merging both tables on game init

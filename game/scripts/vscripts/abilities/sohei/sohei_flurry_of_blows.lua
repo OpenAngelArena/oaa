@@ -1,18 +1,6 @@
-sohei_flurry_of_blows = class( AbilityBaseClass )
+﻿sohei_flurry_of_blows = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_special_bonus_sohei_fob_radius", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
-
---------------------------------------------------------------------------------
-
--- Cast animation + playback rate
-function sohei_flurry_of_blows:GetCastAnimation()
-  return ACT_DOTA_CAST_ABILITY_4
-end
-
-function sohei_flurry_of_blows:GetPlaybackRateOverride()
-  return 2
-end
 
 --------------------------------------------------------------------------------
 
@@ -100,50 +88,10 @@ end
 
 --------------------------------------------------------------------------------
 
--- We cannot read serve function on GetAOERadius, that is why valve craetes unique specials for each bonus value
 function sohei_flurry_of_blows:GetAOERadius()
   local caster = self:GetCaster()
-  local additionalRadius = 0
 
-  if caster:HasModifier( 'modifier_special_bonus_sohei_fob_radius' ) then
-    return self:GetSpecialValueFor( "flurry_radius" ) + self:GetSpecialValueFor( "talent_bonus_radius" )
-  end
-
-  return self:GetSpecialValueFor( "flurry_radius" )
-end
-
-function sohei_flurry_of_blows:OnHeroCalculateStatBonus(table)
-  local caster = self:GetCaster()
-
-  local talent = caster:FindAbilityByName( "special_bonus_sohei_fob_radius" )
-
-  if talent and talent:GetLevel() > 0 then
-    caster:AddNewModifier( caster, talent, 'modifier_special_bonus_sohei_fob_radius', nil )
-  end
-end
-
---------------------------------------------------------------------------------
-
-modifier_special_bonus_sohei_fob_radius = class( ModifierBaseClass )
-
-function modifier_special_bonus_sohei_fob_radius:IsDebuff()
-  return false
-end
-
-function modifier_special_bonus_sohei_fob_radius:IsHidden()
-  return true
-end
-
-function modifier_special_bonus_sohei_fob_radius:IsPurgable()
-  return false
-end
-
-function modifier_special_bonus_sohei_fob_radius:IsStunDebuff()
-  return false
-end
-
-function modifier_special_bonus_sohei_fob_radius:GetAttributes()
-  return MODIFIER_ATTRIBUTE_PERMANENT
+  return self:GetSpecialValueFor( "flurry_radius" ) + caster:FindTalentValue( "special_bonus_sohei_fob_radius" )
 end
 
 --------------------------------------------------------------------------------

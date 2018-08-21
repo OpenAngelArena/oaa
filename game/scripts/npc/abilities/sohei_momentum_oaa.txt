@@ -36,8 +36,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/ronin/momentum.vpcf"
-      "particle"          "particles/hero/ronin/knockback.vpcf"
+      "particle"          "particles/hero/sohei/momentum.vpcf"
+      "particle"          "particles/hero/sohei/knockback.vpcf"
       "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
@@ -68,7 +68,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_damage"				"120 130 140 150 160 175"
+				"crit_damage"				"130 140 150 160 170 185"
 			}
 			"06"
 			{

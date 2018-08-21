@@ -93,7 +93,13 @@ if IsServer() then
 
 		if not self:IsMomentumReady() then
 			if spell:IsCooldownReady() and not parent:PassivesDisabled() and not spell:IsHidden() then
-				self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
+        self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
+        if self:IsMomentumReady() then
+          local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
+          if dbzArcana ~= nil then
+            ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
+          end
+        end
 			end
 		end
 	end
@@ -150,7 +156,11 @@ if IsServer() then
 
 			-- Consume the buff
 			if not attacker:HasModifier( "modifier_sohei_flurry_self" ) then
-				self:SetStackCount( 0 )
+        self:SetStackCount( 0 )
+        local dbzArcana = attacker:FindModifierByName( 'modifier_arcana_dbz' )
+        if dbzArcana ~= nil then
+          ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(0,0,0) )
+        end
 			end
 
 			-- Knock the enemy back
@@ -167,10 +177,16 @@ if IsServer() then
 			} )
 
 			-- Play the impact sound
-			target:EmitSound( "Sohei.Momentum" )
+      target:EmitSound( "Sohei.Momentum" )
+
+      local particleName = "particles/hero/sohei/momentum.vpcf"
+
+      if target:HasModifier('modifier_arcana_dbz') then
+        particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
+      end
 
 			-- Play the impact particle
-			local momentum_pfx = ParticleManager:CreateParticle( "particles/hero/sohei/momentum.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+			local momentum_pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
 			ParticleManager:SetParticleControl( momentum_pfx, 0, target:GetAbsOrigin() )
 			ParticleManager:ReleaseParticleIndex( momentum_pfx )
 
@@ -226,6 +242,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_knockback:GetEffectName()
+  if self:GetCaster():HasModifier('modifier_arcana_dbz') then
+    return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
+  end
 	return "particles/hero/sohei/knockback.vpcf"
 end
 

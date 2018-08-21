@@ -10,7 +10,7 @@
     "ID"                                                  "3361"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_farming_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -24,6 +24,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_arcane_boots_3;item_upgrade_core_4"
+      "02"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
+      "03"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
+      "04"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
+      "05"                                                "item_greater_power_treads_3;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "33000"
+    "ItemCost"                                            "32600"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater arcane boots 4;greater arcanes 4;arcanes 4"

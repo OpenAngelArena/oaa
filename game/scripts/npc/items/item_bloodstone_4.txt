@@ -18,6 +18,8 @@
     {
       "01"                                                "item_bloodstone_3;item_upgrade_core_3"
       "02"                                                "item_bloodstone_3;item_upgrade_core_4"
+      "03"                                                "item_bloodstone_3;item_upgrade_core_3"
+      "04"                                                "item_bloodstone_3;item_upgrade_core_4"
     }
   }
 
@@ -104,7 +106,7 @@
       "09"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_per_charge" "0.4 0.5 0.6 0.7 0.8"
+        "mana_per_charge" "0.4"
       }
     }
   }

@@ -26,6 +26,9 @@
       "01"                                                "item_pull_staff;item_upgrade_core_2"
       "02"                                                "item_pull_staff;item_upgrade_core_3"
       "03"                                                "item_pull_staff;item_upgrade_core_4"
+      "04"                                                "item_force_staff_2;item_upgrade_core_2"
+      "05"                                                "item_force_staff_2;item_upgrade_core_3"
+      "06"                                                "item_force_staff_2;item_upgrade_core_4"
     }
   }
 
@@ -118,6 +121,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_range"                                   "800"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "distance"                                        "500 600 700 800"
       }
     }
   }

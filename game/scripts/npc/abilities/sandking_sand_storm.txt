@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "34 26 18 10 10 10"
+    "AbilityCooldown"                                     "10"  //OAA
     "AbilityChannelTime"                                  "50"
     "AbilityCastPoint"                                    "0.0"
 
@@ -55,7 +55,7 @@
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "sand_storm_damage"   "40 60 80 100 200 300"
+        "sand_storm_damage"   "40 60 80 100 220 500"
         "LinkedSpecialBonus"  "special_bonus_unique_sand_king_2"
       }
     }

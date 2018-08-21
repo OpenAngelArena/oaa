@@ -23,6 +23,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_sange_and_yasha_4;item_upgrade_core_4"
+      "02"                                                "item_ancient_janggo_4;item_upgrade_core_4"
+      "03"                                                "item_lucience_2;item_upgrade_core_4"
     }
   }
 
@@ -44,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37300"
+    "ItemCost"                                            "34615"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

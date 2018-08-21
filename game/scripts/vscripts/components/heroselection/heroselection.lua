@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
 
+Debug:EnableDebugging()
+
 if HeroSelection == nil then
   DebugPrint ( 'Starteng HeroSelection' )
   HeroSelection = class({})
@@ -14,6 +16,7 @@ local loadedHeroes = {}
 local totalheroes = 0
 
 local cmtimer = nil
+local rankedTimer = nil
 
 -- storage for this game picks
 local selectedtable = {}
@@ -29,19 +32,19 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
-  Debug:EnableDebugging()
 
   DebugPrint("Initializing HeroSelection")
-  self.isCM = GetMapName() == "oaa_captains_mode"
+  self.isCM = GetMapName() == "captains_mode"
   self.isARDM = GetMapName() == "ardm"
-  self.is10v10 = GetMapName() == "oaa_10v10"
+  self.is10v10 = GetMapName() == "10v10"
+  self.isRanked = GetMapName() == "ranked"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
 
   local herolistFile = 'scripts/npc/herolist.txt'
 
-  if self.isCM then
+  if self.isCM or self.isRanked then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
   if self.isARDM then
@@ -52,6 +55,7 @@ function HeroSelection:Init ()
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  local heroAbilities = {}
   for key,value in pairs(LoadKeyValues(herolistFile)) do
     DebugPrint("Heroes: ".. key)
     if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
@@ -64,6 +68,20 @@ function HeroSelection:Init ()
     end
     if value == 1 then
       DebugPrint('Hero thingy fuck whatever ' .. allheroes[key].AttributePrimary)
+      if not heroAbilities[allheroes[key].AttributePrimary] then
+        heroAbilities[allheroes[key].AttributePrimary] = {}
+      end
+      heroAbilities[allheroes[key].AttributePrimary][key] = {
+        allheroes[key].Ability1,
+        allheroes[key].Ability2,
+        allheroes[key].Ability3,
+        allheroes[key].Ability4,
+        allheroes[key].Ability5,
+        allheroes[key].Ability6,
+        allheroes[key].Ability7,
+        allheroes[key].Ability8,
+        allheroes[key].Ability9
+      }
       herolist[key] = allheroes[key].AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
@@ -71,6 +89,12 @@ function HeroSelection:Init ()
   end
 
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
+  for attr,data in pairs(heroAbilities) do
+    CustomNetTables:SetTableValue( 'hero_selection', 'abilities_' .. attr, data)
+  end
+
+
+
 
   -- lock down the "pick" hero so that they can't do anything
   GameEvents:OnHeroInGame(function (npc)
@@ -147,12 +171,243 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
   CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
+  CustomGameEventManager:RegisterListener('bottle_selected', Dynamic_Wrap(HeroSelection, 'OnBottleSelected'))
+  CustomGameEventManager:RegisterListener('arcana_selected', Dynamic_Wrap(HeroSelection, 'OnArcanaSelected'))
 
-  if GetMapName() == "oaa_captains_mode" then
+  if self.isCM then
     HeroSelection:CMManager(nil)
+  elseif self.isRanked then
+    HeroSelection:RankedManager(nil)
   else
     HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
   end
+
+  -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
+  local special_bottles = {}
+  local special_arcanas = {}
+  HeroSelection.SelectedBottle = {}
+  HeroSelection.SelectedArcana = {}
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    local steamid = PlayerResource:GetSteamAccountID(playerID)
+
+    if SPECIAL_BOTTLES[steamid] then
+      special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
+      HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
+    end
+    if SPECIAL_ARCANAS[steamid] then
+      special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}
+    end
+  end
+
+  -- Populate table with playerIds and list of bottles/arcanas for players
+  CustomNetTables:SetTableValue( 'bottlepass', 'special_bottles', special_bottles )
+  CustomNetTables:SetTableValue( 'bottlepass', 'special_arcanas', special_arcanas )
+end
+
+
+function HeroSelection:OnBottleSelected (selectedBottle)
+  if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
+  HeroSelection.SelectedBottle[selectedBottle.PlayerId] = selectedBottle.BottleId
+  CustomNetTables:SetTableValue( 'bottlepass', 'selected_bottles', HeroSelection.SelectedBottle )
+end
+
+function HeroSelection:OnArcanaSelected (selectedArcana)
+  if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
+  if HeroSelection.SelectedArcana[selectedArcana.PlayerId] == nil then HeroSelection.SelectedArcana[selectedArcana.PlayerId] = {} end
+  HeroSelection.SelectedArcana[selectedArcana.PlayerId][selectedArcana.Hero] = selectedArcana.Arcana
+  CustomNetTables:SetTableValue( 'bottlepass', 'selected_arcanas', HeroSelection.SelectedArcana )
+end
+
+function HeroSelection:GetSelectedBottleForPlayer(playerId)
+  if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
+  return HeroSelection.SelectedBottle[playerId] or 0
+end
+
+function HeroSelection:GetSelectedArcanaForPlayer(playerId)
+  if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
+  return HeroSelection.SelectedArcana[playerId] or {}
+end
+
+function HeroSelection:RankedManager (event)
+  local function save ()
+    CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
+  end
+  if event == nil then
+    -- start
+    save()
+    return self:RankedTimer(RANKED_PREGAME_TIME, "PRE-GAME")
+  end
+
+  -- phases!
+  if rankedpickorder.phase == 'strategy' then
+    return
+  end
+  if rankedpickorder.phase == 'start' then
+    if event.isTimeout then
+      rankedpickorder.phase = 'bans'
+      save()
+      return self:RankedTimer(RANKED_BAN_TIME, "BAN HEROES")
+    else
+      DebugPrint('Event during ranked start phase, that makes no sense!')
+    end
+  end
+  if rankedpickorder.phase == 'bans' then
+    -- end banning phase
+    if event.isTimeout then
+      rankedpickorder.phase = 'picking'
+      rankedpickorder.currentOrder = 1
+      self:ChooseBans()
+      save()
+      return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+    else
+      -- ban hero
+      if event.hero == 'random' or rankedpickorder.banChoices[event.PlayerID] then
+        save()
+        return
+      end
+      rankedpickorder.banChoices[event.PlayerID] = event.hero
+      save()
+      return
+    end
+  end
+  if rankedpickorder.phase == 'picking' then
+    if forcestop or not rankedpickorder.order[rankedpickorder.currentOrder] then
+      rankedpickorder.phase = 'strategy'
+      save()
+      return HeroSelection:APTimer(0)
+    end
+    local choice = event.hero
+    if event.isTimeout then
+      DebugPrint('Timeout hero pick, randoming...')
+      choice = 'random'
+      DebugPrint('Checking out this team ' .. rankedpickorder.order[rankedpickorder.currentOrder].team)
+      PlayerResource:GetPlayerIDsForTeam(rankedpickorder.order[rankedpickorder.currentOrder].team):foreach(function (playerID)
+        if not selectedtable[playerID] or selectedtable[playerID].selectedhero == 'empty' then
+          DebugPrint('Trying ' .. playerID)
+          if not event.PlayerID or RandomInt(0, 2) == 0 then
+            event.PlayerID = playerID
+          end
+        else
+          DebugPrint('Cant random because he selected ' .. playerID .. ' / ' .. selectedtable[playerID].selectedhero)
+        end
+      end)
+    end
+    if not event.PlayerID then
+      DebugPrint('How are there no players for this thing?')
+      rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
+      save()
+      return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+    end
+    if choice == 'random' then
+      choice = self:RandomHero()
+    end
+    DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
+    if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
+      -- wrong team
+      DebugPrint("This pick is from the wrong team!");
+      save()
+      return
+    end
+    if selectedtable[event.PlayerID] and selectedtable[event.PlayerID].selectedhero ~= 'empty' then
+      -- already picked a hero
+      DebugPrint("This player slready selected!");
+      save()
+      return
+    end
+    rankedpickorder.order[rankedpickorder.currentOrder].hero = choice
+    rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
+    HeroSelection:UpdateTable(event.PlayerID, choice)
+    save()
+    return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+  end
+  if forcestop then
+    save()
+    return HeroSelection:APTimer(0)
+  end
+end
+
+function HeroSelection:ChooseBans ()
+  local banCount = 0
+  local goodBans = 0
+  local badBans = 0
+  local goodBanChoices = 0
+  local badBanChoices = 0
+  local playerIDs = {}
+
+  for playerID,choice in pairs(rankedpickorder.banChoices) do
+    table.insert(playerIDs, playerID)
+    local team = PlayerResource:GetTeam(playerID)
+    if team == DOTA_TEAM_GOODGUYS then
+      goodBanChoices = goodBanChoices + 1
+    end
+    if team == DOTA_TEAM_BADGUYS then
+      badBanChoices = badBanChoices + 1
+    end
+  end
+
+  local totalChoices = badBanChoices + goodBanChoices
+
+  DebugPrint('Choosing bans from ' .. totalChoices .. ' choices...')
+
+  if totalChoices == 1 then
+    if RandomInt(0, 1) == 0 then
+      -- no bans! choose things!
+      DebugPrint('Rolled 0, no bans!')
+      return
+    end
+    for playerID,choice in pairs(rankedpickorder.banChoices) do
+      rankedpickorder.bans[1] = choice
+      DebugPrint('Only suggestion was ' .. choice)
+    end
+    return
+  else
+    while banCount < totalChoices / 2 do
+      local choiceNum = RandomInt(1, totalChoices - banCount)
+      local playerID = playerIDs[choiceNum]
+      table.remove(playerIDs, choiceNum)
+      local team = PlayerResource:GetTeam(playerID)
+      local canBan = true
+      if team == DOTA_TEAM_BADGUYS then
+        if badBans >= 3 then
+          canBan = false
+          DebugPrint('Not chosing this ban because we already choose ' .. badBans .. ' bad bans')
+        end
+        badBans = badBans + 1
+      elseif team == DOTA_TEAM_GOODGUYS then
+        if goodBans >= 3 then
+          canBan = false
+          DebugPrint('Not chosing this ban because we already choose ' .. goodBans .. ' good bans')
+        end
+        goodBans = goodBans + 1
+      end
+      if canBan then
+        banCount = banCount + 1
+        DebugPrint('Banning ' .. rankedpickorder.banChoices[playerID])
+        table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+      end
+    end
+  end
+end
+
+function HeroSelection:RankedTimer (time, message)
+  HeroSelection:CheckPause()
+  if forcestop == true or time < 0 then
+    HeroSelection:RankedManager({hero = "random", isTimeout = true})
+    return
+  end
+
+  CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
+  if rankedTimer then
+    Timers:RemoveTimer(rankedTimer)
+    rankedTimer = nil
+  end
+  rankedTimer = Timers:CreateTimer({
+    useGameTime = not HERO_SELECTION_WHILE_PAUSED,
+    endTime = 1,
+    callback = function()
+      HeroSelection:RankedTimer(time - 1, message)
+    end
+  })
 end
 
 -- start heropick CM timer
@@ -324,7 +579,7 @@ function HeroSelection:APTimer (time, message)
     for key, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
-        if GetMapName() == "oaa_captains_mode" then
+        if GetMapName() == "captains_mode" then
           HeroSelection:UpdateTable(key, cmpickorder[value.team.."picks"][1])
         else
           HeroSelection:UpdateTable(key, HeroSelection:RandomHero())
@@ -334,7 +589,7 @@ function HeroSelection:APTimer (time, message)
     end
     PlayerResource:GetAllTeamPlayerIDs():each(function (playerId)
       if not lockedHeroes[playerId] then
-        if GetMapName() == "oaa_captains_mode" then
+        if GetMapName() == "captains_mode" then
           HeroSelection:UpdateTable(playerId, cmpickorder[PlayerResource:GetTeam(playerId).."picks"][1])
         else
           HeroSelection:UpdateTable(playerId, HeroSelection:RandomHero())
@@ -394,6 +649,7 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if hero and hero:GetUnitName() ~= FORCE_PICKED_HERO then
     table.insert(self.spawnedHeroes, hero)
     self.spawnedPlayers[playerId] = true
+    HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
   else
     self.attemptedSpawnPlayers[playerId] = heroName
     Timers:CreateTimer(2, function ()
@@ -401,15 +657,22 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
     end)
   end
 
-  if hero:GetUnitName() == "npc_dota_hero_sohei" then --Check if hero is Sohei
-    HeroCosmetics:Sohei (hero)
-  end
-
 end
 
 function HeroSelection:IsHeroDisabled (hero)
-  if GetMapName() == "oaa_captains_mode" then
+  if self.isCM then
     for _,data in ipairs(cmpickorder["order"]) do
+      if hero == data.hero then
+        return true
+      end
+    end
+  elseif self.isRanked then
+    for _,bannedHero in pairs(rankedpickorder.bans) do
+      if hero == bannedHero then
+        return true
+      end
+    end
+    for _,data in pairs(rankedpickorder.order) do
       if hero == data.hero then
         return true
       end
@@ -443,7 +706,7 @@ function HeroSelection:RandomHero ()
 end
 function HeroSelection:UnsafeRandomHero ()
   local curstate = 0
-  local rndhero = RandomInt(0, totalheroes)
+  local rndhero = RandomInt(0, totalheroes - 1)
   for name, _ in pairs(herolist) do
     if curstate == rndhero then
       return name
@@ -500,6 +763,12 @@ end
 function HeroSelection:HeroSelected (event)
   DebugPrint("Received Hero Pick")
   DebugPrintTable(event)
+  if HeroSelection.isRanked then
+    return HeroSelection:RankedManager(event)
+  end
+  -- if HeroSelection.isCM then
+  --   return HeroSelection:CMManager(event)
+  -- end
   HeroSelection:UpdateTable(event.PlayerID, event.hero)
 end
 
@@ -534,7 +803,7 @@ function HeroSelection:UpdateTable (playerID, hero)
     hero = "empty"
   end
 
-  if GetMapName() == "oaa_captains_mode" then
+  if GetMapName() == "captains_mode" then
     if hero ~= "empty" then
       local cmFound = false
       for k,v in pairs(cmpickorder[teamID.."picks"])do
@@ -560,7 +829,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   -- if everyone has picked, stop
   local isanyempty = false
   for key, value in pairs(selectedtable) do --pseudocode
-    if GetMapName() ~= "oaa_captains_mode" and value.steamid == "0" then
+    if GetMapName() ~= "captains_mode" and value.steamid == "0" then
       value.selectedhero = HeroSelection:RandomHero()
     end
     if value.selectedhero == "empty" then

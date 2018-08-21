@@ -52,6 +52,9 @@ Either "**short**" "**normal**" or "**long**"
 ### ngp_selection
 Sent when a player has made their selection for a given Need/Greed/Pass instance.
 
+### surrender_result
+Sent when a player has made their selection for a given surrender instance.
+
 **id**  
 Type: `string` or `number`  
 Unique ID for this item instance

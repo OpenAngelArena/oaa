@@ -8,45 +8,21 @@ if DuelRunes == nil then
 end
 
 function DuelRunes:Init ()
-  DuelRunes.zone1 = ZoneControl:CreateZone('duel_1_rune_hill', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {
-    }
-  })
 
-  DuelRunes.zone2 = ZoneControl:CreateZone('duel_2_rune_hill', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {
-    }
-  })
-  DuelRunes.zone3 = ZoneControl:CreateZone('duel_3_rune_hill', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {
-    }
-  })
+  for index,key in pairs(Duels.zones) do
+    DebugPrint("Init rune hill for arena #" .. tostring(index))
 
-  DuelRunes.zone4 = ZoneControl:CreateZone('duel_4_rune_hill', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {
-    }
-  })
+    local runeHill = ZoneControl:CreateZone('duel_' .. tostring(index) .. '_rune_hill', {
+      mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+      margin = 0,
+      padding = 0,
+      players = {
+      }
+    })
 
-  DuelRunes.zone1.onStartTouch(DuelRunes.StartTouch)
-  DuelRunes.zone1.onEndTouch(DuelRunes.EndTouch)
-  DuelRunes.zone2.onStartTouch(DuelRunes.StartTouch)
-  DuelRunes.zone2.onEndTouch(DuelRunes.EndTouch)
-  DuelRunes.zone3.onStartTouch(DuelRunes.StartTouch)
-  DuelRunes.zone3.onEndTouch(DuelRunes.EndTouch)
-  DuelRunes.zone4.onStartTouch(DuelRunes.StartTouch)
-  DuelRunes.zone4.onEndTouch(DuelRunes.EndTouch)
+    runeHill.onStartTouch(DuelRunes.StartTouch)
+    runeHill.onEndTouch(DuelRunes.EndTouch)
+  end
 
   Duels.onEnd(function()
     Timers:RemoveTimer('DuelRunes')
@@ -82,7 +58,10 @@ function DuelRunes:StartTouch(event)
 [   VScript  ]: outputid: 0
 ]]
   local modifier = event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
-  modifier.zone = event.caller
+  -- No idea how this can be nil if the previous line doesn't have an error, but it happens for some reason
+  if modifier then
+    modifier.zone = event.caller
+  end
 end
 
 function DuelRunes:EndTouch(event)

@@ -4,7 +4,7 @@ BAREBONES_VERSION = "1.00"
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
 -- this overrides per-module logging rules and just opens the floodgates
-BAREBONES_DEBUG_SPEW = true
+BAREBONES_DEBUG_SPEW = false
 
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
@@ -180,6 +180,7 @@ function GameMode:OnGameInProgress()
   -- initialize modules
   InitModule(HudTimer)
   InitModule(PointsManager)
+  InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
@@ -191,6 +192,8 @@ function GameMode:OnGameInProgress()
   InitModule(DuelRunes)
   InitModule(FinalDuel)
   InitModule(PlayerConnection)
+  InitModule(StatusResistance)
+  InitModule(SaveLoadState)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )

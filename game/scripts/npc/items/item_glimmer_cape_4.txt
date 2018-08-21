@@ -25,6 +25,8 @@
     {
       "01"                                                "item_glimmer_cape_3;item_upgrade_core_3"
       "02"                                                "item_glimmer_cape_3;item_upgrade_core_4"
+      "03"                                                "item_pipe_3;item_upgrade_core_3"
+      "04"                                                "item_pipe_3;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +54,7 @@
     
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "14850"
+    "ItemCost"                    "16150"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"

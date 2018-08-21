@@ -24,8 +24,12 @@
     "ItemResult"                                          "item_refresher_4"
     "ItemRequirements"
     {
-      "01"                                                "item_refresher_3;item_upgrade_core_3"
-      "02"                                                "item_refresher_3;item_upgrade_core_4"
+      "01"                                                "item_octarine_core_3;item_upgrade_core_3"
+      "02"                                                "item_octarine_core_3;item_upgrade_core_4"
+      "01"                                                "item_satanic_core;item_upgrade_core_3"
+      "02"                                                "item_satanic_core;item_upgrade_core_4"
+      // "01"                                                "item_refresher_3;item_upgrade_core_3"
+      // "02"                                                "item_refresher_3;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "275"
-    "ItemCost"                                            "18200"
+    "ItemCost"                                            "24400"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 4;refresher 4"

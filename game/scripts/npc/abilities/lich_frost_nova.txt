@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "7.0"
     "AbilityDuration"                                     "4.0"
 
     // Damage.
@@ -56,7 +56,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed"                               "-20 -20 -20 -20 -30 -50"
+        "slow_attack_speed"                               "-30"
       }
       "04"
       {

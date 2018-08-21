@@ -87,7 +87,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      // The bonus must be set in the ability key value as well this is only used for tooltips
       "01"
       {
         "var_type"        "FIELD_INTEGER"
@@ -143,7 +142,7 @@
 	  "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "duration"        "0.5"     // Knockback max distance
+        "duration"        "0.2"     // Knockback max distance
       }
     }
   }
