@@ -24,7 +24,7 @@ function boss_magma_mage_volcano:OnSpellStart()
     for i=1,nTorrents do
 
       --get random location within cast range
-      local fRadians = RandomFloat(0,2*math.pi) 
+      local fRadians = RandomFloat(0,2*math.pi)
       local fDist = RandomFloat(0,nCastRange)
       local vLoc = hCaster:GetAbsOrigin()
       vLoc.x = vLoc.x + fDist*math.cos(fRadians)
@@ -69,7 +69,7 @@ function boss_magma_mage_volcano:FindClosestMagmaPool() --returns the location (
     local nClosestEdgeDistance = math.huge
     for _,volcano in pairs(volcanos) do
       if volcano:HasModifier( zModName ) and (volcano:FindModifierByName( zModName ):GetCaster():GetTeamNumber() == self:GetCaster():GetTeamNumber()) then
-        EdgeDistance = (self:GetOwner():GetOrigin() - volcano:GetOrigin()):Length2D() - volcano:FindModifierByName( zModName ):GetMagmaRadius()
+        local EdgeDistance = (self:GetOwner():GetOrigin() - volcano:GetOrigin()):Length2D() - volcano:FindModifierByName( zModName ):GetMagmaRadius()
         if EdgeDistance < nClosestEdgeDistance then
           nClosestEdgeDistance = EdgeDistance
           hClosestVolcano = volcano
@@ -80,13 +80,13 @@ function boss_magma_mage_volcano:FindClosestMagmaPool() --returns the location (
       return nil
     end
     local vEdgeLoc = self:GetOwner():GetAbsOrigin() + (hClosestVolcano:GetAbsOrigin()-self:GetOwner():GetAbsOrigin()):Normalized()*nClosestEdgeDistance
-     DebugDrawLine(self:GetOwner():GetOrigin(),vEdgeLoc,0,255,255,true,10) 
+     DebugDrawLine(self:GetOwner():GetOrigin(),vEdgeLoc,0,255,255,true,10)
     return vEdgeLoc
   end
   return
 end
 
-function boss_magma_mage_volcano:GetNumVolcanos() 
+function boss_magma_mage_volcano:GetNumVolcanos()
   if IsServer() then
     local volcanos = Entities:FindAllByName(self.zVolcanoName)
     local NumVolcanos = 0

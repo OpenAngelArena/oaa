@@ -1,6 +1,6 @@
 modifier_boss_magma_mage_volcano_thinker = class (ModifierBaseClass)
 
- 
+
 --------------------------------------------------------------------------------
 function modifier_boss_magma_mage_volcano_thinker:IsHidden()
   return true
@@ -40,7 +40,7 @@ function modifier_boss_magma_mage_volcano_thinker:OnCreated(kv)
     self.aoe_per_second = hAbility:GetSpecialValueFor("magma_spread_speed")
     self.magma_radius =  hAbility:GetSpecialValueFor("magma_initial_aoe")
     self.max_radius = hAbility:GetSpecialValueFor("magma_radius_max")
-    
+
     self.nFXIndex = ParticleManager:CreateParticle( "particles/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, nil )
     ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.radius,self.delay,0))
@@ -79,10 +79,10 @@ function modifier_boss_magma_mage_volcano_thinker:OnIntervalThink()
       if #units > 0 then
         for _,unit in pairs(units) do
           if unit ~= nil then
-            unit:AddNewModifier(hCaster,hAbility,"modifier_boss_magma_mage_volcano_burning_effect", {duration = self.interval+0.1} )
+            unit:AddNewModifier(damage.attacker,damage.ability,"modifier_boss_magma_mage_volcano_burning_effect", {duration = self.interval+0.1} )
             if unit:GetTeamNumber() == hParent:GetTeamNumber() then
               unit:Heal(heal_per_interval, self:GetAbility())
-            elseif not unit:HasModifier("modifier_boss_magma_mage_volcano") then 
+            elseif not unit:HasModifier("modifier_boss_magma_mage_volcano") then
               --damage enemy in pool unless they have yet to hit the ground
               damage.victim = unit
               ApplyDamage(damage)
@@ -93,7 +93,7 @@ function modifier_boss_magma_mage_volcano_thinker:OnIntervalThink()
 
   self.magma_radius = math.min( math.sqrt(self.magma_radius^2 + aoe_per_interval/math.pi), self.max_radius)
 
-  ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.magma_radius,0,0)) 
+  ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.magma_radius,0,0))
 
   elseif GameRules:GetGameTime() >= (self.creationtime + self.delay) then
       self:MagmaErupt()
@@ -119,7 +119,7 @@ end
 
 
 --------------------------------------------------------------------------------
- 
+
  function modifier_boss_magma_mage_volcano_thinker:MagmaErupt()
 
     local hParent = self:GetParent()
@@ -154,12 +154,12 @@ end
         end
       end
 
-    end 
+    end
 
     --Particle for the actual magma pool
     self.nFXIndex = ParticleManager:CreateParticle( "particles/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, nil )
     ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetAbsOrigin())
-    ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.magma_radius,0,0))   
+    ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.magma_radius,0,0))
 
   return
 
@@ -177,7 +177,7 @@ function modifier_boss_magma_mage_volcano_thinker:OnAttackLanded( params )
         local damage_dealt = nil
         if hAttacker:IsHero() then
           damage_dealt = 8
-        else 
+        else
           damage_dealt = 1
         end
         hParent:SetHealth(hParent:GetHealth()-damage_dealt)

@@ -1,5 +1,5 @@
 modifier_boss_magma_mage_volcano = class(ModifierBaseClass)
- 
+
 GRAVITY_DECEL = 800
 --------------------------------------------------------------------------------
 function modifier_boss_magma_mage_volcano:IsHidden()
@@ -31,7 +31,7 @@ function modifier_boss_magma_mage_volcano:RemoveOnDeath()
 end
 
 function modifier_boss_magma_mage_volcano:DeclareFunctions()
-  local funcs = { 
+  local funcs = {
   MODIFIER_PROPERTY_OVERRIDE_ANIMATION
   }
   return funcs
@@ -44,8 +44,8 @@ end
 function modifier_boss_magma_mage_volcano:OnCreated( kv )
   if IsServer() then
     --set speed so that the rise/fall will match the knockup duration
-    self.speed = kv.duration*GRAVITY_DECEL/2 
-    if self:ApplyVerticalMotionController() == false then 
+    self.speed = kv.duration*GRAVITY_DECEL/2
+    if self:ApplyVerticalMotionController() == false then
       self:Destroy()
     end
   end
@@ -57,7 +57,7 @@ function modifier_boss_magma_mage_volcano:OnRefresh( kv )
     local hParent = self:GetParent()
     hParent:RemoveVerticalMotionController(self)
     self.speed = kv.duration*GRAVITY_DECEL/2
-    if self:ApplyVerticalMotionController() == false then 
+    if self:ApplyVerticalMotionController() == false then
       self:Destroy()
     end
   end
@@ -82,11 +82,6 @@ function modifier_boss_magma_mage_volcano:UpdateVerticalMotion( me, dt )
     parent:SetOrigin(parent:GetOrigin()+vVect)
   end
   return
-end
-
-function modifier_boss_magma_mage_volcano:OnVerticalMotionInterrupted()
-  if IsServer() then
-  end
 end
 
 function modifier_boss_magma_mage_volcano:CheckState()

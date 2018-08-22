@@ -1,6 +1,6 @@
 modifier_boss_magma_mage_volcano_thinker_child = class (ModifierBaseClass)
 
- 
+
 --------------------------------------------------------------------------------
 function modifier_boss_magma_mage_volcano_thinker_child:IsHidden()
   return true
@@ -29,8 +29,6 @@ function modifier_boss_magma_mage_volcano_thinker_child:OnCreated(kv)
 end
 
 function modifier_boss_magma_mage_volcano_thinker_child:OnDestroy()
-  if IsServer() then
-  end
   return
 end
 
@@ -49,5 +47,3 @@ function modifier_boss_magma_mage_volcano_thinker_child:CheckState()
 end
 
 --------------------------------------------------------------------------------
- 
-

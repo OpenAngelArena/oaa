@@ -68,13 +68,13 @@ function MagmaMageBossThink()
     return 1
   end
 
-  	if (thisEntity:GetHealthPercent() <= 50) and (thisEntity.hVolcanoAbility:GetLevel() < 3) then
-  		thisEntity.hVolcanoAbility:SetLevel(3)
-  	elseif (thisEntity:GetHealthPercent() <= 75) and (thisEntity.hVolcanoAbility:GetLevel() < 2) then
-  		thisEntity.hVolcanoAbility:SetLevel(2)
-  	end
+	if (thisEntity:GetHealthPercent() <= 50) and (thisEntity.hVolcanoAbility:GetLevel() < 3) then
+		thisEntity.hVolcanoAbility:SetLevel(3)
+	elseif (thisEntity:GetHealthPercent() <= 75) and (thisEntity.hVolcanoAbility:GetLevel() < 2) then
+		thisEntity.hVolcanoAbility:SetLevel(2)
+	end
 
-  	print("MAGMA_MAGE phase ", thisEntity.hVolcanoAbility:GetLevel())
+	print("MAGMA_MAGE phase ", thisEntity.hVolcanoAbility:GetLevel())
 
 	if thisEntity.hVolcanoAbility ~= nil and thisEntity.hVolcanoAbility:IsFullyCastable() and (thisEntity.hVolcanoAbility:GetNumVolcanos() <= 10) then
 		return CastVolcano()
@@ -84,7 +84,7 @@ function MagmaMageBossThink()
 
 		if thisEntity:HasModifier("modifier_boss_magma_mage_volcano_burning_effect") then
 			return HoldPosition()
-		else 
+		else
 			return GoToMagma()
 		end
 	end
@@ -94,8 +94,6 @@ function MagmaMageBossThink()
 	else
 		return AttackRandomEnemy(hEnemies)
 	end
-
-	return 0.5
 end
 
 

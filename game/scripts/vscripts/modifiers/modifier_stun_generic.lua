@@ -1,5 +1,5 @@
 modifier_stun_generic = class (ModifierBaseClass)
- 
+
 --------------------------------------------------------------------------------
 function modifier_stun_generic:IsHidden()
   return true
@@ -38,7 +38,7 @@ function modifier_stun_generic:GetEffectAttachType()
 end
 
 function modifier_stun_generic:DeclareFunctions()
-  local funcs = { 
+  local funcs = {
   MODIFIER_PROPERTY_OVERRIDE_ANIMATION
   }
   return funcs

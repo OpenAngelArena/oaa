@@ -1,5 +1,5 @@
 modifier_boss_magma_mage_volcano_burning_effect = class(ModifierBaseClass)
- 
+
 --------------------------------------------------------------------------------
 function modifier_boss_magma_mage_volcano_burning_effect:IsHidden()
   return true
