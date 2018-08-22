@@ -35,7 +35,7 @@ if IsServer() then
     end
   end
   function item_ward_stack:OnSpellStart ()
-    self::Setup()
+    self:Setup()
     local unit = false
     if not self:GetCursorTargetingNothing() then
       unit = self:GetCursorTarget()
@@ -68,8 +68,12 @@ if IsServer() then
   end
 
   function item_ward_stack:ToggleType ()
-    self::Setup()
+    self:Setup()
     local newVal = self.wardType % 2 + 1
+    if self[wardTypeToString(newVal) .. 'Count'] == nil then
+      self[wardTypeToString(newVal) .. 'Count'] = 0
+      return
+    end
     if self[wardTypeToString(newVal) .. 'Count'] == 0 then
       return
     end

@@ -111,6 +111,12 @@ function GameMode:_InitGameMode()
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
 
+  -- not all of these work
+  ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)
