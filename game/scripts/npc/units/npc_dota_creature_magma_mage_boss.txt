@@ -1,0 +1,86 @@
+"DOTAUnits"
+{
+  "npc_dota_creature_magma_mage_boss"
+	{
+		// Script
+		"vscripts"					"units/ai_magma_mage_boss.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/invoker/forge_spirit/infernus/infernus.vmdl"
+		"SoundSet"					"Hero_Lina"
+		"Level"						"1"
+		"ModelScale" 				"2.0"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"IsBossMonster"				"1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"boss_magma_mage_volcano"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"          "boss_resistance"
+		"Ability5"          "boss_cliffwalk"
+		"Ability6"          "siltbreaker_boss_protection"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+   		 "MagicalResistance"                                   "-25"        // Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"100"
+		"AttackRate"				"0.8"
+		"AttackAnimationPoint"		"0.2"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"450"
+		"ProjectileModel"			"particles/sniper_big_attack.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		"RingRadius"				"100"
+		"HealthBarOffset"			"280"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"2400"
+		"StatusManaRegen"			"25"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1300"
+		"VisionNighttimeRange"		"1300"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"90.0"
+
+		}
+	}
+}
