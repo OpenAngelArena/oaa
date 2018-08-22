@@ -429,7 +429,6 @@ function HeroSelection:MMRShuffle (event)
   local totalPlayers = #playerIds
 
   DebugPrint('total players! ' .. totalPlayers)
-  DebugPrintTable(playerIds)
 
   for _,playerId in ipairs(playerIds) do
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
