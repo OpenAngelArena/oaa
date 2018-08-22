@@ -7,6 +7,9 @@ if HeroSelection == nil then
   HeroSelection = class({})
 end
 
+-- register early, register often
+CustomGameEventManager:RegisterListener('mmrShuffle', Dynamic_Wrap(HeroSelection, 'MMRShuffle'))
+
 HERO_SELECTION_WHILE_PAUSED = false
 
 -- available heroes
@@ -171,7 +174,6 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('cm_hero_selected', Dynamic_Wrap(HeroSelection, 'CMManager'))
   CustomGameEventManager:RegisterListener('hero_selected', Dynamic_Wrap(HeroSelection, 'HeroSelected'))
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
-  CustomGameEventManager:RegisterListener('mmrShuffle', Dynamic_Wrap(HeroSelection, 'MMRShuffle'))
   CustomGameEventManager:RegisterListener('bottle_selected', Dynamic_Wrap(HeroSelection, 'OnBottleSelected'))
   CustomGameEventManager:RegisterListener('arcana_selected', Dynamic_Wrap(HeroSelection, 'OnArcanaSelected'))
 
@@ -412,6 +414,7 @@ function HeroSelection:RankedTimer (time, message)
 end
 
 function HeroSelection:MMRShuffle (event)
+  Debug:EnableDebugging()
   local player = PlayerResource:GetPlayer(event.PlayerID)
   if not GameRules:PlayerHasCustomGameHostPrivileges(player) then
     DebugPrint('Only host can mmr shuffle')
@@ -425,21 +428,42 @@ function HeroSelection:MMRShuffle (event)
   local playerIds = totable(PlayerResource:GetAllTeamPlayerIDs())
   local totalPlayers = #playerIds
 
+  DebugPrint('total players! ' .. totalPlayers)
+  DebugPrintTable(playerIds)
+
+  for _,playerId in ipairs(playerIds) do
+    PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
+  end
+
   while #playerIds > 0 do
     local choice = RandomInt(1, #playerIds)
     local playerId = playerIds[choice]
     local steamid = HeroSelection:GetSteamAccountID(playerId)
-    local mmr = Bottlepass.userData[steamid].unrankedMMR
+    local mmr = nil
+    if Bottlepass.userData then
+      mmr = Bottlepass.userData[steamid].unrankedMMR
+    end
+    if not mmr then
+      mmr = RandomInt(800, 1100)
+    end
+    DebugPrint('player ' .. playerId .. ' has ' .. tostring(mmr or 'n/a') .. ' mmr')
     table.remove(playerIds, choice)
     local radChange = math.abs((direMMR / direTeam) - ((radMMR + mmr) / (radTeam + 1)))
     local direChange = math.abs((radMMR / radTeam) - ((direMMR + mmr) / (direTeam + 1)))
 
-    if (radChange < direChange or direTeam > totalPlayers / 2) and radTeam < totalPlayers / 2 then
+    if (radChange < direChange or direTeam >= totalPlayers / 2) and radTeam < totalPlayers / 2 then
       PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_GOODGUYS)
+      DebugPrint('Putting ' .. playerId .. ' onto team good')
+      radTeam = radTeam + 1
+      radMMR = radMMR + mmr
     else
       PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_BADGUYS)
+      DebugPrint('Putting ' .. playerId .. ' onto team bad')
+      direTeam = direTeam + 1
+      direMMR = direMMR + mmr
     end
   end
+  DebugPrint('Teams are ' .. math.floor(radMMR / radTeam) .. ' vs ' .. math.floor(direMMR / direTeam))
 end
 
 -- start heropick CM timer

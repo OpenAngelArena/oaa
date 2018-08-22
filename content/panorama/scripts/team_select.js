@@ -18,7 +18,10 @@ if (typeof module !== 'undefined' && module.exports) {
 }());
 
 function MMRShuffle () {
-  GameEvents.SendCustomGameEventToServer('mmrShuffle', {});
+  $.Msg('Clicked shuffle!');
+  GameEvents.SendCustomGameEventToServer('mmrShuffle', {
+    shuffle: true
+  });
 }
 
 function hideShowUI (state) {
