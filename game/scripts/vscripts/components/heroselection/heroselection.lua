@@ -431,6 +431,7 @@ function HeroSelection:MMRShuffle (event)
   DebugPrint('total players! ' .. totalPlayers)
 
   for _,playerId in ipairs(playerIds) do
+    PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
   end
 
@@ -451,11 +452,13 @@ function HeroSelection:MMRShuffle (event)
     local direChange = math.abs((radMMR / radTeam) - ((direMMR + mmr) / (direTeam + 1)))
 
     if (radChange < direChange or direTeam >= totalPlayers / 2) and radTeam < totalPlayers / 2 then
+      PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_GOODGUYS, radTeam)
       PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_GOODGUYS)
       DebugPrint('Putting ' .. playerId .. ' onto team good')
       radTeam = radTeam + 1
       radMMR = radMMR + mmr
     else
+      PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_BADGUYS, direTeam)
       PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_BADGUYS)
       DebugPrint('Putting ' .. playerId .. ' onto team bad')
       direTeam = direTeam + 1
