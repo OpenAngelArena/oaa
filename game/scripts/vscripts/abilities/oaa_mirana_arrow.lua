@@ -64,7 +64,7 @@ if IsServer() then
     local pid = data.pid
 
     -- Target must exist and arrow still has hit count
-    if target == nil or not self.arrow_hit_count[pid] or self.arrow_hit_count[pid] == 0 then
+    if target == nil or not self.arrow_hit_count[pid] or self.arrow_hit_count[pid] < 0 then
       return true -- End the arrow
     end
 
@@ -109,7 +109,11 @@ if IsServer() then
 
     self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
 
-    return false -- Do not end
+    if self.arrow_hit_count[pid] < 0 then
+      return true -- End arrow
+    else
+      return false -- Do not end
+    end
   end
 
   function mirana_arrow_oaa:CastFilterResultTarget (unit)
