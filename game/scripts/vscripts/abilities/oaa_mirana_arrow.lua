@@ -8,6 +8,13 @@ if IsServer() then
   function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_data)
     caster:EmitSound("Hero_Mirana.ArrowCast")
 
+    local pid = self.next_projectile_id or 0;
+    if self.next_projectile_id then
+      self.next_projectile_id = self.next_projectile_id + 1
+    else
+      self.next_projectile_id = 1
+    end
+
     local info =
     {
       Ability = self,
@@ -28,6 +35,7 @@ if IsServer() then
       iVisionRadius = arrow_data.arrow_vision,
       iVisionTeamNumber = caster:GetTeamNumber(),
       ExtraData = {
+        pid = pid,
         arrow_min_stun = arrow_data.arrow_min_stun,
         arrow_max_stun = arrow_data.arrow_max_stun,
         arrow_max_stunrange = arrow_data.arrow_max_stunrange,
@@ -35,35 +43,40 @@ if IsServer() then
         arrow_base_damage = arrow_data.arrow_base_damage,
         arrow_damage_type = arrow_data.arrow_damage_type,
         arrow_vision = arrow_data.arrow_vision,
-        arrow_vision_duration = arrow_data.arrow_vision_duration,
-        arrow_pierce_count = arrow_data.arrow_pierce_count
+        arrow_vision_duration = arrow_data.arrow_vision_duration
       },
     }
-    self.arrow_start_position = position
-    return ProjectileManager:CreateLinearProjectile(info)
+    ProjectileManager:CreateLinearProjectile(info)
+
+    if not self.arrow_start_position then
+      self.arrow_start_position = {}
+    end
+    table.insert(self.arrow_start_position, pid, position)
+
+    if not self.arrow_hit_count then
+      self.arrow_hit_count = {}
+    end
+    table.insert(self.arrow_hit_count, pid, arrow_pierce_count)
   end
 
   function mirana_arrow_oaa:OnProjectileHit_ExtraData(target, location, data)
     local caster = self:GetCaster()
+    local pid = data.pid
 
-    -- Target must exist and not be immune (to magic or in general)
-    if target == nil or target:IsInvulnerable() then
-      return false
+    -- Target must exist and arrow still has hit count
+    if target == nil or not self.arrow_hit_count[pid] or self.arrow_hit_count[pid] == 0 then
+      return true -- End the arrow
     end
 
     -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple arrows
     local stunned_modifier = target:FindModifierByNameAndCaster("modifier_stunned", caster)
-    if stunned_modifier ~= nil then
-      return false
-    end
-
-    if not target:IsMagicImmune() then
+    if stunned_modifier == nil and not target:IsMagicImmune() then
       if target:IsCreep() and (not target:IsConsideredHero()) and (not target:IsAncient()) then
         target:ForceKill( false )
       end
 
       -- Traveled distance limited to arrow_max_stunrange
-      local arrow_traveled_distance = math.min( ( self.arrow_start_position - target:GetAbsOrigin() ):Length(), data.arrow_max_stunrange )
+      local arrow_traveled_distance = math.min( ( self.arrow_start_position[pid] - target:GetAbsOrigin() ):Length(), data.arrow_max_stunrange )
       -- Multiplier from 0.0 to 1.0 for Arrow's stun duration (and damage based on distance)
       local dist_mult = arrow_traveled_distance / data.arrow_max_stunrange
 
@@ -94,13 +107,9 @@ if IsServer() then
     -- Add hit sound
     caster:EmitSound("Hero_Mirana.ArrowImpact")
 
-    -- Are there pierces remaining
-    if not data.arrow_pierce_count or data.arrow_pierce_count == 0 then
-      return true -- End the arrow
-    else
-      data.arrow_pierce_count = data.arrow_pierce_count - 1
-      return false -- Do not end
-    end
+    self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
+
+    return false -- Do not end
   end
 
   function mirana_arrow_oaa:CastFilterResultTarget (unit)
