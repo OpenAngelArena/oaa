@@ -7,9 +7,6 @@ if HeroSelection == nil then
   HeroSelection = class({})
 end
 
--- register early, register often
-CustomGameEventManager:RegisterListener('mmrShuffle', Dynamic_Wrap(HeroSelection, 'MMRShuffle'))
-
 HERO_SELECTION_WHILE_PAUSED = false
 
 -- available heroes
@@ -415,9 +412,14 @@ end
 
 function HeroSelection:MMRShuffle (event)
   Debug:EnableDebugging()
+  local state = GameRules:State_Get()
+  if state ~= DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+    return
+  end
   local player = PlayerResource:GetPlayer(event.PlayerID)
   if not GameRules:PlayerHasCustomGameHostPrivileges(player) then
     DebugPrint('Only host can mmr shuffle')
+    return
   end
 
   local radTeam = 0
