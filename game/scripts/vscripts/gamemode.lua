@@ -233,6 +233,8 @@ function GameMode:InitGameMode()
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
+  -- register early, register often
+  CustomGameEventManager:RegisterListener('mmrShuffle', Dynamic_Wrap(HeroSelection, 'MMRShuffle'))
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
