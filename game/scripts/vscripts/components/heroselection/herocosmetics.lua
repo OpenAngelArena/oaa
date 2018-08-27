@@ -1,6 +1,8 @@
 
 LinkLuaModifier( "modifier_animation_translate_permanent_string", "libraries/modifiers/modifier_animation_translate_permanent_string.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_arcana_dbz", "modifiers/modifier_arcana_dbz.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_arcana_rockelec", "modifiers/modifier_arcana_rockelec.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_arcana_pepsi", "modifiers/modifier_arcana_pepsi.lua", LUA_MODIFIER_MOTION_NONE)
 
 if HeroCosmetics == nil then
   DebugPrint ( 'Starting HeroCosmetics' )
@@ -33,11 +35,13 @@ function HeroCosmetics:ApplySelectedArcana (hero, arcana)
       -- TODO Apply arcana
     elseif arcana == 'PepsiSohei' then
       print('Applying Arcana PepsiSohei')
+      hero:AddNewModifier( hero, nil, 'modifier_arcana_pepsi', nil )
       -- TODO Apply arcana
     end
   elseif hero:GetUnitName(  ) == 'npc_dota_hero_electrician' then
     if arcana == 'RockElectrician' then
       print('Applying Arcana RockElectrician')
+      hero:AddNewModifier( hero, nil, 'modifier_arcana_rockelec', nil )
       -- TODO Apply arcana
     end
   end
