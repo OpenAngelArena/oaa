@@ -79,9 +79,9 @@ function MMRShuffle:Shuffle (aNumber, event)
   local diffPreswap = math.abs(direPreswap - radPreswap)
   DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 
-  local function avgMMR (playerIds, extraPlayer)
+  local function avgMMR (teamIds, extraPlayer)
     local total = 0
-    local playerCount = #playerIds
+    local playerCount = #teamIds
     if extraPlayer then
       total = self:GetMMR(extraPlayer)
       playerCount = playerCount + 1
@@ -89,16 +89,16 @@ function MMRShuffle:Shuffle (aNumber, event)
     if playerCount == 0 then
       return total
     end
-    for _,playerId in ipairs(playerIds) do
+    for _,playerId in ipairs(teamIds) do
       total = total + self:GetMMR(playerId)
     end
 
     return total / playerCount
   end
 
-  local function without (playerIds, excluded)
+  local function without (teamIds, excluded)
     local newList = {}
-    for _,playerId in ipairs(playerIds) do
+    for _,playerId in ipairs(teamIds) do
       if playerId ~= excluded then
         table.insert(newList, playerId)
       end
