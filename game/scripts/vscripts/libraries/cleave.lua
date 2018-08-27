@@ -68,10 +68,13 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
   end
   local startPos = startEntity:GetAbsOrigin()
 
+  local direction = (target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized()
+
   -- Play the impact particle
   if particleNameCleave ~= nil then
     local cleave_pfx = ParticleManager:CreateParticle( particleNameCleave, PATTACH_ABSORIGIN_FOLLOW, startEntity )
     ParticleManager:SetParticleControl( cleave_pfx, 0, target:GetAbsOrigin() )
+    ParticleManager:SetParticleControlForward(cleave_pfx, 0, direction)
     ParticleManager:ReleaseParticleIndex( cleave_pfx )
   end
 
@@ -84,7 +87,7 @@ function CDOTABaseAbility:PerformCleaveOnAttack(event, cleaveInfo, damageMult, s
     parent, self, target,
     parent:GetTeamNumber(),
     startPos,
-    (target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized(), --parent:GetForwardVector(),
+    direction,
     cleaveInfo,
     event.damage * damageMult
   )
@@ -158,7 +161,11 @@ function PerformCleave(
     position = attacker:GetAbsOrigin()
   end
   if direction == nil or direction:Length2D() == 0 then
-    direction = attacker:GetForwardVector()
+    if originalTarget == nil then
+      direction = attacker:GetForwardVector()
+    else
+      direction = originalTarget:GetAbsOrigin() - position
+    end
   end
   direction = Vector(direction.x, direction.y, 0):Normalized() -- Make sure the direction vector is 2D only and normalized (length=1)
 
