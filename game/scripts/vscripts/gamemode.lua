@@ -112,11 +112,6 @@ end
 ]]
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
-
-  -- i wish this was observer pattern :/
-  if GameLengthVotes ~= nil then
-    GameLengthVotes:SetGameLength()
-  end
 end
 
 --[[
@@ -233,7 +228,6 @@ function GameMode:InitGameMode()
 
   InitModule(FilterManager)
   InitModule(Bottlepass)
-  InitModule(GameLengthVotes)
   InitModule(Courier)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
