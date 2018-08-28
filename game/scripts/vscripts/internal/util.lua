@@ -29,6 +29,12 @@ function TracesFromFilename (filename)
   local traces = {}
   local i = 1
 
+  if filename == 'components' then
+    return {
+      'components'
+    }
+  end
+
   local parts = regexsplit(filename, '%s/\\')
   local partialTrade = nil
   for i, part in ipairs(parts) do

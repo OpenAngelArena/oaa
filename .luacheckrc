@@ -75,7 +75,13 @@ globals = { -- these globals can be set and accessed.
 "RANKED_PREGAME_TIME",
 "RANKED_BAN_TIME",
 "RANKED_PICK_TIME",
-"DUEL_START_PROTECTION_TIME"
+"DUEL_START_PROTECTION_TIME",
+"COMPONENT_GAME_SETUP",
+"COMPONENT_TEAM_SELECT",
+"COMPONENT_HERO_SELECT",
+"COMPONENT_STRATEGY",
+"COMPONENT_GAME_IN_PROGRESS",
+"Components"
 }
 
 read_globals = { -- these globals can only be accessed.

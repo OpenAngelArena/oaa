@@ -18,8 +18,10 @@ CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. "
 
 require('internal/vconsole')
 require('internal/eventwrapper')
-
 require('internal/util')
+-- component self registry system
+require("components")
+
 require('gamemode')
 require('precache')
 
