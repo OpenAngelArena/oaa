@@ -217,7 +217,8 @@ SPECIAL_ARCANAS = {
   [43305444] = {'DBZSohei'}, -- baumi
   [7131038] = {'DBZSohei'}, -- baumi
 
-  [53999591] = {'DBZSohei'}, -- carlosrpg
+  [53999591] = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}, -- carlosrpg
+  [123791730] = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}, -- Warpdragon
 
   [28215809] = {'DBZSohei'},  -- steamcommunity.com/id/golden_pootis
   [51178404] = {'DBZSohei'},  -- http://steamcommunity.com/profiles/76561198011444132/
