@@ -7,7 +7,7 @@
 	[
 		{
 			_class = "C_OP_RenderSprites"
-			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
+			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_REPLICATEALPHA0"
 			m_bAdditive = true
 			m_hTexture = resource:"materials/particle/particle_flares/particle_flare_006_white.vtex"
 			m_flAnimationRate = 1.0
@@ -17,29 +17,24 @@
 	[
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_Decay"
 		},
 		{
 			_class = "C_OP_SpinUpdate"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_BasicMovement"
 			m_fDrag = 0.1
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flStartScale = 2.0
 			m_flEndScale = 0.1
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_VectorNoise"
@@ -48,14 +43,12 @@
 			m_vecOutputMin = [ -10.0, -10.0, -10.0 ]
 			m_vecOutputMax = [ 10.0, 10.0, 10.0 ]
 			m_bAdditive = true
-			m_bDisableOperator = true
 		},
 	]
 	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
@@ -65,7 +58,6 @@
 		{
 			_class = "C_INIT_CreateWithinSphere"
 			m_fRadiusMax = 15.0
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomRadius"
@@ -74,12 +66,15 @@
 		},
 		{
 			_class = "C_INIT_RandomRotation"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomRotationSpeed"
 			m_flDegreesMin = 180.0
-			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 77, 128, 255, 255 ]
+			m_ColorMax = [ 117, 184, 255, 255 ]
 		},
 	]
 	m_Emitters = 

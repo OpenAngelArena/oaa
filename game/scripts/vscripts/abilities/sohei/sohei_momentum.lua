@@ -96,11 +96,11 @@ if IsServer() then
         self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
         if self:IsMomentumReady() then
           local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
-          local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi')
+          local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
           if dbzArcana ~= nil then
             ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
           elseif pepsiArcana ~= nil then
-          	ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(30,0,0) )
+          	ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
           end
         end
 			end
