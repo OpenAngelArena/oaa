@@ -112,11 +112,6 @@ end
 ]]
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
-
-  -- i wish this was observer pattern :/
-  if GameLengthVotes ~= nil then
-    GameLengthVotes:SetGameLength()
-  end
 end
 
 --[[
@@ -206,7 +201,9 @@ function InitModule(myModule)
       myModule:Init()
     end)
     if err then
-      print(err)
+      local info = debug.getinfo(2, "Sl")
+      print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)
+      print(debug.traceback())
       print('Failed to init module!!!')
     end
   end
@@ -220,26 +217,28 @@ function CheckCheatMode()
   end
 end
 
+local OnInitGameModeEvent = CreateGameEvent('OnInitGameMode')
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
+  InitModule(Components)
+
   InitModule(FilterManager)
   InitModule(Bottlepass)
-  InitModule(GameLengthVotes)
   InitModule(Courier)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
-  -- register early, register often
-  CustomGameEventManager:RegisterListener('mmrShuffle', Dynamic_Wrap(HeroSelection, 'MMRShuffle'))
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
+
+  OnInitGameModeEvent()
 end
 
 -- This is an example console command
