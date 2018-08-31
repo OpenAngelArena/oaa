@@ -773,8 +773,8 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      for (var index in arcanas) {
-        if (arcanas[index] === 'RockElectrician') {
+      for (var index2 in arcanas) {
+        if (arcanas[index2] === 'RockElectrician') {
           radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
           radio.BLoadLayoutSnippet('ArcanaRadio');
           radio.hero = heroName;
