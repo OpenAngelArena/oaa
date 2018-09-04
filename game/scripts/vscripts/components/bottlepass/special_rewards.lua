@@ -22,6 +22,7 @@ SPECIAL_BOTTLES = {
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
   [72521220] = {1}, -- Abit Gray
+  [290575742] = {1,54}, -- Obby
 
 
   -- golden tournament winners
