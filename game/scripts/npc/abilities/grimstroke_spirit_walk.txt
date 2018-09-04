@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType" "SPELL_DISPELLABLE_YES"
     "AbilitySound"          "Hero_ObsidianDestroyer.AstralImprisonment"
     "FightRecapLevel"       "1"
     "MaxLevel"                      "6"
@@ -54,7 +55,7 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "movespeed_bonus_pct" "28 32 36 40 44 48"
+        "movespeed_bonus_pct" "18 22 26 30 34 38"
       }
       "04"
       {
