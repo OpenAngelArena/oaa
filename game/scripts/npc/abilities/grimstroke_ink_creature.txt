@@ -52,42 +52,43 @@
       "03"
       {
         "var_type"          "FIELD_FLOAT"
-        "latch_duration"      "4.0 4.5 5.0 5.5 6.0 6.5"
+        "latch_duration"      "4.0 4.0 5.0 5.0 6.0 6.0"
       }
       "04"
       {
         "var_type"          "FIELD_INTEGER"
         "destroy_attacks"     "6 6 9 9 12 15"
+        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_4"
       }
       "05"
       {
         "var_type"          "FIELD_INTEGER"
-        "damage_per_tick"     "6 9 12 15 30 45"
+        "hero_attack_multiplier"  "3"
       }
       "06"
       {
         "var_type"          "FIELD_INTEGER"
-        "dps_tooltip"       "12 18 24 30 60 90"
+        "damage_per_tick"     "6 9 12 15 30 45"
       }
       "07"
       {
         "var_type"          "FIELD_INTEGER"
-        "enemy_vision_time"     "4"
+        "dps_tooltip"       "12 18 24 30 60 90"
       }
       "08"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "enemy_vision_time"     "4"
+      }
+      "09"
       {
         "var_type"          "FIELD_FLOAT"
         "tick_interval"       "0.5"
       }
-      "09"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "infection_search_radius" "1000"
-      }
       "10"
       {
         "var_type"          "FIELD_INTEGER"
-        "destroy_attacks_tooltip" "2 2 3 3 4 5"
+        "infection_search_radius" "1000"
       }
       "11"
       {
@@ -102,14 +103,9 @@
       "13"
       {
         "var_type"          "FIELD_INTEGER"
-        "return_mana_gain"      "50 75 100 125 250 375"
-      }
-      "14"
-      {
-        "var_type"          "FIELD_INTEGER"
         "latched_unit_offset"   "130"
       }
-      "15"
+      "14"
       {
         "var_type"          "FIELD_INTEGER"
         "latched_unit_offset_short" "95"
