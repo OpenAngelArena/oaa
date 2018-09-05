@@ -1,36 +1,34 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Sonic
+  // Recipe: Sonic 3
   //=================================================================================================================
-  "item_recipe_sonic"
+  "item_recipe_sonic_3"
   {
-    "ID"                  "8513"
+    "ID"                  "8517"
     "BaseClass"           "item_datadriven"
     "Model"               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"  "custom/recipe/recipe_3"
     "ItemCost"            "3500"
     "ItemShopTags"        ""
     "ItemRecipe"          "1"
-    "ItemResult"          "item_sonic"
+    "ItemResult"          "item_sonic_3"
     "ItemRequirements"
     {
-      "01"                "item_ancient_janggo_2;item_upgrade_core_2"
-      "02"                "item_ancient_janggo_2;item_upgrade_core_3"
-      "03"                "item_ancient_janggo_2;item_upgrade_core_4"
+      "01"                "item_sonic_2;item_upgrade_core_4"
 
     }
   }
 
   //=================================================================================================================
-  // Sonic
+  // Sonic 3
   //=================================================================================================================
-  "item_sonic"
+  "item_sonic_3"
   {
-    "ID"                    "8514"
+    "ID"                    "8518"
     "BaseClass"             "item_lua"
     "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"    "custom/sonic"
+    "AbilityTextureName"    "custom/sonic_3"
     "AbilitySharedCooldown" "sonic"
     "ScriptFile"            "items/transformation/sonic.lua"
 
@@ -38,8 +36,8 @@
     "AbilityCastPoint"      "0.0"
 
     "MaxUpgradeLevel"       "3"
-    "ItemBaseLevel"         "1"
-    "UpgradesItems"         "item_sonic_2;item_sonic_3"
+    "ItemBaseLevel"         "3"
+	"UpgradesItems"         "item_sonic_2;item_sonic_3"
 
     "ItemCost"              "6615"
     "ItemShopTags"          "sonic"
@@ -87,4 +85,5 @@
     }
   }
 }
+
 
