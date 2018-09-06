@@ -72,7 +72,7 @@ if IsServer() then
     local stunned_modifier = target:FindModifierByNameAndCaster("modifier_stunned", caster)
     if stunned_modifier == nil and not target:IsMagicImmune() then
       if target:IsCreep() and (not target:IsConsideredHero()) and (not target:IsAncient()) then
-        target:ForceKill( false )
+        target:Kill( self, caster )
       end
 
       -- Traveled distance limited to arrow_max_stunrange
