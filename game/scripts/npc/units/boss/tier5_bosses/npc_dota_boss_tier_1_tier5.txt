@@ -34,7 +34,7 @@
     "AttackDamageMin"                                     "4250"    // Damage range min.
     "AttackDamageMax"                                     "4500"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "0.4"      // Speed of attack.
+    "AttackRate"                                          "0.2"      // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "228"    // Range within a target can be attacked.
@@ -59,7 +59,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "9000"    // Base health
+    "StatusHealth"                                        "20000"    // Base health
     "StatusHealthRegen"                                   "30.5"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.

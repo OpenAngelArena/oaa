@@ -18,6 +18,7 @@ end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
 local OnGameRulesStateChangeEvent = CreateGameEvent('OnGameRulesStateChange')
+local OnStrategyEvent = CreateGameEvent('OnStrategy')
 local OnPreGameEvent = CreateGameEvent('OnPreGame')
 local OnEndGameEvent = CreateGameEvent('OnEndGame')
 function GameMode:OnGameRulesStateChange(keys)
@@ -28,6 +29,7 @@ function GameMode:OnGameRulesStateChange(keys)
   local newState = GameRules:State_Get()
   -- Strategy time started
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    OnStrategyEvent()
     GameMode:OnStrategyTime()
   -- Pre-Game started
   elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then

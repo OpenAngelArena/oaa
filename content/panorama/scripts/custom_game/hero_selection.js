@@ -594,47 +594,49 @@ function ReloadCMStatus (data) {
   }
   var currentPickData = data['order'][currentPick];
 
-  FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
-  Object.keys(data['order']).forEach(function (nkey) {
-    var obj = data['order'][nkey];
-    // FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-    if (obj.hero !== 'empty') {
-      DisableHero(obj.hero);
-    }
+  if (data['currentstage'] === data['totalstages']) {
+    ReturnChatWindow();
+    FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
+    Object.keys(data['order']).forEach(function (nkey) {
+      var obj = data['order'][nkey];
+      // FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+      if (obj.hero !== 'empty') {
+        DisableHero(obj.hero);
+      }
 
-    // the "select your hero at the end" thing
-    if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
-      ReturnChatWindow();
-      $('#MainContent').SetHasClass('CMHeroChoices', true);
+      // the "select your hero at the end" thing
+      if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
+        $('#MainContent').SetHasClass('CMHeroChoices', true);
 
-      var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
-      newbutton.group = 'CMHeroChoises';
-      newbutton.AddClass('CMHeroPreviewItem');
-      newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
-      newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
+        var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
+        newbutton.group = 'CMHeroChoises';
+        newbutton.AddClass('CMHeroPreviewItem');
+        newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
+        newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
 
-      CreateHeroPanel(newbutton, obj.hero);
-      var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
-      newlabel.style.visibility = 'collapse';
-      newlabel.steamid = null;
-    }
+        CreateHeroPanel(newbutton, obj.hero);
+        var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
+        newlabel.style.visibility = 'collapse';
+        newlabel.steamid = null;
+      }
 
-    // the CM picking order phase thingy
-    if (obj.hero && obj.hero !== 'empty') {
-      FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-      FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
+      // the CM picking order phase thingy
+      if (obj.hero && obj.hero !== 'empty') {
+        FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+        FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
 
-      FindDotaHudElement('CMRadiant').RemoveClass('Pick');
-      FindDotaHudElement('CMRadiant').RemoveClass('Ban');
-      FindDotaHudElement('CMDire').RemoveClass('Pick');
-      FindDotaHudElement('CMDire').RemoveClass('Ban');
-    }
+        FindDotaHudElement('CMRadiant').RemoveClass('Pick');
+        FindDotaHudElement('CMRadiant').RemoveClass('Ban');
+        FindDotaHudElement('CMDire').RemoveClass('Pick');
+        FindDotaHudElement('CMDire').RemoveClass('Ban');
+      }
 
-    if (currentPick >= nkey) {
-      stepsCompleted[obj.side]++;
-      lastPickIndex = nkey;
-    }
-  });
+      if (currentPick >= nkey) {
+        stepsCompleted[obj.side]++;
+        lastPickIndex = nkey;
+      }
+    });
+  }
   $.Msg(stepsCompleted);
   FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data['totalstages'] / 2) * 100) + '%';
   FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data['totalstages'] / 2) * 100) + '%';
@@ -814,7 +816,7 @@ function SelectArcana () {
 function UpdateBottleList () {
   var playerID = Game.GetLocalPlayerID();
   var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
-  var bottles = specialBottles[playerID.toString()].Bottles;
+  var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
   if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
     // ignore repaint if radio is already filled

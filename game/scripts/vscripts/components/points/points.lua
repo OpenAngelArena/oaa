@@ -16,6 +16,12 @@ function PointsManager:Init ()
 
   self.hasGameEnded = false
 
+  local scoreLimit = NORMAL_KILL_LIMIT
+  if HeroSelection.is10v10 then
+    scoreLimit = TEN_V_TEN_KILL_LIMIT
+  end
+  CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
+
   CustomNetTables:SetTableValue( 'team_scores', 'score', {
     goodguys = 0,
     badguys = 0,

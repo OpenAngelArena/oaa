@@ -12,6 +12,8 @@ if IsServer() then
     caster:AddNewModifier( self:GetCaster(), self, "modifier_clinkz_strafe", {
       duration = duration
     } )
+
+    caster:EmitSound("Hero_Clinkz.Strafe")
   end
 
 end
