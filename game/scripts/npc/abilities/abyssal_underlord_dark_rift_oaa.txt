@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Abyssal Underlord: Dark Rift
+  //=================================================================================================================
+  "abyssal_underlord_dark_rift_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85616"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_dark_rift.lua"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityTextureName"                                  "abyssal_underlord_dark_rift"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "AbilityCastRange"                                    "3000 3600 4200 4800 5400"
+    "AbilityCastPoint"                                    "0.6"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "180"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 150 225 375 600"
+
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range_tooltip"                              "3000 3600 4200 4800 5400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "250"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "portal_duration"                                 "6.1 9.1 12.1 15.1 18.1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "portal_duration_tooltip"                         "6.0 9.0 12.0 15.0 18.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay"                                  "3.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "minimum_range"                                   "900.0"
+      }
+    }
+
+    "Precache"
+    {
+      "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
+	}
+  }
+}

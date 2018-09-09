@@ -33,15 +33,14 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12"
+        "var_type"                                        "FIELD_INTEGER"
+        "river_speed"                                     "700"
       }
     }
   }
-
 }

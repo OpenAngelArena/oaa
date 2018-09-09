@@ -1,0 +1,99 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Nullifier 4
+  //=================================================================================================================
+  "item_recipe_nullifier_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "8411"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_nullifier_4"
+    "ItemCost"                                            "8000"
+    "ItemRequirements"
+    {
+      "01"                                                "item_echo_sabre_3;item_upgrade_core_3"
+      "02"                                                "item_echo_sabre_3;item_upgrade_core_4"
+      "03"                                                "item_heavens_halberd_3;item_upgrade_core_3"
+      "04"                                                "item_heavens_halberd_3;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Nullifier 4
+  //=================================================================================================================
+  "item_nullifier_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "8412"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_nullifier"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "FightRecapLevel"       "1"
+    "AbilityTextureName"    "custom/nullifier_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "16550"
+    "ItemAliases"         "nlf 4;nullifier 4"
+
+    "AbilitySharedCooldown"         "nullify"
+    "AbilityCooldown"       "13.0"
+    "AbilityCastRange"      "600"
+    "AbilityManaCost"       "75"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"      "65 95 130 170 215"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_armor"     "5 8 12 16 20"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_regen"     "5 8 12 18 26"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "mute_duration"     "5.0"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "projectile_speed"    "750"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_pct"        "100"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "slow_interval_duration"  "0.4"
+      }
+    }
+  }
+}

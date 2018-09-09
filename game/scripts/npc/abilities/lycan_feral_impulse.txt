@@ -10,7 +10,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5397"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     "AbilitySpecial"
     {
@@ -22,12 +22,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 26 37 48 60 85"
+        "bonus_damage"                                    "12 24 36 48 60 85"
+        "LinkedSpecialBonus"  "special_bonus_unique_lycan_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "1 4 7 10 16 40"
+        "bonus_hp_regen"                                  "1 3 5 7 17 27"
         "LinkedSpecialBonus"                              "special_bonus_unique_lycan_3"
       }
     }

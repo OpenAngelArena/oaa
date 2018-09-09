@@ -10,7 +10,7 @@
     "ID"                                                  "3180"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "FightRecapLevel"                                     "2"
 
     // Item Info
@@ -45,19 +45,19 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "195.0"
+    "AbilityCooldown"                                     "195.0 170.0 145.0 120.0 95.0"
     "AbilitySharedCooldown"                               "refresher"
 
-    "MaxUpgradeLevel"                                     "2"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "275"
-    "ItemCost"                                            "6700"
+    "ItemCost"                                            "6600"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "refresher orb"
+    "ItemAliases"                                         "refresher orb 2;refresher 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -67,17 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "12 18"
+        "bonus_health_regen"                              "11 17 25 40 60"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "250 350"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 30"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "5.0 7.0 10.0 14.0 20.0"
       }
     }
   }

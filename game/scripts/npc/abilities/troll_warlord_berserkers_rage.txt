@@ -35,7 +35,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 6 6 6 12 18"
+        "bonus_armor"                                     "6 6 6 6 6 6"
       }
       "04"
       {
@@ -45,7 +45,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.50"
+        "base_attack_time"                                "1.45"
       }
       "07"
       {
@@ -55,12 +55,12 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "0.8 1.2 1.6 2.0 2.0 2.0"
+        "bash_duration"                                   "0.5 0.65 0.8 0.95 1.1 1.25" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bash_damage"                                     "20 30 40 50 70 150"
+        "bash_damage"                                     "20 30 40 50 100 150"
       }
     }
   }

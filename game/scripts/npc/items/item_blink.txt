@@ -5,7 +5,6 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "1"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_blink"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityTextureName"                                  "custom/blink"
 
@@ -13,7 +12,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "12.0 11.0 10.0 9.0 8.0"
+    "AbilityCooldown"                                     "15.0 12.5 11.0 9.5 8.0"
+    "AbilitySharedCooldown"                               "blink"
     "AbilityManaCost"                                     "0"
 
     // Item Info
@@ -21,7 +21,7 @@
     "ItemCost"                                            "2250"
     "ItemShopTags"                                        "teleport"
     "ItemQuality"                                         "component"
-    "ItemAliases"                                         "blink dagger"
+    "ItemAliases"                                         "blink dagger;blink"
     "SideShop"                                            "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"

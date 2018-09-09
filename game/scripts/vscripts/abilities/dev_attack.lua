@@ -25,7 +25,7 @@ function modifier_dev_attack:GetAuraRadius()
 end
 
 function modifier_dev_attack:GetAuraSearchFlags()
-  return self:GetAbility():GetAbilityTargetFlags()
+  return bit.bor(self:GetAbility():GetAbilityTargetFlags(), DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
 end
 
 function modifier_dev_attack:GetAuraSearchTeam()
@@ -33,7 +33,7 @@ function modifier_dev_attack:GetAuraSearchTeam()
 end
 
 function modifier_dev_attack:GetAuraSearchType()
-  return self:GetAbility():GetAbilityTargetType()
+  return bit.bor(self:GetAbility():GetAbilityTargetType(), DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_dev_attack:GetTexture()
@@ -94,6 +94,7 @@ function modifier_dev_attack_aura:OnDestroy()
   local caster = self:GetCaster()
 
   ParticleManager:DestroyParticle(self.particle, false)
+  ParticleManager:ReleaseParticleIndex(self.particle)
   StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
   EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
 end

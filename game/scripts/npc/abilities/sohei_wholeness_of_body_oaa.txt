@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ronin: wholeness_of_body
+  //=================================================================================================================
+  "sohei_wholeness_of_body"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "ability_lua"
+    "ID"                  "9511"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+    "AbilityTextureName"      "custom/ronin_guard"
+    "ScriptFile"          "abilities/sohei/sohei_wholeness_of_body.lua"
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.0"
+    "AbilityCastRange"        "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "80"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"          "particles/hero/sohei/guard.vpcf"
+      "particle"          "particles/hero/sohei/knockback.vpcf"
+      "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"status_resistance"			"100"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"sr_duration"				"5"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"post_heal"					"75 150 225 300 600 900"
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage_taken_heal"			"25"
+		}
+    }
+  }
+}

@@ -23,6 +23,8 @@ function Doors:CreateDoors(position, angle, settings)
   gate.Open = partial(Doors['OpenDoors'], gate, settings)
   gate.Close = partial(Doors['CloseDoors'], gate, settings)
 
+  self:PlaceObstructors(gate, settings)
+
   return gate
 end
 
@@ -37,6 +39,8 @@ function Doors:UseDoors(name, settings)
 
   gate.Open = partial(Doors['OpenDoors'], gate, settings)
   gate.Close = partial(Doors['CloseDoors'], gate, settings)
+
+  self:PlaceObstructors(gate, settings)
 
   return gate
 end
@@ -87,8 +91,9 @@ function Doors.OpenDoors(gate, settings)
   local stepSize = settings.openingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, -distance)
 
-  EmitSoundOn("Ambient.Doors.Open", gate.props.gate)
+  gate.props.gate:EmitSound("Ambient.Doors.Open")
   --ScreenShake(targetOrigin, 0.8, 2, delay * stepSize * distance, 1000, 0, false)
+  Doors:RemoveObstuctors(gate, settings)
 
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, -stepSize))
@@ -97,7 +102,7 @@ function Doors.OpenDoors(gate, settings)
       return delay
     end
     gate.props.gate:SetOrigin(targetOrigin)
-    StopSoundOn("Ambient.Doors.Open", gate.props.gate)
+    gate.props.gate:StopSound("Ambient.Doors.Open")
     gate.state = DOOR_STATE_OPEN
   end)
 end
@@ -117,8 +122,9 @@ function Doors.CloseDoors(gate, settings)
   local stepSize = settings.closingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, distance)
 
-  EmitSoundOn("Ambient.Doors.Close ", gate.props.gate)
+  gate.props.gate:EmitSound("Ambient.Doors.Close")
   --ScreenShake(targetOrigin, 0.8, 2, delay * stepSize * distance, 1000, 0, false)
+  Doors:AddObstructors(gate, settings)
 
   Timers:CreateTimer(0, function()
     gate.props.gate:SetOrigin(gate.props.gate:GetAbsOrigin() + Vector(0, 0, stepSize))
@@ -127,7 +133,7 @@ function Doors.CloseDoors(gate, settings)
       return delay
     end
     gate.props.gate:SetOrigin(targetOrigin)
-    StopSoundOn("Ambient.Doors.Close ", gate.props.gate)
+    gate.props.gate:StopSound("Ambient.Doors.Close")
     gate.state = DOOR_STATE_CLOSED
   end)
 end
@@ -136,6 +142,7 @@ function Doors:CreateEmptyGate(settings)
   return {
     props = {},
     state = settings.state or DOOR_STATE_UNKOWN,
+    obstructors = {},
     Open = nil,
     Close = nil,
   }
@@ -221,6 +228,52 @@ function Doors:SpawnDoors(position, angle, settings)
     gate = gate,
     jambR = jambR
   }
+end
+
+function Doors:PlaceObstructors(gate, settings)
+  local spawnObstructor = partial(SpawnEntityFromTableSynchronous, "point_simple_obstruction")
+  local gateOrigin = gate.props.gate:GetAbsOrigin()
+  local direction = gate.props.gate:GetForwardVector()
+  local obstructorWidth = 128 * 0.9
+  local obstructorCount = (gate.gateWidth or 650) / obstructorWidth + 2
+  local offset = (obstructorCount + 1) / 2 * obstructorWidth
+
+  --print(VectorToString(gateOrigin))
+  --print(VectorToString(direction))
+
+  for i = 1, obstructorCount do
+    if not gate.obstructors[i] then
+      local obstructorPos = gateOrigin + direction * (i * obstructorWidth - offset)
+      obstructorPos.z = gateOrigin.z
+      --print(VectorToString(obstructorPos))
+      --DebugDrawBox(obstructorPos, Vector(-64, -64, 0), Vector(64, 64, 0), 255, 0, 0, 255, 999)
+      gate.obstructors[i] = spawnObstructor({
+        origin = obstructorPos
+      })
+    end
+  end
+end
+
+function Doors:AddObstructors(gate, settings)
+  for _,obstructor in pairs(gate.obstructors) do
+    if obstructor then
+      if not obstructor:IsNull() then
+        obstructor:SetEnabled(true, true)
+      end
+      obstructor = nil
+    end
+  end
+end
+
+function Doors:RemoveObstuctors(gate, settings)
+  for _,obstructor in pairs(gate.obstructors) do
+    if obstructor then
+      if not obstructor:IsNull() then
+        obstructor:SetEnabled(false, false)
+      end
+      obstructor = nil
+    end
+  end
 end
 
 -- rotate point a around point p by d degrees

@@ -10,7 +10,7 @@
     "ID"                                                  "3050"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3054"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_ultimate_scepter"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/aghanims.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -52,7 +53,7 @@
     "ItemCost"                                            "5700"
     "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "ags;ultimate;aghanim's scepter;ags"
+    "ItemAliases"                                         "ags 2;ultimate 2;aghanim's scepter 2;aghs 2"
     //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
@@ -76,6 +77,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "175 250 400 600 800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "talent_level_tooltip"                            "0 10 15 20 25"
       }
     }
   }

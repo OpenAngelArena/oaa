@@ -6,14 +6,14 @@
   "item_recipe_bfury"
   {
     "ID"                                                  "144"    // unique ID
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "300"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_broadsword;item_claymore;item_pers;item_quelling_blade"
+      "01"                                                "item_demon_edge;item_pers;item_quelling_blade"
     }
   }
 
@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4500"
+    "ItemCost"                                            "4400"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bf;battle fury"
@@ -53,32 +53,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "55 75 105 155 205"
+        "bonus_damage"                                    "45 60 85 125 180"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 12 24 48 96"
+        "bonus_health_regen"                              "6 12 18 24 30"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 225 330 475 650"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 3.3 4.75 6.5 9"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "40 45 50 55 65"
+        "cleave_damage_percent"                           "20 30 40 50 65"	//OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "160"
+        "quelling_bonus"                                  "120"	//OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "125"
+        "quelling_bonus_ranged"                           "120"	//OAA
       }
       "07"
       {
@@ -88,12 +88,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "300 315 330 345 360"
+        "cleave_ending_width"                             "330"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "570 590 610 630 650"
+        "cleave_distance"                                 "625"
       }
       "10"
       {
@@ -104,6 +104,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_ward"                                 "450"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_quelling_bonus"                          "20"	//OAA
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_quelling_bonus_ranged"                   "20"	//OAA
       }
     }
   }

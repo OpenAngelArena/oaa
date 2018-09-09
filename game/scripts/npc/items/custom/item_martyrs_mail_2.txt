@@ -1,0 +1,101 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Martyr's Mail 2
+  //=================================================================================================================
+  "item_recipe_martyrs_mail_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3335"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "FightRecapLevel"                                     "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_martyrs_mail_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_martyrs_mail;item_upgrade_core_2"
+      "02"                                                "item_martyrs_mail;item_upgrade_core_3"
+      "03"                                                "item_martyrs_mail;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Martyr's Mail 2
+  //=================================================================================================================
+  "item_martyrs_mail_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3337"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/martyrs_mail_2"
+    "ScriptFile"                                          "items/martyrs_mail.lua"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "martyr"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
+    "ItemCost"                                            "11000"
+    "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "mm 2;martyrs mail 2;martyrsmail 2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "35 50 75 120"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "14 22 30 40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "15 22 32 45"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "martyr_duration"                                 "4.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "martyr_heal_aoe"                                 "700"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "martyr_heal_percent"                             "50 60 75 100"
+      }
+    }
+  }
+}

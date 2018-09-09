@@ -21,11 +21,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_blade_mail_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_3;item_upgrade_core_3"
       "02"                                                "item_blade_mail_3;item_upgrade_core_4"
+      "03"                                                "item_assault_3;item_upgrade_core_3"
+      "04"                                                "item_assault_3;item_upgrade_core_4"
     }
   }
 
@@ -43,6 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +59,7 @@
     "ItemCost"                                            "15200"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bm;blade mail;blademail"
+    "ItemAliases"                                         "bm 4;blade mail 4;blademail 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -81,7 +84,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.5"
+        "duration"                                        "3.0 3.5 4.0 4.5 5.0"
       }
     }
   }

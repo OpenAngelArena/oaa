@@ -1,7 +1,52 @@
+.GameInfoHolder
+{
+  width: 475px;
+  height: 100%;
+  horizontal-align: left;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transform: translateX(-450px);
+}
+
+#InfoButton
+{
+  width: 25px;
+  height: 40px;
+  horizontal-align: right;
+  background-color: #171A25;
+  border-radius: 0 10px 10px 0;
+  margin-top: 18%;
+  transition-property: brightness;
+  transition-duration: 0.2s;
+}
+
+.ButtonIcon
+{
+  horizontal-align: center;
+  vertical-align: center;
+  opacity: 0.4;
+  width: 20px;
+  height: 20px;
+  background-image: url("s2r://panorama/images/custom_gameinfo_icon_psd.vtex");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+#InfoButton:hover
+{
+  brightness: 2;
+}
+
 .OAAGameInfo
 {
+    margin-right: 25px;
     width:100%;
+    height: 100%;
+    padding: 15px;
     flow-children: down;
+    background-color: #171A25;
 }
 
 Label
@@ -14,14 +59,15 @@ Label
 #Title
 {
     flow-children: right;
+    width: 100%;
 }
 
 #TitleName
 {
+  width: 100%;
     color: #ffcc55;
-    font-size: 50px;
-    margin-left: 11px;
-    margin-top: -66px;
+    font-size: 40px;
+    text-align: center;
     text-transform: uppercase;
 
 }
@@ -61,6 +107,7 @@ Label
 
 #DuelsText
 {
+  height: 100%;
     margin-top: 0px;
     margin-right: 10px;
     margin-left: 10px;
@@ -89,6 +136,7 @@ Label
 
 #BossesText
 {
+  height: 100%;
     margin-top: 0px;
     margin-right: 10px;
     margin-left: 10px;
@@ -111,6 +159,7 @@ Label
 
 #FarmingCoreText
 {
+  height: 100%;
     margin-top: 0px;
     margin-right: 10px;
     margin-left: 10px;
@@ -132,6 +181,7 @@ Label
 
 #ReflexCoreText
 {
+  height: 100%;
     margin-top: 0px;
     margin-right: 10px;
     margin-left: 10px;
@@ -154,6 +204,7 @@ Label
 
 #FarmingCaveText
 {
+  height: 100%;
     margin-top: 0px;
     margin-right: 10px;
     margin-left: 10px;
@@ -175,6 +226,7 @@ Label
 
 #UpgradeCoreText
 {
+  height: 100%;
     margin-top: 0px;
     margin-right: 10px;
     margin-left: 10px;

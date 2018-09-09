@@ -8,7 +8,7 @@
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl"  // Model.
+    "Model"                                               "models/creeps/creep_bad_melee/creep_bad_melee.vmdl"  // Model.
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "2"
     "Level"                                               "30"
@@ -24,13 +24,13 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "25"      // Physical protection.
-    "MagicalResistance"                                   "25"                  // Magical protection (percentage).
+    "MagicalResistance"                                   "-25"                  // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "2000"    // Damage range min.
-    "AttackDamageMax"                                     "2250"    // Damage range max.
+    "AttackDamageMin"                                     "1000"    // Damage range min.
+    "AttackDamageMax"                                     "1250"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "2.0"      // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
@@ -66,8 +66,8 @@
 
     "Creature"
     {
-      //Makes it only have 25% remaining of applied crowd control
-      "DisableResistance"                                 "75.0"
+      //Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
     }
 
 

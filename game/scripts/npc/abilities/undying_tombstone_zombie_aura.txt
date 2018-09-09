@@ -25,17 +25,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_threshold"                                "100 200 300 400 600 1400"
+        "health_threshold"                                "100 200 300 400 900 1400"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "zombie_interval"                                 "3.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_speed"                                     "50"
       }
     }
   }

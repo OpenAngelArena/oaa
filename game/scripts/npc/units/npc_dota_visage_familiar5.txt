@@ -18,10 +18,10 @@
     "AutoAttacksByDefault"                                "0"
     "ConsideredHero"                                      "1"
     "wearable"                                            "600"
-    
+
     // Abilities
     //----------------------------------------------------------------
-    
+
     "Ability1"                                            "visage_summon_familiars_stone_form"      // Ability 1.
     "Ability2"                                            ""      // Ability 2.
     "Ability3"                                            ""      // Ability 3.
@@ -39,8 +39,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "10"      // Damage range min.
-    "AttackDamageMax"                                     "10"      // Damage range max.
+    "AttackDamageMin"                                     "230"      // Damage range min.
+    "AttackDamageMax"                                     "230"      // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.4"    // Speed of attack.
     "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
@@ -85,7 +85,5 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-    
-  }  
-
+  }
 }

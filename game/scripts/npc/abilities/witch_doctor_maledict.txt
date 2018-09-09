@@ -6,7 +6,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5140"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -18,14 +18,14 @@
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.35 0.35 0.35 0.35"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "50 40 30 20 20"
     "AbilityDuration"                                     "12.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "7 14 21 28 49 147"
+    "AbilityDamage"                                       "7 14 21 28 69 147"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,6 +44,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration_tooltip"                                "12"
+        "LinkedSpecialBonus"  "special_bonus_unique_witch_doctor_4"
       }
       "03"
       {
@@ -54,12 +55,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_threshold"                          "100"
-      }      
+      }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ticks"                                           "3"
-      }      
+      }
     }
   }
 }

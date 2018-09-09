@@ -5,29 +5,43 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5219"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
-    
+  
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "10 10 10 10 10 10" //OAA
+   
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_damage"                                    "3 6 9 12 18 42"
+        "var_type"        "FIELD_FLOAT"
+        "damage"      "20 30 40 50 100 150"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "non_hero_damage_pct"                             "50 50 50 50"
+        "var_type"        "FIELD_INTEGER"
+        "radius"    "300"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_damage_tooltip"                              "48 96 144 192 288 672"
+        "var_type"        "FIELD_INTEGER"
+        "magic_resistance"  "-10 -15 -20 -25 -30 -35"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"      "8"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "projectile_speed"  "2000"
       }
     }
   }

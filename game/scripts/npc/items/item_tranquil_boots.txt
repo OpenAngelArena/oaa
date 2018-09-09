@@ -8,12 +8,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "213"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
@@ -41,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "975"
+    "ItemCost"                                            "1050"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "tranquil boots"
@@ -50,7 +52,7 @@
 
     "MaxUpgradeLevel"                                     "1"
     "ItemBaseLevel"                                       "1"
-// TO BE REMOVED    "UpgradesItems"                       "item_tranquil_boots;item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
+    // TO BE REMOVED    "UpgradesItems"                       "item_tranquil_boots;item_tranquil_boots_2;item_tranquil_boots_3;item_tranquil_boots_4;item_tranquil_boots_5"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -68,7 +70,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "14"
+        "bonus_health_regen"                              "13"
       }
       "04"
       {

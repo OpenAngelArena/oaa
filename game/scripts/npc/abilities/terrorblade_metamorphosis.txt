@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "140.0"
+    "AbilityCooldown"                                     "155.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "40 44 48 52 56 64"
+        "duration"                                        "40 44 48 52 56 60"
       }
       "02"
       {
@@ -50,21 +50,23 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_range"                                     "400"
+        "LinkedSpecialBonus"  "special_bonus_unique_terrorblade_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_attack_range"                            "550"
+        "LinkedSpecialBonus"  "special_bonus_unique_terrorblade_3"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 40 60 80 120 280"
+        "bonus_damage"                                    "20 40 60 80 180 280"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_loss"                                      "30"
+        "speed_loss"                                      "25"
       }
       "08"
       {

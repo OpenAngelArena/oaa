@@ -20,7 +20,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 120 200"
+    "AbilityManaCost"                                     "70 80 90 100 150 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,11 +35,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "outgoing_damage"                                 "-75 -70 -65 -60 -50 -20"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "outgoing_damage_tooltip"                         "25 30 35 40 50 80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_4"
       }
       "04"
       {

@@ -10,7 +10,7 @@
     "ID"                                                  "3033"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
@@ -23,9 +23,8 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_greater_guardian_greaves_3;item_upgrade_core_3;item_greater_guardian_greaves_dummy_4"
-      "02"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4;item_greater_guardian_greaves_dummy_4"
-      "03"                                                "item_greater_arcane_boots_4;item_mekansm;item_recipe_guardian_greaves"
+      "01"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4;item_greater_guardian_greaves_dummy_4"
+      "02"                                                "item_greater_arcane_boots_4;item_mekansm;item_recipe_guardian_greaves"
     }
   }
 
@@ -51,14 +50,14 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "18475"
+    "ItemCost"                                            "36650"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "guardian greaves"
+    "ItemAliases"                                         "greater guardian greaves 4;guardian greaves 4;ggg 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAlertable"                                       "1"
 
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_guardian_greaves_4"
     "UpgradeRecipe"                                       "item_recipe_greater_guardian_greaves"
@@ -70,42 +69,42 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "55 60 66 73 80"
+        "bonus_movement"                                  "60 66 73 80"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 560 840 1260"
+        "bonus_mana"                                      "350 560 840 1260"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "5 10 15 20 25"
+        "bonus_all_stats"                                 "10 15 20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 10 12 15"
+        "bonus_armor"                                     "7 10 12 15"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "4 6 9 12 15"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_health_regen"                               "5 7.5 10 12.5"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor"                                      "2 3 4 5 6"
+        "aura_armor"                                      "3 4 5 6"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "15 20 25 30 35"
+        "aura_health_regen_bonus"                         "16 20 24 28"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor_bonus"                                "15 17 20 23 26"
+        "aura_armor_bonus"                                "17 20 23 26"
       }
       "09"
       {
@@ -120,12 +119,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_health"                                "250 300 475 750 1100"
+        "replenish_health"                                "300 475 750 1100"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_mana"                                  "160 200 300 475 700"
+        "replenish_mana"                                  "200 300 475 700"
       }
       "13"
       {
@@ -135,7 +134,12 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "300 600 1200 2400 4800"
+        "bonus_gold_per_minute"                           "1800 3200 5500 9000"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bounty_percent"                            "30"
       }
     }
   }

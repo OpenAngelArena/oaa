@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3628"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -40,10 +41,10 @@
     "AbilityTextureName"                                  "custom/monkey_king_bar_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18200"
+    "ItemCost"                                            "17175"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "mkb;monkey king bar 4"
+    "ItemAliases"                                         "mkb 4;monkey king bar 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
@@ -54,26 +55,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "66 110 185 290 430"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_chance"                                     "35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_damage"                                     "160 200 260 340 440"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bash_stun"                                       "0.01"
-      }
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "bonus_damage"      "52 95 140 210 285"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"10 20 30 40 50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_chance"			"75"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+        "bonus_chance_damage"     "100 130 185 260 370"
+			}
     }
   }
 }

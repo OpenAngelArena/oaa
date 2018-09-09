@@ -4,11 +4,20 @@ if BossSpawner == nil then
   DebugPrint ( 'creating new BossSpawner object' )
   BossSpawner = class({})
 
+  BossSpawner.CoreItems = {
+    'item_upgrade_core',
+    'item_upgrade_core_2',
+    'item_upgrade_core_3',
+    'item_upgrade_core_4',
+    'item_upgrade_core_4',
+    'item_upgrade_core_4'
+  }
+
   Debug.EnabledModules['boss:spawn'] = false
 end
 
 function BossSpawner:Init ()
-  Timers:CreateTimer(5, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+  Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
@@ -39,6 +48,38 @@ function BossSpawner:Init ()
     margin = 300,
     players = allBadPlayers
   })
+
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
+  end
+end
+
+function BossSpawner:GetState ()
+  local state = {}
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    state[self:PitID(bossPit)] = bossPit.killCount
+  end
+
+  return state
+end
+
+function BossSpawner:LoadState (state)
+  local bossPits = Entities:FindAllByName('boss_pit')
+
+  for _,bossPit in ipairs(bossPits) do
+    bossPit.killCount = state[self:PitID(bossPit)]
+  end
+
+  BossSpawner:SpawnAllBosses()
+end
+
+function BossSpawner:PitID (pit)
+  local origin = pit:GetAbsOrigin()
+  return origin.x .. '/' .. origin.y .. '/' .. origin.z
 end
 
 function BossSpawner:SpawnAllBosses ()
@@ -50,7 +91,6 @@ function BossSpawner:SpawnAllBosses ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
     BossSpawner:SpawnBossAtPit(bossPit)
   end
 end
@@ -79,6 +119,7 @@ end
 
 function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   local bossHandle = CreateUnitByName(boss, pit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = bossTier
 
   DebugPrint(pit:GetAbsOrigin().x)
   DebugPrint(pit:GetAbsOrigin().y)
@@ -107,6 +148,15 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   bossHandle:AddItem(heart)
 
+  --Adding cores to the bosses inventory
+  local core = CreateItem(BossSpawner.CoreItems[bossTier], bossHandle, bossHandle)
+
+  if core == nil then
+    error('Got bad core, tier must have bad value ' .. tostring(bossTier))
+  else
+    bossHandle:AddItem(core)
+  end
+
   local resistance = bossHandle:FindAbilityByName("boss_resistance")
   if resistance then
     DebugPrint('Leveling up the boss resistance manager')
@@ -120,7 +170,9 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     isProtected = isProtected
   })
 
-  local newBossTier = math.min(6, bossTier + 1)
+  Minimap:SpawnBossIcon(pit, bossTier)
+
+  local newBossTier = math.min(5, bossTier + 1)
 
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')

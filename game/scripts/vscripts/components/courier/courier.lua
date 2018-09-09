@@ -17,14 +17,16 @@ function Courier:Init ()
 end
 
 function Courier.SpawnCourier (hero)
-    if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+  if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
+  if Courier.hasCourier[hero:GetTeamNumber()] then
     return
   end
 
-  Timers:CreateTimer(0.1, function ()
-    if Courier.hasCourier[hero:GetTeamNumber()] then
-      return
-    end
+  Courier.hasCourier[hero:GetTeamNumber()] = true
+
+  Timers:CreateTimer(1, function ()
 
     DebugPrint("Creating Courier for Team " .. hero:GetTeamNumber())
 
@@ -39,15 +41,13 @@ function Courier.SpawnCourier (hero)
     if courier then
         hero:CastAbilityImmediately(courier, hero:GetPlayerID())
     end
-    local flying = hero:AddItemByName('item_flying_courier')
-    if flying then
-        hero:CastAbilityImmediately(flying, hero:GetPlayerID())
+    local courierUnit = PlayerResource:GetNthCourierForTeam(0, hero:GetTeamNumber())
+    if courierUnit then
+      courierUnit:UpgradeToFlyingCourier()
     end
 
-    Courier.hasCourier[hero:GetTeamNumber()] = true
-
     if slot1Item then
-      Timers:CreateTimer(0.2, function ()
+      Timers:CreateTimer(0.5, function ()
         hero:AddItem(slot1Item)
       end)
     end

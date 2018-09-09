@@ -26,6 +26,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "percent_damage_reduce"                           "85"
       }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "reveal_duration"                                 "5.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reveal_max_distance"                             "1500"
+      }
     }
   }
 }

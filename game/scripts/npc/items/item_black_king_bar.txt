@@ -3,14 +3,15 @@
   //=================================================================================================================
   // Recipe: Black King Bar
   //=================================================================================================================
-  "item_recipe_black_king_bar"
+  "item_recipe_black_king_bar" "REMOVED"
+  "item_recipe_black_king_bar_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "80115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_datadriven"
     "Model"                         "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"            "item_recipe"
+    "AbilityTextureName"            "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +21,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                    "1"
-    "ItemResult"                    "item_black_king_bar"
+    "ItemResult"                    "item_black_king_bar_1"
     "ItemRequirements"
     {
       "01"                        "item_ogre_axe;item_mithril_hammer"
@@ -30,22 +31,25 @@
   //=================================================================================================================
   // Black King Bar
   //=================================================================================================================
-  "item_black_king_bar"
+  "item_black_king_bar" "REMOVED"
+  "item_black_king_bar_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "80116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "BaseClass"                     "item_black_king_bar"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/black_king_bar.lua"
     "FightRecapLevel"               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "80 75 70 65 60 55"
+    "AbilityCooldown"               "65"
+    "AbilitySharedCooldown"                               "avatar"
     "AbilityTextureName"            "custom/black_king_bar"
     "MaxUpgradeLevel"               "5"
     "ItemBaseLevel"                 "1"
-    "UpgradesItems"                 "item_black_king_bar;item_black_king_bar_2;item_black_king_bar_3;item_black_king_bar_4"
+    "UpgradesItems"                 "item_black_king_bar_1;item_black_king_bar_2;item_black_king_bar_3;item_black_king_bar_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -62,28 +66,23 @@
     {
       "01"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_strength"        "10 20 30 40 55"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_strength"        "10 20 30 40 55"
       }
       "02"
       {
-          "var_type"              "FIELD_INTEGER"
-          "bonus_damage"          "24 48 72 96 120"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_damage"          "24 48 72 96 120"
       }
       "03"
       {
-          "var_type"              "FIELD_FLOAT"
-          "duration"              "10.0 9.0 8.0 7.0 6.0 5.0"
-      }
-      "04"
-      {
-          "var_type"              "FIELD_INTEGER"
-          "max_level"             "6"
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "6.0 6.5 7.0 7.5 8.0"
       }
       "05"
       {
-          "var_type"              "FIELD_INTEGER"
-          "model_scale"           "30 34 38 42 45"     // Percentage over model scale
+        "var_type"              "FIELD_INTEGER"
+        "model_scale"           "30"     // Percentage over model scale
       }
     }
   }

@@ -22,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "140.0 120.0 100.0 100.0 100.0"
+    "AbilityCooldown"                                     "80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 300 400 600 1400"
+    "AbilityManaCost"                                     "200 300 400 900 1400"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -40,6 +40,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "830"
+        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_6"
       }
       "02"
       {
@@ -49,27 +50,28 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16"
+        "duration"                                        "18"
+        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 55 80 130 330"
+        "damage"                                          "30 55 80 205 330"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "140.0 120.0 60.0 60.0 60.0"
+        "cooldown_scepter"                                "40" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "16"
+        "duration_scepter"                                "18"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "60 85 110 160 360"
+        "damage_scepter"                                  "60 85 110 235 360"
       }
       "08"
       {

@@ -11,26 +11,26 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.4"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13"
+    "AbilityCooldown"                                     "8"
 
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "105 110 115 120 130 170"    
+    "AbilityManaCost"                                     "80 85 90 95 100 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,25 +39,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "140"
+        "radius"                                          "175"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spread"                                          "353"
+        "spread"                                          "450"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "1300"
+        "range"                                           "1500"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "70 100 130 160 220 460"
+        "axe_damage"                                      "40 80 120 160 360 560" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster"
       }
-
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_amp"                                      "6 8 10 12 15 18"
+      }
     }
   }
 }

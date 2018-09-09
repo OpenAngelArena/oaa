@@ -64,8 +64,6 @@ PlayerTables.UnsubscribeNetTableListener = function (callbackID) {
 
     delete PT.listeners[callbackID];
   }
-
-  return;
 };
 
 function isEquivalent (a, b) {

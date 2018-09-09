@@ -19,76 +19,58 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times"                               "0.4 0.5 0.6 0.5 0.20"
+        "multicast_2_times"                               "0.6 0.6 0.6 0.45 0.20"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times"                               "0 0.2 0.25 0.25 0.25"
+        "multicast_3_times"                               "0 0.3 0.3 0.3 0.3"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times"                               "0 0 0.125 0.2 0.5"
+        "multicast_4_times"                               "0 0 0.15 0.25 0.5"
       }
-
       "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "fireblast_mana_cost"                             "20 40 60 90 150"
-      }
-
-      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "fireblast_cooldown"                              "2 4 6 7 8"
       }
-
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "ignite_aoe"                                      "150 300 450 550 700"
       }
-      
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ignite_cast_range"                               "150 300 450 500 550"
       }
-
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bloodlust_aoe"                                   "575"
       }
-
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bloodlust_cooldown"                              "5 10 15 17 20"
       }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "multicast_2_times_tooltip"                       "60 60 60 45 20"
+      }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times_tooltip"                       "40 50 60 50 20"
+        "multicast_3_times_tooltip"                       "0 30 30 30 30"
       }
-
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times_tooltip"                       "0 20 25 25 25"
+        "multicast_4_times_tooltip"                       "0 0 15 25 50"
       }
-
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times_tooltip"                       "0 0 12.5 20 50"
-      }
-      
-
-
     }
   }
 }

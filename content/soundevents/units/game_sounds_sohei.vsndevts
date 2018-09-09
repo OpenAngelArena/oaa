@@ -1,0 +1,177 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+  Sohei.Dash = {
+    type = "dota_src1_3d"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/shared/small_blade/whoosh01.vsnd",
+      "sounds/weapons/hero/shared/small_blade/whoosh02.vsnd",
+      "sounds/weapons/hero/shared/small_blade/whoosh03.vsnd",
+      "sounds/weapons/hero/shared/small_blade/whoosh04.vsnd",
+    ]
+    volume = "1.400000"
+    pitch_rand_min = "0"
+    pitch_rand_max = "0.030000"
+    pitch = "0.300000"
+    soundlevel = "100.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.Guard = {
+    type = "dota_update_default"
+    vsnd_files =
+    [
+      "sounds/items/lotus_cast.vsnd"
+    ]
+    volume = "0.400000"
+    pitch_rand_min = "0"
+    pitch_rand_max = "0.030000"
+    pitch = "2.400000"
+    soundlevel = "100.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.GuardProc = {
+    type = "dota_src1_3d"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/axe/counterhelix.vsnd"
+    ]
+    volume = "0.700000"
+    pitch_rand_min = "0"
+    pitch_rand_max = "0.030000"
+    pitch = "1.300000"
+    soundlevel = "100.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.GuardHit = {
+    type = "dota_update_default"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/drow_ranger/arrow_impact_1.vsnd",
+      "sounds/weapons/hero/drow_ranger/arrow_impact_2.vsnd",
+      "sounds/weapons/hero/drow_ranger/arrow_impact_3.vsnd",
+    ]
+    volume = "1.200000"
+    pitch_rand_min = "0"
+    pitch_rand_max = "0.030000"
+    pitch = "0.800000"
+    soundlevel = "100.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.Momentum = {
+    type = "dota_update_default"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/slardar/bash_stun.vsnd"
+    ]
+    volume = "0.700000"
+    pitch_rand_min = "0"
+    pitch_rand_max = "0.030000"
+    pitch = "1.500000"
+    soundlevel = "100.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.Momentum.Collision = {
+    type = "dota_update_default"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/earth_spirit/boulder_smash_target.vsnd"
+    ]
+    volume = "0.450000"
+    pitch_rand_min = "-0.050000"
+    pitch_rand_max = "0.050000"
+    pitch = "1.000000"
+    soundlevel = "81.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.FlurryCast = {
+    type = "dota_update_default"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/ember_spirit/fire_remnant_stop.vsnd"
+    ]
+    volume = "1.000000"
+    pitch_rand_min = "0.000000"
+    pitch_rand_max = "0.030000"
+    pitch = "0.800000"
+    soundlevel = "100.000000"
+    distance_max = "1600.000000"
+    mixgroup = "Weapons"
+  }
+
+  Sohei.Footsteps = {
+		type = "dota_src1_3d_footsteps"
+		vsnd_files =
+		[
+			"sounds/physics/footsteps/hero/shared/general01.vsnd",
+			"sounds/physics/footsteps/hero/shared/general02.vsnd",
+			"sounds/physics/footsteps/hero/shared/general03.vsnd",
+			"sounds/physics/footsteps/hero/shared/general04.vsnd",
+			"sounds/physics/footsteps/hero/shared/general05.vsnd",
+			"sounds/physics/footsteps/hero/shared/general06.vsnd",
+			"sounds/physics/footsteps/hero/shared/general07.vsnd",
+		]
+		volume_rand_min = "-0.099976"
+		volume_rand_max = "0.099976"
+		volume = "1.000000"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "72.000000"
+		distance_max = "2000.000000"
+		event_type = "4.000000"
+	}
+
+  Sohei.Attack = {
+    type = "dota_update_default"
+    vsnd_files =
+    [
+      "sounds/weapons/hero/earth_spirit/attack01.vsnd",
+      "sounds/weapons/hero/earth_spirit/attack02.vsnd",
+      "sounds/weapons/hero/earth_spirit/attack03.vsnd",
+    ]
+    volume = "1.000000"
+    pitch_rand_min = "-0.050000"
+    pitch_rand_max = "0.050000"
+    pitch = "1.000000"
+    soundlevel = "81.000000"
+    mixgroup = "BaseAttacks"
+    spread_radius = "150.000000"
+    distance_max = "2500.000000"
+    soundevent_layer2 = "Sohei.Attack.Impact"
+    soundevent_layer2_on = "1.000000"
+    soundevent_layer3 = "Damage_Melee.Gore"
+    soundevent_layer3_on = "1.000000"
+  }
+
+  Sohei.Attack.Impact = {
+    type = "dota_update_default"
+		vsnd_files =
+		[
+			"sounds/weapons/hero/shared/large_blade/follow_thru01.vsnd",
+			"sounds/weapons/hero/shared/large_blade/follow_thru02.vsnd",
+			"sounds/weapons/hero/shared/large_blade/follow_thru03.vsnd",
+		]
+		volume_rand_min = "-0.049988"
+		volume_rand_max = "0.049988"
+		volume = "0.549988"
+		pitch_rand_min = "-0.050000"
+		pitch_rand_max = "0.050000"
+		pitch = "1.000000"
+		soundlevel = "75.000000"
+		mixgroup = "BaseAttacks"
+		spread_radius = "150.000000"
+  }
+
+}

@@ -8,27 +8,29 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                     "6.0 4.0 2.0 0.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0 0 0 0"
+    "AbilityDamage"                                       "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 20 20 20"
+    "AbilityManaCost"                                     "40 35 30 25 20 15"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,22 +39,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 2.0 2.0 2.0"
+        "duration"                                        "3.0"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "10 16 22 28 40 88"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "0.25 0.5 0.75 1.0 2.0 8.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-10 -20 -30 -40 -40 -40"
+        "bonus_movement_speed"                            "-25 -30 -35 -40 -40 -40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-10 -20 -30 -40 -60 -100"
+        "bonus_attack_speed"                              "-25 -30 -35 -40 -65 -90"
       }
     }
   }

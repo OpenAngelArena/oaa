@@ -50,30 +50,35 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "armor_per_stack"                                 "1 1.4 1.8 2.2 3 4"
+        "base_armor"                                      "2"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_move_slow"                                  "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_per_stack"                                 "1 1.4 1.8 2.2 3 4"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow_per_stack"                             "3 6 9 12 15 20"
+        "base_move_slow"                                  "20"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow_per_stack"                             "3 6 9 12 16 20"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "stack_limit"                                     "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_bristleback"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "goo_duration_creep"                              "10.0"
       }
-      "08"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "750"

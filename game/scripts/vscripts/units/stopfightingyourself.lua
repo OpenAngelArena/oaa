@@ -150,7 +150,7 @@ local function Think(state, target)
       UseRandomItem()
       return 0.5
     elseif dice <= 0.66 and healthpct <= 66 then
-      IllusionsCast()
+      -- IllusionsCast()
       return 1
     end
   end

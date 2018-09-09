@@ -18,6 +18,9 @@ end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
 local OnGameRulesStateChangeEvent = CreateGameEvent('OnGameRulesStateChange')
+local OnStrategyEvent = CreateGameEvent('OnStrategy')
+local OnPreGameEvent = CreateGameEvent('OnPreGame')
+local OnEndGameEvent = CreateGameEvent('OnEndGame')
 function GameMode:OnGameRulesStateChange(keys)
   OnGameRulesStateChangeEvent(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
@@ -26,10 +29,14 @@ function GameMode:OnGameRulesStateChange(keys)
   local newState = GameRules:State_Get()
   -- Strategy time started
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    OnStrategyEvent()
     GameMode:OnStrategyTime()
   -- Pre-Game started
   elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
+    OnPreGameEvent(keys)
     GameMode:OnPreGame()
+  elseif newState == DOTA_GAMERULES_STATE_POST_GAME then
+    OnEndGameEvent(keys)
   end
 end
 
@@ -65,6 +72,9 @@ function GameMode:OnNPCSpawned(keys)
   end
 end
 
+-- Custom event that fires when an entity takes damage that reduces its health to 0
+local OnEntityFatalDamage = CreateGameEvent('OnEntityFatalDamage')
+
 -- An entity somewhere has been hurt.  This event fires very often with many units so don't do too many expensive
 -- operations here
 -- game event object for OnEntityHurt
@@ -78,6 +88,10 @@ function GameMode:OnEntityHurt(keys)
   if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then
     local entCause = EntIndexToHScript(keys.entindex_attacker)
     local entVictim = EntIndexToHScript(keys.entindex_killed)
+
+    if entVictim.GetHealth and entVictim:GetHealth() == 0 then
+      OnEntityFatalDamage(keys)
+    end
 
     -- The ability/item used to damage, or nil if not damaged by an item/ability
     local damagingAbility = nil
@@ -375,7 +389,10 @@ function GameMode:OnConnectFull(keys)
   local ply = EntIndexToHScript(entIndex)
 
   -- The Player ID of the joining player
-  local playerID = ply:GetPlayerID()
+  if ply then
+    local playerID = ply:GetPlayerID()
+    -- do stuff?
+  end
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity

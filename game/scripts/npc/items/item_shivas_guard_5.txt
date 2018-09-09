@@ -10,7 +10,7 @@
     "ID"                                                  "3849"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_4;item_upgrade_core_4"
+      "02"                                                "item_stoneskin;item_upgrade_core_4"
     }
   }
 
@@ -52,8 +53,8 @@
     "ItemCost"                                            "37750"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "shiva's guard"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "shiva's guard 5;shivas guard 5;shiva 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

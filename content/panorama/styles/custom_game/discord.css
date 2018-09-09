@@ -1,0 +1,30 @@
+.Discord.InGame
+{
+  horizontal-align: left;
+  vertical-align: bottom;
+  margin-left: 350px;
+  margin-bottom: 25px;
+  width: 148px;
+  height: fit-children;
+  flow-children: down;
+}
+
+.Discord
+{
+  horizontal-align: right;
+  vertical-align: top;
+  margin-top: 42px;
+  width: 148px;
+  height: fit-children;
+  flow-children: down;
+}
+
+#DiscordLink
+{
+  margin-top: 45px;
+  margin-left: 7px;
+  color: #7289DA;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px 2 #00000099;
+}

@@ -1,4 +1,4 @@
--- defines item_preemptive_3c
+-- defines item_bubble_orb_1
 -- defines modifier_item_preemptive_bubble_aura_block
 -- defines modifier_item_preemptive_bubble_block
 -- Notes: Blocking of non-targeted spell effects is done by a ModifierGained filter found in components/reflexfilters/bubble.lua
@@ -14,13 +14,14 @@ require('libraries/timers')
 
 ------------------------------------------------------------------------
 
-item_preemptive_3c = class(ItemBaseClass)
+item_bubble_orb_1 = class(ItemBaseClass)
+item_bubble_orb_2 = item_bubble_orb_1
 
-function item_preemptive_3c:GetIntrinsicModifierName()
+function item_bubble_orb_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus"
 end
 
-function item_preemptive_3c:OnSpellStart()
+function item_bubble_orb_1:OnSpellStart()
   local caster = self:GetCaster()
   local targetPoint = caster:GetOrigin()
   local duration = self:GetSpecialValueFor("duration")
@@ -128,6 +129,12 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
   end
 
   foreach(ApplyBlockModifier, iter(alliedUnitsInBubble))
+end
+
+if IsServer() then
+  function modifier_item_preemptive_bubble_aura_block:OnDestroy()
+    UTIL_Remove(self:GetParent())
+  end
 end
 
 -- function modifier_item_preemptive_bubble_aura_block:GetAuraRadius()

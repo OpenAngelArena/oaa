@@ -35,22 +35,26 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_hp_tooltip"                                 "75 200 325 450 700 1700"
+        "ward_hp_tooltip"                                 "75 200 325 450 1075 1700"
+        "LinkedSpecialBonus"  "special_bonus_unique_venomancer"
+        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_damage_tooltip"                             "13 22 31 40 58 130"
+        "ward_damage_tooltip"                             "13 22 31 40 140 240"
+        "LinkedSpecialBonus"  "special_bonus_unique_venomancer"
+        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
       }
       "04" // For special bonus at level 25
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_hp"                                         "150 400 650 900 1400 3400"
+        "ward_hp"                                         "150 400 650 900 2150 3400"
       }
       "05" // For special bonus at level 25
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_damage"                                     "26 44 62 80 119 260"
+        "ward_damage"                                     "26 44 62 80 170 260"
       }
     }
   }

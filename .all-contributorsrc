@@ -7,17 +7,25 @@
   "imageSize": 100,
   "commit": true,
   "types": {
+    "founder": {
+      "symbol": "⭐️",
+      "description": "Founded the project"
+    },
     "design": {
-      "symbol": ":thinking:"
+      "symbol": "🤔",
+      "description": "Game design"
     },
     "balance": {
-      "symbol": ":chart_with_upwards_trend:"
+      "symbol": "📈",
+      "description": "Balance"
     },
     "art": {
-      "symbol": ":art:"
+      "symbol": "🎨",
+      "description": "Art and Map"
     },
     "music": {
-      "symbol": ":musical_note:"
+      "symbol": "🎵",
+      "description": "Music"
     }
   },
   "contributors": [
@@ -27,6 +35,7 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/422331?v=3",
       "profile": "https://github.com/chrisinajar",
       "contributions": [
+        "founder",
         "code",
         "tool",
         "infra",
@@ -40,6 +49,7 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/24982519?v=3",
       "profile": "https://github.com/l34Um1",
       "contributions": [
+        "founder",
         "design",
         "balance",
         "video",
@@ -143,7 +153,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/6454468?v=3",
       "profile": "https://github.com/Honeth",
       "contributions": [
-        "doc"
+        "doc",
+        "code"
       ]
     },
     {
@@ -338,7 +349,8 @@
       "contributions": [
         "doc",
         "balance",
-        "test"
+        "test",
+        "code"
       ]
     },
     {
@@ -404,6 +416,187 @@
       "contributions": [
         "balance"
       ]
+    },
+    {
+      "login": "Anemolo",
+      "name": "Daniel Velasquez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17147921?v=4",
+      "profile": "https://github.com/Anemolo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Satsaa",
+      "name": "Samuel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/32210043?v=4",
+      "profile": "https://github.com/Satsaa",
+      "contributions": [
+        "art",
+        "code"
+      ]
+    },
+    {
+      "login": "wuwer",
+      "name": "Tomasz Wawro",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1982987?v=4",
+      "profile": "https://github.com/wuwer",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "Yzanas",
+      "name": "Yzanas",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31249492?v=4",
+      "profile": "https://github.com/Yzanas",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Wujekklawy",
+      "name": "Wujekklawy",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/25621896?v=4",
+      "profile": "https://github.com/Wujekklawy",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "carlosrpg",
+      "name": "carlosrpg",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/759671?v=4",
+      "profile": "https://github.com/carlosrpg",
+      "contributions": [
+        "art",
+        "code"
+      ]
+    },
+    {
+      "login": "Zarnotox",
+      "name": "Dennis Heperol",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9365457?v=4",
+      "profile": "https://github.com/Zarnotox",
+      "contributions": [
+        "code",
+        "art"
+      ]
+    },
+    {
+      "login": "TideSofDarK",
+      "name": "Sergey Sylvian",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1160901?v=4",
+      "profile": "https://github.com/TideSofDarK",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "GymLeaderGiovanni",
+      "name": "GymLeaderGiovanni",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/33994853?v=4",
+      "profile": "https://github.com/GymLeaderGiovanni",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "OTAJumperjay",
+      "name": "OTAJumperjay",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/34005014?v=4",
+      "profile": "https://github.com/OTAJumperjay",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "MasterGordon",
+      "name": "MasterGordon",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18127395?v=4",
+      "profile": "https://github.com/MasterGordon",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "IBurn36360",
+      "name": "Anthony Diaz",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2624959?v=4",
+      "profile": "http://www.areqgaming.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "Newton314",
+      "name": "Newton314",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32162046?v=4",
+      "profile": "https://github.com/Newton314",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Nortlen",
+      "name": "Nortlen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/33912676?v=4",
+      "profile": "https://github.com/Nortlen",
+      "contributions": [
+        "balance",
+        "doc"
+      ]
+    },
+    {
+      "login": "marengohue",
+      "name": "Rebedailo 'marengo_hue' Eugene",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5710794?v=4",
+      "profile": "https://github.com/marengohue",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ZzZombo",
+      "name": "ZzZombo",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10889612?v=4",
+      "profile": "https://github.com/ZzZombo",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "EarthSalamander42",
+      "name": "EarthSalamander #42 ",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2910390?v=4",
+      "profile": "https://github.com/EarthSalamander42",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "ArchOAA",
+      "name": "Richard Clutterbuck",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/20487287?v=4",
+      "profile": "https://github.com/ArchOAA",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tyrelsouza",
+      "name": "Tyrel Souza",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/923113?v=4",
+      "profile": "https://www.tyrelsouza.com",
+      "contributions": [
+        "doc"
+      ]
     }
-  ]
+  ],
+  "repoType": "github"
 }

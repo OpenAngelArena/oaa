@@ -10,7 +10,7 @@
     "ID"                                                  "3095"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -45,6 +45,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "mjollnir"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -54,11 +55,11 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "38700"
+    "ItemCost"                                            "38600"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "mjollnir"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "mjollnir 5;lightning 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -73,7 +74,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "80 90 100 110 120"
+        "bonus_attack_speed"                              "75 85 95 105 115"
       }
       "03"
       {
@@ -123,7 +124,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "150 200 250 350 450"
+        "chain_damage"                                    "170 200 250 350 450"
       }
       "13"
       {
@@ -144,6 +145,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "chain_cooldown"                                  "0.2"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

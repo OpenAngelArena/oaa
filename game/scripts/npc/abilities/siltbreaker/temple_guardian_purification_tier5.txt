@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian: Purification
+  //=================================================================================================================
+  "temple_guardian_purification_tier5"
+  {
+    "ID"                            "599457"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_purification_tier5.lua"
+    "AbilityTextureName"            "omniknight_purification"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_NO"
+    "FightRecapLevel"               "1"
+
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "800"
+    "AbilityCastPoint"              "1.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "20"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "130"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "heal"                  "1000" // boss resistance makes this effectively 10000 heal, every 20 seconds, 500 hp/s... that's a lot of heal
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "300"
+      }
+    }
+  }
+}

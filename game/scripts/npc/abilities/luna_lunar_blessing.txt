@@ -23,12 +23,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "14 22 30 38 54 120"
+        "bonus_damage"                                    "14 28 42 56 112 168" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_luna_3"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "250 500 750 1000 1200 1400"
+        "bonus_night_vision"                              "250 500 750 1000 1250 1500"
       }
     }
   }

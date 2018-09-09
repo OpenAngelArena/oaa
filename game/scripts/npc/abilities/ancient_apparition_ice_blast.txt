@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01 0.01"
+    "AbilityCastPoint"                                    "0.01"
     "AbilityCastRange"                                    "0"
 
     // Time
@@ -31,11 +31,11 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 125 150 200 400"
+    "AbilityManaCost"                                     "150 150 150 275 400"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "250 350 450 650 1300"
+    "AbilityDamage"                                       "250 350 450 950 1450"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,47 +44,48 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_min"                                      "275 275 275 275 275"
+        "radius_min"                                      "275"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "radius_grow"                                     "50.0 50.0 50.0 50.0 50.0"
+        "radius_grow"                                     "50.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_max"                                      "1000 1000 1000 1000 1000"
+        "radius_max"                                      "1000"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "path_radius"                                     "275 275 275 275 275"
+        "path_radius"                                     "275"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "frostbite_duration"                              "8.0 9.0 10.0 11.0 12.0"
+        "frostbite_duration"                              "9 10 11 12 13" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "dot_damage"                                      "12.5 20.0 32.0 40.0 60.0"
+        "dot_damage"                                      "12.5 20.0 32.0 46.0 60.0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1500 1500 1500 1500 1500 1500"
+        "speed"                                           "1500"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "kill_pct"                                        "10.0 11.0 12.0 13.0 15.0"
+        "kill_pct"                                        "0"	//OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_5"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_sight_radius"                             "500 500 500 500 500"
+        "target_sight_radius"                             "500"
       }
       "10"
       {

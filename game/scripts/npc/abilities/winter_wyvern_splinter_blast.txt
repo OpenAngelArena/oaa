@@ -8,27 +8,27 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "7"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 180 260 340 500 1140"
+    "AbilityDamage"                                       "100 180 260 340 740 1140"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 170 250"
+    "AbilityManaCost"                                     "105 120 135 150 225 375"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,12 +52,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed"                                 "-25"
+        "bonus_movespeed"                                 "-30"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow_tooltip"                          "25"
+        "movespeed_slow_tooltip"                          "30"
       }
       "06"
       {

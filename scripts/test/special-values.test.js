@@ -4,6 +4,7 @@ var path = require('path');
 var fs = require('fs');
 var after = require('after');
 var spok = require('spok');
+var extend = require('xtend');
 var partial = require('ap').partial;
 
 var dotaItems = null;
@@ -16,13 +17,15 @@ var stupidItemNames = [
   'item_halloween_candy_corn',
   'item_halloween_rapier',
   'item_firework_mine',
+  'sylph_sprite_shield',
   'nothing'
 ];
 
 var itemsFound = {};
 var idsFound = {};
 var itemFileMap = {};
-var nextAvailableId = 5000;
+var nextAvailableId = 8401;
+var usedIDs = {};
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
@@ -34,20 +37,20 @@ test('KV Values', function (t) {
       dotaItemIDs = dotaItemList
         .map(function (item) {
           // console.log(dotaItems[item]);
+          usedIDs[dotaItems[item].values.ID] = item;
           return dotaItems[item].values.ID;
         })
         .filter(a => !!a);
-
-      while (dotaItemIDs.indexOf(nextAvailableId) !== -1) {
-        nextAvailableId++;
-      }
-
       t.ok(Object.keys(data).length > 1, 'gets dota items from github');
     });
     Lib.dotaAbilities(function (err, data) {
       t.notOk(err, 'no err while reading dota abilities');
       dotaAbilities = data;
       dotaAbilityList = Object.keys(dotaAbilities).filter(a => a !== 'values');
+      dotaAbilityList.forEach(function (item) {
+        usedIDs[dotaAbilities[item].values.ID] = item;
+      });
+
       t.ok(Object.keys(data).length > 1, 'gets dota abilities from github');
     });
   });
@@ -87,6 +90,9 @@ test('KV Values', function (t) {
     });
   });
   t.test('next available ID', function (t) {
+    while (usedIDs[nextAvailableId]) {
+      nextAvailableId++;
+    }
     t.ok(nextAvailableId, 'found an available id');
     console.log('Next available ID is', nextAvailableId);
     t.end();
@@ -98,12 +104,20 @@ var specialValuesForItem = {};
 function checkKVData (t, name, data, isItem, cb) {
   t.test(name, function (t) {
     var root = data;
+    var foundRoot = false;
     if (root.DOTAItems) {
       root = root.DOTAItems;
+      foundRoot = true;
     }
     if (root.DOTAAbilities) {
       root = root.DOTAAbilities;
+      foundRoot = true;
     }
+    if (!foundRoot) {
+      console.log(root);
+    }
+    t.ok(foundRoot, 'Starts with either DOTAItems or DOTAAbilities');
+
     var keys = Object.keys(root).filter(a => a !== 'values');
     var done = after(keys.length, function (err) {
       t.notOk(err, 'no error at very end');
@@ -137,14 +151,19 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     if (!isBuiltIn && item !== 'item_dummy_datadriven') {
       t.ok(values.ID, 'must have an item id');
       t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
-      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota');
+      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota ' + usedIDs[values.ID]);
+
+      if (usedIDs[values.ID]) {
+        t.fail('ID number is already in use by ' + usedIDs[values.ID]);
+        usedIDs[values.ID] = item;
+      }
     }
   }
 
   itemsFound[item] = item;
   idsFound[values.ID] = item;
 
-  while (dotaItemIDs.indexOf(nextAvailableId) !== -1 || idsFound['' + nextAvailableId]) {
+  while (usedIDs[nextAvailableId] || idsFound['' + nextAvailableId]) {
     nextAvailableId += 1;
   }
 
@@ -176,22 +195,34 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   } else {
     done();
   }
+  var parentKV = null;
   if (values.BaseClass) {
     if (isItem) {
       t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built in item');
+      if (dotaItems[values.BaseClass] && dotaItems[values.BaseClass].values && dotaItems[values.BaseClass].values.ID === values.ID) {
+        parentKV = dotaItems[values.BaseClass];
+      }
     } else {
       t.ok(dotaAbilities[values.BaseClass], 'base class ' + values.BaseClass + ' must be ability_datadriven, ability_lua, or a built in ability');
+      if (dotaAbilities[values.BaseClass] && dotaAbilities[values.BaseClass].values && dotaAbilities[values.BaseClass].values.ID === values.ID) {
+        parentKV = dotaAbilities[values.BaseClass];
+      }
     }
   } else {
     if (isItem) {
       t.ok(dotaItems[item], 'missing baseclass only allowed when overriding built in items');
-      if (dotaItems[item] && values.ID) {
-        t.equals(values.ID, dotaItems[item].values.ID, 'ID must not be changed from base dota item');
-      }
+      parentKV = dotaItems[item];
     } else {
       t.ok(dotaAbilities[item], 'missing baseclass only allowed when overriding built in abilities');
-      if (dotaAbilities[item] && values.ID) {
-        t.equals(values.ID, dotaAbilities[item].values.ID, 'ID must not be changed from base dota ability');
+      parentKV = dotaAbilities[item];
+    }
+  }
+  if (parentKV && values.ID) {
+    checkInheritedValues(t, isItem, values, root[item].comments, parentKV.values);
+
+    if (root[item].ItemRequirements) {
+      if (!root[item].comments.ItemRequirements || !root[item].comments.ItemRequirements.includes('OAA')) {
+        t.deepEquals(root[item].ItemRequirements, parentKV.ItemRequirements, 'has the same item buildup\n' + JSON.stringify(parentKV.ItemRequirements, null, 2) + '\n' + JSON.stringify(root[item].ItemRequirements, null, 2));
       }
     }
   }
@@ -213,7 +244,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     // var version = rootItem[2];
     rootItem = rootItem[1];
     if (!specialValuesForItem[rootItem]) {
-      testSpecialValues(t, specials);
+      testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
     } else {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
@@ -225,39 +256,135 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   // });
 }
 
-function testSpecialValues (t, specials) {
+function checkInheritedValues (t, isItem, values, comments, parentValues) {
+  if (values.ID) {
+    t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
+  }
+  var keys = [
+    'AbilityBehavior',
+    'ItemCost',
+    'AbilityCastRange',
+    'AbilityCastPoint',
+    'AbilityChannelTime',
+    'AbilityCooldown',
+    'AbilityDuration',
+    'AbilityManaCost',
+    'AbilityUnitTargetType',
+    'AbilityUnitDamageType',
+    'SpellImmunityType',
+    'SpellDispellableType',
+    'ItemInitialCharges',
+    'ItemRequiresCharges',
+    'ItemDisplayCharges'
+  ];
+
+  if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
+    t.equals(values.AbilityBehavior, parentValues.AbilityBehavior, 'AbilityBehavior must not be changed from base dota item');
+  }
+  keys.forEach(function (key) {
+    if (values[key] && (!comments[key] || !comments[key].includes('OAA'))) {
+      var baseValue = '';
+      var parentValue = parentValues[key] || '';
+
+      if (values[key].length < parentValue.length) {
+        baseValue = parentValue.split(' ').map(function (entry) {
+          return values[key];
+        }).join(' ');
+      } else {
+        var size = values[key].split(' ').length - 2;
+        if (isItem) {
+          size = 1;
+        }
+        var parentArr = parentValue.split(' ');
+        if (parentArr.length === 1) {
+          while (parentArr.length < size) {
+            parentArr.push(parentArr[0]);
+          }
+        }
+        parentValue = parentArr.join(' ');
+
+        baseValue = values[key].substr(0, Math.max(1, parentValue.length, values[key].split(' ')[0].length));
+      }
+      t.deepEqual(baseValue, parentValue, key + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      // t.equals(values[key], parentValues[key], key + ' must not be changed from base dota item (' + parentValues[key] + ' vs ' + values[key] + ')');
+    }
+  });
+}
+
+function testSpecialValues (t, isItem, specials, parentSpecials) {
   var values = Object.keys(specials).filter(a => a !== 'values');
   var result = {};
+  var parentData = {};
+
+  if (parentSpecials) {
+    var parentValues = Object.keys(parentSpecials).filter(a => a !== 'values');
+    parentValues.forEach(function (num) {
+      var value = parentSpecials[num].values;
+      var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
+
+      parentData[keyNames[0]] = value;
+    });
+  }
 
   values.forEach(function (num) {
     var value = specials[num].values;
     t.ok(value.var_type, 'has a var_type ' + num);
-    var hasLinkedSpecial = !!value.LinkedSpecialBonus;
-    var hasLinkedSpecialField = !!value.LinkedSpecialBonusField;
-    var hasLinkedSpecialOperation = !!value.LinkedSpecialBonusOperation;
-    var hasSpellDamageTooltip = !!value.CalculateSpellDamageTooltip;
-    var hasLevelkey = !!value.levelkey;
 
-    var keyNames = Object.keys(value).filter(a => a !== 'var_type');
-
-    if (hasLinkedSpecial) {
-      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonus');
-    }
-    if (hasLinkedSpecialField) {
-      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonusField');
-    }
-    if (hasLinkedSpecialOperation) {
-      keyNames = keyNames.filter(a => a !== 'LinkedSpecialBonusOperation');
-    }
-    if (hasSpellDamageTooltip) {
-      keyNames = keyNames.filter(a => a !== 'CalculateSpellDamageTooltip');
-    }
-    if (hasLevelkey) {
-      keyNames = keyNames.filter(a => a !== 'levelkey');
-    }
+    var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
     t.equal(keyNames.length, 1, 'gets keyname after filtering out extra values');
 
     var keyName = keyNames[0];
+
+    if (parentSpecials && (!parentSpecials[num] || !parentSpecials[num].values[keyName])) {
+      if (specials.comments && specials.comments[num] && specials.comments[num].indexOf('OAA') !== -1) {
+        // do nothing
+      } else if (!parentData[keyName]) {
+        t.fail('Extra keyname found in special values: ' + keyName);
+      } else if (!parentSpecials[num]) {
+        t.fail('Unexpected special value: ' + keyName);
+      } else {
+        var expectedName = filterExtraKeysFromSpecialValue(Object.keys(parentSpecials[num].values))[0];
+        t.fail('special value in wrong order: ' + keyName + ' should be ' + expectedName);
+      }
+    }
+    if (parentData[keyName]) {
+      // console.log(parentData[keyName], value);
+      var compareValue = extend(value);
+      compareValue[keyName] = parentData[keyName][keyName];
+      compareValue.var_type = parentData[keyName].var_type;
+      spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
+
+      if (value[keyName].match(/\.0*[1-9]/)) {
+        t.notEqual(value.var_type, 'FIELD_INTEGER', 'cannot use FIELD_INTEGER with decimal values in ' + keyName);
+      }
+
+      if (!specials[num].comments[keyName] || !specials[num].comments[keyName].includes('OAA')) {
+        // test base dota values
+        var baseValue = '';
+        var parentValue = parentData[keyName][keyName];
+
+        if (value[keyName].length < parentValue.length) {
+          baseValue = parentValue.split(' ').map(function (entry) {
+            return value[keyName];
+          }).join(' ');
+        } else {
+          var size = value[keyName].split(' ').length - 2;
+          if (isItem) {
+            size = 1;
+          }
+          var parentArr = parentValue.split(' ');
+          if (parentArr.length === 1) {
+            while (parentArr.length < size) {
+              parentArr.push(parentArr[0]);
+            }
+          }
+          parentValue = parentArr.join(' ');
+
+          baseValue = value[keyName].substr(0, parentValue.length);
+        }
+        t.equal(parentValue, baseValue, keyName + ' should inherit basic dota values (' + parentValue + ' vs ' + baseValue + ')');
+      }
+    }
 
     if (result[keyName]) {
       t.fail('Special value found twice: ' + keyName);
@@ -265,7 +392,23 @@ function testSpecialValues (t, specials) {
     result[keyName] = value[keyName];
   });
 
+  Object.keys(parentData).forEach(function (name) {
+    t.ok(result[name], 'has value for ' + name + ' (' + parentData[name][name] + ', ' + parentData[name].var_type + ')');
+  });
+
   return result;
+}
+
+var keyWhiteList = [
+  'var_type',
+  'LinkedSpecialBonus',
+  'LinkedSpecialBonusField',
+  'LinkedSpecialBonusOperation',
+  'CalculateSpellDamageTooltip',
+  'levelkey'
+];
+function filterExtraKeysFromSpecialValue (keyNames) {
+  return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);
 }
 
 // check upgrade paths and costs
@@ -278,6 +421,10 @@ function buildItemTree (t, data, cb) {
   t.test('item upgrade paths', function (t) {
     Object.keys(data).forEach(function (fileName) {
       var entry = data[fileName].DOTAItems;
+      if (!entry) {
+        t.fail('Could not find the DOTAItems entry for ' + fileName);
+        return;
+      }
       var itemNames = Object.keys(entry).filter(a => a !== 'values');
       itemNames.forEach(function (item) {
         var itemData = entry[item];
@@ -289,7 +436,7 @@ function buildItemTree (t, data, cb) {
         }
 
         if (items[item]) {
-          t.fail(item + ' was defined twice, not bothing with tree');
+          t.fail(item + ' was defined twice, not bothering with tree');
           return;
         }
 
@@ -356,10 +503,12 @@ function buildItemTree (t, data, cb) {
       }
       var requirements = recipeData.ItemRequirements.values;
       var numIndex = 1;
-      requirements = Object.keys(requirements).map(function (index) {
-        t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
-        return requirements[index].split(';').filter(a => !!a);
-      });
+      requirements = Object.keys(requirements)
+        .sort(function (a, b) { return Number(a) - Number(b); })
+        .map(function (index) {
+          t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
+          return requirements[index].split(';').filter(a => !!a);
+        });
 
       itemData.cost = Number.MAX_VALUE;
       itemData.totalCost = Number.MAX_VALUE;
@@ -370,21 +519,35 @@ function buildItemTree (t, data, cb) {
       calculateCost(item);
 
       var upgradeCores = [];
+      var firstReq = null;
+      var firstCore = null;
       requirements.forEach(function (reqList) {
         var coreTier = null;
         reqList.forEach(function (reqItem) {
           var match = reqItem.match(/item_upgrade_core_?([0-9])?/);
           if (!match) {
+            if (!firstReq) {
+              firstReq = reqItem;
+            } else {
+              if (baseItemName(reqItem) === baseItemName(item) && reqItem !== item) {
+                t.equals(baseItemName(firstReq), baseItemName(item), item + ' builds out of itself, so it needs to build out of itself first.');
+              }
+            }
             return;
           }
           coreTier = Number(match[1] || 1);
+          if (!firstCore) {
+            firstCore = coreTier;
+          } else {
+            t.ok(firstCore <= coreTier, item + ' cores should prefer lower tier over higher tier');
+          }
         });
         if (coreTier) {
           upgradeCores.push(coreTier);
         }
       });
 
-      if (upgradeCores.length) {
+      if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
         var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
         // console.log(item, 'is made with tier', minCore, 'items');
         for (var i = minCore; i < 5; ++i) {
@@ -431,27 +594,27 @@ function buildItemTree (t, data, cb) {
 
       // this chunk of code will write the item costs in the file for you
       // useful...
-      // if (items[item].baseCost !== items[item].cost) {
-      //   var fileName = itemFileMap[item];
-      //   var foundIt = false;
-      //   var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
-      //     .split('\n')
-      //     .map(function (line) {
-      //       var parts = line.split(/[\s ]+/).filter(a => a && a.length);
-      //       if (parts[0] === '"' + item + '"') {
-      //         foundIt = true;
-      //       }
-      //       if (foundIt && parts[0] === '"ItemCost"') {
-      //         // console.log(parts);
-      //         line = line.replace('' + items[item].baseCost, items[item].cost);
-      //         foundIt = false;
-      //       }
-      //       return line;
-      //     })
-      //     .join('\n');
+      if (items[item].baseCost !== items[item].cost) {
+        var fileName = itemFileMap[item];
+        var foundIt = false;
+        var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
+          .split('\n')
+          .map(function (line) {
+            var parts = line.split(/[\s ]+/).filter(a => a && a.length);
+            if (parts[0] === '"' + item + '"') {
+              foundIt = true;
+            }
+            if (foundIt && parts[0] === '"ItemCost"') {
+              // console.log(parts);
+              line = line.replace('' + items[item].baseCost, items[item].cost);
+              foundIt = false;
+            }
+            return line;
+          })
+          .join('\n');
 
-      //   fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
-      // }
+        fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
+      }
     });
 
     // output item costs in csv format (for haga usually)
@@ -532,4 +695,12 @@ function buildItemTree (t, data, cb) {
       itemData.children.forEach(calculateCost);
     }
   }
+}
+
+function baseItemName (name) {
+  var nameParts = name.split('_');
+  if (Number.isFinite(Number(nameParts.pop()))) {
+    return nameParts.join('_');
+  }
+  return name;
 }

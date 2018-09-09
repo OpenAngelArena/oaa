@@ -9,7 +9,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
 
@@ -17,13 +17,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "4.0 4.0 4.0 4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170 160 150 140 130 120"    
+    "AbilityManaCost"                                     "170 160 150 140 130 120"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -47,11 +47,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "soul_charge_damage"                              "65"
+        "LinkedSpecialBonus"    "special_bonus_unique_visage_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stack_limit"                                     "3 4 5 6 8 16"
+        "stack_limit"                                     "3 4 5 6 11 16"
       }
       "05"
       {

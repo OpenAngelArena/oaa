@@ -11,22 +11,22 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500 600 700 800 1100 1300"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    
-    // Time    
+    "AbilityCastPoint"                                    "0.3"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18.0"
+    "AbilityCooldown"                                     "16.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,11 +40,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "15 30 45 60 90 210"
+        "damage_per_second"                               "15 30 45 60 135 210"
       }
       "03"
       {
@@ -64,7 +65,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "600 700 800 900 1100 1300"
+        "cast_range_tooltip"                              "500 600 700 800 1100 1300"
       }
     }
   }

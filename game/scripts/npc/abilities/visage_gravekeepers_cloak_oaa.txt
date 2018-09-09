@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+  "visage_gravekeepers_cloak_oaa"
+  {
+    "ID"                                                  "85482"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/visage_gravekeepers_cloak.lua"
+    "AbilityTextureName"                                  "visage_gravekeepers_cloak"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_layers"                                      "4 4 4 4 6 10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "8 12 16 20 14 8"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "recovery_time"                                   "6 5 4 3 3 3"
+        "LinkedSpecialBonus"  "special_bonus_unique_visage_5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "minimum_damage"                                  "40"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
+      }
+    }
+  }
+}

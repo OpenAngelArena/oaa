@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "400"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        "move_speed"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "boots of speed"
@@ -24,7 +24,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45"
+        "bonus_movement_speed"                            "50"
       }
     }
   }

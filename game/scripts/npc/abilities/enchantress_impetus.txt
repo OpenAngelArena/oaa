@@ -17,22 +17,22 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "5"
-    
+
     "HasScepterUpgrade"                                   "1"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
     "AbilityDuration"                                     "1.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "55 60 65 85 165"
+    "AbilityManaCost"                                     "40 55 70 105 175"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_damage_pct"                             "14.0 18.0 22.0 38.0 102.0"
+        "distance_damage_pct"                             "16 20 24 68 110"
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_4"
       }
       "02"

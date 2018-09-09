@@ -1,4 +1,4 @@
-/* global GameEvents, $, FindDotaHudElement, Entities */
+/* global GameEvents, $, FindDotaHudElement, Entities, Players */
 
 'use strict';
 

@@ -11,24 +11,23 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    
-    // Time    
+    "AbilityCastPoint"                                    "0.3"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30.0 24.0 18.0 12.0 12.0 12.0"
-    "AbilityDuration"                                     "2.25 3.5 4.75 6 7.25 8.5"
-    
+    "AbilityCooldown"                                     "55 40 25 10 10 10"
+    "AbilityDuration"                                     "3.75 4.5 5.25 6 7 8"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "65 65 65 65 65 65"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -36,17 +35,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "dominate_duration"                               "80.0 80.0 80.0 80.0 120.0 240.0"
+        "dominate_duration"                               "50 60 70 80 120 240"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed"                             "-55"
-      }      
+      }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "5.5 5.5 5.5 5.5 5.5"
+        "tooltip_duration"                                "3.75 4.5 5.25 6 7 8"
       }
     }
   }

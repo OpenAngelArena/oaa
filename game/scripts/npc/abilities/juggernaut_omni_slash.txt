@@ -14,23 +14,23 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
     "HasScepterUpgrade"                                   "1"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "130.0 120.0 110.0 105.0 100.0"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 275 350 500 1000"
+    "AbilityManaCost"                                     "200 275 350 725 1000"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -49,6 +49,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "omni_slash_jumps"                                "3 6 9 12 18"
+        "LinkedSpecialBonus"    "special_bonus_unique_juggernaut_2"
       }
       "03"
       {
@@ -63,7 +64,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "omni_slash_jumps_scepter"                        "6 9 12 15 18"
+        "omni_slash_jumps_scepter"                        "6 9 12 15 21"
+        "LinkedSpecialBonus"    "special_bonus_unique_juggernaut_2"
       }
       "06"
       {

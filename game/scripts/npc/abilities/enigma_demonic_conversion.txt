@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_hp_tooltip"                              "180 200 220 240 350 420"
+        "eidolon_hp_tooltip"                              "180 200 220 240 1240 2480"
       }
       "04"
       {
@@ -58,7 +58,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_dmg_tooltip"                             "20 28 38 47 55 130"
+        "eidolon_dmg_tooltip"                             "20 28 38 47 94 198"
+        "LinkedSpecialBonus"  "special_bonus_unique_enigma_3"
       }
       "06"
       {

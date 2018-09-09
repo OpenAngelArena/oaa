@@ -8,7 +8,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "MaxLevel"                                            "6"
-    
+
     "AbilitySpecial"
     {
       "01"
@@ -19,7 +19,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "15 20 25 30 35 40"
+        "vampiric_aura"                                   "18 22 26 30 35 40"
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
       }
     }

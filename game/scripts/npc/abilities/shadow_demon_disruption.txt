@@ -42,11 +42,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "disruption_duration"                             "2.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "8 10 12 14 18 30"
+        "illusion_duration"                               "8 10 12 14 22 30"
       }
       "03"
       {
@@ -67,6 +68,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_total_illusion_incoming_damage"          "300"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "charge_restore_time" "27.0 24.0 21.0 18.0"
       }
     }
   }

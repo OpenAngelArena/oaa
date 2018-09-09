@@ -1,105 +1,111 @@
 "DOTAItems"
 {
-	//=================================================================================================================
-	// Recipe: Helm of the Dominator 5
-	//=================================================================================================================
-	"item_recipe_helm_of_the_dominator_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3947"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    	"BaseClass"                     "item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-    	"AbilityTextureName"            "item_recipe"
-
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"20000"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_helm_of_the_dominator_5"
-		"ItemRequirements"
-    	{
-      		"01"                        "item_helm_of_the_dominator_4;item_upgrade_core_4"
-    	}
-	}	
-
-	//=================================================================================================================
-	// Helm of the Dominator 5
-	//=================================================================================================================
-	"item_helm_of_the_dominator_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3948"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"                     "item_helm_of_the_dominator"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-        "AbilityTextureName"            "custom/helm_of_the_dominator_5"
+  //=================================================================================================================
+  // Recipe: Helm of the Dominator 5
+  //=================================================================================================================
+  "item_recipe_helm_of_the_dominator_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3947"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_datadriven"
+    "Model"             "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"60.0"
-    	"AbilitySharedCooldown"         "dominate"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "20000"
+    "ItemShopTags"          ""
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"ItemCost"						"35025"
-		"ItemShopTags"					"damage;armor;unique;hard_to_tag"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"hotd;helm of the dominator"
-	    "MaxUpgradeLevel"               "5"
-	    "ItemBaseLevel"                 "5"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_helm_of_the_dominator_5"
+    "ItemRequirements"
+    {
+      "01"                        "item_helm_of_the_dominator_4;item_upgrade_core_4"
+      "02"                        "item_vladmir_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Helm of the Dominator 5
+  //=================================================================================================================
+  "item_helm_of_the_dominator_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "3948"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_helm_of_the_dominator"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityTextureName"            "custom/helm_of_the_dominator_5"
+
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "700"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "60.0"
+    "AbilitySharedCooldown"         "dominate"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
+    "ItemCost"            "35250"
+    "ItemShopTags"          "damage;armor;unique;hard_to_tag"
+    "ItemQuality"         "artifact"
+    "ItemAliases"         "hotd 5;helm of the dominator 5;helm 5;dominator 5"
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_stats"			"2 8 17 35 70"
+				"bonus_stats"			"2 25 40 55 70"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"10 15 20 25 30"
+        		"attack_speed_aura"   "20 35 60 80 100"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed_aura"		"10 15 20 25 30"
+        		"hp_regen_aura"     "7 10 12 14 16"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_regen_aura"			"10 15 25 40 60"
+				"aura_radius"			"900"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
+        		"health_min"      "1500 3000 6000 12000 24000"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_min"			"1500 2500 4000 6000 8500"
+				"speed_base"			"425"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_base"			"425"
+				"tooltip_range"			"700"
 			}
-		}
-	}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_bounty"			"200"
+			}
+    }
+  }
 }

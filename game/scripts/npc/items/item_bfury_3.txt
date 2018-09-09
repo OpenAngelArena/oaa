@@ -7,16 +7,20 @@
   {
     "ID"                                                  "3075"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_bfury_2;item_upgrade_core_2"
       "02"                                                "item_bfury_2;item_upgrade_core_3"
       "03"                                                "item_bfury_2;item_upgrade_core_4"
+      "04"                                                "item_desolator_2;item_upgrade_core_2"
+      "05"                                                "item_desolator_2;item_upgrade_core_3"
+      "06"                                                "item_desolator_2;item_upgrade_core_4"
     }
   }
 
@@ -44,10 +48,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9500"
+    "ItemCost"                                            "8500"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bf;battle fury"
+    "ItemAliases"                                         "bf 3;battle fury 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -57,32 +61,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "55 75 105 155 205"
+        "bonus_damage"                                    "45 60 85 125 180"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 12 24 48 96"
+        "bonus_health_regen"                              "6 12 18 24 30"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 225 330 475 650"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 3.3 4.75 6.5 9"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "40 45 50 55 65"
+        "cleave_damage_percent"                           "20 30 40 50 65"	//OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "160"
+        "quelling_bonus"                                  "120"	//OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "125"
+        "quelling_bonus_ranged"                           "120"	//OAA
       }
       "07"
       {
@@ -92,12 +96,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "300 315 330 345 360"
+        "cleave_ending_width"                             "330"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "570 590 610 630 650"
+        "cleave_distance"                                 "625"
       }
       "10"
       {
@@ -108,6 +112,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_ward"                                 "450"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_quelling_bonus"                          "20"	//OAA
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_quelling_bonus_ranged"                   "20"	//OAA
       }
     }
   }

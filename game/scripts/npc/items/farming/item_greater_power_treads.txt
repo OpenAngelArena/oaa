@@ -10,7 +10,7 @@
     "ID"                                                  "3010"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "100"
@@ -40,13 +40,13 @@
     "AbilityTextureName"                                  "custom/greater_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1450"
+    "ItemCost"                                            "1550"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "greater power treads"
+    "ItemAliases"                                         "greater power treads;power treads;treads"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
 
     // Special
@@ -56,17 +56,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45 50 55 60 65"
+        "bonus_movement_speed"                            "50 55 60 65"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "10 15 24 36 54"
+        "bonus_stat"                                      "15 24 36 54"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 30 35 40 45"
+        "bonus_attack_speed"                              "30 35 40 45"
       }
       "04"
       {
@@ -81,12 +81,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "20 30 40 50 60"
+        "split_damage"                                    "40 50 60 70"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "20 30 40 50 60"
+        "split_damage_ranged"                             "40 50 60 70"
       }
     }
 

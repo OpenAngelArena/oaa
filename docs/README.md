@@ -1,26 +1,75 @@
-# Intro to Documentation
+# ![OAA](.images/logo.png) Development Guide
 
-Documentation involves the creation, organization, and communication of information for the use of developers, players, and the general audience. This documentation takes various forms, from developmental resources to official documentation
+Updated 2017-12-05
 
-## The Documentation Hub
+## Introduction
 
-It's fine to refer new contributors to http://warpdragon.github.io (The Documentation Hub) for resources. This site is just something I created because myself and others were finding our Bookmarks folder getting out-of-hand with all the links we needed to do our jobs. This website has, among other things, references for learning LUA, lists of useful Githubs, lots of the Artwork for the game, and tons of useful charts and graphs. Anyone can recommend adding things to this site.
+This is your new reference guide for the development of custom games written by the OAA development team. During the development of OAA we are constantly learning new and more complex modding techniques like making custom models, animations, menus, etc. and here is where you will find in-depth guides, examples, case-histories, and other useful files made by us and also links to other great resources by Valve, Moddota, and more!
 
-## The /docs/ folder
+A note to aspiring authors and subject-field experts who wish to contribute their knowledge: we strongly encouraged you to PR new documents here (be sure to link it in the department's README)! If something is out of date feel free to comment on it or PR any changes for review! Thanks, and happy modding!
 
-These documents should only be "official" information directly related to the development, release, and support of the OAA project. Think of it this folder as a Library, ensuring that everyone has easy access to the most current information available. To that end, those who contribute are also asked to seek out and make contacts on the various teams, and work with key members to ensure that notes are taken and reported whenever ideas or designs become "official".
+## Table of Contents
 
-There's a lot of ideas floating around. But most aren't official. If you're not sure whether something is official, first check the Documentation Hub, the OAA github Issues, and the /docs/ folder. If the document is not there, click "Search" in discord to see if a similar question has already been asked. If you're positive it has not been asked & answered, and assuming you've followed each of the preceding steps thoroughly, the next step is to ask in the appropriate help channel with "@username" to a Core Member in the Discord.
+1. [Setup][1]
 
-## Things you can contribute
+2. [OAA Development Discord][2]
 
-Anything any team feels would be necessary to publish in case new members need a reference to start working quickly and effectively. Artists can write up documentation on creating and baking textures, creating models, etc. Musicians can write up documentation on putting music into the game, Balance can publish their workflow, Design can publish the official design philosophies so they can stop repeating themselves every 10 seconds. You get the idea!
+3. [Git][3]
 
-## Ways to contribute
+4. [Dota 2 Tools][4]
 
-1. Open an issue at http://github.com/OpenAngelArena/oaa/issues. Tag your issue [Links], [Tables], [Instructionals], [Resource], etc please.
-2.  Create your own development branch (preferred method) and send a pull request to OpenAngelArena/oaa
+5. [Dota 2 Addon Manager][5]
 
-## Questions?
+6. [KV][6]
 
-Don't open an issue, just ask!
+7. [Sound][7]
+
+8. [Map][8]
+
+9. [Materials][9]
+
+10. [Models][10]
+
+11. [Particles][11]
+
+12. [Icons][12]
+
+13. [Lua][13]
+
+14. [Panorama][14]
+
+15. [Design][15]
+
+16. [Balance][16]
+
+17. [Bug-Reports][17]
+
+18. [Documentation][18]
+
+19. [Writing][19]
+
+20. [Translation][20]
+
+21. [Tournament][21]
+
+[1]: setup/README.md
+[2]: discord/README.md
+[3]: git/README.md
+[4]: dota2tools/README.md
+[5]: d2am/README.md
+[6]: kv/README.md
+[7]: sound/README.md
+[8]: map/README.md
+[9]: materials/README.md
+[10]: models/README.md
+[11]: particles/README.md
+[12]: icons/README.md
+[13]: lua/README.md
+[14]: panorama/README.md
+[15]: design/README.md
+[16]: balance/README.md
+[17]: bug-reports/README.md
+[18]: documentation/README.md
+[19]: writing/README.md
+[20]: translation/README.md
+[21]: tourney/README.md

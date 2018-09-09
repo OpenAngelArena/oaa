@@ -1,0 +1,18 @@
+"DOTAUnits"
+{
+
+  "npc_dota_bottle_statue_radiant"
+  {
+    "BaseClass"                   "npc_dota_creature"
+    "Model"                       "models/props/bottle2_statue.vmdl"
+    "AttackCapabilities"          "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"          "0"
+    "VisionNighttimeRange"        "0"
+
+    "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"               "0"
+    "ModelScale"                  "1"
+    "BoundsHullName"              "DOTA_HULL_SIZE_SMALL"
+    "Ability1"                    "bottle_selection"
+  }
+}

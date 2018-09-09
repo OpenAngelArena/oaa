@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian: Rage Hammer Smash
+  //=================================================================================================================
+  "temple_guardian_rage_hammer_smash_tier5"
+  {
+    "ID"                            "599458"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_rage_hammer_smash_tier5.lua"
+    "AbilityTextureName"            "centaur_double_edge"
+
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "350"
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_6"   // Activity
+    "AnimationIgnoresModelScale"    "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "1.25"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "impact_radius"         "250"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "stun_duration"         "0.5"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage"                "7000"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "base_swing_speed"      "0.73" // was 0.8082
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "227"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2625"
+    "ItemCost"                                            "2575"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -64,29 +64,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 23 34 45"
+        "bonus_armor"                                     "10 15 20 25 30"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen_pct"                            "75 125 175 250 325"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen_pct"                            "1.0 2.0 3.0 4.0 5.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20"
+        "self_bonus_evasion"                              "15"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "truestrike_chance"                               "35"
+        "bonus_evasion"                                   "20"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "7"
+        "truestrike_chance"                               "40 50 60 70 80"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "7"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "valor_cast_range_tooltip"                        "1000"

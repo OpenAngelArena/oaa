@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"warlock_shadow_word"
+  "warlock_shadow_word"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,7 +8,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -18,26 +18,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "15 25 35 45 85 185"
+    "AbilityDamage"                                       "15 25 35 45 115 185"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 110 130 150 190 350"    
-    
+    "AbilityManaCost"                                     "120 130 140 150 200 250"
+
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "525 600 675 750 825 900"
+    "AbilityCastRange"                                    "450 550 650 750 825 900"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // Modifier just does damage/healing
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -51,6 +51,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "1.0"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "range_tooltip"             "450 550 650 750 825 900"
       }
     }
   }

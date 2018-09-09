@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Temple Guardian Passive
+  //=================================================================================================================
+  "temple_guardian_passive_tier5"
+  {
+    "ID"                            "599456"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_temple_guardian/temple_guardian_passive_tier5.lua"
+
+    "AbilityTextureName"            "silencer_last_word"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "movement_speed"            "300"
+      }
+    }
+  }
+}

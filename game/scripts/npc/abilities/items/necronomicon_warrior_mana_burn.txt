@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Necronomicon Warrior's Mana Burn
+  //=================================================================================================================
+  "necronomicon_warrior_mana_burn"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"          "5202"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "burn_amount"     "30 40 50 65 85 110 140"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "burn_damage_conversion"  "50"
+      }
+    }
+  }
+}

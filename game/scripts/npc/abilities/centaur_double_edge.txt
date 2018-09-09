@@ -18,24 +18,25 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "5.0"
-    "AbilityCastRange"                                    "150 150 150 150 150 150"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0.5"
 
     //------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0 0 0 0 0 0"
+    "AbilityManaCost"                                     "0"
 
-    // Special  
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      
+
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "edge_damage"                                     "175 250 325 400 550 1150"
+        "edge_damage"                                     "175 250 325 400 775 1150"
+        "LinkedSpecialBonus"      "special_bonus_unique_centaur_4"
       }
       "02"
       {

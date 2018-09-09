@@ -1,0 +1,102 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Elixier - Hybrid 3
+  //=================================================================================================================
+  "item_recipe_elixier_hybrid_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "10015"
+    "BaseClass"                             "item_datadriven"
+    "AbilityTextureName"                    "custom/recipe/recipe_3"
+    "Model"                                 "models/props_gameplay/recipe.mdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "SecretShop"                            "1"
+    "ItemShopTags"                          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                            "1"
+    "ItemResult"                            "item_elixier_hybrid_3"
+    "ItemRequirements"  // OAA
+    {
+      "01"                                  "item_upgrade_core_3"
+    }
+  }
+
+  //=================================================================================================================
+  // Elixier - Hybrid 3
+  //=================================================================================================================
+  "item_elixier_hybrid_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                    "10016"
+    "BaseClass"                             "item_lua"
+    "ScriptFile"                            "items/elixier_hybrid.lua"
+    "AbilityTextureName"                    "custom/elixier_hybrid_3"
+    "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                      "0"
+    "AbilityCastPoint"                      "0.0"
+    "AbilitySharedCooldown"                 "elixier"
+    "AbilityCooldown"                       "60.0"
+    "AbilityManaCost"                       "0"
+    "MaxUpgradeLevel"                       "4"
+    "ItemBaseLevel"                         "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                              "100"
+    "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                          "consumable"
+    "ItemQuality"                           "epic"
+    "ItemAliases"                           "elixier, elixir, hybrid"
+    "ItemStackable"                         "0"
+    "ItemPermanent"                         "0"
+    "ItemInitialCharges"                    "1"
+    "ItemRequiresCharges"                   "1"
+    "ItemKillable"                          "1"
+    "ItemPurchasable"                       "1"
+    "ItemSellable"                          "0"
+    "SecretShop"                            "1"
+    "SecretShopType"                        "Elixirs"
+    "IsTempestDoubleClonable"               "0"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                           "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
+      "particle"                            "particles/items/elixiers/elixier_hybrid.vpcf"
+      "particle"                            "particles/items/elixiers/elixier_hybrid_lesser.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "bonus_regen"                       "5 10 15 20"
+      }
+      "02"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "bonus_damage"                      "100 200 300 400"
+      }
+      "03"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "bonus_duration"                    "60"
+      }
+    }
+  }
+}

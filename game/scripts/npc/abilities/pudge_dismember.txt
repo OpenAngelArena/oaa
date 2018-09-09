@@ -15,34 +15,54 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
-    "MaxLevel"                                            "5"    
+    "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "160"
     "AbilityCastPoint"                                    "0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "3.0 3.0 3.0"
     "AbilityCooldown"                                     "30 25 20 20 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 130 170 240 420"
-    
+    "AbilityManaCost"                                     "100 130 170 290 420"
+
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dismember_damage"                                "60 90 120 180 420"
+        "dismember_damage"                                "60 90 120 270 420"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "strength_damage"                                 "0.3 0.45 0.6 0.75 1.0"
+        "strength_damage"                                 "0.3 0.45 0.6 0.8 1.0"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "ticks"   "3"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "pull_units_per_second"   "75"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "pull_distance_limit"   "125"
+      }//OAA
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "animation_rate"    "1.5"
       }
     }
   }

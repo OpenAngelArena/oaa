@@ -9,19 +9,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5679"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     "AbilityCastRange"                                    "2000"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "4.0 4.0 4.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                     "4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "activation_delay"                                "2.0"
-      }      
+      }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -54,7 +54,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spark_damage"                                    "100 160 220 280 400 880"
+        "spark_damage"                                    "150 225 300 375 775 1175" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden"
       }
       "06"
@@ -66,7 +66,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "wraith_vision_radius"                            "300"
-      }  
+      }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -75,7 +75,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ministun_duration"                               "0.4 0.5 0.6 0.7 0.9 1.7"
+        "ministun_duration"                               "0.4 0.5 0.6 0.7 1.2 1.7"
       }
     }
   }

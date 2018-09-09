@@ -1,0 +1,111 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Pangolier: Gyroshell
+  //=================================================================================================================
+  "pangolier_gyroshell"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6343"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "FightRecapLevel"               "1"
+    "MaxLevel"                      "5"
+    "RequiredLevel"                 "6"
+    "LevelsBetweenUpgrades"         "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "0"
+    "AbilityCastPoint"              "1.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "70"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "100"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                 "200 250 300 550 800"
+
+    "precache"
+    {
+      "model" "models/heroes/pangolier/pangolier_gyroshell.vmdl"
+      "model" "models/heroes/pangolier/pangolier_gyroshell2.vmdl"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "cast_time_tooltip"     "1.2"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "tick_interval"         "0.05"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "forward_move_speed"    "600"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
+        "turn_rate_boosted"     "165"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "turn_rate"             "120"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "400"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "hit_radius"            "150"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bounce_duration"       "0.4"
+      }
+      "09"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "stun_duration"         "1.0 1.25 1.5 1.75 2.0"
+      }
+      "10"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "knockback_radius"      "150"
+      }
+      "11"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "8.0"
+        "LinkedSpecialBonus"  "special_bonus_unique_pangolier_6"
+      }
+      "12"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "jump_recover_time"     "0.25"
+      }
+    }
+  }
+}

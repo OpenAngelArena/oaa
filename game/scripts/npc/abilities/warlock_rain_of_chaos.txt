@@ -7,7 +7,7 @@
     "ID"                                                  "5165"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "2"
@@ -18,14 +18,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "170 170 170 170 170"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250 375 500 750 1750"
-    
+    "AbilityManaCost"                                     "250 375 500 1125 1750"
+
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
@@ -33,7 +33,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // Primarily about the summon
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -56,23 +56,23 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 1500 2500 5000 10000"
+        "golem_hp_tooltip"                                "1000 2000 3000 4500 7000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip"                               "75 100 150 250 500"
+        "golem_dmg_tooltip"                               "75 125 175 375 600"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_armor_tooltip"                             "6 9 15 25 50"
+        "golem_armor_tooltip"                             "6 9 12 17 42"
         "LinkedSpecialBonus"                              "special_bonus_unique_warlock_2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_regen_tooltip"                             "25 50 75 125 325"
+        "golem_regen_tooltip"                             "25 50 75 200 325"
       }
       "08"
       {
@@ -82,12 +82,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "750 1125 1875 3750 7500"
+        "golem_hp_tooltip_scepter"                        "750 1500 2250 3375 5250"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "56 75 112 187 375"
+        "golem_dmg_tooltip_scepter"                       "56 94 131 280 450"
       }
       "11"
       {
@@ -101,5 +101,4 @@
       }
     }
   }
-
 }

@@ -19,27 +19,27 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.65"
+    "AbilityCastPoint"                                    "0.55"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10.0"
     "AbilityDuration"                                     "5.0"
 
-    
+
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "0"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "135 140 155 170 200 320"
+    "AbilityManaCost"                                     "135 140 155 170 240 320"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.25"  // Applies two modifiers 
-    
-    // Special  
+    "AbilityModifierSupportValue"                         "0.25"  // Applies two modifiers
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -71,18 +71,18 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "20 40 60 80 120 280"
+        "burn_damage"                                     "20 40 60 80 180 280"
         "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-28 -32 -36 -40 -48 -80"
+        "slow_movement_speed_pct"                         "-28 -32 -36 -40 -60 -80"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed_pct"                           "-28 -32 -36 -40 -48 -80"
+        "slow_attack_speed_pct"                           "-28 -32 -36 -40 -60 -80"
       }
       "09"
       {
@@ -94,6 +94,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "speed_fire"                                      "1050"
       }
-    }    
+    }
   }
 }

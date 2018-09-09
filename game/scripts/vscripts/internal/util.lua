@@ -29,6 +29,12 @@ function TracesFromFilename (filename)
   local traces = {}
   local i = 1
 
+  if filename == 'components' then
+    return {
+      'components'
+    }
+  end
+
   local parts = regexsplit(filename, '%s/\\')
   local partialTrade = nil
   for i, part in ipairs(parts) do
@@ -58,6 +64,11 @@ function IsAnyTraceEnabled (traces)
   end
 
   return false
+end
+
+function Debug:EnableDebugging()
+  local trace, dir = GetCallingFile()
+  Debug.EnabledModules[trace[#trace]] = true
 end
 
 -- written by yeahbuddy, taken from https://github.com/OpenAngelArena/oaa/pull/80
@@ -116,6 +127,12 @@ function DebugPrintTable(...)
   end
 end
 
+function DevPrintTable(...)
+  local trace, dir = GetCallingFile()
+
+  PrintTable("[" .. dir .. "]", ...)
+end
+
 function PrintTable(prefix, t, indent, done)
   --print ( string.format ('PrintTable type %s', type(keys)) )
   if type(prefix) == "table" then
@@ -141,7 +158,10 @@ function PrintTable(prefix, t, indent, done)
     table.insert(l, k)
   end
 
-  table.sort(l)
+  pcall(function()
+    table.sort(l)
+  end)
+
   for k, v in ipairs(l) do
     -- Ignore FDesc
     if v ~= 'FDesc' then
@@ -245,15 +265,15 @@ function HideWearables( unit )
     end
 end
 
-function ShowWearables( unit )
-
+function ShowWearables(unit)
   for i,v in pairs(unit.hiddenWearables) do
     v:RemoveEffects(EF_NODRAW)
   end
 end
 
 
-function GetShortTeamName (teamID)
+function GetShortTeamName(teamID)
+  assert(type(teamID) == "number", "teamID: " .. teamID .. " is not of type number but " .. type(teamID))
   local teamNames = {
     [DOTA_TEAM_GOODGUYS] = "good",
     [DOTA_TEAM_BADGUYS] = "bad",
@@ -268,6 +288,11 @@ function GetShortTeamName (teamID)
     [DOTA_TEAM_CUSTOM_8] = "custom8",
   }
   return teamNames[teamID]
+end
+
+function IsPlayerTeam(teamID)
+  assert(type(teamID) == "number", "teamID: " .. teamID .. " is not of type number but " .. type(teamID))
+  return teamID == DOTA_TEAM_GOODGUYS or teamID == DOTA_TEAM_BADGUYS
 end
 
 function IsInTrigger(entity, trigger)
@@ -303,7 +328,7 @@ function FindHeroesInRadius (...)
   local units = FindUnitsInRadius(...)
 
   local function isHero (hero)
-    if hero.IsRealHero and hero:IsRealHero() then
+    if hero.IsRealHero and hero:IsRealHero() and not hero:IsTempestDouble() then
       return true
     end
     return false

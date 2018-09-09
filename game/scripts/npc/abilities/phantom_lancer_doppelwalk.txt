@@ -8,18 +8,18 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5066"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "600 600 600 600 800 1000"
     "AbilityCastPoint"                                    "0.1"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 20 15 10 8 6"
-    
+    "AbilityCooldown"                                     "30 25 20 15 15 15" //OAA
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
@@ -62,11 +62,21 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "delay"                                           "1"
-      }      
+      }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "illusion_duration"                               "8"
+      }
+      "09"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "illusion_extended_duration"      "2"
+      }
+      "10"	//OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "600 600 600 600 800 1000"
       }
     }
   }

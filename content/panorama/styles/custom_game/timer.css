@@ -1,0 +1,81 @@
+.CustomTimer {
+  width: 100%;
+  height: 160px;
+  vertical-align: top;
+}
+
+#TimeHider {
+  visibility: collapse;
+  horizontal-align: center;
+}
+
+#NightstalkerNight {
+  visibility: collapse;
+}
+
+#GameTime {
+  margin-top: 18px;
+}
+
+.HIDE_TOP_TIMEOFDAY #TimeOfDay, .HIDE_TOP_TIMEOFDAY #TimeOfDayBG {
+  visibility: visible;
+}
+
+#ExtraInfo{
+  width: 160px;
+  height: 0px;
+  horizontal-align: center;
+  vertical-align: top;
+  margin-top: 40px;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_timer_psd.vtex");
+  background-size: 100% 100%;
+  transition-property: height;
+  transition-duration: 0.20s;
+  transition-timing-function: ease-in-out;
+}
+
+.AltPressed #ExtraInfo
+{
+  height: 76px;
+}
+
+#ExtraInfo Label
+{
+  font-size: 16px;
+  vertical-align: top;
+  horizontal-align: left;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#TimeToNextCapture {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+#TimeToNextDuel {
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+#KillLimit {
+  margin-top: 45px;
+  margin-left: 32px;
+}
+
+#TimeToNextCaptureValue {
+  margin-top: 5px;
+  margin-left: 120px;
+  color: red;
+}
+
+#TimeToNextDuelValue {
+  margin-top: 25px;
+  margin-left: 110px;
+  color: red;
+}
+
+#KillLimitValue {
+  margin-top: 45px;
+  margin-left: 109px;
+  color: red;
+}

@@ -10,7 +10,7 @@
     "ID"                                                  "3642"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -46,15 +46,17 @@
     "AbilityTextureName"                                  "custom/linkens_sphere_2"
 
     "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "13.0 11.0 9.0 8.0 7.0"
+    "AbilityCooldown"                                     "13.0 12.5 12.0 11.5 11.0"
+    "AbilitySharedCooldown"                               "linkens"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6350"
+    "ItemCost"                                            "6550"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ls;linken's sphere 2"
+    "ItemAliases"                                         "ls 2;linken's sphere 2;linkens 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ActiveDescriptionLine"                               "2"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
@@ -67,27 +69,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "15 25 35 45 55"
+        "bonus_all_stats"                                 "13 25 35 45 55"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 10 18 30 45"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "5.5 9 12 15 18"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 225 325 450 600"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 3.25 4.50 6 8"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 45 55"
+        "var_type"                                        "FIELD_FLOAT"
+        "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "700"
       }
     }
   }

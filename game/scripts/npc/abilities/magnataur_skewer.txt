@@ -14,12 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25"
 
@@ -45,23 +45,23 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_pct"                                        "25 30 35 40 45 60"
+        "slow_pct"                                        "25 30 35 40 45 50"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "skewer_radius"                                   "125"
+        "skewer_radius"                                   "135"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.5 2.75 3 3.25 3.75 6.0"
-      }      
+        "slow_duration"                                   "3.25"
+      }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "skewer_damage"                                   "70 140 210 280 420 1000"
-      }      
+        "skewer_damage"                                   "70 140 210 280 640 1000"
+      }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"

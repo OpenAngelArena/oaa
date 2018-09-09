@@ -11,7 +11,6 @@ function GameMode:_InitGameMode()
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
   GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
   GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME )
-  GameRules:SetPreGameTime( PRE_GAME_TIME)
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
   GameRules:SetUseCustomHeroXPValues ( USE_CUSTOM_XP_VALUES )
@@ -22,6 +21,7 @@ function GameMode:_InitGameMode()
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
   GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
   GameRules:SetRuneMinimapIconScale( MINIMAP_RUNE_ICON_SIZE )
+  GameRules:SetPreGameTime( PREGAME_TIME )
 
   GameRules:SetFirstBloodActive( ENABLE_FIRST_BLOOD )
   GameRules:SetHideKillMessageHeaders( HIDE_KILL_BANNERS )
@@ -41,15 +41,6 @@ function GameMode:_InitGameMode()
     GameRules:LockCustomGameSetupTeamAssignment( LOCK_TEAM_SETUP )
     GameRules:EnableCustomGameSetupAutoLaunch( ENABLE_AUTO_LAUNCH )
   end
-
-  -- exponential gpm increase
-  local goldTickCount = 0
-  Timers:CreateTimer(5, function ()
-    goldTickCount = goldTickCount + 5
-    GameRules:SetGoldPerTick(2 * (2 ^ (goldTickCount / 480)))
-    return 5
-  end)
-
 
   -- This is multiteam configuration stuff
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then

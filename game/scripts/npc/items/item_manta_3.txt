@@ -8,7 +8,7 @@
     "ID"                                                  "3173"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "FightRecapLevel"                                     "1"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
@@ -30,8 +30,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3176"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/manta.lua"
+    "BaseClass"                                           "item_manta"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/manta_style_3"
     // Stats
@@ -47,11 +46,11 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "10000"
+    "ItemCost"                                            "9800"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "manta style"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "manta style 3;manta 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -76,62 +75,62 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15 20 25 30 35"
+        "bonus_attack_speed"                              "10 15 20 25 30"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "10 12 15 18 22"
+        "bonus_movement_speed"                            "8 10 14 17 22"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "2 2 2 3 3"
+        "images_count"                                    "2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_duration"                               "20"
+        "tooltip_illusion_duration"                       "20"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_outgoing_melee_pct"                       "-67"
+        "images_do_damage_percent_melee"                  "-67"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee_pct"               "33"
+        "tooltip_damage_outgoing_melee"                   "33"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_incoming_melee_pct"                       "250"
+        "images_take_damage_percent_melee"                "250 225 200 175 150"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_melee_total_pct"         "350"
+        "tooltip_damage_incoming_melee_total_pct"         "350 325 300 275 250"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_outgoing_ranged_pct"                      "-72"
+        "images_do_damage_percent_ranged"                 "-72"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged_pct"              "28"
+        "tooltip_damage_outgoing_ranged"                  "28"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_incoming_ranged_pct"                      "300"
+        "images_take_damage_percent_ranged"               "300 275 250 225 200"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_incoming_ranged_total_pct"        "400"
+        "tooltip_damage_incoming_ranged_total_pct"        "400 375 350 325 300"
       }
       "16"
       {
@@ -156,7 +155,7 @@
       "20"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "1.0"
+        "tooltip_ranged_cooldown_increase"                "15"
       }
     }
 

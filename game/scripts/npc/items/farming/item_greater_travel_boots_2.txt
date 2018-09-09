@@ -10,10 +10,10 @@
     "ID"                                                  "3021"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,10 +22,24 @@
     "ItemResult"                                          "item_greater_travel_boots_2"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_travel_boots;item_upgrade_core"
-      "02"                                                "item_greater_travel_boots;item_upgrade_core_2"
-      "03"                                                "item_greater_travel_boots;item_upgrade_core_3"
-      "04"                                                "item_greater_travel_boots;item_upgrade_core_4"
+      "01"                                                "item_greater_travel_boots;item_upgrade_core_2"
+      "02"                                                "item_greater_travel_boots;item_upgrade_core_3"
+      "03"                                                "item_greater_travel_boots;item_upgrade_core_4"
+      "04"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
+      "05"                                                "item_greater_guardian_greaves;item_upgrade_core_3"
+      "06"                                                "item_greater_guardian_greaves;item_upgrade_core_4"
+      "07"                                                "item_greater_arcane_boots;item_upgrade_core_2"
+      "08"                                                "item_greater_arcane_boots;item_upgrade_core_3"
+      "09"                                                "item_greater_arcane_boots;item_upgrade_core_4"
+      "10"                                                "item_greater_phase_boots;item_upgrade_core_2"
+      "11"                                                "item_greater_phase_boots;item_upgrade_core_3"
+      "12"                                                "item_greater_phase_boots;item_upgrade_core_4"
+      "13"                                                "item_greater_power_treads;item_upgrade_core_2"
+      "14"                                                "item_greater_power_treads;item_upgrade_core_3"
+      "15"                                                "item_greater_power_treads;item_upgrade_core_4"
+      "16"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "17"                                                "item_greater_tranquil_boots;item_upgrade_core_3"
+      "18"                                                "item_greater_tranquil_boots;item_upgrade_core_4"
     }
   }
 
@@ -49,17 +63,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "teleport"
-    "AbilityChannelTime"                                  "3.0 2.75 2.5 2.25 2"
+    "AbilityChannelTime"                                  "2.75 2.5 2.25 2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "3000"
+    "ItemCost"                                            "4600"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "bot;boots of travel"
+    "ItemAliases"                                         "bot 2;boots of travel 2;greater boots of travel 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
 
     //"UpgradesItems"                                     "item_greater_travel_boots_2;item_greater_travel_boots_3;item_greater_travel_boots_4"
@@ -72,23 +86,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "100 125 150 175 200"
+        "bonus_movement_speed"                            "125 150 175 200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "50 70 95 130 175"
+        "assist_percent"                                  "85 100 115 130"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1200 1300 1400 1500 1600"
+        "assist_radius"                                   "1300 1400 1500 1600"
       }
       "04"
       {
         // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
         "var_type"                                        "FIELD_FLOAT"
         "assist_stickiness"                               "0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bounty_percent"                            "30"
       }
     }
   }

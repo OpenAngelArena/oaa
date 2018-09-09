@@ -19,7 +19,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_desolator"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_mithril_hammer;item_mithril_hammer;item_blight_stone"
@@ -46,7 +46,7 @@
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "desolator"
+    "ItemAliases"                                         "desolator;deso"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "UpgradesItems"                                       "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
 
@@ -57,12 +57,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 150 225"
+        "bonus_damage"                                    "50 70 100 140 200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-7 -10 -14 -19 -25"
+        "corruption_armor"                                "-6 -9 -13 -18 -24"
       }
       "03"
       {

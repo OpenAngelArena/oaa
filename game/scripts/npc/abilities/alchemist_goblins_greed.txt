@@ -13,15 +13,15 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "30"
+        "duration"                                        "40"
       }
       "02"
       {
@@ -31,17 +31,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_bonus_gold"                                "4"
+        "bonus_bonus_gold"                                "4 6 8 10 24 48" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_cap"                                  "16 20 24 28 42 84"
+        "bonus_gold_cap"                                  "999999"  //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bounty_multiplier_tooltip"                       "2.5"
+        "bounty_multiplier_tooltip"                       "10"  //OAA
       }
     }
   }

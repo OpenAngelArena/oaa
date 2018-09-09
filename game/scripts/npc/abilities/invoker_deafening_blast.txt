@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5390"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "1"
@@ -22,10 +22,10 @@
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "40"
-    "AbilityManaCost"                                     "300 300 300 300 300 300 300 300 300 300 310 320 330 340 350"
+    "AbilityManaCost"                                     "300"
     "AbilityModifierSupportValue"                         "0.5"  // Applies 2 modifiers
 
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -64,7 +64,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 23.25 3.5 3.75"
+        "knockback_duration"                              "0.25 0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 3.25 3.5 3.75"
         "levelkey"                                        "quaslevel"
       }
       "08"

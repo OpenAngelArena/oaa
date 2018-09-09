@@ -17,12 +17,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blade_dance_crit_mult"                           "200"
+        "blade_dance_crit_chance"                         "20 25 30 35 40 45"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blade_dance_crit_chance"                         "20 25 30 35 40 45"
+        "blade_dance_crit_mult"                           "180"
       }
     }
   }

@@ -26,12 +26,14 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "16 24 32 40 48 64"
+        "bonus_movement_speed"                            "7 18 29 40 52 64"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "16 24 32 40 48 64"
+        "bonus_damage"                                    "7 18 29 40 52 64"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
       }
       "04"
       {

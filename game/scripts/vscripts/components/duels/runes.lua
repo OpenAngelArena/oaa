@@ -7,31 +7,22 @@ if DuelRunes == nil then
   Debug.EnabledModules['duels:runes'] = true
 end
 
---[[
- TODO: Refactor this file into a few modules so that there's less of a wall of code here
-]]
-
 function DuelRunes:Init ()
-  DuelRunes.zone1 = ZoneControl:CreateZone('duel_1_rune_hill', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {
-    }
-  })
 
-  DuelRunes.zone2 = ZoneControl:CreateZone('duel_2_rune_hill', {
-    mode = ZONE_CONTROL_EXCLUSIVE_OUT,
-    margin = 0,
-    padding = 0,
-    players = {
-    }
-  })
+  for index,key in pairs(Duels.zones) do
+    DebugPrint("Init rune hill for arena #" .. tostring(index))
 
-  DuelRunes.zone1.onStartTouch(DuelRunes.StartTouch)
-  DuelRunes.zone1.onEndTouch(DuelRunes.EndTouch)
-  DuelRunes.zone2.onStartTouch(DuelRunes.StartTouch)
-  DuelRunes.zone2.onEndTouch(DuelRunes.EndTouch)
+    local runeHill = ZoneControl:CreateZone('duel_' .. tostring(index) .. '_rune_hill', {
+      mode = ZONE_CONTROL_EXCLUSIVE_OUT,
+      margin = 0,
+      padding = 0,
+      players = {
+      }
+    })
+
+    runeHill.onStartTouch(DuelRunes.StartTouch)
+    runeHill.onEndTouch(DuelRunes.EndTouch)
+  end
 
   Duels.onEnd(function()
     Timers:RemoveTimer('DuelRunes')
@@ -47,7 +38,7 @@ function DuelRunes:Init ()
         if not Duels.currentDuel then
           return
         end
-        Notifications:TopToAll({text="Duel highground objective activated!", duration=10.0, style={color="red", ["font-size"]="86px"}})
+        Notifications:TopToAll({text="#duel_highground_active", duration=10.0, style={color="red", ["font-size"]="86px"}})
         DuelRunes.active = true
       end
     })
@@ -66,8 +57,13 @@ function DuelRunes:StartTouch(event)
 [   VScript  ]:     triggerHandler: function: 0x002d1300
 [   VScript  ]: outputid: 0
 ]]
-  event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
+  local modifier = event.activator:AddNewModifier(event.activator, nil, "modifier_duel_rune_hill", {})
+  -- No idea how this can be nil if the previous line doesn't have an error, but it happens for some reason
+  if modifier then
+    modifier.zone = event.caller
+  end
 end
+
 function DuelRunes:EndTouch(event)
   event.activator:RemoveModifierByName("modifier_duel_rune_hill")
 end

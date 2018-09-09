@@ -15,24 +15,24 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
     "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.2 0.2 0.2"
     "AbilityChannelTime"                                  "10.0"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "22.0 22.0 22.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 325 725"
-    
+    "AbilityManaCost"                                     "125 175 225 475 725"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // All about the damage
@@ -44,13 +44,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "150 200 250 350 750"
+        "health_drain"                                    "150 225 300 500 750"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "800"
+        "cast_range_tooltip"                              "700"
       }
       "03"
       {
@@ -59,21 +59,15 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_drain_scepter"                            "180 240 300 420 900"
-        "CalculateSpellDamageTooltip"                     "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "0.0 0.0 0.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0.0 0.0 0.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "tick_rate"                                       "0.25 0.25 0.25"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "drain_buffer"                                    "200"

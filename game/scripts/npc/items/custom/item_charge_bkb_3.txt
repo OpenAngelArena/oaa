@@ -1,0 +1,131 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Charge BKB 3
+  //=================================================================================================================
+  "item_recipe_charge_bkb_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3906"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_charge_bkb_3"
+    "ItemRequirements"
+    {
+      "01"                        "item_charge_bkb_2;item_upgrade_core_3"
+      "02"                        "item_charge_bkb_2;item_upgrade_core_4"
+      "03"                        "item_black_king_bar_3;item_upgrade_core_3"
+      "04"                        "item_black_king_bar_3;item_upgrade_core_4"
+      "05"                        "item_enrage_crystal_1;item_upgrade_core_3"
+      "06"                        "item_enrage_crystal_1;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Charge BKB 3
+  //=================================================================================================================
+  "item_charge_bkb_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3907"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/charge_bkb.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/charge_bkb_3"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0 18.0 16.0 13.0"
+    "AbilitySharedCooldown"                               "item_black_king_bar"
+    "AbilityCastRange"                                    "1200"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "16975"
+    "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "charge bkb"
+    "ItemRequiresCharges"                                 "1"
+    "ItemDisplayCharges"                                  "1"
+    "ItemPermanent"                                       "1"
+    "ItemInitialCharges"                                  "0"
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_charge_bkb_3;item_charge_bkb_4"
+    "AbilitySpecial"
+    {
+      //Wand Stats:
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "99"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_radius"                                   "1200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "20 30 40 55"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "48 72 96 120"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "restore_per_charge"                              "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "0.1"    //RamonNZ: This needs to be left as a placeholder and kept low. This duration key is overwritten based on number of charges, but the lua script doesn't seem to be able to lessen the duration if we make it high.
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_decay_time"                               "10"    //RamonNZ: New KV - Each added charge will decay at this time interval.
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "immunity_time_per_charge"                        "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_time_per_charge"                        "5"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale"                                     "34 38 42 45"     // Percentage over model scale
+      }
+    }
+  }
+}

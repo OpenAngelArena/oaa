@@ -69,6 +69,7 @@ function bristleback_takedamage(params)
         local back_damage_particle = ParticleManager:CreateParticle(params.back_particle, PATTACH_ABSORIGIN_FOLLOW, params.unit)
         -- Set Control Point 1 for the back damage particle; this controls where it's positioned in the world. In this case, it should be positioned on Bristleback.
         ParticleManager:SetParticleControlEnt(back_damage_particle, 1, params.unit, PATTACH_POINT_FOLLOW, "attach_hitloc", params.unit:GetAbsOrigin(), true)
+        ParticleManager:ReleaseParticleIndex(back_damage_particle)
         -- Increase the Quill Spray damage counter based on how much damage was done *post-Bristleback mitigation*.
         params.unit.quill_threshold_counter = params.unit.quill_threshold_counter + (params.Damage - (params.Damage * back_reduction_percentage))
       end
@@ -84,6 +85,7 @@ function bristleback_takedamage(params)
         -- Set Control Point 1 for the side damage particle; same stuff as the back damage particle.
         ParticleManager:SetParticleControlEnt(side_damage_particle, 1, params.unit, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", params.unit:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(side_damage_particle, 2, params.unit, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, result_angle, 0), true)
+        ParticleManager:ReleaseParticleIndex(side_damage_particle)
         -- Increase the Quill Spray damage counter based on how much damage was done *post-Bristleback mitigation*.
         params.unit.quill_threshold_counter = params.unit.quill_threshold_counter + (params.Damage - (params.Damage * side_reduction_percentage))
       end
