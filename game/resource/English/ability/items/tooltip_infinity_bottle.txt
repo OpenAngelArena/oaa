@@ -2,8 +2,6 @@
 // Infinity Bottle
 //=============================================================================
 "DOTA_Tooltip_Ability_item_infinite_bottle"                                         "Infinity Bottle"
-"DOTA_Tooltip_Ability_item_infinite_bottle_Description"                             "Active: Restore %health_restore% HP and %mana_restore% Mana over %restore_time% seconds.\nInitial Charges: 3\nMax Charges: Infinite"
+"DOTA_Tooltip_Ability_item_infinite_bottle_Description"                             "<h1>Active: Regenerate</h1>Consumes a charge to restore %health_restore% health and %mana_restore% mana over %restore_time% seconds.<br><br>Initial Charges: 3<br>Max Charges: Infinite"
 "DOTA_Tooltip_Ability_item_infinite_bottle_Lore"                                    "A bottle blown from the sands of time itself."
-"DOTA_Tooltip_Ability_item_infinite_bottle_health_restore"                          "+$hp_regen"
-"DOTA_Tooltip_Ability_item_infinite_bottle_mana_restore"                            "+$mana_regen"
-"DOTA_Tooltip_Ability_item_infinite_bottle_restore_time"                            "DURATION:"
+"DOTA_Tooltip_Ability_item_infinite_bottle_Note0"                                   "Infinity Bottle is fully shareable"

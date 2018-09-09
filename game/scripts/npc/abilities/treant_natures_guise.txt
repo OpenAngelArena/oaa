@@ -22,7 +22,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "6 5 4 3 3 3"
+        "fade_time"                                       "7 6 5 3 2 1"
       }
       "02"
       {
@@ -43,6 +43,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bash_duration"                                   "0.4 1.0 1.6 2.2 2.2 2.2"
+        "LinkedSpecialBonus"    "special_bonus_unique_treant_4"
       }
     }
   }

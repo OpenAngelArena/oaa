@@ -12,23 +12,24 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "700" // OAA valve does it wrong
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"    // If you change this, also change the AbilityCastRange above
+        "aura_radius"                                     "700"    // If you change this, also change the AbilityCastRange above
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_damage"                                     "0.6 1.0 1.4 1.8 2.2 3.0" 
-      }   
+        "aura_damage"                                     "0.5 1.1 1.7 2.3 2.9 3.5"
+        "LinkedSpecialBonus"    "special_bonus_unique_necrophos_2"
+      }
     }
   }
 }

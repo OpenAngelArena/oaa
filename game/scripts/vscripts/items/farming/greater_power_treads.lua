@@ -152,7 +152,7 @@ if IsServer() then
 
     -- with lua events, you need to make sure you're actually looking for the right unit's
     -- attacks and stuff
-    if event.attacker == parent then
+    if event.attacker == parent and event.process_procs then
       local target = event.target
 
       -- make sure the initial target is an appropriate unit to split off of
@@ -221,13 +221,13 @@ if IsServer() then
       -- iterate through all targets
       for k, unit in pairs( units ) do
         -- inflict damage
-        -- DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS prevents spell amp and spell lifesteal
+        -- DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION prevents spell amp and spell lifesteal
         if ApplyDamage( {
           victim = unit,
           attacker = self:GetCaster(),
           damage = damage,
           damage_type = DAMAGE_TYPE_PHYSICAL,
-          damage_flags = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
+          damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
           ability = self,
         } ) then
           doParticle = true

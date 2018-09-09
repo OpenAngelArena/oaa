@@ -10,8 +10,8 @@
     "ID"              "3730"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
-  
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "1500" 
@@ -23,10 +23,10 @@
     "ItemResult"          "item_glimmer_cape_2"
     "ItemRequirements"
     {
-      "01"                                                "item_glimmer_cape;item_upgrade_core"
-      "02"                                                "item_glimmer_cape;item_upgrade_core_2"
-      "03"                                                "item_glimmer_cape;item_upgrade_core_3"
-      "04"                                                "item_glimmer_cape;item_upgrade_core_4"
+      "01"                                                "item_pipe;item_upgrade_core"
+      "02"                                                "item_pipe;item_upgrade_core_2"
+      "03"                                                "item_pipe;item_upgrade_core_3"
+      "04"                                                "item_pipe;item_upgrade_core_4"
     }
   }
 
@@ -49,15 +49,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
+    "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
     
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "3350"
+    "ItemCost"                    "4650"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
-    "ItemAliases"                 "glimmer cape"
-    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                 "glimmer cape 2;glimmer 2"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "2"
     
@@ -89,6 +90,16 @@
       {
         "var_type"                "FIELD_FLOAT"
         "duration"                "5"
+      }
+      "06"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "tooltip_range"           "800"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "building_duration_limit"     "180"
       }
     }
   }

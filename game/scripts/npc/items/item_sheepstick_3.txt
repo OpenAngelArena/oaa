@@ -8,7 +8,7 @@
     "ID"                                                  "3067"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -38,6 +38,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "22.0"
+    "AbilitySharedCooldown"                               "hex"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
     "UpgradesItems"                                       "item_sheepstick_3;item_sheepstick_4"
@@ -47,7 +48,7 @@
     "ItemCost"                                            "10700"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
+    "ItemAliases"                                         "hex 3;sheepstick 3;scythe of vyse 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special-----------------------------------------------------------------------------------------------------
@@ -70,18 +71,23 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 200 300 450 600"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.75 4.0 4.25 4.5"
+        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "sheep_movement_speed"                            "140"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

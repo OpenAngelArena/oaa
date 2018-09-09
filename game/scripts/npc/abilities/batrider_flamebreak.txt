@@ -16,19 +16,19 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "17.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 160 240"
+    "AbilityManaCost"                                     "110 120 130 140 180 240"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -41,24 +41,24 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "25 30 35 40 50 90"
+        "damage_per_second"                               "25 35 45 55 95 135" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_duration"                                 "4 5 6 7 8 9"
         "CalculateSpellDamageTooltip"                     "0"
-      }      
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_3"
+      }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_total_tooltip"                            "100 150 210 280 400 810"
+        "damage_total_tooltip"                            "100 175 270 385 760 1215"  //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "explosion_radius"                                "375"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_2"
       }
       "05"
       {
@@ -79,7 +79,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "knockback_max_distance"                          "400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_2"
       }
       "09"
       {
@@ -90,7 +89,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "knockback_duration"                              "0.25"
-      }      
+      }
     }
   }
 }

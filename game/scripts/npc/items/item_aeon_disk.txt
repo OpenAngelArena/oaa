@@ -1,0 +1,75 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Aeon Disk
+  //=================================================================================================================
+  "item_recipe_aeon_disk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "255"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"             "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "1350"
+    "ItemShopTags"          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_aeon_disk"
+    "ItemRequirements"
+    {
+      "01"            "item_vitality_booster;item_energy_booster"
+    }
+  }
+  //=================================================================================================================
+  // Combo Breaker
+  //=================================================================================================================
+  "item_aeon_disk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "256"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "ItemAliases"         "ad;aeon disk"
+
+    "AbilityCooldown"       "115.0 95.0 75.0 55.0 35.0"
+    "AbilitySharedCooldown"                               "combobreaker"
+    "AbilityTextureName"                                  "custom/combo_breaker"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"      "250 1000 2000 3000 4000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_mana"      "250 500 1000 1500 2000"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "health_threshold_pct"      "70"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "status_resistance"   "25"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "buff_duration"   "2.5"
+      }
+    }
+  }
+}

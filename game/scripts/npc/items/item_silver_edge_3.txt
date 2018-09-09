@@ -7,11 +7,12 @@
   {
     "ID"                                                  "3151"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_silver_edge_2;item_upgrade_core_2"
@@ -34,7 +35,7 @@
     "AbilityTextureName"                                  "custom/silver_edge_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "24.0"
+    "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "shadow_blade"
 
     // Spicy Parameters
@@ -49,8 +50,8 @@
     "ItemCost"                                            "10550"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "sb;invis;shadow blade"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "invis 3;silver edge 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -80,7 +81,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "windwalk_movement_speed"                         "20 24 27 30 34"
+        "windwalk_movement_speed"                         "25 30 35 40 45"
       }
       "06"
       {
@@ -100,7 +101,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "backstab_duration"                               "5"
+        "backstab_duration"                               "4"
       }
     }
   }

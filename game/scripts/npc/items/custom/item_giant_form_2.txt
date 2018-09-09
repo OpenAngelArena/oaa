@@ -1,0 +1,130 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Giant Form 2
+  //=================================================================================================================
+  "item_recipe_giant_form_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3347"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_giant_form_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_giant_form;item_upgrade_core_4"
+      "02"                                                "item_dragon_lance_4;item_upgrade_core_4"
+      "03"                                                "item_hurricane_pike_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Giant Form 2
+  //=================================================================================================================
+  "item_giant_form_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3349"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/transformation/giant_form.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityTextureName"                                  "custom/giant_form_2"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "50"
+    "AbilityCooldown"                                     "6.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "34900"
+    "ItemShopTags"                                        "damage"
+    "ItemQuality"                                         "artifact"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "siege mode 2;siege 2;giant form;giant"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "25 30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "20 25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_attack_range"                               "240"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_attack_range"                              "600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_damage_bonus"                              "300 450"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "giant_attack_rate"                               "1.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_cast_range"                                "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_aoe"                                       "300"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_splash"                                    "80"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "melee_move_speed"                                "100"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "giant_scale"                                     "50 60"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
+      "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
+    }
+  }
+}

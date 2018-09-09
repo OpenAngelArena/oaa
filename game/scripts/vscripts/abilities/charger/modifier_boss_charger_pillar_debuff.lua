@@ -1,27 +1,10 @@
 
 modifier_boss_charger_pillar_debuff = class(ModifierBaseClass)
 
-function modifier_boss_charger_pillar_debuff:OnCreated(keys)
-  if not IsServer() then
-    return
-  end
-  local ability = self:GetAbility()
-end
-
 function modifier_boss_charger_pillar_debuff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-end
-
-function modifier_boss_charger_pillar_debuff:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor( "debuff_armor" )
-end
-
-function modifier_boss_charger_pillar_debuff:GetModifierMagicalResistanceBonus()
-  return self:GetAbility():GetSpecialValueFor( "debuff_magic_resist" )
 end
 
 function modifier_boss_charger_pillar_debuff:IsDebuff()
@@ -38,6 +21,20 @@ end
 
 function modifier_boss_charger_pillar_debuff:IsStunDebuff()
   return true
+end
+
+if IsServer() then
+  function modifier_boss_charger_pillar_debuff:OnCreated(keys)
+    local ability = self:GetAbility()
+    ParticleManager:DestroyParticle(ability.shieldParticle, false)
+    ParticleManager:ReleaseParticleIndex(ability.shieldParticle)
+  end
+
+  function modifier_boss_charger_pillar_debuff:OnDestroy()
+    local ability = self:GetAbility()
+    local parent = self:GetParent()
+    ability.shieldParticle = ParticleManager:CreateParticle(ability.shieldParticleName, PATTACH_OVERHEAD_FOLLOW, parent)
+  end
 end
 
 function modifier_boss_charger_pillar_debuff:GetEffectName()

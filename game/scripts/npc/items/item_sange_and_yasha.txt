@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "153"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3900"
+    "ItemCost"                                            "4300"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "sny;s&y;sy;sange and yasha"

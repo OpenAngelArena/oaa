@@ -9,7 +9,7 @@
     "ID"                                                  "3159"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -37,6 +37,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "satanic"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -47,10 +48,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10700"
+    "ItemCost"                                            "10500"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "satanic"
+    "ItemAliases"                                         "satanic 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -85,7 +86,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "4.5"
+        "unholy_duration"                                 "5.0"
       }
     }
   }

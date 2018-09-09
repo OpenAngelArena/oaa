@@ -25,8 +25,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "5.0"
-    "AbilityCooldown"                                     "40.0"
+    "AbilityDuration"                                     "7.0"
+    "AbilityCooldown"                                     "60"
 
 
     // Casting
@@ -45,40 +45,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_rate"                                       "5 3 2 2 2"
+        "purge_damage"                                    "200 300 400 900 1400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "purge_damage"                                    "200 300 400 600 1400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_duration"                                "7.0"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "5.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_root_duration"                             "3.0"
-      }
-      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges"                                     "3"
       }
-      "06"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "40"
+        "charge_restore_time"                             "60"
       }
-      "07"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time_tooltip_scepter"             "40"
+        "charge_restore_time_tooltip_scepter"             "60"
       }
     }
   }
-
 }

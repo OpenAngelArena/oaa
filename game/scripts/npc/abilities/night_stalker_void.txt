@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5275"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -23,10 +23,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "525"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
-    "AbilityCooldown"                                     "8 8 8 8"
-    "AbilityManaCost"                                     "80 90 100 110 130 210"
+    "AbilityCooldown"                                     "11 10 9 8 8 8"
+    "AbilityManaCost"                                     "80 90 100 110 160 210"
     "AbilityDamage"                                       "90 160 255 335 500 1100"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // applies 2 modifiers

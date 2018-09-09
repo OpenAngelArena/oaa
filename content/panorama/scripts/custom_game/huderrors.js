@@ -1,3 +1,4 @@
+/* global GameEvents */
 'use strict';
 
 (function () {

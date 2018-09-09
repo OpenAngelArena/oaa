@@ -1,0 +1,121 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 100
+	m_nConstantSequenceNumber = 8
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
+			m_hTexture = resource:"materials/particle/particle_swirl_04c.vtex"
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 0, 0, 0, 255 ]
+		},
+		{
+			_class = "C_OP_PercentageBetweenCPs"
+			m_flInputMin = 0.875
+			m_nFieldOutput = 16
+			m_flOutputMin = 1.0
+			m_flOutputMax = 0.0
+		},
+		{
+			_class = "C_OP_PercentageBetweenCPs"
+			m_flInputMax = 0.75
+			m_nFieldOutput = 16
+			m_bActiveRange = true
+			m_bRadialCheck = false
+		},
+		{
+			_class = "C_OP_PercentageBetweenCPs"
+			m_bScaleInitialRange = true
+			m_flOutputMax = 4.0
+			m_flOutputMin = 1.0
+			m_flOpEndFadeOutTime = 0.06
+			m_flOpStartFadeOutTime = 0.06
+		},
+		{
+			_class = "C_OP_RampScalarSplineSimple"
+			m_Rate = 70.0
+			m_bEaseOut = true
+		},
+		{
+			_class = "C_OP_RampScalarSplineSimple"
+			m_bEaseOut = true
+			m_flEndTime = 0.35
+			m_Rate = 7.0
+			m_nField = 4
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.5
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.75
+			m_fLifetimeMax = 0.75
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 217, 0, 0, 255 ]
+			m_ColorMax = [ 214, 20, 0, 255 ]
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 24.0
+			m_flRadiusMin = 24.0
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 96.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 96.0 ]
+		},
+		{
+			_class = "C_INIT_CreateSequentialPath"
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 1
+				m_flBulge = 0.15
+				m_nBulgeControl = 1
+				m_flMidPoint = 0.15
+			}
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 92
+		},
+		{
+			_class = "C_INIT_RemapScalar"
+			m_flOutputMax = 12.0
+			m_flOutputMin = 8.0
+			m_nFieldOutput = 4
+			m_flInputMax = 0.05
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 2000.0
+			m_flEmissionDuration = 0.05
+		},
+	]
+}

@@ -1,0 +1,79 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Pangolier: Swashbuckle
+  //=================================================================================================================
+  "pangolier_swashbuckle"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6344"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"                      "6"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.0"
+    "AbilityCastRange"              "1000"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "20 16 12 8 8 8"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "80 90 100 110 150 200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "dash_range"            "1000"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "range"                 "900"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage"                "24 42 60 78 240 402"
+        "LinkedSpecialBonus"    "special_bonus_unique_pangolier_3"
+        "CalculateSpellDamageTooltip" "0"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "dash_speed"            "2000"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "attack_interval"       "0.1 0.1 0.1 0.1 0.1 0.1"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "start_radius"          "125"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "end_radius"            "125"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "strikes"               "4"
+      }
+    }
+  }
+}

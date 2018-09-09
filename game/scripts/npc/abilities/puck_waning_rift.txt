@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5071"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -18,17 +18,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1 0.1 0.1 0.1"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 15 14 13 13 13"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 160 220 280 400 900"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 150 230"    
+    "AbilityManaCost"                                     "100 110 120 130 180 230"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +38,13 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "0.75 1.5 2.25 3.0 3.5 4.25"
+        "silence_duration"                                "2.0 2.5 3.0 3.5 4.0 4.75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 160 220 280 590 900"
+        "LinkedSpecialBonus"                              "special_bonus_unique_puck_4"
       }
     }
   }

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5510"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0"
+    "AbilityCooldown"                                     "9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 125 175 225 325 725"
+        "damage"                                          "75 125 175 225 475 725"
+        "LinkedSpecialBonus"    "special_bonus_unique_troll_warlord_3"
       }
       "02"
       {
@@ -58,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "blind_duration"                                  "4 5 6 7 8 9"
+        "blind_duration"                                  "5"
       }
       "06"
       {

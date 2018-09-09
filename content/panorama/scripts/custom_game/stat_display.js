@@ -1,22 +1,27 @@
-/* global $ CustomNetTables Game */
+/* global $ CustomNetTables Game Players */
 
 (function () {
-  CustomNetTables.SubscribeNetTableListener('stat_display', onStatChange);
+  if (Game.GetLocalPlayerID() !== -1) {
+    CustomNetTables.SubscribeNetTableListener('stat_display_player', onPlayerStatChange);
+    CustomNetTables.SubscribeNetTableListener('stat_display_team', onTeamStatChange);
+  } else {
+    $.GetContextPanel().FindChildTraverse('OAAStatDisplay').GetParent().RemoveAndDeleteChildren();
+  }
 }());
 
-function onStatChange (table, key, data) {
-  /* for (var entry in data.value) {
-    $.Msg(entry);
-  } */
+function onPlayerStatChange (table, key, data) {
   var playerID = Game.GetLocalPlayerID();
-  // $.Msg('onStatChange:');
-  // $.Msg(playerID + ' : ' + key + ' = ' + JSON.stringify(data.value, null, 2));
   UpdateStatDisplay(key, data.value[playerID] || 0);
+}
+
+function onTeamStatChange (table, key, data) {
+  var playerID = Game.GetLocalPlayerID();
+  var teamID = Players.GetTeam(playerID);
+  UpdateStatDisplay(key, data.value[teamID] || 0);
 }
 
 function UpdateStatDisplay (name, value) {
   var display = $('#OAAStatDisplay');
 
-  // $.Msg('Looking for QuickStatLabelValue of ' + name + 'Row');
   display.FindChildTraverse(name + 'Row').FindChildTraverse('QuickStatLabelValue').text = value;
 }

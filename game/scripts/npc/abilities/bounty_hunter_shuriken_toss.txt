@@ -20,20 +20,20 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "10"
-    "AbilityManaCost"                                     "120 130 140 150 170 250"
+    "AbilityManaCost"                                     "150"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.1"  // just a mini stun
 
     "HasScepterUpgrade"                                   "1"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "150 225 300 375 525 1125"
+        "bonus_damage"                                    "150 225 300 375 750 1125"
         "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_2"
       }
       "02"

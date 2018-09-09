@@ -13,7 +13,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
     // Stats
@@ -22,11 +22,11 @@
     "AbilityDuration"                                     "5.0 5.0 5.0 5.0 5.0 5.0"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "35"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -34,7 +34,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed_pct"                           "-30 -40 -50 -60 -70 -80"
+        "slow_attack_speed_pct"                           "-30 -40 -50 -60 -100 -140"
+        "LinkedSpecialBonus"  "special_bonus_unique_jakiro_4"
       }
       "02"
       {
@@ -44,13 +45,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "12 16 20 24 32 64"
+        "damage"                                          "12 16 20 24 44 64"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_duration"                                "5 5 5 5 5 5"
+        "tooltip_duration"                                "5"
       }
-    }    
+    }
   }
 }

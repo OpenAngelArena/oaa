@@ -18,7 +18,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ethereal_blade"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_eagle;item_ghost"
@@ -59,7 +59,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemAliases"                                         "eb;ethereal blade"
+    "ItemAliases"                                         "eb;ethereal blade;eblade"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -114,7 +114,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "projectile_speed"                                "1275"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
       }
     }
   }

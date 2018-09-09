@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5336"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -22,7 +22,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reflection_pct"                           "10 14 18 22 26 30"
+        "damage_reflection_pct"                           "10 13 16 19 22 25" //OAA
+        "LinkedSpecialBonus"    "special_bonus_unique_spectre_5"
       }
       "02"
       {

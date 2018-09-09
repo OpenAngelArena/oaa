@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5382"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "1"
@@ -20,8 +20,8 @@
     "AbilityCastRange"                                    "2000"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "30"
-    "AbilityManaCost"                                     "150 150 150 150 150 150 150 150 150 150 150 160 165 170 175"
-    
+    "AbilityManaCost"                                     "150"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -29,7 +29,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "travel_distance"                                 "800 1200 1600 2000 2400 2800 3200 3600 3800 4000 4200 4400 4500 4600 4700" 
+        "travel_distance"                                 "800 1200 1600 2000 2400 2800 3200 3600 3800 4000 4200 4400 4500 4600 4700"
         "levelkey"                                        "wexlevel"
       }
       "02"
@@ -56,6 +56,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "lift_duration"                                   "0.8 1.1 1.4 1.7 2.0 2.3 2.6 2.9 3.1 3.2 3.3 3.4 3.6 3.8 4.0"
+        "LinkedSpecialBonus"    "special_bonus_unique_invoker_8"
         "levelkey"                                        "quaslevel"
       }
       "07"

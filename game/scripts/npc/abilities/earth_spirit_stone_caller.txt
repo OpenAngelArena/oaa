@@ -8,17 +8,17 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5611"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "MaxLevel"                                            "1"
 
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
 
@@ -39,7 +39,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "30.0"
+        "charge_restore_time"                             "20.0" //OAA
       }
       "03"
       {

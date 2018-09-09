@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+
 require('libraries/fun')()
 
 modifier_intrinsic_multiplexer = class(ModifierBaseClass)
@@ -7,6 +9,10 @@ function modifier_intrinsic_multiplexer:IsHidden()
 end
 
 function modifier_intrinsic_multiplexer:IsPurgable()
+  return false
+end
+
+function modifier_intrinsic_multiplexer:RemoveOnDeath()
   return false
 end
 
@@ -24,12 +30,16 @@ function modifier_intrinsic_multiplexer:OnCreated()
 end
 
 function modifier_intrinsic_multiplexer:OnRefresh()
-  self:DestroyModifiers()
-  self:CreateModifiers()
+  if IsServer() then
+    self:DestroyModifiers()
+    self:CreateModifiers()
+  end
 end
 
 function modifier_intrinsic_multiplexer:OnDestroy()
-  self:DestroyModifiers()
+  if IsServer() then
+    self:DestroyModifiers()
+  end
 end
 
 function modifier_intrinsic_multiplexer:CreateModifiers()
@@ -44,6 +54,10 @@ function modifier_intrinsic_multiplexer:CreateModifiers()
   end
   local caster = self:GetCaster()
   local ability = self:GetAbility()
+  if ability == nil or ability:IsNull() then
+    -- sometimes we create modifiers that don't have abilities and i don't know why yet
+    return
+  end
   if not ability.GetIntrinsicModifierNames then
     print('Ability does not have a GetIntrinsicModifierNames method')
     return
@@ -61,4 +75,23 @@ function modifier_intrinsic_multiplexer:DestroyModifiers()
     end
   end)
   self.modifiers = {}
+end
+
+function modifier_intrinsic_multiplexer:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_RESPAWN
+  }
+end
+
+function modifier_intrinsic_multiplexer:OnRespawn(keys)
+  local parent = self:GetParent()
+  if keys.unit ~= parent then
+    return
+  end
+
+  for name, mod in pairs(self.modifiers) do
+    if mod:IsNull() then
+      self.modifiers[name] = parent:AddNewModifier(self:GetCaster(), self:GetAbility(), name, {})
+    end
+  end
 end

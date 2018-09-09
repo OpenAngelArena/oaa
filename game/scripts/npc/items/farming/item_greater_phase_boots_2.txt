@@ -10,10 +10,10 @@
     "ID"                                                  "3001"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,10 +22,24 @@
     "ItemResult"                                          "item_greater_phase_boots_2"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_phase_boots;item_upgrade_core"
-      "02"                                                "item_greater_phase_boots;item_upgrade_core_2"
-      "03"                                                "item_greater_phase_boots;item_upgrade_core_3"
-      "04"                                                "item_greater_phase_boots;item_upgrade_core_4"
+      "01"                                                "item_greater_phase_boots;item_upgrade_core_2"
+      "02"                                                "item_greater_phase_boots;item_upgrade_core_3"
+      "03"                                                "item_greater_phase_boots;item_upgrade_core_4"
+      "04"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
+      "05"                                                "item_greater_guardian_greaves;item_upgrade_core_3"
+      "06"                                                "item_greater_guardian_greaves;item_upgrade_core_4"
+      "07"                                                "item_greater_arcane_boots;item_upgrade_core_2"
+      "08"                                                "item_greater_arcane_boots;item_upgrade_core_3"
+      "09"                                                "item_greater_arcane_boots;item_upgrade_core_4"
+      "10"                                                "item_greater_power_treads;item_upgrade_core_2"
+      "11"                                                "item_greater_power_treads;item_upgrade_core_3"
+      "12"                                                "item_greater_power_treads;item_upgrade_core_4"
+      "13"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "14"                                                "item_greater_tranquil_boots;item_upgrade_core_3"
+      "15"                                                "item_greater_tranquil_boots;item_upgrade_core_4"
+      "16"                                                "item_greater_travel_boots;item_upgrade_core_2"
+      "17"                                                "item_greater_travel_boots;item_upgrade_core_3"
+      "18"                                                "item_greater_travel_boots;item_upgrade_core_4"
     }
   }
 
@@ -47,13 +61,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2840"
+    "ItemCost"                                            "4600"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "phase boots"
+    "ItemAliases"                                         "greater phase boots 2;phase boots 2;phase 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_greater_phase_boots_2;item_greater_phase_boots_3;item_greater_phase_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_phase_boots"
@@ -65,12 +79,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45 50 55 60 65"
+        "bonus_movement_speed"                            "50 55 60 65"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 35 70 105 140"
+        "bonus_damage"                                    "35 70 105 140"
       }
       "03"
       {
@@ -90,12 +104,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "24 26 29 32 35"
+        "phase_movement_speed"                            "26 29 32 35"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "20 22 25 28 31"
+        "phase_movement_speed_range"                      "22 25 28 31"
       }
       "08"
       {
@@ -120,12 +134,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splinter_attack_outgoing"                        "30"
+        "splinter_attack_outgoing"                        "50"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splinter_count"                                  "1 2 3 4 5"
+        "splinter_count"                                  "3 4 5 6"
       }
       "14"
       {

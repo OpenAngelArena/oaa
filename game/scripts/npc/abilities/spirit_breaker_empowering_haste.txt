@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12"
+    "AbilityCooldown"                                     "20"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,24 +27,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed_pct"                             "6 10 14 18 20 24"
+        "bonus_movespeed_pct_self"                        "8 12 16 20 28 36"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "bonus_movespeed_pct_allies"                      "4 6 8 10 14 18"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed_pct_extra"                       "3 5 7 9 10 12"
+        "aura_radius"                                     "900"
       }
       "04"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed_pct_extra"                       "3 4 5 6 8 10"
+      }
+      "05" // OAA
+      {  // OAA
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "6"
       }
     }
   }
-
 }

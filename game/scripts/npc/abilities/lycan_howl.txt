@@ -10,16 +10,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5396"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "MaxLevel"                                            "6"  
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60 55 50 45 45 45"
     "AbilityDuration"                                     "13"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40"
@@ -35,12 +35,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "howl_duration"                                   "13.0"    
+        "howl_duration"                                   "13.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_bonus_damage"                               "10 15 20 25 35 75"
+        "hero_bonus_damage"                               "10 15 20 25 50 75"
       }
       "03"
       {
@@ -50,7 +50,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_bonus_hp"                                   "50 100 150 200 300 700"
+        "hero_bonus_hp"                                   "50 100 150 200 450 700"
+        "LinkedSpecialBonus"  "special_bonus_unique_lycan_5"
       }
       "05"
       {

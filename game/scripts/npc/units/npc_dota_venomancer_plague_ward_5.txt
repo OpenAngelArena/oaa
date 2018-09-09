@@ -32,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "57"    // Damage range min.
-    "AttackDamageMax"                                     "59"    // Damage range max.
+    "AttackDamageMin"                                     "83"    // Damage range min.
+    "AttackDamageMax"                                     "87"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.5"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
@@ -61,7 +61,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "700"    // Base health.
+    "StatusHealth"                                        "1075"    // Base health.
     "StatusHealthRegen"                                   "0.25"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
@@ -75,7 +75,7 @@
     
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1200"    // Range of vision during day light.
+    "VisionDaytimeRange"                                  "800"    // Range of vision during day light.
     "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
     //Inventory

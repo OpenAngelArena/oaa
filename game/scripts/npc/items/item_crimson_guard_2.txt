@@ -10,7 +10,7 @@
     "ID"                                                  "3198"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -23,10 +23,10 @@
     "ItemResult"                                          "item_crimson_guard_2"
     "ItemRequirements"
     {
-      "01"                                                "item_crimson_guard;item_upgrade_core"
-      "02"                                                "item_crimson_guard;item_upgrade_core_2"
-      "03"                                                "item_crimson_guard;item_upgrade_core_3"
-      "04"                                                "item_crimson_guard;item_upgrade_core_4"
+      "01"                                                "item_heart;item_upgrade_core"
+      "02"                                                "item_heart;item_upgrade_core_2"
+      "03"                                                "item_heart;item_upgrade_core_3"
+      "04"                                                "item_heart;item_upgrade_core_4"
     }
   }
 
@@ -45,6 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "46.0"
+    "AbilitySharedCooldown"                               "guard"
     "AbilityCastRange"                                    "900"
 
     "MaxUpgradeLevel"                                     "5"
@@ -54,9 +55,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5050"
+    "ItemCost"                                            "6700"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "crimson guard 2"
     "ItemAlertable"                                       "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -72,7 +74,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "8 12 18 25 35"
+        "bonus_health_regen"                              "6 9 14 19 27"
       }
       "03"
       {
@@ -128,6 +130,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "block_chance_active"                             "100"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_reapply_time"                            "46"
       }
     }
   }

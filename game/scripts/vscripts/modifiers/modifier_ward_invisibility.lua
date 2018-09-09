@@ -19,6 +19,7 @@ end
 function modifier_ward_invisibility:CheckState()
   return {
     [MODIFIER_STATE_INVISIBLE] = self.isInvis,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
 end
 
@@ -42,7 +43,7 @@ function modifier_ward_invisibility:GetAuraSearchTeam()
 end
 
 function modifier_ward_invisibility:GetAuraRadius()
-  return 300
+  return POOP_WARD_RADIUS
 end
 
 function modifier_ward_invisibility:GetModifierAura()
@@ -51,7 +52,7 @@ end
 
 function modifier_ward_invisibility:GetAuraEntityReject(entity)
   if self.isInvis then
-    print(self.id .. ': showing self')
+    DebugPrint(self.id .. ': showing self')
   end
   self.isInvis = false
 
@@ -59,7 +60,7 @@ function modifier_ward_invisibility:GetAuraEntityReject(entity)
   Timers:CreateTimer(self.id, {
     endTime = 3,
     callback = function()
-      print(self.id .. ': hiding self')
+      DebugPrint(self.id .. ': hiding self')
       self.isInvis = true
     end
   })

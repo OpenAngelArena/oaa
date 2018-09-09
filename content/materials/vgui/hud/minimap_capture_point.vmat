@@ -1,0 +1,12 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "ui.vfx"
+
+	F_STENCIL_MASKING 1
+
+	//---- Color ----
+	Texture "materials/vgui/hud/minimap_capture_point.png"
+	"F_TRANSLUCENT"		"1"
+}

@@ -1,0 +1,103 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: dispel_orb_2
+  //=================================================================================================================
+  "item_recipe_dispel_orb_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3807"   // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_dispel_orb_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_dispel_orb_1;item_upgrade_core_3"
+      "02"                                                "item_dispel_orb_1;item_upgrade_core_4"
+      "03"                                                "item_lotus_orb_3;item_upgrade_core_3"
+      "04"                                                "item_lotus_orb_3;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // dispel_orb_2
+  //=================================================================================================================
+  "item_dispel_orb_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3808"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/dispel_orb_2"
+    "ScriptFile"                                          "items/reflex/preemptive_purge.lua"
+    "FightRecapLevel"                                     "1"
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150"
+    "AbilityCooldown"                                     "30"
+    "AbilitySharedCooldown"                               "purge"
+    "AbilityCastPoint"                                    "0.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "purge orb; purge crystal"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Modifiers
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "25 32 40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "10.0 15.0 30.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.5 5.0 7.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "500 700 1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.2"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0 5.0 6.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+//=============================================================================
+// Lucius LongClaw abilities
+//=============================================================================
+
+
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves"                               "Summon Wolves"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_Description"                   "LongClaw howls to summon a powerful pack of wolf beasts."
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_wolf_duration"                 "WOLF LIFETIME:"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_hound_spawn"               "HOUNDS SPAWNED:"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_hound_boss_spawn"          "HOUND BOSSES SPAWNED:"
+
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_werewolf_spawn"            "WEREWOLVES SPAWNED:"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_ss_hound_spawn"            "HOUNDS DURING SHAPESHIFT SPAWNED:"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_ss_hound_boss_spawn"       "HOUND BOSSES DURING SHAPESHIFT SPAWNED:"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_ss_werewolf_spawn"         "WEREWOLVES DURING SHAPESHIFT SPAWNED:"
+
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift"                                  "Shapeshift"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_Description"                      "LongClaw is consumed by his rage, letting his inner beast take control over his physical shape and mind. Giving him bonus night vision, increased movement speed and modifies his Ability-Kit"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_bonus_night_vision"               "BONUS NIGHT VISION:"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_speed"                            "MOVEMENT SPEED:"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_transformation_time"              "TRANSFORMATION TIME:"
+
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge"                                  "Claw Lunge"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_Description"                      "LongClaw charges the enemy, dealing damage in a large area."
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_lunge_damage"                     "DAMAGE:"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_lunge_width"                      "RADIUS:"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_lunge_distance"                   "DISTANCE TRAVELED:"
+
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack"                                 "Claw Attack"
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_Description"                     "LongClaw uses his claws to deliver a powerful blow, stunning enemies in an area infront of him, dealing damage. Has a reduced castpoint when shapeshift is activated."
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_stun_duration"                   "STUN DURATION:"
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_damage"                          "DAMAGE:"
+
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball"                                "Rupture Ball"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_Description"                    "Shoots a Ball in a straight direction, applying bloodseeker's rupture effect on hit."
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_cast_range_tooltip"             "CAST RANGE:"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_cast_range_tooltip"             "RANGE:"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_duration"                       "RUPTURE DURATION:"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_movement_damage_pct"            "MOVEMENT DAMAGE PERCENTILE:"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_damage_cap_amount"              "MOVEMENT DAMAGE CAP:"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_damage_cap_interval"            "MOVEMENT DAMAGE CAP INTERVAL:"
+
+"DOTA_Tooltip_Ability_ranged_quill_attack"                                    "Ranged Quill"
+"DOTA_Tooltip_Ability_ranged_quill_attack_Description"                        "A ranged quill attack, dealing damage in a straight line."
+"DOTA_Tooltip_Ability_ranged_quill_attack_attack_damage"                      "DAMAGE:"
+"DOTA_Tooltip_Ability_ranged_quill_attack_attack_distance"                    "RANGE:"
+
+"DOTA_Tooltip_Ability_werewolf_howl"                                          "Werewolf Howl"
+"DOTA_Tooltip_Ability_werewolf_howl_Description"                              "The werewolf howls, buffing nearby wolfs."
+"DOTA_Tooltip_Ability_werewolf_howl_bonus_damage"                             "BONUS DAMAGE:"
+"DOTA_Tooltip_Ability_werewolf_howl_bonus_move_speed"                         "BONUS MOVEMENT SPEED:"
+"DOTA_Tooltip_Ability_werewolf_howl_radius"                                   "RADIUS:"
+"DOTA_Tooltip_Ability_werewolf_howl_duration"                                 "DURATION:"
+
+//------------------------------Tier 5---------------------------------------
+
+
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_tier5"                                 "#{DOTA_Tooltip_Ability_lycan_boss_claw_attack}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_tier5_Description"                     "#{DOTA_Tooltip_Ability_lycan_boss_claw_attack_Description}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_tier5_stun_duration"                   "#{DOTA_Tooltip_Ability_lycan_boss_claw_attack_stun_duration}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_attack_tier5_damage"                          "#{DOTA_Tooltip_Ability_lycan_boss_claw_attack_damage}"
+
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_tier5"                                  "#{DOTA_Tooltip_Ability_lycan_boss_claw_lunge}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_tier5_Description"                      "#{DOTA_Tooltip_Ability_lycan_boss_claw_lunge_Description}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_tier5_lunge_damage"                     "#{DOTA_Tooltip_Ability_lycan_boss_claw_lunge_lunge_damage}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_tier5_lunge_width"                      "#{DOTA_Tooltip_Ability_lycan_boss_claw_lunge_lunge_width}"
+"DOTA_Tooltip_Ability_lycan_boss_claw_lunge_tier5_lunge_distance"                   "#{DOTA_Tooltip_Ability_lycan_boss_claw_lunge_lunge_distance}"
+
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5"                                "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_Description"                    "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_Description}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_cast_range_tooltip"             "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_cast_range_tooltip}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_cast_range_tooltip"             "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_cast_range_tooltip}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_duration"                       "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_duration}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_movement_damage_pct"            "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_movement_damage_pct}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_damage_cap_amount"              "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_damage_cap_amount}"
+"DOTA_Tooltip_Ability_lycan_boss_rupture_ball_tier5_damage_cap_interval"            "#{DOTA_Tooltip_Ability_lycan_boss_rupture_ball_damage_cap_interval}"
+
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_tier5"                                  "#{DOTA_Tooltip_Ability_lycan_boss_shapeshift}"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_tier5_Description"                      "#{DOTA_Tooltip_Ability_lycan_boss_shapeshift_Description}"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_tier5_bonus_night_vision"               "#{DOTA_Tooltip_Ability_lycan_boss_shapeshift_bonus_night_vision}"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_tier5_speed"                            "#{DOTA_Tooltip_Ability_lycan_boss_shapeshift_speed}"
+"DOTA_Tooltip_Ability_lycan_boss_shapeshift_tier5_transformation_time"              "#{DOTA_Tooltip_Ability_lycan_boss_shapeshift_transformation_time}"
+
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5"                               "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves}"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_Description"                   "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_Description}"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_wolf_duration"                 "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_wolf_duration}"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_num_hound_spawn"               "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_hound_spawn}"
+"DOTA_Tooltip_Ability_lycan_boss_summon_wolves_tier5_num_hound_boss_spawn"          "#{DOTA_Tooltip_Ability_lycan_boss_summon_wolves_num_hound_boss_spawn}"

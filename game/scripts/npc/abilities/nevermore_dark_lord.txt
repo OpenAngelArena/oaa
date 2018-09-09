@@ -29,7 +29,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "presence_armor_reduction"                        "-3 -4 -5 -6 -8 -16"
+        "presence_armor_reduction"                        "-3 -4 -5 -6 -10 -16"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_5"
       }
       "02"
       {
@@ -38,5 +39,4 @@
       }
     }
   }
-
 }

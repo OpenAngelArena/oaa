@@ -1,0 +1,37 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Angels Blood
+  //=================================================================================================================
+  "item_upgrade_core"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3530"      // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityTextureName"                                  "custom/angels_blood"
+    "Effect"                                              "particles/items/upgrade_1.vpcf"
+    "Model"                                               "models/items/upgrade_1.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+
+    "ItemCost"                                            "1500"
+    "ItemPurchasable"                                     "0"
+    //"ItemSellable"                                      "0"
+    "ItemKillable"                                        "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                  "particles/items/upgrade_1.vpcf"
+      "model"                     "models/items/upgrade_1.vmdl"
+    }
+  }
+}

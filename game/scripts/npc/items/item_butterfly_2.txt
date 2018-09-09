@@ -10,17 +10,17 @@
     "ID"                                                  "3132"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_2"
     "ItemCost"                                            "1500"
     "ItemRequirements"
     {
-      "01"                                                "item_butterfly;item_upgrade_core"
-      "02"                                                "item_butterfly;item_upgrade_core_2"
-      "03"                                                "item_butterfly;item_upgrade_core_3"
-      "04"                                                "item_butterfly;item_upgrade_core_4"
+      "01"                                                "item_diffusal_blade;item_upgrade_core"
+      "02"                                                "item_diffusal_blade;item_upgrade_core_2"
+      "03"                                                "item_diffusal_blade;item_upgrade_core_3"
+      "04"                                                "item_diffusal_blade;item_upgrade_core_4"
     }
   }
 
@@ -39,6 +39,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
+    "AbilitySharedCooldown"                               "flutter"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -49,10 +50,10 @@
     "AbilityTextureName"                                  "custom/butterfly_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7025"
+    "ItemCost"                                            "4650"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bfly;butterfly"
+    "ItemAliases"                                         "bfly 2;butterfly 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -67,7 +68,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 40 53 65 75"
+        "bonus_damage"                                    "25 34 43 52 61"
       }
       "03"
       {
@@ -77,17 +78,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 33 36 39 42"
+        "bonus_attack_speed"                              "30 40 50 60 70"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "35 39 42 45 48"
+        "bonus_move_speed"                                "35"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "duration"                                        "2"
       }
     }
   }

@@ -1,14 +1,28 @@
-var test = require('tape');
-var findTooltips = require('../find-tooltips');
+const request = require('request');
+const parseKV = require('parse-kv');
+const test = require('tape');
+const findTooltips = require('../find-tooltips');
+const luaEntitiesUtil = require('../lua-entities-util');
 
 test('can read in tooltip list', function (t) {
-  var getTranslations = require('../parse-translation');
-  t.ok(Object.keys(getTranslations().lang.Tokens.values).length, 'there are tokens');
-  t.end();
+  const getTranslations = require('../parse-translation');
+
+  request.get({
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+  }, function (err, result) {
+    if (err) {
+      t.fail(err);
+    }
+    let dotaEnglish = parseKV(result.body);
+    t.ok(dotaEnglish);
+
+    t.ok(Object.keys(getTranslations(true, false, dotaEnglish).lang.Tokens.values).length, 'there are tokens');
+    t.end();
+  });
 });
 
 test('can read list of items', function (t) {
-  findTooltips.findAllItems(function (err, data) {
+  luaEntitiesUtil.findAllItems(function (err, data) {
     t.notOk(err, 'no error');
     t.ok(data.length);
     t.end();
@@ -16,7 +30,7 @@ test('can read list of items', function (t) {
 });
 var itemPaths = null;
 test('lists item paths', function (t) {
-  findTooltips.listAllItems(function (err, lines) {
+  luaEntitiesUtil.listAllItems(function (err, lines) {
     t.notOk(err);
     t.ok(lines.length);
     itemPaths = lines;
@@ -30,7 +44,7 @@ test('can parse item', function (t) {
   console.log('Running tests with', path);
   t.ok(path);
 
-  findTooltips.parseFile(path, function (err, data) {
+  luaEntitiesUtil.parseFile(path, function (err, data) {
     t.notOk(err);
     t.ok(data);
     t.end();

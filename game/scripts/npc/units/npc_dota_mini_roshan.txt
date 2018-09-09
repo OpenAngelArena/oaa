@@ -14,10 +14,12 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "roshan_spell_block"  // Ability 1.
-    "Ability2"                                            "roshan_bash"    // Ability 2.
-    "Ability3"                                            "roshan_slam"    // Ability 3.
-    "Ability4"                                            "boss_cliffwalk"      // Ability 4 - Extra.
+    "Ability1"                                            "roshan_spell_block"		// Ability 1.
+    "Ability2"                                            "roshan_bash"			// Ability 2.
+    "Ability3"                                            "roshan_slam"			// Ability 3.
+    "Ability4"                                            "boss_cliffwalk"		// Ability 4.
+    "Ability5"                                            "boss_inner_beast"		// Ability 5
+    "Ability6"                                  					"necronomicon_warrior_sight"			// Ability 6
 
     // Armor
     //----------------------------------------------------------------
@@ -30,7 +32,7 @@
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "2.0"      // Speed of attack.
+    "AttackRate"                                          "4.0"      // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.

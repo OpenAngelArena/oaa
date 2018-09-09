@@ -24,7 +24,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "25"      // Physical protection.
-    "MagicalResistance"                                   "25"      // Magical protection (percentage).
+    "MagicalResistance"                                   "-25"      // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -66,8 +66,8 @@
 
     "Creature"
     {
-      //Makes it only have 25% remaining of applied crowd control
-      "DisableResistance"                                 "75.0"
+      //Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
     }
 
 

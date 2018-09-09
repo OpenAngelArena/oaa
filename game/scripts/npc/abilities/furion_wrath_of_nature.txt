@@ -16,19 +16,19 @@
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
     "HasScepterUpgrade"                                   "1"
-    
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.5 0.5 0.5"
-    "AbilityCooldown"                                     "90 75 60 60 60"
-    "AbilityManaCost"                                     "175 225 275 375 750"
-    
+    "AbilityCooldown"                                     "60 60 60 60 60"
+    "AbilityManaCost"                                     "175 225 275 525 750"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -41,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 140 170 230 475"
+        "damage"                                          "110 140 170 320 475"
       }
       "03"
       {
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "135 170 205 275 550"
+        "damage_scepter"                                  "135 170 205 375 550"
       }
       "06"
       {

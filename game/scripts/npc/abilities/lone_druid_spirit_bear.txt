@@ -12,14 +12,14 @@
     "DisplayAdditionalHeroes"                             "1"
 
     "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "1" //OAA
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120.0"
+    "AbilityCooldown"                                     "30.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,32 +32,33 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_hp"                                         "1400 1800 2300 2700 3600 7200"
+        "bear_hp"                                         "1500 2500 3500 4500 7000 10000" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_regen_tooltip"                              "2 3 4 5 7 15"
+        "bear_regen_tooltip"                              "5 6 7 8 11 15" //OAA dota is wrong
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bear_bat"                                        "1.75 1.65 1.55 1.45 1.40 1.35"
+        "bear_bat"                                        "1.65 1.55 1.45 1.35 1.25 1.15" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bear_armor"                                      "3 4 5 6 8 16"
+        "bear_armor"                                      "6 9 12 15 24 32"   //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_2" 
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "backlash_damage"                                 "10.0"
+        "backlash_damage"                                 "20.0" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "120.0"
+        "cooldown_scepter"                                "30.0" //OAA
       }
     }
   }

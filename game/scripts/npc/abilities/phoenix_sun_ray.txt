@@ -41,22 +41,23 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "14 20 26 32 44 92"
+        "base_damage"                                     "14 20 26 32 62 92"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "hp_perc_damage"                                  "1.5 3.25 5.0 6.75 6.75 6.75"
+        "LinkedSpecialBonus"  "special_bonus_unique_phoenix_5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_heal"                                       "7 10 13 16 22 50"
+        "base_heal"                                       "7 10 13 16 32 50"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_perc_heal"                                    "0.625 1.25 1.875 2.5 2.5 2.5"
+        "hp_perc_heal"                                    "0.625 1.25 1.875 2.5 3 3.5"
       }
 
       "06"

@@ -1,0 +1,94 @@
+"DOTAUnits"
+{
+  //=================================================================================
+	// Creature: Dire Hound Boss
+	// Zones: forest, forest_holdout
+	//=================================================================================
+	"npc_dota_creature_dire_hound_boss_tier5"
+	{
+		// Script
+		"vscripts"					"units/ai_dire_hound_boss.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/lycan/lycan_wolf.vmdl"
+		"SoundSet"					"Hero_Lycan"
+		"Level"						"1"
+		"IsAncient"					"1"
+		"ModelScale" 				"0.9"
+		"IsNeutralUnitType"			"1"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ranged_quill_attack"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+		"MagicalResistance"			"-25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"800"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"2200"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"35"
+		"BountyGoldMin"				"20"
+		"BountyGoldMax"				"24"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"510"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"6000"
+		"StatusHealthRegen"			"10.5"
+		"StatusMana"				"350"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_bristleback/bristleback_quill_spray_impact.vpcf"
+      "particle"  "particles/test_particle/test_model_cluster_linear_projectile.vpcf"
+      "particle"  "particles/units/heroes/hero_lycan/lycan_claw_blur.vpcf"
+      "particle"  "particles/units/heroes/hero_lycan/lycan_claw_blur_b.vpcf"
+    }
+	}
+}

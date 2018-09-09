@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5153"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85153"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_rearm.lua"
     "AbilityTextureName"                                  "tinker_rearm"
@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 200 300 500 1300"
+    "AbilityManaCost"                                     "100 200 300 700 1100"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

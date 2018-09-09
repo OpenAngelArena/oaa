@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "89"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -40,6 +41,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60.0"
+    "AbilitySharedCooldown"                               "pipe"
     "AbilityManaCost"                                     "100"
     "AbilityCastRange"                                    "900"
 
@@ -49,10 +51,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3200"
+    "ItemCost"                                            "3150"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "pipe of insight"
+    "ItemAliases"                                         "pipe of insight;pipe"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAlertable"                                       "1"
 
@@ -62,8 +64,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_regen"                                    "8 12 18 27 40"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "6.5 8.5 11 13.5 16"
       }
       "02"
       {
@@ -83,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "4 6 9 14 21"
+        "aura_health_regen"                               "2 3 5 7 10"
       }
       "06"
       {
@@ -98,7 +100,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 500 600 700 800"
+        "barrier_block"                                   "400 500 700 1000 1400"
       }
       "09"
       {

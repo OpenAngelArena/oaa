@@ -9,27 +9,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5075"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
     "HasScepterUpgrade"                                   "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000 1100 1200 1300 1400 1500"
+    "AbilityCastRange"                                    "1300"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
+    "AbilityCooldown"                                     "27 22 17 12 12 12"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "90 180 270 360 540 1260"
+    "AbilityDamage"                                       "150 220 290 360 810 1260"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 160 240"
+    "AbilityManaCost"                                     "140 140 140 140 190 240"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hook_speed"                                      "1600.0"
+        "hook_speed"                                      "1450.0"
       }
       "02"
       {
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hook_distance"                                   "1000 1100 1200 1300 1400 1500"
+        "hook_distance"                                   "1300"
       }
       "04"
       {
@@ -68,7 +68,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "180 270 360 450 630 1350"
+        "damage_scepter"                                  "180 270 360 450 900 1350"
       }
     }
   }

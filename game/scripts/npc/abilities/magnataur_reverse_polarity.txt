@@ -19,13 +19,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "120"
-    "AbilityManaCost"                                     "200 250 300 400 750"
+    "AbilityManaCost"                                     "200 250 300 525 750"
     "AbilityCastRange"                                    "410"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // Applies multiple modifiers
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -38,12 +38,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "polarity_damage"                                 "50 125 200 300 500"
+        "polarity_damage"                                 "50 125 200 350 500"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_stun_duration"                              "2.25 3.0 3.75 4.25 4.75"
+        "hero_stun_duration"                              "2.75 3.25 3.75 4.25 4.75"
+        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_5"
       }
       "04"
       {

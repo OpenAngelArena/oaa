@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_echo_sabre_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_echo_sabre_2;item_upgrade_core_2"
@@ -45,11 +45,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "5.0 4.0 3.1 2.3 1.6"
+    "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "7650"
+    "ItemCost"                                            "8550"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre 3"
@@ -70,7 +71,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 25 35 50"
+        "bonus_strength"                                  "12 18 30 42 60"
       }
       "03"
       {
@@ -80,12 +81,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 25 35 50 75"
+        "bonus_damage"                                    "12 18 30 42 60"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "75 125 175 250 350"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
       }
       "06"
       {
@@ -105,7 +106,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.7"
+        "slow_duration"                                   "0.8"
       }
     }
   }

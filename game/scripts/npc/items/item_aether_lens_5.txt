@@ -14,7 +14,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_aether_lens_5"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_aether_lens_4;item_upgrade_core_4;"
@@ -38,7 +38,7 @@
     "ItemCost"                                            "35350"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "aether lens"
+    "ItemAliases"                                         "aether lens 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Spicy Parameters
@@ -53,22 +53,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 500 700 1000"
+        "bonus_mana"                                      "450 900 1450 2000 2650"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "100 150 250 350 500"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"    "1.25 3.75 6.25 8.75 11.25"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "220 250 300 375 450"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "6 12 18 24 30"
+        "cast_range_bonus"                                "250 325 400 475 550"
       }
     }
   }

@@ -4,28 +4,6 @@ LinkLuaModifier( "modifier_dragon_knight_elder_dragon_form_oaa", "abilities/oaa_
 
 --------------------------------------------------------------------------------
 
--- this should probably be moved elsewhere somewhere down the line
--- probably somewhere where anything prng can access it
-dragon_knight_elder_dragon_form_oaa.prngTable = {}
-dragon_knight_elder_dragon_form_oaa.prngTable[5] = 0.038
-dragon_knight_elder_dragon_form_oaa.prngTable[10] = 0.01475
-dragon_knight_elder_dragon_form_oaa.prngTable[15] = 0.03221
-dragon_knight_elder_dragon_form_oaa.prngTable[20] = 0.0557
-dragon_knight_elder_dragon_form_oaa.prngTable[25] = 0.08475
-dragon_knight_elder_dragon_form_oaa.prngTable[30] = 0.11895
-dragon_knight_elder_dragon_form_oaa.prngTable[35] = 0.14628
-dragon_knight_elder_dragon_form_oaa.prngTable[40] = 0.18128
-dragon_knight_elder_dragon_form_oaa.prngTable[45] = 0.21867
-dragon_knight_elder_dragon_form_oaa.prngTable[50] = 0.25701
-dragon_knight_elder_dragon_form_oaa.prngTable[55] = 0.29509
-dragon_knight_elder_dragon_form_oaa.prngTable[60] = 0.33324
-dragon_knight_elder_dragon_form_oaa.prngTable[65] = 0.38109
-dragon_knight_elder_dragon_form_oaa.prngTable[70] = 0.42448
-dragon_knight_elder_dragon_form_oaa.prngTable[75] = 0.46134
-dragon_knight_elder_dragon_form_oaa.prngTable[80] = 0.50276
-
---------------------------------------------------------------------------------
-
 -- this makes the ability passive when it hits level 5
 function dragon_knight_elder_dragon_form_oaa:GetBehavior()
 	if self:GetLevel() >= 5 then
@@ -195,7 +173,7 @@ if IsServer() then
 	function modifier_dragon_knight_elder_dragon_form_oaa:OnAttackLanded( event )
 		local parent = self:GetParent()
 
-		if event.attacker == parent then
+		if event.attacker == parent and event.process_procs then
 			local spell = self:GetAbility()
 
 			if spell:GetLevel() == 4 then
@@ -204,14 +182,14 @@ if IsServer() then
 					return
 				end
 
-				local chance = spell:GetSpecialValueFor( "rage_chance" )
+				local chance = spell:GetSpecialValueFor( "rage_chance" ) / 100
 
 				-- we're using the modifier's stack to store the amount of prng failures
 				-- this could be something else but since this modifier is hidden anyway ...
 				local prngMult = self:GetStackCount() + 1
 
 				-- compared prng to slightly less prng
-				if RandomFloat( 0.0, 1.0 ) <= ( spell.prngTable[chance] * prngMult ) then
+				if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * prngMult ) then
 					-- reset failure count
 					self:SetStackCount( 0 )
 

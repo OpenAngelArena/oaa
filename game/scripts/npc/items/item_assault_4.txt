@@ -20,11 +20,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_assault_4"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_assault_3;item_upgrade_core_3"
       "02"                                                "item_assault_3;item_upgrade_core_4"
+      "03"                                                "item_blade_mail_3;item_upgrade_core_3"
+      "04"                                                "item_blade_mail_3;item_upgrade_core_4"
     }
   }
 
@@ -42,10 +44,10 @@
     "AbilityTextureName"                                  "custom/assault_cuirass_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18250"
+    "ItemCost"                                            "15200"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ac;assault cuirass"
+    "ItemAliases"                                         "ac 4;assault cuirass 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     //Spicy Parameters

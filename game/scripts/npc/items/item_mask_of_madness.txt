@@ -11,7 +11,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_mask_of_madness"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_lifesteal;item_quarterstaff"
@@ -31,7 +31,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "22.0"
+    "AbilitySharedCooldown"                               "madness"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -76,12 +77,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "17 23 29 35 41"
+        "berserk_bonus_movement_speed"                    "12 17 22 27 32"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_armor_reduction"                         "5"
+        "berserk_armor_reduction"                         "8"
       }
       "07"
       {

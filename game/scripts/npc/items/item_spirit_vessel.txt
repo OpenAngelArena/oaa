@@ -1,0 +1,139 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Spirit Vessel
+  //=================================================================================================================
+  "item_recipe_spirit_vessel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "266"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"             "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "750"
+    "ItemShopTags"          ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_spirit_vessel"
+    "ItemRequirements"
+    {
+      "01"            "item_urn_of_shadows;item_vitality_booster;item_wind_lace"
+    }
+  }
+  //=================================================================================================================
+  // Spirit Vessel
+  //=================================================================================================================
+  "item_spirit_vessel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "267"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityCooldown"       	"7.0"
+    "AbilitySharedCooldown"     "urn"
+    "AbilityTextureName"            "custom/spirit_vessel_1"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "2975"
+    "ItemAliases"         "sv;spirit vessel"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"      "250 500 750 1250 2000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_movement_speed"  "30"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "bonus_mana_regen"            "1.0 1.6 2.4 3.6 5.0"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_all_stats"       "2 15 30 45 60"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "bonus_armor"           "2 6 10 14 20"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "soul_radius"     "1400"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "soul_initial_charge" "2"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "soul_additional_charges" "1"
+      }
+      "09"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "soul_heal_amount"      "35 55 75 95 105"
+      }
+      "10"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "soul_damage_amount"    "20 40 80 160 320"
+      }
+      "11"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"      "8.0"
+      }
+      "12"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "soul_release_range_tooltip"  "950"
+      }
+      "13"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "hp_regen_reduction_enemy"  "70"
+      }
+      "14"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "hp_regen_increase_allies"  "20"
+      }
+      "15"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "enemy_hp_drain"    "4.5"
+      }
+      "16"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "ally_hp_gain"    "1.0"
+      }
+    }
+  }
+}

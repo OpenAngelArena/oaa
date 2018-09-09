@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 95 115 135 175 335"
+    "AbilityManaCost"                                     "75 95 115 135 235 335"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "14 22 30 38 54 70"
+        "damage"                                          "16 24 32 40 80 120"
+        "LinkedSpecialBonus"  "special_bonus_unique_silencer"
       }
       "02"
       {
@@ -58,13 +59,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "penalty_duration"                                "4"
+        "penalty_duration"                                "5"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "movespeed"                                       "-9 -12 -15 -18 -21 -24"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer"
       }
     }
   }

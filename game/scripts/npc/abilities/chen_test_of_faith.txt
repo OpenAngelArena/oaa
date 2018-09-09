@@ -9,28 +9,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5329"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 600 600 600 600 600"
+    "AbilityCastRange"                                    "600"
     "AbilityCooldown"                                     "16"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 220"
+    "AbilityManaCost"                                     "60 80 100 120 160 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,12 +38,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_min"                                      "50 100 150 200 300 700"
+        "damage_min"                                      "50 100 150 200 450 700"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "100 200 300 400 600 1400"
+        "damage_max"                                      "100 200 300 400 900 1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_min"                                        "25 50 75 100 225 350"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_max"                                        "50 100 150 200 450 700"
       }
     }
   }

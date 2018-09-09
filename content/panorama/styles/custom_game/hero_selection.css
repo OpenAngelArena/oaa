@@ -1,0 +1,1220 @@
+.HeroSelection {
+  width: 100%;
+  height: 100%;
+  background-color: #252525;
+  transition-property: opacity, transform;
+  /*transition-delay: 3s;*/
+  transition-timing-function: ease-in;
+  transition-duration: 0.5s;
+  transform: scaleX(1) scaleY(1) translateY(0);
+}
+
+#ChatPlaceholder {
+  width: 600px;
+  height: 700px;
+  vertical-align: bottom;
+  horizontal-align: left;
+  margin-bottom: 20px;
+}
+
+/*
+ARDM Loading screen
+*/
+#ARDMLoading {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  padding: 30px 50px;
+
+  background-color: #aaaaaa55;
+  width: 600px;
+  horizontal-align: center;
+  vertical-align: center;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 26px;
+}
+
+Label {
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+
+#SectionTitle {
+  padding: 0 12px;
+  horizontal-align: center;
+}
+
+#PregameBG {
+  width: 100%;
+  height: 100%;
+  horizontal-align: center;
+  /*pre-transform-scale2d: 2;*/
+  vertical-align: center;
+  transition-property: blur, brightness;
+  transition-duration: 1s;
+  transition-delay: 0.5s;
+  transition-timing-function: ease-in-out;
+  opacity: 1;
+  background-image: url("file://{images}/custom_game/strategy/strategy_map.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.BluredAndDark {
+  blur: gaussian(10);
+  brightness: 0.05;
+}
+
+.DashboardButton {
+  background-image: url("s2r://panorama/images/control_icons/return_to_game_png.vtex");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  wash-color: #888899;
+  transform: scaleY(-1);
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  horizontal-align: left;
+  vertical-align: top;
+}
+
+.DashboardButton:hover {
+  wash-color: #aaaabb;
+}
+
+.TeamStatus {
+  horizontal-align: center;
+  width: 90%;
+  height: 10%;
+  flow-children: right;
+}
+
+.FillWidth {
+  width: 10%;
+  height: 100%;
+}
+
+#TeamRadiant {
+  flow-children: right;
+  width: 45%;
+  height: 65%;
+  background-color: #171A2590;
+}
+
+#Clock {
+  width: 10%;
+  height: 80%;
+  background-color: #171A2590;
+}
+
+#Clock #TimeLeft {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+  font-size: 50px;
+}
+
+#Clock #GameMode {
+  width: 100%;
+  height: 35%;
+  text-align: center;
+  font-size: 24px;
+  vertical-align: bottom;
+}
+
+#TeamDire {
+  flow-children: left;
+  width: 45%;
+  height: 65%;
+  background-color: #171A2590;
+}
+
+ .Player {
+  margin: 0 3px 5px 3px;
+  width: 18%;
+  height: 100%;
+}
+
+.TenVTen .Player {
+  width: 9%;
+}
+
+.TenVTen .Player DOTAHeroImage{
+  width: 100%;
+  height: 60%;
+}
+
+.PlayerImage {
+  width: 100%;
+  height: 100%;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #37425ddd ), to( #2B3445dd ) );
+}
+
+.PlayerImage.PreviewHero {
+  blur: gaussian(2);
+  brightness: 0.10;
+}
+
+#TeamDire .PlayerImage {
+  transform: rotateY(180deg);
+}
+
+.PlayerLabel {
+  height: 30%;
+  width: 100%;
+  background-color: #2B344570;
+  vertical-align: bottom;
+  horizontal-align: middle;
+}
+
+.PlayerLabel Label {
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  font-weight: normal;
+  font-size: 16px;
+  width: 100%;
+  padding: 0 2px 0 2px;
+  color: #cccccc;
+  text-align: center;
+}
+
+#MainContent {
+  width: 100%;
+  height: 90%;
+  margin-top: 9%;
+  flow-children: right;
+  transition-property: transform, opacity;
+  transition-duration: 0.75s;
+  transition-timing-function: ease-in;
+  opacity: 1;
+  //transform: translateX(0) translateY(0);
+}
+
+.LeftColumn {
+  visibility: collapse;
+  width: 24%;
+  height: 100%;
+  flow-children: down;
+  padding-left: 15px;
+}
+
+.MiddleColumn {
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+}
+
+.RightColumn {
+  visibility: collapse;
+  width: 24%;
+  height: 100%;
+  flow-children: down;
+  padding-right: 15px;
+}
+
+#Minimap {
+  width: 100%;
+  height: 45%;
+  margin: 0 0 15px 0;
+  background-color: #171A2590;
+}
+
+DOTAMinimap {
+  width: 96%;
+  height: 96%;
+  margin: 2%;
+}
+
+#GameInfo {
+  width: 100%;
+  height: 40%;
+  background-color: #171A2590;
+  padding: 10px;
+}
+
+.HeroWrapper {
+  flow-children: down;
+  width: 33.3%;
+}
+
+.AttrHolder {
+  /*width: 100%;*/
+  flow-children: right;
+}
+
+#HeroPanel {
+  margin-left: 15px;
+  width: 100%;
+  flow-children: right;
+}
+
+#CMPanel {
+  visibility: collapse;
+  width: 90%;
+  min-height: 150px;
+  margin: 15px 0;
+  horizontal-align: center;
+}
+#ReserveTimePanel {
+  margin-top: -30px;
+  width: 300px;
+  height: 100%;
+  flow-children: right;
+  horizontal-align: center;
+}
+#ReserveLabel {
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+.ReserveTimeHolder {
+  horizontal-align: center;
+  width: fill-parent-flow(1.0);
+  height: 80px;
+}
+.ReserveTimeHolder Label {
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#RadiantReserve {
+  color: #00ff00;
+}
+#DireReserve {
+  color: #ff0000;
+}
+
+.CMStep.active {
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
+#CMProgress {
+  visibility: collapse;
+  flow-children: right;
+  background-color: #171A2590;
+  width: 100%;
+  height: 100%;
+  horizontal-align: center;
+}
+
+#BecomeCaptainPanel {
+  horizontal-align: center;
+}
+
+#BecomeCaptain {
+  visibility: collapse;
+  width: 400px;
+  padding-right: 90px;
+  background-image: url("s2r://panorama/images/status_icons/captain_overlay_psd.vtex");
+  background-position: 98% center;
+  background-size: contain;
+}
+
+#BecomeCaptain Label {
+  /*font-size: 12px;*/
+  text-align: center;
+  height: 80%;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.CMTeam {
+  width: fill-parent-flow(1.0);
+  height: 100%;
+  padding: 5px;
+}
+
+#CMRadiant {
+  horizontal-align: left;
+}
+
+#CMRadiant.Ban, #CMDire.Ban {
+  background-color: gradient( linear, 0% 0%, 0% 90%, from( #ff000020 ), to( #171A2590 ) );
+}
+
+#CMRadiant.Pick, #CMDire.Pick {
+  background-color: gradient( linear, 0% 0%, 0% 90%, from( #0090ff20 ), to( #171A2590 ) );
+}
+
+#CMDire {
+  horizontal-align: right;
+}
+
+.CMLabels, .CMHeroImages, .ProgressBar {
+  flow-children: right;
+  width: 100%;
+  height: 100%;
+}
+
+.CMHeroImages {
+  vertical-align: top;
+}
+
+#CMDire .CMLabels, #CMDire .CMHeroImages {
+  flow-children: left;
+}
+
+.CMHeroImages DOTAHeroImage, .CMLabels Label {
+  width: fill-parent-flow(1.0);
+  margin: 0 1%;
+  height: 40%;
+  border-radius: 5px;
+}
+
+.CMHeroImages DOTAHeroImage.pick, .CMLabels Label.pick {
+  margin-top: 60%;
+}
+
+.CMHeroImages DOTAHeroImage {
+  box-shadow: #000000ff -1px -1px 2px 2px;
+}
+
+.CMLabels Label {
+  text-align: center;
+}
+.CMLabels Label.ban {
+  background-color: #ff000020;
+}
+.CMLabels Label.pick {
+  background-color: #0090ff20;
+}
+
+.ProgressBar {
+  background-color: #ffffffff;
+  height: 3px;
+  vertical-align: center;
+  transition-property: width;
+  transition-duration: 0.2s;
+}
+#CMDireProgress {
+  horizontal-align: right;
+  margin-right: -5%;
+}
+#CMRadiantProgress {
+  margin-left: -5%;
+}
+
+.CMTeamInfo {
+  height: 20%;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.CMTeamInfo Label {
+  text-align: center;
+  horizontal-align: middle;
+  vertical-align: middle;
+  font-size: 25px;
+}
+
+.CMInfo {
+  width: 120px;
+  height: 100%;
+  padding: 10px;
+  horizontal-align: middle;
+  background-color: #171A2590;
+}
+
+.CMInfo .BanLabel {
+  margin-top: 4%;
+  vertical-align: top;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+.CMInfo .PickLabel {
+  margin-bottom: 4%;
+  vertical-align: bottom;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+#StrHolder {
+  background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90%;
+  width: height-percentage( 100% );
+  margin-right: 10px;
+}
+
+#AgiHolder {
+  background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90%;
+  width: height-percentage( 100% );
+  margin-right: 10px;
+}
+
+#IntHolder {
+  background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90%;
+  width: height-percentage( 100% );
+  margin-right: 10px;
+}
+
+.HeroHolder {
+  margin: 0 0 10px 0;
+  width: 100%;
+  flow-children: right-wrap;
+}
+
+RadioButton {
+  margin: 3px;
+  width: 80px;
+  height: 45px;
+  box-shadow: #000000ff -2px -2px 4px 4px;
+}
+
+RadioButton:hover {
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
+RadioButton:selected {
+  box-shadow: #ffffffff -2px -2px 4px 4px;
+}
+
+RadioButton.Disabled {
+  brightness: 0.05;
+}
+
+RadioButton.Disabled:hover {
+  box-shadow: none;
+}
+
+RadioButton.Disabled:selected {
+  box-shadow: none;
+}
+
+.HeroCard {
+  height: 100%;
+  width: 100%;
+}
+
+#HeroSelector {
+  width: 37%;
+  height: fill-parent-flow(1.0);
+  flow-children: right;
+  horizontal-align: center;
+  margin-bottom: 15px;
+}
+
+#PreviewPanel {
+  margin-top: 20px;
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+  horizontal-align: center;
+}
+
+#ChatBoxHolder {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+  flow-children: down;
+}
+#ChatBox {
+  width: 30%;
+  horizontal-align: left;
+  vertical-align: bottom;
+  /*height: 80%;*/
+}
+
+#ChatLinesOverlay {
+  background-color: transparent;
+}
+
+#HeroPreview {
+  /*visibility: collapse;*/
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10px;
+  height: 100%;
+  width: 100%;
+  transform: translateY( -80px );
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
+DOTAScenePanel {
+  horizontal-align: middle;
+  width: 80%;
+  height: 100%;
+}
+
+#CMHeroPreview DOTAScenePanel {
+  height: 80%;
+}
+
+#CMHeroPreview {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  horizontal-align: middle;
+  flow-children: right;
+}
+
+.CMHeroPreviewItem {
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+  flow-children: down;
+  box-shadow: none;
+  margin: 3px;
+}
+
+.CMHeroPreviewItem:hover {
+  box-shadow: none;
+  brightness: 2.0;
+}
+
+.CMHeroPreviewItem:selected {
+  brightness: 2.0;
+  box-shadow: none;
+}
+
+.CMHeroPreviewItem DOTAHeroImage {
+  height: 100%;
+  width: 30%;
+}
+
+.CMHeroPreviewItem DOTAUserName {
+  width: 70%;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
+.HeroPickLabel {
+  margin-bottom: -30px;
+}
+
+#HeroPreviewContainer {
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+}
+
+#AbilityPreview {
+  horizontal-align: center;
+  vertical-align: bottom;
+  flow-children: right;
+  overflow: scroll squish;
+}
+
+#AbilityPreview DOTAAbilityImage {
+  tooltip-position: top;
+  max-width: 67px;
+  margin: 0px 5px;
+  border: 2px solid grey;
+  border-radius: 8px;
+}
+
+#HeroPickContainer {
+  width: 32%;
+  height: 100%;
+  flow-children: down;
+  margin-bottom: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+}
+
+.HeroPickerButton {
+  margin: 10px;
+  height: 60px;
+  width: 185px;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-size: auto 32px;
+
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #404D65dd ), to( #2B3445dd ) );
+  box-shadow: #0000008f -6px -6px 12px 12px;
+  transition-property: brightness;
+  transition-duration: 0.2s;
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+
+.HeroPickerButton Label {
+  margin-top: 5px;
+  vertical-align: center;
+  text-transform: uppercase;
+}
+
+.HeroPickerButton:hover {
+  brightness: 2.0;
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
+#HeroLockIn, #HeroBan {
+  visibility: collapse;
+  background-image: url("s2r://panorama/images/control_icons/lock_medium_png.vtex");
+}
+
+#HeroLockIn.Activated #HeroBan.Activated {
+  sound: "ui.pick_play";
+}
+
+#CaptainLockIn {
+  visibility: collapse;
+}
+
+#pickLabel, #banLabel {
+  visibility: collapse;
+}
+
+#CaptainLockIn.PickHero #pickLabel, #CaptainLockIn.BanHero #banLabel {
+  visibility: visible;
+}
+
+#CaptainLockIn.PickHero {
+  background-image: url("s2r://panorama/images/control_icons/check_shadow_png.vtex");
+}
+
+#CaptainLockIn.BanHero {
+  background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
+}
+
+#HeroRandom {
+  background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
+}
+
+#HeroRandom.Activated {
+  sound: "ui.pick_play";
+}
+
+#HeroRandomLabel {
+  font-size: 12px;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  color: white;
+  text-transform: uppercase;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#CustomChat {
+  width: 100%;
+  height: 40%;
+  background-color: #171A2590;
+  padding: 10px;
+}
+
+
+
+
+#StrategyContent {
+  width: 100%;
+  height: 90%;
+  margin-top: 10%;
+  transition-property: transform, opacity;
+  transition-duration: 2s;
+  transition-delay: 1.25s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: scaleX(1) scaleY(1);
+}
+
+.BossIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 50px;
+  //wash-color: #ff0000;
+}
+
+.BossIcon Label {
+  font-size: 14px;
+  padding-left: 2px;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
+.CaveIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 50px;
+  //wash-color: #ff0000;
+}
+
+.CaveIcon Label {
+  font-size: 12px;
+  padding-left: 2px;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
+.DuelIconHolder {
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 65px;
+}
+
+.DuelIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_damage_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: translateY(5px) translateX(-5px) rotateZ(135deg);
+  width: 37.5px;
+  height: 37.5px;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  wash-color: #FF0000;
+}
+
+.DuelIconHolder Label {
+  font-size: 14px;
+  padding-left: 2px;
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
+#Boss1r {
+  margin-left: 34%;
+  margin-top: 35%;
+  transition-delay: 3s;
+}
+
+#Boss1d {
+  margin-left: 58%;
+  margin-top: 14%;
+  transition-delay: 3s;
+}
+
+#Boss2r {
+  margin-left: 30%;
+  margin-top: 46%;
+  transition-delay: 3.5s;
+}
+
+#Boss2d {
+  margin-left: 56%;
+  margin-top: 11.5%;
+  transition-delay: 3.5s;
+}
+
+#Boss3r {
+  margin-left: 52%;
+  margin-top: 48%;
+  transition-delay: 4s;
+}
+
+#Boss3d {
+  margin-left: 47.5%;
+  margin-top: 12%;
+  transition-delay: 4s;
+}
+
+#Boss4r {
+  margin-left: 67%;
+  margin-top: 46%;
+  transition-delay: 4.5s;
+}
+
+#Boss4d {
+  margin-left: 41%;
+  margin-top: 12.5%;
+  transition-delay: 4.5s;
+}
+
+#Boss5r {
+  margin-left: 32.5%;
+  margin-top: 16%;
+  transition-delay: 5s;
+}
+
+#Boss5d {
+  margin-left: 72%;
+  margin-top: 30%;
+  transition-delay: 5s;
+}
+
+#Duel1 {
+  margin-left: 77%;
+  margin-top: 37.5%;
+  transition-delay: 5.5s;
+}
+
+#Duel2 {
+  margin-left: 35%;
+  margin-top: 9.5%;
+  transition-delay: 5.5s;
+}
+
+#Cave1r {
+  margin-left: 26%;
+  margin-top: 27%;
+  transition-delay: 6s;
+}
+
+#Cave1d {
+  margin-left: 66%;
+  margin-top: 18%;
+  transition-delay: 6s;
+}
+
+#Cave2r {
+  margin-left: 22%;
+  margin-top: 33%;
+  transition-delay: 6.5s;
+}
+
+#Cave2d {
+  margin-left: 64%;
+  margin-top: 14%;
+  transition-delay: 6.5s;
+}
+
+#Cave3r {
+  margin-left: 17%;
+  margin-top: 41%;
+  transition-delay: 7s;
+}
+
+#Cave3d {
+  margin-left: 62.5%;
+  margin-top: 10%;
+  transition-delay: 7s;
+}
+.captains_mode .BottlePassSelection{
+  margin-top: -45px;
+}
+
+.CMHeroChoices .BottlePassSelection{
+  visibility: collapse;
+}
+
+.CMHeroChoices #AbilityPreview{
+  visibility: collapse;
+}
+
+.captains_mode #AbilityPreview{
+  height: 80px;
+}
+
+.BottlePassSelection
+{
+  height: 600px;
+  width: 400px;
+  horizontal-align: right;
+  vertical-align: top;
+}
+
+#BottlePassSelectionTitle
+{
+  margin: 10px 20px;
+  color: white;
+  font-size: 30px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#BottleSelectionTitle
+{
+  margin: 60px 30px;
+  color: white;
+  font-size: 20px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.ArcanaPanel
+{
+  margin: 210px 0px 0px 0px;
+  visibility: collapse;
+}
+
+.ArcanaPanel.HasArcana{
+  visibility: visible;
+}
+
+#ArcanaSelectionTitle
+{
+  margin: 0px 30px;
+  color: white;
+  font-size: 20px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#BottleSelection
+{
+  margin: 100px 20px 20px 30px;
+  height: 80px;
+  width: fill-parent-flow(1.0);
+  flow-children: right;
+  overflow: scroll squish;
+}
+
+.BottleOption
+{
+  height: 100px;
+  width: 100px;
+  vertical-align: center;
+}
+
+.Bottle
+{
+  margin: 3px;
+  height: fill-parent-flow(1.0);
+  width:  fill-parent-flow(1.0);
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+}
+
+.RegularBottle
+{
+  background-image: url("s2r://panorama/images/items/bottle_png.vtex");
+}
+.DevBottle
+{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_contributor.png");
+}
+.CustomBottle
+{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_darkknighthawk.png");
+}
+
+
+#ArcanaSelection
+{
+  margin: 40px 20px 20px 30px;
+  height: 80px;
+  width: fill-parent-flow(1.0);
+  flow-children: right;
+  overflow: scroll squish;
+}
+
+.ArcanaOption
+{
+  height: 100px;
+  width: 100px;
+  vertical-align: center;
+}
+
+.Arcana
+{
+  margin: 3px;
+  height:  fill-parent-flow(1.0);
+  width:  fill-parent-flow(1.0);
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+}
+
+.RegularHero
+{
+  background-image: url("s2r://panorama/images/items/bottle_png.vtex");
+}
+.DBZArcana
+{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_contributor.png");
+}
+
+#DefaultSoheiSet Panel{
+  background-image: url("file://panorama/images/heroes/sohei/arcanas/DefaultSet.png");
+}
+#PepsiSoheiSet Panel{
+  background-image: url("file://panorama/images/heroes/sohei/arcanas/PepsiSohei.png");
+}
+#DBZSoheiSet Panel{
+  background-image: url("file://panorama/images/heroes/sohei/arcanas/DBZSoheiSet.png");
+}
+
+
+#DefaultElectricianSet Panel{
+  background-image: url("file://panorama/images/heroes/electrician/arcanas/DefaultSet.png");
+}
+#RockElectricianSet Panel{
+  background-image: url("file://panorama/images/heroes/electrician/arcanas/RockElectrician.png");
+}
+
+#Bottle0 Panel{
+  background-image: url("s2r://panorama/images/items/bottle_png.vtex");
+}
+#Bottle1 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_contributor.png");
+}
+#Bottle2 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_tournament.png");
+}
+#Bottle3 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_03.png");
+}
+#Bottle4 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_20.png");
+}
+#Bottle5 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_50.png");
+}
+#Bottle6 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_baumi.png");
+}
+#Bottle7 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_timo.png");
+}
+#Bottle8 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_frej.png");
+}
+#Bottle9 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_melon.png");
+}
+#Bottle10 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_karmatic.png");
+}
+#Bottle11 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_athight.png");
+}
+#Bottle12 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_calmstormred.png");
+}
+#Bottle13 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_ghostfrombe.png");
+}
+#Bottle14 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_jamesgoodfellow.png");
+}
+#Bottle15 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_zedling.png");
+}
+#Bottle16 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_adhesivejotun.png");
+}
+#Bottle17 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_archimo.png");
+}
+#Bottle18 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_godsend24.png");
+}
+#Bottle19 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_greenscreen.png");
+}
+#Bottle20 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_gymleadergiovani.png");
+}
+#Bottle21 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_silverfennekin.png");
+}
+#Bottle22 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_takiru.png");
+}
+#Bottle23 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_therealxagent.png");
+}
+#Bottle24 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_yommi1999.png");
+}
+#Bottle25 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_fabianotten.png");
+}
+#Bottle26 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_devilsunrise.png");
+}
+#Bottle27 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_mrpootis.png");
+}
+#Bottle28 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_tokengoat.png");
+}
+#Bottle29 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_sms77.png");
+}
+#Bottle30 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_assassinsfurr.png");
+}
+#Bottle31 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_hl_vortex.png");
+}
+#Bottle32 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_pavlav.png");
+}
+#Bottle33 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_nologic.png");
+}
+#Bottle34 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_original.png");
+}
+#Bottle35 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_firenere.png");
+}
+#Bottle36 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_goldenhamster.png");
+}
+#Bottle37 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_hylageo.png");
+}
+#Bottle38 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_icedragon241.png");
+}
+#Bottle39 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_jamesgoodfellow_2.png");
+}
+#Bottle40 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_nastydaddy.png");
+}
+#Bottle41 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_lordsxey.png");
+}
+#Bottle42 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_shonkjr.png");
+}
+#Bottle43 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_zapp.png");
+}
+#Bottle44 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_sdakfreezes.png");
+}
+#Bottle45 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_brickbrack743.png");
+}
+#Bottle46 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_yoloswag.png");
+}
+#Bottle47 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_kyler.png");
+}
+#Bottle48 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_maxpower.png");
+}
+#Bottle49 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_trufflehunt.png");
+}
+#Bottle50 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_darkknighthawk.png");
+}
+#Bottle51 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_zeldamasterrt.png");
+}
+#Bottle52 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_nohnius.png");
+}
+#Bottle53 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_archemagarch.png");
+}
+#Bottle54 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_obby.png");
+}

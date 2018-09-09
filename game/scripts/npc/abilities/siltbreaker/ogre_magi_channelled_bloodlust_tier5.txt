@@ -1,0 +1,67 @@
+
+"DOTAAbilities" {
+    //=================================================================================================================
+    // Ability: Ogre Magi Bloodlust
+    //=================================================================================================================
+    "ogre_magi_channelled_bloodlust_tier5"
+    {
+        "ID"                            "58435"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_ogre_seer/ogre_magi_channelled_bloodlust_tier5.lua"
+        "AbilityTextureName"            "ogre_magi_bloodlust"
+
+        "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "650"
+        "AbilityCastPoint"              "0.56"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "1.0" // was 4.0
+        "AbilityChannelTime"            "20.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "8"
+            }
+
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "modelscale"            "10"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed"  "200"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "300"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "interrupted_cooldown"  "4"
+            }
+        }
+    }
+}

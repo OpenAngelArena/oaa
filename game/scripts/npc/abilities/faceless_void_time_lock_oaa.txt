@@ -7,14 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-	"ID"                                                  "85184"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+  "ID"                                                  "85184"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_time_lock.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-	"AbilityTextureName"                                  "faceless_void_time_lock"
+  "AbilityTextureName"                                  "faceless_void_time_lock"
     "MaxLevel"                                            "6"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 125 195 475"
+        "bonus_damage"                                    "50 75 100 125 300 475"
+        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_cooldown"                                "1.65"
       }
     }
   }

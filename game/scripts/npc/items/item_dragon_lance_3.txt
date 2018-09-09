@@ -20,13 +20,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_dragon_lance_3"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_dragon_lance_2;item_upgrade_core_2"
       "02"                                                "item_dragon_lance_2;item_upgrade_core_3"
       "03"                                                "item_dragon_lance_2;item_upgrade_core_4"
-
     }
   }
 
@@ -47,8 +46,8 @@
     "ItemCost"                                            "6900"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "dragon lance"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "dragon lance 3"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
     "UpgradesItems"                                       "item_dragon_lance_3;item_dragon_lance_4"

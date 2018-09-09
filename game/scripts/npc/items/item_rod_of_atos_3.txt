@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3635"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -25,6 +26,12 @@
       "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
       "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
       "03"                                                "item_rod_of_atos_2;item_upgrade_core_4"
+      "04"                                                "item_cyclone_2;item_upgrade_core_2"
+      "05"                                                "item_cyclone_2;item_upgrade_core_3"
+      "06"                                                "item_cyclone_2;item_upgrade_core_4"
+      "07"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "08"                                                "item_meteor_hammer_2;item_upgrade_core_3"
+      "09"                                                "item_meteor_hammer_2;item_upgrade_core_4"
     }
   }
 
@@ -45,6 +52,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16"
+    "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1150"
     "AbilityCastPoint"                                    "0.0"
     "AbilityTextureName"                                  "custom/rod_of_atos_3"
@@ -52,10 +60,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 150 250 350 450"
-    "ItemCost"                                            "8080"
+    "ItemCost"                                            "7750"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "rod of atos 3"
+    "ItemAliases"                                         "rod of atos 3;atos 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
@@ -82,18 +90,13 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "6 9 14 20 30"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0 2.5 3.0 3.5 4.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "root_radius"                                     "0 0 200 200 400"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 3.0 3.0 4.0 4.0"
+        "tooltip_range"                                   "1150"
       }
     }
   }

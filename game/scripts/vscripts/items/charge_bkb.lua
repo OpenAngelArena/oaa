@@ -118,6 +118,11 @@ function modifier_item_charge_bkb:OnAbilityExecuted(keys)
   local distanceToUnit = #(parent:GetAbsOrigin() - keys.unit:GetAbsOrigin())
   local unitIsInRange = distanceToUnit <= chargeBkb:GetSpecialValueFor("charge_radius")
 
+  -- don't gain charges from neutrals (namely, bosses)
+  if keys.unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
+
   if filterResult == UF_SUCCESS and isFirstCBKBModifier and keys.ability:ProcsMagicStick() and unitIsInRange then
     chargeBkb:SetCurrentCharges(chargeBkb:GetCurrentCharges() + 1)
     chargeBkb:StartChargeResetTimer()

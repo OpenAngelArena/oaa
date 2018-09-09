@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5625"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -18,14 +18,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
     "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45 40 35 30 25 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 130 210"
+    "AbilityManaCost"                                     "80 90 100 110 160 210"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,10 +39,10 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spirit_duration"                                 "16.0 16.0 16.0 16.0"
+        "spirit_duration"                                 "20"
       }
       "03"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "spirit_speed"                                    "900 900 900 900"
       }
@@ -64,7 +64,8 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "10 30 50 70 110 270"
+        "damage_per_second"                               "20 40 60 80 180 300"
+        "LinkedSpecialBonus"  "special_bonus_unique_phoenix_3"
       }
       "08"
       {

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5274"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"    
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -24,22 +24,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0 0 0 0 0"    
-    
+    "AbilityManaCost"                                     "0 0 0 0 0"
+
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "4 5 6 8 12"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -47,12 +47,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_cost_percent"                             "0.34 0.38 0.42 0.46 0.5"
+        "health_cost_percent"                             "0.34 0.39 0.44 0.47 0.5"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_damage"                                   "0.34 0.38 0.42 0.46 0.5"
+        "health_damage"                                   "0.34 0.39 0.44 0.47 0.5"
       }
       "03"
       {
@@ -83,7 +83,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_durtion_tooltip"                            "4 5 6 8 12"
+        "slow_durtion_tooltip"                            "4 5 6 8 10"
       }
       "09"
       {

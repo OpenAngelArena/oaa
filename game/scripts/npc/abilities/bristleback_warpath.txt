@@ -26,29 +26,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "20 25 30 40 80"
+        "damage_per_stack"                                "18 24 30 60 90"
+        "LinkedSpecialBonus"  "special_bonus_unique_bristleback_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "18 24 30 42 90"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_move_speed"                                 "3 4 5 6 7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "move_speed_per_stack"                            "3 4 5 6 7"
       }
-      "05"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "stack_duration"                                  "14.0"
       }
-      "06"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_stacks"                                      "5 7 9 11 13"

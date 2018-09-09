@@ -11,23 +11,23 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15.0"
+    "AbilityCooldown"                                     "18 17 16 15 15 15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 130 150 160 195 355"
+    "AbilityManaCost"                                     "100 120 140 160 245 355"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.25 0.5 0.75 1.0 1.1 1.25"
+        "stun_duration"                                   "0.4 0.6 0.8 1.0 1.1 1.25"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 50 70 90 130 290"
+        "damage"                                          "30 50 70 90 190 290"
       }
       "04"
       {

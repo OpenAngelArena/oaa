@@ -9,16 +9,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3915"      // unique ID
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemPurchasable"                                     "1"
 
 

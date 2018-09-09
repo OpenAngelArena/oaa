@@ -6,24 +6,24 @@
 
   "item_recipe_vladmir"
   {
-  // General
-  //-------------------------------------------------------------------------------------------------------------
-  "ID"							"80"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-  "Model"							"models/props_gameplay/recipe.vmdl"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "80"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"             "models/props_gameplay/recipe.vmdl"
 
-  // Item Info
-  //-------------------------------------------------------------------------------------------------------------
-  "ItemCost"						"0"
-  "ItemShopTags"					""
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "0"
+    "ItemShopTags"          ""
 
-  // Recipe
-  //-------------------------------------------------------------------------------------------------------------
-  "ItemRecipe"					"1"
-  "ItemResult"					"item_vladmir"
-  "ItemRequirements"
-  {
-  	"01"						"item_headdress;item_ring_of_basilius;item_lifesteal"
-  }
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_vladmir"
+    "ItemRequirements"
+    {
+      "01"            "item_headdress;item_ring_of_basilius;item_lifesteal"
+    }
   }
 
   //=================================================================================================================
@@ -32,68 +32,68 @@
 
   "item_vladmir"
   {
-  // General
-  //-------------------------------------------------------------------------------------------------------------
-  "ID"							"81"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-  "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName"            "custom/vladmir_1"
-  "AbilityCastRange"				"900"
-  "MaxUpgradeLevel"                                     "5"
-  "ItemBaseLevel"                                       "1"
-  "UpgradesItems"                                       "item_vladmir_2;item_vladmir_3;item_vladmir_4;item_vladmir_5"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "81"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"            "custom/vladmir_1"
+    "AbilityCastRange"        "900"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_vladmir_2;item_vladmir_3;item_vladmir_4;item_vladmir_5"
 
-  // Item Info
-  //-------------------------------------------------------------------------------------------------------------
-  "ItemCost"						"2275"
-  "ItemShopTags"					"lifesteal;damage;armor;regen_mana"
-  "ItemQuality"					"rare"
-  "ItemAliases"					"vladmir's offering;vlads"
-  "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "2250"
+    "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
+    "ItemQuality"         "rare"
+    "ItemAliases"         "vladmir's offering;vlads"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
-  // Special
-  //-------------------------------------------------------------------------------------------------------------
-  "AbilitySpecial"
-  {
-  	"01"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"bonus_all_stats"		"2 4 8 16 32"
-  	}
-  	"02"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"hp_regen"				"3 6 12 24 48"
-  	}
-  	"03"
-  	{
-  		"var_type"				"FIELD_FLOAT"
-  		"mana_regen_aura"		"0.8 2.0 4.0 6.0 8.0"
-  	}
-  	"04"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"armor_aura"			"4 8 12 16 20"
-  	}
-  	"05"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"damage_aura"			"15 22 30 39 50"
-  	}
-  	"06"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"vampiric_aura"			"15 18 21 25 30"
-  	}
-  	"07"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"vampiric_aura_ranged"	"10 12 14 17 20"
-  	}
-  	"08"
-  	{
-  		"var_type"				"FIELD_INTEGER"
-  		"aura_radius"	        "900"
-  	}
-  }
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_all_stats"   "2 4 8 16 32"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "hp_regen"        "2.5 5 10 15 20"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "mana_regen_aura"   "1.0 1.6 3.2 4.8 6.5"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "armor_aura"      "4 8 12 16 20"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_aura"     "15 22 30 39 50"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "vampiric_aura"     "15 18 21 25 30"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "vampiric_aura_ranged"  "10 12 14 17 20"
+      }
+      "08"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "aura_radius"         "900"
+      }
+    }
   }
 }

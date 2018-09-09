@@ -1,8 +1,9 @@
 
 LinkLuaModifier('modifier_bottle_counter', 'modifiers/modifier_bottle_counter.lua', LUA_MODIFIER_MOTION_NONE)
 
+
 if BottleCounter == nil then
-  Debug.EnabledModules['filters:bottlecounter'] = true
+  -- Debug:EnableDebugging()
   DebugPrint('Creating new BottleCounter object')
   BottleCounter = class({})
 end
@@ -27,7 +28,7 @@ function BottleCounter:Filter(filterTable)
     if item:GetName() == "item_infinite_bottle" and not item.firstPickedUp then
       item.firstPickedUp = true
       self.bottleCount[playerID] = self.bottleCount[playerID] + 1
-      CustomNetTables:SetTableValue('stat_display', 'BC', { value = self.bottleCount })
+      CustomNetTables:SetTableValue('stat_display_player', 'BC', { value = self.bottleCount })
     end
   end
   return true

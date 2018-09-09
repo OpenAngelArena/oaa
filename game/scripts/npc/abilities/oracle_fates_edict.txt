@@ -42,6 +42,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "magic_damage_resistance_pct_tooltip"             "100"
       }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "range_tooltip"       "500 600 700 800 900 1000"
+      }
     }
   }
 }

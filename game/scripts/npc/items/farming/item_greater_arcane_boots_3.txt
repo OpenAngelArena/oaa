@@ -10,11 +10,11 @@
     "ID"                                                  "3360"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,9 +23,16 @@
     "ItemResult"                                          "item_greater_arcane_boots_3"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_arcane_boots_2;item_upgrade_core_2"
-      "02"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
-      "03"                                                "item_greater_arcane_boots_2;item_upgrade_core_4"
+      "01"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
+      "02"                                                "item_greater_arcane_boots_2;item_upgrade_core_4"
+      "03"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
+      "04"                                                "item_greater_travel_boots_2;item_upgrade_core_4"
+      "05"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
+      "06"                                                "item_greater_phase_boots_2;item_upgrade_core_4"
+      "07"                                                "item_greater_power_treads_2;item_upgrade_core_3"
+      "08"                                                "item_greater_power_treads_2;item_upgrade_core_4"
+      "09"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "10"                                                "item_greater_tranquil_boots_2;item_upgrade_core_4"
     }
   }
 
@@ -50,14 +57,13 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "6400"
+    "ItemCost"                                            "12600"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "mana;mb;arcane boots"
+    "ItemAliases"                                         "greater arcane boots 3;greater arcanes 3;arcanes 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemAlertable"                                       "1"
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
 
     // Special
@@ -67,17 +73,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "50 55 61 68 75"
+        "bonus_movement"                                  "55 61 68 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 560 840 1260"
+        "bonus_mana"                                      "350 560 840 1260"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_amount"                                "135 170 250 400 600"
+        "replenish_amount"                                "170 250 400 600"
       }
       "04"
       {
@@ -87,7 +93,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "300 600 1200 2400 4800"
+        "bonus_gold_per_minute"                           "1800 3200 5500 9000"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bounty_percent"                            "30"
       }
     }
   }

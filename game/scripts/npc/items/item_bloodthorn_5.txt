@@ -20,9 +20,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bloodthorn_5"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
+      "01"                                                "item_greater_crit_4;item_upgrade_core_4"
       "01"                                                "item_bloodthorn_4;item_upgrade_core_4"
     }
   }
@@ -56,10 +57,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "40195"
+    "ItemCost"                                            "37075"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "orchid malevolence"
+    "ItemAliases"                                         "bloodthorn 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -79,12 +80,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 135 200 270"
+        "bonus_damage"                                    "60 90 125 165 210"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "150 175 200 225 250"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.25 2.5 2.75 3.0 3.25"
       }
       "05"
       {
@@ -94,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "175 195 215 235 255"
+        "crit_multiplier"                                 "175 185 195 205 215"
       }
       "07"
       {
@@ -109,7 +110,17 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "140 155 170 185 200"
+        "target_crit_multiplier"                          "140 150 160 170 180"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "900"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_crit_chance"                             "100"
       }
     }
   }

@@ -13,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"                                            "6"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -21,7 +21,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
+        "radius"                                          "350"
       }
       "02"
       {

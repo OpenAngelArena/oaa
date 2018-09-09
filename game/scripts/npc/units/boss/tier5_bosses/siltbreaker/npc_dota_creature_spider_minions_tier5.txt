@@ -1,0 +1,251 @@
+"DOTAUnits"
+{
+  //=================================================================================
+	// Creature: Small Spider
+	// Zones: darkforest_pass
+	//=================================================================================
+	"npc_dota_creature_spider_small_tier5"
+	{
+		// Script
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/broodmother/spiderling.vmdl"
+		"SoundSet"					"Hero_Broodmother"
+		"Level"						"1"
+		"ModelScale" 				".35"
+    "ConsideredHero"    "1"
+    "IsAncient"         "1"
+    "IsBossMonster"     "1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"mini_spider_slow_attack"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"9"
+		"MagicalResistance"			"55"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"600"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"45"
+		"HealthBarOffset"			"110"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"550"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1500"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"200"
+		"StatusManaRegen"			"3"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Pathing
+		//----------------------------------------------------------------
+		"PathfindingSearchDepthScale"		"0.01"
+
+	}
+
+  //=================================================================================
+	// Creature: Medium Spider
+	// Zones: darkforest_pass
+	//=================================================================================
+	"npc_dota_creature_spider_medium_tier5"
+	{
+		// Script
+		"vscripts"					"units/ai_poison_spider.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/spiders/spider_poison.vmdl"
+		"SoundSet"					"Hero_Broodmother"
+		"Level"						"1"
+		"ModelScale" 				"1.15"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"spider_poison_spit"
+		"Ability2"					"mini_spider_slow_attack"
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"5000"
+		"AttackDamageMax"			"5200"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"120"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"200"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"11500"
+		"StatusHealthRegen"			"3"
+		"StatusMana"				"400"
+		"StatusManaRegen"			"5"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+	}
+
+  //=================================================================================
+	// Creature: Small Lycosidae
+	// Zones: darkforest_pass
+	//=================================================================================
+	"npc_dota_creature_small_lycosidae_tier5"
+	{
+		// Script
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						  "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl"
+		"SoundSet"					"Hero_Broodmother"
+		"Level"						"1"
+		"ModelScale" 				".25"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"mini_spider_slow_attack"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"7"
+		"MagicalResistance"			"55"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"550"
+		"AttackDamageMax"			"600"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"45"
+		"HealthBarOffset"			"110"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"550"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"200"
+		"StatusManaRegen"			"3"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Pathing
+		//----------------------------------------------------------------
+		"PathfindingSearchDepthScale"		"0.01"
+
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"101"	// head: Broodmother's Hair
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"102"	// legs: Broodmother's Legs
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"103"	// back: Broodmother's Abdomen
+				}
+			}
+		}
+	}
+}

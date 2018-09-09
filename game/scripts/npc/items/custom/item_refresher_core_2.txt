@@ -1,0 +1,108 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: refresher_core (Based on Refresher)
+  //=================================================================================================================
+  "item_recipe_refresher_core_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3213" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_refresher_core_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_refresher_core;item_upgrade_core_3"
+      "02"                                                "item_refresher_core;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // refresher_core (Based on Refresher)
+  //=================================================================================================================
+  "item_refresher_core_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3216"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/refresher_core_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "160.0 140.0 120.0"
+    "AbilitySharedCooldown"                               "refresher"
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_refresher_core_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "900"
+    "ItemCost"                                            "25500"
+    "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "refresher core 2;refresher 4"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "15 17 19"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "5 6 7"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intelligence"                              "28 45 65"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "27 30 33"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_lifesteal"                                  "30"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "10"
+      }
+    }
+  }
+}

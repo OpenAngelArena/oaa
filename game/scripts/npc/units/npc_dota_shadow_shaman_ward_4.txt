@@ -31,8 +31,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "160"      // Damage range min.
-    "AttackDamageMax"                                     "160"      // Damage range max.
+    "AttackDamageMin"                                     "250"      // Damage range min.
+    "AttackDamageMax"                                     "250"      // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.5"   // Speed of attack.
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.

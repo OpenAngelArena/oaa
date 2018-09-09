@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5148"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -18,13 +18,13 @@
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.1"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35"
+    "AbilityCooldown"                                     "50 45 40 35 35 35"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95 110 125 140 170 290"
+    "AbilityManaCost"                                     "75 95 115 135 200 280"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +38,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_percent"                                  "3 3.75 4.5 5.25 5.25 5.25"
+        "damage_percent"                                  "3 3.5 4.0 4.5 4.5 4.5" // OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "11 11 11 11 13 16"
+        "duration"                                        "9 10 11 12 13 15"
       }
     }
   }

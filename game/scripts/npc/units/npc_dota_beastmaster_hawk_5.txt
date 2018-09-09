@@ -17,7 +17,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "beastmaster_hawk_invisibility"      // Ability 1
+    "Ability1"                                            ""      // Ability 1
     "Ability2"                                            ""      // Ability 2
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4
@@ -48,13 +48,13 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "140"    // Base health.
+    "StatusHealth"                                        "700"    // Base health.
     "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
     
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1500"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "1500"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "2000"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "2000"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------

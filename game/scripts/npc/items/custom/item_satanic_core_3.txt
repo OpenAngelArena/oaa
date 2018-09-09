@@ -1,0 +1,137 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: satanic_core (Based on Satanic)
+  //=================================================================================================================
+  "item_recipe_satanic_core_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3220"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_satanic_core_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_satanic_core_2;item_upgrade_core_4"
+      "02"                                                "item_octarine_core_4;item_upgrade_core_4"
+      "03"                                                "item_refresher_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // satanic_core (Based on Satanic)
+  //=================================================================================================================
+  "item_satanic_core_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3223"    // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/satanic_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/satanic_core_3"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "satanic"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "38900"
+    "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "satanic core 3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "38 55 75"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intelligence"                              "38 55 75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "650 1000 1500"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "650 1000 1500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "35"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_lifesteal_percent"                        "165"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_lifesteal_total_tooltip"                  "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "unholy_duration"                                 "4.5"
+      }
+      // Octarine Core Parameters
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_lifesteal"                                  "35"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "10 20 30"
+      }
+      // unholy spellsteal
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_spellsteal_unholy"                          "165"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_spellsteal_unholy"                         "190 180 170"
+      }
+    }
+  }
+}

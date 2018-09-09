@@ -1,0 +1,89 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Postactive Reflex 2b
+  //=================================================================================================================
+  "item_recipe_enrage_crystal_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3829"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_enrage_crystal_2"
+    "ItemRequirements"
+    {
+      "01"                        "item_enrage_crystal_1;item_upgrade_core_3"
+      "02"                        "item_enrage_crystal_1;item_upgrade_core_4"
+      "03"                        "item_black_king_bar_3;item_upgrade_core_3"
+      "04"                        "item_black_king_bar_3;item_upgrade_core_4"
+      "05"                        "item_charge_bkb_2;item_upgrade_core_3"
+      "06"                        "item_charge_bkb_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Postactive Reflex 2b
+  //=================================================================================================================
+  "item_enrage_crystal_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3830"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/reflex/postactive_hard_dispell.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"                                  "custom/enrage_crystal_2"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20.0 15.0 10.0"
+    "AbilityCastPoint"                                    "0.0"
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "16975"
+    "ItemShopTags"                                        "str;damage;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "hard enrage crystal"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "30 40 55"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "72 96 120"
+      }
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      "particle"                                          "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
+    }
+  }
+}

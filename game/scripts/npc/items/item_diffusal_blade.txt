@@ -19,7 +19,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_diffusal_blade"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
@@ -44,7 +44,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "4.0"
+    "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "diffusal"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -54,17 +54,11 @@
     "ItemCost"                                            "3150"
     "ItemShopTags"                                        "agi;int;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "diffusal blade 1"
+    "ItemAliases"                                         "diffusal blade 1;diffusal 1"
     "ItemBaseLevel"                                       "1"
 
     "ItemPermanent"                                       "1"
-    "ItemInitialCharges"                                  "8"
-    "ItemRequiresCharges"                                 "1"
-    "ItemDisplayCharges"                                  "1"
-    "MaxUpgradeLevel"                                     "6"
-    "ItemBaseLevel"                                       "1"
-
-    "UpgradesItems"                                       "item_diffusal_blade;item_diffusal_blade_2;item_diffusal_blade_3;item_diffusal_blade_4;item_diffusal_blade_5"
+    "MaxUpgradeLevel"                                     "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -73,59 +67,49 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 35 55 80 120 160"
+        "bonus_agility"                                   "20 30 45 70 105"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50 75"
+        "bonus_intellect"                                 "10 15 25 35 50"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "initial_charges"                                 "8"
+        "feedback_mana_burn"                              "50 60 80 100 120"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "50 50 60 80 100 120"
+        "feedback_mana_burn_illusion_melee"               "16 24 33 50 75"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "16 16 24 33 50 75"
+        "feedback_mana_burn_illusion_ranged"              "8 12 16 20 30"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_ranged"              "8 8 12 16 20 30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "purge_summoned_damage"                           "99999"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "purge_rate"                                      "5"
       }
-      "09"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "purge_root_duration"                             "3.0"
       }
-      "10"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "purge_slow_duration"                             "4.0"
       }
-      "11"
+      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_per_burn"                                 "0.8"
       }
-      "12"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_tooltip"                              "600"

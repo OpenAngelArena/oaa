@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Boss: Summon Eggs
+  //=================================================================================================================
+  "spider_boss_summon_eggs_tier5"
+  {
+    "ID"                            "58454"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/spider_boss_summon_eggs_tier5.lua"
+    "AbilityTextureName"            "broodmother_spawn_spiderlings"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "20.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "spider_lifetime"           "90"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "egg_spider_lifetime"       "45"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "num_egg_spawn"             "5"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "num_poison_spider_spawn"   "3"
+      }
+    }
+  }
+}

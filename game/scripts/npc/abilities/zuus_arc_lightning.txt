@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"zuus_arc_lightning"
+  "zuus_arc_lightning"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,26 +8,22 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.2"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "85 100 115 145 185 345"
-
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "1.6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "65 70 75 80 90 130"
+    "AbilityManaCost"                                     "65 70 75 80 105 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,14 +32,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500 500 500 500 500 500"
+        "arc_damage"                                      "70 95 120 145 245 345"
+        "LinkedSpecialBonus"                              "special_bonus_unique_zeus_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "jump_count"                                      "5 7 9 15 22 50"
+        "radius"                                          "500 500 500 500 500 500"
       }
       "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_count"                                      "5 7 9 15 22 50"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "jump_delay"                                      "0.25 0.25 0.25 0.25 0.25 0.25"

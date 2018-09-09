@@ -6,22 +6,42 @@
     Angel Arena Blackstars
 ]]
 
-
 if Gold == nil then
   DebugPrint ( '[gold/gold] creating new Gold object' )
   Gold = class({})
 end
 
 local GOLD_CAP = 50000
+local GPM_TICK_INTERVAL = 5
 
 function Gold:Init()
   -- a table for every player
-  PlayerTables:CreateTable("gold", {
+  PlayerTables:CreateTable('gold', {
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
 
     -- start think timer
-  Timers:CreateTimer(1, Dynamic_Wrap(Gold, "Think"))
+  Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
+  Timers:CreateTimer(GPM_TICK_INTERVAL, Dynamic_Wrap(Gold, 'PassiveGPM'))
+end
+
+function Gold:GetState ()
+  local state = {}
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    state[steamid] = self:GetGold(playerID)
+  end
+
+  return state
+end
+
+function Gold:LoadState (state)
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    if state[steamid] then
+      self:SetGold(playerID, state[steamid])
+    end
+  end
 end
 
 function Gold:UpdatePlayerGold(unitvar, newGold)
@@ -112,6 +132,7 @@ end
 
 function Gold:RemoveGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
+  self:Think()
   --  PLAYER_GOLD[playerID].SavedGold = math.max((PLAYER_GOLD[playerID].SavedGold or 0) - math.ceil(gold), 0)
   local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
@@ -124,6 +145,7 @@ function Gold:AddGold(unitvar, gold)
   DebugPrint("arg.gold: " .. gold)
   DebugPrintTable(PLAYER_GOLD)]]
   local playerID = UnitVarToPlayerID(unitvar)
+  self:Think()
   --PLAYER_GOLD[playerID].SavedGold = (PLAYER_GOLD[playerID].SavedGold or 0) + math.floor(gold)
   local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   local newGold = (oldGold or 0) + math.floor(gold)
@@ -141,4 +163,17 @@ function Gold:GetGold(unitvar)
   local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
   --return math.floor(PLAYER_GOLD[playerID].SavedGold or 0)
   return math.floor(currentGold or 0)
+end
+
+-- exponential gpm increase
+function Gold:PassiveGPM()
+  local time = HudTimer:GetGameTime()
+  if time and time > 0 then
+    local goldTick =  math.floor(time/GPM_TICK_INTERVAL);
+    GameRules:SetGoldPerTick((goldTick*goldTick - 31*goldTick + 8624)*15/19200)
+  else
+    GameRules:SetGoldPerTick(0)
+  end
+
+  return GPM_TICK_INTERVAL
 end

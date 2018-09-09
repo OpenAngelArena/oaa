@@ -10,7 +10,7 @@
     "ID"                                                  "3088"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "FightRecapLevel"                                     "1"
 
     // Item Info
@@ -28,6 +28,10 @@
       "02"                                                "item_blade_mail;item_upgrade_core_2"
       "03"                                                "item_blade_mail;item_upgrade_core_3"
       "04"                                                "item_blade_mail;item_upgrade_core_4"
+      "05"                                                "item_assault;item_upgrade_core"
+      "06"                                                "item_assault;item_upgrade_core_2"
+      "07"                                                "item_assault;item_upgrade_core_3"
+      "08"                                                "item_assault;item_upgrade_core_4"
     }
   }
 
@@ -45,6 +49,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
+    "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -57,7 +62,7 @@
     "ItemCost"                                            "3700"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bm;blade mail;blademail"
+    "ItemAliases"                                         "bm 2;blade mail 2;blademail 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -82,7 +87,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.5"
+        "duration"                                        "3.0 3.5 4.0 4.5 5.0"
       }
     }
   }

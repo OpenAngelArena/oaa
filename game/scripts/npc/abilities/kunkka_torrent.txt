@@ -9,32 +9,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5031"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"  
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.4"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 14 12 10 10 10"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 150 225 300 450 1000"
-    
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 140 200"
+    "AbilityManaCost"                                     "90 100 110 120 160 200"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // applies 2 modifiers
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -65,6 +61,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "delay"                                           "1.6"
       }
-    }    
+      "06"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "torrent_damage"      "75 150 225 300 650 1000"
+        "LinkedSpecialBonus"    "special_bonus_unique_kunkka_2"
+      }
+    }
   }
 }
