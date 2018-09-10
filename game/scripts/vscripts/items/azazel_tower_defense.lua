@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_defense_tower", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_defense_tower_true_sight", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_building_hide_on_minimap", "modifiers/modifier_building_hide_on_minimap.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_defense_1 = class(ItemBaseClass)
 
@@ -32,6 +33,7 @@ function item_azazel_tower_defense_1:OnSpellStart()
   building:AddNewModifier(building, self, "modifier_building_construction", {})
   building:AddNewModifier(building, self, "modifier_defense_tower", {})
   building:AddNewModifier(building, self, "modifier_defense_tower_true_sight", {})
+  building:AddNewModifier(building, self, "modifier_building_hide_on_minimap", {})
 
   local charges = self:GetCurrentCharges() - 1
   if charges < 1 then

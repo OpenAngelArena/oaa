@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_watch_tower", "items/azazel_tower_watch.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_building_hide_on_minimap", "modifiers/modifier_building_hide_on_minimap.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_watch_1 = class(ItemBaseClass)
 
@@ -31,6 +32,8 @@ function item_azazel_tower_watch_1:OnSpellStart()
   building:SetOrigin(location)
   building:AddNewModifier(building, self, "modifier_watch_tower", {})
   building:AddNewModifier(building, self, "modifier_building_construction", {})
+  building:AddNewModifier(building, self, "modifier_building_hide_on_minimap", {})
+  
   local charges = self:GetCurrentCharges() - 1
   if charges < 1 then
     caster:RemoveItem(self)
