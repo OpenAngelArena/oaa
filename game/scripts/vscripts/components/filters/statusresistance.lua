@@ -30,7 +30,7 @@ function StatusResistance:StatusResistanceFilter(filterTable)
       if modifier.GetModifierStatusResistanceStacking and modifier:GetModifierStatusResistanceStacking(params) then
         stackResist = (stackResist or 0) + modifier:GetModifierStatusResistanceStacking(params)
       end
-      if modifier.GetModifierStatusResistance and modifier:GetModifierStatusResistance(params) and math.abs(modifier:GetModifierStatusResistance(params)) > math.abs(resistance) then
+      if modifier.GetModifierStatusResistance and modifier:GetModifierStatusResistance(params) and modifier:GetModifierStatusResistance(params) > resistance then
         resistance = modifier:GetModifierStatusResistance( params )
       end
     end
