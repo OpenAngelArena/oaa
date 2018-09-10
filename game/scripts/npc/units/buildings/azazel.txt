@@ -4,7 +4,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/props_structures/tower_good.vmdl"
     "ModelScale"                                          ".75"
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
@@ -27,7 +27,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "20"        // Physical protection.
-    "MagicalResistance"                                   "0"         // Magical protection.
+    "MagicalResistance"                                   "75"        // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -121,7 +121,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/props_structures/radiant_statue001.vmdl"// Model.
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
@@ -142,7 +142,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "20"         // Physical protection.
-    "MagicalResistance"                                   "0"         // Magical protection.
+    "MagicalResistance"                                   "85"         // Magical protection.
 
     // Attack
     //----------------------------------------------------------------

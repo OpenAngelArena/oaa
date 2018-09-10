@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_wall_segment", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_building_hide_on_minimap", "modifiers/modifier_building_hide_on_minimap.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_wall_1 = class(ItemBaseClass)
 
@@ -51,7 +50,6 @@ function item_azazel_wall_1:OnSpellStart()
       building:SetOwner(caster)
       building:AddNewModifier(building, self, "modifier_building_construction", {})
       building:AddNewModifier(building, self, "modifier_wall_segment", {})
-	  building:AddNewModifier(building, self, "modifier_building_hide_on_minimap", {})
     end
   end
   if not spawned then
