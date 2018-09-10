@@ -1,29 +1,41 @@
 "itembuilds/default_electrician.txt"
 {
-  "author"    "chrisinajar"
+  "author"    "Open Angel Arena"
   "hero"      "npc_dota_hero_electrician"
-  "Title"     "Open Angel Arena"
+  "Title"     "Recommended items for Chatterjee"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-
+      "item"    "item_ward_observer"
+      "item"    "item_arcane_boots"
+      "item"    "item_mekansm"
     }
 
     "#DOTA_Item_Build_Early_Game"
     {
-
+      "item"    "item_greater_arcane_boots"
+      "item"    "item_helm_of_the_dominator_2"
+      "item"    "item_necronomicon_3"
+      "item"    "item_heart"
     }
 
     "#DOTA_Item_Build_Core_Items"
     {
-
+      "item"    "item_greater_guardian_greaves_4"
+      "item"    "item_regen_crystal_3"
+      "item"    "item_helm_of_the_dominator_5"
+      "item"    "item_necronomicon_7"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-
+      "item"    "item_pull_staff"
+      "item"    "item_aeon_disk_5"
+      "item"    "item_aether_lens_5"
+      "item"    "item_ultimate_scepter_5"
+      "item"    "item_dagon_9"
     }
   }
 }

@@ -1,5 +1,11 @@
 /* global $, GameEvents, Game, DOTA_GameState */
 
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    MMRShuffle: MMRShuffle
+  };
+}
+
 (function () {
   hideShowUI(Game.GetState());
   if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
@@ -10,6 +16,13 @@
     hideShowUI(data.newState);
   }
 }());
+
+function MMRShuffle () {
+  $.Msg('Clicked shuffle!');
+  GameEvents.SendCustomGameEventToServer('mmrShuffle', {
+    shuffle: true
+  });
+}
 
 function hideShowUI (state) {
   if (state === 2) {

@@ -10,6 +10,13 @@ function modifier_boss_capture_point:IsHidden()
   return true
 end
 
+-- Allow the capture point thinker to have vision so that spectators can always see the capture point
+function modifier_boss_capture_point:CheckState()
+  return {
+    [MODIFIER_STATE_PROVIDES_VISION] = true
+  }
+end
+
 -- Looks up the name on self and cleans up the particle and index
 function modifier_boss_capture_point:DestroyParticleByName(particleName)
   local particleIndex = self[particleName]

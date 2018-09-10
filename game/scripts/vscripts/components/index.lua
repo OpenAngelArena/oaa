@@ -24,6 +24,7 @@ require('components/heroselection/index')
 require('components/music/index')
 require('components/items/index')
 require('components/bottlepass/index')
+require('components/team_select/index')
 
 -- should be last
 require('components/saveload/index')

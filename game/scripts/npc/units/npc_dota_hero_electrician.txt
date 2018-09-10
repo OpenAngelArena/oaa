@@ -34,15 +34,15 @@
 
 		// Armor
 		//-------------------------------------------------------------------------------------------------------------
-		"ArmorPhysical"					"5.5"
+		"ArmorPhysical"					"3.5"
 		"MagicalResistance"				"25"
 
 
 		// Attack
 		//-------------------------------------------------------------------------------------------------------------
 		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"				"70"
-		"AttackDamageMax"				"78"
+		"AttackDamageMin"				"58"
+		"AttackDamageMax"				"64"
 		"AttackRate"					"1.7"
 		"AttackAnimationPoint"			"0.3"
 		"AttackAcquisitionRange"		"600"
@@ -62,7 +62,7 @@
 		// Movement
 		//-------------------------------------------------------------------------------------------------------------
 		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"					"300"
+		"MovementSpeed"					"295"
 		"MovementTurnRate"				"0.5"
 		"BoundsHullName"				"DOTA_HULL_SIZE_HERO"
 
