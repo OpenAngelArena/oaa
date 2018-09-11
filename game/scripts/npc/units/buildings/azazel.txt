@@ -11,6 +11,7 @@
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_tower90"
     "MinimapIconSize"                                     "320"
+	"ConsideredHero"									  "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -72,6 +73,7 @@
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_tower45"
     "MinimapIconSize"                                     "320"
+	"ConsideredHero"									  "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -126,6 +128,7 @@
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_miscbuilding"
+	"ConsideredHero"									  "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -152,7 +155,7 @@
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_FILLER"          // Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"          // Hull type used for navigation/locomotion.
     "RingRadius"                                          "100"
     "HealthBarOffset"                                     "260"
     "MinimapIconSize"                                     "200"

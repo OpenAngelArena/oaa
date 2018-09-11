@@ -365,3 +365,20 @@ function MoveCameraToEntity(playerID, entity)
     end)
   end
 end
+
+function FindCustomBuildingsInRadius(position, radius)
+	local candidates = Entities:FindAllByClassnameWithin("npc_dota_creature", position, radius)
+	
+	local custom_buildings = {}
+	
+	for _,creature in pairs(candidates) do
+		if creature:IsConsideredHero() then
+			local creature_name = creature:GetUnitName()
+			if string.find(creature_name, "tower_") or string.find(creature_name, "wall_segment") then
+				table.insert(custom_buildings, creature)
+			end
+		end
+	end
+	
+	return custom_buildings
+end
