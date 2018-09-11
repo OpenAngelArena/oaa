@@ -51,12 +51,12 @@ if IsServer() then
     if not self.arrow_start_position then
       self.arrow_start_position = {}
     end
-    table.insert(self.arrow_start_position, pid, position)
+    self.arrow_start_position[pid] = position
 
     if not self.arrow_hit_count then
       self.arrow_hit_count = {}
     end
-    table.insert(self.arrow_hit_count, pid, arrow_pierce_count)
+    self.arrow_hit_count[pid] = arrow_data.arrow_pierce_count
   end
 
   function mirana_arrow_oaa:OnProjectileHit_ExtraData(target, location, data)
@@ -65,6 +65,8 @@ if IsServer() then
 
     -- Target must exist and arrow still has hit count
     if target == nil or not self.arrow_hit_count[pid] or self.arrow_hit_count[pid] < 0 then
+      self.arrow_start_position[pid] = nil
+      self.arrow_hit_count[pid] = nil
       return true -- End the arrow
     end
 
@@ -110,6 +112,8 @@ if IsServer() then
     self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
 
     if self.arrow_hit_count[pid] < 0 then
+      self.arrow_start_position[pid] = nil
+      self.arrow_hit_count[pid] = nil
       return true -- End arrow
     else
       return false -- Do not end
