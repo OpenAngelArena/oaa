@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_defense_tower", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_defense_tower_true_sight", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_defense_1 = class(ItemBaseClass)
 
@@ -8,7 +7,7 @@ function item_azazel_tower_defense_1:CastFilterResultLocation(location)
   if IsClient() then
     return UF_SUCCESS -- the client can't use the GridNav, but the server will correct it anyway, you can't cheat that.
   end
-  --if (not GridNav:IsTraversable(location)) or #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, 144, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) > 0 or
+  --if ... or #FindAllBuildingsInRadius(location, 144) > 0 or ...
   if (not GridNav:IsTraversable(location)) or #FindCustomBuildingsInRadius(location, 144) > 0 or
 	self:GetCaster():IsPositionInRange(location, 144 + self:GetCaster():GetHullRadius())
   then
@@ -26,7 +25,7 @@ function item_azazel_tower_defense_1:OnSpellStart()
   local caster = self:GetCaster()
   local location = self:GetCursorPosition()
   local building = CreateUnitByName("npc_azazel_tower_defense", location, true, caster, caster:GetOwner(), caster:GetTeam())
-  --building:RemoveModifierByName("modifier_invulnerable")
+  --building:RemoveModifierByName("modifier_invulnerable") -- Only real buildings have invulnerability on spawn
   building:SetOwner(caster)
   GridNav:DestroyTreesAroundPoint(location, building:GetHullRadius(), true)
   building:AddNewModifier(building, self, "modifier_building_construction", {})
