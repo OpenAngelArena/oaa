@@ -55,7 +55,7 @@ require('libraries/basehero')
 require('libraries/gamerules')
 -- Pseudo-random distribution C constant calculator
 require('libraries/cfinder')
--- Library is for handling buildings (custom or not)
+-- Library for handling buildings (OAA custom or DOTA original)
 require('libraries/buildings')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.

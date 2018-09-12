@@ -1,10 +1,11 @@
 -- Library for OAA custom and original dota buildings
+-- Custom building must have "ConsideredHero" "1" in their kv file.
 
 -- Modifiers mostly used for buildings
 LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_building_hide_on_minimap", "modifiers/modifier_building_hide_on_minimap.lua", LUA_MODIFIER_MOTION_NONE)
 
--- Returns bool; Is this unit OAA custom building?
+-- Returns bool; Is this unit an OAA custom building?
 function CDOTA_BaseNPC:IsCustomBuilding()
 	if self:IsConsideredHero() then
 		local name = self:GetUnitName()
@@ -31,12 +32,12 @@ function FindCustomBuildingsInRadius(position, radius)
 	return custom_buildings
 end
 
--- Returns a table; Finds DOTA buildings in a given radius.
+-- Returns a table; Finds DOTA buildings within a radius.
 function FindAllBuildingsInRadius(position, radius)
 	return FindUnitsInRadius(DOTA_TEAM_NEUTRALS, position, nil, radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 end
 
--- void; Check and fix units that have been assigned a position inside a building (custom or not)
+-- Returns void; Check and fix units that have been assigned a position inside a building (custom or not)
 function PreventGettingStuck(position, building)
 	if building:IsBuilding() or building.GetInvulnCount then
 		ResolveNPCPositions(position, building:GetHullRadius())
