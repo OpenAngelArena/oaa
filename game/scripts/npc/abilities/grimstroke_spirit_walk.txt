@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType" "SPELL_DISPELLABLE_YES"
     "AbilitySound"          "Hero_ObsidianDestroyer.AstralImprisonment"
     "FightRecapLevel"       "1"
     "MaxLevel"                      "6"
@@ -54,52 +55,38 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "movespeed_bonus_pct" "28 32 36 40 44 48"
+        "movespeed_bonus_pct" "18 22 26 30 34 38"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
         "radius"        "400"
+        "LinkedSpecialBonus"  "special_bonus_unique_grimstroke_1"
       }
       "05"
       {
         "var_type"        "FIELD_INTEGER"
-        "damage"        "55 70 85 100 175 250"
+        "max_damage"      "220 280 340 400 500 650"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "max_damage_tooltip"  "220 280 340 400 700 1000"
-      }
-      "07"
-      {
         "var_type"        "FIELD_FLOAT"
-        "debuff_duration"   "0.55 0.7 0.85 1.0 1.15 1.30"
+        "max_stun"        "2.2 2.8 3.4 4.0 4.6 5.2"
+      }
+    "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_per_tick"   "5 7 9 11 18 28"
       }
       "08"
       {
         "var_type"        "FIELD_FLOAT"
-        "max_stun_tooltip"    "2.2 2.8 3.4 4.0 4.6 5.2"
+        "tick_rate"       "0.2"
       }
       "09"
       {
         "var_type"        "FIELD_INTEGER"
-        "damage_per_tick"   "5 7 9 11 21 31"
-      }
-      "10"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "tick_rate"       "0.2"
-      }
-      "11"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "tick_dps_tooltip"    "25 35 45 55 105 155"
-      }
-      "12"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "max_bonus_multiplier"  "3.0"
+        "tick_dps_tooltip"    "25 35 45 55 90 140"
       }
     }
     "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_1"

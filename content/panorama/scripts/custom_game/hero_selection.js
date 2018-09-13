@@ -819,7 +819,7 @@ function SelectArcana () {
 function UpdateBottleList () {
   var playerID = Game.GetLocalPlayerID();
   var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
-  var bottles = specialBottles[playerID.toString()].Bottles;
+  var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
   if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
     // ignore repaint if radio is already filled
