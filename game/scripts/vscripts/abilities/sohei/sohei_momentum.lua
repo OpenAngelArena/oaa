@@ -93,16 +93,16 @@ if IsServer() then
 
 		if not self:IsMomentumReady() then
 			if spell:IsCooldownReady() and not parent:PassivesDisabled() and not spell:IsHidden() then
-        self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
-        if self:IsMomentumReady() then
-          local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
-          local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
-          if dbzArcana ~= nil then
-            ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
-          elseif pepsiArcana ~= nil then
-          	ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
-          end
-        end
+	        self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
+		        if self:IsMomentumReady() then
+		        local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
+		        local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
+			        if dbzArcana ~= nil then
+			        ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
+		          	elseif pepsiArcana ~= nil then
+		          	ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
+		          	end
+		        end
 			end
 		end
 	end
