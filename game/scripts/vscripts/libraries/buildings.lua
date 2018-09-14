@@ -38,11 +38,18 @@ function FindAllBuildingsInRadius(position, radius)
 end
 
 -- Returns void; Check and fix units that have been assigned a position inside a building (custom or not)
-function PreventGettingStuck(position, building)
-	if building:IsBuilding() or building.GetInvulnCount then
-		ResolveNPCPositions(position, building:GetHullRadius())
-	elseif building:IsCustomBuilding() then
+function PreventGettingStuck(building)
+	if building and IsValidEntity(building) then
+		local position = building:GetOrigin()
 		local radius = building:GetHullRadius()
+	else
+		print("Argument for PreventGettingStuck function is nil.")
+		return nil
+	end
+	
+	if building:IsBuilding() or building.GetInvulnCount then
+		ResolveNPCPositions(position, radius)
+	elseif building:IsCustomBuilding() then
 		local target_type = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 		local target_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
 		local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, position, nil, radius, DOTA_UNIT_TARGET_TEAM_BOTH, target_type, target_flags, FIND_ANY_ORDER, false)
@@ -53,6 +60,6 @@ function PreventGettingStuck(position, building)
 		end
 	else
 		--building is not a custom or original dota building
-		print("PreventGettingStuck function has invalid second argument.")
+		print("PreventGettingStuck function has an invalid argument.")
 	end
 end
