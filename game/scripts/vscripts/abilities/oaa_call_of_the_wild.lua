@@ -8,10 +8,22 @@ function beastmaster_call_of_the_wild:OnSpellStart()
 
   self:SpawnBoar(caster, playerID, abilityLevel, duration)
 
-  -- TODO: add lvl 25 that adds 2 more hawks or change it for something usefull in oaa
   if abilityLevel > 2 then
-    self:SpawnHawk(caster, playerID, abilityLevel, duration)
+    self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
   end
+
+  if IsServer() then
+	-- TODO: Change the talent for something useful in OAA
+	-- Lvl 25 Talent that adds 2 more hawks
+	local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_3")
+	if talent then
+		if talent:GetLevel() ~= 0 then
+			local bonus_hawks = talent:GetSpecialValueFor("value")
+			self:SpawnHawk(caster, playerID, abilityLevel, duration, bonus_hawks)
+		end
+    end
+  end
+
 
   if abilityLevel > 3 then
     local npcCreepList = {
@@ -44,18 +56,21 @@ function beastmaster_call_of_the_wild:SpawnUnit(levelUnitName, caster, playerID,
   return npcCreep
 end
 
-function beastmaster_call_of_the_wild:SpawnHawk(caster, playerID, abilityLevel, duration)
+function beastmaster_call_of_the_wild:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
 
   local baseUnitName = "npc_dota_beastmaster_hawk"
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
-  -- Spawn hawk and orient it to face the same way as the caster
-  local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
 
-  -- Create particle effects
-  local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
-  local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-  ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
-  ParticleManager:ReleaseParticleIndex(particle1)
+  for i = 1, number_of_hawks do
+	-- Spawn hawk and orient it to face the same way as the caster
+	local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
+
+	-- Create particle effects
+	local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
+	ParticleManager:ReleaseParticleIndex(particle1)
+  end
 
   caster:EmitSound("Hero_Beastmaster.Call.Hawk")
 end
