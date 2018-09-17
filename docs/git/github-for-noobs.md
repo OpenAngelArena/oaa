@@ -40,7 +40,7 @@ At this point just familiarize yourself with the following terminology:
 
 ### Setup
 
-First, follow the [Installation Process](/docs/install.md) in order to create a Fork of openangelarena/oaa to work from.
+First, follow the [Installation Process](/docs/setup/install.md) in order to create a Fork of openangelarena/oaa to work from.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
@@ -53,7 +53,7 @@ As described in the Installation Process, forking creates a simultaneous instanc
 ### Cloning
 Also described in the Installation Process, cloning copies your fork to your computer with the GitHub client (or by clicking "Clone or Download" on the main page of `GitHub.com/openangelarena/oaa`. As mentioned, you can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). You should have already done the following during the Installation Process:
 
-- Open the GitHub Client you installed earlier in [install.md](/docs/install.md).
+- Open the GitHub Client you installed earlier in [install.md](/docs/setup/install.md).
 - Click settings.
 - Change the settings how you like it (e.g. Change to Dark mode).
 - While in settings, changing the default shell to PowerShell.
