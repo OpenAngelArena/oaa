@@ -15,7 +15,6 @@
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"       "1"
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -38,7 +37,7 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "chain_duration"    "4.0 6.0 8.0 10.0 11.0"
+        "chain_duration"    "6.0 8.0 10.0 11.0 12.0"
       }
       "02"
       {

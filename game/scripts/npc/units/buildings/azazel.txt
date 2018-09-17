@@ -4,13 +4,14 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/props_structures/tower_good.vmdl"
     "ModelScale"                                          ".75"
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_tower90"
     "MinimapIconSize"                                     "320"
+	"ConsideredHero"									  "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -27,7 +28,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "20"        // Physical protection.
-    "MagicalResistance"                                   "0"         // Magical protection.
+    "MagicalResistance"                                   "75"        // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -65,13 +66,14 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/props_structures/tower_upgrade/tower_upgrade.vmdl"
     "ModelScale"                                          ".75"
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_tower45"
     "MinimapIconSize"                                     "320"
+	"ConsideredHero"									  "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -121,11 +123,12 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/props_structures/radiant_statue001.vmdl"// Model.
     "SoundSet"                                            "Tower.Water"          // Name of sound set.
     "HealthBarOffset"                                     "260"
     "MinimapIcon"                                         "minimap_miscbuilding"
+	"ConsideredHero"									  "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -142,7 +145,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "20"         // Physical protection.
-    "MagicalResistance"                                   "0"         // Magical protection.
+    "MagicalResistance"                                   "75"         // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -152,7 +155,7 @@
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_FILLER"          // Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"          // Hull type used for navigation/locomotion.
     "RingRadius"                                          "100"
     "HealthBarOffset"                                     "260"
     "MinimapIconSize"                                     "200"

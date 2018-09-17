@@ -23,7 +23,6 @@
     "AbilityManaCost"               "100 110 120 130 180 230"
 
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "AbilityDamage"                 "120 180 240 300 600 900"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,23 +49,38 @@
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "movement_slow_pct"     "50 60 70 80 80 80"
+        "var_type"          "FIELD_INTEGER"
+        "damage"          "120 180 240 300 400 500"
+        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_2"
+        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
       }
       "05"
       {
-        "var_type"              "FIELD_FLOAT"
-        "activation_delay"      "0.5"
+        "var_type"          "FIELD_INTEGER"
+        "bonus_damage_per_target" "16 24 32 40 80 160"
+        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_2"
+        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
       }
       "06"
       {
-        "var_type"              "FIELD_FLOAT"
-        "slow_duration"         "2.0"
+        "var_type"              "FIELD_INTEGER"
+        "movement_slow_pct"     "50 60 70 80 80 80"
       }
       "07"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "bonus_damage_per_target"   "16 24 32 40 80 160"
+        "var_type"        "FIELD_FLOAT"
+        "slow_duration"     "1.5"
+      }
+      "08"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "vision_duration"     "2.0"
+      }
+      "09"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "range_tooltip"       "1400"
+        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_3"
       }
     }
   }
