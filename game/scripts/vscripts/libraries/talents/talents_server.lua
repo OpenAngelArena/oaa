@@ -19,11 +19,11 @@ function CDOTABaseAbility:GetTalentSpecialValueFor(value)
 			end
 		end
 	end
-	if talentName and self:GetCaster():HasTalent(talentName) then 
+	if talentName and self:GetCaster():HasTalent(talentName) then
 		if multiply then
-			base = base * talent:GetSpecialValueFor(valname) 
+			base = base * self:GetCaster():FindTalentValue(talentName, valname)
 		else
-			base = base + talent:GetSpecialValueFor(valname) 
+			base = base + self:GetCaster():FindTalentValue(talentName, valname)
 		end
 	end
 	return base
