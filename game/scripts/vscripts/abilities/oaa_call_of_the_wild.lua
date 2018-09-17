@@ -8,11 +8,10 @@ function beastmaster_call_of_the_wild:OnSpellStart()
 
   self:SpawnBoar(caster, playerID, abilityLevel, duration)
 
-  
   if abilityLevel > 2 then
     self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
   end
-  
+
   if IsServer() then
 	-- TODO: Change the talent for something useful in OAA
 	-- Lvl 25 Talent that adds 2 more hawks
@@ -61,11 +60,11 @@ function beastmaster_call_of_the_wild:SpawnHawk(caster, playerID, abilityLevel, 
 
   local baseUnitName = "npc_dota_beastmaster_hawk"
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
-  
+
   for i = 1, number_of_hawks do
 	-- Spawn hawk and orient it to face the same way as the caster
 	local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
-	
+
 	-- Create particle effects
 	local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
