@@ -25,7 +25,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_reset_time"                                "20"
-        "LinkedSpecialBonus"      "special_bonus_unique_ursa_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_4"
       }
       "02"
       {
@@ -35,7 +35,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "15 20 25 30 55 80"
+        "damage_per_stack"                                "12 18 24 30 55 80"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa"
       }
     }
