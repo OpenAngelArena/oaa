@@ -53,7 +53,7 @@ function item_azazel_wall_1:OnSpellStart()
   if not spawned then
     return
   end
-  
+
   self:SpendCharge()
 end
 

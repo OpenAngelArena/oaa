@@ -2808,7 +2808,10 @@ read_globals = { -- these globals can only be accessed.
 "NORMAL_KILL_LIMIT",
 "SPECIAL_BOTTLES",
 "SPECIAL_ARCANAS",
-"HeroSelection"
+"HeroSelection",
+"FindCustomBuildingsInRadius",
+"FindAllBuildingsInRadius",
+"PreventGettingStuck"
 }
 
 ignore = {
