@@ -74,7 +74,7 @@ Git Power Shell enables you to control Git using a variety of commands. You can 
 
  
 ### Finish Installing oaa
-Continue the [Installation Process](/docs/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
+Continue the [Installation Process](/docs/setup/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
 
 ### Getting Started
 To be able to work on your own stuff but still have all the newest changes and to have a nice and organized repository, git features Branches. For more information about Branches, read [Git Branching - Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).

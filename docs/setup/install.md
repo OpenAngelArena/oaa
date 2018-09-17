@@ -38,10 +38,10 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
 
 ### Clone Open Angel Arena into the addons folder
 
+**IMPORTANT: You are not cloning the public OpenAngelArena/OAA repository. For the following step you are cloning YOUR OWN fork of that repository. If you have not already done this do not continue until you have (see the Forking ![Github for Noobs](../git/github-for-noobs.md) guide.**
 - Launch your GitHub Client (And log into it)
 - Click `Clone a repository`
   ![Installing OAA Pt.1](../.images/Installation_Clone_1.png)
-- IMPORTANT: You are not cloning the public OpenAngelArena/OAA repository. For the following step you are cloning YOUR OWN fork of that repository. If you have not already done this do not continue until you have (see the *Forking* ![Github for Noobs](git/github-for-noobs.md) guide.
 - Select your Open Angel Arena fork and be sure to set the `Local Path` to where your DOTA 2 beta folder is (And in the addons directory)
   ![Installing OAA Pt.2](../.images/Installation_Clone_2.png)
 - Click `Clone` and let the process complete
