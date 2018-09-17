@@ -8,7 +8,7 @@
     "ID"                  "8515"
     "BaseClass"           "item_datadriven"
     "Model"               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"  "custom/recipe/recipe_3"
+    "AbilityTextureName"  "custom/recipe/recipe_4"
     "ItemCost"            "3500"
     "ItemShopTags"        ""
     "ItemRecipe"          "1"
@@ -81,7 +81,7 @@
       "07"
       {
         "var_type"                "FIELD_INTEGER"
-        "status_resist"           "-10 -15 -20"
+        "status_resist"           "-20 -30 -40"
       }
     }
   }
