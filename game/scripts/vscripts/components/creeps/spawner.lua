@@ -108,7 +108,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
     -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
     for _,unit in pairs(units) do
       local unitProperties = self:GetCreepProperties(unit)
-      local distributedScale = 1.0 / maximumUnits
+      local distributedScale = 1.0 / #units
 
       unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, creepProperties, distributedScale)
       self:SetCreepPropertiesOnHandle(unit, unitProperties)
