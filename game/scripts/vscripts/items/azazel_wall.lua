@@ -38,13 +38,13 @@ function item_azazel_wall_1:OnSpellStart()
   local spawned = false
   for i = 0,segment_count-1 do
     local location = first_location + segment_offset * i
-    --if #FindAllBuildingsInRadius(location, SEGMENT_RADIUS) < 1 then
-	if #FindCustomBuildingsInRadius(location, SEGMENT_RADIUS) < 1 then
+    if #FindAllBuildingsInRadius(location, SEGMENT_RADIUS) < 1 and #FindCustomBuildingsInRadius(location, SEGMENT_RADIUS) < 1 then
       spawned = true
       GridNav:DestroyTreesAroundPoint(location, SEGMENT_RADIUS, true)
       local building = CreateUnitByName("npc_azazel_wall_segment", location, true, caster, caster:GetOwner(), caster:GetTeam())
-      --building:RemoveModifierByName("modifier_invulnerable") -- Only real buildings have invulnerability on spawn
-      building:SetHullRadius(SEGMENT_RADIUS)
+      building:RemoveModifierByName("modifier_invulnerable") -- Only real buildings have invulnerability on spawn
+      --building:SetHullRadius(SEGMENT_RADIUS)
+      building:SetOrigin(location)
       building:SetOwner(caster)
       building:AddNewModifier(building, self, "modifier_building_construction", {})
       building:AddNewModifier(building, self, "modifier_wall_segment", {})

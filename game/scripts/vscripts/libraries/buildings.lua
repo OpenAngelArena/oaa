@@ -13,22 +13,22 @@ function CDOTA_BaseNPC:IsCustomBuilding()
 			return true
 		end
 	end
-	
+
 	return false
 end
 
 -- Returns a table; Finds OAA custom buildings within a radius.
 function FindCustomBuildingsInRadius(position, radius)
 	local candidates = Entities:FindAllByClassnameWithin("npc_dota_creature", position, radius)
-	
+
 	local custom_buildings = {}
-	
+
 	for _,creature in pairs(candidates) do
 		if creature:IsCustomBuilding() then
 			table.insert(custom_buildings, creature)
 		end
 	end
-	
+
 	return custom_buildings
 end
 
@@ -38,16 +38,10 @@ function FindAllBuildingsInRadius(position, radius)
 end
 
 -- Returns void; Check and fix units that have been assigned a position inside a building (custom or not)
-function PreventGettingStuck(building)
-	if building and IsValidEntity(building) then
-		local position = building:GetOrigin()
-		local radius = building:GetHullRadius()
-	else
-		print("Argument for PreventGettingStuck function is nil.")
-		return nil
-	end
-	
-	if building:IsBuilding() or building.GetInvulnCount then
+function PreventGettingStuck(building, position)
+	local radius = building:GetHullRadius()
+
+  if building:IsBuilding() or building.GetInvulnCount then
 		ResolveNPCPositions(position, radius)
 	elseif building:IsCustomBuilding() then
 		local target_type = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
