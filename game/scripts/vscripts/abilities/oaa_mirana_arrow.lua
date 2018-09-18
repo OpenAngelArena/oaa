@@ -2,6 +2,14 @@ mirana_arrow_oaa = class( AbilityBaseClass )
 
 --------------------------------------------------------------------------------
 
+-- client side function
+function mirana_arrow_oaa:CastFilterResultTarget (unit)
+  if unit == self:GetCaster() then
+    return UF_SUCCESS
+  end
+  return UF_FAIL_INVALID_LOCATION
+end
+
 if IsServer() then
 
   -- There are so many values passed (in arrow_data) to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
@@ -118,13 +126,6 @@ if IsServer() then
     else
       return false -- Do not end
     end
-  end
-
-  function mirana_arrow_oaa:CastFilterResultTarget (unit)
-    if unit == self:GetCaster() then
-      return UF_SUCCESS
-    end
-    return UF_FAIL_INVALID_LOCATION
   end
 
   function mirana_arrow_oaa:OnSpellStart()
