@@ -67,11 +67,11 @@ INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 shoul
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
-FIRST_DUEL_TIMEOUT = 110                -- Timeout for the level 1 duel at the start of them game
+FIRST_DUEL_TIMEOUT = 80                 -- Timeout for the level 1 duel at the start of them game
 FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
-DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
+DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
