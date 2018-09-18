@@ -25,7 +25,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "50 100 150 200 450 700"
+    "AbilityDamage"                                       "100 100 100 100 350 600"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,13 +48,13 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "blast_stun_duration"                             "2.0"
+        "blast_stun_duration"                             "1.1 1.4 1.7 2.0 2.3 2.6"
       }
 
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_slow_duration"                           "2"
+        "blast_dot_duration"                           	  "2.0"
       }
 
       "04"
@@ -65,15 +65,9 @@
 
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "blast_dot_duration"                              "4"
-      }
-
-      "06"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_dot_damage"                                "20 35 50 65 140 215"
-        "LinkedSpecialBonus"  "special_bonus_unique_wraith_king_3"
+        "blast_dot_damage"                                "10 30 50 70 140 215"
+        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_3"
       }
     }
   }

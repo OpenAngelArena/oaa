@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250 375 500 1000 1750"
+    "AbilityManaCost"                                     "300 450 600 1000 1750"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_duration"                                "4.5 5.25 6.0 6.5 7.0"
-        "LinkedSpecialBonus"  "special_bonus_unique_silencer_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_4"
       }
     }
   }

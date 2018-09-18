@@ -46,7 +46,7 @@
     "AbilityTextureName"                                  "custom/blade_mail_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
@@ -76,7 +76,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 14 22 30 40"
+        "bonus_armor"                                     "5 14 22 30 40"
       }
       "03"
       {

@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_wall_segment", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_building_construction", "modifiers/modifier_building_construction.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_wall_1 = class(ItemBaseClass)
 
@@ -39,14 +38,13 @@ function item_azazel_wall_1:OnSpellStart()
   local spawned = false
   for i = 0,segment_count-1 do
     local location = first_location + segment_offset * i
-    if #FindUnitsInRadius(DOTA_TEAM_NEUTRALS, location, nil, SEGMENT_RADIUS, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING,
-      DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) < 1
-    then
+    --if #FindAllBuildingsInRadius(location, SEGMENT_RADIUS) < 1 then
+	if #FindCustomBuildingsInRadius(location, SEGMENT_RADIUS) < 1 then
       spawned = true
       GridNav:DestroyTreesAroundPoint(location, SEGMENT_RADIUS, true)
       local building = CreateUnitByName("npc_azazel_wall_segment", location, true, caster, caster:GetOwner(), caster:GetTeam())
-      building:RemoveModifierByName("modifier_invulnerable")
-      building:SetOrigin(location)
+      --building:RemoveModifierByName("modifier_invulnerable") -- Only real buildings have invulnerability on spawn
+      building:SetHullRadius(SEGMENT_RADIUS)
       building:SetOwner(caster)
       building:AddNewModifier(building, self, "modifier_building_construction", {})
       building:AddNewModifier(building, self, "modifier_wall_segment", {})
@@ -55,12 +53,8 @@ function item_azazel_wall_1:OnSpellStart()
   if not spawned then
     return
   end
-  local charges = self:GetCurrentCharges() - 1
-  if charges < 1 then
-    caster:RemoveItem(self)
-  else
-    self:SetCurrentCharges(charges)
-  end
+
+  self:SpendCharge()
 end
 
 -- upgrades
