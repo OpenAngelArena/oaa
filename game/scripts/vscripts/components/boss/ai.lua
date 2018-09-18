@@ -121,9 +121,11 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 5 then
 
+    PointsManager:AddPoints(teamId)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 6 then
+    PointsManager:AddPoints(teamId)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
