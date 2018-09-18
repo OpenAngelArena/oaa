@@ -75,7 +75,7 @@ DUEL_INTERVAL = 300                     -- time from duel ending until dnext due
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
+INITIAL_CAPTURE_POINT_DELAY = 300       -- how long after the clock hits 0 should the CapturePoint duel start countind down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
