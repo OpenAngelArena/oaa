@@ -8,8 +8,8 @@
   {
     "ID"                                                  "80000"  // + original ID number
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
-    "AbilityTextureName"                                  "ability_name_or_custom_icon"   // icon for the ability
+    //"ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
+    "AbilityTextureName"                                  "rubick_empty1"                 // icon for the ability
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NONE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
