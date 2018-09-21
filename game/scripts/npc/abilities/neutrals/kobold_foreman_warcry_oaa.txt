@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kobold Foreman: Warcry - Buffs all allies in an AOE with attack speed and flat damage.
+  //=================================================================================================================
+  "kobold_foreman_warcry_oaa"
+  {
+    "ID"                                                  "85096"
+    "BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_kobold_foreman_warcry.lua"
+    "AbilityTextureName"                                  "lone_druid_true_form_battle_cry"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastPoint"                                    "0"
+    "AbilityCooldown"                                     "24.0"
+
+    "AbilityManaCost"                                     "75"
+    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_attack_speed"      "50"
+      }
+
+      "02"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_attack_damage"     "20"
+      }
+
+      "03"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "radius"                  "900"
+      }
+
+      "04"
+      {
+        "var_type"                "FIELD_FLOAT"
+        "buff_duration"           "12.0"
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_worg_large/n_creep_worg_large.vmdl"
-    "BaseClass"                                           "npc_dota_creep_neutral"    // npc_dota_creature
+    "BaseClass"                                           "npc_dota_creep_neutral"    // replace with npc_dota_creature
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "6"
     "ModelScale"                                          "0.90"
@@ -19,10 +19,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "alpha_wolf_critical_strike"    // Ability 1
-    "Ability2"                                            "alpha_wolf_command_aura"       // Ability 2
-    "Ability3"                                            ""                              // Ability 3
-    "Ability4"                                            ""                              // Ability 4
+    "Ability1"                                            "alpha_wolf_critical_strike"    // replace with alpha_wolf_invisibility_oaa
+    "Ability2"                                            "alpha_wolf_command_aura"       // replace with alpha_wolf_critical_strike_aura_oaa
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -61,8 +61,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "600"     // Base health.
     "StatusHealthRegen"                                   "0.5"     // Health regeneration rate.
-    "StatusMana"                                          "0"       // Base mana.
-    "StatusManaRegen"                                     "0"       // Mana regeneration rate.
+    "StatusMana"                                          "150"     // Base mana.
+    "StatusManaRegen"                                     "1.0"     // Mana regeneration rate.
 
     // Vision
     //----------------------------------------------------------------
