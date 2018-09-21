@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_dragon/n_creep_black_dragon.vmdl"  // Model.
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_dragon/n_creep_black_dragon.vmdl"  // change model if needed
+    "BaseClass"                                           "npc_dota_creep_neutral"        // change to npc_dota_creature when it becomes Corner
     "SoundSet"                                            "n_creep_Ranged"
     "Level"                                               "6"
     "IsAncient"                                           "1"
@@ -17,10 +17,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "black_dragon_fireball"		      // Ability 1
-    "Ability2"                                            "black_dragon_splash_attack"		// Ability 2
-    "Ability3"                                            "black_dragon_dragonhide_aura"	// Ability 3
-    "Ability4"                                            ""					      // Ability 4
+    "Ability1"                                            "black_dragon_fireball"
+    "Ability2"                                            "black_dragon_splash_attack"		// replace with black_dragon_dragonhide_aura_oaa when it becomes Corner
+    "Ability3"                                            "black_dragon_dragonhide_aura"	// remove when it becomes Corner camp
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -69,7 +69,7 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
