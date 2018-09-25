@@ -41,6 +41,12 @@
         "var_type"        "FIELD_FLOAT"
         "shard_duration"  "60.0"
       }
+
+      "05"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "number_of_splits"  "2"
+      }
     }
   }
 }
