@@ -122,6 +122,26 @@
         "var_type"                                        "FIELD_INTEGER"
         "sentry_reveal_radius"                            "850"
       }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_recharge"                               "120 100 80 60"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_max"                                    "2 3 4 5"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_recharge"                                 "60 50 40 30"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_max"                                      "4 6 8 10"
+      }
     }
   }
 }

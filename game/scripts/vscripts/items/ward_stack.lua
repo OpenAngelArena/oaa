@@ -24,18 +24,21 @@ end
 if IsServer() then
   -- active effect!
   function item_ward_stack:Setup ()
+    local caster = self:GetCaster()
+
     if not self.wardType then
       self.wardType = WARD_TYPE_SENTRY
     end
-    if not self.sentryCount then
-      self.sentryCount = 0
+    if not caster.sentryCount then
+      caster.sentryCount = 2
     end
-    if not self.observerCount then
-      self.sentryCount = 0
+    if not caster.observerCount then
+      caster.observerCount = 2
     end
   end
   function item_ward_stack:OnSpellStart ()
     self:Setup()
+    local caster = self:GetCaster()
     local unit = false
     if not self:GetCursorTargetingNothing() then
       unit = self:GetCursorTarget()
@@ -48,10 +51,10 @@ if IsServer() then
       return self:ToggleType()
     end
 
-    if self[wardType .. 'Count'] == 0 then
+    if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
       wardType = wardTypeToString(self.wardType)
-      if self[wardType .. 'Count'] == 0 then
+      if caster[wardType .. 'Count'] == 0 then
         return
       end
     end
@@ -60,8 +63,8 @@ if IsServer() then
     ward:AddNewModifier(ward, nil, "modifier_kill", { duration = self:GetSpecialValueFor(wardType .. '_duration') })
     ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", { invisible = true })
 
-    self[wardType .. 'Count'] = self[wardType .. 'Count'] - 1
-    if self[wardType .. 'Count'] == 0 then
+    caster[wardType .. 'Count'] = caster[wardType .. 'Count'] - 1
+    if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
     end
     -- ward
@@ -107,14 +110,113 @@ item_ward_stack_4 = item_ward_stack
 --------------------------------------------------------------------------
 -- observer/sentry count in status bar
 --------------------------------------------------------------------------
-modifier_item_ward_stack_observers = class(ModifierBaseClass)
+local WARD_INTERVAL = 0.2
 modifier_item_ward_stack_sentries = class(ModifierBaseClass)
 
-function modifier_item_ward_stack_observers:GetTexture()
-  return "item_observer_ward"
+function modifier_item_ward_stack_sentries:OnCreated ()
+  local wardStack = self:GetAbility()
+  self.wardStack = wardStack
+  self:SetStackCount(self.wardStack[self:WardName() .. "Count"])
+
+  self:StartIntervalThink(WARD_INTERVAL)
+  self.wardStack[self:WardName() .. "IntervalCount"] = self.wardStack[self:WardName() .. "IntervalCount"] or 0
 end
-function modifier_item_ward_stack_sentries:GetTexture()
-  return "item_sentry_ward"
+
+function modifier_item_ward_stack_sentries:OnDestroy ()
+  local caster = self:GetCaster()
+  local modifierCharger = 'modifier_' .. self:WardName() .. '_ward_recharger'
+
+  caster:RemoveModifierByName(modifierCharger)
+end
+
+function modifier_item_ward_stack_sentries:IsHidden ()
+  return true
+end
+
+function modifier_item_ward_stack_sentries:GetIntervalCount ()
+  return self:GetAbility():GetSpecialValueFor(self:GetName() .. '_recharge')
+end
+function modifier_item_ward_stack_sentries:GetMaxStack ()
+  return self:GetAbility():GetSpecialValueFor(self:GetName() .. '_max')
+end
+
+function modifier_item_ward_stack_sentries:OnIntervalThink ()
+  local caster = self:GetCaster()
+  local maxStack = self:GetMaxStack()
+  local currentStack = self:GetStackCount()
+
+  local intervalCount = self:WardName() .. "IntervalCount"
+  local modifierCharger = 'modifier_' .. self:WardName() .. '_ward_recharger'
+
+  if currentStack >= maxStack then
+    local isCharging = caster:HasModifier(modifierCharger)
+    if isCharging then
+      return
+    end
+
+    local ability = self:GetAbility()
+    caster:AddNewModifier(caster, ability, modifierCharger, {})
+    return
+  end
+
+  self.wardStack[intervalCount] = self.wardStack[intervalCount] + WARD_INTERVAL
+  local maxCount = self:GetIntervalCount()
+
+  if self.wardStack[intervalCount] > maxCount then
+    self.wardStack[intervalCount] = 0
+    currentStack = currentStack + 1
+    self:SetStackCount(currentStack)
+    caster:RemoveModifierByName(modifierCharger)
+  end
+
+  local isCharging = caster:HasModifier(modifierCharger)
+
+  if isCharging then
+    return
+  end
+  if currentStack >= maxStack then
+    return
+  end
+
+  local ability = self:GetAbility()
+  caster:AddNewModifier(caster, ability, modifierCharger, { duration = self:GetIntervalCount() - self.wardStack[intervalCount] } )
+end
+
+modifier_item_ward_stack_sentries.OnRefresh = modifier_item_ward_stack_sentries.OnCreated
+modifier_item_ward_stack_observers = class(modifier_item_ward_stack_sentries)
+
+function modifier_item_ward_stack_observers:WardName ()
+  return "observer"
+end
+function modifier_item_ward_stack_sentries:WardName ()
+  return "sentry"
+end
+
+modifier_sentry_ward_recharger = class(ModifierBaseClass)
+
+function modifier_sentry_ward_recharger:OnCreated ()
+  local wardStack = self:GetAbility()
+  self.wardStack = wardStack
+
+  self:SetStackCount(self.wardStack[self:WardName() .. "Count"])
+end
+
+function modifier_sentry_ward_recharger:IsHidden ()
+  return false
+end
+
+function modifier_item_ward_stack_sentries:GetTexture ()
+  return "item_" .. self:GetName() .. "_ward"
+end
+
+modifier_sentry_ward_recharger.OnRefresh = modifier_sentry_ward_recharger.OnCreated
+modifier_observer_ward_recharger = class(modifier_sentry_ward_recharger)
+
+function modifier_observer_ward_recharger:WardName ()
+  return "observer"
+end
+function modifier_sentry_ward_recharger:WardName ()
+  return "sentry"
 end
 
 --------------------------------------------------------------------------
