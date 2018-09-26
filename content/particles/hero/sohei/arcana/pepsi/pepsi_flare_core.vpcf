@@ -1,0 +1,134 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf1:version{d47d07e6-072c-49cb-9718-5bfd8d6c3d21} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_ConstantColor = [ 241, 220, 0, 115 ]
+	m_flConstantRadius = 4.05
+	m_flNoDrawTimeToGoToSleep = 2.0
+	m_nMaxParticles = 100
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/hero/sohei/arcana/pepsi/pepsi_flare.vpcf"
+		},
+	]
+	m_bShouldSort = false
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+		},
+		{
+			_class = "C_OP_RemapControlPointDirectionToVector"
+			m_nFieldOutput = "21"
+		},
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity = [ 0.0, 0.0, 70.0 ]
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_hTexture = resource:"materials/particle/particle_sphere_mod.vtex"
+			m_bAdditive = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.3
+			m_fLifetimeMax = 1.4
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 14.0
+			m_flRadiusMin = 4.0
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_vecWarpMin = [ 1.5, 1.5, 1.5 ]
+			m_vecWarpMax = [ 1.9, 1.9, 1.9 ]
+			m_nControlPointNumber = 3
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ -30.0, -30.0, -120.0 ]
+			m_OffsetMax = [ 30.0, 30.0, 30.0 ]
+			m_nControlPointNumber = 3
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 3
+		},
+		{
+			_class = "C_INIT_InheritFromParentParticles"
+			m_nFieldOutput = "6"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 99
+			m_nAlphaMax = 133
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 115, 185, 255, 255 ]
+			m_ColorMax = [ 216, 240, 251, 255 ]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_MaintainEmitter"
+			m_nParticlesToMaintain = 15
+		},
+	]
+	m_nInitialParticles = 15
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 10
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_ForceGenerators = 
+	[
+		{
+			_class = "C_OP_RandomForce"
+			m_MinForce = [ 750.0, -750.0, 200.0 ]
+			m_MaxForce = [ -750.0, 750.0, 200.0 ]
+		},
+	]
+}
