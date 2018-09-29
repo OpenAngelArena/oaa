@@ -1,9 +1,6 @@
--- Taken from bb template
-if AbilityLevels == nil then
-    DebugPrint ( 'creating new ability level requirement object.' )
-    AbilityLevels = class({})
-    Debug.EnabledModules["abilities:*"] = true
-end
+
+AbilityLevels = Components:Register('AbilityLevels', COMPONENT_HERO_SELECT)
+Debug:EnableDebugging()
 
 function AbilityLevels:Init ()
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterAbilityUpgradeOrder"))

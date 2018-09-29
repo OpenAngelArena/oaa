@@ -1,12 +1,6 @@
 -- Courier Spawner and maybe future handler
 
-
--- Taken from bb template
-if Courier == nil then
-  Debug.EnabledModules['courier:*'] = true
-  DebugPrint ( 'creating new Courier object' )
-  Courier = class({})
-end
+Courier = Components:Register('Courier', COMPONENT_TEAM_SELECT)
 
 function Courier:Init ()
   Courier.hasCourier = {}

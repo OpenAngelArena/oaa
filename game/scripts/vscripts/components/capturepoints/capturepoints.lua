@@ -1,7 +1,9 @@
 LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 
 CAPTUREPOINT_IS_STARTING = 60
-CapturePoints = CapturePoints or {}
+
+CapturePoints = Components:Register('CapturePoints', COMPONENT_GAME_IN_PROGRESS)
+
 local Zones = {
 -- TODO, change this. These should be zones in the map or programatically generated
 -- hard coded is a bad in-between with the disadvantages of both

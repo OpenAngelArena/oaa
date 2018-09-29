@@ -1,7 +1,8 @@
 Debug:EnableDebugging()
 DebugPrint('Bottlepass script loaded')
 
-Bottlepass = Bottlepass or class({})
+Bottlepass = Components:Register('Bottlepass', COMPONENT_GAME_SETUP)
+
 GameStartTime = GameStartTime or (GetSystemDate() .. GetSystemTime())
 
 BATTLE_PASS_SERVER = 'http://chrisinajar.com:6969/'

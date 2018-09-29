@@ -1,20 +1,14 @@
 
--- Taken from bb template
-if BossSpawner == nil then
-  DebugPrint ( 'creating new BossSpawner object' )
-  BossSpawner = class({})
+BossSpawner = Components:Register('BossSpawner', COMPONENT_GAME_IN_PROGRESS)
 
-  BossSpawner.CoreItems = {
-    'item_upgrade_core',
-    'item_upgrade_core_2',
-    'item_upgrade_core_3',
-    'item_upgrade_core_4',
-    'item_upgrade_core_4',
-    'item_upgrade_core_4'
-  }
-
-  Debug.EnabledModules['boss:spawn'] = false
-end
+BossSpawner.CoreItems = {
+  'item_upgrade_core',
+  'item_upgrade_core_2',
+  'item_upgrade_core_3',
+  'item_upgrade_core_4',
+  'item_upgrade_core_4',
+  'item_upgrade_core_4'
+}
 
 function BossSpawner:Init ()
   Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
