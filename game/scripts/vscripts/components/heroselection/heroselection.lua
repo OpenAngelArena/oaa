@@ -165,15 +165,13 @@ function HeroSelection:GetBans ()
 
   if self.isCM then
     for _,data in ipairs(cmpickorder["order"]) do
-      if data.type == "Ban" and hero == data.hero then
+      if data.type == "Ban" then
         table.insert(bans, data.hero)
       end
     end
   elseif self.isRanked then
     for _,bannedHero in pairs(rankedpickorder.bans) do
-      if hero == bannedHero then
-        table.insert(bans, bannedHero)
-      end
+      table.insert(bans, bannedHero)
     end
   end
 
@@ -699,15 +697,9 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
       self:GiveStartingHero(playerId, heroName)
     end)
   end
-
 end
 
 function HeroSelection:IsHeroDisabled (hero)
-  for _,banned in HeroSelection:GetBans() do
-    if hero == banned then
-      return true
-    end
-  end
   if self.isCM then
     for _,data in ipairs(cmpickorder["order"]) do
       if hero == data.hero then
