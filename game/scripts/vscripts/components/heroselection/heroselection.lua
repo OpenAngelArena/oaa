@@ -160,6 +160,26 @@ function HeroSelection:Init ()
   end
 end
 
+function HeroSelection:GetBans ()
+  local bans = {}
+
+  if self.isCM then
+    for _,data in ipairs(cmpickorder["order"]) do
+      if data.type == "Ban" and hero == data.hero then
+        table.insert(bans, data.hero)
+      end
+    end
+  elseif self.isRanked then
+    for _,bannedHero in pairs(rankedpickorder.bans) do
+      if hero == bannedHero then
+        table.insert(bans, bannedHero)
+      end
+    end
+  end
+
+  return bans
+end
+
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
@@ -683,6 +703,11 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
 end
 
 function HeroSelection:IsHeroDisabled (hero)
+  for _,banned in HeroSelection:GetBans() do
+    if hero == banned then
+      return true
+    end
+  end
   if self.isCM then
     for _,data in ipairs(cmpickorder["order"]) do
       if hero == data.hero then
@@ -722,7 +747,7 @@ end
 function HeroSelection:RandomHero ()
   while true do
     local choice = HeroSelection:UnsafeRandomHero()
-    if not self:IsHeroDisabled(choice) then
+    if not HeroSelection:IsHeroDisabled(choice) then
       return choice
     end
   end

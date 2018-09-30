@@ -122,6 +122,7 @@ function Bottlepass:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
   local radiant = {}
+  local heroes = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     if steamid ~= 0 then
@@ -131,11 +132,15 @@ function Bottlepass:SendTeams ()
       else
         table.insert(dire, steamid)
       end
+      heroes[steamid] = PlayerResource:GetSelectedHeroName(playerID)
     end
   end
   self:Request('match/send_teams', {
+    shuffled = MMRShuffle:WasShuffled(),
     dire = dire,
-    radiant = radiant
+    radiant = radiant,
+    heroes = heroes,
+    bans = HeroSelection:GetBans()
   }, function (err, data)
     DebugPrintTable(data)
   end)

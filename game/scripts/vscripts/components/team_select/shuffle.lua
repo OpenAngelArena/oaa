@@ -2,6 +2,8 @@
 MMRShuffle = Components:Register('MMRShuffle', COMPONENT_TEAM_SELECT)
 
 function MMRShuffle:Init ()
+  self.wasShuffled = false
+
   Debug:EnableDebugging()
   DebugPrint('MMR Shuffle init!')
   CustomGameEventManager:RegisterListener('mmrShuffle', partial(Dynamic_Wrap(MMRShuffle, 'Shuffle'), MMRShuffle))
@@ -21,7 +23,12 @@ function MMRShuffle:GetMMR (playerId)
   return mmr
 end
 
+function MMRShuffle:WasShuffled ()
+  return self.wasShuffled
+end
+
 function MMRShuffle:Shuffle (aNumber, event)
+  self.wasShuffled = true
   Debug:EnableDebugging()
   DebugPrint('Attempting shuffle! ' .. aNumber .. ' and ' .. event.PlayerID)
   local state = GameRules:State_Get()
