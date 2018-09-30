@@ -7,15 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "ability_lua"
-    "ID"                  "9511"
+    "BaseClass"             "ability_lua"
+    "ID"                    "9511"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
-    "AbilityTextureName"      "custom/ronin_guard"
-    "ScriptFile"          "abilities/sohei/sohei_wholeness_of_body.lua"
-    "MaxLevel"                                            "6"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"     "SPELL_IMMUNITY_ALLIES_YES"
+    "AbilityTextureName"    "custom/ronin_guard"
+    "ScriptFile"            "abilities/sohei/sohei_wholeness_of_body.lua"
+    "MaxLevel"              "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

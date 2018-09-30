@@ -196,10 +196,6 @@ function modifier_sohei_dash_charges:IsDebuff()
 	return false
 end
 
-function modifier_sohei_dash_charges:IsDebuff()
-	return false
-end
-
 function modifier_sohei_dash_charges:IsHidden()
 	return false
 end
