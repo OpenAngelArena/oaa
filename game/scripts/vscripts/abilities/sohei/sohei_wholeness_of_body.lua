@@ -5,7 +5,9 @@ LinkLuaModifier("modifier_sohei_wholeness_of_body_knockback", "abilities/sohei/s
 
 function sohei_wholeness_of_body:GetBehavior()
   local caster = self:GetCaster()
-  if caster:HasTalent("special_bonus_sohei_wholeness_allycast") then
+  -- caster:HasTalent("talent_name") will work only when OnPlayerLearnedAbility event happens
+  -- caster:HasModifier("modifier_name") will work if the talent is leveled up with aghanim scepter
+  if caster:HasTalent("special_bonus_sohei_wholeness_allycast") or caster:HasModifier("modifier_special_bonus_sohei_wholeness_allycast") then
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
   end
 
@@ -15,7 +17,6 @@ end
 
 function sohei_wholeness_of_body:CastFilterResultTarget( target )
   local default_result = self.BaseClass.CastFilterResultTarget(self, target)
-
   return default_result
 end
 
@@ -108,4 +109,24 @@ function modifier_sohei_wholeness_of_body_status:OnTakeDamage( params )
   if params.unit == self:GetParent() then
     self.endHeal = self.endHeal + params.damage * self.damageheal
   end
+end
+
+if modifier_special_bonus_sohei_wholeness_allycast == nil then
+  modifier_special_bonus_sohei_wholeness_allycast = class({})
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:AllowIllusionDuplicate()
+	return false
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:RemoveOnDeath()
+  return false
 end

@@ -4,6 +4,7 @@ if Talents == nil then
 end
 
 GameEvents:OnPlayerLearnedAbility(function(keys)
+  -- OnPlayerLearnedAbility event doesn't happen for abilities that are leveled up in Lua with: ability:SetLevel(level)
   local player = EntIndexToHScript(keys.player)
   local abilityname = keys.abilityname
   local playerID = keys.PlayerID
