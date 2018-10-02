@@ -1,7 +1,7 @@
 sohei_momentum = class( AbilityBaseClass )
 
 LinkLuaModifier("modifier_sohei_momentum_passive", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_sohei_momentum_knockback", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier("modifier_sohei_momentum_knockback", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_sohei_momentum_slow", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
