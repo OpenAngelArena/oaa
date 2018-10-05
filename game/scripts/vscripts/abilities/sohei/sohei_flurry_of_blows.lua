@@ -38,14 +38,6 @@ end
 
 --------------------------------------------------------------------------------
 
-function sohei_flurry_of_blows:OnAbilityPhaseInterrupted()
-  if IsServer() then
-    self:GetCaster():StopSound( "Hero_EmberSpirit.FireRemnant.Stop" )
-  end
-end
-
---------------------------------------------------------------------------------
-
 if IsServer() then
   function sohei_flurry_of_blows:OnSpellStart()
     local caster = self:GetCaster()
@@ -79,9 +71,8 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-  function sohei_flurry_of_blows:OnChannelFinish()
+  function sohei_flurry_of_blows:OnChannelFinish(bInterrupted)
     local caster = self:GetCaster()
-
     caster:RemoveModifierByName( "modifier_sohei_flurry_self" )
   end
 end
@@ -120,7 +111,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_flurry_self:StatusEffectPriority()
-   return 20
+  return 20
 end
 
 function modifier_sohei_flurry_self:GetStatusEffectName()
@@ -175,6 +166,10 @@ if IsServer() then
 --------------------------------------------------------------------------------
 
   function modifier_sohei_flurry_self:OnIntervalThink()
+    -- Give vision
+    local parent = self:GetParent()
+    AddFOWViewer(parent:GetTeam(), parent:GetOrigin(), self.radius, self.attack_interval, false)
+
     -- Attempt a strike
     if self:PerformFlurryBlow() then
       self.remaining_attacks = self.remaining_attacks - 1

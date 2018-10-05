@@ -5,8 +5,8 @@ LinkLuaModifier("modifier_sohei_wholeness_of_body_knockback", "abilities/sohei/s
 
 function sohei_wholeness_of_body:GetBehavior()
   local caster = self:GetCaster()
-  -- caster:HasTalent("talent_name") will work only when OnPlayerLearnedAbility event happens
-  -- caster:HasModifier("modifier_name") will work if the talent is leveled up with aghanim scepter
+  -- caster:HasTalent(...) will return true on the client only when OnPlayerLearnedAbility event happens
+  -- caster:HasModifier(...) will return true on the client only if the talent is leveled up with aghanim scepter
   if caster:HasTalent("special_bonus_sohei_wholeness_allycast") or caster:HasModifier("modifier_special_bonus_sohei_wholeness_allycast") then
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
   end
@@ -23,10 +23,14 @@ end
 function sohei_wholeness_of_body:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget() or caster
+  -- Activation sound
+  target:EmitSound("DOTA_Item.ComboBreaker")
+  -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_status", {duration = self:GetTalentSpecialValueFor("sr_duration")})
+  -- Knockback talent
   if caster:HasTalent("special_bonus_sohei_wholeness_knockback") then
     local position = target:GetAbsOrigin()
-	local radius = caster:FindTalentValue("special_bonus_sohei_wholeness_knockback")
+    local radius = caster:FindTalentValue("special_bonus_sohei_wholeness_knockback")
     local team = caster:GetTeamNumber()
     local enemies = FindUnitsInRadius(team, position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
     for _, enemy in ipairs( enemies ) do
