@@ -1,0 +1,24 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_robe_color.png"
+
+	//---- Self Illum ----
+	TextureSelfIllumMask "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_robe_selfillum.png"
+
+	//---- Specular ----
+	g_flSpecularBloom "0.918"
+	g_flSpecularIntensity "2.214"
+	TextureBloom "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_robe_bloom.png"
+	TextureReflectance "[0.400000 0.400000 0.400000 0.000000]"
+}

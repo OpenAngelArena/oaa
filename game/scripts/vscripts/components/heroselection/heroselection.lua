@@ -196,6 +196,10 @@ function HeroSelection:StartSelection ()
     end
     if SPECIAL_ARCANAS[steamid] then
       special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}
+      table.insert(special_arcanas[playerID].Arcanas, 'RockElectrician')
+      if SPECIAL_BOTTLES[steamid] then
+        table.insert(special_arcanas[playerID].Arcanas, 'PepsiSohei')
+      end
     end
   end
 
