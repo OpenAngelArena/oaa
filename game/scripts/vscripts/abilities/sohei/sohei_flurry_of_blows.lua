@@ -209,6 +209,7 @@ if IsServer() then
       local target = targets[1]
       local targetOrigin = target:GetAbsOrigin()
       local abilityDash = parent:FindAbilityByName( "sohei_dash" )
+      local abilityMomentum = parent:FindAbilityByName( "sohei_momentum" )
       local distance = 50
 
       parent:RemoveNoDraw(  )
@@ -228,6 +229,12 @@ if IsServer() then
       -- just let the animations handle the movement
       if abilityDash and abilityDash:GetLevel() > 0 then
         abilityDash:PerformDash()
+      end
+      -- Remove if the ability is passive
+      if abilityMomentum and abilityMomentum:GetLevel() > 0 then
+        if not abilityMomentum:GetToggleState() then
+          abilityMomentum:ToggleAbility()
+        end
       end
       parent:PerformAttack( targets[1], true, true, true, false, false, false, false )
 

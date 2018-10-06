@@ -17,19 +17,47 @@ function sohei_momentum:GetAbilityTextureName()
 		return baseName .. "_inactive"
 	end
 
+  if not self:GetCaster():HasModifier("modifier_sohei_momentum_passive") then
+    return baseName .. "_inactive"
+  end
+
 	return baseName
 end
 
 --------------------------------------------------------------------------------
-
-function sohei_momentum:GetIntrinsicModifierName()
-	return "modifier_sohei_momentum_passive"
-end
+-- Uncomment if the ability is passive
+--function sohei_momentum:GetIntrinsicModifierName()
+	--return "modifier_sohei_momentum_passive"
+--end
 
 --------------------------------------------------------------------------------
 
 function sohei_momentum:IsHiddenWhenStolen( arg )
 	return true
+end
+
+function sohei_momentum:IsStealable()
+  return false
+end
+
+-- Remove if the ability is passive
+function sohei_momentum:OnToggle()
+  local caster = self:GetCaster()
+  if not self:GetToggleState() then
+    caster:RemoveModifierByName("modifier_sohei_momentum_passive")
+	else
+		caster:AddNewModifier(caster, self, "modifier_sohei_momentum_passive", {})
+	end
+end
+
+-- Remove if the ability is passive
+function sohei_momentum:OnUpgrade()
+  if self:GetLevel() == 1 then
+    -- Toggle on when the ability is leveled-up for the first time
+		if not self:GetToggleState() then
+			self:ToggleAbility()
+		end
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -51,9 +79,10 @@ function modifier_sohei_momentum_passive:IsDebuff()
 	return false
 end
 
-function modifier_sohei_momentum_passive:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT
-end
+-- Uncomment if the ability is passive
+--function modifier_sohei_momentum_passive:GetAttributes()
+	--return MODIFIER_ATTRIBUTE_PERMANENT
+--end
 
 --------------------------------------------------------------------------------
 

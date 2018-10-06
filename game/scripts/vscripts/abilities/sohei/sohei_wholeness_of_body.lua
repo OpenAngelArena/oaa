@@ -24,7 +24,7 @@ function sohei_wholeness_of_body:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget() or caster
   -- Activation sound
-  target:EmitSound("DOTA_Item.ComboBreaker")
+  target:EmitSound("Sohei.Guard")
   -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_status", {duration = self:GetTalentSpecialValueFor("sr_duration")})
   -- Knockback talent
