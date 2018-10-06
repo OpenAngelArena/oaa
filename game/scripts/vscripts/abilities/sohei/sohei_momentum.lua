@@ -23,17 +23,12 @@ function sohei_momentum:GetAbilityTextureName()
   end
 
 	return baseName
-
 end
-
---------------------------------------------------------------------------------
 
 -- Uncomment if the ability is passive
 --function sohei_momentum:GetIntrinsicModifierName()
 	--return "modifier_sohei_momentum_passive"
 --end
-
---------------------------------------------------------------------------------
 
 function sohei_momentum:IsHiddenWhenStolen( arg )
   return true
@@ -130,9 +125,9 @@ if IsServer() then
           local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
           local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
 
-          if dbzArcana ~= nil then
+          if dbzArcana then
             ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
-          elseif pepsiArcana ~= nil then
+          elseif pepsiArcana then
             ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
           end
         end
@@ -195,9 +190,9 @@ if IsServer() then
         self:SetStackCount( 0 )
         local dbzArcana = attacker:FindModifierByName( 'modifier_arcana_dbz' )
         local pepsiArcana = attacker:FindModifierByName( 'modifier_arcana_pepsi' )
-        if dbzArcana ~= nil then
+        if dbzArcana then
           ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(0,0,0) )
-        elseif pepsiArcana ~= nil then
+        elseif pepsiArcana then
           ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(0,0,0) )
         end
       end
