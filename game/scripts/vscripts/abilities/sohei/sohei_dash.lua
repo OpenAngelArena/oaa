@@ -364,6 +364,8 @@ if IsServer() then
 
     if parent:HasModifier('modifier_arcana_dbz') then
       particleName = "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
+    elseif parent:HasModifier('modifier_arcana_pepsi') then
+      particleName = "particles/hero/sohei/arcana/pepsi/sohei_trail_pepsi.vpcf"
     end
 
 		-- Trail particle

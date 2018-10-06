@@ -125,8 +125,11 @@ if IsServer() then
         self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
         if self:IsMomentumReady() then
           local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
-          if dbzArcana ~= nil then
+          local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
+          if dbzArcana then
             ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
+          elseif pepsiArcana then
+            ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
           end
         end
 			end
@@ -187,10 +190,13 @@ if IsServer() then
 			if not attacker:HasModifier( "modifier_sohei_flurry_self" ) then
         self:SetStackCount( 0 )
         local dbzArcana = attacker:FindModifierByName( 'modifier_arcana_dbz' )
+        local pepsiArcana = attacker:FindModifierByName( 'modifier_arcana_pepsi' )
         if dbzArcana ~= nil then
           ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(0,0,0) )
+        elseif pepsiArcana ~= nil then
+          ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(0,0,0) )
         end
-			end
+      end
 
 			-- Knock the enemy back
 			local distance = spell:GetSpecialValueFor( "knockback_distance" )
@@ -212,6 +218,8 @@ if IsServer() then
 
       if target:HasModifier('modifier_arcana_dbz') then
         particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
+      elseif target:HasModifier('modifier_arcana_pepsi') then
+        particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
       end
 
 			-- Play the impact particle
