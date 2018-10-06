@@ -17,6 +17,7 @@ function sohei_momentum:GetAbilityTextureName()
 		return baseName .. "_inactive"
 	end
 
+  -- When toggled off, there is no modifier, => make icon inactive
   if not self:GetCaster():HasModifier("modifier_sohei_momentum_passive") then
     return baseName .. "_inactive"
   end
@@ -25,6 +26,7 @@ function sohei_momentum:GetAbilityTextureName()
 end
 
 --------------------------------------------------------------------------------
+
 -- Uncomment if the ability is passive
 --function sohei_momentum:GetIntrinsicModifierName()
 	--return "modifier_sohei_momentum_passive"
@@ -126,9 +128,9 @@ if IsServer() then
         if self:IsMomentumReady() then
           local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
           local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
-          if dbzArcana then
+          if dbzArcana ~= nil then
             ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
-          elseif pepsiArcana then
+          elseif pepsiArcana ~= nil then
             ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
           end
         end
