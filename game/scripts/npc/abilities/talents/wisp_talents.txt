@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Upgrades wisp_spirits hero damage
+	// Upgrades wisp_spirits - increases hero damage
 	//=================================================================================================================
 	"special_bonus_unique_wisp"
 	{
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "75"
+				"value"             "75"  // OAA (Travis)
 			}
 		}
 	}
@@ -41,13 +41,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "1"
+				"value"             "1" // OAA (Travis)
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// Upgrades wisp_spirits max range
+	// Upgrades wisp_spirits - increases max range
 	//=================================================================================================================
 	"special_bonus_unique_wisp_3"
 	{
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "400"
+				"value"             "400" // OAA (Travis)
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "1"
+				"value"             "1" // OAA (Travis)
 			}
 		}
 	}
@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "1"
+				"value"             "1" // OAA (Travis)
 			}
 		}
 	}
@@ -133,7 +133,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "60"
+				"value"             "60"  // OAA (Travis)
 			}
 		}
 	}

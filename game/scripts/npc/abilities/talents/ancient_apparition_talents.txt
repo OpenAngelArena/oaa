@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "4"
+				"value"             "4" // OAA (Travis)
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "80"
+				"value"             "80"  // OAA (Travis)
 			}
 		}
 	}
@@ -64,13 +64,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"             "2.5"
+				"value"             "2.5" // OAA (Travis)
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// +8% Ice Vortex Slow/Resistance
+	// Upgrades Ice Vortex - Increases Slow/Resistance
 	//=================================================================================================================
 	"special_bonus_unique_ancient_apparition_4"
 	{
@@ -87,13 +87,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "-8"
+				"value"             "-8"  // OAA (Travis)
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// Talent that increases Ice Blast Kill Threshold
+	// Upgrades Ice Blast - increases Kill Threshold
 	//=================================================================================================================
 	"special_bonus_unique_ancient_apparition_5"
 	{
@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "4"
+				"value"             "4" // OAA (Travis)
 			}
 		}
 	}
@@ -133,7 +133,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "450"
+				"value"             "450" // OAA
 			}
 		}
 	}

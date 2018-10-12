@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Upgrades the damage of techies_suicide (Blast OFf)
+	// Upgrades techies_suicide (Blast OFf) - increases damage
 	//=================================================================================================================
 	"special_bonus_unique_techies"
 	{
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "300"
+				"value"           "300" // OAA (Travis)
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "1"
+				"value"             "1" // OAA (Travis)
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "4"
+				"value"           "4" // OAA (Travis)
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "200"
+				"value"           "200" // OAA
 			}
 		}
 	}
