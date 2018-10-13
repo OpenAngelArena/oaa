@@ -1,7 +1,7 @@
 sohei_momentum = class( AbilityBaseClass )
 
 LinkLuaModifier("modifier_sohei_momentum_passive", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_sohei_momentum_knockback", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier("modifier_sohei_momentum_knockback", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_sohei_momentum_slow", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
@@ -17,19 +17,45 @@ function sohei_momentum:GetAbilityTextureName()
     return baseName .. "_inactive"
   end
 
-  return baseName
+  -- When toggled off, there is no modifier, => make icon inactive
+  if not self:GetCaster():HasModifier("modifier_sohei_momentum_passive") then
+    return baseName .. "_inactive"
+  end
+
+	return baseName
 end
 
---------------------------------------------------------------------------------
-
-function sohei_momentum:GetIntrinsicModifierName()
-  return "modifier_sohei_momentum_passive"
-end
-
---------------------------------------------------------------------------------
+-- Uncomment if the ability is passive
+--function sohei_momentum:GetIntrinsicModifierName()
+	--return "modifier_sohei_momentum_passive"
+--end
 
 function sohei_momentum:IsHiddenWhenStolen( arg )
   return true
+end
+
+function sohei_momentum:IsStealable()
+  return false
+end
+
+-- Remove if the ability is passive
+function sohei_momentum:OnToggle()
+  local caster = self:GetCaster()
+  if not self:GetToggleState() then
+    caster:RemoveModifierByName("modifier_sohei_momentum_passive")
+	else
+		caster:AddNewModifier(caster, self, "modifier_sohei_momentum_passive", {})
+	end
+end
+
+-- Remove if the ability is passive
+function sohei_momentum:OnUpgrade()
+  if self:GetLevel() == 1 then
+    -- Toggle on when the ability is leveled-up for the first time
+		if not self:GetToggleState() then
+			self:ToggleAbility()
+		end
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -51,9 +77,10 @@ function modifier_sohei_momentum_passive:IsDebuff()
   return false
 end
 
-function modifier_sohei_momentum_passive:GetAttributes()
-  return MODIFIER_ATTRIBUTE_PERMANENT
-end
+-- Uncomment if the ability is passive
+--function modifier_sohei_momentum_passive:GetAttributes()
+	--return MODIFIER_ATTRIBUTE_PERMANENT
+--end
 
 --------------------------------------------------------------------------------
 
@@ -97,9 +124,10 @@ if IsServer() then
         if self:IsMomentumReady() then
           local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
           local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
-            if dbzArcana ~= nil then
+
+          if dbzArcana then
             ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
-            elseif pepsiArcana ~= nil then
+          elseif pepsiArcana then
             ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
           end
         end
@@ -162,27 +190,27 @@ if IsServer() then
         self:SetStackCount( 0 )
         local dbzArcana = attacker:FindModifierByName( 'modifier_arcana_dbz' )
         local pepsiArcana = attacker:FindModifierByName( 'modifier_arcana_pepsi' )
-        if dbzArcana ~= nil then
+        if dbzArcana then
           ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(0,0,0) )
-        elseif pepsiArcana ~= nil then
+        elseif pepsiArcana then
           ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(0,0,0) )
         end
       end
 
       -- Knock the enemy back
-      local distance = spell:GetSpecialValueFor( "knockback_distance" )
-      local speed = spell:GetSpecialValueFor( "knockback_speed" )
-      local duration = distance / speed
-      local collision_radius = spell:GetSpecialValueFor( "collision_radius" )
-      target:RemoveModifierByName( "modifier_sohei_momentum_knockback" )
-      target:AddNewModifier( attacker, spell, "modifier_sohei_momentum_knockback", {
-        duration = duration,
-        distance = distance,
-        speed = speed,
-        collision_radius = collision_radius
-      } )
+			local distance = spell:GetSpecialValueFor( "knockback_distance" )
+			local speed = spell:GetSpecialValueFor( "knockback_speed" )
+			local duration = distance / speed
+			local collision_radius = spell:GetSpecialValueFor( "collision_radius" )
+			target:RemoveModifierByName( "modifier_sohei_momentum_knockback" )
+			target:AddNewModifier( attacker, spell, "modifier_sohei_momentum_knockback", {
+				duration = duration,
+				distance = distance,
+				speed = speed,
+				collision_radius = collision_radius
+			} )
 
-      -- Play the impact sound
+			-- Play the impact sound
       target:EmitSound( "Sohei.Momentum" )
 
       local particleName = "particles/hero/sohei/momentum.vpcf"

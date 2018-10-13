@@ -144,6 +144,14 @@ if IsServer() then
 			modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
 		end
 	end
+
+  function sohei_dash:OnUnStolen()
+    local caster = self:GetCaster()
+    local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
+    if modifier_charges then
+      caster:RemoveModifierByName("modifier_sohei_dash_charges")
+    end
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -191,10 +199,6 @@ end
 modifier_sohei_dash_charges = class( ModifierBaseClass )
 
 --------------------------------------------------------------------------------
-
-function modifier_sohei_dash_charges:IsDebuff()
-	return false
-end
 
 function modifier_sohei_dash_charges:IsDebuff()
 	return false
