@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Shuriken Toss Damage
-	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_2"
+  // Hoof Stomp stun duration increase talent
+  //=================================================================================================================
+  "special_bonus_unique_centaur_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"                  "6358"
+		"ID"                  "5988"
 		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,8 +17,8 @@
 		{
 			"01"
 			{
-				"var_type"        "FIELD_INTEGER"
-				"value"           "175" // OAA
+				"var_type"        "FIELD_FLOAT"
+				"value"           "1" // OAA
 			}
 		}
 	}

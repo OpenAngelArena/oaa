@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Shuriken Toss Damage
+	// upgrades Shadow Wave - increases damage/heal
 	//=================================================================================================================
-	"special_bonus_unique_bounty_hunter_2"
+  "special_bonus_unique_dazzle_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"                  "6358"
+		"ID"                  "6232"
 		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "175" // OAA
+				"value"           "100" // OAA
 			}
 		}
 	}
