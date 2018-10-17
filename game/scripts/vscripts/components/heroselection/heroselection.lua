@@ -38,6 +38,7 @@ function HeroSelection:Init ()
   self.isARDM = GetMapName() == "ardm"
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "ranked"
+  self.isUnranked = GetMapName() == "unranked"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -52,6 +53,9 @@ function HeroSelection:Init ()
   end
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
+  end
+  if self.isRanked or self.isUnranked then
+    self.isBanning = true
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
@@ -176,7 +180,7 @@ function HeroSelection:StartSelection ()
 
   if self.isCM then
     HeroSelection:CMManager(nil)
-  elseif self.isRanked then
+  elseif self.isBanning then
     HeroSelection:RankedManager(nil)
   else
     HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
@@ -196,6 +200,10 @@ function HeroSelection:StartSelection ()
     end
     if SPECIAL_ARCANAS[steamid] then
       special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}
+      table.insert(special_arcanas[playerID].Arcanas, 'RockElectrician')
+      if SPECIAL_BOTTLES[steamid] then
+        table.insert(special_arcanas[playerID].Arcanas, 'PepsiSohei')
+      end
     end
   end
 
@@ -666,7 +674,7 @@ function HeroSelection:IsHeroDisabled (hero)
         return true
       end
     end
-  elseif self.isRanked then
+  elseif self.isBanning then
     for _,bannedHero in pairs(rankedpickorder.bans) do
       if hero == bannedHero then
         return true
@@ -763,7 +771,7 @@ end
 function HeroSelection:HeroSelected (event)
   DebugPrint("Received Hero Pick")
   DebugPrintTable(event)
-  if HeroSelection.isRanked then
+  if HeroSelection.isBanning then
     return HeroSelection:RankedManager(event)
   end
   -- if HeroSelection.isCM then
