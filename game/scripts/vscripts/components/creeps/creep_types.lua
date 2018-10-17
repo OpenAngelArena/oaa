@@ -79,7 +79,7 @@ CreepTypes = {
       {"npc_dota_neutral_custom_black_dragon",     1700,    0,  80,    3,   199, 151}
     }
   },
-   -- 5 "solo camp"
+   -- 5 "solo camp" radiant
   {
     {
        {"npc_dota_neutral_black_drake",            1500,    0,  70,    3,   152, 156}

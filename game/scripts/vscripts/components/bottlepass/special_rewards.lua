@@ -27,18 +27,26 @@ SPECIAL_BOTTLES = {
 
   -- golden tournament winners
 
+  -- OTA, first tournament
   [124585666] = {2}, --DerpySoccerBall
   [75435056] = {2}, --Chogex
   [136897804] = {2}, --JumperJay
   [57898114] = {2}, --KGBurger
   [89367798] = {2}, --Naeil
 
+  -- Kindergarten, anniversary tournament
   [168785654] = {2}, --german player}, bent but not broken
   [32128719] = {2}, -- jmn}, Hot Guy (very)
   [78937420] = {2}, -- PerTzo}, road to rank daun
   [91854805] = {2}, -- Scabo}, Scabo
   [90810663] = {2}, -- hwa}, hwa
 
+  -- Not Yet Dead, september major
+  [347133312] = {2}, -- gish
+  [379440985] = {2}, -- wox
+  [157285451] = {2}, -- larenall
+  [56639681] = {2}, -- mr.random
+  [312007829] = {2}, -- anti
 
   -- special people
 
@@ -217,9 +225,10 @@ SPECIAL_ARCANAS = {
   --comments with names indicate a person having access to that icon but another one being currently active
 
   [43305444] = {'DBZSohei'}, -- baumi
-  [7131038] = {'DBZSohei'}, -- baumi
+  [7131038] = {'DBZSohei'}, -- chris
 
   [53999591] = {'DBZSohei'}, -- carlosrpg
+  [123791730] = {'DBZSohei'}, -- Warpdragon
 
   [28215809] = {'DBZSohei'},  -- steamcommunity.com/id/golden_pootis
   [51178404] = {'DBZSohei'},  -- http://steamcommunity.com/profiles/76561198011444132/

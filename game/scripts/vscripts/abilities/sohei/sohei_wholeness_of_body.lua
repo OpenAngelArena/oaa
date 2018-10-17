@@ -1,39 +1,36 @@
 sohei_wholeness_of_body = class( AbilityBaseClass )
 
-LinkLuaModifier( "modifier_sohei_wholeness_of_body_status", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_sohei_wholeness_of_body_knockback", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier("modifier_sohei_wholeness_of_body_status", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_wholeness_of_body_knockback", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 function sohei_wholeness_of_body:GetBehavior()
-  if self:GetCaster():HasTalent("special_bonus_sohei_wholeness_allycast") then
+  local caster = self:GetCaster()
+  -- caster:HasTalent(...) will return true on the client only when OnPlayerLearnedAbility event happens
+  -- caster:HasModifier(...) will return true on the client only if the talent is leveled up with aghanim scepter
+  if caster:HasTalent("special_bonus_sohei_wholeness_allycast") or caster:HasModifier("modifier_special_bonus_sohei_wholeness_allycast") then
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
-  else
-    return DOTA_ABILITY_BEHAVIOR_NO_TARGET
   end
+
+  return DOTA_ABILITY_BEHAVIOR_NO_TARGET
 end
 --------------------------------------------------------------------------------
 
--- unfinished talent stuff
 function sohei_wholeness_of_body:CastFilterResultTarget( target )
-  local caster = self:GetCaster()
-
-  local ufResult = UnitFilter(
-    target,
-    self:GetAbilityTargetTeam(),
-    self:GetAbilityTargetType(),
-    self:GetAbilityTargetFlags(),
-    caster:GetTeamNumber()
-  )
-
-  return ufResult
+  local default_result = self.BaseClass.CastFilterResultTarget(self, target)
+  return default_result
 end
 
 function sohei_wholeness_of_body:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget() or caster
+  -- Activation sound
+  target:EmitSound("Sohei.Guard")
+  -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_status", {duration = self:GetTalentSpecialValueFor("sr_duration")})
+  -- Knockback talent
   if caster:HasTalent("special_bonus_sohei_wholeness_knockback") then
     local position = target:GetAbsOrigin()
-	local radius = caster:FindTalentValue("special_bonus_sohei_wholeness_knockback")
+    local radius = caster:FindTalentValue("special_bonus_sohei_wholeness_knockback")
     local team = caster:GetTeamNumber()
     local enemies = FindUnitsInRadius(team, position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
     for _, enemy in ipairs( enemies ) do
@@ -52,9 +49,8 @@ end
 
 --------------------------------------------------------------------------------
 
--- wholeness_of_body projectile reflect modifier
+-- wholeness_of_body modifier
 modifier_sohei_wholeness_of_body_status = class(ModifierBaseClass)
-
 --------------------------------------------------------------------------------
 
 function modifier_sohei_wholeness_of_body_status:IsDebuff()
@@ -71,7 +67,6 @@ end
 
 --------------------------------------------------------------------------------
 
-
 function modifier_sohei_wholeness_of_body_status:GetEffectName()
   return "particles/hero/sohei/guard.vpcf"
 end
@@ -81,14 +76,16 @@ function modifier_sohei_wholeness_of_body_status:GetEffectAttachType()
 end
 
 function modifier_sohei_wholeness_of_body_status:OnCreated()
-  self.status_resistance = self:GetAbility():GetTalentSpecialValueFor("status_resistance")
-  self.damageheal = self:GetAbility():GetTalentSpecialValueFor("damage_taken_heal") / 100
+  local ability = self:GetAbility()
+  self.status_resistance = ability:GetTalentSpecialValueFor("status_resistance")
+  self.damageheal = ability:GetTalentSpecialValueFor("damage_taken_heal") / 100
   self.endHeal = 0
 end
 
 function modifier_sohei_wholeness_of_body_status:OnRefresh()
-  self.status_resistance = self:GetAbility():GetTalentSpecialValueFor("status_resistance")
-  self.damageheal = self:GetAbility():GetTalentSpecialValueFor("damage_taken_heal") / 100
+  local ability = self:GetAbility()
+  self.status_resistance = ability:GetTalentSpecialValueFor("status_resistance")
+  self.damageheal = ability:GetTalentSpecialValueFor("damage_taken_heal") / 100
 end
 
 function modifier_sohei_wholeness_of_body_status:OnDestroy()
@@ -100,8 +97,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_wholeness_of_body_status:DeclareFunctions()
-  local funcs = {MODIFIER_PROPERTY_STATUS_RESISTANCE,
-                 MODIFIER_EVENT_ON_TAKEDAMAGE,}
+  local funcs = {
+  MODIFIER_PROPERTY_STATUS_RESISTANCE,
+  MODIFIER_EVENT_ON_TAKEDAMAGE,
+  }
 
   return funcs
 end
@@ -112,6 +111,26 @@ end
 
 function modifier_sohei_wholeness_of_body_status:OnTakeDamage( params )
   if params.unit == self:GetParent() then
-    self.endHeal = params.damage * self.damageheal
+    self.endHeal = self.endHeal + params.damage * self.damageheal
   end
+end
+
+if modifier_special_bonus_sohei_wholeness_allycast == nil then
+  modifier_special_bonus_sohei_wholeness_allycast = class({})
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:AllowIllusionDuplicate()
+	return false
+end
+
+function modifier_special_bonus_sohei_wholeness_allycast:RemoveOnDeath()
+  return false
 end
