@@ -246,7 +246,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     if (!specialValuesForItem[rootItem]) {
       testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
-    } else {
+    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
     }
     done();
