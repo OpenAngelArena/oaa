@@ -149,7 +149,7 @@ DISABLE_FOG_OF_WAR_ENTIRELY = false     -- Should we disable fog of war entirely
 USE_UNSEEN_FOG_OF_WAR = false           -- Should we make unseen and fogged areas of the map completely black until uncovered by each team?
                                             -- Note: DISABLE_FOG_OF_WAR_ENTIRELY must be false for USE_UNSEEN_FOG_OF_WAR to work
 USE_STANDARD_DOTA_BOT_THINKING = true   -- Should we have bots act like they would in Dota? (This requires 3 lanes, normal items, etc)
-USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
+--USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
 USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar values or use the default kill count per team?
 TOP_BAR_VISIBLE = true                  -- Should we display the top bar score/count at all?
@@ -162,7 +162,7 @@ DISABLE_GOLD_SOUNDS = false             -- Should we disable the gold sound when
 END_GAME_ON_KILLS = false               -- Should the game end after a certain number of kills?
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
-USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
+--USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
 MAX_LEVEL = 50                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
