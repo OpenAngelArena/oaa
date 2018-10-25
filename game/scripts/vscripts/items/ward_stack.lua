@@ -48,7 +48,6 @@ if IsServer() then
     if not self:GetCursorTargetingNothing() then
       unit = self:GetCursorTarget()
     end
-    local caster = self:GetCaster()
     local target = self:GetCursorPosition()
     local wardType = wardTypeToString(self.wardType)
 
