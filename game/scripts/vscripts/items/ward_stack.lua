@@ -27,7 +27,7 @@ if IsServer() then
     local caster = self:GetCaster()
 
     if not self.wardType then
-      self.wardType = WARD_TYPE_SENTRY
+      self:SetType(WARD_TYPE_SENTRY)
     end
     if not caster.sentryCount then
       caster.sentryCount = 2
@@ -80,7 +80,14 @@ if IsServer() then
     if self[wardTypeToString(newVal) .. 'Count'] == 0 then
       return
     end
-    self.wardType = newVal
+    self:SetType(newVal)
+  end
+
+  function item_ward_stack:SetType (type)
+    self.wardType = type
+    if self.mod then
+      self.mod:OnWardTypeUpdate()
+    end
   end
 
   function item_ward_stack:GetIntrinsicModifierName ()
@@ -93,6 +100,21 @@ if IsServer() then
       "modifier_item_ward_stack_observers",
       "modifier_item_ward_stack_sentries",
     }
+  end
+end
+
+if not IsServer() then
+  function item_ward_stack:GetAbilityTextureName()
+    local wardType = self.lastType or WARD_TYPE_OBSERVER
+    if self.mod and not self.mod:IsNull() then
+      wardType = self.mod:GetStackCount()
+    end
+    self.lastType = wardType
+    if wardType == WARD_TYPE_OBSERVER then
+      return "item_ward_dispenser"
+    else
+      return "item_ward_dispenser_sentry"
+    end
   end
 end
 
@@ -113,10 +135,10 @@ item_ward_stack_4 = item_ward_stack
 local WARD_INTERVAL = 0.2
 modifier_item_ward_stack_sentries = class(ModifierBaseClass)
 
-function modifier_item_ward_stack_sentries:OnCreated ()
+function modifier_item_ward_stack_sentries:OnCreated (keys)
   local wardStack = self:GetAbility()
   self.wardStack = wardStack
-  self:SetStackCount(self.wardStack[self:WardName() .. "Count"])
+  self:SetStackCount(self.wardStack[self:WardName() .. "Count"] or 0)
 
   self:StartIntervalThink(WARD_INTERVAL)
   self.wardStack[self:WardName() .. "IntervalCount"] = self.wardStack[self:WardName() .. "IntervalCount"] or 0
@@ -194,7 +216,7 @@ end
 
 modifier_sentry_ward_recharger = class(ModifierBaseClass)
 
-function modifier_sentry_ward_recharger:OnCreated ()
+function modifier_sentry_ward_recharger:OnCreated (keys)
   local wardStack = self:GetAbility()
   self.wardStack = wardStack
 
@@ -225,37 +247,50 @@ end
 
 modifier_item_ward_stack = class(AuraProviderBaseClass)
 
-function modifier_item_ward_stack:IsHidden()
+function modifier_item_ward_stack:OnCreated (keys)
+  self.BaseClass.OnCreated(self, keys)
+  self:OnWardTypeUpdate()
+end
+
+function modifier_item_ward_stack:OnWardTypeUpdate ()
+  local item = self:GetAbility()
+  item.mod = self
+  if IsServer() then
+    self:SetStackCount(item.wardType or WARD_TYPE_OBSERVER)
+  end
+end
+
+function modifier_item_ward_stack:IsHidden ()
   return true
 end
 
 -- aura stuff
-function modifier_item_ward_stack:GetAuraStackingType()
+function modifier_item_ward_stack:GetAuraStackingType ()
   return AURA_TYPE_NON_STACKING
 end
 
-function modifier_item_ward_stack:IsAuraActiveOnDeath()
+function modifier_item_ward_stack:IsAuraActiveOnDeath ()
   return true
 end
 
-function modifier_item_ward_stack:GetAuraRadius()
+function modifier_item_ward_stack:GetAuraRadius ()
   return self:GetAbility():GetSpecialValueFor('aura_radius')
 end
 
-function modifier_item_ward_stack:GetAttributes()
+function modifier_item_ward_stack:GetAttributes ()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_ward_stack:GetAuraDuration()
+function modifier_item_ward_stack:GetAuraDuration ()
   return 1
 end
 
-function modifier_item_ward_stack:GetModifierAura()
+function modifier_item_ward_stack:GetModifierAura ()
   return "modifier_item_ward_stack_aura"
 end
 
 -- passive stats
-function modifier_item_ward_stack:DeclareFunctions()
+function modifier_item_ward_stack:DeclareFunctions ()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
@@ -264,16 +299,16 @@ function modifier_item_ward_stack:DeclareFunctions()
   }
 end
 
-function modifier_item_ward_stack:GetModifierConstantHealthRegen()
+function modifier_item_ward_stack:GetModifierConstantHealthRegen ()
   return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
-function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
+function modifier_item_ward_stack:GetModifierPhysicalArmorBonus ()
   return self:GetAbility():GetSpecialValueFor('bonus_armor')
 end
-function modifier_item_ward_stack:GetModifierHealthBonus()
+function modifier_item_ward_stack:GetModifierHealthBonus ()
   return self:GetAbility():GetSpecialValueFor('bonus_health')
 end
-function modifier_item_ward_stack:GetModifierManaBonus()
+function modifier_item_ward_stack:GetModifierManaBonus ()
   return self:GetAbility():GetSpecialValueFor('bonus_mana')
 end
 
