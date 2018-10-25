@@ -232,6 +232,7 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
   if self.wardStack[intervalCount] > maxCount then
     self.wardStack[intervalCount] = 0
     currentStack = currentStack + 1
+    caster[self:WardName() .. "Count"] = currentStack
     self:SetStackCount(currentStack)
     caster:RemoveModifierByName(modifierCharger)
     self.wasMaxed = false
@@ -257,6 +258,13 @@ end
 
 modifier_item_ward_stack_sentries.OnRefresh = modifier_item_ward_stack_sentries.OnCreated
 modifier_item_ward_stack_observers = class(modifier_item_ward_stack_sentries)
+
+function modifier_item_ward_stack_sentries:IsHidden ()
+  return true
+end
+function modifier_item_ward_stack_observers:IsHidden ()
+  return true
+end
 
 function modifier_item_ward_stack_observers:WardName ()
   return "observer"
@@ -394,4 +402,8 @@ end
 
 function modifier_item_ward_stack_aura:GetModifierConstantManaRegen()
   return self:GetAbility():GetSpecialValueFor('aura_mana_regen')
+end
+
+function modifier_item_ward_stack_aura:IsHidden ()
+  return true
 end

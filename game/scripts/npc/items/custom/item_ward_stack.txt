@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "75"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,10 +23,7 @@
     "ItemResult"                                          "item_ward_stack"
     "ItemRequirements"
     {
-      "01"                                                "item_ward_dispenser;item_upgrade_core"
-      "02"                                                "item_ward_dispenser;item_upgrade_core_2"
-      "03"                                                "item_ward_dispenser;item_upgrade_core_3"
-      "04"                                                "item_ward_dispenser;item_upgrade_core_4"
+      "01"                                                "item_ring_of_basilius;item_branches"
     }
   }
 
@@ -46,6 +43,8 @@
     "AbilityTextureName"                                  "item_ward_dispenser"
     "ScriptFile"                                          "items/ward_stack.lua"
 
+    "AbilityCastRange"                                    "500"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -53,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1675"
+    "ItemCost"                                            "625"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -95,7 +94,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "0.2 1.0 2.0 3.0 4.0"
+        "aura_mana_regen"                                 "0.5 1.0 2.0 3.0 4.0"
       }
       "07"
       {
@@ -132,15 +131,20 @@
         "var_type"                                        "FIELD_INTEGER"
         "observer_max"                                    "2 3 4 5 6"
       }
-      "13"
+      "14"
       {
         "var_type"                                        "FIELD_INTEGER"
         "sentry_recharge"                                 "80 60 50 40 30"
       }
-      "13"
+      "15"
       {
         "var_type"                                        "FIELD_INTEGER"
         "sentry_max"                                      "2 4 6 8 10"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "500"
       }
     }
   }
