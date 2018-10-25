@@ -32,7 +32,7 @@ if IsServer() then
     local caster = self:GetCaster()
 
     if not self.wardType then
-      self:SetType(WARD_TYPE_SENTRY)
+      self:SetType(WARD_TYPE_OBSERVER)
     end
     if not caster.sentryCount then
       caster.sentryCount = 2
@@ -72,6 +72,8 @@ if IsServer() then
     if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
     end
+    self.mod:OnWardTypeUpdate()
+
     -- ward
   end
 
@@ -117,20 +119,17 @@ if not IsServer() then
       wardType = self.mod:GetStackCount()
     end
     self.lastType = wardType
-    DebugPrint('Texture time! ' .. wardType)
-    return "item_ward_dispenser"
-
-    -- if wardType == WARD_TYPE_OBSERVER then
-    --   return "item_ward_dispenser"
-    -- elseif wardType == WARD_TYPE_SENTRY then
-    --   return "item_ward_dispenser_sentry"
-    -- elseif wardType == WARD_TYPE_SENTRY_ONLY then
-    --   return "item_ward_sentry"
-    -- elseif wardType == WARD_TYPE_OBSERVER_ONLY then
-    --   return "item_ward_observer"
-    -- else
-    --   return "item_branches"
-    -- end
+    if wardType == WARD_TYPE_OBSERVER then
+      return "item_ward_dispenser"
+    elseif wardType == WARD_TYPE_SENTRY then
+      return "item_ward_dispenser_sentry"
+    elseif wardType == WARD_TYPE_SENTRY_ONLY then
+      return "item_ward_sentry"
+    elseif wardType == WARD_TYPE_OBSERVER_ONLY then
+      return "item_ward_observer"
+    else
+      return "item_branches"
+    end
   end
 end
 
@@ -155,6 +154,7 @@ modifier_item_ward_stack_sentries = class(ModifierBaseClass)
 function modifier_item_ward_stack_sentries:OnCreated (keys)
   local wardStack = self:GetAbility()
   self.wardStack = wardStack
+  self.wasMaxed = false
 
   if not IsServer() then
     return
@@ -192,42 +192,41 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
   if not IsServer() then
     return
   end
-  DebugPrint('point 1')
   local caster = self:GetCaster()
   local maxStack = self:GetMaxStack()
   local currentStack = caster[self:WardName() .. "Count"] or 0
   local localStack = self:GetStackCount()
-  DebugPrint('point 2')
+
   if localStack ~= currentStack then
     self:SetStackCount(currentStack)
     localStack = currentStack
   end
-  DebugPrint('point 3')
-  local isCharging = caster:FindModifierByName(modifierCharger)
-  if isCharging and not isCharging:IsNull() then
-    if isCharging:GetStackCount() ~= currentStack then
-      -- isCharging:SetStackCount(currentStack)
+
+  if self.charger and not self.charger:IsNull() then
+    if self.charger:GetStackCount() ~= currentStack then
+      self.charger:SetStackCount(currentStack)
     end
   end
-  DebugPrint('point 4')
 
   local intervalCount = self:WardName() .. "IntervalCount"
   local modifierCharger = 'modifier_' .. self:WardName() .. '_ward_recharger'
   local maxCount = self:GetIntervalCount()
 
-  DebugPrint('Intervalling! ' .. localStack .. '/' .. currentStack .. '/' .. maxStack .. ' at ' .. self.wardStack[intervalCount] .. '/' .. maxCount)
+  -- DebugPrint('Intervalling! ' .. localStack .. '/' .. currentStack .. '/' .. maxStack .. ' at ' .. self.wardStack[intervalCount] .. '/' .. maxCount)
 
   if currentStack >= maxStack then
+    local isCharging = caster:HasModifier(modifierCharger)
     if isCharging then
       return
     end
 
     local ability = self:GetAbility()
-    caster:AddNewModifier(caster, ability, modifierCharger, {})
+    self.charger = caster:AddNewModifier(caster, ability, modifierCharger, {})
+    self.wasMaxed = true
     return
   end
 
-  DebugPrint('Increasing interval from ' .. self.wardStack[intervalCount] .. ' to ' .. (self.wardStack[intervalCount] + WARD_INTERVAL))
+  -- DebugPrint('Increasing interval from ' .. self.wardStack[intervalCount] .. ' to ' .. (self.wardStack[intervalCount] + WARD_INTERVAL))
   self.wardStack[intervalCount] = self.wardStack[intervalCount] + WARD_INTERVAL
 
   if self.wardStack[intervalCount] > maxCount then
@@ -235,9 +234,16 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
     currentStack = currentStack + 1
     self:SetStackCount(currentStack)
     caster:RemoveModifierByName(modifierCharger)
+    self.wasMaxed = false
   end
 
+  local isCharging = caster:HasModifier(modifierCharger)
+
   if isCharging then
+    if self.wasMaxed then
+      caster:RemoveModifierByName(modifierCharger)
+      self.wasMaxed = false
+    end
     return
   end
   if currentStack >= maxStack then
@@ -246,7 +252,7 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
 
   DebugPrint('Adding new charger!')
   local ability = self:GetAbility()
-  caster:AddNewModifier(caster, ability, modifierCharger, { duration = self:GetIntervalCount() - self.wardStack[intervalCount] } )
+  self.charger = caster:AddNewModifier(caster, ability, modifierCharger, { duration = self:GetIntervalCount() - self.wardStack[intervalCount] } )
 end
 
 modifier_item_ward_stack_sentries.OnRefresh = modifier_item_ward_stack_sentries.OnCreated
@@ -262,32 +268,22 @@ end
 modifier_sentry_ward_recharger = class(ModifierBaseClass)
 
 function modifier_sentry_ward_recharger:OnCreated (keys)
-  DebugPrint('modifier_sentry_ward_recharger:OnCreated')
+  local caster = self:GetCaster()
   local wardStack = self:GetAbility()
   self.wardStack = wardStack
 
   if IsServer() then
-    self:StartIntervalThink(WARD_INTERVAL)
+    self:SetStackCount(caster[self:WardName() .. "Count"] or 0)
   end
-end
-
-function modifier_sentry_ward_recharger:OnIntervalThink ()
-  if not IsServer() then
-    return
-  end
-  local caster = self:GetCaster()
-  self:SetStackCount(caster[self:WardName() .. "Count"] or 0)
 end
 
 function modifier_sentry_ward_recharger:IsHidden ()
   return false
 end
 
--- if not IsServer() then
---   function modifier_sentry_ward_recharger:GetTexture ()
---     return "item_ward_" .. self:WardName()
---   end
--- end
+function modifier_sentry_ward_recharger:GetTexture ()
+  return "item_ward_" .. self:WardName()
+end
 
 modifier_sentry_ward_recharger.OnRefresh = modifier_sentry_ward_recharger.OnCreated
 modifier_observer_ward_recharger = class(modifier_sentry_ward_recharger)
@@ -307,6 +303,7 @@ modifier_item_ward_stack = class(AuraProviderBaseClass)
 
 function modifier_item_ward_stack:OnCreated (keys)
   self.BaseClass.OnCreated(self, keys)
+
   self:OnWardTypeUpdate()
 end
 
@@ -314,6 +311,7 @@ function modifier_item_ward_stack:OnWardTypeUpdate ()
   local item = self:GetAbility()
   item.mod = self
   if IsServer() then
+    item:Setup()
     local caster = self:GetCaster()
     local count = item.wardType or WARD_TYPE_OBSERVER
     if caster.observerCount == 0 and caster.sentryCount > 0 then
@@ -325,7 +323,7 @@ function modifier_item_ward_stack:OnWardTypeUpdate ()
     if caster.sentryCount == 0 and caster.observerCount == 0 then
       count = WARD_TYPE_NONE
     end
-    DebugPrint('Ward type! ' .. count)
+
     self:SetStackCount(count)
   end
 end
