@@ -3,43 +3,41 @@
   //=================================================================================================================
   // Recipe: Ward Stack
   //=================================================================================================================
-  "item_recipe_ward_stack_2"
+  "item_recipe_ward_stack_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8523"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8529"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "Model"                                             "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                         "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        ""
+    "ItemCost"                                        "20000"
+    "ItemShopTags"                                 ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ward_stack_2"
+    "ItemRecipe"                                      "1"
+    "ItemResult"                                      "item_ward_stack_5"
     "ItemRequirements"
     {
-      "01"                                                "item_ward_stack;item_upgrade_core"
-      "02"                                                "item_ward_stack;item_upgrade_core_2"
-      "03"                                                "item_ward_stack;item_upgrade_core_3"
-      "04"                                                "item_ward_stack;item_upgrade_core_4"
+      "01"                                                "item_ward_stack_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Ward Stack
   //=================================================================================================================
-  "item_ward_stack_2"
+  "item_ward_stack_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8524"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+
+    "ID"                                                      "8530"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET  | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -49,11 +47,11 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3175"
+    "ItemCost"                                            "34675"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
