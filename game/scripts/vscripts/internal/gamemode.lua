@@ -13,10 +13,13 @@ function GameMode:_InitGameMode()
   GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME )
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
-  --GameRules:SetUseCustomHeroXPValues ( USE_CUSTOM_XP_VALUES )
+  if USE_CUSTOM_HERO_LEVELS then
+    GameRules:SetUseCustomHeroXPValues(true)
+    -- Start custom XP system
+	end
   GameRules:SetGoldPerTick(GOLD_PER_TICK)
   GameRules:SetGoldTickTime(GOLD_TICK_TIME)
-  GameRules:SetRuneSpawnTime(RUNE_SPAWN_TIME)
+
   GameRules:SetUseBaseGoldBountyOnHeroes(USE_STANDARD_HERO_GOLD_BOUNTY)
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
   GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
@@ -131,7 +134,7 @@ function GameMode:_InitGameMode()
   if BAREBONES_DEBUG_SPEW then
     spew = 1
   end
-  Convars:RegisterConvar('barebones_spew', tostring(spew), 'Set to 1 to start spewing barebones debug info.  Set to 0 to disable.', 0)
+  --Convars:RegisterConvar('barebones_spew', tostring(spew), 'Set to 1 to start spewing barebones debug info.  Set to 0 to disable.', 0)
 
   -- Change random seed
   local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '^0+','')
@@ -161,9 +164,8 @@ function GameMode:_CaptureGameMode()
     mode:SetBuybackEnabled( BUYBACK_ENABLED )
     mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
     mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
-    mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
-    --mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
-    mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+    mode:SetUseCustomHeroLevels(USE_CUSTOM_XP_VALUES)
+    mode:SetCustomXPRequiredToReachNextLevel(XP_PER_LEVEL_TABLE)
 
     mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
     mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
@@ -186,8 +188,16 @@ function GameMode:_CaptureGameMode()
     mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
     mode:SetStashPurchasingDisabled ( DISABLE_STASH_PURCHASING )
 
-    for rune, spawn in pairs(ENABLED_RUNES) do
-      mode:SetRuneEnabled(rune, spawn)
+    if USE_DEFAULT_RUNE_SYSTEM then
+      mode:SetUseDefaultDOTARuneSpawnLogic(USE_DEFAULT_RUNE_SYSTEM)
+    else
+      -- Most runes are broken by Valve, if they don't fix them: use RuneSpawnFilter
+      -- RuneSpawnFilter is currently broken too
+      for rune, spawn in pairs(ENABLED_RUNES) do
+        mode:SetRuneEnabled(rune, spawn)
+      end
+      mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
+      mode:SetPowerRuneSpawnInterval(POWER_RUNE_SPAWN_INTERVAL)
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )
