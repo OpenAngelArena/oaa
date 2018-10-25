@@ -36,6 +36,8 @@ function GameMode:_InitGameMode()
     GameRules:EnableCustomGameSetupAutoLaunch( true )
     GameRules:SetStrategyTime( 0 )
     GameRules:SetShowcaseTime( 0 )
+    RANKED_PREGAME_TIME = 1
+    RANKED_BAN_TIME = 1
   else
     GameRules:SetCustomGameSetupAutoLaunchDelay( AUTO_LAUNCH_DELAY )
     GameRules:LockCustomGameSetupTeamAssignment( LOCK_TEAM_SETUP )
@@ -110,6 +112,12 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(GameMode, 'OnNPCGoalReached'), self)
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
+
+  -- not all of these work
+  ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
 
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
