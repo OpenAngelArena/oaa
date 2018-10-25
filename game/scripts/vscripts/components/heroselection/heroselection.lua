@@ -369,8 +369,9 @@ function HeroSelection:ChooseBans ()
     end
     return
   else
+    local skippedBans = 0
     while banCount < totalChoices / 2 do
-      local choiceNum = RandomInt(1, totalChoices - banCount)
+      local choiceNum = RandomInt(1, totalChoices - banCount - skippedBans)
       local playerID = playerIDs[choiceNum]
       table.remove(playerIDs, choiceNum)
       local team = PlayerResource:GetTeam(playerID)
@@ -392,6 +393,8 @@ function HeroSelection:ChooseBans ()
         banCount = banCount + 1
         DebugPrint('Banning ' .. rankedpickorder.banChoices[playerID])
         table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+      else
+        skippedBans = skippedBans + 1
       end
     end
   end
