@@ -85,6 +85,8 @@ globals = { -- these globals can be set and accessed.
 "BOUNTY_RUNE_SPAWN_INTERVAL",
 "FIRST_POWER_RUNE_SPAWN_TIME",
 "POWER_RUNE_SPAWN_INTERVAL",
+"BOUNTY_RUNE_INITIAL_TEAM_GOLD",
+"BOUNTY_RUNE_INITIAL_TEAM_XP",
 "Components"
 }
 

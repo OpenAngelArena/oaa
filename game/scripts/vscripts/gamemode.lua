@@ -162,6 +162,7 @@ function GameMode:OnPreGame()
   InitModule(EntityStatProvider)
   InitModule(ProtectionAura)
   InitModule(RespawnManager)
+  InitModule(BountyRunePick)
 
   CheckCheatMode()
 end
