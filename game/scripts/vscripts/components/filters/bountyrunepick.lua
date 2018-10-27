@@ -25,7 +25,7 @@ function BountyRunePick:Filter(filter_table)
 
   local enemy_team
   if allied_team == DOTA_TEAM_GOODGUYS then
-	enemy_team = DOTA_TEAM_BADGUYS
+    enemy_team = DOTA_TEAM_BADGUYS
   elseif allied_team == DOTA_TEAM_BADGUYS then
     enemy_team = DOTA_TEAM_GOODGUYS
   else
@@ -44,19 +44,19 @@ function BountyRunePick:Filter(filter_table)
 
   allied_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-	--AlliedTeamXP = AlliedTeamXP + PlayerResource:GetTotalEarnedXP(playerid)
+    --AlliedTeamXP = AlliedTeamXP + PlayerResource:GetTotalEarnedXP(playerid)
     if hero then
       AlliedTeamGold = AlliedTeamGold + hero:GetNetworth()
-	  AlliedTeamXP = AlliedTeamXP + hero:GetCurrentXP()
+      AlliedTeamXP = AlliedTeamXP + hero:GetCurrentXP()
     end
   end)
 
   enemy_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-	--EnemyTeamXP = EnemyTeamXP + PlayerResource:GetTotalEarnedXP(playerid)
+    --EnemyTeamXP = EnemyTeamXP + PlayerResource:GetTotalEarnedXP(playerid)
     if hero then
       EnemyTeamGold = EnemyTeamGold + hero:GetNetworth()
-	  EnemyTeamXP = EnemyTeamXP + hero:GetCurrentXP()
+      EnemyTeamXP = EnemyTeamXP + hero:GetCurrentXP()
     end
   end)
 
@@ -68,8 +68,8 @@ function BountyRunePick:Filter(filter_table)
   local gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD*game_time*(1 + gold_difference*game_time/10)
   local xp_reward = math.ceil(BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + xp_difference*game_time/10))
 
-  allied_player_ids:each(function (playerID)
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  allied_player_ids:each(function (playerid)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerid)
 
     if hero then
       hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
