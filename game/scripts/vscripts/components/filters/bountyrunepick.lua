@@ -19,9 +19,9 @@ function BountyRunePick:Filter(filter_table)
   -- Game time in minutes:
   game_time = game_time/60
   -- Hero that picked up the rune
-  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  local hero_with_rune = PlayerResource:GetSelectedHeroEntity(playerID)
   -- Team that picked up the rune
-  local allied_team = hero:GetTeamNumber()
+  local allied_team = hero_with_rune:GetTeamNumber()
 
   local enemy_team
   if allied_team == DOTA_TEAM_GOODGUYS then
@@ -42,18 +42,18 @@ function BountyRunePick:Filter(filter_table)
   local EnemyTeamGold = 0
   local EnemyTeamXP = 0
 
-  allied_player_ids:each(function (playerID)
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-	--AlliedTeamXP = AlliedTeamXP + PlayerResource:GetTotalEarnedXP(playerID)
+  allied_player_ids:each(function (playerid)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+	--AlliedTeamXP = AlliedTeamXP + PlayerResource:GetTotalEarnedXP(playerid)
     if hero then
       AlliedTeamGold = AlliedTeamGold + hero:GetNetworth()
 	  AlliedTeamXP = AlliedTeamXP + hero:GetCurrentXP()
     end
   end)
 
-  enemy_player_ids:each(function (playerID)
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-	--EnemyTeamXP = EnemyTeamXP + PlayerResource:GetTotalEarnedXP(playerID)
+  enemy_player_ids:each(function (playerid)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+	--EnemyTeamXP = EnemyTeamXP + PlayerResource:GetTotalEarnedXP(playerid)
     if hero then
       EnemyTeamGold = EnemyTeamGold + hero:GetNetworth()
 	  EnemyTeamXP = EnemyTeamXP + hero:GetCurrentXP()
