@@ -7,7 +7,7 @@ function Runes:Init()
 
   local all_runes = Entities:FindAllByClassname("dota_item_rune")
   local hud_time = HudTimer:GetGameTime() -- it prints 0 at init
-	
+
 	-- Uncomment this if we are implementing custom runes
 	--[[
 	local powerup_rune_spawners = Entities:FindAllByClassname("dota_item_rune_spawner_powerup")
@@ -15,15 +15,15 @@ function Runes:Init()
 
 	local powerup_rune_locations = {}
 	local bounty_rune_locations = {}
-	
+
 	for i = 1, #powerup_rune_spawners do
-		powerup_rune_locations[i] = powerup_rune_spawners[i]:GetAbsOrigin()
-		powerup_rune_spawners[i]:RemoveSelf()	
+    powerup_rune_locations[i] = powerup_rune_spawners[i]:GetAbsOrigin()
+    powerup_rune_spawners[i]:RemoveSelf()
 	end
 
 	for i = 1, #bounty_rune_spawners do
-		bounty_rune_locations[i] = bounty_rune_spawners[i]:GetAbsOrigin()
-		bounty_rune_spawners[i]:RemoveSelf()
+    bounty_rune_locations[i] = bounty_rune_spawners[i]:GetAbsOrigin()
+    bounty_rune_spawners[i]:RemoveSelf()
 	end
 
 	--]]
@@ -32,30 +32,31 @@ function Runes:Init()
   for _,rune in pairs(all_runes) do
 		UTIL_Remove(rune)
   end
-	
+
 	-- Start a timer after FIRST_BOUNTY_RUNE_SPAWN_TIME delay and repeat every BOUNTY_RUNE_SPAWN_INTERVAL seconds
 	Timers:CreateTimer(FIRST_BOUNTY_RUNE_SPAWN_TIME, function()
 		self:SpawnRunes("bounty")
 		return BOUNTY_RUNE_SPAWN_INTERVAL
 	end)
-		
+
 	-- Start a timer after FIRST_POWER_RUNE_SPAWN_TIME delay and repeat every POWER_RUNE_SPAWN_INTERVAL seconds
 	Timers:CreateTimer(FIRST_POWER_RUNE_SPAWN_TIME, function()
 		self:SpawnRunes("powerup")
 		return POWER_RUNE_SPAWN_INTERVAL
 	end)
-  
+
   -- Check every 0.5 second if there is a rune spawned that is not supposed to spawn and hide it
   Timers:CreateTimer(function()
 		self:CheckFindRunes()
 		return 0.5
   end)
-  
+
   Timers:CreateTimer(function()
-		self:CheckFindRunes() 
+		self:CheckFindRunes()
 		return 0.5
   end)
 
+  -- RuneSpawnFilter doesn't work, thanks Valve
   --FilterManager:AddFilter(FilterManager.RuneSpawn, self, Dynamic_Wrap(Runes, "RunesSpawnFilter"))
 end
 
@@ -102,7 +103,7 @@ function Runes:FindUndergroundRune(runes)
 	local rune_with_minimum_z = runes[1]
 	local rune_origin_with_minimum_z = rune_with_minimum_z:GetOrigin()
 	local minimum_z = rune_origin_with_minimum_z.z
-	
+
 	for i = 1, #runes do
 		local rune_origin = runes[i]:GetOrigin()
 		if rune_origin.z < minimum_z then
@@ -110,7 +111,7 @@ function Runes:FindUndergroundRune(runes)
 			rune_with_minimum_z = runes[i]
 		end
 	end
-	
+
 	return rune_with_minimum_z
 end
 
@@ -140,7 +141,7 @@ function Runes:SpawnRunes(rune_type)
 		print("Runes module: Invalid rune_type for spawning.")
 		return nil
 	end
-	
+
 	if rune_spawners == nil or rune_spawners == {} then
 		print("Runes module: There are no rune spawners entities on the map.")
 		return nil
