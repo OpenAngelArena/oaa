@@ -150,7 +150,9 @@ AOE_XP_BONUS_FACTOR ={
 --4 Heroes: AOE_XP_LEVEL_MULTIPLIER[4] × L + AOE_XP_BONUS_FACTOR[4] × XPDiff × HeroXP + f(Level)/4
 --5 Heroes: AOE_XP_LEVEL_MULTIPLIER[5] × L + AOE_XP_BONUS_FACTOR[5] × XPDiff × HeroXP + f(Level)/5
 
--- Bounty runes rewards
+-- Bounty runes
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 120      -- After what delay in seconds will the first bounty rune spawn?
+BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 40
 BOUNTY_RUNE_INITIAL_TEAM_XP = 20
 -- gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD x game_time x (1 + gold_difference x game_time/10)
@@ -263,8 +265,8 @@ AUTO_LAUNCH_DELAY = 30                  -- How long should the default team sele
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
 
 USE_DEFAULT_RUNE_SYSTEM = false     -- Should we use the default dota rune spawn timings and the same runes as dota have?
-BOUNTY_RUNE_SPAWN_INTERVAL = 120    -- How long in seconds should we wait between bounty rune spawns? BUGGED! WORKS FOR POWERUPS TOO!
-POWER_RUNE_SPAWN_INTERVAL = 120     -- How long in seconds should we wait between power-up runes spawns? BUGGED! WORKS FOR BOUNTIES TOO!
+FIRST_POWER_RUNE_SPAWN_TIME = 120   -- After what delay in seconds will the first power-up rune spawn?
+POWER_RUNE_SPAWN_INTERVAL = 120     -- How long in seconds should we wait between power-up runes spawns?
 
 ENABLED_RUNES = {}                      -- Which runes should be enabled to spawn in our game mode?
 ENABLED_RUNES[DOTA_RUNE_DOUBLEDAMAGE] = true
@@ -274,7 +276,6 @@ ENABLED_RUNES[DOTA_RUNE_INVISIBILITY] = true
 ENABLED_RUNES[DOTA_RUNE_REGENERATION] = true
 ENABLED_RUNES[DOTA_RUNE_BOUNTY] = true
 ENABLED_RUNES[DOTA_RUNE_ARCANE] = true  -- If this doesn't spawn use RuneSpawn filter
-
 
 MAX_NUMBER_OF_TEAMS = 2                -- How many potential teams can be in this game mode?
 USE_CUSTOM_TEAM_COLORS = false           -- Should we use custom team colors?

@@ -191,6 +191,7 @@ function GameMode:OnGameInProgress()
   InitModule(PlayerConnection)
   InitModule(StatusResistance)
   InitModule(SaveLoadState)
+  --InitModule(Runes)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
