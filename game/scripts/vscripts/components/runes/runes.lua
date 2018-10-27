@@ -30,22 +30,3 @@ function Runes:RemoveAllRunes()
     UTIL_Remove(rune)
   end
 end
-
---[[
-function Runes:SortRunes(runes)
-	if self.powerup_runes == nil then
-		self.powerup_runes = {}
-	end
-	if self.bounty_runes == nil then
-		self.bounty_runes = {}
-	end
-	for _,rune in pairs(runes) do
-		local rune_model_name = rune:GetModelName()
-		if string.find(rune_model_name, "rune_goldxp") then
-			table.insert(self.bounty_runes, rune)
-		else
-			table.insert(self.powerup_runes, rune)
-		end
-	end
-end
---]]
