@@ -31,14 +31,14 @@ if IsServer() then
   function item_ward_stack:Setup ()
     local caster = self:GetCaster()
 
-    if not self.wardType then
-      self:SetType(WARD_TYPE_OBSERVER)
-    end
     if not caster.sentryCount then
       caster.sentryCount = 2
     end
     if not caster.observerCount then
       caster.observerCount = 2
+    end
+    if not self.wardType then
+      self:SetType(WARD_TYPE_OBSERVER)
     end
   end
   function item_ward_stack:OnSpellStart ()
@@ -64,14 +64,22 @@ if IsServer() then
     end
 
     local ward = CreateUnitByName("npc_dota_" .. wardType .. "_wards", target, true, nil, caster, caster:GetTeam())
-    ward:AddNewModifier(ward, nil, "modifier_kill", { duration = self:GetSpecialValueFor(wardType .. '_duration') })
-    ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", { invisible = true })
+    if wardType == "sentry" then
+      ward:AddNewModifier(ward, nil, "modifier_item_ward_true_sight", {
+        true_sight_range = self:GetSpecialValueFor("sentry_reveal_radius"),
+        duration = self:GetSpecialValueFor(wardType .. '_duration')
+      })
+    end
+    ward:AddNewModifier(ward, nil, "modifier_item_buff_ward", {
+      duration = self:GetSpecialValueFor(wardType .. '_duration')
+    })
 
     caster[wardType .. 'Count'] = caster[wardType .. 'Count'] - 1
     if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
     end
     self.mod:OnWardTypeUpdate()
+    EmitSoundOnLocationForAllies(target, "DOTA_Item.ObserverWard.Activate", caster)
 
     -- ward
   end
@@ -81,10 +89,6 @@ if IsServer() then
     local caster = self:GetCaster()
     local newVal = self.wardType % 2 + 1
     DebugPrint('Toggling! ' .. self.wardType .. '->' .. newVal)
-    if caster[wardTypeToString(newVal) .. 'Count'] == nil then
-      caster[wardTypeToString(newVal) .. 'Count'] = 0
-      return
-    end
     if caster[wardTypeToString(newVal) .. 'Count'] == 0 then
       return
     end
@@ -195,6 +199,7 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
   local maxStack = self:GetMaxStack()
   local currentStack = caster[self:WardName() .. "Count"] or 0
   local localStack = self:GetStackCount()
+  local ability = self:GetAbility()
 
   if localStack ~= currentStack then
     self:SetStackCount(currentStack)
@@ -219,7 +224,6 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
       return
     end
 
-    local ability = self:GetAbility()
     self.charger = caster:AddNewModifier(caster, ability, modifierCharger, {})
     self.wasMaxed = true
     return
@@ -234,6 +238,9 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
     caster[self:WardName() .. "Count"] = currentStack
     self:SetStackCount(currentStack)
     caster:RemoveModifierByName(modifierCharger)
+    if ability.mod then
+      ability.mod:OnWardTypeUpdate()
+    end
     self.wasMaxed = false
   end
 
@@ -251,7 +258,6 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
   end
 
   DebugPrint('Adding new charger!')
-  local ability = self:GetAbility()
   self.charger = caster:AddNewModifier(caster, ability, modifierCharger, { duration = self:GetIntervalCount() - self.wardStack[intervalCount] } )
 end
 
