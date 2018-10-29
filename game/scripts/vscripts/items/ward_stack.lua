@@ -264,6 +264,14 @@ end
 modifier_item_ward_stack_sentries.OnRefresh = modifier_item_ward_stack_sentries.OnCreated
 modifier_item_ward_stack_observers = class(modifier_item_ward_stack_sentries)
 
+function modifier_item_ward_stack_sentries:IsPurgable ()
+  return false
+end
+
+function modifier_item_ward_stack_observers:IsPurgable ()
+  return false
+end
+
 function modifier_item_ward_stack_sentries:IsHidden ()
   return true
 end
@@ -306,6 +314,14 @@ function modifier_observer_ward_recharger:WardName ()
 end
 function modifier_sentry_ward_recharger:WardName ()
   return "sentry"
+end
+
+function modifier_sentry_ward_recharger:IsPurgable ()
+  return false
+end
+
+function modifier_observer_ward_recharger:IsPurgable ()
+  return false
 end
 
 --------------------------------------------------------------------------
@@ -393,6 +409,10 @@ function modifier_item_ward_stack:GetModifierManaBonus ()
   return self:GetAbility():GetSpecialValueFor('bonus_mana')
 end
 
+function modifier_item_ward_stack:IsPurgable ()
+  return false
+end
+
 --------------------------------------------------------------------------
 -- modifier_item_ward_stack_aura
 --------------------------------------------------------------------------
@@ -411,4 +431,8 @@ end
 
 function modifier_item_ward_stack_aura:IsHidden ()
   return true
+end
+
+function modifier_item_ward_stack_aura:IsPurgable ()
+  return false
 end
