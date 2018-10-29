@@ -119,7 +119,7 @@ CAVE_MAX_MULTIPLIER = 2                 -- magic haga value, originally "m"
 LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly token to toss errors to
 
 -- XP gain and rubberband on hero kills
-USE_CUSTOM_HERO_LEVELS = false  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
+USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
 AOE_XP_LEVEL_MULTIPLIER = {
   18,
   13.5,
