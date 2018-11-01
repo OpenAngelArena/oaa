@@ -261,21 +261,33 @@ function HeroSelection:RankedManager (event)
   end
   if rankedpickorder.phase == 'bans' then
     -- end banning phase
+    if not event.isTimeout then
+      -- ban hero
+      if event.hero == 'random' or rankedpickorder.banChoices[event.PlayerID] then
+        -- bad ban
+        save()
+        return
+      end
+      -- good ban
+      rankedpickorder.banChoices[event.PlayerID] = event.hero
+      save()
+
+      local banCount = 0
+      for _,a in pairs(rankedpickorder.banChoices) do
+        banCount = banCount + 1
+      end
+      if PlayerResource:GetAllTeamPlayerIDs():length() == banCount then
+        event.isTimeout = true
+      else
+        return
+      end
+    end
     if event.isTimeout then
       rankedpickorder.phase = 'picking'
       rankedpickorder.currentOrder = 1
       self:ChooseBans()
       save()
       return self:RankedTimer(RANKED_PICK_TIME, "PICK")
-    else
-      -- ban hero
-      if event.hero == 'random' or rankedpickorder.banChoices[event.PlayerID] then
-        save()
-        return
-      end
-      rankedpickorder.banChoices[event.PlayerID] = event.hero
-      save()
-      return
     end
   end
   if rankedpickorder.phase == 'picking' then
@@ -369,8 +381,9 @@ function HeroSelection:ChooseBans ()
     end
     return
   else
+    local skippedBans = 0
     while banCount < totalChoices / 2 do
-      local choiceNum = RandomInt(1, totalChoices - banCount)
+      local choiceNum = RandomInt(1, totalChoices - banCount - skippedBans)
       local playerID = playerIDs[choiceNum]
       table.remove(playerIDs, choiceNum)
       local team = PlayerResource:GetTeam(playerID)
@@ -392,6 +405,8 @@ function HeroSelection:ChooseBans ()
         banCount = banCount + 1
         DebugPrint('Banning ' .. rankedpickorder.banChoices[playerID])
         table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+      else
+        skippedBans = skippedBans + 1
       end
     end
   end
