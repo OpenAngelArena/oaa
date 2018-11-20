@@ -26,8 +26,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "139"       // unique ID
-    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -71,17 +71,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 60 70"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "35"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2"
+        "bonus_attack_speed"                              "30 35 45 55 65"
       }
     }
   }
