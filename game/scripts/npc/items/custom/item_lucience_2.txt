@@ -52,7 +52,7 @@
     "ItemBaseLevel"                                       "2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14615"
+    "ItemCost"                                            "14525"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 2;lucio 2"
@@ -78,7 +78,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen_bonus"                                     "65 130 260"
+        "regen_bonus"                                     "70 140 270"
       }
       "03"
       {
@@ -88,7 +88,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700"
+        "aura_radius"                                     "1000"
       }
       "05"
       {
