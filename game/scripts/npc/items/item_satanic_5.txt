@@ -65,7 +65,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 150 225"
+        "bonus_damage"                                    "25 50 75 100 150"
       }
       "04"
       {
@@ -75,7 +75,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "175 170 165 160 155"
+        "unholy_lifesteal_percent"                        "175 180 185 190 195"
       }
       "06"
       {
@@ -87,6 +87,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "unholy_duration"                                 "5.0"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "30"
+			}
     }
   }
 }
