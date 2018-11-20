@@ -133,7 +133,7 @@ end
 
 function modifier_item_greater_power_treads:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -246,7 +246,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Boots( event )
+function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Percentage( event )
   local spell = self:GetAbility()
 
   return self.moveSpd or spell:GetSpecialValueFor( "bonus_movement_speed" )
