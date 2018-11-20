@@ -13,6 +13,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
+    "ItemPurchasable"                                     "0"
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -21,12 +22,9 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_wraith_band;item_ring_of_basilius"
+      //"01"                                                "item_wraith_band;item_ring_of_basilius"
     }
   }
-
-
-
 
   //=================================================================================================================
   // Ring of Aquila, Staquila, Spectaquila
@@ -37,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "212"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
     "AbilityTextureName"                                  "custom/ring_of_aquila_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -48,10 +46,7 @@
     "ItemShareability"                                    ""
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ActiveDescriptionLine"                               "2"
-
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_ring_of_aquila;item_ring_of_aquila_2"
+    "ItemPurchasable"                                     "0"
 
     // Sound
     //-------------------------------------------------------------------------------------------------------------
@@ -66,22 +61,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "7 20 40"
+        "bonus_damage"                                    "7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "3 6 12"
+        "bonus_strength"                                  "3"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "9 18 36"
+        "bonus_agility"                                   "9"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "3 6 12"
+        "bonus_intellect"                                 "3"
       }
       "05"
       {
@@ -91,17 +86,17 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "0.5 0.6 0.7"
+        "aura_mana_regen"                                 "0.5"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_bonus_armor"                                "2 3 4"
+        "aura_bonus_armor"                                "2"
       }
     }
   }
