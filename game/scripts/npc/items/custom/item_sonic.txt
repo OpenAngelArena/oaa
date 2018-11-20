@@ -57,17 +57,17 @@
       "02"
       {
         "var_type"                "FIELD_INTEGER"
-        "bonus_str"               "32 48 64"
+        "bonus_str"               "30 45 60"
       }
       "03"
       {
         "var_type"                "FIELD_INTEGER"
-        "bonus_agi"               "15 30 40"
+        "bonus_agi"               "30 45 60"
       }
       "04"
       {
         "var_type"                "FIELD_FLOAT"
-        "bonus_mana_regen"        "3.0 4.5 6.25"
+        "bonus_mana_regen"        "4.5 6.0 7.5"
       }
       "05"
       {
@@ -87,4 +87,3 @@
     }
   }
 }
-
