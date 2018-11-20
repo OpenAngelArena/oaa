@@ -80,13 +80,13 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-        "hp_regen_aura"     "7 10 12 14 16"
+				"var_type"				"FIELD_FLOAT"
+        "hp_regen_aura"     "8.5 12 14 16 18"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
+				"aura_radius"			"1200"
 			}
 			"05"
 			{
