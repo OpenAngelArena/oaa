@@ -93,6 +93,7 @@ function modifier_item_greater_power_treads:OnCreated( event )
   self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
   self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
   self.stat = spell:GetSpecialValueFor( "bonus_stat" )
+  self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
 end
 
 --------------------------------------------------------------------------------
@@ -113,6 +114,7 @@ function modifier_item_greater_power_treads:OnRefresh( event )
   self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
   self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
   self.stat = spell:GetSpecialValueFor( "bonus_stat" )
+  self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
 end
 
 --------------------------------------------------------------------------------
@@ -135,6 +137,7 @@ function modifier_item_greater_power_treads:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
@@ -297,6 +300,12 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect( eve
   end
 
   return 0
+end
+
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage( event )
+  local spell = self:GetAbility()
+
+  return self.bonus_damage or spell:GetSpecialValueFor( "bonus_damage" )
 end
 
 --------------------------------------------------------------------------------
