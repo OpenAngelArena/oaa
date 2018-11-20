@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "8650"
+    "ItemCost"                                            "8575"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 2;guardian greaves 2;ggg 2"
@@ -68,10 +68,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // needs rework into percentage based bonus
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "60 66 73 80"
+        "bonus_movement"                                  "25 30 35 40"
       }
       "02"
       {
