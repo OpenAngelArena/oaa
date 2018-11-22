@@ -19,14 +19,14 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
+        "radius"                                          "1200"
       }
       "02"
       {
@@ -53,6 +53,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_damage_duration_scepter"                   "110" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "permanent_bonus"                                 "2 3 4 5 10 15"
       }
     }
   }
