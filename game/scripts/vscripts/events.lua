@@ -72,6 +72,13 @@ function GameMode:OnNPCSpawned(keys)
       npc:AddNewModifier(npc, npc:FindAbilityByName("silencer_glaives_of_wisdom_oaa"), "modifier_oaa_int_steal", {})
     end)
   end
+
+  if npc.GetPhysicalArmorValue then
+    LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
+    Timers:CreateTimer(function()
+      npc:AddNewModifier(npc, nil, "modifier_legacy_armor", {})
+    end)
+  end
 end
 
 -- Custom event that fires when an entity takes damage that reduces its health to 0
