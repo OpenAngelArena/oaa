@@ -21,28 +21,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "marksmanship_agility_bonus"                      "35 75 120 200 280" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_3"
+        "chance"                                          "20 30 40 50 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "split_count_scepter"                             "2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_count_scepter"                             "2"
+        "scepter_range"                                   "375"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_range"                                   "375"
+        "damage_reduction_scepter"                        "50"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_scepter"                        "50"
+        "disable_range"                                   "400"
       }
     }
   }

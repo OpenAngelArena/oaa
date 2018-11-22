@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5339"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -21,7 +21,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "70.0 60.0 50.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "70 60 50 40 40 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_per_second"                               "999999"      // OAA
+        "devour_time"                                     "80"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "regen"                                           "5 10 15 20 30 40"
       }
     }
   }
