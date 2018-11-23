@@ -1,29 +1,13 @@
-beastmaster_call_of_the_wild = class(AbilityBaseClass)
 
-function beastmaster_call_of_the_wild:OnSpellStart()
+beastmaster_call_of_the_wild_boar_oaa = class(AbilityBaseClass)
+
+function beastmaster_call_of_the_wild_boar_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()
   local abilityLevel = self:GetLevel()
   local duration = self:GetSpecialValueFor("duration")
 
   self:SpawnBoar(caster, playerID, abilityLevel, duration)
-
-  -- if abilityLevel > 2 then
-    -- self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
-  -- end
-
-  -- if IsServer() then
-	-- -- TODO: Change the talent for something useful in OAA
-	-- -- Lvl 25 Talent that adds 2 more hawks
-	-- local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_3")
-	-- if talent then
-		-- if talent:GetLevel() ~= 0 then
-			-- local bonus_hawks = talent:GetSpecialValueFor("value")
-			-- self:SpawnHawk(caster, playerID, abilityLevel, duration, bonus_hawks)
-		-- end
-    -- end
-  -- end
-
 
   -- if abilityLevel > 3 then
     -- local npcCreepList = {
@@ -40,43 +24,17 @@ function beastmaster_call_of_the_wild:OnSpellStart()
   -- end
 end
 
-function beastmaster_call_of_the_wild:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
-  local position = caster:GetOrigin();
+function beastmaster_call_of_the_wild_boar_oaa:OnUpgrade()
+  local abilityLevel = self:GetLevel()
+  local hawk_ability = self:GetCaster():FindAbilityByName("beastmaster_call_of_the_wild_hawk_oaa")
 
-  if bRandomPosition then
-    position = position + RandomVector(1):Normalized() * RandomFloat(50, 100)
-  end
-
-  local npcCreep = CreateUnitByName(levelUnitName, position, true, caster, caster:GetOwner(), caster:GetTeam())
-  npcCreep:SetControllableByPlayer(playerID, false)
-  npcCreep:SetOwner(caster)
-  npcCreep:SetForwardVector(caster:GetForwardVector())
-  npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
-
-  return npcCreep
+	-- Check to not enter a level up loop
+  if hawk_ability and hawk_ability:GetLevel() ~= abilityLevel then
+		hawk_ability:SetLevel(abilityLevel)
+	end
 end
 
-function beastmaster_call_of_the_wild:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
-
-  local baseUnitName = "npc_dota_beastmaster_hawk"
-  local levelUnitName = baseUnitName .. "_" .. abilityLevel
-
-  for i = 1, number_of_hawks do
-	-- Spawn hawk and orient it to face the same way as the caster
-	local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
-
-	-- Create particle effects
-	local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
-	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
-	ParticleManager:ReleaseParticleIndex(particle1)
-  end
-
-  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
-end
-
-
-function beastmaster_call_of_the_wild:SpawnBoar(caster, playerID, abilityLevel, duration)
+function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abilityLevel, duration)
   local baseUnitName = "npc_dota_beastmaster_boar"
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
 
@@ -96,4 +54,69 @@ function beastmaster_call_of_the_wild:SpawnBoar(caster, playerID, abilityLevel, 
   ParticleManager:ReleaseParticleIndex(particle1)
 
   caster:EmitSound("Hero_Beastmaster.Call.Boar")
+end
+
+function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
+  local position = caster:GetOrigin();
+
+  if bRandomPosition then
+    position = position + RandomVector(1):Normalized() * RandomFloat(50, 100)
+  end
+
+  local npcCreep = CreateUnitByName(levelUnitName, position, true, caster, caster:GetOwner(), caster:GetTeam())
+  npcCreep:SetControllableByPlayer(playerID, false)
+  npcCreep:SetOwner(caster)
+  npcCreep:SetForwardVector(caster:GetForwardVector())
+  npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+
+  return npcCreep
+end
+
+beastmaster_call_of_the_wild_hawk_oaa = class(AbilityBaseClass)
+
+function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
+  local caster = self:GetCaster()
+  local playerID = caster:GetPlayerID()
+  local abilityLevel = self:GetLevel()
+  local duration = self:GetSpecialValueFor("duration")
+
+  self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
+
+  -- TO DO: Change the ability behaviour to match vanilla
+  -- TO DO: Add invisibility to hawks
+end
+
+function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
+
+  local baseUnitName = "npc_dota_beastmaster_hawk"
+  local levelUnitName = baseUnitName .. "_" .. abilityLevel
+
+  for i = 1, number_of_hawks do
+	-- Spawn hawk and orient it to face the same way as the caster
+	local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
+
+	-- Create particle effects
+	local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
+	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
+	ParticleManager:ReleaseParticleIndex(particle1)
+  end
+
+  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+end
+
+function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
+  local position = caster:GetOrigin();
+
+  if bRandomPosition then
+    position = position + RandomVector(1):Normalized() * RandomFloat(50, 100)
+  end
+
+  local npcCreep = CreateUnitByName(levelUnitName, position, true, caster, caster:GetOwner(), caster:GetTeam())
+  npcCreep:SetControllableByPlayer(playerID, false)
+  npcCreep:SetOwner(caster)
+  npcCreep:SetForwardVector(caster:GetForwardVector())
+  npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+
+  return npcCreep
 end

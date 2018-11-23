@@ -1,31 +1,33 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild
+  // Beastmaster: Call of the Wild Boar
   //=================================================================================================================
-  "beastmaster_call_of_the_wild_hawk"
+  "beastmaster_call_of_the_wild_boar_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7231"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "ID"                                                  "87230"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
+    "AbilityTextureName"                                  "beastmaster_call_of_the_wild_boar"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 50 40 30 30 20"
+    "AbilityCooldown"                                     "42 38 34 30 26 22"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30"
+    "AbilityManaCost"                                     "50 50 50 50 100 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,18 +41,23 @@
       "02"
       {
         "var_type"                        "FIELD_INTEGER"
-        "hawk_hp_tooltip"                 "300 450 600 750 2500 5000"
+        "boar_hp_tooltip"                 "300 450 600 750 2500 5000"
       }
       "03"
       {
         "var_type"                        "FIELD_INTEGER"
-        "hawk_speed_tooltip"              "300 340 380 420 480 575"
+        "boar_damage_tooltip"             "20 30 40 64 250 500" //OAA
 		    "LinkedSpecialBonus"	            "special_bonus_unique_beastmaster_2"
       }
       "04"
       {
         "var_type"                        "FIELD_INTEGER"
-        "hawk_vision_tooltip"             "600 700 800 900 2000 3000"
+        "boar_moveslow_tooltip"           "10 20 30 40 100 160"
+      }
+      "05"
+      {
+        "var_type"                        "FIELD_FLOAT"
+        "boar_poison_duration_tooltip"    "3.0"
       }
     }
   }
