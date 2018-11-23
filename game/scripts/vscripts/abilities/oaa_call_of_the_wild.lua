@@ -8,36 +8,36 @@ function beastmaster_call_of_the_wild:OnSpellStart()
 
   self:SpawnBoar(caster, playerID, abilityLevel, duration)
 
-  if abilityLevel > 2 then
-    self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
-  end
+  -- if abilityLevel > 2 then
+    -- self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
+  -- end
 
-  if IsServer() then
-	-- TODO: Change the talent for something useful in OAA
-	-- Lvl 25 Talent that adds 2 more hawks
-	local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_3")
-	if talent then
-		if talent:GetLevel() ~= 0 then
-			local bonus_hawks = talent:GetSpecialValueFor("value")
-			self:SpawnHawk(caster, playerID, abilityLevel, duration, bonus_hawks)
-		end
-    end
-  end
+  -- if IsServer() then
+	-- -- TODO: Change the talent for something useful in OAA
+	-- -- Lvl 25 Talent that adds 2 more hawks
+	-- local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_3")
+	-- if talent then
+		-- if talent:GetLevel() ~= 0 then
+			-- local bonus_hawks = talent:GetSpecialValueFor("value")
+			-- self:SpawnHawk(caster, playerID, abilityLevel, duration, bonus_hawks)
+		-- end
+    -- end
+  -- end
 
 
-  if abilityLevel > 3 then
-    local npcCreepList = {
-      "npc_dota_neutral_alpha_wolf",
-      "npc_dota_neutral_centaur_khan",
-      "npc_dota_neutral_dark_troll_warlord",
-      "npc_dota_neutral_polar_furbolg_ursa_warrior",
-      "npc_dota_neutral_satyr_hellcaller"
-    }
+  -- if abilityLevel > 3 then
+    -- local npcCreepList = {
+      -- "npc_dota_neutral_alpha_wolf",
+      -- "npc_dota_neutral_centaur_khan",
+      -- "npc_dota_neutral_dark_troll_warlord",
+      -- "npc_dota_neutral_polar_furbolg_ursa_warrior",
+      -- "npc_dota_neutral_satyr_hellcaller"
+    -- }
 
-    local levelUnitName = npcCreepList[RandomInt(1, 5)]
+    -- local levelUnitName = npcCreepList[RandomInt(1, 5)]
 
-    local npcCreep = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, false)
-  end
+    -- local npcCreep = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, false)
+  -- end
 end
 
 function beastmaster_call_of_the_wild:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
