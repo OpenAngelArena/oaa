@@ -16,7 +16,7 @@ function UpdateTooltipPhysicalResistanceValue () {
   var physicalResistLabel = FindDotaHudElement('PhysicalResist');
   if (physicalResistLabel != null) {
     var unitArmor = Entities.GetPhysicalArmorValue(Players.GetLocalPlayerPortraitUnit());
-    var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * unitArmor) * 100);
+    var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
     physicalResistLabel.text = physicalResistance + '%';
   }
 }
@@ -24,7 +24,7 @@ function UpdateAltDisplayPhysicalResistanceValue () {
   var physicalResistLabel = FindDotaHudElement('PhysicalDamageResist');
   if (physicalResistLabel != null) {
     var unitArmor = Entities.GetPhysicalArmorValue(Players.GetLocalPlayerPortraitUnit());
-    var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * unitArmor) * 100);
+    var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
     physicalResistLabel.text = physicalResistance + '%';
   }
 }
