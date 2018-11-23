@@ -13,6 +13,7 @@
   GameEvents.Subscribe('dota_portrait_unit_modifiers_changed', UpdateAltDisplayPhysicalResistanceValue);
   GameEvents.Subscribe('dota_player_update_hero_selection', UpdateAltDisplayPhysicalResistanceValue);
   GameEvents.Subscribe('dota_player_update_selected_unit', UpdateAltDisplayPhysicalResistanceValue);
+  GameEvents.Subscribe('dota_player_update_query_unit', UpdateAltDisplayPhysicalResistanceValue);
 }())
 
 function UpdateTooltipPhysicalResistanceValue () {
