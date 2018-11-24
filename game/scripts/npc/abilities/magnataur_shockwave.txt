@@ -18,18 +18,17 @@
     "HasScepterUpgrade"                                   "1"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1150"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0 9.0 8.0 7.0 7.0 7.0"
+    "AbilityCooldown"                                     "14 13 12 11 10 9"
     "AbilityDuration"                                     "0.6875"
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,39 +37,54 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shock_speed"                                     "1050"
+        "shock_speed"                                     "900"
       }
 
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shock_width"                                     "150"
+        "shock_width"                                     "200"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shock_damage"                                    "90 160 230 300 600 900"
-        "LinkedSpecialBonus"  "special_bonus_unique_magnus_4"
+        "shock_damage"                                    "75 150 225 300 600 900"
+        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_4"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pull_duration"                                   "0.2"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_slow"                                   "60"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "2"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_distance"                                "1725"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_speed"                                   "1700"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_distance"                                   "100"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "basic_slow_duration"                             "0.75"
       }
     }
   }
