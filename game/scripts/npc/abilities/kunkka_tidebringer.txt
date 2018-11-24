@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 4.0 4.0"
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage"                                   "100"
+        "cleave_damage"                                   "150"
         "LinkedSpecialBonus"    "special_bonus_unique_kunkka_4"
       }
     }
