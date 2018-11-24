@@ -48,14 +48,24 @@
 			"03"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"ignite_dps"            "10 25 40 55 150 300"
+				"ignite_dps"            "20 25 30 35 150 300"
 			}
-			"04"
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "ignite_duration"       "3"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "ignite_threshold"			"80"
+      }
+			"06"
 			{
 				"var_type"              "FIELD_INTEGER"
 				"movement_slow"         "25"
 			}
-			"05"
+			"07"
 			{
 				"var_type"              "FIELD_INTEGER"
 				"radius"                "400"

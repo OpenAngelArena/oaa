@@ -24,7 +24,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "4"
     "AbilityManaCost"                                     "65"
@@ -63,7 +63,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "1200"
+        "cast_range_tooltip"                              "1000"
       }
       "07"
       {

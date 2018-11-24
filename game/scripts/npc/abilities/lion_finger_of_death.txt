@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 420 650 1450 2300"
+    "AbilityManaCost"                                     "200 420 650 1500 2500"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -54,19 +54,24 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "200 420 625 1500 2600"
+        "damage_per_kill"                                 "50"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_delay"                                    "0.25"
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_scepter"                               "200 420 625 1400 2000"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "100.0 60.0 20.0 20.0 20.0"
+        "damage_delay"                                    "0.25"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "100.0 60.0 20.0 20.0 20.0"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "splash_radius_scepter"                           "325"
