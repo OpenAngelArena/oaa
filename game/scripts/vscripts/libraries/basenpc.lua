@@ -12,3 +12,7 @@ function CDOTA_BaseNPC:HasLearnedAbility(abilityName)
   end
   return false
 end
+
+function CDOTA_BaseNPC:GetAttackRange()
+  return self:Script_GetAttackRange()
+end
