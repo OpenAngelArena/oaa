@@ -134,20 +134,22 @@ function modifier_oaa_arcane_orb:OnAttackLanded(keys)
 
   if ability:CastFilterResultTarget(target) == UF_SUCCESS then
     local player = parent:GetPlayerOwner()
+    local point = target:GetAbsOrigin()
+
+    local damage_table = {}
+    damage_table.attacker = parent
+    damage_table.damage_type = ability:GetAbilityDamageType()
+    damage_table.ability = ability
 
     -- Bonus damage vs illusions and summons that aren't creep-heroes
     if target:IsIllusion() or (target:IsSummoned() and not target:IsConsideredHero()) then
       bonusDamage = bonusDamage + ability:GetSpecialValueFor("illusion_damage")
     end
 
-    local damageTable = {
-      victim = target,
-      attacker = parent,
-      damage = bonusDamage,
-      damage_type = ability:GetAbilityDamageType(),
-      ability = ability
-    }
-    ApplyDamage(damageTable)
+    damage_table.damage = bonusDamage
+    damage_table.victim = target
+
+    ApplyDamage(damage_table)
     SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
     target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
 
@@ -164,6 +166,20 @@ function modifier_oaa_arcane_orb:OnAttackLanded(keys)
       target:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_debuff", {duration = intStealDuration})
       parent:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
       parent:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_buff", {duration = intStealDuration})
+    end
+
+    local radius = ability:GetSpecialValueFor("radius")
+    local target_team = ability:GetAbilityTargetTeam() or DOTA_UNIT_TARGET_TEAM_ENEMY
+    local target_type = ability:GetAbilityTargetType() or bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
+    local target_flags = ability:GetAbilityTargetFlags() or DOTA_UNIT_TARGET_FLAG_NONE
+
+    local enemies = FindUnitsInRadius(parent:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
+    for _, enemy in pairs(enemies) do
+      if enemy ~= target then
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, bonusDamage, player)
+      end
     end
   end
 end
