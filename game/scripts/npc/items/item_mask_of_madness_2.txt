@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3475"
+    "ItemCost"                                            "3275"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 2;mask of madness 2"
@@ -60,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 30 50 75 120"
+        "bonus_damage"                                    "10 30 50 75 120"
       }
       "02"
       {

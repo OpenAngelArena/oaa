@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_phase_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_boots;item_blades_of_attack;item_blades_of_attack"
+      "01"                                                "item_boots;item_chainmail;item_gloves"
     }
   }
 
@@ -34,15 +34,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "50"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "item_phase_boots"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1360"
+    "ItemCost"                                            "1550"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "phase boots"
@@ -58,12 +55,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50"
+        "bonus_movement_speed"                            "15"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24"
+        "bonus_damage"                                    "0"
       }
       "03"
       {
@@ -88,7 +85,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "13"
+        "phase_movement_speed_range"                      "10"
       }
       "08"
       {
@@ -98,12 +95,22 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "0"
+        "bonus_attack_speed"                              "25"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
+        "bonus_armor"                                     "5"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range_limit"                              "900"
+			}
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "phase_buffer"                                    "0.5"
       }
     }
   }

@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Obsidian Destroyer: Equilibrium
+  //=================================================================================================================
+  "obsidian_destroyer_equilibrium"
+  {
+    "ID"                                                  "5684" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "6"
+
+    "AbilityCooldown"                                     "18"
+
+    "AbilityManaCost"                                     "50"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_steal"                                      "80 100 120 140 180 200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "12 22 32 42 52 62"
+        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "7"
+      }
+    }
+  }
+}

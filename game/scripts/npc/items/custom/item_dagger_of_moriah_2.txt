@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34950"
+    "ItemCost"                                            "35100"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -83,12 +83,12 @@
       "04"
       {
         "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 10"
+        "spell_amp"             "26"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "10 20"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_health_regen"    "15 25"
       }
     }
   }

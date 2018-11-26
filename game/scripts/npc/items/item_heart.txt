@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "400"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_heart"
     "ItemRequirements"
     {
-      "01"                                                "item_reaver;item_vitality_booster;item_vitality_booster"
+      "01"                                                "item_ring_of_tarrasque;item_vitality_booster;item_reaver"
     }
   }
 
@@ -67,16 +67,21 @@
         "bonus_health"                                    "300 700 1200 2000 2700"  //OAA
       }
       "03"
+			{
+				"var_type"                                        "FIELD_INTEGER"
+				"hp_regen_amp"                                    "50"
+			}
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "health_regen_rate"                               "3 4 5 6 7" //OAA
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_melee"                                  "5"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_ranged_tooltip"                         "7"
