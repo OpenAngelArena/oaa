@@ -186,8 +186,8 @@ function GameMode:_CaptureGameMode()
     mode:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )
     mode:SetFountainPercentageManaRegen( FOUNTAIN_PERCENTAGE_MANA_REGEN )
     mode:SetLoseGoldOnDeath( LOSE_GOLD_ON_DEATH )
-    mode:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
-    mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
+    -- mode:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
+    -- mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
     mode:SetStashPurchasingDisabled ( DISABLE_STASH_PURCHASING )
 
     if USE_DEFAULT_RUNE_SYSTEM then
