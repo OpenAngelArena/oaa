@@ -25,6 +25,7 @@
     {
       "01"                                                "item_lucience_2;item_upgrade_core_4"
       "02"                                                "item_ancient_janggo_4;item_upgrade_core_4"
+      "03"                                                "item_sonic_2;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +49,7 @@
     "ItemBaseLevel"                                       "3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34615"
+    "ItemCost"                                            "30025"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 3;lucio 3"
@@ -73,7 +74,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen_bonus"                                     "65 130 260"
+        "regen_bonus"                                     "70 140 270"
       }
       "03"
       {
@@ -83,7 +84,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700"
+        "aura_radius"                                     "1000"
       }
       "05"
       {

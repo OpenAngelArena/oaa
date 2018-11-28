@@ -57,7 +57,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "55.0"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "55 61 68 75"
+        "bonus_movement"                                  "20 25 30 35"
       }
       "02"
       {
@@ -88,12 +88,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_amount"                                "170 250 400 600"
+        "replenish_amount"                                "180 260 410 610"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_radius"                                "900"
+        "replenish_radius"                                "1200"
       }
       "05"
       {

@@ -22,8 +22,12 @@
     "ItemResult"                                          "item_sange_and_yasha_4"
     "ItemRequirements"
     {
-      "01"                                                "item_ancient_janggo_3;item_upgrade_core_3"
-      "02"                                                "item_ancient_janggo_3;item_upgrade_core_4"
+      "01"                                                "item_sange_and_yasha_3;item_upgrade_core_3"
+      "02"                                                "item_sange_and_yasha_3;item_upgrade_core_4"
+      "03"                                                "item_kaya_and_sange_3;item_upgrade_core_3"
+      "04"                                                "item_kaya_and_sange_3;item_upgrade_core_4"
+      "05"                                                "item_yasha_and_kaya_3;item_upgrade_core_3"
+      "06"                                                "item_yasha_and_kaya_3;item_upgrade_core_4"
     }
   }
 
@@ -45,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14615"
+    "ItemCost"                                            "15050"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -60,18 +64,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "16 24 32 48 72"
+        "bonus_strength"                                  "16 24 32 48 72"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 24 32 48 72"
+        "bonus_agility"                                   "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48 72"
-      }
+        "status_resistance"                               "16"
+			}
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -80,37 +84,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "16"
+        "movement_speed_percent_bonus"                    "8 12 16 20 24" // OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maim_chance"                                     "40"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement"                              "-26 -30 -36 -45 -60"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack"                                "-26 -30 -36 -45 -60"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_movement_range"                        "-13"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maim_slow_attack_range"                          "-13"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "maim_duration"                                   "5.0"
+        "bonus_damage"                                    "8 20 28 44 68" // OAA
       }
     }
   }

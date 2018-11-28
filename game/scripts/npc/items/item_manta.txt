@@ -14,6 +14,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "ID"              "147"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityTextureName"                                  "custom/manta_style_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +29,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "4700"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "manta style;manta"

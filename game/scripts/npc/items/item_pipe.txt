@@ -43,7 +43,7 @@
     "AbilityCooldown"                                     "60.0"
     "AbilitySharedCooldown"                               "pipe"
     "AbilityManaCost"                                     "100"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3150"
+    "ItemCost"                                            "3025"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen"                                    "6.5 8.5 11 13.5 16"
+        "health_regen"                                    "8.0 10.0 13.0 16.0 18.0"
       }
       "02"
       {
@@ -85,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "2 3 5 7 10"
+        "aura_health_regen"                               "3 4 6 8 11"
       }
       "06"
       {
@@ -95,7 +95,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "08"
       {
@@ -110,12 +110,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_radius"                                  "900"
+        "barrier_radius"                                  "1200"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "0"
+        "bonus_all_stats"                                 "2 5 10 15 20"
       }
       "12"
       {

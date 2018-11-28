@@ -10,12 +10,14 @@
     "ID"                                                  "5394"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.25 0.25 0.25"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
+
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.25"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "160"
@@ -32,7 +34,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_multiplier"                               "9 10 11 12 13"
-        "LinkedSpecialBonus"  "special_bonus_unique_outworld_devourer_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_4"
       }
       "02"
       {

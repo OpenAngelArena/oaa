@@ -13,7 +13,9 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
+    "AbilityCooldown"                                     "7 6 5 4 4 3"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -21,18 +23,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "12"
+        "crit_min"                                        "120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_damage"                                     "125 175 225 275 325 375"
-      }  
+        "crit_max"                                        "160 190 220 250 300 350"
+      }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal"                                       "75"
-      }    
+        "lifesteal"                                       "35 45 55 65 75 85"
+      }
     }
   }
 }
