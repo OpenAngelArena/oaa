@@ -1,13 +1,13 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Sange and Yasha 5
+  // Recipe: Kaya and Sange 5
   //=================================================================================================================
-  "item_recipe_sange_and_yasha_5"
+  "item_recipe_kaya_and_sange_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3746"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8540"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -19,26 +19,27 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sange_and_yasha_5"
+    "ItemResult"                                          "item_kaya_and_sange_5"
     "ItemRequirements"
     {
-      "01"                                                "item_sange_and_yasha_4;item_upgrade_core_4"
-      "02"                                                "item_yasha_and_kaya_4;item_upgrade_core_4"
-      "03"                                                "item_kaya_and_sange_4;item_upgrade_core_4"
+      "01"                                                "item_kaya_and_sange_4;item_upgrade_core_4"
+      "02"                                                "item_sange_and_yasha_4;item_upgrade_core_4"
+      "03"                                                "item_yasha_and_kaya_4;item_upgrade_core_4"
     }
   }
-
   //=================================================================================================================
-  // Sange and Yasha 5
+  // Kaya and Sange 3
   //=================================================================================================================
-  "item_sange_and_yasha_5"
+  "item_kaya_and_sange_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3747"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_sange_and_yasha"
+    "ID"              "8541"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/sange_and_yasha_5"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "BaseClass"                                           "item_kaya_and_sange"
+    "AbilityTextureName"                                  "item_kaya_and_sange"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -46,13 +47,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35050"
-    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
-    "ItemQuality"                                         "artifact"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "sny 5;s&y 5;sy 5;sange and yasha 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
+    "ItemCost"            "35050"
+    "ItemShopTags"          "damage;str;agi;attack_speed;unique"
+    "ItemQuality"         "artifact"
+    "ItemAliases"         "snk;s&k;sk;sange and kaya"
+    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,32 +61,32 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
+        "var_type"        "FIELD_INTEGER"
         "bonus_strength"                                  "16 24 32 48 72"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48 72"
+        "var_type"        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 32 48 72"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "16"
-			}
+        "var_type"            "FIELD_INTEGER"
+        "status_resistance"       "16"
+      }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16"
+        "var_type"        "FIELD_INTEGER"
+        "manacost_reduction"                              "12 18 26 34 42" // OAA
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "8 12 16 20 24" // OAA
+        "var_type"        "FIELD_INTEGER"
+        "spell_amp"                                       "8 18 26 34 42" // OAA
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
+        "var_type"        "FIELD_INTEGER"
         "bonus_damage"                                    "8 20 28 44 68" // OAA
       }
     }

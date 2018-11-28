@@ -1,59 +1,60 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Trident 5
+  // Recipe: Yasha 2
   //=================================================================================================================
-  "item_recipe_kaya_5"
+  "item_recipe_yasha_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "5212"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "8519"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                         "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"            "custom/recipe/recipe_5"
     "BaseClass"                     "item_datadriven"
+    "AbilityTextureName"            "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "20000"
+    "ItemCost"                      "1500"
     "ItemShopTags"                  ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                    "1"
-    "ItemResult"                    "item_kaya_5"
+    "ItemResult"                    "item_yasha_2"
     "ItemRequirements"
     {
-      "01"                                                "item_kaya_4;item_upgrade_core_4"
-      "02"                                                "item_dagger_of_moriah;item_upgrade_core_4"
+      "01"                                                "item_yasha;item_upgrade_core"
+      "02"                                                "item_yasha;item_upgrade_core_2"
+      "03"                                                "item_yasha;item_upgrade_core_3"
+      "04"                                                "item_yasha;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Kaya (was Trident) 5
+  // Yasha 2
   //=================================================================================================================
-  "item_kaya_5"
+  "item_yasha_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                        "5211"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_kaya"
+    "ID"                            "8520"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/trident_5"
-
-
+    "AbilityTextureName"            "item_yasha"
+    "BaseClass"                     "item_yasha"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
-    // Item Info^
+
+    // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "35050"
-    "ItemShopTags"                  "int;mana"
-    "ItemQuality"                   "epic"
-    "ItemAliases"                   "ky 5;kaya 5"
-    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+    "ItemCost"                      "3550"
+    "ItemShopTags"                  "agi;attack_speed;move_speed"
+    "ItemQuality"                   "artifact"
+    "ItemAliases"                   "yasha"
+    "ShouldBeSuggested"             "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,17 +63,17 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "16 32 48 64 80"
+        "bonus_agility"         "16 24"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "manacost_reduction"    "12 18 26 34 42"
+        "bonus_attack_speed"    "12 16"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "8 18 26 34 42"
+        "movement_speed_percent_bonus"  "8 12"
       }
     }
   }

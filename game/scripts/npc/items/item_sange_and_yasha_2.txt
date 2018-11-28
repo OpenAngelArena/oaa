@@ -82,12 +82,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "12 16 20 24 28"
+        "movement_speed_percent_bonus"                    "8 12 16 20 24" // OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 28 44 68"
+        "bonus_damage"                                    "8 20 28 44 68" // OAA
       }
     }
   }
