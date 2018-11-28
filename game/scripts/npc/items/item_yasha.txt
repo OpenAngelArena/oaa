@@ -2,6 +2,7 @@
 {
   "item_recipe_yasha"
   {
+    "ID"              "169"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityTextureName"            "custom/recipe/recipe_1"
   }
   //=================================================================================================================
@@ -40,7 +41,7 @@
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_attack_speed"    "12 24"
+        "bonus_attack_speed"    "12 16"
       }
       "03"
       {

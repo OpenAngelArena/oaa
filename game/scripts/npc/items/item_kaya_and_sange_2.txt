@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8523"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8544"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -35,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8524"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "8545"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "BaseClass"                                           "item_kaya_and_sange"
