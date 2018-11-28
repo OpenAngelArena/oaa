@@ -22,12 +22,12 @@
     "ItemResult"                                          "item_kaya_and_sange_3"
     "ItemRequirements"
     {
-      "01"                                                "item_sange_2;item_upgrade_core_2"
-      "02"                                                "item_sange_2;item_upgrade_core_3"
-      "03"                                                "item_sange_2;item_upgrade_core_4"
       "01"                                                "item_kaya_2;item_upgrade_core_2"
       "02"                                                "item_kaya_2;item_upgrade_core_3"
       "03"                                                "item_kaya_2;item_upgrade_core_4"
+      "04"                                                "item_sange_2;item_upgrade_core_2"
+      "05"                                                "item_sange_2;item_upgrade_core_3"
+      "06"                                                "item_sange_2;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
@@ -74,23 +74,23 @@
       }
       "03"
       {
-        "var_type"            "FIELD_INTEGER"
-        "status_resistance"       "16"
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "16"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "manacost_reduction"                              "16 18 26 34 42"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "spell_amp"                                       "8 18 26 34 42" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "12 18 26 34 42"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"                                    "8 20 28 44 68" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "12 20 28 44 68"
       }
     }
   }
