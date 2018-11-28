@@ -23,9 +23,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_sange_and_yasha_4;item_upgrade_core_4"
-      "02"                                                "item_ancient_janggo_4;item_upgrade_core_4"
-      "03"                                                "item_lucience_2;item_upgrade_core_4"
-      "04"                                                "item_sonic_2;item_upgrade_core_4"
+      "02"                                                "item_yasha_and_kaya_4;item_upgrade_core_4"
+      "03"                                                "item_kaya_and_sange_4;item_upgrade_core_4"
     }
   }
 
@@ -47,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "30025"
+    "ItemCost"                                            "24100"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -82,12 +81,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "12 16 20 24 28"
+        "movement_speed_percent_bonus"                    "8 12 16 20 24" // OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 28 44 68"
+        "bonus_damage"                                    "8 20 28 44 68" // OAA
       }
     }
   }

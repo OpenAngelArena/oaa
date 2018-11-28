@@ -22,9 +22,12 @@
     "ItemResult"                                          "item_sange_and_yasha_3"
     "ItemRequirements"
     {
-      "01"                                                "item_sange_and_yasha_2;item_upgrade_core_2"
-      "02"                                                "item_sange_and_yasha_2;item_upgrade_core_3"
-      "03"                                                "item_sange_and_yasha_2;item_upgrade_core_4"
+      "01"                                                "item_sange_2;item_upgrade_core_2"
+      "02"                                                "item_sange_2;item_upgrade_core_3"
+      "03"                                                "item_sange_2;item_upgrade_core_4"
+      "01"                                                "item_yasha_2;item_upgrade_core_2"
+      "02"                                                "item_yasha_2;item_upgrade_core_3"
+      "03"                                                "item_yasha_2;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9100"
+    "ItemCost"                                            "5550"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -76,17 +79,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16"
+        "bonus_attack_speed"                              "16" // lol fuck you
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "12 16 20 24 28"
+        "movement_speed_percent_bonus"                    "8 12 16 20 24" // OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 28 44 68"
+        "bonus_damage"                                    "8 20 28 44 68" // OAA
       }
     }
   }
