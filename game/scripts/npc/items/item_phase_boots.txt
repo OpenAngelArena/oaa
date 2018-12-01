@@ -34,8 +34,10 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "50"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "item_phase_boots"
+
+    "AbilityCooldown"                                     "8.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -101,16 +103,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "5"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_range_limit"                              "900"
-			}
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "phase_buffer"                                    "0.5"
       }
     }
   }
