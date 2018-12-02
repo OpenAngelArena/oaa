@@ -72,23 +72,23 @@
       }
       "03"
       {
-        "var_type"            "FIELD_INTEGER"
-        "status_resistance"       "16"
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "16"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "manacost_reduction"                              "12 18 26 34 42" //OAA
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "spell_amp"                                       "8 18 26 34 42" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "8 18 26 34 42" //OAA
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"                                    "8 20 28 44 68" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "8 20 28 44 68" //OAA
       }
     }
   }
