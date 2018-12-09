@@ -81,9 +81,6 @@ function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
   local duration = self:GetSpecialValueFor("duration")
 
   self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
-
-  -- TO DO: Change the ability behaviour to match vanilla
-  -- TO DO: Add invisibility to hawks
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
@@ -103,6 +100,9 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
   end
 
   caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+
+  -- Invisibility buff
+  hawk:AddNewModifier(caster, self, "modifier_hawk_invisibility_oaa", {})
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
@@ -119,4 +119,49 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, 
   npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
 
   return npcCreep
+end
+
+--------------------------------------------------------------------------------
+
+modifier_hawk_invisibility_oaa = class( ModifierBaseClass )
+
+--------------------------------------------------------------------------------
+
+function modifier_hawk_invisibility_oaa:IsHidden()
+  return true
+end
+
+function modifier_hawk_invisibility_oaa:IsDebuff()
+  return false
+end
+
+function modifier_hawk_invisibility_oaa:IsPurgable()
+  return false
+end
+
+function modifier_hawk_invisibility_oaa:OnCreated()
+  local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+  ParticleManager:ReleaseParticleIndex(particle)
+end
+
+function modifier_hawk_invisibility_oaa:DeclareFunctions()
+  local funcs = { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, }
+  return funcs
+end
+
+function modifier_hawk_invisibility_oaa:GetModifierInvisibilityLevel()
+  if IsClient() then
+    return 1
+  end
+end
+
+function modifier_hawk_invisibility_oaa:CheckState()
+  if IsServer() then
+    local state = { [MODIFIER_STATE_INVISIBLE] = true}
+    return state
+  end
+end
+
+function modifier_hawk_invisibility_oaa:GetPriority()
+  return MODIFIER_PRIORITY_ULTRA
 end
