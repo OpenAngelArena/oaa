@@ -8,12 +8,16 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5516"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCooldown"                                     "55 50 45 40 35 30"
+
+    //"AbilityManaCost"                                   "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,19 +26,30 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "return_damage"                                   "16 18 20 22 32 42"
+        "return_damage"                                   "16 32 48 64 80 100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "strength_pct"                                    "30 45 60 75 90 120"
-        "LinkedSpecialBonus"      "special_bonus_unique_centaur_3"
-        "CalculateSpellDamageTooltip"                     "1"
+        "damage_gain_pct"                                 "6 9 12 15 18 21"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_gain_duration"                            "20"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "max_stacks"                                      "13"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
       }
     }
   }

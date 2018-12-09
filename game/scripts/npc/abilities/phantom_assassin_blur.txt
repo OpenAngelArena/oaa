@@ -8,8 +8,15 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5192"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                                            "6"
+
+    "AbilityCooldown"                                     "60 55 50 45 40 30"
+
+    "AbilityCastPoint"                                    "0.4"
+
+    "AbilityManaCost"                                     "30"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -18,17 +25,22 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_evasion"                                   "20 30 40 50 60 75"
-        "LinkedSpecialBonus"    "special_bonus_unique_phantom_assassin_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transparency_fade"                               "0.0"
+        "duration"                                        "25"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1600 1600 1600 1600"
+        "radius"                                          "600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_duration"                                   "0.75"
       }
     }
   }

@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0 80.0 70.0 70.0 70.0"
+    "AbilityCooldown"                                     "90.0 80.0 70.0 65.0 60.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -71,27 +71,27 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-50"
+        "slow_movement_speed_pct"                         "-60"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed_pct"                           "-50"
+        "slow_attack_speed_pct"                           "-60"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "push_distance"                                   "300"
+        "push_distance"                                   "450"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "push_duration"                                   "0.6"
+        "push_duration"                                   "1.0"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.0 3.0 4.0 6.0 8.0"
+        "slow_duration"                                   "3 3.5 4 7 9"
       }
       "10"
       {
@@ -106,7 +106,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "30"
+        "movement_speed"                                  "40"
       }
       "13"
       {

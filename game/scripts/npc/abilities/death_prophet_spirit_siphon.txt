@@ -55,7 +55,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "5 10 15 20 25 30"
+        "movement_steal"                                  "4 6 8 10 15 20"
       }
       "05"
       {
@@ -70,7 +70,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "60 55 50 45 45 45"
+        "charge_restore_time"                             "60 55 50 45 45 40"
       }
     }
   }
