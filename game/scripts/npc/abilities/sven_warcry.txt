@@ -44,9 +44,14 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700"
+        "self_bonus"                                      "25"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "700"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "10"

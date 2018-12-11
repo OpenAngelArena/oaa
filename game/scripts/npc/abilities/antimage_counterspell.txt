@@ -28,7 +28,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				  "40"
+		"AbilityManaCost"				  "45 50 55 60 100 140"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,13 +37,13 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"magic_resistance"      "10 20 30 40 50 60" //OAA
+				"magic_resistance"      "10 20 30 40 50 60" // OAA
 				"LinkedSpecialBonus"    "special_bonus_unique_antimage_4"
 			}
 			"02"
 			{
 				"var_type"              "FIELD_FLOAT"
-				"duration"              "1.4"
+				"duration"              "1.2"
 			}
 		}
 	}
