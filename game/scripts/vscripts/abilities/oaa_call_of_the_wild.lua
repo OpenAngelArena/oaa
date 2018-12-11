@@ -74,6 +74,8 @@ end
 
 beastmaster_call_of_the_wild_hawk_oaa = class(AbilityBaseClass)
 
+LinkLuaModifier( "modifier_hawk_invisibility_oaa", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
+
 function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()
@@ -81,9 +83,6 @@ function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
   local duration = self:GetSpecialValueFor("duration")
 
   self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
-
-  -- TO DO: Change the ability behaviour to match vanilla
-  -- TO DO: Add invisibility to hawks
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
@@ -92,14 +91,16 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
 
   for i = 1, number_of_hawks do
-	-- Spawn hawk and orient it to face the same way as the caster
-	local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
+    -- Spawn hawk and orient it to face the same way as the caster
+    local hawk = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, true)
 
-	-- Create particle effects
-	local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
-	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
-	ParticleManager:ReleaseParticleIndex(particle1)
+    -- Create particle effects
+    local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
+    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(particle1, 0, hawk:GetOrigin())
+    ParticleManager:ReleaseParticleIndex(particle1)
+    -- Invisibility buff
+    hawk:AddNewModifier(caster, self, "modifier_hawk_invisibility_oaa", {})
   end
 
   caster:EmitSound("Hero_Beastmaster.Call.Hawk")
@@ -119,4 +120,49 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, 
   npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
 
   return npcCreep
+end
+
+--------------------------------------------------------------------------------
+
+modifier_hawk_invisibility_oaa = class( ModifierBaseClass )
+
+--------------------------------------------------------------------------------
+
+function modifier_hawk_invisibility_oaa:IsHidden()
+  return true
+end
+
+function modifier_hawk_invisibility_oaa:IsDebuff()
+  return false
+end
+
+function modifier_hawk_invisibility_oaa:IsPurgable()
+  return false
+end
+
+function modifier_hawk_invisibility_oaa:OnCreated()
+  local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+  ParticleManager:ReleaseParticleIndex(particle)
+end
+
+function modifier_hawk_invisibility_oaa:DeclareFunctions()
+  local funcs = { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, }
+  return funcs
+end
+
+function modifier_hawk_invisibility_oaa:GetModifierInvisibilityLevel()
+  if IsClient() then
+    return 1
+  end
+end
+
+function modifier_hawk_invisibility_oaa:CheckState()
+  if IsServer() then
+    local state = { [MODIFIER_STATE_INVISIBLE] = true}
+    return state
+  end
+end
+
+function modifier_hawk_invisibility_oaa:GetPriority()
+  return MODIFIER_PRIORITY_ULTRA
 end
