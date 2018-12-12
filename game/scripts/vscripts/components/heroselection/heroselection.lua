@@ -730,9 +730,12 @@ function HeroSelection:ForceRandomHero (playerId)
   if not playerId then
     return HeroSelection:RandomHero()
   end
-  local team = PlayerResource:GetTeam(playerId)
-  if previewTable[team] and previewTable[team][playerId] and not self:IsHeroDisabled(previewTable[team][playerId]) then
-    return previewTable[team][playerId]
+  local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
+  local team = tostring(PlayerResource:GetTeam(playerId))
+  local steamid = HeroSelection:GetSteamAccountID(playerId)
+  DebugPrint("Force random for " .. playerId .. " on team " .. team)
+  if previewTable[team] and previewTable[team][steamid] and not self:IsHeroDisabled(previewTable[team][steamid]) then
+    return previewTable[team][steamid]
   end
 
   return HeroSelection:RandomHero()
