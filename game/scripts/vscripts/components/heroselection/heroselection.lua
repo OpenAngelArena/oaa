@@ -299,7 +299,7 @@ function HeroSelection:RankedManager (event)
     local choice = event.hero
     if event.isTimeout then
       DebugPrint('Timeout hero pick, randoming...')
-      choice = 'random'
+      choice = 'forcerandom'
       DebugPrint('Checking out this team ' .. rankedpickorder.order[rankedpickorder.currentOrder].team)
       PlayerResource:GetPlayerIDsForTeam(rankedpickorder.order[rankedpickorder.currentOrder].team):foreach(function (playerID)
         if not selectedtable[playerID] or selectedtable[playerID].selectedhero == 'empty' then
@@ -320,6 +320,9 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'random' then
       choice = self:RandomHero()
+    end
+    if choice == 'forcerandom' then
+      choice = self:ForceRandomHero(event.PlayerID)
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
@@ -415,7 +418,7 @@ end
 function HeroSelection:RankedTimer (time, message)
   HeroSelection:CheckPause()
   if forcestop == true or time < 0 then
-    HeroSelection:RankedManager({hero = "random", isTimeout = true})
+    HeroSelection:RankedManager({hero = "forcerandom", isTimeout = true})
     return
   end
 
@@ -476,6 +479,8 @@ function HeroSelection:CMManager (event)
       DebugPrintTable(event)
       if event.hero == "random" then
         event.hero = HeroSelection:RandomHero()
+      elseif event.hero == "forcerandom" then
+        event.hero = HeroSelection:ForceRandomHero(event.PlayerID)
       elseif HeroSelection:IsHeroDisabled(event.hero) then
         forcestop = false
         return
@@ -522,12 +527,12 @@ function HeroSelection:CMTimer (time, message, isReserveTime)
 
   if cmpickorder["currentstage"] > 0 and forcestop == false then
     if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_GOODGUYS and cmpickorder["captainradiant"] == "empty" then
-      HeroSelection:CMManager({hero = "random"})
+      HeroSelection:CMManager({hero = "forcerandom"})
       return
     end
 
     if cmpickorder["order"][cmpickorder["currentstage"]].side == DOTA_TEAM_BADGUYS and cmpickorder["captaindire"] == "empty" then
-      HeroSelection:CMManager({hero = "random"})
+      HeroSelection:CMManager({hero = "forcerandom"})
       return
     end
   end
@@ -554,7 +559,7 @@ function HeroSelection:CMTimer (time, message, isReserveTime)
       end
     end
     if time <= 0 then
-      HeroSelection:CMManager({hero = "random"})
+      HeroSelection:CMManager({hero = "forcerandom"})
       return
     end
   end
@@ -605,17 +610,19 @@ function HeroSelection:APTimer (time, message)
         if GetMapName() == "captains_mode" then
           HeroSelection:UpdateTable(key, cmpickorder[value.team.."picks"][1])
         else
-          HeroSelection:UpdateTable(key, HeroSelection:RandomHero())
+          HeroSelection:UpdateTable(key, HeroSelection:ForceRandomHero(key))
         end
       end
       HeroSelection:SelectHero(key, selectedtable[key].selectedhero)
     end
+
+    -- I don't understand this next chunk of code
     PlayerResource:GetAllTeamPlayerIDs():each(function (playerId)
       if not lockedHeroes[playerId] then
         if GetMapName() == "captains_mode" then
           HeroSelection:UpdateTable(playerId, cmpickorder[PlayerResource:GetTeam(playerId).."picks"][1])
         else
-          HeroSelection:UpdateTable(playerId, HeroSelection:RandomHero())
+          HeroSelection:UpdateTable(playerId, HeroSelection:ForceRandomHero(playerId))
         end
       end
     end)
@@ -719,6 +726,18 @@ function HeroSelection:IsHeroChosen (hero)
   return false
 end
 
+function HeroSelection:ForceRandomHero (playerId)
+  if not playerId then
+    return HeroSelection:RandomHero()
+  end
+  local team = PlayerResource:GetTeam(playerId)
+  if previewTable[team] and previewTable[team][playerId] then
+    return previewTable[team][playerId]
+  end
+
+  return HeroSelection:RandomHero()
+end
+
 function HeroSelection:RandomHero ()
   while true do
     local choice = HeroSelection:UnsafeRandomHero()
@@ -727,6 +746,7 @@ function HeroSelection:RandomHero ()
     end
   end
 end
+
 function HeroSelection:UnsafeRandomHero ()
   local curstate = 0
   local rndhero = RandomInt(0, totalheroes - 1)
@@ -810,6 +830,9 @@ function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
   if hero == "random" then
     hero = self:RandomHero()
+  end
+  if hero == "forcerandom" then
+    hero = self:ForceRandomHero(playerID)
   end
 
   if lockedHeroes[playerID] then
