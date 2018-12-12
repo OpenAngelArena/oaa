@@ -731,7 +731,7 @@ function HeroSelection:ForceRandomHero (playerId)
     return HeroSelection:RandomHero()
   end
   local team = PlayerResource:GetTeam(playerId)
-  if previewTable[team] and previewTable[team][playerId] then
+  if previewTable[team] and previewTable[team][playerId] and not self:IsHeroDisabled(previewTable[team][playerId]) then
     return previewTable[team][playerId]
   end
 
