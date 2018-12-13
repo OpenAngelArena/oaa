@@ -37,14 +37,14 @@
     "ID"              "81"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"            "custom/vladmir_1"
-    "AbilityCastRange"        "900"
+    "AbilityCastRange"        "1200"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_vladmir_2;item_vladmir_3;item_vladmir_4;item_vladmir_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2250"
+    "ItemCost"            "1925"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering;vlads"
@@ -67,7 +67,7 @@
       "03"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura"   "1.0 1.6 3.2 4.8 6.5"
+        "mana_regen_aura" "1.75 2.5 4.0 6.0 7.5"
       }
       "04"
       {
@@ -92,7 +92,7 @@
       "08"
       {
         "var_type"        "FIELD_INTEGER"
-        "aura_radius"         "900"
+        "aura_radius"         "1200"
       }
     }
   }

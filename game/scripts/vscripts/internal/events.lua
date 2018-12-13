@@ -10,7 +10,6 @@ function CreateGameEvent (name) --luacheck: ignore CreateGameEvent
   return event.broadcast
 end
 
-
 -- The overall game state has changed
 OnCustomGameSetupEvent = CreateGameEvent('OnCustomGameSetup')
 OnHeroSelectionEvent = CreateGameEvent('OnHeroSelection')
@@ -139,4 +138,12 @@ function GameMode:_OnConnectFull(keys)
   GameMode._reentrantCheck = true
   GameMode:OnConnectFull( keys )
   GameMode._reentrantCheck = false
+end
+
+OnItemUpdateEvent = CreateGameEvent('OnItemUpdate')
+function GameMode:OnItemUpdate( keys )
+  Debug:EnableDebugging()
+  DebugPrint('on item update!')
+  DebugPrintTable(keys)
+  OnItemUpdateEvent(keys)
 end

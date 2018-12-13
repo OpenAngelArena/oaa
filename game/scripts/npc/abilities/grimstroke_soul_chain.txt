@@ -22,7 +22,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "80 65 50 50 50"
+    "AbilityCooldown"       "100 75 50 50 50"
     "AbilityCastRange"        "700 800 900 1000 1100"
     "AbilityCastPoint"        "0.15"
     "AbilityCastAnimation"      "ACT_INVALID"
@@ -37,7 +37,7 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "chain_duration"    "6.0 8.0 10.0 11.0 12.0"
+        "chain_duration"    "6.0 7.0 8.0 11.0 12.0"
       }
       "02"
       {

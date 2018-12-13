@@ -16,11 +16,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "45 40 35 30 30 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 150 200"
+    "AbilityManaCost"                                     "70 85 100 115 150 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "30.0 30.0 30.0 30.0 30.0 30.0"
+        "illusion_duration"                               "24"
       }
       "02"
       {
@@ -46,17 +46,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "450 400 350 300 200 100"
+        "incoming_damage"                                 "375 350 325 300 200 100"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_incoming_damage_total_pct"               "550 500 450 400 300 200"
+        "tooltip_incoming_damage_total_pct"               "475 450 425 400 300 200"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "3 3 3 3 3 3"
+        "images_count"                                    "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren"
       }
       "07"
