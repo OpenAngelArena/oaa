@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times"                               "0.6 0.6 0.6 0.45 0.20"
+        "multicast_2_times"                               "0.6 0.6 0.6 0.45 0.2"
       }
       "02"
       {
@@ -34,39 +34,19 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fireblast_cooldown"                              "2 4 6 7 8"
+        "bloodlust_aoe"                                   "575"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ignite_aoe"                                      "150 300 450 550 700"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ignite_cast_range"                               "150 300 450 500 550"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bloodlust_aoe"                                   "575"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bloodlust_cooldown"                              "5 10 15 17 20"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "multicast_2_times_tooltip"                       "60 60 60 45 20"
       }
-      "10"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "multicast_3_times_tooltip"                       "0 30 30 30 30"
       }
-      "11"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "multicast_4_times_tooltip"                       "0 0 15 25 50"

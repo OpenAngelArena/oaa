@@ -21,8 +21,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 900 1300 1650 2000"
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastRange"                                    "1300"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "1300 1300 1300 1300 1300"
+        "width"                                           "1300"
       }
       "07"
       {
@@ -75,7 +75,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range_tooltip"                                   "500 900 1300 1550 2000"
+        "range_tooltip"                                   "1300"
       }
       "09"
       {
@@ -90,12 +90,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "75"
+        "movement_slow"                                   "50 60 70 80 85"
       }
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5 0.75 1.0 1.25 1.5"
+        "slow_duration"                                   "0.75"
       }
     }
   }

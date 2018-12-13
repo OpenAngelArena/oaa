@@ -1,5 +1,7 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
 
+Debug:EnableDebugging()
+
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect
 local OnDisconnectEvent = CreateGameEvent('OnDisconnect')
@@ -70,6 +72,11 @@ function GameMode:OnNPCSpawned(keys)
       npc:AddNewModifier(npc, npc:FindAbilityByName("silencer_glaives_of_wisdom_oaa"), "modifier_oaa_int_steal", {})
     end)
   end
+
+  if npc.GetPhysicalArmorValue then
+    LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
+    npc:AddNewModifier(npc, nil, "modifier_legacy_armor", {})
+  end
 end
 
 -- Custom event that fires when an entity takes damage that reduces its health to 0
@@ -113,6 +120,106 @@ function GameMode:OnItemPickedUp(keys)
   OnItemPickedUpEvent(keys)
   DebugPrint( '[BAREBONES] OnItemPickedUp' )
   DebugPrintTable(keys)
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnItemGifted
+local OnItemGiftedEvent = CreateGameEvent('OnItemGifted')
+function GameMode:OnItemGifted(keys)
+  OnItemGiftedEvent(keys)
+  DebugPrint( '[BAREBONES] OnItemGifted' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnPlayerGotItem
+local OnPlayerGotItemEvent = CreateGameEvent('OnPlayerGotItem')
+function GameMode:OnPlayerGotItem(keys)
+  OnPlayerGotItemEvent(keys)
+  DebugPrint( '[BAREBONES] OnPlayerGotItem' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnInventoryItemChanged
+local OnInventoryItemChangedEvent = CreateGameEvent('OnInventoryItemChanged')
+function GameMode:OnInventoryItemChanged(keys)
+  OnInventoryItemChangedEvent(keys)
+  DebugPrint( '[BAREBONES] OnInventoryItemChanged' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnInventoryChanged
+local OnInventoryChangedEvent = CreateGameEvent('OnInventoryChanged')
+function GameMode:OnInventoryChanged(keys)
+  OnInventoryChangedEvent(keys)
+  DebugPrint( '[BAREBONES] OnInventoryChanged' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
 
   local unitEntity = nil
   if keys.UnitEntitIndex then

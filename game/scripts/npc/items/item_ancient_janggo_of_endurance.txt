@@ -7,14 +7,14 @@
   {
     "ID"                                                  "184"    // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "575"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ancient_janggo"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_sobi_mask;item_bracer;item_wind_lace"
+      "01"                                                "item_sobi_mask;item_crown;item_wind_lace"
       "02"                                                "item_ancient_janggo"
     }
   }
@@ -37,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
     "AbilitySharedCooldown"                               "drums"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1615"
+    "ItemCost"                                            "1525"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance;drums"
@@ -68,22 +68,22 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "7 16 32 48 64"
+        "bonus_str"                                       "6 15 30 45 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "3 10 15 30 40"
+        "bonus_agi"                                       "6 15 30 45 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.5 3.0 4.5 6.25"
+        "bonus_mana_regen"                                "1.5 3.0 4.5 6.0 7.5"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aura_movement_speed"                       "20 25 30 35 40"
+        "bonus_aura_movement_speed"                       "6 10 15 20 25"
       }
       "06"
       {
@@ -103,7 +103,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
+        "radius"                                          "1200"
       }
     }
   }

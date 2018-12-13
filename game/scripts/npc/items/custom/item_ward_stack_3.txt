@@ -1,0 +1,155 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Ward Stack
+  //=================================================================================================================
+  "item_recipe_ward_stack_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8525"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                             "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                         "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                        "3500"
+    "ItemShopTags"                                 ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                      "1"
+    "ItemResult"                                      "item_ward_stack_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_ward_stack_2;item_upgrade_core_2"
+      "02"                                                "item_ward_stack_2;item_upgrade_core_3"
+      "03"                                                "item_ward_stack_2;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Ward Stack
+  //=================================================================================================================
+  "item_ward_stack_3"
+  {
+
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+
+    "ID"                                                      "8526"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET  | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityTextureName"                                  "item_ward_dispenser"
+    "ScriptFile"                                          "items/ward_stack.lua"
+
+    "AbilityCastRange"                                    "500"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "5625"
+    "ItemShopTags"                                        "support;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "wards;upgradable;stack"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_ward_stack"
+    "IsTempestDoubleClonable"                             "0"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "2 10 16 23 30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "2 10 16 23 30"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "80 400 1200 2000 2800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "90 450 800 1200 1500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_mana_regen"                                 "2.0 3.0 4.0 5.0 6.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_duration"                               "180"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_duration"                                 "180"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_radius"                                 "1600"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_vision_radius"                            "150"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_reveal_radius"                            "1000"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_recharge"                               "135 120 100 80 60"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "observer_max"                                    "2 3 4 5 6"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_recharge"                                 "80 60 50 40 30"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_max"                                      "4"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "500"
+      }
+    }
+  }
+}
