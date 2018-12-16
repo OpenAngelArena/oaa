@@ -142,8 +142,8 @@ end
 
 OnItemUpdateEvent = CreateGameEvent('OnItemUpdate')
 function GameMode:OnItemUpdate( keys )
-  Debug:EnableDebugging()
-  DebugPrint('on item update!')
-  DebugPrintTable(keys)
+  -- Debug:EnableDebugging()
+  -- DebugPrint('on item update!')
+  -- DebugPrintTable(keys)
   OnItemUpdateEvent(keys)
 end

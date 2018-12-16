@@ -50,7 +50,7 @@ CapturePoints.onStart = Start.listen
 CapturePoints.onEnd = CaptureFinished.listen
 
 function CapturePoints:Init ()
-  Debug.EnableDebugging()
+  -- Debug.EnableDebugging()
   DebugPrint('Init capture point')
 
   self.currentCapture = nil
