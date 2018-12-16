@@ -1,7 +1,5 @@
 -- This file contains all barebones-registered events and has already set up the passed-in parameters for your use.
 
-Debug:EnableDebugging()
-
 -- Cleanup a player when they leave
 -- game event object for OnDisconnect
 local OnDisconnectEvent = CreateGameEvent('OnDisconnect')

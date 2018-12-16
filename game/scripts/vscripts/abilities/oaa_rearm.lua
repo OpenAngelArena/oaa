@@ -158,7 +158,6 @@ if IsServer() then
     return totalCooldown, total
   end
 
-  Debug:EnableDebugging()
   function oaa_rearm:OnChannelThink (time)
     local caster = self:GetCaster()
     local totalCooldown, total = self:GetTotalCooldowns()

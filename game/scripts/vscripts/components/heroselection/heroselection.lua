@@ -67,11 +67,9 @@ function HeroSelection:Init ()
       local data = LoadKeyValues('scripts/npc/units/' .. key .. '.txt')
       if data and data[key] then
         allheroes[key] = data[key]
-        DebugPrintTable(allheroes[key])
       end
     end
     if value == 1 then
-      DebugPrint('Hero thingy fuck whatever ' .. allheroes[key].AttributePrimary)
       if not heroAbilities[allheroes[key].AttributePrimary] then
         heroAbilities[allheroes[key].AttributePrimary] = {}
       end
@@ -734,10 +732,11 @@ function HeroSelection:ForceRandomHero (playerId)
   local team = tostring(PlayerResource:GetTeam(playerId))
   local steamid = HeroSelection:GetSteamAccountID(playerId)
   DebugPrint("Force random for " .. playerId .. " on team " .. team)
-  if previewTable[team] and previewTable[team][steamid] and not self:IsHeroDisabled(previewTable[team][steamid]) then
+  if previewTable[team] and previewTable[team][steamid] and not HeroSelection:IsHeroDisabled(previewTable[team][steamid]) then
     return previewTable[team][steamid]
   end
 
+  DebugPrint("Bad preview hero, falling back to normal random")
   return HeroSelection:RandomHero()
 end
 
