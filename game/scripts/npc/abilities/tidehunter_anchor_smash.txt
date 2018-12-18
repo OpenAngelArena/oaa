@@ -10,7 +10,7 @@
     "ID"                                                  "5120"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
@@ -42,15 +42,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "attack_damage"                                   "45 90 135 180 315 450"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "damage_reduction"                                "-45 -50 -55 -60 -60 -60"
         "LinkedSpecialBonus"  "special_bonus_unique_tidehunter_3"
       }
-      "02"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "reduction_duration"                              "6.0"
       }
-      "03"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "375"

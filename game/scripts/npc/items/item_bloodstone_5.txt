@@ -17,7 +17,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone_4;item_upgrade_core_4"
-      "01"                                                "item_aeon_disk_4;item_upgrade_core_4"
+      "02"                                                "item_aeon_disk_4;item_upgrade_core_4"
     }
   }
 
@@ -72,13 +72,13 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 11 15 19 23"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "8.5 13 17 21 25"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.0 2.5 3.25 4.0 5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.0 3.5 4.25 5.0 6.0"
       }
       "05"
       {
@@ -97,13 +97,13 @@
       }
       "08"
       {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_charges" "14"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_charges"                                 "14"
       }
       "09"
       {
-        "var_type"        "FIELD_FLOAT"
-        "mana_per_charge" "0.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_per_charge"                                 "1.5"
       }
     }
   }

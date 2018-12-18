@@ -168,7 +168,6 @@ function SpidersThink()
   if thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.75 then -- phase 1
     local ability
     local target1, target2
-    Debug:EnableDebugging()
     if math.random(0, 1) == 0 then
       ability = thisEntity.SpidershotAbility
       target1, target2 = FindSpidershotLocations()

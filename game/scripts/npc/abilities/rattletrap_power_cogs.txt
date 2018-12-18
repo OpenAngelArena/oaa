@@ -39,34 +39,39 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "drain_amount"                                    "50 100 150 200 400 600"
+        "damage"                                          "50 125 200 275 575 875"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attacks_to_destroy"                              "2 2 2 2 3 4"
+        "mana_burn"                                       "50 80 110 140 260 380"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "250"
+        "attacks_to_destroy"                              "2 2 2 2 3 4"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "push_duration"                                   "0.85"
+        "var_type"                                        "FIELD_INTEGER"
+        "push_length"                                     "300"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cogs_radius"                                     "215"
+        "var_type"                                        "FIELD_FLOAT"
+        "push_duration"                                   "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "trigger_distance"                                "170"
+        "cogs_radius"                                     "215"
       }
       "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "trigger_distance"                                "170"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "extra_pull_buffer"                               "-10"
