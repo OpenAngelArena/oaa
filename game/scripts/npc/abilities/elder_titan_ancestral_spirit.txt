@@ -14,11 +14,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
     "MaxLevel"                                            "6"
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0"
+    "AbilityCooldown"                                     "17.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pass_damage"                                     "60 90 120 150 550 1040"
+        "pass_damage"                                     "50 90 120 150 300 550" //OAA
       }
 
       "03"
@@ -47,12 +47,12 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "9.0"
+        "buff_duration"                                   "10.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "600"
+        "speed"                                           "800"
       }
       "06"
       {
@@ -62,7 +62,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_pct_heroes"                                 "5"
+        "move_pct_heroes"                                 "7"
       }
       "08"
       {
@@ -73,14 +73,24 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_heroes"                                   "15 30 45 60 90 210"
+        "damage_heroes"                                   "15 30 60 80 100 210"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "10"
+	    "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_creeps"                                    "0.5"
+      }
+	    "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_heroes"                                    "1.5 3 4.5 6 7.5 9"
+      }
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_pct_cap"                                    "30"
+        "move_pct_cap"                                    "40"
       }
     }
   }

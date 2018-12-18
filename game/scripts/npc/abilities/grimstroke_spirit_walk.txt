@@ -28,6 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"          "400 500 600 700 900 1100"
     "AbilityCastPoint"          "0.15"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -66,14 +67,14 @@
       "05"
       {
         "var_type"        "FIELD_INTEGER"
-        "max_damage"      "160 240 320 400 500 650"
+        "max_damage"      "100 200 300 400 500 650"
       }
       "06"
       {
         "var_type"        "FIELD_FLOAT"
-        "max_stun"        "2.2 2.8 3.4 4.0 4.6 5.2"
+        "max_stun"        "1.4 2.2 3 3.8 4.5 5.0"
       }
-    "07"
+      "07"
       {
         "var_type"        "FIELD_INTEGER"
         "damage_per_tick"   "5 7 9 11 18 28"
@@ -89,6 +90,5 @@
         "tick_dps_tooltip"    "25 35 45 55 90 140"
       }
     }
-    "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_1"
   }
 }
