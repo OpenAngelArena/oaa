@@ -48,6 +48,7 @@ function modifier_oaa_arcane_orb:DeclareFunctions()
     MODIFIER_EVENT_ON_ATTACK_START,
     MODIFIER_EVENT_ON_ATTACK,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_FINISHED
   }
 end
 
@@ -75,9 +76,15 @@ function modifier_oaa_arcane_orb:OnAttack(event)
     return
   end
 
+  -- Check for existence of GetUnitName method to determine if target is a unit
+  if target.GetUnitName == nil then
+    return
+  end
+
   -- This happens only when Arcane Orb is cast manually.
   self.manual_cast = true
 
+  -- This is here just in case if the changing projectile fails during OnAttackStart when manually casting
   if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
     parent:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
   end
@@ -108,6 +115,11 @@ function modifier_oaa_arcane_orb:OnAttackStart(event)
     return
   end
 
+  -- Check for existence of GetUnitName method to determine if target is a unit
+  if target.GetUnitName == nil then
+    return
+  end
+
   if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
     if ability:GetAutoCastState() == true then
       --The Attack while Autocast is ON
@@ -122,6 +134,17 @@ function modifier_oaa_arcane_orb:OnAttackStart(event)
         parent:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
       end
     end
+  end
+end
+
+function modifier_oaa_arcane_orb:OnAttackFinished(event)
+  local parent = self:GetParent()
+  if event.attacker == parent then
+    -- This happens even during a normal attack
+    parent:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
+
+    -- Change the projectile (if a parent doesn't have modifier_oaa_arcane_orb_sound)
+    parent:ChangeAttackProjectile()
   end
 end
 
@@ -171,8 +194,8 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       return
     end
 
-    -- Don't affect buildings, wards and spell immune units
-    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() then
+    -- Don't affect buildings, wards, spell immune units and invulnerable units.
+    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
       return
     end
 
@@ -225,11 +248,6 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
     ability:UseResources(true, false, true)
 
     self.manual_cast = nil
-
-    attacker:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
-
-    -- Change projectile back
-    attacker:ChangeAttackProjectile()
   end
 end
 --------------------------------------------------------------------------------
