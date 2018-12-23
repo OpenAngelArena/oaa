@@ -76,7 +76,8 @@ function modifier_oaa_arcane_orb:OnAttack(event)
     return
   end
 
-  -- Check for existence of GetUnitName method to determine if target is a unit
+  -- Check for existence of GetUnitName method to determine if target is a unit or an item
+  -- items don't have that method -> nil; if the target is an item, don't continue
   if target.GetUnitName == nil then
     return
   end
@@ -115,7 +116,8 @@ function modifier_oaa_arcane_orb:OnAttackStart(event)
     return
   end
 
-  -- Check for existence of GetUnitName method to determine if target is a unit
+  -- Check for existence of GetUnitName method to determine if target is a unit or an item
+  -- items don't have that method -> nil; if the target is an item, don't continue
   if target.GetUnitName == nil then
     return
   end
