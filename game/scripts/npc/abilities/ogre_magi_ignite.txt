@@ -18,7 +18,7 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 800 900 1000 1150 1250"
     "AbilityCastPoint"                                    "0.45"
 
     // Time
@@ -38,19 +38,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5 6 7 8 11 15"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "burn_damage"                                     "26 34 42 50 90 130"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed_pct"                         "-30 -32 -34 -36 -40 -45" //OAA
       }
-
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"

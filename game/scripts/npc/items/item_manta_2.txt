@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "6300"
+    "ItemCost"                                            "6200"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -76,12 +76,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "12 15 20 25 30"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "8 10 14 17 22"
+        "bonus_movement_speed"                            "25 30 35 40 45"
       }
       "06"
       {

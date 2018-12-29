@@ -48,12 +48,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "46.0"
     "AbilitySharedCooldown"                               "guard"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -76,7 +74,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 19 27"
+        "bonus_health_regen"                              "7 10 15 20 30"
       }
       "03"
       {
@@ -116,7 +114,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "900"
+        "bonus_aoe_radius"                                "1200"
       }
       "11"
       {

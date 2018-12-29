@@ -11,8 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO "
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -30,7 +29,7 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650 650 650 650"
+    "AbilityCastRange"                                    "650"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +43,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "net_speed"                                       "1500 1500 1500 1500"
+        "net_speed"                                       "1500"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fake_ensnare_distance"                           "900 900 900 900"
+        "fake_ensnare_distance"                           "900"
       }
     }
   }

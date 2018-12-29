@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "2.5"
+    "AbilityDuration"                                     "2.75"
     "AbilityCooldown"                                     "27.0 24.0 21.0 18.0 18.0 18.0"
 
     // Casting
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disruption_duration"                             "2.5"
+        "disruption_duration"                             "2.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_5"
       }
       "02"
