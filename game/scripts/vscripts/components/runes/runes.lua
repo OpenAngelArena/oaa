@@ -8,9 +8,9 @@ function Runes:Init()
   -- Check every 0.5 second if there is a rune spawned before the first duel, if yes remove it
   Timers:CreateTimer(function()
     if HudTimer:GetGameTime() < INITIAL_DUEL_DELAY + DUEL_START_WARN_TIME + 1 then
-	  self:RemoveAllRunes()
-	  return 0.5
-	end
+      self:RemoveAllRunes()
+      return 0.5
+    end
   end)
 
   -- Configuring rune spawn time would be easy if RuneSpawn filter actually worked, just return false in filter if the time isn't right
