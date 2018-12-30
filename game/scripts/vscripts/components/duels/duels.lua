@@ -100,8 +100,8 @@ function Duels:Init ()
       self:CountPlayerDeath(player)
     end
   end)
-  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY + DUEL_START_WARN_TIME
-  Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
+  Duels.nextDuelTime = INITIAL_DUEL_DELAY + DUEL_START_WARN_TIME
+  HudTimer:At(INITIAL_DUEL_DELAY, function ()
     self:StartDuel({
       players = 0,
       firstDuel = true,

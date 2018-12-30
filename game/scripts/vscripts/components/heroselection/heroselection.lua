@@ -808,6 +808,11 @@ end
 function HeroSelection:HeroSelected (event)
   DebugPrint("Received Hero Pick")
   DebugPrintTable(event)
+  if not event.hero or event.hero == "empty" or HeroSelection:IsHeroDisabled(event.hero) then
+    Debug:EnableDebugging()
+    DebugPrint('Cheater...')
+    return
+  end
   if HeroSelection.isBanning then
     return HeroSelection:RankedManager(event)
   end
