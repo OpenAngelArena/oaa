@@ -179,14 +179,6 @@ if IsServer() then
 			self.originOld = originParent
 		end
 	end
-
---------------------------------------------------------------------------------
-
-	function modifier_item_greater_tranquil_boots:IsNeutralCreep( unit )
-		local parent = self:GetParent()
-
-		return ( UnitFilter( unit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not unit:IsControllableByAnyPlayer() )
-	end
 end
 
 --------------------------------------------------------------------------------
@@ -197,7 +189,6 @@ function modifier_item_greater_tranquil_boots:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
-		--MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
 
 	return funcs
@@ -206,38 +197,38 @@ end
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
+	function modifier_item_greater_tranquil_boots:IsNeutralCreep( unit )
 		local parent = self:GetParent()
 
-		-- thankfully, tranqs don't have complicated trigger requirements
-		if event.attacker == parent or event.target == parent then
-			local spell = self:GetAbility()
+		return ( UnitFilter( unit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not unit:IsControllableByAnyPlayer() )
+	end
 
-			-- determine the other unit that isn't the parent
-			local checkUnit = event.attacker
-			if event.attacker == parent then
-				checkUnit = event.target
-			end
+  function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local attacked_unit = event.target
 
-			-- if the checked unit is a neutral creep, don't break
-			if self:IsNeutralCreep( checkUnit ) then
-				-- nah
-				--[[
-				-- if both creep sap specials are greater than 0, and the attacker is the creep
-				-- apply the creep sap modifier
-				if checkUnit == event.attacker then
-					if spell:GetSpecialValueFor( "creep_sap_duration" ) > 0 and spell:GetSpecialValueFor( "creep_sap_damage" ) > 0 then
-						event.attacker:AddNewModifier( parent, spell, "modifier_item_greater_tranquil_boots_sap", {
-							duration = spell:GetSpecialValueFor( "creep_sap_duration" ),
-						} )
-					end
-				end
-				--]]
+    if attacker == parent or attacked_unit == parent then
+      local spell = self:GetAbility()
 
-				-- then check for naturalize eating
-				local currentCharges = spell:GetCurrentCharges()
+      -- Break Tranquils only in the following cases:
+      -- 1. If the parent attacked a hero
+      -- 2. If the parent was attacked by a hero, boss, hero creep or a controllable creep.
+      if (attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer())) then
+        spell:UseResources(false, false, true)
 
-				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() and not parent:IsIllusion() then
+        local cdRemaining = spell:GetCooldownTimeRemaining()
+        if cdRemaining > 0 then
+          self:SetDuration( cdRemaining, true )
+        end
+      end
+
+      -- Tranquils instant kill should work only on neutrals (not bosses)
+      if attacker == parent and self:IsNeutralCreep(attacked_unit) then
+        local currentCharges = spell:GetCurrentCharges()
+
+        -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating
+				if currentCharges >= 100 and not spell:IsMuted() and not parent:IsIllusion() then
 					local player = parent:GetPlayerOwner()
 
 					-- remove 100 charges
@@ -260,49 +251,9 @@ if IsServer() then
 					parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
 
 					-- kill the target
-					event.target:Kill( spell, parent )
+					attacked_unit:Kill( spell, parent )
 				end
-
-				return
-			end
-
-      spell:UseResources(false, false, true)
-
-			-- seriously, this is easy
-
-			-- less so is actually making this do anything
-			-- because valve
-      local cdRemaining = spell:GetCooldownTimeRemaining()
-      if cdRemaining > 0 then
-        self:SetDuration( cdRemaining, true )
       end
-		end
-	end
-
---------------------------------------------------------------------------------
-
-	function modifier_item_greater_tranquil_boots:OnTakeDamage( event )
-		local parent = self:GetParent()
-
-		if event.unit == parent then
-			local attacker = event.attacker
-
-			-- return if the damage isn't from a creep
-			-- creep heroes count as not a creep, in this case
-			if UnitFilter( attacker, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) ~= UF_SUCCESS then
-				return
-			end
-
-			-- uncomment this if player units shouldn't proc this, either
-			if attacker:IsControllableByAnyPlayer() then
-				return
-			end
-
-			if not self.storedDamage then
-				self.storedDamage = event.damage
-			else
-				self.storedDamage = self.storedDamage + event.damage
-			end
 		end
 	end
 end
