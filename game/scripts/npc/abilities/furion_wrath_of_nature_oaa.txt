@@ -28,8 +28,8 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5"
-    "AbilityCooldown"                                     "60 60 60 60 60"
+    "AbilityCastPoint"                                    "0.5"
+    "AbilityCooldown"                                     "60"
     "AbilityManaCost"                                     "175 225 275 525 750"
 
     // Special
@@ -39,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_targets"                                     "16 16 16"
+        "max_targets"                                     "18"
       }
       "02"
       {

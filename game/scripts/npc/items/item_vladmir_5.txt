@@ -39,14 +39,14 @@
     "BaseClass"                     "item_vladmir"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"            "custom/vladmir_5"
-    "AbilityCastRange"        "900"
+    "AbilityCastRange"        "1200"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
     "UpgradesItems"                                       "item_vladmir_2;item_vladmir_3;item_vladmir_4;item_vladmir_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "35250"
+    "ItemCost"            "34925"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering 5;vlads 5"
@@ -69,7 +69,7 @@
       "03"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura"   "1.0 1.6 3.2 4.8 6.5"
+        "mana_regen_aura" "1.75 2.5 4.0 6.0 7.5"
       }
       "04"
       {
@@ -94,7 +94,7 @@
       "08"
       {
         "var_type"        "FIELD_INTEGER"
-        "aura_radius"         "900"
+        "aura_radius"         "1200"
       }
     }
   }
