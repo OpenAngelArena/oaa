@@ -213,7 +213,7 @@ if IsServer() then
 
       -- Break Tranquils only in the following cases:
       -- 1. If the parent attacked a hero
-      -- 2. If the parent was attacked by a hero, boss, hero creep or a controllable creep.
+      -- 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
       if (attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer())) then
         spell:UseResources(false, false, true)
 
