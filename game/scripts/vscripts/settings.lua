@@ -63,7 +63,7 @@ PREGAME_TIME = 10
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 25                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate

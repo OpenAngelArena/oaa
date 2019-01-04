@@ -1,6 +1,6 @@
 HudTimer = HudTimer or class({})
 
-local DOTA_CLOCK_SKEW = 0
+local DOTA_CLOCK_SKEW = 0 - PREGAME_TIME - 1
 local CLOCK_SYNC_INTERVAL = 120
 
 HudTimer.registeredListeners = {}
