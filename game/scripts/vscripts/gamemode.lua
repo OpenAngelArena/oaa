@@ -191,7 +191,7 @@ function GameMode:OnGameInProgress()
   InitModule(PlayerConnection)
   InitModule(StatusResistance)
   InitModule(SaveLoadState)
-  -- InitModule(Runes)
+  InitModule(Runes)
   InitModule(ProtectionAura)
 
   -- xpm stuff

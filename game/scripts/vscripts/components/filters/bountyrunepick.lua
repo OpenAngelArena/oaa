@@ -71,7 +71,7 @@ function BountyRunePick:Filter(filter_table)
   allied_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
 
-    if hero then
+    if hero and xp_reward > 0 then
       hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
     end
   end)
