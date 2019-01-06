@@ -50,13 +50,13 @@ CapturePoints.onStart = Start.listen
 CapturePoints.onEnd = CaptureFinished.listen
 
 function CapturePoints:Init ()
-  Debug.EnableDebugging()
+  -- Debug.EnableDebugging()
   DebugPrint('Init capture point')
 
   self.currentCapture = nil
 
-  CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + INITIAL_CAPTURE_POINT_DELAY
-  Timers:CreateTimer(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
+  CapturePoints.nextCaptureTime = INITIAL_CAPTURE_POINT_DELAY
+  HudTimer:At(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
     self:ScheduleCapture()
   end)
 

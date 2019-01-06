@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "20 18 16 14 10 5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,30 +34,30 @@
     {
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"modelscale"		"25"
+				"var_type"                                        "FIELD_FLOAT"
+				"modelscale"                                      "25"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"		"20 22 24 26 30 34" //OAA
+				"var_type"                                        "FIELD_INTEGER"
+				"bonus_movement_speed"                            "20 22 24 26 30 34" //OAA
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30 40 50 60 100 140"
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+				"var_type"                                        "FIELD_INTEGER"
+				"bonus_attack_speed"                              "30 40 50 60 100 140"
+				"LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"self_bonus"	"50 70 90 110 150 190" //OAA
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi"
+				"var_type"                                        "FIELD_INTEGER"
+				"self_bonus"                                      "50 70 90 110 150 190" //OAA
+				"LinkedSpecialBonus"	                            "special_bonus_unique_ogre_magi"
 			}
 			"05"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"30"
+				"var_type"			                                  "FIELD_FLOAT"
+				"duration"			                                  "30"
 			}
     }
   }

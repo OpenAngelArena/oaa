@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
+    "ItemCost"            "450"
     "ItemShopTags"          ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"          "item_hurricane_pike"
     "ItemRequirements"
     {
-      "01"            "item_wraith_band;item_force_staff;item_dragon_lance"
+      "01"            "item_force_staff;item_dragon_lance"
     }
   }
 
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "4615"
+    "ItemCost"            "4600"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "fs;force staff;hurricane pike;pike"
@@ -70,7 +70,7 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"    "2 5.5 10 15 30"
+        "bonus_health_regen"    "2.5 5.5 10 15 30"
       }
       "03"
       {

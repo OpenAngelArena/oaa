@@ -20,7 +20,6 @@
     "Ability1"                                            "boss_resistance"
     "Ability2"                                            "boss_cliffwalk"
 
-
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "25"      // Physical protection.
@@ -36,6 +35,8 @@
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "350"    // Range within a target can be acquired.
     "AttackRange"                                         "528"    // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/items2_fx/necronomicon_archer_projectile.vpcf"
+    "ProjectileSpeed"                                     "1000"
 
     // Bounty
     //----------------------------------------------------------------
@@ -69,7 +70,6 @@
       //Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------
