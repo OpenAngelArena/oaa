@@ -12,7 +12,7 @@ function obsidian_destroyer_arcane_orb_oaa:GetIntrinsicModifierName()
 end
 
 function obsidian_destroyer_arcane_orb_oaa:GetCastRange(location, target)
-  return self:GetCaster():Script_GetAttackRange()
+  return self:GetCaster():GetAttackRange()
 end
 
 function obsidian_destroyer_arcane_orb_oaa:IsStealable()
