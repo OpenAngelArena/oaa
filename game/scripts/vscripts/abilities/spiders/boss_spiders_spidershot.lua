@@ -169,15 +169,26 @@ end
 function modifier_boss_spiders_spiderball_invulnerable:GetAbsoluteNoDamagePure(params)
 	return 1
 end
+
+function modifier_boss_spiders_spiderball_invulnerable:CheckState()
+  local state = {
     [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true
+  }
+  return state
+end
+
+modifier_boss_spiders_spiderball_skip_death_animation = class(ModifierBaseClass)
 
 function modifier_boss_spiders_spiderball_skip_death_animation:IsPurgable()
-    return false
+  return false
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_spiders_spiderball_skip_death_animation:IsHidden()
+  return true
 end
 
 ------------------------------------------------------------------------------------
