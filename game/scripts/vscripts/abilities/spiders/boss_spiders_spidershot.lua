@@ -55,6 +55,7 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 									ParticleManager:ReleaseParticleIndex(spawn)
 								end, 0)
 							end
+
               --Instead of UTIL_Remove(ball):
               ball:AddNewModifier(ball, nil, "modifier_boss_spiders_spiderball_invulnerable", {})
               ball:AddNoDraw()
@@ -82,7 +83,8 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 				end,
 				onDiedCallback = function ()
 					ParticleManager:DestroyParticle(indicator, true)
-					--Instead of UTIL_Remove(ball):
+
+          --Instead of UTIL_Remove(ball):
           ball:AddNewModifier(ball, nil, "modifier_boss_spiders_spiderball_invulnerable", {})
           ball:AddNoDraw()
           ball:AddNewModifier(ball, nil, "modifier_kill", { duration = 0.5 })
@@ -206,10 +208,13 @@ function modifier_boss_spiders_spiderball_skip_death_animation:OnDeath(keys)
   if IsServer() then
     local parent = self:GetParent()
     if keys.unit:entindex() == parent:entindex() then
+
       --Instead of UTIL_Remove(parent):
+
       -- Hiding the model
       parent:AddNoDraw()
-      -- Hiding underground
+
+      -- Hiding underground (if AddNoDraw doesn't work on dead units - can cause an error, that's why its commented)
       --parent:SetAbsOrigin(parent:GetAbsOrigin()-Vector(0,0,1000))
     end
   end
