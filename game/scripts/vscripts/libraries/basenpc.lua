@@ -17,6 +17,8 @@ if IsServer() then
   end
 end
 
-function CDOTA_BaseNPC:GetAttackRange()
-  return self:Script_GetAttackRange()
+if CDOTA_BaseNPC then
+  function CDOTA_BaseNPC:GetAttackRange()
+    return self:Script_GetAttackRange()
+  end
 end
