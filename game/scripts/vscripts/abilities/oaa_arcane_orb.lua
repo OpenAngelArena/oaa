@@ -223,7 +223,7 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       local intStealAmount = ability:GetSpecialValueFor("int_steal")
 
       if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
-      intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+        intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
       end
 
       target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff_counter", {duration = intStealDuration})
@@ -238,11 +238,11 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
     local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
 
     local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
-    for _, enemy in pairs(enemies) do
+    for _, enemy in ipairs(enemies) do
       if enemy ~= target then
-      damage_table.victim = enemy
-      ApplyDamage(damage_table)
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, bonusDamage, player)
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, bonusDamage, player)
       end
     end
 
@@ -395,5 +395,5 @@ if IsServer() then
 end
 
 function modifier_oaa_arcane_orb_debuff:GetModifierBonusStats_Intellect()
-  return - self.intStealAmount
+  return -self.intStealAmount
 end
