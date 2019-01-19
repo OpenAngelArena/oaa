@@ -44,7 +44,7 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
-      padding = 0,
+      padding = 50,
       players = allGoodPlayers
     })
     allGoodPlayers = {}
