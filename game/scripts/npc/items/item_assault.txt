@@ -35,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "112"    // unique ID
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
     "AbilityTextureName"                                  "custom/assault_cuirass_1"
 
     // Item Info
@@ -69,7 +69,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "04"
       {

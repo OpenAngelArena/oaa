@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_generic_projectile", "modifiers/modifier_generic_projectile.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_spiders_spiderball_slow", "abilities/spiders/boss_spiders_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_spiders_spiderball_skip_death_animation", "abilities/spiders/boss_spiders_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_spiders_spiderball_invulnerable", "abilities/spiders/boss_spiders_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 
@@ -28,7 +29,7 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 			local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc")) + (caster:GetForwardVector() * 30)
 
 			local ball = CreateUnitByName("npc_dota_boss_spiders_spiderball", origin, false, caster, caster, caster:GetTeamNumber())
-			ball:AddNewModifier(caster, self, "modifier_boss_spiders_spiderball_skip_death_animation", {})
+      ball:AddNewModifier(caster, self, "modifier_boss_spiders_spiderball_skip_death_animation", {})
 
 			local projectileModifier = ball:AddNewModifier(caster, self, "modifier_generic_projectile", {})
 			local projectileTable = {
@@ -55,7 +56,10 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 								end, 0)
 							end
 
-							UTIL_Remove(ball)
+              --Instead of UTIL_Remove(ball):
+              ball:AddNewModifier(ball, nil, "modifier_boss_spiders_spiderball_invulnerable", {})
+              ball:AddNoDraw()
+              ball:AddNewModifier(ball, nil, "modifier_kill", { duration = 0.5 })
 						end
 					end)
 				end,
@@ -79,7 +83,11 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 				end,
 				onDiedCallback = function ()
 					ParticleManager:DestroyParticle(indicator, true)
-					UTIL_Remove(ball)
+
+          --Instead of UTIL_Remove(ball):
+          ball:AddNewModifier(ball, nil, "modifier_boss_spiders_spiderball_invulnerable", {})
+          ball:AddNoDraw()
+          ball:AddNewModifier(ball, nil, "modifier_kill", { duration = 0.5 })
 				end,
 				hitRadius = 128,
 				speed = self:GetSpecialValueFor("projectile_speed"),
@@ -125,38 +133,89 @@ end
 
 ------------------------------------------------------------------------------------
 
-modifier_boss_spiders_spiderball_skip_death_animation = class(ModifierBaseClass)
+modifier_boss_spiders_spiderball_invulnerable = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
+function modifier_boss_spiders_spiderball_invulnerable:IsPurgable()
+  return false
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_spiders_spiderball_invulnerable:IsHidden()
+  return true
+end
+
+------------------------------------------------------------------------------------
+
+function modifier_boss_spiders_spiderball_invulnerable:DeclareFunctions()
+  local funcs =
+  {
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+  }
+
+  return funcs
+end
+
+function modifier_boss_spiders_spiderball_invulnerable:GetAbsoluteNoDamageMagical(params)
+  return 1
+end
+
+function modifier_boss_spiders_spiderball_invulnerable:GetAbsoluteNoDamagePhysical(params)
+	return 1
+end
+
+function modifier_boss_spiders_spiderball_invulnerable:GetAbsoluteNoDamagePure(params)
+	return 1
+end
+
+function modifier_boss_spiders_spiderball_invulnerable:CheckState()
+  local state = {
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true
+  }
+  return state
+end
+
+modifier_boss_spiders_spiderball_skip_death_animation = class(ModifierBaseClass)
+
 function modifier_boss_spiders_spiderball_skip_death_animation:IsPurgable()
-    return false
+  return false
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_spiders_spiderball_skip_death_animation:IsHidden()
-    return true
+  return true
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_spiders_spiderball_skip_death_animation:DeclareFunctions()
-    local funcs =
-    {
-        MODIFIER_EVENT_ON_DEATH,
-    }
+  local funcs =
+  {
+    MODIFIER_EVENT_ON_DEATH,
+  }
 
-    return funcs
+  return funcs
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_spiders_spiderball_skip_death_animation:OnDeath(keys)
-    if IsServer() then
-        local caster = self:GetParent()
-        if keys.unit:entindex() == caster:entindex() then
-            UTIL_Remove(caster)
-        end
+  if IsServer() then
+    local parent = self:GetParent()
+    if keys.unit:entindex() == parent:entindex() then
+
+      --Instead of UTIL_Remove(parent):
+
+      -- Hiding the model
+      parent:AddNoDraw()
+
+      -- Hiding underground (if AddNoDraw doesn't work on dead units - can cause an error, that's why its commented)
+      --parent:SetAbsOrigin(parent:GetAbsOrigin()-Vector(0,0,1000))
     end
+  end
 end

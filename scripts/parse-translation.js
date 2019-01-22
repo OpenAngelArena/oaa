@@ -11,7 +11,7 @@ function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
   recursionCheck = recursionCheck || {};
   if (recursionCheck[key]) {
     console.error(recursionCheck);
-    throw new Error('Foun d recursive key: ' + key);
+    throw new Error('Found recursive key: ' + key);
   }
   recursionCheck[key] = recursionCheck[key] || 0;
 
@@ -68,7 +68,7 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
 
   if (dotaLanguage) {
     Object.keys(dotaLanguage.lang.Tokens.values).forEach(function (key) {
-      allTooltips[key.toLowerCase()] = dotaLanguage.lang.Tokens.values[key];
+      allTooltips[key.toLowerCase()] = dotaLanguage.lang.Tokens.values[key].replace(/\\n/g, '\n');
     });
   }
 
@@ -127,6 +127,9 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
             filePath = filePath.substr(basePath.length);
           }
           memo[filePath] = parseKV(val).values;
+          Object.keys(memo[filePath]).forEach(function (key) {
+            memo[filePath][key] = memo[filePath][key].replace(/\\n/g, '\n');
+          });
         } else {
         // nested folder
           Object.keys(data).forEach(function (key) {
