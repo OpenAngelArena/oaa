@@ -152,6 +152,7 @@ function ZoneControl.EnableZone (state)
   state.handle:Enable()
 
   ZoneControl:EnforceRules(state)
+  state.disabled = false
 end
 
 function ZoneControl.DisableZone (state)
@@ -159,6 +160,7 @@ function ZoneControl.DisableZone (state)
     return
   end
   state.handle:Disable()
+  state.disabled = true
 end
 
 function ZoneControl:SetMode (state, mode)
@@ -220,6 +222,10 @@ function ZoneControl:EnforceRules (state)
   -- this method is meant to be called with a single zone since it's the actual rules enforcement
   ZoneControl:AssertIsSingleState(state)
 
+  if state.disabled then
+    return
+  end
+
   for playerId = 0,19 do
     ZoneControl:EnforceRulesOnPlayerId(state, playerId)
   end
@@ -236,6 +242,9 @@ end
 function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   -- this method is meant to be called with a single zone since it's the actual rules enforcement
   ZoneControl:AssertIsSingleState(state)
+  if state.disabled then
+    return
+  end
 
   local isTouching = state.handle:IsTouching(entity)
   local initialOrigin = entity:GetAbsOrigin()

@@ -1,0 +1,81 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Spiderling
+  //=================================================================================
+  "npc_dota_broodmother_spiderling"
+  {
+    "BaseClass"                   "npc_dota_broodmother_spiderling"
+    "Model"                       "models/heroes/broodmother/spiderling.vmdl"
+    "SoundSet"                    "0"
+    "ModelScale"                  "0.3"
+    "Level"                       "3"
+    "IsSummoned"                  "1"
+    "SelectionGroup"              "Spiders"
+    "UnitLabel"                   "spiderling"
+    "PathfindingSearchDepthScale" "0.1"
+
+    "Ability1"                    "broodmother_poison_sting"
+    "Ability2"                    "broodmother_spawn_spiderite"
+    "Ability3"                    ""
+    "Ability4"                    ""
+    "Ability5"                    ""
+    "Ability6"                    ""
+    "Ability7"                    ""
+    "Ability8"                    ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"               "0"			// Physical protection.
+    "MagicalResistance"           "40"		// Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"          "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"             "14"		// Damage range min.
+    "AttackDamageMax"             "16"		// Damage range max.
+    "AttackRate"                  "1.35"		// Speed of attack.
+    "AttackAnimationPoint"        "0.5"		// Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"      "500"		// Range within a target can be acquired.
+    "AttackRange"                 "100"		// Range within a target can be attacked.
+    "ProjectileModel"             ""			// Particle system model for projectile.
+    "ProjectileSpeed"             ""			// Speed of projectile.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                    "9"		// Experience earn.
+    "BountyGoldMin"               "9"		// Gold earned min.
+    "BountyGoldMax"               "9"		// Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"              "DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+    "HealthBarOffset"             "140"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+    "MovementSpeed"               "350"		// Speed
+    "MovementTurnRate"            "0.5"		// Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                "380"		// Base health.
+    "StatusHealthRegen"           "2.0"		// Health regeneration rate.
+    "StatusMana"                  "0"			// Base mana.
+    "StatusManaRegen"             "0"			// Mana regeneration rate.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                    "DOTA_TEAM_GOODGUYS"			// Team name.
+    "CombatClassAttack"           "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"           "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"       "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"          "700"		// Range of vision during day light.
+    "VisionNighttimeRange"        "700"		// Range of vision at night time.
+  }
+
+}

@@ -22,7 +22,7 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_null_talisman"
+      "01"                                                "item_staff_of_wizardry;item_crown"
     }
   }
 
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "180"
-    "ItemCost"                                            "2715"
+    "ItemCost"                                            "2700"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 1"
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3"
+        "bonus_all_stats"                                 "5"
       }
       "03"
       {

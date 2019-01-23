@@ -16,6 +16,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "475"
@@ -23,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12"
+    "AbilityCooldown"                                     "12 11 10 9 8 7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +39,6 @@
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "1.5"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -46,9 +46,9 @@
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "fireblast_damage"    "60 120 180 240 540 840"
-        "LinkedSpecialBonus"  "special_bonus_unique_ogre_magi_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "fireblast_damage"                                "60 120 180 240 540 840"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi_2"
       }
     }
   }
