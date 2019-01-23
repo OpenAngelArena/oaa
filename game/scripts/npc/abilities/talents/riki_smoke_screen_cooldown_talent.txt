@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Upgrades Death Ward - increases damage
+  // Upgrades Smoke Screen - decreases cooldown
   //=================================================================================================================
-  "special_bonus_unique_witch_doctor_5"
+  "special_bonus_unique_riki_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"                  "6996"
+		"ID"                  "6193"
 		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "600" // OAA
+				"value"           "5" // OAA
 			}
 		}
 	}
