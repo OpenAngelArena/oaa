@@ -64,17 +64,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "35 50 65 85 105" //OAA
+        "bonus_strength"                                  "35 45 60 80 100" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "300 700 1200 2000 2700"  //OAA
+        "bonus_health"                                    "300 700 1200 1800 2700"  //OAA
       }
       "03"
 			{
 				"var_type"                                        "FIELD_INTEGER"
-				"hp_regen_amp"                                    "50"
+				"hp_regen_amp"                                    "24 28 32 36 40"
 			}
       "04"
       {

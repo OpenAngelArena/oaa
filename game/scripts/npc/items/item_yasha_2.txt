@@ -63,17 +63,17 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_agility"         "16 24"
+        "bonus_agility"         "16 32"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_attack_speed"    "12 16"
+        "bonus_attack_speed"    "12 24"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "movement_speed_percent_bonus"  "8 12" //OAA
+        "movement_speed_percent_bonus"  "8 16" //OAA
       }
     }
   }
