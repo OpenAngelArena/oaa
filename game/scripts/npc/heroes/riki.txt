@@ -1,12 +1,13 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Weaver
+  // HERO: Riki
   //=================================================================================================================
-  "npc_dota_hero_weaver"
+  "npc_dota_hero_riki"
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability11"   "special_bonus_attack_damage_20" // replaces special_bonus_exp_boost_35
+    "Ability11"   "special_bonus_hp_100"        // replaces special_bonus_agility_8
+    "Ability17"   "special_bonus_agility_20"    // replaces special_bonus_unique_riki_5
   }
 }
