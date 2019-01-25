@@ -76,10 +76,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "heal_percent"                                    "25"
       }
-      "09"
+      "09" // average_damage is important for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "58"
+        "average_damage"                                  "62 62 62 162 265" //OAA, Valve has it wrong
       }
       "10"
       {
