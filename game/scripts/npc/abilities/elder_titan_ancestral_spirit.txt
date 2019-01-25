@@ -16,6 +16,7 @@
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "17.0"
@@ -36,7 +37,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pass_damage"                                     "50 90 120 150 300 550" //OAA
+        "pass_damage"                                     "50"
       }
 
       "03"
@@ -67,7 +68,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_creeps"                                   "6 9 12 15 21 39"
+        "damage_creeps"                                   "6 9 12 15 18 21"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "09"

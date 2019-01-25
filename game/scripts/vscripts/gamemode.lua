@@ -146,7 +146,6 @@ end
 function GameMode:OnPreGame()
   -- initialize modules
   InitModule(PointsManager)
-  InitModule(HudTimer)
   InitModule(Music)
   InitModule(Gold)
   InitModule(BlinkBlock)
@@ -177,6 +176,7 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
+  InitModule(HudTimer)
   InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)

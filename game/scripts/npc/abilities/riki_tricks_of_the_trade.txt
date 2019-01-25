@@ -23,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityChannelTime"                                  "3 4 5 6 7" //OAA
+    "AbilityChannelTime"                                  "3 4 5 5.5 6" //OAA
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
@@ -44,17 +44,17 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_rate"                                     "0.6 0.55 0.5 0.5 0.5"
+        "attack_rate"                                     "0.6 0.55 0.5 0.45 0.4"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "3 4 5 6 7" //OAA
+        "duration_tooltip"                                "3 4 5 5.5 6" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus"                                   "1" //OAA
+        "scepter_bonus"                                   "2" //OAA
       }
     }
   }

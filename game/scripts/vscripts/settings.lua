@@ -63,7 +63,7 @@ PREGAME_TIME = 10
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 25                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
@@ -90,7 +90,7 @@ BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage befo
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
-INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
+INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spawning the first wave of creeps
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 

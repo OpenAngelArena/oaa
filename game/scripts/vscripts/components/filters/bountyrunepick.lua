@@ -13,11 +13,19 @@ function BountyRunePick:Filter(filter_table)
   local vanilla_gold_bounty = filter_table.gold_bounty
   local playerID = filter_table.player_id_const
   local vanilla_xp_bounty = filter_table.xp_bounty
+  Debug:EnableDebugging()
 
   -- Game time in seconds:
   local game_time = HudTimer:GetGameTime()
+  game_time = game_time - (game_time % 120)
   -- Game time in minutes:
-  game_time = game_time/60
+  game_time = math.floor(game_time / 60)
+  -- start at 1 minute instead of 0
+  if game_time < 1 then
+    DebugPrint('Using minute 1 rune instead')
+    game_time = 1.8
+  end
+  DebugPrint('Game time is ' .. tostring(game_time))
   -- Hero that picked up the rune
   local hero_with_rune = PlayerResource:GetSelectedHeroEntity(playerID)
   -- Team that picked up the rune
@@ -65,13 +73,14 @@ function BountyRunePick:Filter(filter_table)
   local gold_difference = math.max(0, gold_diff)
   local xp_difference = math.max(0, xp_diff)
 
-  local gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD*game_time*(1 + gold_difference*game_time/10)
-  local xp_reward = math.ceil(BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + xp_difference*game_time/10))
+  local gold_reward = (BOUNTY_RUNE_INITIAL_TEAM_GOLD*game_time*(1 + (1 - (1 - gold_difference)*(1 - gold_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
+  local xp_reward = (BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + (1 - (1 - gold_difference)*(1 - gold_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
+  xp_reward = math.ceil(xp_reward);
 
   allied_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
 
-    if hero then
+    if hero and xp_reward > 0 then
       hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
     end
   end)

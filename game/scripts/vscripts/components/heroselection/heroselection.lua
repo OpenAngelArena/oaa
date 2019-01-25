@@ -808,7 +808,7 @@ end
 function HeroSelection:HeroSelected (event)
   DebugPrint("Received Hero Pick")
   DebugPrintTable(event)
-  if not event.hero or event.hero == "empty" or HeroSelection:IsHeroDisabled(event.hero) then
+  if not event.hero or event.hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(event.hero)) then
     Debug:EnableDebugging()
     DebugPrint('Cheater...')
     return
@@ -816,9 +816,6 @@ function HeroSelection:HeroSelected (event)
   if HeroSelection.isBanning then
     return HeroSelection:RankedManager(event)
   end
-  -- if HeroSelection.isCM then
-  --   return HeroSelection:CMManager(event)
-  -- end
   HeroSelection:UpdateTable(event.PlayerID, event.hero)
 end
 

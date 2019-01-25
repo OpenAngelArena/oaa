@@ -5,14 +5,20 @@
   Primarily for checking if talents have been learned.
 --]]
 
-function CDOTA_BaseNPC:HasLearnedAbility(abilityName)
-  local ability = self:FindAbilityByName(abilityName)
-  if ability then
-    return ability:GetLevel() > 0
+-- This file is also loaded on client (currently just for GetAttackRange)
+-- but client doesn't have FindAbilityByName
+if IsServer() then
+  function CDOTA_BaseNPC:HasLearnedAbility(abilityName)
+    local ability = self:FindAbilityByName(abilityName)
+    if ability then
+      return ability:GetLevel() > 0
+    end
+    return false
   end
-  return false
 end
 
-function CDOTA_BaseNPC:GetAttackRange()
-  return self:Script_GetAttackRange()
+if CDOTA_BaseNPC then
+  function CDOTA_BaseNPC:GetAttackRange()
+    return self:Script_GetAttackRange()
+  end
 end

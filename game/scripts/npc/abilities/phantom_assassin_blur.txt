@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"                                            "6"
 
-    "AbilityCooldown"                                     "60 55 50 45 40 30"
+    "AbilityCooldown"                                     "35" //OAA
 
     "AbilityCastPoint"                                    "0.4"
 
@@ -30,7 +30,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "25"
+        "duration"                                        "5 10 15 20 25 30" //OAA
       }
       "03"
       {

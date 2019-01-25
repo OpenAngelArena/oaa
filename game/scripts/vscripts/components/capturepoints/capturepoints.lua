@@ -2,6 +2,10 @@ LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_
 
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or {}
+local FirstZones = {
+  left = Vector(-3584, 0, 256),
+  right = Vector(3584, 0, 256),
+}
 local Zones = {
 -- TODO, change this. These should be zones in the map or programatically generated
 -- hard coded is a bad in-between with the disadvantages of both
@@ -138,8 +142,15 @@ function CapturePoints:ScheduleCapture()
   end
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
-  --Chooses random zone
-  CurrentZones = Zones[RandomInt(1, NumZones)]
+  Debug:EnableDebugging()
+  DebugPrint('Capture number... ' .. NumCaptures)
+  if NumCaptures == 0 then
+    -- Use tier 1 zones for tier 1
+    CurrentZones = FirstZones
+  else
+    --Chooses random zone
+    CurrentZones = Zones[RandomInt(1, NumZones)]
+  end
   --If statemant checks for duel interference
   if not Duels.startDuelTimer then
     CapturePoints:StartCapture("blue")

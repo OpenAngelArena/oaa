@@ -31,11 +31,20 @@ function ProtectionAura:Init ()
     each(partial(removePlayerFromList, ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID]), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
   end)
 
+  Duels.onEnd(function (data)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][0].enable()
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][0].enable()
+  end)
+  Duels.onStart(function (data)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][0].disable()
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][0].disable()
+  end)
+
   for roomID = 0,MAX_ROOMS do
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
-      padding = 0,
+      padding = 50,
       players = allGoodPlayers
     })
     allGoodPlayers = {}
