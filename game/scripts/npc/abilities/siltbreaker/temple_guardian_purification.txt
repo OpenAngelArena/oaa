@@ -32,7 +32,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "20"
+    "AbilityCooldown"               "15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,12 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "heal"                  "1000" // boss resistance makes this effectively 10000 heal, every 20 seconds, 500 hp/s... that's a lot of heal
+        "heal"                  "1000" // boss resistance makes this effectively 10000 heal, every 15 seconds, 666 hp/s... that's a lot of heal
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "radius"                "300"
+        "radius"                "350"
       }
     }
   }

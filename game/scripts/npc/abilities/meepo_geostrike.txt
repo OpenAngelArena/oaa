@@ -12,10 +12,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"    
+    "MaxLevel"                                            "6"
     "AbilityDamage"                                       "10 20 30 40 75 150"
-
-    "AbilityDuration"                                     "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -28,12 +26,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-5 -10 -15 -20 -30 -50"
+        "gold_steal"                                      "1 3 5 7 7 7"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "2.0"
+        "hp_steal"                                        "6 12 18 24 40 80"
       }
     }
   }

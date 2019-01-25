@@ -73,22 +73,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50 55 60 65"
+        "bonus_movement_speed"                            "20 25 30 35"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "15 24 36 54"
+        "bonus_stat"                                      "16 24 36 54"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45"
+        "bonus_attack_speed"                              "20 25 30 35"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_damage"                                    "24 32 40 48"
       }
       "05"
       {
@@ -98,12 +98,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "40 50 60 70"
+        "split_damage"                                    "25 35 45 55"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "40 50 60 70"
+        "split_damage_ranged"                             "25 35 45 55"
       }
     }
   }

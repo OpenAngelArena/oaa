@@ -15,20 +15,40 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700" // OAA valve does it wrong
+    "AbilityCastRange"                                    "700"
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700"    // If you change this, also change the AbilityCastRange above
+        "aura_radius"                                     "700"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "aura_damage"                                     "0.5 1.1 1.7 2.3 2.9 3.5"
-        "LinkedSpecialBonus"    "special_bonus_unique_necrophos_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "2 3.5 5 6.5 13 20"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen"                                      "3 4 5 6 7 8"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "regen_duration"                                  "7"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_multiplier"                                 "6"
       }
     }
   }

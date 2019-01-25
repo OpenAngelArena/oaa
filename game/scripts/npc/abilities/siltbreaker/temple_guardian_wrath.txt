@@ -28,7 +28,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"               "30"
-    "AbilityChannelTime"            "8.0"
+    "AbilityChannelTime"            "6.0"
     "AbilityCastPoint"              "1.0"
 
       // Special
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                  "FIELD_FLOAT"
-        "channel_duration"          "8.0"
+        "channel_duration"          "6.0"
       }
       "06"
       {
