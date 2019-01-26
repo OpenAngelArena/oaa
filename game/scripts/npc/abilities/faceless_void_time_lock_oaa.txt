@@ -41,12 +41,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "10 15 20 25 25 25"
+        "chance_pct"                                      "25" // OAA // Temporary until it's completely rework.
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 125 300 475"
+        "bonus_damage"                                    "60 90 120 175 325 500"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "05"
