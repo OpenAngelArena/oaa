@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "475 550 625 700 800 1000" //OAA
+        "cast_range"                                      "475 550 625 700 800 1000" //OAA, Valve still has it wrong
       }
       "02"
       {
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "15 25 35 45 55 65"
+        "movement_slow"                                   "10 20 30 40 50 60"
       }
       "04"
       {
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "2"
+        "duration"                                        "3"
       }
     }
   }

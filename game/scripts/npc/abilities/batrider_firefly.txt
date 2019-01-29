@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0"
+    "AbilityCooldown"                                     "34.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,20 +40,25 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "200"
+        "movement_speed"                                  "4 7 10 13 26 50"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "200"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.5"
+        "duration"                                        "15.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_1"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.5"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tree_radius"                                     "100"
