@@ -20,9 +20,9 @@
         "Ability1"                  "lone_druid_spirit_bear_return"         // Ability 1
         "Ability2"                  "lone_druid_spirit_bear_entangle"           // Ability 2
         "Ability3"                  "lone_druid_savage_roar_bear"           // Ability 3
-        "Ability4"                  "generic_hidden"
-        "Ability5"                  "generic_hidden"
-        "Ability6"                  "lone_druid_spirit_bear_demolish"           // Ability 6
+        "Ability4"                  "lone_druid_spirit_bear_defender"
+        "Ability5"                  "lone_druid_spirit_bear_demolish"
+        "Ability6"                  "generic_hidden"           // Ability 6
 
         // Armor
         //----------------------------------------------------------------
@@ -54,7 +54,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"             "350"       // Speed.
+        "MovementSpeed"             "385"       // Speed.
         "MovementTurnRate"          "0.6"       // Turning rate.
 
         // Status

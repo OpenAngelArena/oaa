@@ -57,18 +57,18 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 12 18 24 30"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "7.5 14.0 20.0 25.0 32.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3.3 4.75 6.5 9"
+        "bonus_mana_regen"                                "3.75 4.5 6.25 8.0 10.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "20 30 40 50 65"	//OAA
+        "cleave_damage_percent"                           "35 45 55 65 75"	//OAA
       }
       "05"
       {
@@ -88,12 +88,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "330"
+        "cleave_ending_width"                             "360"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "625"
+        "cleave_distance"                                 "650"
       }
       "10"
       {

@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18500"
+    "ItemCost"                                            "18300"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic 4"
@@ -67,7 +67,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 150 225"
+        "bonus_damage"                                    "25 50 75 100 150"
       }
       "04"
       {
@@ -89,6 +89,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "unholy_duration"                                 "5.0"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "30"
+			}
     }
   }
 }

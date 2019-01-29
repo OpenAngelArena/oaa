@@ -46,7 +46,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "10500"
+    "ItemCost"                                            "10300"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 3;mask of madness 3"
@@ -59,7 +59,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 30 50 75 120"
+        "bonus_damage"                                    "10 30 50 75 120"
       }
       "02"
       {
@@ -79,7 +79,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "12 17 22 27 32"
+        "berserk_bonus_movement_speed"                    "25 30 35 40 45"
       }
       "06"
       {
