@@ -60,13 +60,13 @@
       }
       "02"
       {
-        "var_type"                "FIELD_FLOAT"
-        "health_regen"            "4 10 16 23 30"
+        "var_type"                "FIELD_INTEGER"
+        "bonus_mana"              "325 800 1350 1900 2550"
       }
       "03"
       {
         "var_type"                "FIELD_FLOAT"
-        "mana_regen"              "3 4 5.5 7.5 10"
+        "health_regen"            "4 10 16 23 30"
       }
       "04"
       {
