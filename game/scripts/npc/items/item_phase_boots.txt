@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_phase_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_boots;item_chainmail;item_gloves"
+      "01"                                                "item_boots;item_chainmail;item_blades_of_attack"
     }
   }
 
@@ -41,7 +41,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1550"
+    "ItemCost"                                            "1480"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "phase boots"
@@ -62,47 +62,52 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_damage_melee"                              "18"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_block_melee"                              "0"
+        "bonus_damage_range"                              "12"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_block_ranged"                             "0"
+        "damage_block_melee"                              "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "0"
+        "damage_block_ranged"                             "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "20"
+        "block_chance"                                    "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "10"
+        "phase_movement_speed"                            "22"
       }
       "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "phase_movement_speed_range"                      "10"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "phase_duration"                                  "3.0"
       }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25"
-      }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5"
+        "bonus_attack_speed"                              "0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6"
       }
     }
   }
