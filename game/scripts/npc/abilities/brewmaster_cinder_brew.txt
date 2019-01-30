@@ -25,7 +25,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 18 16 14 14 14"
+		"AbilityCooldown"				"20 18 16 14 13 12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
 			"01"
 			{
 				"var_type"              "FIELD_FLOAT"
-				"duration"              "7"
+				"duration"              "5"
 			}
 			"02"
 			{
@@ -48,24 +48,19 @@
 			"03"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"ignite_dps"            "20 25 30 35 150 300"
+				"ignite_dps"            "20 30 40 50 150 300"
 			}
       "04"
-      {
-        "var_type"              "FIELD_FLOAT"
-        "ignite_duration"       "3"
-      }
-      "05"
       {
         "var_type"              "FIELD_INTEGER"
         "ignite_threshold"			"80"
       }
-			"06"
+			"05"
 			{
 				"var_type"              "FIELD_INTEGER"
 				"movement_slow"         "25"
 			}
-			"07"
+			"06"
 			{
 				"var_type"              "FIELD_INTEGER"
 				"radius"                "400"

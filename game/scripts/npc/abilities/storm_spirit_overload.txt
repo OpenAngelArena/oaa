@@ -19,10 +19,6 @@
 
     "AbilityDuration"                                     "0.6"
 
-    // Damage
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "40 60 80 100 200 300"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "40"
@@ -52,6 +48,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_duration"                                "0.6"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "overload_damage"                                 "40 60 80 100 200 300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_6"
       }
     }
   }
