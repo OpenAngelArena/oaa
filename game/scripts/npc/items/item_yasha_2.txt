@@ -68,12 +68,12 @@
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_attack_speed"    "12 24" //OAA
+        "bonus_attack_speed"    "12 16" 
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "movement_speed_percent_bonus"  "8 16" //OAA
+        "movement_speed_percent_bonus"  "8 12" //OAA
       }
     }
   }
