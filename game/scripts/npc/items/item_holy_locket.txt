@@ -20,7 +20,7 @@
     "ItemResult"                  "item_holy_locket"
     "ItemRequirements"
     {
-      "01"            "item_ring_of_tarrasque;item_void_stone;item_cloak"
+      "01"            "item_ring_of_tarrasque;item_energy_booster;item_cloak"
     }
   }
 
@@ -37,7 +37,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "2650"
+    "ItemCost"                    "2700"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemAliases"                 "holy locket"
@@ -56,13 +56,13 @@
       }
       "02"
       {
-        "var_type"                "FIELD_FLOAT"
-        "health_regen"            "4 10 16 23 30"
+        "var_type"                "FIELD_INTEGER"
+        "bonus_mana"              "325 800 1350 1900 2550"
       }
       "03"
       {
         "var_type"                "FIELD_FLOAT"
-        "mana_regen"              "3 4 5.5 7.5 10"
+        "health_regen"            "4 10 16 23 30"
       }
       "04"
       {

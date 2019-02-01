@@ -3,7 +3,6 @@
   //=================================================================================================================
   // Recipe: Vladimir
   //=================================================================================================================
-
   "item_recipe_vladmir"
   {
     // General
@@ -13,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
+    "ItemCost"            "525"
     "ItemShopTags"          ""
 
     // Recipe
@@ -22,7 +21,7 @@
     "ItemResult"          "item_vladmir"
     "ItemRequirements"
     {
-      "01"            "item_headdress;item_ring_of_basilius;item_lifesteal"
+      "01"            "item_ring_of_basilius;item_lifesteal"
     }
   }
 
@@ -56,40 +55,30 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "2 4 8 16 32"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "hp_regen"        "2.5 5 10 15 20"
-      }
-      "03"
-      {
         "var_type"        "FIELD_FLOAT"
         "mana_regen_aura" "1.75 2.5 4.0 6.0 7.5"
       }
-      "04"
+      "02"
       {
         "var_type"        "FIELD_INTEGER"
         "armor_aura"      "4 8 12 16 20"
       }
-      "05"
+      "03"
       {
         "var_type"        "FIELD_INTEGER"
         "damage_aura"     "15 22 30 39 50"
       }
-      "06"
+      "04"
       {
         "var_type"        "FIELD_INTEGER"
         "vampiric_aura"     "15 18 21 25 30"
       }
-      "07"
+      "05"
       {
         "var_type"        "FIELD_INTEGER"
         "vampiric_aura_ranged"  "10 12 14 17 20"
       }
-      "08"
+      "06"
       {
         "var_type"        "FIELD_INTEGER"
         "aura_radius"         "1200"
