@@ -27,6 +27,10 @@
       "02"                                                "item_assault;item_upgrade_core_2"
       "03"                                                "item_assault;item_upgrade_core_3"
       "04"                                                "item_assault;item_upgrade_core_4"
+      "05"                                                "item_blade_mail;item_upgrade_core"
+      "06"                                                "item_blade_mail;item_upgrade_core_2"
+      "07"                                                "item_blade_mail;item_upgrade_core_3"
+      "08"                                                "item_blade_mail;item_upgrade_core_4"
     }
   }
 
@@ -40,11 +44,11 @@
     "ID"                                                  "3086"    // unique ID
     "BaseClass"                                           "item_assault"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
     "AbilityTextureName"                                  "custom/assault_cuirass_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6750"
+    "ItemCost"                                            "3700"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac 2;assault cuirass 2"
@@ -73,7 +77,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "04"
       {

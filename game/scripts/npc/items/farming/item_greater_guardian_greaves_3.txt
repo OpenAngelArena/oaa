@@ -46,12 +46,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "40"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "17050"
+    "ItemCost"                                            "16575"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 3;guardian greaves 3;ggg 3"
@@ -70,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "60 66 73 80"
+        "bonus_movement"                                  "25 30 35 40"
       }
       "02"
       {
@@ -90,7 +90,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "5 7.5 10 12.5"
+        "aura_health_regen"                               "6 8.5 11 13.5"
       }
       "06"
       {
@@ -100,7 +100,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "16 20 24 28"
+        "aura_health_regen_bonus"                         "20 24 28 32"
       }
       "08"
       {
@@ -115,22 +115,22 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_health"                                "300 475 750 1100"
+        "replenish_health"                                "400 575 750 1100"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_mana"                                  "200 300 475 700"
+        "replenish_mana"                                  "300 400 575 750"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_radius"                                "900"
+        "replenish_radius"                                "1200"
       }
       "14"
       {

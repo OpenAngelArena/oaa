@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_4;item_upgrade_core_4"
+      "02"                                                "item_stoneskin;item_upgrade_core_4"
     }
   }
 
@@ -73,7 +74,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "04"
       {

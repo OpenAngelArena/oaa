@@ -16,9 +16,10 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700 800 900 1000 1100 1200"
     "AbilityCastPoint"                                    "0.45"
 
     // Time
@@ -36,21 +37,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5 6 7 8 11 15"
+        "duration"                                        "5 6 7 8 10 15"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "burn_damage"                                     "26 34 42 50 90 130"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-20 -22 -24 -26 -30 -35"
+        "slow_movement_speed_pct"                         "-30 -32 -34 -36 -40 -45" //OAA
       }
-
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"

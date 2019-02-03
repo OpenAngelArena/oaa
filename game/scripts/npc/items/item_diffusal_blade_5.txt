@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_diffusal_blade_4;item_upgrade_core_4"
+      "02"                                                "item_butterfly_4;item_upgrade_core_4"
     }
   }
 
@@ -69,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 30 45 70 105"
+        "bonus_agility"                                   "20 40 45 70 105"
       }
       "02"
       {

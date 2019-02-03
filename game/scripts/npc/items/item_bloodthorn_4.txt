@@ -25,6 +25,8 @@
     {
       "01"                                                "item_bloodthorn_3;item_upgrade_core_3"
       "02"                                                "item_bloodthorn_3;item_upgrade_core_4"
+      "03"                                                "item_greater_crit_3;item_upgrade_core_3"
+      "04"                                                "item_greater_crit_3;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +48,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "18.0"
+    "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "orchid"
     "AbilityTextureName"                                  "custom/bloodthorn_4"
     // Spicy Parameters
@@ -58,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "20205"
+    "ItemCost"                                            "17075"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 4"
@@ -81,12 +83,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 125 165 210"
+        "bonus_damage"                                    "68 90 125 165 210"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 2.5 2.75 3.0 3.25"
+        "bonus_mana_regen"                                "5.5 6.0 6.5 7.0 7.5"
       }
       "05"
       {

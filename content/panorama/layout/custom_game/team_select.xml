@@ -10,7 +10,6 @@
     <include src="file://{resources}/scripts/custom_game/team_select.js" />
     <include src="file://{resources}/scripts/team_select.js" />
     <include src="file://{resources}/scripts/game_length_options.js" />
-
   </scripts>
 
   <Panel hittest="false" class="TeamSelect">
@@ -61,7 +60,7 @@
 
         <!-- Footer -->
         <Panel id="Footer">
-          <Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
+          <Button id="ShuffleTeamAssignmentButton" onactivate="MMRShuffle()">
             <Label text="#custom_game_team_select_shuffle" />
           </Button>
         </Panel>

@@ -24,6 +24,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "02"                                                "item_heart_4;item_upgrade_core_4"
+      "03"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -43,12 +46,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "46.0"
     "AbilitySharedCooldown"                               "guard"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
-
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -71,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 19 27"
+        "bonus_health_regen"                              "7 10 15 20 30"
       }
       "03"
       {
@@ -111,7 +112,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "900"
+        "bonus_aoe_radius"                                "1200"
       }
       "11"
       {

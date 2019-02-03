@@ -25,6 +25,8 @@
     {
       "01"                                                "item_satanic_core;item_upgrade_core_3"
       "02"                                                "item_satanic_core;item_upgrade_core_4"
+      "03"                                                "item_octarine_core_3;item_upgrade_core_3"
+      "04"                                                "item_octarine_core_3;item_upgrade_core_4"
     }
   }
 
@@ -55,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "24400"
+    "ItemCost"                                            "18900"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 2"

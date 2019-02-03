@@ -2,6 +2,7 @@ local HeroState = require("components/duels/savestate")
 local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
 LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_duel_invulnerability", "modifiers/modifier_duel_invulnerability", LUA_MODIFIER_MOTION_NONE)
 
 DUEL_IS_STARTING = 21
 
@@ -100,7 +101,9 @@ function Duels:Init ()
     end
   end)
 
-  Timers:CreateTimer(INITIAL_DUEL_DELAY, function ()
+  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY
+  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME, function ()
+  -- HudTimer:At(INITIAL_DUEL_DELAY, function ()
     self:StartDuel({
       players = 0,
       firstDuel = true,
@@ -400,17 +403,21 @@ end
 
 function Duels:PreparePlayersToStartDuel(options, playerSplit)
   for _,player in ipairs(playerSplit.BadPlayers) do
+    local hero = PlayerResource:GetSelectedHeroEntity(player.id)
     if player.assigned == nil then
-      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:Stop()
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    else
+      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
   for _,player in ipairs(playerSplit.GoodPlayers) do
+    local hero = PlayerResource:GetSelectedHeroEntity(player.id)
     if player.assigned == nil then
-      local hero = PlayerResource:GetSelectedHeroEntity(player.id)
       hero:Stop()
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    else
+      hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
     end
   end
 
@@ -496,6 +503,15 @@ function Duels:TimeoutDuel ()
   })
 end
 
+function Duels:SetNextDuelTime()
+  Duels.nextDuelTime = HudTimer:GetGameTime() + DUEL_INTERVAL + DUEL_START_WARN_TIME
+end
+
+function Duels:GetNextDuelTime()
+  if Duels:IsActive() then return HudTimer:GetGameTime() end
+  return Duels.nextDuelTime
+end
+
 function Duels:EndDuel ()
   if self.currentDuel == nil then
     DebugPrint ('There is no duel running')
@@ -508,6 +524,7 @@ function Duels:EndDuel ()
   Music:PlayBackground(1, 7)
 
   local nextDuelIn = DUEL_INTERVAL
+  Duels:SetNextDuelTime()
 
   if self.startDuelTimer then
     Timers:RemoveTimer(self.startDuelTimer)

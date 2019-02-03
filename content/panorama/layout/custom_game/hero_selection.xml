@@ -6,6 +6,18 @@
     <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/hero_selection.js" />
   </scripts>
+  <snippets>
+    <snippet name="BottleRadio">
+      <RadioButton class="BottleOption" group="BottleOption" onactivate="SelectBottle()">
+        <Panel class="Bottle"/>
+      </RadioButton>
+    </snippet>
+    <snippet name="ArcanaRadio">
+      <RadioButton class="ArcanaOption" group="ArcanaOption" onactivate="SelectArcana()">
+        <Panel class="Arcana"/>
+      </RadioButton>
+    </snippet>
+  </snippets>
   <Panel class="HeroSelection" onactivate=";">
     <DOTAScenePanel id="PregameBG" class="BluredAndDark" hittest="false" map="backgrounds/pregame_phase" camera="shot_cameraA" />
     <Label id="ARDMLoading" text="...">
@@ -160,21 +172,35 @@
               <Panel id="AbilityPreview">
               </Panel>
             </Panel>
-            <Panel id="HeroPickContainer">
-              <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
-                <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
-                <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
-              </Button>
-              <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
-                <Label text="#DOTA_Hero_Selection_LOCKIN" />
-              </Button>
-              <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
-                <Label text="#random" />
-              </Button>
-            </Panel>
+          </Panel>
+          <Panel id="HeroPickContainer">
+            <Button class="HeroPickerButton" id="HeroLockIn" onactivate="SelectHero()">
+              <Label text="#DOTA_Hero_Selection_LOCKIN" />
+            </Button>
+            <Button class="HeroPickerButton" id="HeroBan" onactivate="SelectHero()">
+              <Label text="#DOTA_Hero_Selection_BanTitle" />
+            </Button>
+            <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
+              <Label text="#random" />
+            </Button>
+            <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
+              <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
+              <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
+            </Button>
           </Panel>
           <Panel id="ChatPlaceholder" />
           <Panel id="CMHeroPreview" hittest="false" />
+          <Panel class="BottlePassSelection">
+            <Label id="BottlePassSelectionTitle" text="#BottlePassSelection"/>
+            <Label id="BottleSelectionTitle" text="#BottleSelection"/>
+            <Panel id="BottleSelection">
+            </Panel>
+            <Panel class="ArcanaPanel" id="ArcanaPanel">
+              <Label id="ArcanaSelectionTitle" text="#ArcanaSelection"/>
+              <Panel id="ArcanaSelection">
+              </Panel>
+            </Panel>
+          </Panel>
         </Panel>
       </Panel>
     </Panel>

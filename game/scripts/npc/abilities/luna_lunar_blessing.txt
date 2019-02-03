@@ -18,18 +18,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900 900 900 900 900 900"
+        "radius"                                          "1200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "14 22 30 38 78 120"
-        "LinkedSpecialBonus"                              "special_bonus_unique_luna_3"
+        "primary_attribute"                               "6 12 18 24 48 100"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "250 500 750 1000 1200 1400"
+        "bonus_night_vision"                              "200 400 600 800 1000 1500"
       }
     }
   }

@@ -21,7 +21,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "55"
+    "AbilityCooldown"                                     "40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,26 +34,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "16 24 32 40 80 120"
+        "damage_per_second"                               "20 30 40 50 90 130"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen"                                           "12 18 24 30 60 90"
-        "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
+        "radius"                                          "600"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed_pct"                        "11 12 13 14 15 16"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "10.0 12.0 14.0 16.0 18.0 20.0"

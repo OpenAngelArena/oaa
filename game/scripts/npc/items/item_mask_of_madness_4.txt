@@ -17,6 +17,8 @@
     {
       "01"                                                "item_mask_of_madness_3;item_upgrade_core_3"
       "02"                                                "item_mask_of_madness_3;item_upgrade_core_4"
+      "03"                                                "item_satanic_3;item_upgrade_core_3"
+      "04"                                                "item_satanic_3;item_upgrade_core_4"
     }
   }
 
@@ -45,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "14975"
+    "ItemCost"                                            "18300"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 4;mask of madness 4"
@@ -58,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 30 50 75 120"
+        "bonus_damage"                                    "10 30 50 75 120"
       }
       "02"
       {
@@ -68,7 +70,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "15"
+        "lifesteal_percent"                               "20"
       }
       "04"
       {
@@ -78,7 +80,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "12 17 22 27 32"
+        "berserk_bonus_movement_speed"                    "25 30 35 40 45"
       }
       "06"
       {

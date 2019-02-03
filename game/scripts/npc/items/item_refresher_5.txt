@@ -25,6 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_refresher_4;item_upgrade_core_4"
+      "02"                                                "item_octarine_core_4;item_upgrade_core_4"
+      "03"                                                "item_satanic_core_2;item_upgrade_core_4"
     }
   }
 
@@ -51,11 +53,13 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "275"
-    "ItemCost"                                            "38100"
+    "ItemCost"                                            "38900"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 5;refresher 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "IsTempestDoubleClonable"                             "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -64,12 +68,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "11 17 25 40 60"
+        "bonus_health_regen"                              "13 19 27 42 62"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 7.0 10.0 14.0 20.0"
+        "bonus_mana_regen"                                "12.0 14.0 17.0 21.0 27.0"
       }
     }
   }

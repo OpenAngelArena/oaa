@@ -1,5 +1,11 @@
 /* global $, GameEvents, Game, DOTA_GameState */
 
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    MMRShuffle: MMRShuffle
+  };
+}
+
 (function () {
   hideShowUI(Game.GetState());
   if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
@@ -10,6 +16,13 @@
     hideShowUI(data.newState);
   }
 }());
+
+function MMRShuffle () {
+  $.Msg('Clicked shuffle!');
+  GameEvents.SendCustomGameEventToServer('mmrShuffle', {
+    shuffle: true
+  });
+}
 
 function hideShowUI (state) {
   if (state === 2) {
@@ -65,4 +78,4 @@ function listenToGameEvent (event, handler) {
   }
 }
 
-$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');
+$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');

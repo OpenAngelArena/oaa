@@ -32,7 +32,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "5"
+    "AbilityCooldown"               "4"
 
 
     // Cost
@@ -46,7 +46,7 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "impact_damage"             "1000"
+        "impact_damage"             "800"
       }
       "02"
       {
@@ -56,12 +56,12 @@
       "03"
       {
         "var_type"                  "FIELD_FLOAT"
-        "impact_slow_duration"      "3.0"
+        "impact_slow_duration"      "4.0"
       }
       "04"
       {
         "var_type"                  "FIELD_FLOAT"
-        "explode_time"              "3.0"
+        "explode_time"              "5.0"
       }
       "05"
       {

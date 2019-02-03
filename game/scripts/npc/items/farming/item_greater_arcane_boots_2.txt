@@ -26,6 +26,18 @@
       "01"                                                "item_greater_arcane_boots;item_upgrade_core_2"
       "02"                                                "item_greater_arcane_boots;item_upgrade_core_3"
       "03"                                                "item_greater_arcane_boots;item_upgrade_core_4"
+      "04"                                                "item_greater_phase_boots;item_upgrade_core_2"
+      "05"                                                "item_greater_phase_boots;item_upgrade_core_3"
+      "06"                                                "item_greater_phase_boots;item_upgrade_core_4"
+      "07"                                                "item_greater_power_treads;item_upgrade_core_2"
+      "08"                                                "item_greater_power_treads;item_upgrade_core_3"
+      "09"                                                "item_greater_power_treads;item_upgrade_core_4"
+      "10"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "11"                                                "item_greater_tranquil_boots;item_upgrade_core_3"
+      "12"                                                "item_greater_tranquil_boots;item_upgrade_core_4"
+      "13"                                                "item_greater_travel_boots;item_upgrade_core_2"
+      "14"                                                "item_greater_travel_boots;item_upgrade_core_3"
+      "15"                                                "item_greater_travel_boots;item_upgrade_core_4"
     }
   }
 
@@ -45,12 +57,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "55.0"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "5000"
+    "ItemCost"                                            "4600"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater arcane boots 2;greater arcanes 2;arcanes 2"
@@ -66,7 +78,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "55 61 68 75"
+        "bonus_movement"                                  "20 25 30 35"
       }
       "02"
       {
@@ -76,12 +88,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_amount"                                "170 250 400 600"
+        "replenish_amount"                                "180 260 410 610"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_radius"                                "900"
+        "replenish_radius"                                "1200"
       }
       "05"
       {

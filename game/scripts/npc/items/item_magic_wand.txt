@@ -52,7 +52,7 @@
     "ItemAliases"         "magic wand;wand"
     "ItemRequiresCharges"     "1"
     "ItemDisplayCharges"      "1"
-    "MaxUpgradeLevel"               "5"
+    "MaxUpgradeLevel"               "1"
     "ItemBaseLevel"                 "1"
     "UpgradesItems"                 "item_magic_wand;item_magic_wand_2;item_magic_wand_3;item_magic_wand_4"
 
@@ -73,12 +73,12 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "3 20 40 60 90"
+        "bonus_all_stats"   "3"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "restore_per_charge"  "15 30 60 120 240"
+        "restore_per_charge"  "15"
       }
     }
   }

@@ -42,8 +42,6 @@
     "AbilityTextureName"            "custom/trident_2"
     "BaseClass"                     "item_kaya"
 
-
-
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -51,7 +49,7 @@
 
     // Item Info^
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "3450"
+    "ItemCost"                      "3550"
     "ItemShopTags"                  "int;mana"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "ky 2;kaya 2"
@@ -69,12 +67,12 @@
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 15 20 25 30"
+        "manacost_reduction"    "12 18 26 34 42"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "manacost_reduction"    "10 15 20 25 30"
+        "spell_amp"             "8 18 26 34 42"
       }
     }
   }

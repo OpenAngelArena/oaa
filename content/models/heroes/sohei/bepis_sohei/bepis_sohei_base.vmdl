@@ -1,0 +1,2652 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_meshList = 
+	{
+		m_meshList = 
+		[
+			{
+				m_meshName = "bepis_sohei_base"
+				m_meshFile = "models/heroes/sohei/bepis_sohei/bepis_sohei_base.fbx"
+				m_materialSearchPath = ""
+				m_bSkinParentedObjects = true
+				m_bLegacySkinParentedTransforms = false
+				m_bExpensiveTangents = false
+				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
+				m_bBentNormals = false
+				m_bIgnoreCloth = false
+				m_bGetSkinningFromLod0 = false
+				m_pMorphInfo = null
+			},
+		]
+	}
+	m_clothProxyMeshList = 
+	{
+		_class = "CVClothProxyMeshList"
+		m_flClothEnableThreshold = 0.05
+		m_bCreateStaticBone = false
+		m_nMaxBonesPerVertex = 4
+		m_bRemoveUnusedBonesEnabled = false
+		m_bDriveMeshesWithBacksolvedJointsOnly = true
+		m_flMatchProxiesToMeshes = 1.0
+		m_flFallbackEnvelope = 1.0
+		m_nReservedInt = 0
+		m_bSoftSkinAnimation = false
+		m_bReservedBool2 = false
+		m_bReservedBool3 = false
+		m_bReservedBool4 = false
+		m_clothProxyMeshList = [  ]
+	}
+	m_physicsMeshList = 
+	{
+		m_meshList = [  ]
+	}
+	m_pModelInfo = null
+	m_pBoneFlagList = 
+	{
+		m_pObject = null
+	}
+	m_pHitBoxSetLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_HitBoxSets = 
+				[
+					{
+						m_name = "default"
+						m_HitBoxes = 
+						[
+							{
+								m_name = "root"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "root"
+								m_vMinBounds = [ -12.188873, -18.964657, -25.239117 ]
+								m_vMaxBounds = [ 11.06023, 18.556911, 16.674118 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "spine1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "spine1"
+								m_vMinBounds = [ -23.476105, -21.326612, -23.318161 ]
+								m_vMaxBounds = [ 32.08342, 21.470293, 15.843323 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "spine2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "spine2"
+								m_vMinBounds = [ -35.864708, -28.486355, -23.742481 ]
+								m_vMaxBounds = [ 24.589134, 28.486385, 16.395508 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "spine3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "spine3"
+								m_vMinBounds = [ -15.95446, -22.543818, -21.778725 ]
+								m_vMaxBounds = [ 13.927544, 22.543844, 16.118942 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "clavicle_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "clavicle_R"
+								m_vMinBounds = [ -22.68959, -9.777729, -16.331955 ]
+								m_vMaxBounds = [ 24.427898, 20.836826, 24.757042 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "clavicle_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "clavicle_L"
+								m_vMinBounds = [ -19.754837, -20.813412, -23.952225 ]
+								m_vMaxBounds = [ 23.676537, 18.309986, 16.432846 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "bicep_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "bicep_R"
+								m_vMinBounds = [ -26.132874, -28.096836, -23.238104 ]
+								m_vMaxBounds = [ 26.270103, 10.111267, 14.31772 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "bicep_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "bicep_L"
+								m_vMinBounds = [ -32.125908, -10.122467, -16.032814 ]
+								m_vMaxBounds = [ 26.402771, 29.017342, 21.51318 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "elbow_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "elbow_R"
+								m_vMinBounds = [ -15.473602, -16.972771, -10.326538 ]
+								m_vMaxBounds = [ 30.635506, 8.953346, 17.765472 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "elbow_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "elbow_L"
+								m_vMinBounds = [ -30.651237, -8.953171, -17.713654 ]
+								m_vMaxBounds = [ 15.473709, 14.514, 10.326778 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "wrist_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "wrist_R"
+								m_vMinBounds = [ -14.39489, -10.208149, -8.21059 ]
+								m_vMaxBounds = [ 12.035889, 6.379097, 10.262661 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "wrist_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "wrist_L"
+								m_vMinBounds = [ -12.03566, -6.379036, -10.262424 ]
+								m_vMaxBounds = [ 12.951954, 10.208206, 8.210854 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thigh_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thigh_R"
+								m_vMinBounds = [ -33.000374, -13.190071, -17.593376 ]
+								m_vMaxBounds = [ 25.14122, 22.802502, 19.847607 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thigh_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thigh_L"
+								m_vMinBounds = [ -22.21196, -23.062725, -19.86306 ]
+								m_vMaxBounds = [ 32.709015, 10.366689, 17.329655 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thumb_0_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thumb_0_R"
+								m_vMinBounds = [ -6.364092, -5.530109, -6.998871 ]
+								m_vMaxBounds = [ 8.307865, 5.641846, 10.688606 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "mid_0_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "mid_0_R"
+								m_vMinBounds = [ -7.852303, -6.004144, -3.920174 ]
+								m_vMaxBounds = [ 14.644005, 8.331768, 6.884766 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "index_0_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "index_0_R"
+								m_vMinBounds = [ -5.84354, -8.227901, -4.477215 ]
+								m_vMaxBounds = [ 14.104572, 6.473907, 5.436806 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thumb_0_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thumb_0_L"
+								m_vMinBounds = [ -10.742922, -5.641884, -10.688965 ]
+								m_vMaxBounds = [ 5.179884, 6.64946, 6.998558 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "mid_0_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "mid_0_L"
+								m_vMinBounds = [ -14.643745, -8.331486, -6.884892 ]
+								m_vMaxBounds = [ 7.597897, 6.004426, 3.92012 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "index_0_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "index_0_L"
+								m_vMinBounds = [ -14.104401, -6.473541, -5.436844 ]
+								m_vMaxBounds = [ 5.843712, 8.228268, 4.47718 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "knee_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "knee_R"
+								m_vMinBounds = [ -30.534996, -15.88781, -24.273941 ]
+								m_vMaxBounds = [ 69.579193, 47.462502, 35.098099 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "knee_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "knee_L"
+								m_vMinBounds = [ -80.393173, -47.810352, -33.241211 ]
+								m_vMaxBounds = [ 30.496595, 13.439114, 24.192585 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "neck1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "neck1"
+								m_vMinBounds = [ -21.377563, -21.641319, -12.772476 ]
+								m_vMaxBounds = [ 15.540512, 21.641342, 12.270897 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thumb_1_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thumb_1_R"
+								m_vMinBounds = [ -7.106926, -6.649208, -2.593147 ]
+								m_vMaxBounds = [ 10.277737, 3.319138, 7.190308 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "mid_1_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "mid_1_R"
+								m_vMinBounds = [ -6.585274, -6.004155, -1.953373 ]
+								m_vMaxBounds = [ 8.354095, 5.172588, 4.993042 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "index_1_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "index_1_R"
+								m_vMinBounds = [ -5.785667, -2.477619, -2.117842 ]
+								m_vMaxBounds = [ 7.293396, 3.517979, 3.26631 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thumb_1_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thumb_1_L"
+								m_vMinBounds = [ -10.277599, -3.319099, -7.19075 ]
+								m_vMaxBounds = [ 5.950909, 6.649361, 2.592682 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "mid_1_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "mid_1_L"
+								m_vMinBounds = [ -8.353775, -4.471256, -4.993055 ]
+								m_vMaxBounds = [ 6.585587, 6.004488, 1.953403 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "index_1_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "index_1_L"
+								m_vMinBounds = [ -7.293205, -3.517578, -3.266279 ]
+								m_vMaxBounds = [ 4.475098, 2.47802, 2.117872 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "back_fur_R0C0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "back_fur_R0C0"
+								m_vMinBounds = [ -31.079201, -12.339302, -13.970028 ]
+								m_vMaxBounds = [ -7.271576, 8.975517, 8.990597 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ankle_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ankle_R"
+								m_vMinBounds = [ -23.228027, -10.452229, -31.608891 ]
+								m_vMaxBounds = [ 25.106674, 41.881973, 10.585391 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ankle_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ankle_L"
+								m_vMinBounds = [ -25.189779, -42.227375, -10.662305 ]
+								m_vMaxBounds = [ 25.158388, 10.108006, 31.858959 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "head"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "head"
+								m_vMinBounds = [ -16.140503, -14.00663, -13.655914 ]
+								m_vMaxBounds = [ 13.67712, 9.318909, 15.172943 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "sword_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "sword_1"
+								m_vMinBounds = [ -19.874367, -5.48, -3.4491 ]
+								m_vMaxBounds = [ 98.561378, 38.710831, 9.281256 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thumb_2_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thumb_2_R"
+								m_vMinBounds = [ -4.049576, -4.213356, -2.593079 ]
+								m_vMaxBounds = [ 4.9263, 2.265305, 4.658665 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "mid_2_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "mid_2_R"
+								m_vMinBounds = [ -4.214554, -5.898089, -1.953358 ]
+								m_vMaxBounds = [ 6.634872, 4.233103, 3.041725 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "index_2_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "index_2_R"
+								m_vMinBounds = [ -2.939232, -1.804985, -2.117785 ]
+								m_vMaxBounds = [ 3.784935, 2.200535, 1.391741 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "pad1_0_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "pad1_0_R"
+								m_vMinBounds = [ -4.753647, -11.707207, -9.841864 ]
+								m_vMaxBounds = [ 9.795105, 19.522331, 7.748646 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "wrist_helper_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "wrist_helper_R"
+								m_vMinBounds = [ -10.47266, -7.84948, -8.04085 ]
+								m_vMaxBounds = [ 17.734451, 6.597153, 9.125454 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "thumb_2_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "thumb_2_L"
+								m_vMinBounds = [ -5.027168, -3.319229, -4.659145 ]
+								m_vMaxBounds = [ 4.049671, 4.213352, 2.59259 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "mid_2_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "mid_2_L"
+								m_vMinBounds = [ -6.634499, -4.232725, -3.041746 ]
+								m_vMaxBounds = [ 4.214935, 5.898468, 1.95336 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "index_2_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "index_2_L"
+								m_vMinBounds = [ -4.933617, -2.43293, -1.748184 ]
+								m_vMaxBounds = [ 2.939453, 1.805428, 2.117817 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "pad0_0_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "pad0_0_L"
+								m_vMinBounds = [ -9.795189, -19.204117, -7.748389 ]
+								m_vMaxBounds = [ 4.753563, 11.707382, 9.842127 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "wrist_helper_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "wrist_helper_L"
+								m_vMinBounds = [ -17.734344, -6.597038, -9.125183 ]
+								m_vMaxBounds = [ 9.962246, 7.849586, 8.041117 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "back_fur_R2C0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "back_fur_R2C0"
+								m_vMinBounds = [ -2.0, -2.0, -2.0 ]
+								m_vMaxBounds = [ 2.0, 2.0, 2.0 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "toeBase_R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "toeBase_R"
+								m_vMinBounds = [ -15.103395, -6.449615, -1.097738 ]
+								m_vMaxBounds = [ 15.338289, 10.049784, 22.490566 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "toeBase_L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "toeBase_L"
+								m_vMinBounds = [ -15.226348, -10.580708, -1.096064 ]
+								m_vMaxBounds = [ 15.178502, 6.056881, 22.116438 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "back_flap0_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "back_flap0_0"
+								m_vMinBounds = [ -1.945286, 15.297831, 14.281715 ]
+								m_vMaxBounds = [ 9.476171, 19.079237, 24.167419 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "L_panel2_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "L_panel2_0"
+								m_vMinBounds = [ -16.710291, -14.987207, -31.860458 ]
+								m_vMaxBounds = [ -9.546984, 2.723216, -14.303696 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "R_panel3_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "R_panel3_0"
+								m_vMinBounds = [ -2.0, -2.0, -2.0 ]
+								m_vMaxBounds = [ 2.0, 2.0, 2.0 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "clth_fr_R_03"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "clth_fr_R_03"
+								m_vMinBounds = [ -2.0, -2.0, -2.0 ]
+								m_vMaxBounds = [ 2.0, 2.0, 2.0 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+						]
+					},
+				]
+				m_AutoCreateSetName = ""
+			}
+		},
+	]
+	m_pAttachmentLists = [  ]
+	m_pAnimGroup = 
+	{
+		m_pObject = 
+		{
+			m_Name = ""
+			m_pReferenceSkeleton = 
+			{
+				m_pObject = null
+			}
+			m_pBoneFlagList = 
+			{
+				m_pObject = null
+			}
+			m_pSeqGroup = 
+			{
+				m_pObject = null
+			}
+			m_pAnimGroups = 
+			[
+				{
+					m_pObject = 
+					{
+						m_Name = "ss"
+						m_pReferenceSkeleton = 
+						{
+							m_pObject = null
+						}
+						m_pBoneFlagList = 
+						{
+							m_pObject = 
+							{
+								m_boneFlag = 
+								[
+									{
+										m_sName = "root"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = ""
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "spine1"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "spine2"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "spine1"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "spine3"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "spine2"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "neck1"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "spine3"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "head"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "neck1"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clavicle_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "spine3"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "bicep_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "clavicle_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "elbow_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "bicep_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "wrist_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "elbow_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "sword_1"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thumb_0_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thumb_1_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "thumb_0_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thumb_2_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "thumb_1_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "mid_0_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "mid_1_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "mid_0_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "mid_2_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "mid_1_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "index_0_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "index_1_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "index_0_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "index_2_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "index_1_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "pad1_0_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "elbow_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "wrist_helper_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "elbow_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clavicle_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "spine3"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "bicep_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "clavicle_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "elbow_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "bicep_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "wrist_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "elbow_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thumb_0_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thumb_1_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "thumb_0_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thumb_2_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "thumb_1_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "mid_0_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "mid_1_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "mid_0_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "mid_2_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "mid_1_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "index_0_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "wrist_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "index_1_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "index_0_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "index_2_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "index_1_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "pad0_0_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "elbow_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "wrist_helper_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "elbow_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "back_fur_R0C0"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "spine3"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "back_fur_R1C0"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "back_fur_R0C0"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thigh_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "knee_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "thigh_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "ankle_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "knee_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "toeBase_R"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "ankle_R"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "thigh_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "knee_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "thigh_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "ankle_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "knee_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "toeBase_L"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "ankle_L"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "back_flap0_0"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "portrait"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "L_panel2_0"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "R_panel3_0"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "belt4_0"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "root"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clth_fr_R_01"
+										m_bProcedural = false
+										m_bDeleted = true
+										m_sGroup = ""
+										m_sParent = "belt4_0"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clth_fr_R_02"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "clth_fr_R_01"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clth_fr_L_01"
+										m_bProcedural = false
+										m_bDeleted = true
+										m_sGroup = ""
+										m_sParent = "belt4_0"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clth_fr_L_02"
+										m_bProcedural = false
+										m_bDeleted = false
+										m_sGroup = ""
+										m_sParent = "clth_fr_L_01"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "back_fur_R2C0"
+										m_bProcedural = false
+										m_bDeleted = true
+										m_sGroup = ""
+										m_sParent = "back_fur_R1C0"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "back_fur_R3C0"
+										m_bProcedural = false
+										m_bDeleted = true
+										m_sGroup = ""
+										m_sParent = "back_fur_R2C0"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clth_fr_R_03"
+										m_bProcedural = false
+										m_bDeleted = true
+										m_sGroup = ""
+										m_sParent = "clth_fr_R_02"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+									{
+										m_sName = "clth_fr_L_03"
+										m_bProcedural = false
+										m_bDeleted = true
+										m_sGroup = ""
+										m_sParent = "clth_fr_L_02"
+										m_bRigidLength = false
+										m_bPrealignedRotation = false
+										m_ReferenceAngle = [ 0.0, 0.0, 0.0 ]
+									},
+								]
+								m_boneWorldspace = 
+								[
+									{
+										m_name = "root"
+										m_Translation = [ 3.16274, -0.00001, 84.871094 ]
+										m_Rotation = [ -0.000003, 0.000015, -0.0 ]
+									},
+									{
+										m_name = "spine1"
+										m_Translation = [ 0.383946, -0.000011, 95.760635 ]
+										m_Rotation = [ -180.0, -81.760017, -180.0 ]
+									},
+									{
+										m_name = "spine2"
+										m_Translation = [ -1.638992, -0.000012, 109.729813 ]
+										m_Rotation = [ 179.999741, -89.480576, -179.999741 ]
+									},
+									{
+										m_name = "spine3"
+										m_Translation = [ -1.708559, -0.000013, 117.402946 ]
+										m_Rotation = [ 0.000061, -87.418846, -0.000059 ]
+									},
+									{
+										m_name = "neck1"
+										m_Translation = [ -1.327485, -0.000014, 125.856087 ]
+										m_Rotation = [ 0.000008, -42.605507, -0.000006 ]
+									},
+									{
+										m_name = "head"
+										m_Translation = [ 0.859153, -0.000016, 141.098343 ]
+										m_Rotation = [ 0.000015, -2.530381, -0.000015 ]
+									},
+									{
+										m_name = "clavicle_R"
+										m_Translation = [ 2.292554, -3.103002, 124.806259 ]
+										m_Rotation = [ -175.292908, -6.941735, 73.55175 ]
+									},
+									{
+										m_name = "bicep_R"
+										m_Translation = [ -1.687438, -16.583927, 123.094917 ]
+										m_Rotation = [ 70.006187, -59.555195, 88.208702 ]
+									},
+									{
+										m_name = "elbow_R"
+										m_Translation = [ -2.132641, -30.817177, 98.866394 ]
+										m_Rotation = [ 48.708935, -50.673679, 113.953751 ]
+									},
+									{
+										m_name = "wrist_R"
+										m_Translation = [ 2.506299, -41.259144, 84.919434 ]
+										m_Rotation = [ 60.384773, -67.707268, 120.08287 ]
+									},
+									{
+										m_name = "sword_1"
+										m_Translation = [ -17.370041, -61.888237, 104.558334 ]
+										m_Rotation = [ 55.682495, -59.572918, 160.628799 ]
+									},
+									{
+										m_name = "thumb_0_R"
+										m_Translation = [ 9.879626, -42.22192, 82.37265 ]
+										m_Rotation = [ -174.437698, -24.62339, 177.917252 ]
+									},
+									{
+										m_name = "thumb_1_R"
+										m_Translation = [ 13.396875, -42.349857, 80.759506 ]
+										m_Rotation = [ -172.357605, -48.504463, 174.501633 ]
+									},
+									{
+										m_name = "thumb_2_R"
+										m_Translation = [ 16.25708, -42.625217, 77.511215 ]
+										m_Rotation = [ -172.357666, -48.50444, 174.50174 ]
+									},
+									{
+										m_name = "mid_0_R"
+										m_Translation = [ 4.527883, -45.794979, 72.99157 ]
+										m_Rotation = [ 101.606194, -78.967422, 170.522079 ]
+									},
+									{
+										m_name = "mid_1_R"
+										m_Translation = [ 5.25869, -45.916939, 69.191406 ]
+										m_Rotation = [ 31.542559, -69.002243, -117.474709 ]
+									},
+									{
+										m_name = "mid_2_R"
+										m_Translation = [ 5.650607, -45.163197, 66.978073 ]
+										m_Rotation = [ 31.542429, -69.002174, -117.474571 ]
+									},
+									{
+										m_name = "index_0_R"
+										m_Translation = [ 10.109548, -44.967274, 74.425484 ]
+										m_Rotation = [ 103.295753, -62.533844, 173.710693 ]
+									},
+									{
+										m_name = "index_1_R"
+										m_Translation = [ 12.030347, -45.178974, 70.707901 ]
+										m_Rotation = [ 61.193573, -59.186089, -138.744934 ]
+									},
+									{
+										m_name = "index_2_R"
+										m_Translation = [ 13.281679, -44.081387, 67.917175 ]
+										m_Rotation = [ 61.193714, -59.186062, -138.745071 ]
+									},
+									{
+										m_name = "pad1_0_R"
+										m_Translation = [ 1.906239, -39.72966, 90.524551 ]
+										m_Rotation = [ 72.960075, 32.853683, 80.559631 ]
+									},
+									{
+										m_name = "wrist_helper_R"
+										m_Translation = [ 1.340835, -38.635715, 88.423386 ]
+										m_Rotation = [ 55.046997, -52.679832, 116.491516 ]
+									},
+									{
+										m_name = "clavicle_L"
+										m_Translation = [ 2.292574, 3.102952, 124.806259 ]
+										m_Rotation = [ 4.707026, 6.941759, 106.448158 ]
+									},
+									{
+										m_name = "bicep_L"
+										m_Translation = [ -1.687385, 16.583914, 123.095009 ]
+										m_Rotation = [ -109.993874, 59.555241, 91.791245 ]
+									},
+									{
+										m_name = "elbow_L"
+										m_Translation = [ -2.132584, 30.8172, 98.866554 ]
+										m_Rotation = [ -131.291489, 50.674137, 66.045799 ]
+									},
+									{
+										m_name = "wrist_L"
+										m_Translation = [ 2.506379, 41.259254, 84.919754 ]
+										m_Rotation = [ -119.614906, 67.70726, 59.917507 ]
+									},
+									{
+										m_name = "thumb_0_L"
+										m_Translation = [ 9.879715, 42.222042, 82.373062 ]
+										m_Rotation = [ 5.561115, 24.622915, 2.082928 ]
+									},
+									{
+										m_name = "thumb_1_L"
+										m_Translation = [ 13.396966, 42.35004, 80.760056 ]
+										m_Rotation = [ 7.640769, 48.504105, 5.497725 ]
+									},
+									{
+										m_name = "thumb_2_L"
+										m_Translation = [ 16.257206, 42.625446, 77.511841 ]
+										m_Rotation = [ 7.640803, 48.50412, 5.497815 ]
+									},
+									{
+										m_name = "mid_0_L"
+										m_Translation = [ 4.527982, 45.79517, 72.991966 ]
+										m_Rotation = [ -78.395386, 78.967438, 9.476221 ]
+									},
+									{
+										m_name = "mid_1_L"
+										m_Translation = [ 5.258801, 45.91724, 69.191917 ]
+										m_Rotation = [ -148.458191, 69.001854, -62.526169 ]
+									},
+									{
+										m_name = "mid_2_L"
+										m_Translation = [ 5.650733, 45.163612, 66.978714 ]
+										m_Rotation = [ -148.458191, 69.001854, -62.526161 ]
+									},
+									{
+										m_name = "index_0_L"
+										m_Translation = [ 10.109673, 44.967419, 74.425888 ]
+										m_Rotation = [ -76.704231, 62.533901, 6.289324 ]
+									},
+									{
+										m_name = "index_1_L"
+										m_Translation = [ 12.030488, 45.179188, 70.708382 ]
+										m_Rotation = [ -118.806389, 59.186069, -41.255093 ]
+									},
+									{
+										m_name = "index_2_L"
+										m_Translation = [ 13.281843, 44.081646, 67.917732 ]
+										m_Rotation = [ -118.806389, 59.186085, -41.255074 ]
+									},
+									{
+										m_name = "pad0_0_L"
+										m_Translation = [ 1.906307, 39.729786, 90.524841 ]
+										m_Rotation = [ -107.039917, -32.853825, 99.44043 ]
+									},
+									{
+										m_name = "wrist_helper_L"
+										m_Translation = [ 1.340911, 38.635845, 88.423683 ]
+										m_Rotation = [ -124.952942, 52.679787, 63.508472 ]
+									},
+									{
+										m_name = "back_fur_R0C0"
+										m_Translation = [ -11.673309, 0.172945, 130.716217 ]
+										m_Rotation = [ 88.45211, 58.819397, 178.191742 ]
+									},
+									{
+										m_name = "back_fur_R1C0"
+										m_Translation = [ -16.273735, 0.318781, 123.092667 ]
+										m_Rotation = [ 90.085167, 71.270943, -179.910324 ]
+									},
+									{
+										m_name = "thigh_R"
+										m_Translation = [ 3.162735, -10.002834, 80.766197 ]
+										m_Rotation = [ -110.334579, -81.875389, 99.797035 ]
+									},
+									{
+										m_name = "knee_R"
+										m_Translation = [ 3.994081, -14.817339, 46.542461 ]
+										m_Rotation = [ -35.799847, -76.906242, 24.360147 ]
+									},
+									{
+										m_name = "ankle_R"
+										m_Translation = [ -3.698945, -18.30061, 10.234867 ]
+										m_Rotation = [ -179.99939, -40.567207, 164.999649 ]
+									},
+									{
+										m_name = "toeBase_R"
+										m_Translation = [ 7.036601, -21.177185, 0.719818 ]
+										m_Rotation = [ 0.000076, -0.000046, -15.000086 ]
+									},
+									{
+										m_name = "thigh_L"
+										m_Translation = [ 3.162747, 10.002808, 80.766212 ]
+										m_Rotation = [ 69.666031, 81.87542, 80.203552 ]
+									},
+									{
+										m_name = "knee_L"
+										m_Translation = [ 3.994051, 14.81732, 46.542477 ]
+										m_Rotation = [ 144.146866, 76.923386, 155.585129 ]
+									},
+									{
+										m_name = "ankle_L"
+										m_Translation = [ -3.685759, 18.303448, 10.23238 ]
+										m_Rotation = [ 0.000118, 40.546288, 14.995807 ]
+									},
+									{
+										m_name = "toeBase_L"
+										m_Translation = [ 7.053366, 21.180147, 0.72139 ]
+										m_Rotation = [ -0.001828, -0.02096, 14.997074 ]
+									},
+									{
+										m_name = "back_flap0_0"
+										m_Translation = [ -9.58139, 0.000115, 82.92347 ]
+										m_Rotation = [ 0.000996, -3.28013, -0.000417 ]
+									},
+									{
+										m_name = "portrait"
+										m_Translation = [ 3.162759, -0.000001, 0.057266 ]
+										m_Rotation = [ 90.0, -0.000015, 89.999985 ]
+									},
+									{
+										m_name = "L_panel2_0"
+										m_Translation = [ 4.780272, 14.871446, 85.877785 ]
+										m_Rotation = [ -180.0, 0.000014, 180.0 ]
+									},
+									{
+										m_name = "R_panel3_0"
+										m_Translation = [ 4.73047, -15.131504, 86.113701 ]
+										m_Rotation = [ 89.999985, -17.573679, -89.999985 ]
+									},
+									{
+										m_name = "belt4_0"
+										m_Translation = [ 19.617764, -0.000016, 91.702034 ]
+										m_Rotation = [ 0.000021, -3.205879, -0.000014 ]
+									},
+									{
+										m_name = "clth_fr_R_01"
+										m_Translation = [ 20.328684, -8.113585, 84.050629 ]
+										m_Rotation = [ 0.000084, 75.220581, 0.000069 ]
+									},
+									{
+										m_name = "clth_fr_R_02"
+										m_Translation = [ 20.260662, -9.924795, 87.928711 ]
+										m_Rotation = [ -16.060074, 11.997454, 14.807782 ]
+									},
+									{
+										m_name = "clth_fr_L_01"
+										m_Translation = [ 20.328688, 8.266646, 84.050659 ]
+										m_Rotation = [ 0.000084, 75.220581, 0.000069 ]
+									},
+									{
+										m_name = "clth_fr_L_02"
+										m_Translation = [ 19.662081, 8.164168, 89.578598 ]
+										m_Rotation = [ 25.155766, 15.453835, 5.842763 ]
+									},
+									{
+										m_name = "back_fur_R2C0"
+										m_Translation = [ -19.444735, 0.131511, 118.100243 ]
+										m_Rotation = [ 89.185188, 51.611969, 179.793167 ]
+									},
+									{
+										m_name = "back_fur_R3C0"
+										m_Translation = [ -23.212055, -0.173962, 111.439835 ]
+										m_Rotation = [ 88.368279, 24.95726, -176.082153 ]
+									},
+									{
+										m_name = "clth_fr_R_03"
+										m_Translation = [ 33.77729, -9.225262, 83.082779 ]
+										m_Rotation = [ -70.402466, -46.433571, 72.217499 ]
+									},
+									{
+										m_name = "clth_fr_L_03"
+										m_Translation = [ 31.408411, 10.267471, 91.951508 ]
+										m_Rotation = [ -142.791214, 78.496674, -159.703873 ]
+									},
+								]
+								m_morphFlag = [  ]
+								m_userFlag = [  ]
+							}
+						}
+						m_pSeqGroup = 
+						{
+							m_pObject = null
+						}
+						m_pAnimGroups = [  ]
+						m_Vanim = 
+						[
+							{
+								m_Animationname = "flail"
+								m_Filepath = "models/heroes/sohei/anims/flail.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 16
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_FLAIL"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "attack"
+								m_Filepath = "models/heroes/sohei/anims/attack.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 22
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_ATTACK"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "attack_crit"
+								m_Filepath = "models/heroes/sohei/anims/attack_crit.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 22
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_ATTACK_STATUE"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "attack2"
+								m_Filepath = "models/heroes/sohei/anims/attack2.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 22
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_ATTACK"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "bind"
+								m_Filepath = "models/heroes/sohei/anims/bind.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 1440
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = [  ]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "death"
+								m_Filepath = "models/heroes/sohei/anims/death.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 23
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_DIE"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = 
+								[
+									{
+										m_Event = "AE_CL_PLAYSOUND"
+										m_nFrame = 10
+										m_DataString = "BodyImpact_common.Light"
+									},
+									{
+										m_Event = "AE_CL_CREATE_PARTICLE_EFFECT_CFG"
+										m_nFrame = 15
+										m_DataString = "{\n    name=resource:\"particles/generic_gameplay/dust_impact.vpcf\"\n    config=\"point_folow\"\n}"
+									},
+								]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "idle"
+								m_Filepath = "models/heroes/sohei/anims/idle.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 83
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_IDLE"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "idle_spin_sword"
+								m_Filepath = "models/heroes/sohei/anims/idle_spin_sword.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 49
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = 
+								[
+									{
+										m_Event = "AE_CL_PLAYSOUND"
+										m_nFrame = 10
+										m_DataString = "Hero_Juggernaut.idle"
+									},
+								]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "omni"
+								m_Filepath = "models/heroes/sohei/anims/omni.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 23
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_OVERRIDE_ABILITY_4"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "run_walk"
+								m_Filepath = "models/heroes/sohei/anims/run_walk.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 16
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_RUN"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = 
+								[
+									{
+										m_Event = "AE_CL_PLAYSOUND_POSITION"
+										m_nFrame = 1
+										m_DataString = "Sohei.Footsteps"
+									},
+									{
+										m_Event = "AE_CL_PLAYSOUND_POSITION"
+										m_nFrame = 9
+										m_DataString = "Sohei.Footsteps"
+									},
+									{
+										m_Event = ""
+										m_nFrame = 17
+										m_DataString = ""
+									},
+								]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "stun"
+								m_Filepath = "models/heroes/sohei/anims/stun.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 48
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_STUN_STATUE"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "attack_crit_anim"
+								m_Filepath = "models/heroes/sohei/anims/attack_crit.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 22
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_ATTACK_EVENT"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "stun_anim"
+								m_Filepath = "models/heroes/sohei/anims/stun.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 48
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_DISABLED"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "victory"
+								m_Filepath = "models/heroes/sohei/anims/victory.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 69
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_VICTORY"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1285.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "jump"
+								m_Filepath = "models/heroes/sohei/anims/jump.dmx"
+								m_nStartframe = 1
+								m_nEndframe = 12
+								m_flFps = 25.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_FLAIL"
+										m_nWeight = 1
+									},
+									{
+										m_Name = "forcestaff_friendly"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1285.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "jump_end"
+								m_Filepath = "models/heroes/sohei/anims/jump_end.dmx"
+								m_nStartframe = 1
+								m_nEndframe = 12
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_FORCESTAFF_END"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = 
+								[
+									{
+										m_nFrame = 0
+										m_bExtractTX = true
+										m_bExtractTY = true
+										m_bExtractTZ = false
+										m_bExtractRX = false
+										m_bExtractRY = false
+										m_bExtractRZ = false
+										m_bDiscardTX = false
+										m_bDiscardTY = false
+										m_bDiscardTZ = false
+										m_bDiscardRX = false
+										m_bDiscardRY = false
+										m_bDiscardRZ = false
+									},
+								]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1285.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "taunt_maskLord"
+								m_Filepath = "models/heroes/sohei/anims/taunt_maskLord.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 124
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_CHANNEL_ABILITY_4"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1285.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "taunt_face_me"
+								m_Filepath = "models/heroes/sohei/anims/taunt_face_me.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 70
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = false
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_CAST_ABILITY_4"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1285.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+							{
+								m_Animationname = "idle_capture"
+								m_Filepath = "models/heroes/sohei/anims/idle.dmx"
+								m_nStartframe = 0
+								m_nEndframe = 83
+								m_flFps = 24.0
+								m_Loop = 
+								{
+									m_bLoop = true
+									m_bSmoothLoop = false
+									m_nSmoothLoopStart = 0
+									m_nSmoothLoopEnd = 0
+									m_StartLoop = 
+									{
+										_class = "CVAnimCmdStartLoop"
+										m_bEnabled = false
+										m_nLoopRestart = 0
+									}
+								}
+								m_bHidden = false
+								m_bDisable = false
+								m_Activities = 
+								[
+									{
+										m_Name = "ACT_DOTA_CAPTURE"
+										m_nWeight = 1
+									},
+								]
+								m_AnimationEvents = [  ]
+								m_MotionFrames = [  ]
+								m_pIkRules = [  ]
+								m_pAlignAnimation = null
+								m_adjustAnimation = 
+								{
+									m_translation = [ -1837.0, 0.0, -1304.0 ]
+									m_rotation = [ 0.0, 0.0, 135.0 ]
+								}
+								m_Keywords = [  ]
+								m_sequenceParams = 
+								{
+									m_flFadeInTime = 0.2
+									m_flFadeOutTime = 0.2
+								}
+								m_folderName = ""
+								m_MotionFramesRootBone = ""
+							},
+						]
+						m_sScripts = [  ]
+						m_folderNames = [  ]
+						m_sCompileScripts = [  ]
+					}
+				},
+			]
+			m_Vanim = [  ]
+			m_sScripts = [  ]
+			m_folderNames = [  ]
+			m_sCompileScripts = [  ]
+		}
+	}
+	m_pMaterialGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pMeshGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pLodGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pPropBreakableList = 
+	{
+		m_pObject = null
+	}
+	m_pPropDataList = 
+	{
+		m_pObject = null
+	}
+	m_pConstraintLists = [  ]
+	m_collision = ""
+	m_softbody = ""
+	m_sMDLFilename = ""
+	m_sOffsetHitboxSets = [  ]
+	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
+	m_scriptFiles = [  ]
+	m_pMaterialRemapList = 
+	{
+		m_vMaterialRemapList = 
+		[
+			{
+				m_sSearchMaterial = "lightsabre.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_stick.vmat"
+			},
+			{
+				m_sSearchMaterial = "bepisbody.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_body.vmat"
+			},
+			{
+				m_sSearchMaterial = "robe.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_robe.vmat"
+			},
+			{
+				m_sSearchMaterial = "sohead.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_head.vmat"
+			},
+			{
+				m_sSearchMaterial = "cap.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/sohei/bepis_sohei/bepis_sohei_cap.vmat"
+			},
+		]
+	}
+	m_flFbxScale = 1.0
+	m_flQCScale = 1.0
+	m_vOrigin = [ 0.0, 0.0, 0.0 ]
+	m_pPsfList = null
+	m_keyValueText = ""
+	m_bStaticProp = false
+	m_bEnableClothProcessing = true
+	m_flClothEnableThreshold = 0.05
+	m_nMaxClothVertsPerMesh = 2048
+	m_bBuildClothBoneHierarchy = false
+	m_nNavType = "AUTH_NAV_MESH"
+	m_bMakeUniqueVMeshes = false
+	m_bMakeImplicitBindPoseSequence = false
+	m_bAdjustSkeletonFromBoneFlags = false
+	m_bHiddenAssetFlag = false
+	m_pAnimGroups = [  ]
+}

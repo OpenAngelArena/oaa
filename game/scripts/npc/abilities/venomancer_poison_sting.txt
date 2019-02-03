@@ -8,8 +8,8 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
 
     // Special
@@ -19,17 +19,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0 9.0 12.0 15.0 15.0 15.0"
+        "duration"                                        "15.0" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "6 14 22 30 70 110"
+        "damage"                                          "10 20 30 40 70 110" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "-11 -12 -13 -14 -19 -24"
+        "movement_speed"                                  "-11 -13 -15 -17 -20 -25"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_2"
       }
     }

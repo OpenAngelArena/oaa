@@ -26,6 +26,10 @@
     {
       "01"                                                "item_devastator_3;item_upgrade_core_3"
       "02"                                                "item_devastator_3;item_upgrade_core_4"
+      "03"                                                "item_desolator_3;item_upgrade_core_3"
+      "04"                                                "item_desolator_3;item_upgrade_core_4"
+      "05"                                                "item_bfury_3;item_upgrade_core_3"
+      "06"                                                "item_bfury_3;item_upgrade_core_4"
     }
   }
 
@@ -81,7 +85,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-3 -6 -9 -12 -15"
+        "corruption_armor"                                "-4 -7 -10 -13 -16"
       }
       "03"
       {

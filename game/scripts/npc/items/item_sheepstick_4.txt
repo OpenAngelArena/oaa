@@ -47,8 +47,8 @@
     "UpgradesItems"                                       "item_sheepstick_4"
 
     // Item Info---------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "15930"
+    "AbilityManaCost"                                     "250"
+    "ItemCost"                                            "15750"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 4;sheepstick 4;scythe of vyse 4"
@@ -75,7 +75,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
+        "bonus_mana_regen"                                "9.0 9.75 11.25 13.5 16.0"
       }
       "05"
       {

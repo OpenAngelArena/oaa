@@ -1,4 +1,17 @@
-/* global CustomNetTables $ */
+/* global CustomNetTables $ FindDotaHudElement  */
+var topBar = FindDotaHudElement('topbar');
+var extraInfo = FindDotaHudElement('ExtraInfo');
+var killLimit = FindDotaHudElement('KillLimitValue');
+var nextDuel = FindDotaHudElement('TimeToNextDuelValue');
+var nextCapture = FindDotaHudElement('TimeToNextCaptureValue');
+
+if (extraInfo.GetParent().id !== 'topbar') {
+  extraInfo.SetParent(topBar);
+  extraInfo = null;
+  killLimit = null;
+  nextDuel = null;
+  nextCapture = null;
+}
 
 (function () {
   CustomNetTables.SubscribeNetTableListener('timer', UpdateClock);
@@ -9,8 +22,21 @@ function UpdateClock (table, name, data) {
   if (!data || data.time === undefined) {
     return;
   }
-  $('#TimeHider').style.visibility = 'visible';
+  if (killLimit === null) {
+    killLimit = FindDotaHudElement('KillLimitValue');
+  }
+  if (nextDuel === null) {
+    nextDuel = FindDotaHudElement('TimeToNextDuelValue');
+  }
+  if (nextCapture === null) {
+    nextCapture = FindDotaHudElement('TimeToNextCaptureValue');
+  }
 
+  killLimit.text = data.killLimit;
+  nextDuel.text = formatTime(data.timeToNextDuel);
+  nextCapture.text = formatTime(data.timeToNextCapture);
+
+  $('#TimeHider').style.visibility = 'visible';
   $('#GameTime').text = formatTime(data.time);
   var dayTime = $('#DayTime');
   var nightTime = $('#NightTime');
@@ -33,6 +59,6 @@ function formatTime (time) {
     return [Math.floor(time / 60), seconds < 10 ? '0' + seconds : seconds].join(':');
   } else {
     seconds = Math.abs(seconds);
-    return ['-' + Math.floor(time / 60), seconds < 10 ? '0' + seconds : seconds].join(':');
+    return ['-' + Math.abs(Math.ceil(time / 60)), seconds < 10 ? '0' + seconds : seconds].join(':');
   }
 }

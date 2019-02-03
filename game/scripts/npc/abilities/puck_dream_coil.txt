@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.1 0.1 0.1"
+    "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -40,22 +40,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_duration"                                   "6.0 6.0 6.0"
+        "coil_duration"                                   "6.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_break_radius"                               "600 600 600"
+        "coil_break_radius"                               "600"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.5"
+        "stun_duration"                                   "1.5" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration"                              "1.5 2.25 3.0 3.5 4.0"
+        "coil_stun_duration"                              "1.8 2.4 3.0 3.5 4.0"
       }
       "05"
       {
@@ -65,7 +65,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_radius"                                     "375 375 375"
+        "coil_radius"                                     "375"
       }
       "07"
       {
@@ -80,7 +80,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration_scepter"                      "1.5 3 4.5 4.75 5.5"
+        "coil_stun_duration_scepter"                      "2 3 4.5 4.75 5.5" //OAA
       }
     }
   }

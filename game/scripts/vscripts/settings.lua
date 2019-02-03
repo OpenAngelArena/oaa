@@ -1,6 +1,11 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
 -----------------------------------------------------------------------------------
+-- General globals
+
+DOTA_TEAM_SPECTATOR = 1
+
+-----------------------------------------------------------------------------------
 -- OAA specific settings
 
 -- Respawn time settings
@@ -35,7 +40,7 @@ TEN_V_TEN_KILL_LIMIT = 150
 -- poop wards
 POOP_WARD_DURATION = 360
 POOP_WARD_COOLDOWN = 120
-POOP_WARD_RADIUS = 200
+POOP_WARD_RADIUS = 150
 
 -- scan reveal
 SCAN_REVEAL_COOLDOWN = 60
@@ -49,23 +54,28 @@ CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/b
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
 
+RANKED_PREGAME_TIME = 10
+RANKED_BAN_TIME = 30
+RANKED_PICK_TIME = 25
+
 -- Game timings
 PREGAME_TIME = 10
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 15                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 25                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
-FIRST_DUEL_TIMEOUT = 110                -- Timeout for the level 1 duel at the start of them game
+FIRST_DUEL_TIMEOUT = 80                 -- Timeout for the level 1 duel at the start of them game
 FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
-DUEL_INTERVAL = 300                     -- time from duel ending until dnext duel countdown begins
+DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
+DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the CapturePoint duel start countind down
+INITIAL_CAPTURE_POINT_DELAY = 300       -- how long after the clock hits 0 should the CapturePoint duel start countind down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
@@ -75,12 +85,12 @@ CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
-BOSS_LEASH_SIZE = 1500                  -- number of units a boss will walk before starting to head back
+BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
-INITIAL_CREEP_DELAY = 30                -- number of seconds to wait before spawning the first wave of creeps
+INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spawning the first wave of creeps
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 
@@ -108,6 +118,48 @@ CAVE_MAX_MULTIPLIER = 2                 -- magic haga value, originally "m"
     -- Simple configuration for several setups, such as Loggly and a custom implementation
 LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly token to toss errors to
 
+-- XP gain and rubberband on hero kills
+USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
+AOE_XP_LEVEL_MULTIPLIER = {
+  18,
+  13.5,
+  9,
+  6.3,
+  4.5
+}
+AOE_XP_BONUS_FACTOR ={
+  0.3,
+  0.3,
+  0.25,
+  0.2,
+  0.15
+}
+
+-- Level = Killed hero's level (Dying Hero's Level)
+-- Kill experience: f(Level) = 30*Level when Level<6; f(Level) = f(Level - 1) + 110 when Level>7; f(6) = 200; f(7) = 220;
+-- HeroXP = Total XP of the killed hero (Dying Hero's XP)
+-- EnemyTeamXP = Enemy team's total experience
+-- AlliedTeamXP = Your team's total experience
+-- XPDiff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP) (minimum 0)
+
+-- Total experience that a hero gets when there is (number_of_heroes) in 1500 radius:
+-- number_of_heroes:
+--1 Hero: AOE_XP_LEVEL_MULTIPLIER[1] × L + AOE_XP_BONUS_FACTOR[1] × XPDiff × HeroXP + f(Level)
+--2 Heroes: AOE_XP_LEVEL_MULTIPLIER[2] × L + AOE_XP_BONUS_FACTOR[2] × XPDiff × HeroXP + f(Level)/2
+--3 Heroes: AOE_XP_LEVEL_MULTIPLIER[3] × L + AOE_XP_BONUS_FACTOR[3] × XPDiff × HeroXP + f(Level)/3
+--4 Heroes: AOE_XP_LEVEL_MULTIPLIER[4] × L + AOE_XP_BONUS_FACTOR[4] × XPDiff × HeroXP + f(Level)/4
+--5 Heroes: AOE_XP_LEVEL_MULTIPLIER[5] × L + AOE_XP_BONUS_FACTOR[5] × XPDiff × HeroXP + f(Level)/5
+
+-- Bounty runes
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 120      -- After what delay in seconds will the first bounty rune spawn?
+BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
+BOUNTY_RUNE_INITIAL_TEAM_GOLD = 20
+BOUNTY_RUNE_INITIAL_TEAM_XP = 10
+-- gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD x game_time x (1 + gold_difference x game_time/10)
+-- gold_difference = (EnemyTeamGold - AlliedTeamGold) / (EnemyTeamGold + AlliedTeamGold) (minimum 0)
+-- xp_reward = BOUNTY_RUNE_INITIAL_TEAM_XP x game_time x (1 + XPDiff x game_time/10)
+-- XPDiff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP) (minimum 0)
+
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
 
@@ -130,7 +182,6 @@ MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our 
 MINIMAP_CREEP_ICON_SIZE = 1             -- What icon size should we use for creeps?
 MINIMAP_RUNE_ICON_SIZE = 1              -- What icon size should we use for runes?
 
-RUNE_SPAWN_TIME = 120                   -- How long in seconds should we wait between rune spawns?
 CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost setting?
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
 BUYBACK_ENABLED = false                 -- Should we allow people to buyback when they die?
@@ -152,7 +203,6 @@ DISABLE_GOLD_SOUNDS = false             -- Should we disable the gold sound when
 END_GAME_ON_KILLS = false               -- Should the game end after a certain number of kills?
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
-USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
 MAX_LEVEL = 50                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
@@ -205,17 +255,19 @@ MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum at
 
 GAME_END_DELAY = -1                     -- How long should we wait after the game winner is set to display the victory banner and End Screen?  Use -1 to keep the default (about 10 seconds)
 VICTORY_MESSAGE_DURATION = 3            -- How long should we wait after the victory message displays to show the End Screen?  Use
-STARTING_GOLD = 625                     -- How much starting gold should we give to each player?
+STARTING_GOLD = 825                     -- How much starting gold should we give to each player?
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
-DISABLE_KILLING_SPREE_ANNOUNCER = false -- Shuold we disable the killing spree announcer?
+DISABLE_KILLING_SPREE_ANNOUNCER = false -- Should we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
-SKIP_TEAM_SETUP = false                 -- Should we skip the team setup entirely?
+SKIP_TEAM_SETUP = false and IsInToolsMode()       -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 30                  -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
 
+USE_DEFAULT_RUNE_SYSTEM = false     -- Should we use the default dota rune spawn timings and the same runes as dota have?
+FIRST_POWER_RUNE_SPAWN_TIME = 120   -- After what delay in seconds will the first power-up rune spawn?
+POWER_RUNE_SPAWN_INTERVAL = 120     -- How long in seconds should we wait between power-up runes spawns?
 
--- NOTE: You always need at least 2 non-bounty type runes to be able to spawn or your game will crash!
 ENABLED_RUNES = {}                      -- Which runes should be enabled to spawn in our game mode?
 ENABLED_RUNES[DOTA_RUNE_DOUBLEDAMAGE] = true
 ENABLED_RUNES[DOTA_RUNE_HASTE] = true
@@ -223,8 +275,7 @@ ENABLED_RUNES[DOTA_RUNE_ILLUSION] = true
 ENABLED_RUNES[DOTA_RUNE_INVISIBILITY] = true
 ENABLED_RUNES[DOTA_RUNE_REGENERATION] = true
 ENABLED_RUNES[DOTA_RUNE_BOUNTY] = true
-ENABLED_RUNES[DOTA_RUNE_ARCANE] = true
-
+ENABLED_RUNES[DOTA_RUNE_ARCANE] = true  -- If this doesn't spawn use RuneSpawn filter
 
 MAX_NUMBER_OF_TEAMS = 2                -- How many potential teams can be in this game mode?
 USE_CUSTOM_TEAM_COLORS = false           -- Should we use custom team colors?
@@ -251,7 +302,7 @@ USE_AUTOMATIC_PLAYERS_PER_TEAM = false   -- Should we set the number of players 
 
 CUSTOM_TEAM_PLAYER_COUNT = {}           -- If we're not automatically setting the number of players per team, use this table
 
-if GetMapName() == "oaa_10v10" then
+if GetMapName() == "10v10" then
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 10
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 10
 else

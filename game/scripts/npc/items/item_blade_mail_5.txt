@@ -25,6 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_4;item_upgrade_core_4"
+      "02"                                                "item_assault_4;item_upgrade_core_4"
     }
   }
 
@@ -41,7 +42,7 @@
     "AbilityTextureName"                                  "custom/blade_mail_5"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
@@ -52,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "38250"
+    "ItemCost"                                            "35200"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 5;blade mail 5;blademail 5"
@@ -70,7 +71,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 14 22 30 40"
+        "bonus_armor"                                     "5 14 22 30 40"
       }
       "03"
       {
@@ -80,7 +81,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.5"
+        "duration"                                        "3.0 3.5 4.0 4.5 5.0"
       }
     }
   }

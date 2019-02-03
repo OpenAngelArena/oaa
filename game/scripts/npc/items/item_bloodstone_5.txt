@@ -17,6 +17,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone_4;item_upgrade_core_4"
+      "02"                                                "item_aeon_disk_4;item_upgrade_core_4"
     }
   }
 
@@ -28,20 +29,18 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3131"      // unique ID
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/bloodstone.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "BaseClass"                                           "item_bloodstone"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "300.0"
+    "AbilityCooldown"                                     "250.0"
     "AbilityTextureName"                                  "custom/bloodstone_5"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
@@ -71,38 +70,53 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 11 15 19 23"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "6.0 8.5 13 17 21"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.0 2.5 3.25 4.0 5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.0 3.5 4.25 5.0 6.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_range"                                    "1600"
+        "mana_regen_multiplier"                           "150 200 350 500 750" // OAA
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "respawn_time_reduction"                          "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "regen_per_charge"                                "0.4" // OAA
       }
       "07"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "on_death_removal"                                "0.67" //33% gone
+        "var_type"                                        "FIELD_INTEGER"
+        "death_charges"                                   "3"
       }
       "08"
       {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_charges" "14"
+        "var_type"                                        "FIELD_INTEGER"
+        "kill_charges"                                    "1"
       }
       "09"
       {
-        "var_type"        "FIELD_FLOAT"
-        "mana_per_charge" "0.4 0.5 0.6 0.7 0.8"
+        "var_type"                                        "FIELD_FLOAT"
+        "charge_range"                                    "1600"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "initial_charges_tooltip"                         "14"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_percentage"                            "30 40 50 60 70"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "restore_duration"                                "2.0"
       }
     }
   }

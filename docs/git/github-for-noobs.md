@@ -40,20 +40,20 @@ At this point just familiarize yourself with the following terminology:
 
 ### Setup
 
-First, follow the [Installation Process](/docs/install.md) in order to create a Fork of openangelarena/oaa to work from.
+First, follow the [Installation Process](/docs/setup/install.md) in order to create a Fork of openangelarena/oaa to work from.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
-As described in the Installation Process, forking creates a simultaneous instance of oaa within your own GitHub repository. During the Installation Process, you should have already done the following:
-- Goto OpenAngelArena/oaa.
-- Click Fork
+Forking creates a simultaneous instance of oaa within your own GitHub repository. After logging into github.com, do the following:
+- Goto github.com/OpenAngelArena/oaa.
+- Click "Fork" at the top corner.
 - Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
 - Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
 
 ### Cloning
 Also described in the Installation Process, cloning copies your fork to your computer with the GitHub client (or by clicking "Clone or Download" on the main page of `GitHub.com/openangelarena/oaa`. As mentioned, you can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). You should have already done the following during the Installation Process:
 
-- Open the GitHub Client you installed earlier in [install.md](/docs/install.md).
+- Open the GitHub Client you installed earlier in [install.md](/docs/setup/install.md).
 - Click settings.
 - Change the settings how you like it (e.g. Change to Dark mode).
 - While in settings, changing the default shell to PowerShell.
@@ -74,7 +74,7 @@ Git Power Shell enables you to control Git using a variety of commands. You can 
 
  
 ### Finish Installing oaa
-Continue the [Installation Process](/docs/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
+Continue the [Installation Process](/docs/setup/install.md) from the beginning of this tutorial after the "Get the Addon" section (we're skipping that section entirely).
 
 ### Getting Started
 To be able to work on your own stuff but still have all the newest changes and to have a nice and organized repository, git features Branches. For more information about Branches, read [Git Branching - Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).

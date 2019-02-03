@@ -15,10 +15,10 @@
     "ItemResult"                                          "item_sheepstick_5"
     "ItemRequirements"
     {
-      "01"                                                "item_rod_of_atos_4;item_upgrade_core_4"
-      "02"                                                "item_meteor_hammer_4;item_upgrade_core_4"
-      "03"                                                "item_cyclone_4;item_upgrade_core_4"
-      "04"                                                "item_sheepstick_4;item_upgrade_core_4"
+      "01"                                                "item_sheepstick_4;item_upgrade_core_4"
+      "02"                                                "item_rod_of_atos_4;item_upgrade_core_4"
+      "03"                                                "item_meteor_hammer_4;item_upgrade_core_4"
+      "04"                                                "item_cyclone_4;item_upgrade_core_4"
     }
   }
 
@@ -44,8 +44,8 @@
     "ItemBaseLevel"                                       "5"
 
     // Item Info---------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "35930"
+    "AbilityManaCost"                                     "250"
+    "ItemCost"                                            "35750"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 5;sheepstick 5;scythe of vyse 5"
@@ -72,7 +72,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3 4.5 6.75 9"
+        "bonus_mana_regen"                                "9.0 9.75 11.25 13.5 16.0"
       }
       "05"
       {

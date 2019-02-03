@@ -21,6 +21,7 @@ g_UnitPrecache = {
   "npc_dota_hero_sohei",
   "npc_dota_hero_electrician",
   "dota_fountain",
+  "npc_azazel_tower_watch",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
   "npc_dota_boss_simple_3",

@@ -1,10 +1,14 @@
 "AddonInfo"
 {
 	"TeamCount" 	      "3"
-	"maps"	            "oaa ardm oaa_10v10 oaa_captains_mode oaa_test"
+	"maps"	            "unranked ranked captains_mode 10v10 ardm"
 	"IsPlayable"	      "1"
   "PenaltiesEnabled"  "0"
-  "oaa"
+  "ranked"
+  {
+    "MaxPlayers"      "10"
+  }
+  "unranked"
   {
     "MaxPlayers"      "10"
   }
@@ -12,16 +16,12 @@
   {
     "MaxPlayers"      "10"
   }
-  "oaa_captains_mode"
+  "captains_mode"
   {
     "MaxPlayers"      "10"
   }
-  "oaa_10v10"
+  "10v10"
   {
     "MaxPlayers"      "20"
-  }
-  "oaa_test"
-  {
-    "MaxPlayers"      "10"
   }
 }

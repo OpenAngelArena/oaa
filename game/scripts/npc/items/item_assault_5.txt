@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_assault_4;item_upgrade_core_4"
+      "02"                                                "item_blade_mail_4;item_upgrade_core_4"
     }
   }
 
@@ -37,11 +38,11 @@
     "ID"                                                  "3846"    // unique ID
     "BaseClass"                                           "item_assault"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
     "AbilityTextureName"                                  "custom/assault_cuirass_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38250"
+    "ItemCost"                                            "35200"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac 5;assault cuirass 5"
@@ -69,7 +70,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "04"
       {

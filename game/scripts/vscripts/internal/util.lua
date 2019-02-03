@@ -29,6 +29,12 @@ function TracesFromFilename (filename)
   local traces = {}
   local i = 1
 
+  if filename == 'components' then
+    return {
+      'components'
+    }
+  end
+
   local parts = regexsplit(filename, '%s/\\')
   local partialTrade = nil
   for i, part in ipairs(parts) do
@@ -80,8 +86,8 @@ function GetCallingFile (offset)
 end
 
 function DebugPrint(...)
-  local spew = Convars:GetInt('barebones_spew') or -1
-  if spew == -1 and BAREBONES_DEBUG_SPEW then
+  local spew
+  if BAREBONES_DEBUG_SPEW then
     spew = 1
   end
 
@@ -105,8 +111,8 @@ function DebugPrint(...)
 end
 
 function DebugPrintTable(...)
-  local spew = Convars:GetInt('barebones_spew') or -1
-  if spew == -1 and BAREBONES_DEBUG_SPEW then
+  local spew
+  if BAREBONES_DEBUG_SPEW then
     spew = 1
   end
 

@@ -23,9 +23,9 @@
     "ItemResult"          "item_hurricane_pike_3"
     "ItemRequirements"
     {
-      "01"                                                "item_hurricane_pike_2;item_upgrade_core_2"
-      "02"                                                "item_hurricane_pike_2;item_upgrade_core_3"
-      "03"                                                "item_hurricane_pike_2;item_upgrade_core_4"
+      "01"                                                "item_dragon_lance_2;item_upgrade_core_2"
+      "02"                                                "item_dragon_lance_2;item_upgrade_core_3"
+      "03"                                                "item_dragon_lance_2;item_upgrade_core_4"
     }
   }
 
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "9615"
+    "ItemCost"            "6900"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "hurricane pike 3;pike 3"
@@ -74,7 +74,7 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"    "2 5.5 10 15 30"
+        "bonus_health_regen"    "2.5 5.5 10 15 30"
       }
       "03"
       {

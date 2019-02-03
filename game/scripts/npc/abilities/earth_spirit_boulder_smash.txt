@@ -48,30 +48,34 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "rock_damage"                                     "50 100 150 200 450 700"
+        "rock_damage"                                     "105 170 235 300 675 1050" //OAA
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.5 1.0 1.5 2.0 2.5 3.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_3"
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow"                                       "60"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.25 2.5 3.25 4 4.5 5.0"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "900"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "unit_distance"                                   "500.0 600.0 700.0 800.0 900.0 1000.0"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "rock_distance"                                   "2000.0"
       }
-      "08"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "remnant_smash_radius_tooltip"                    "200"

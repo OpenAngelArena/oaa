@@ -26,9 +26,12 @@
       "01"                                                "item_rod_of_atos_2;item_upgrade_core_2"
       "02"                                                "item_rod_of_atos_2;item_upgrade_core_3"
       "03"                                                "item_rod_of_atos_2;item_upgrade_core_4"
-      "04"                                                "item_meteor_hammer_2;item_upgrade_core_2"
-      "05"                                                "item_meteor_hammer_2;item_upgrade_core_3"
-      "06"                                                "item_meteor_hammer_2;item_upgrade_core_4"
+      "04"                                                "item_cyclone_2;item_upgrade_core_2"
+      "05"                                                "item_cyclone_2;item_upgrade_core_3"
+      "06"                                                "item_cyclone_2;item_upgrade_core_4"
+      "07"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "08"                                                "item_meteor_hammer_2;item_upgrade_core_3"
+      "09"                                                "item_meteor_hammer_2;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 150 250 350 450"
-    "ItemCost"                                            "7930"
+    "ItemCost"                                            "7750"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "rod of atos 3;atos 3"
@@ -78,12 +81,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 25 35 45 55"
+        "bonus_strength"                                  "12 22 32 42 52"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "6 9 14 20 30"
+        "bonus_agility"                                   "12 22 32 42 52"
       }
       "04"
       {

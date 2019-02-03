@@ -18,6 +18,7 @@ end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
 local OnGameRulesStateChangeEvent = CreateGameEvent('OnGameRulesStateChange')
+local OnStrategyEvent = CreateGameEvent('OnStrategy')
 local OnPreGameEvent = CreateGameEvent('OnPreGame')
 local OnEndGameEvent = CreateGameEvent('OnEndGame')
 function GameMode:OnGameRulesStateChange(keys)
@@ -28,6 +29,7 @@ function GameMode:OnGameRulesStateChange(keys)
   local newState = GameRules:State_Get()
   -- Strategy time started
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    OnStrategyEvent()
     GameMode:OnStrategyTime()
   -- Pre-Game started
   elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
@@ -67,6 +69,13 @@ function GameMode:OnNPCSpawned(keys)
       npc:RemoveModifierByName("modifier_silencer_int_steal")
       npc:AddNewModifier(npc, npc:FindAbilityByName("silencer_glaives_of_wisdom_oaa"), "modifier_oaa_int_steal", {})
     end)
+  end
+
+  if npc.GetPhysicalArmorValue then
+    LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
+    if npc:IsRealHero() or (npc:IsConsideredHero() and (not npc:IsIllusion())) then
+      npc:AddNewModifier(npc, nil, "modifier_legacy_armor", {})
+    end
   end
 end
 
@@ -111,6 +120,106 @@ function GameMode:OnItemPickedUp(keys)
   OnItemPickedUpEvent(keys)
   DebugPrint( '[BAREBONES] OnItemPickedUp' )
   DebugPrintTable(keys)
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnItemGifted
+local OnItemGiftedEvent = CreateGameEvent('OnItemGifted')
+function GameMode:OnItemGifted(keys)
+  OnItemGiftedEvent(keys)
+  DebugPrint( '[BAREBONES] OnItemGifted' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnPlayerGotItem
+local OnPlayerGotItemEvent = CreateGameEvent('OnPlayerGotItem')
+function GameMode:OnPlayerGotItem(keys)
+  OnPlayerGotItemEvent(keys)
+  DebugPrint( '[BAREBONES] OnPlayerGotItem' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnInventoryItemChanged
+local OnInventoryItemChangedEvent = CreateGameEvent('OnInventoryItemChanged')
+function GameMode:OnInventoryItemChanged(keys)
+  OnInventoryItemChangedEvent(keys)
+  DebugPrint( '[BAREBONES] OnInventoryItemChanged' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnInventoryChanged
+local OnInventoryChangedEvent = CreateGameEvent('OnInventoryChanged')
+function GameMode:OnInventoryChanged(keys)
+  OnInventoryChangedEvent(keys)
+  DebugPrint( '[BAREBONES] OnInventoryChanged' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
 
   local unitEntity = nil
   if keys.UnitEntitIndex then

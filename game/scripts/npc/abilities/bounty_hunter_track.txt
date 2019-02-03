@@ -24,7 +24,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "4"
     "AbilityManaCost"                                     "65"
@@ -36,44 +36,44 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "target_crit_multiplier"                          "140 170 200 220 240"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed_pct"                            "16 18 20 25 30"
+        "bonus_gold_radius"                               "1200"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_radius"                               "925"
+        "bonus_gold_self"                                 "600 1200 1800 3600 5400" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_self"                                 "500 1000 1500 3000 4500" //OAA
+        "bonus_gold"                                      "500 1000 1500 3000 4500" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_3"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "250 500 750 1500 2250" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_3"
-      }
-      "06"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "30.0"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "1200"
+        "cast_range_tooltip"                              "1000"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "gold_steal"                                      "0.3 0.4 0.5 0.6 0.7"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed_pct"                            "16 18 20 25 30"
       }
     }
   }

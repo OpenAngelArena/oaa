@@ -107,18 +107,6 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
       BossSpawner[team .. "Zone1"].disable()
       BossSpawner[team .. "Zone2"].disable()
     end
-
-    PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-
-      if hero then
-        if self.hasFarmingCore[team] and not hero.hasFarmingCore then
-          hero:AddItemByName("item_farming_core")
-          hero.hasFarmingCore = true
-        end
-      end
-    end)
-
   elseif tier == 2 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
@@ -133,9 +121,11 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 5 then
 
+    PointsManager:AddPoints(teamId)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 6 then
+    PointsManager:AddPoints(teamId)
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
@@ -151,9 +141,13 @@ function BossAI:DeathHandler (state, keys)
     return
   end
 
-  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, state.handle:GetTeamNumber(), false)
+  -- Create under spectator team so that spectators can always see the capture point
+  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
   capturePointModifier:SetCallback(partial(self.RewardBossKill, self, state, keys))
+  -- Give the thinker some vision so that spectators can always see the capture point
+  capturePointThinker:SetDayTimeVisionRange(1)
+  capturePointThinker:SetNightTimeVisionRange(1)
 
   state.handle = nil
 end

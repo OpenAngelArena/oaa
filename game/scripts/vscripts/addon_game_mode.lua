@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "3.10.4"
+GAME_VERSION = "4.8.0"
 
 -- Setup the main logger
 require('internal/logging')
@@ -18,8 +18,10 @@ CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. "
 
 require('internal/vconsole')
 require('internal/eventwrapper')
-
 require('internal/util')
+-- component self registry system
+require("components")
+
 require('gamemode')
 require('precache')
 

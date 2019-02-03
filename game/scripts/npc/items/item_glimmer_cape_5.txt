@@ -11,12 +11,12 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "20000" 
+    "ItemCost"            "20000"
     "ItemShopTags"          ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_glimmer_cape_4;item_upgrade_core_4"
+      "02"                                                "item_pipe_4;item_upgrade_core_4"
     }
   }
 
@@ -42,27 +43,27 @@
     "FightRecapLevel"             "1"
     "AbilityTextureName"          "custom/glimmer_cape_5"
 
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
     "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "34950"
+    "ItemCost"                    "36025"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                 "glimmer cape 5;glimmer 5"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "5"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
-    {     
+    {
       "01"
       {
         "var_type"                "FIELD_INTEGER"

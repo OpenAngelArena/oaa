@@ -21,12 +21,12 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "AbilityCastRange"                                    "1800 2400 3000 3600 4200"
+    "AbilityCastRange"                                    "3000 3600 4200 4800 5400"
     "AbilityCastPoint"                                    "0.6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "180"
+    "AbilityCooldown"                                     "90"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cast_range_tooltip"                              "1800 2400 3000 3600 4200"
+        "cast_range_tooltip"                              "3000 3600 4200 4800 5400"
       }
       "02"
       {
@@ -53,7 +53,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "portal_duration_tooltip"                                 "6.0 9.0 12.0 15.0 18.0"
+        "portal_duration_tooltip"                         "6.0 9.0 12.0 15.0 18.0"
       }
       "05"
       {

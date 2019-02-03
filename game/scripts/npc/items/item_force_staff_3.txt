@@ -23,9 +23,12 @@
     "ItemResult"          "item_force_staff_3"
     "ItemRequirements"
     {
-      "01"            "item_force_staff_2;item_upgrade_core_2"
-      "02"            "item_force_staff_2;item_upgrade_core_3"
-      "03"            "item_force_staff_2;item_upgrade_core_4"
+      "01"                                                "item_force_staff_2;item_upgrade_core_2"
+      "02"                                                "item_force_staff_2;item_upgrade_core_3"
+      "03"                                                "item_force_staff_2;item_upgrade_core_4"
+      "04"                                                "item_pull_staff;item_upgrade_core_2"
+      "05"                                                "item_pull_staff;item_upgrade_core_3"
+      "06"                                                "item_pull_staff;item_upgrade_core_4"
     }
   }
 
@@ -73,8 +76,8 @@
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "2 10 20 30 40"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_health_regen"  "2.5 10 20 30 40"
       }
       "03"
       {

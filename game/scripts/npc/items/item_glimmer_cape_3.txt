@@ -11,12 +11,12 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "3500" 
+    "ItemCost"            "3500"
     "ItemShopTags"          ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
@@ -26,6 +26,9 @@
       "01"                                                "item_glimmer_cape_2;item_upgrade_core_2"
       "02"                                                "item_glimmer_cape_2;item_upgrade_core_3"
       "03"                                                "item_glimmer_cape_2;item_upgrade_core_4"
+      "04"                                                "item_pipe_2;item_upgrade_core_2"
+      "05"                                                "item_pipe_2;item_upgrade_core_3"
+      "06"                                                "item_pipe_2;item_upgrade_core_4"
     }
   }
 
@@ -44,27 +47,27 @@
     "FightRecapLevel"             "1"
     "AbilityTextureName"          "custom/glimmer_cape_3"
 
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
     "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "6950"
+    "ItemCost"                    "8025"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                 "glimmer cape 3;glimmer 3"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "3"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
-    {     
+    {
       "01"
       {
         "var_type"                "FIELD_INTEGER"

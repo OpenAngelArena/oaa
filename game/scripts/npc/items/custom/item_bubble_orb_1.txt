@@ -25,6 +25,8 @@
     {
       "01"                                                "item_lotus_orb_3;item_upgrade_core_3"
       "02"                                                "item_lotus_orb_3;item_upgrade_core_4"
+      "03"                                                "item_dispel_orb_1;item_upgrade_core_3"
+      "04"                                                "item_dispel_orb_1;item_upgrade_core_4"
     }
   }
 
@@ -47,7 +49,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "200"
     "AbilityCooldown"                                     "40"
     "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
@@ -74,12 +76,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "15.0 30.0"
+        "bonus_health_regen"                              "16.0 30.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 7.5"
+        "bonus_mana_regen"                                "7.25 9.75"
       }
       "04"
       {

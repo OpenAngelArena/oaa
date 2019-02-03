@@ -18,7 +18,7 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "450 500 550 600 650 700"
+    "AbilityCastRange"                                    "500 550 600 650 700 750" //OAA
     "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
 
     // Time
@@ -43,12 +43,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration_damage"                                 "30 45 60 75 150 375"
+        "duration_damage"                                 "30 50 70 90 150 375"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-20 -30 -40 -50 -55 -60"
+        "movement_slow"                                   "-35 -40 -45 -50 -55 -60" //OAA
       }
       "04"
       {
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "450 500 550 600 650 700"
+        "cast_range_tooltip"                              "500 550 600 650 700 750" //OAA
       }
       "06"
       {

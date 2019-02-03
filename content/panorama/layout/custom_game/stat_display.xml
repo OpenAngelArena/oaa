@@ -14,12 +14,6 @@
           <Label class="QuickStatLabel" id="QuickStatLabelValue" text="0" />
         </Panel>
       </Panel>
-      <Panel id="CCRow">
-        <Panel class="StatDisplayHeaderContainer">
-          <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="Caves"/>
-          <Label class="QuickStatLabel" id="QuickStatLabelValue" text="0" />
-        </Panel>
-      </Panel>
       <Panel id="BKRow">
         <Panel class="StatDisplayHeaderContainer">
           <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="Boss Kills"/>

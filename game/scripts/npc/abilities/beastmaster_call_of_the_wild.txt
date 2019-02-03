@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild Hawk
+  // Beastmaster: Call of the Wild
   //=================================================================================================================
   "beastmaster_call_of_the_wild"
   {
@@ -40,12 +40,13 @@
       "02"
       {
         "var_type"                        "FIELD_INTEGER"
-        "boar_hp_tooltip"                 "200 300 400 500 1000 3000"
+        "boar_hp_tooltip"                 "275 350 425 500 2500 5000"
       }
       "03"
       {
         "var_type"                        "FIELD_INTEGER"
-        "boar_damage_tooltip"             "20 30 40 50 150 500"
+        "boar_damage_tooltip"             "20 30 40 50 250 500"
+		"LinkedSpecialBonus"	          "special_bonus_unique_beastmaster_2"
       }
       "04"
       {

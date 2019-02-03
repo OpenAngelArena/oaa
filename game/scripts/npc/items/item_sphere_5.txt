@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere_4;item_upgrade_core_4"
+      "02"                                                "item_reflection_shard_2;item_upgrade_core_4"
     }
   }
 
@@ -71,12 +72,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "5.5 9 12 15 18"
+        "bonus_health_regen"                              "6.5 10.0 13.0 16.0 19.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3.25 4.50 6 8"
+        "bonus_mana_regen"                                "5.0 6.0 7.5 9.0 11.0"
       }
       "04"
       {

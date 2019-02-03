@@ -25,6 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_devastator_4;item_upgrade_core_4"
+      "02"                                                "item_desolator_4;item_upgrade_core_4"
+      "03"                                                "item_bfury_4;item_upgrade_core_4"
     }
   }
 
@@ -80,7 +82,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-3 -6 -9 -12 -15"
+        "corruption_armor"                                "-4 -7 -10 -13 -16"
       }
       "03"
       {

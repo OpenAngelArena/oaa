@@ -10,7 +10,7 @@
     "ID"                                                  "5188"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
     // Casting
@@ -39,7 +39,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_multiplier"                                 "1.25 1.50 1.75 2.0 3.0 4.5"
+        "mana_multiplier"                                 "1.25 1.50 1.75 2.0 2.5 3.0"
         "LinkedSpecialBonus"    "special_bonus_unique_pugna_3"
       }
       "03"

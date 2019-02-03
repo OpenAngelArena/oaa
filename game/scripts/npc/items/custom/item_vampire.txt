@@ -25,6 +25,8 @@
     {
       "01"                                                "item_satanic_3;item_upgrade_core_3"
       "02"                                                "item_satanic_3;item_upgrade_core_4"
+      "03"                                                "item_mask_of_madness_3;item_upgrade_core_3"
+      "04"                                                "item_mask_of_madness_3;item_upgrade_core_4"
     }
   }
 
@@ -55,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18500"
+    "ItemCost"                                            "18300"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"

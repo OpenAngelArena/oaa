@@ -23,7 +23,9 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_skadi_4;item_upgrade_core_4"
+      "01"                                                "item_echo_sabre_4;item_upgrade_core_4"
+      "02"                                                "item_heavens_halberd_4;item_upgrade_core_4"
+      "03"                                                "item_nullifier_4;item_upgrade_core_4"
     }
   }
 
@@ -42,13 +44,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 3.1 2.3 1.6"
+    "AbilityCooldown"                                     "5.0 3.5 3.0 2.5 2.0"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "38500"
+    "ItemCost"                                            "36450"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre 5"
@@ -83,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
+        "bonus_mana_regen"                                "1.25 1.75 2.25 3.0 4.0"
       }
       "06"
       {
@@ -103,7 +105,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8"
+        "slow_duration"                                   "0.8 0.9 1.0 1.1 1.2"
       }
     }
   }

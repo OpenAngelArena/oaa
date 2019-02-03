@@ -7,17 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "ability_lua"
-    "ID"                  "9503"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                 "ability_lua"
+    "ID"                        "9503"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE" //"DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityTextureName"      "custom/ronin_momentum"
-    "ScriptFile"          "abilities/sohei/sohei_momentum.lua"
-    "MaxLevel"                                            "6"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityTextureName"        "custom/ronin_momentum"
+    "ScriptFile"                "abilities/sohei/sohei_momentum.lua"
+    "MaxLevel"                  "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,8 +36,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/ronin/momentum.vpcf"
-      "particle"          "particles/hero/ronin/knockback.vpcf"
+      "particle"          "particles/hero/sohei/momentum.vpcf"
+      "particle"          "particles/hero/sohei/knockback.vpcf"
       "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
@@ -53,7 +53,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"knockback_distance"		"300"
+				"knockback_distance"		"400"
 			}
 			"03"
 			{
@@ -68,7 +68,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_damage"				"120 130 140 150 160 175"
+				"crit_damage"				"130 140 150 160 170 185"
 			}
 			"06"
 			{

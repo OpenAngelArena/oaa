@@ -23,7 +23,9 @@
     "ItemResult"                    "item_black_king_bar_5"
     "ItemRequirements"
     {
-      "01"                          "item_black_king_bar_4;item_upgrade_core_4"
+      "01"                                                "item_black_king_bar_4;item_upgrade_core_4"
+      "02"                                                "item_enrage_crystal_2;item_upgrade_core_4"
+      "03"                                                "item_charge_bkb_3;item_upgrade_core_4"
     }
   }
 
@@ -74,7 +76,7 @@
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "duration"              "7.0"
+        "duration"              "6.0 6.5 7.0 7.5 8.0"
       }
       "05"
       {

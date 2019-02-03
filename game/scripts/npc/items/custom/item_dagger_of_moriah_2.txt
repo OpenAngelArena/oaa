@@ -24,6 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_dagger_of_moriah;item_upgrade_core_4"
+      "02"                                                "item_veil_of_discord_4;item_upgrade_core_4"
+      "03"                                                "item_far_sight_3;item_upgrade_core_4"
     }
   }
 
@@ -53,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37200"
+    "ItemCost"                                            "35050"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -82,12 +84,12 @@
       "04"
       {
         "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 10"
+        "spell_amp"             "26"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "10 20"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_health_regen"    "15 25"
       }
     }
   }

@@ -20,6 +20,9 @@
       "01"                                                "item_butterfly_2;item_upgrade_core_2"
       "02"                                                "item_butterfly_2;item_upgrade_core_3"
       "03"                                                "item_butterfly_2;item_upgrade_core_4"
+      "04"                                                "item_diffusal_blade_2;item_upgrade_core_2"
+      "05"                                                "item_diffusal_blade_2;item_upgrade_core_3"
+      "06"                                                "item_diffusal_blade_2;item_upgrade_core_4"
     }
   }
 
@@ -32,13 +35,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3137"      // unique ID
     "BaseClass"                                           "item_butterfly"
-    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25.0"
-    "AbilitySharedCooldown"                               "flutter"
+    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +47,7 @@
     "AbilityTextureName"                                  "custom/butterfly_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10475"
+    "ItemCost"                                            "8150"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly 3;butterfly 3"
@@ -62,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "35 45 55 65 75"
+        "bonus_agility"                                   "35 40 45 50 75"
       }
       "02"
       {
@@ -77,17 +75,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 60 70"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "35"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2"
+        "bonus_attack_speed"                              "30 35 40 45 50"
       }
     }
   }

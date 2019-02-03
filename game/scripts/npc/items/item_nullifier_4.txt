@@ -17,8 +17,10 @@
     "ItemCost"                                            "8000"
     "ItemRequirements"
     {
-      "01"                                                "item_nullifier_3;item_upgrade_core_3"
-      "02"                                                "item_nullifier_3;item_upgrade_core_4"
+      "01"                                                "item_echo_sabre_3;item_upgrade_core_3"
+      "02"                                                "item_echo_sabre_3;item_upgrade_core_4"
+      "03"                                                "item_heavens_halberd_3;item_upgrade_core_3"
+      "04"                                                "item_heavens_halberd_3;item_upgrade_core_4"
     }
   }
 
@@ -40,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "17700"
+    "ItemCost"            "16450"
     "ItemAliases"         "nlf 4;nullifier 4"
 
     "AbilitySharedCooldown"         "nullify"
@@ -70,12 +72,12 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_regen"     "5 8 12 18 26"
+        "bonus_regen"     "6 8 12 18 26"
       }
       "04"
       {
         "var_type"        "FIELD_FLOAT"
-        "mute_duration"     "5.0"
+        "mute_duration"     "6.0"
       }
       "05"
       {

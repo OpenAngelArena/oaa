@@ -23,9 +23,9 @@
     "ItemResult"                    "item_cyclone_5"
     "ItemRequirements"
     {
-      "01"                                                "item_rod_of_atos_4;item_upgrade_core_4"
-      "02"                                                "item_meteor_hammer_4;item_upgrade_core_4"
-      "03"                                                "item_cyclone_4;item_upgrade_core_4"
+      "01"                                                "item_cyclone_4;item_upgrade_core_4"
+      "02"                                                "item_rod_of_atos_4;item_upgrade_core_4"
+      "03"                                                "item_meteor_hammer_4;item_upgrade_core_4"
       "04"                                                "item_sheepstick_4;item_upgrade_core_4"
     }
   }
@@ -58,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"               "175 200 250 300 350"
-    "ItemCost"                      "35930"
+    "ItemCost"                      "35750"
     "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                   "rare"
     "ItemAliases"                   "cyclone 5;euls 5;eul's scepter of divinity 5"
@@ -78,12 +78,12 @@
       "02"
       {
         "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "2.25 3.25 4.50 6.50 8.75"
+        "bonus_mana_regen"      "5.0 6.0 7.5 9.25 11.5"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "30 40 50 60 70"
+        "bonus_movement_speed"  "20 22 28 34 40"
       }
       "04"
       {

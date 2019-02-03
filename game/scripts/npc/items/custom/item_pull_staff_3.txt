@@ -25,6 +25,8 @@
     {
       "01"                                                "item_pull_staff_2;item_upgrade_core_3"
       "02"                                                "item_pull_staff_2;item_upgrade_core_4"
+      "03"                                                "item_force_staff_3;item_upgrade_core_3"
+      "04"                                                "item_force_staff_3;item_upgrade_core_4"
     }
   }
 
@@ -106,7 +108,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "10 15 25 40"
+        "bonus_health_regen"                              "10 20 30 40"
       }
       "03"
       {

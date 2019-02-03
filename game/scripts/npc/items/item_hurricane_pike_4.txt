@@ -25,6 +25,8 @@
     {
       "01"                                                "item_hurricane_pike_3;item_upgrade_core_3"
       "02"                                                "item_hurricane_pike_3;item_upgrade_core_4"
+      "03"                                                "item_dragon_lance_3;item_upgrade_core_3"
+      "04"                                                "item_dragon_lance_3;item_upgrade_core_4"
     }
   }
 
@@ -53,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "17615"
+    "ItemCost"            "14900"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "epic"
     "ItemAliases"         "hurricane pike 4;pike 4"
@@ -73,7 +75,7 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"    "2 5.5 10 15 30"
+        "bonus_health_regen"    "2.5 5.5 10 15 30"
       }
       "03"
       {

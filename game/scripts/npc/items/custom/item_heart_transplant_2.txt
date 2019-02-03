@@ -24,6 +24,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_transplant;item_upgrade_core_4"
+      "02"                                                "item_heart_4;item_upgrade_core_4"
+      "03"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "04"                                                "item_regen_crystal_2;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "ItemCost"                                            "40775"
+    "ItemCost"                                            "38200"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"

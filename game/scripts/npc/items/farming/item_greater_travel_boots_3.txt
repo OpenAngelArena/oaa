@@ -25,6 +25,16 @@
     {
       "01"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
       "02"                                                "item_greater_travel_boots_2;item_upgrade_core_4"
+      "03"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
+      "04"                                                "item_greater_arcane_boots_2;item_upgrade_core_4"
+      "05"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
+      "06"                                                "item_greater_guardian_greaves_2;item_upgrade_core_4"
+      "07"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
+      "08"                                                "item_greater_phase_boots_2;item_upgrade_core_4"
+      "09"                                                "item_greater_power_treads_2;item_upgrade_core_3"
+      "10"                                                "item_greater_power_treads_2;item_upgrade_core_4"
+      "11"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "12"                                                "item_greater_tranquil_boots_2;item_upgrade_core_4"
     }
   }
 
@@ -46,13 +56,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
-    "AbilitySharedCooldown"                               "teleport"
+    "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "2.75 2.5 2.25 2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "13100"
+    "ItemCost"                                            "12600"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot 3;boots of travel 3;greater boots of travel 3"
@@ -70,7 +80,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "125 150 175 200"
+        "bonus_movement_speed"                            "32 40 45 50"
       }
       "02"
       {

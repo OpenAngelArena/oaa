@@ -23,7 +23,10 @@
     "ItemResult"                                          "item_reduction_orb_3"
     "ItemRequirements"
     {
-      "01"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "01"                                                "item_heart_4;item_upgrade_core_4"
+      "02"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "03"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +49,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "200"
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
@@ -73,7 +76,7 @@
       "02"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_health_regen"                                "14 19 27"
+        "bonus_health_regen"                                "15 20 30"
       }
       "03"
       {

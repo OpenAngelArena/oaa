@@ -1,6 +1,7 @@
 local function FindCannonshotLocations()
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
+  local entityOrigin = thisEntity:GetAbsOrigin()
+  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), entityOrigin, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
 
   local target1, target2
   local count = 0
@@ -8,27 +9,34 @@ local function FindCannonshotLocations()
   local closest2
 
   for k,v in pairs(enemies) do
-    for k2,v2 in pairs(enemies) do
-      if v2 ~= v then
-        local distance = (v:GetAbsOrigin() - v2:GetAbsOrigin()):Length2D()
+    local distance = (v:GetAbsOrigin() - entityOrigin):Length2D()
 
-        if distance > count then
-          count = distance
-          closest = v2
-          closest2 = v
-        end
-      end
+    if distance > count then
+      count = distance
+      closest2 = closest
+      closest = v
+    elseif not closest2 then
+      closest2 = v
     end
   end
 
-  if closest and closest2 then
-    local direction = (closest:GetAbsOrigin() - closest2:GetAbsOrigin()):Normalized()
-    local distance = (closest:GetAbsOrigin() - closest2:GetAbsOrigin()):Length2D()
+  if closest then
+    target1 = closest:GetAbsOrigin()
 
-    local pushDistance = 400 - (distance/2)
+    if closest2 then
+      target2 = closest:GetAbsOrigin()
+    else
+      target2 = target1 + RandomVector(256)
+    end
+  end
+  if target1 and target2 then
+    local direction = (target1 - entityOrigin):Normalized()
+    local direction2 = (target2 - entityOrigin):Normalized()
 
-    target1 = closest:GetAbsOrigin() + (pushDistance * direction)
-    target2 = closest2:GetAbsOrigin() - (pushDistance * direction)
+    local pushDistance = 100
+
+    target1 = target1 + (pushDistance * direction)
+    target2 = target2 + (pushDistance * direction2)
   end
 
   return target1, target2
@@ -163,12 +171,14 @@ function SpidersThink()
     if math.random(0, 1) == 0 then
       ability = thisEntity.SpidershotAbility
       target1, target2 = FindSpidershotLocations()
+      DebugPrint('Trying to cast spider shot')
     else
       ability = thisEntity.CannonshotAbility
       target1, target2 = FindCannonshotLocations()
+      DebugPrint('Trying to cast cannon')
     end
 
-    if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.SpidershotAbility:IsCooldownReady() then
+    if ability:IsCooldownReady() then
       if target1 then
         ability.target_points = { target1 = target1, target2 = target2 }
         Cast(ability, target1)
@@ -197,48 +207,47 @@ function SpidersThink()
       end
     end
   else -- phase 3
-    if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.SpidershotAbility:IsCooldownReady() then
+    if thisEntity.CannonshotAbility:IsCooldownReady() then
       local cannonshots = RandomInt(1,3)
-      local spidershots = 4 - cannonshots
-
+      thisEntity.lastCannonShots = cannonshots
       local ability = thisEntity.CannonshotAbility
       local target1, target2 = FindCannonshotLocations()
 
-      if target1 then
-        Timers:CreateTimer(ability:GetCastPoint(), function (  )
-          local spiderTarget1, spiderTarget2 = FindSpidershotLocations()
-          local spiderTargetPoints = {}
-          table.insert(spiderTargetPoints, spiderTarget1)
-          table.insert(spiderTargetPoints, spiderTarget2)
-          if #spiderTargetPoints < spidershots then
-            for i=#spiderTargetPoints,spidershots-1 do
-              table.insert(spiderTargetPoints, spiderTarget1 + RandomVector(200))
-            end
-          elseif #spiderTargetPoints > spidershots then
-            local i = #spiderTargetPoints
-            repeat
-              table.remove(spiderTargetPoints, i)
-              i = i - 1
-            until
-              #spiderTargetPoints == spidershots
-          end
+      -- end spidershot CD whenever we shoot a cannon
+      thisEntity.SpidershotAbility:EndCooldown()
 
-          thisEntity.SpidershotAbility.target_points = spiderTargetPoints
-          thisEntity.SpidershotAbility:OnSpellStart()
-          thisEntity.SpidershotAbility:StartCooldown(thisEntity.SpidershotAbility:GetCooldownTime())
-        end)
-
-        if cannonshots == 1 then
-          ability.target_points = { target1 = target1 }
-        elseif cannonshots == 2 then
-          ability.target_points = { target1 = target1, target2 = target2 }
-        elseif cannonshots == 3 then
-          ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
-        end
-        if ability.target_points then
-          Cast(ability, target1)
-        end
+      if cannonshots == 1 then
+        ability.target_points = { target1 = target1 }
+      elseif cannonshots == 2 then
+        ability.target_points = { target1 = target1, target2 = target2 }
+      elseif cannonshots == 3 then
+        ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
       end
+      if ability.target_points then
+        Cast(ability, target1)
+      end
+    elseif thisEntity.SpidershotAbility:IsCooldownReady() then
+      local spidershots = 4 - (thisEntity.lastCannonShots or 0)
+      local ability = thisEntity.SpidershotAbility
+      local spiderTarget1, spiderTarget2 = FindSpidershotLocations()
+      local spiderTargetPoints = {}
+      table.insert(spiderTargetPoints, spiderTarget1)
+      table.insert(spiderTargetPoints, spiderTarget2)
+      if #spiderTargetPoints < spidershots then
+        for i=#spiderTargetPoints,spidershots-1 do
+          table.insert(spiderTargetPoints, spiderTarget1 + RandomVector(200))
+        end
+      elseif #spiderTargetPoints > spidershots then
+        local i = #spiderTargetPoints
+        repeat
+          table.remove(spiderTargetPoints, i)
+          i = i - 1
+        until
+          #spiderTargetPoints == spidershots
+      end
+
+      ability.target_points = spiderTargetPoints
+      Cast(ability, spiderTarget1)
     end
   end
 
