@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 100 100"
+    "AbilityCooldown"                                     "100 90 80 80 80" //OAA
     "AbilityDuration"                                     "3.0"
     "AbilityChannelTime"                                  "2.0"
     "AbilityCastPoint"                                    "0.0"
@@ -52,17 +52,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_damage"                                "110 110 110 220 440"
+        "epicenter_damage"                                "110 130 150 300 500" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_slow"                                  "-30"
+        "epicenter_slow"                                  "-30" 
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_slow_as"                               "-30"
+        "epicenter_slow_as"                               "-30 -40 -50 -70 -90" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_3"
       }
       "06"
