@@ -18,7 +18,6 @@
       "01"                "item_ancient_janggo_2;item_upgrade_core_2"
       "02"                "item_ancient_janggo_2;item_upgrade_core_3"
       "03"                "item_ancient_janggo_2;item_upgrade_core_4"
-
     }
   }
 
@@ -41,7 +40,7 @@
     "ItemBaseLevel"         "1"
     "UpgradesItems"         "item_sonic_2;item_sonic_3"
 
-    "ItemCost"              "6615"
+    "ItemCost"              "6525"
     "ItemShopTags"          "sonic"
     "ItemQuality"           ""
     "ItemAliases"           "sonic"
@@ -57,17 +56,17 @@
       "02"
       {
         "var_type"                "FIELD_INTEGER"
-        "bonus_str"               "32 48 64"
+        "bonus_str"               "30 45 60"
       }
       "03"
       {
         "var_type"                "FIELD_INTEGER"
-        "bonus_agi"               "15 30 40"
+        "bonus_agi"               "30 45 60"
       }
       "04"
       {
         "var_type"                "FIELD_FLOAT"
-        "bonus_mana_regen"        "3.0 4.5 6.25"
+        "bonus_mana_regen"        "4.5 6.0 7.5"
       }
       "05"
       {
@@ -87,4 +86,3 @@
     }
   }
 }
-

@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "500"
+    "ItemCost"                                            "700"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_veil_of_discord"
     "ItemRequirements"
     {
-      "01"                                                "item_helm_of_iron_will;item_null_talisman;item_null_talisman"
+      "01"                                                "item_helm_of_iron_will;item_crown"
     }
   }
 
@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "2330"
+    "ItemCost"                                            "2050"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod;veil of discord;veil"
@@ -62,8 +62,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER" // 3 6 8 12, 3 6 7 11
-        "bonus_health_regen"                              "5 8 14 21 32"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "6 9 15 22 33"
       }
       "02"
       {
@@ -73,17 +73,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "6 9 14 21 28"
+        "bonus_agi"                                       "6 9 15 21 28"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 9 14 22 32"
+        "bonus_str"                                       "6 9 15 21 28"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
-        "bonus_int"                                       "14 20 30 44 66"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "15 20 30 45 68"
       }
       "06"
       {

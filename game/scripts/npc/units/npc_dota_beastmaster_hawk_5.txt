@@ -4,16 +4,17 @@
 // Beastmaster Hawk 5
 //=================================================================================
   "npc_dota_beastmaster_hawk_5"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/beastmaster/beastmaster_bird.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_beastmaster_hawk"
     "SoundSet"                                            "0"      // Name of sound set.
-    "Level"                                               "1"
+    "Level"                                               "5"
     "ModelScale"                                          "1.2"
     "IsSummoned"                                          "1"
     "UnitLabel"                                           "hawk"
+    "IgnoreAddSummonedToSelection"                        "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -43,14 +44,14 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"
-    "MovementSpeed"                                       "375"    // Speed.
+    "MovementSpeed"                                       "480"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "700"    // Base health.
+    "StatusHealth"                                        "2500"    // Base health.
     "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "2000"    // Range of vision during day light.
@@ -62,8 +63,8 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    
+
     "WakesNeutrals"                                       "0"
   }
-  
+
 }

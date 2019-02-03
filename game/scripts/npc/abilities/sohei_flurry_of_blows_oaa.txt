@@ -51,7 +51,7 @@
       "01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"flurry_radius"				"400"
+				"flurry_radius"				"325"
         "LinkedSpecialBonus"      "special_bonus_sohei_fob_radius"
 			}
 			"02"
@@ -62,12 +62,12 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"max_duration"			"4.0 6.0 8.0 10.0 12.0"
+				"max_duration"			"2.0 3.0 4.0 5.0 6.0"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"attack_interval"			"0.6"
+				"attack_interval"			"0.3"
 			}
     }
   }

@@ -69,12 +69,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-28"
+        "slow_movement_speed_pct"                         "-19 -22 -25 -28 -31 -34"
       }
       "09"
       {
-        "var_type"        "FIELD_FLOAT"
-        "dive_duration"     "2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "dive_duration"                                   "2.0"
       }
     }
   }
