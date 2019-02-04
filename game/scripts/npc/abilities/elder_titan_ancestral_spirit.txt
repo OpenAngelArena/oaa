@@ -58,7 +58,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_pct_creeps"                                 "0.6" //OAA
+        "move_pct_creeps"                                 "1"
       }
       "07"
       {
@@ -68,7 +68,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_creeps"                                   "3 5 7 9 18 21" //OAA
+        "damage_creeps"                                   "6 9 12 15 18 21"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
@@ -81,7 +81,7 @@
 	    "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "armor_creeps"                                    "0.3" //OAA
+        "armor_creeps"                                    "0.5"
       }
 	    "11"
       {
