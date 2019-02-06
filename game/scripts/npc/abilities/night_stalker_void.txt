@@ -24,7 +24,7 @@
     "AbilityCastRange"                                    "525"
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
     "AbilityCooldown"                                     "8" //OAA
-    "AbilityManaCost"                                     "50 70 90 110 130 150" //OAA
+    "AbilityManaCost"                                     "80 90 100 110 130 150" 
     "AbilityDamage"                                       "90 160 255 335 500 1100"
 
     // Stats
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_day"                                    "2.0" //OAA
+        "duration_day"                                    "2.5 3 3.5 4 4.5 5.0" //OAA
       }
       "02"
       {
