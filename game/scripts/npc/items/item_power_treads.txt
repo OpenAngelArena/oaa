@@ -22,9 +22,9 @@
     "ItemResult"                                          "item_power_treads"
     "ItemRequirements" // OAA
     { // OAA
-      "01"                                                "item_boots;item_belt_of_strength;item_blades_of_attack"
-      "02"                                                "item_boots;item_robe;item_blades_of_attack"
-      "03"                                                "item_boots;item_boots_of_elves;item_blades_of_attack"
+      "01"                                                "item_boots;item_gloves;item_belt_of_strength"
+      "02"                                                "item_boots;item_gloves;item_robe"
+      "03"                                                "item_boots;item_gloves;item_boots_of_elves"
     }
   }
 
@@ -40,7 +40,7 @@
     "AbilityTextureName"                                  "item_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1380"
+    "ItemCost"                                            "1450"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "power treads"
@@ -61,17 +61,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "14"
+        "bonus_stat"                                      "10"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "0"
+        "bonus_attack_speed"                              "20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12"
+        "bonus_damage"                                    "0"
       }
     }
   }

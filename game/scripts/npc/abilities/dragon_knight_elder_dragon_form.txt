@@ -70,16 +70,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "splash_damage_percent"                           "75"
+        "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_6"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "frost_bonus_movement_speed"                      "-30"
+        "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_5"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-20"
+        "frost_bonus_attack_speed"                        "-30"
+        "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_5"
       }
       "11"
       {

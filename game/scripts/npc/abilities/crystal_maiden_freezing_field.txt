@@ -51,6 +51,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "explosion_radius"                                "300"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10"
+      }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -84,7 +89,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "105 170 250 600 950"
+        "damage"                                          "125 200 275 600 950"
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
       }
       "11"
