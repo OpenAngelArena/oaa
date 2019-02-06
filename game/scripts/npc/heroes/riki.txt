@@ -1,12 +1,13 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Warlock
+  // HERO: Riki
   //=================================================================================================================
-  "npc_dota_hero_warlock"
+  "npc_dota_hero_riki"
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability12"   "special_bonus_intelligence_20" // replaces special_bonus_exp_boost_60
+    "Ability11"   "special_bonus_hp_100"        // replaces special_bonus_agility_8
+    "Ability17"   "special_bonus_agility_20"    // replaces special_bonus_unique_riki_5
   }
 }
