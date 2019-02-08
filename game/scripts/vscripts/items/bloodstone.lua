@@ -8,7 +8,10 @@ function item_bloodstone_1:GetIntrinsicModifierName()
 end
 
 function item_bloodstone_1:OnSpellStart()
-  self:GetCaster():Kill(self, self:GetCaster())
+  local caster = self:GetCaster()
+  --caster:Kill(self, caster) -- old bloodstone (Pocket Deny)
+  local duration = self:GetSpecialValueFor("restore_duration")
+  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
 end
 
 -- upgrades
@@ -35,6 +38,7 @@ end
 function modifier_item_bloodstone_oaa:Setup(created)
   local ability = self:GetAbility()
   local caster = self:GetCaster()
+  local initial_charges = ability:GetSpecialValueFor("initial_charges_tooltip")
 
   -- destroy happens after create when upgrading, and also item doesn't have half of it's abilities yet
   Timers:CreateTimer(0.1, function()
@@ -77,11 +81,11 @@ function modifier_item_bloodstone_oaa:Setup(created)
         ability.addedCharges = true
       else
         if not caster.surplusCharges then
-          caster.surplusCharges = 14
+          caster.surplusCharges = initial_charges
         end
         DebugPrint('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
-        self.charges = 14
-        caster.surplusCharges = math.min(14, caster.surplusCharges)
+        self.charges = initial_charges
+        caster.surplusCharges = math.min(initial_charges, caster.surplusCharges)
         needsSetCharges = true
       end
     end
@@ -146,6 +150,7 @@ if IsServer() then
       MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
       MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
       MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+      MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE, --GetModifierPercentageManaRegen
     }
   end
 end
@@ -162,12 +167,17 @@ function modifier_item_bloodstone_oaa:GetModifierManaBonus()
 end
 
 function modifier_item_bloodstone_oaa:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+  local ability = self:GetAbility()
+  return ability:GetSpecialValueFor("bonus_health_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
 end
 
 function modifier_item_bloodstone_oaa:GetModifierConstantManaRegen()
   local ability = self:GetAbility()
-  return self:GetAbility():GetSpecialValueFor("bonus_mana_regen") + (self:GetAbility():GetCurrentCharges() * self:GetAbility():GetSpecialValueFor("mana_per_charge"))
+  return ability:GetSpecialValueFor("bonus_mana_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
+end
+
+function modifier_item_bloodstone_oaa:GetModifierPercentageManaRegen()
+  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 end
 
 --------------------------------------------------------------------------
@@ -207,7 +217,8 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
   -- Charge loss
 
   local oldCharges = stone:GetCurrentCharges()
-  local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
+  --local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
+  local newCharges = math.max(0, math.ceil(oldCharges - stone:GetSpecialValueFor("death_charges")))
 
   stone:SetCurrentCharges(newCharges)
   self.charges = newCharges
@@ -216,23 +227,23 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
     return
   end
 
-  local healAmount = stone:GetSpecialValueFor("heal_on_death_base") + (stone:GetSpecialValueFor("heal_on_death_per_charge") * oldCharges)
-  local heroes = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
-    nil,
-    stone:GetSpecialValueFor("heal_on_death_range"),
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
+  -- local healAmount = stone:GetSpecialValueFor("heal_on_death_base") + (stone:GetSpecialValueFor("heal_on_death_per_charge") * oldCharges)
+  -- local heroes = FindUnitsInRadius(
+    -- caster:GetTeamNumber(),
+    -- caster:GetAbsOrigin(),
+    -- nil,
+    -- stone:GetSpecialValueFor("heal_on_death_range"),
+    -- DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    -- DOTA_UNIT_TARGET_HERO,
+    -- DOTA_UNIT_TARGET_FLAG_NONE,
+    -- FIND_ANY_ORDER,
+    -- false
+  -- )
 
-  heroes = iter(heroes)
-  heroes:each(function (hero)
-    hero:Heal(healAmount, stone)
-  end)
+  -- heroes = iter(heroes)
+  -- heroes:each(function (hero)
+    -- hero:Heal(healAmount, stone)
+  -- end)
 end
 
 --------------------------------------------------------------------------
