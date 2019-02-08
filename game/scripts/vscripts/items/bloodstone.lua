@@ -207,7 +207,7 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
       local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
 
       if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
-        stone:SetCurrentCharges(stone:GetCurrentCharges() + 1)
+        stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
         self.charges = stone:GetCurrentCharges()
       end
     end

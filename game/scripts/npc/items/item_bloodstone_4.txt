@@ -31,7 +31,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3130"      // unique ID
-    "BaseClass"                                           "item_bloodstone"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/bloodstone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "2"
 
@@ -74,22 +75,22 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.0 8.5 13 17 21"
+        "bonus_health_regen"                              "6 8.5 13 17 21"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 3.5 4.25 5.0 6.0"
+        "bonus_mana_regen"                                "3 3.5 4.25 5 6"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "150 200 350 500 750" // OAA
+        "mana_regen_multiplier"                           "150 200 350 500 750"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "regen_per_charge"                                "0.4" // OAA
+        "regen_per_charge"                                "0.3"
       }
       "07"
       {
@@ -114,7 +115,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_percentage"                            "60"
+        "mana_cost_percentage"                            "30 40 50 60 70"
       }
       "12"
       {

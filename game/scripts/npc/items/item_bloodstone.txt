@@ -3,15 +3,17 @@
   //=================================================================================================================
   // Recipe: Bloodstone
   //=================================================================================================================
-  "item_recipe_bloodstone"
+  "item_recipe_bloodstone"                                "REMOVED"
+  "item_recipe_bloodstone_1"
   {
-    "ID"                                                  "120"
+    "ID"                                                  "3400"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodstone"
+    "ItemResult"                                          "item_bloodstone_1"
     "ItemRequirements"
     {
       "01"                                                "item_pers;item_soul_booster"
@@ -21,11 +23,14 @@
   //=================================================================================================================
   // Bloodstone
   //=================================================================================================================
-  "item_bloodstone"
+  "item_bloodstone"                                       "REMOVED"
+  "item_bloodstone_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "121"
+    "ID"                                                  "9121"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/bloodstone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "2"
 
@@ -39,7 +44,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_bloodstone;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
+    "UpgradesItems"                                       "item_bloodstone_1;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
