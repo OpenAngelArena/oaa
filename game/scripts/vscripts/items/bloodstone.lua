@@ -14,6 +14,11 @@ function item_bloodstone_1:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
 end
 
+function item_bloodstone_1:GetManaCost(level)
+  local mana_cost_percentage = self:GetSpecialValueFor("mana_cost_percentage")
+  return self:GetCaster():GetMaxMana()*mana_cost_percentage
+end
+
 -- upgrades
 item_bloodstone_2 = item_bloodstone_1
 item_bloodstone_3 = item_bloodstone_1
