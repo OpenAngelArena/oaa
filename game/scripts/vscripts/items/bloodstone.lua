@@ -7,16 +7,21 @@ function item_bloodstone_1:GetIntrinsicModifierName()
   return "modifier_item_bloodstone_oaa"
 end
 
+function item_bloodstone_1:GetManaCost(nLevel)
+  local caster = self:GetCaster() or self:GetOwner() or self:GetPurchaser()
+  local mana_cost_percentage = self:GetSpecialValueFor("mana_cost_percentage")
+  local caster_max_mana = caster:GetMaxMana()
+  local total_mana_cost = caster_max_mana*mana_cost_percentage/100
+
+  return total_mana_cost
+end
+
 function item_bloodstone_1:OnSpellStart()
   local caster = self:GetCaster()
   --caster:Kill(self, caster) -- old bloodstone (Pocket Deny)
   local duration = self:GetSpecialValueFor("restore_duration")
   caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
-end
-
-function item_bloodstone_1:GetManaCost(level)
-  local mana_cost_percentage = self:GetSpecialValueFor("mana_cost_percentage")
-  return self:GetCaster():GetMaxMana()*mana_cost_percentage
+  -- modifier_item_bloodstone_active is a built-in bloodstone modifier.
 end
 
 -- upgrades
@@ -155,7 +160,7 @@ if IsServer() then
       MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
       MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
       MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
-      MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE, --GetModifierPercentageManaRegen
+      MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     }
   end
 end
@@ -181,8 +186,8 @@ function modifier_item_bloodstone_oaa:GetModifierConstantManaRegen()
   return ability:GetSpecialValueFor("bonus_mana_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
 end
 
-function modifier_item_bloodstone_oaa:GetModifierPercentageManaRegen()
-  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+function modifier_item_bloodstone_oaa:GetModifierMPRegenAmplify_Percentage()
+  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")-100
 end
 
 --------------------------------------------------------------------------
