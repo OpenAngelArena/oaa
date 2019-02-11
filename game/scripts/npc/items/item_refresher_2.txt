@@ -60,6 +60,8 @@
     "ItemAliases"                                         "refresher orb 2;refresher 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "IsTempestDoubleClonable"                             "0"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -67,12 +69,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "11 17 25 40 60"
+        "bonus_health_regen"                              "13 19 27 42 62"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 7.0 10.0 14.0 20.0"
+        "bonus_mana_regen"                                "12.0 14.0 17.0 21.0 27.0"
       }
     }
   }

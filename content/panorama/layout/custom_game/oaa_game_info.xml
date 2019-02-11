@@ -31,6 +31,7 @@
         <Image id="FarmingCoreImage" src="file://{images}/custom_game/game_info/farming_core.psd" />
         <Label id="FarmingCoreText" html="true" text="#game_info_farming_core" />
       </Panel>
+      <!--
       <Panel id="ReflexCoreRow" class="InfoRow">
         <Label id="ReflexCoreText" html="true" text="#game_info_reflex_core" />
         <Image id="ReflexCoreImage" src="file://{images}/custom_game/game_info/reflex_core.psd" />
@@ -39,6 +40,7 @@
         <Image id="FarmingCaveImage" src="file://{images}/custom_game/game_info/farming_cave.psd" />
         <Label id="FarmingCaveText" html="true" text="#game_info_farming_cave" />
       </Panel>
+      -->
       <Panel id="UpgradeCoreRow" class="InfoRow">
         <Label id="UpgradeCoreText" html="true" text="#game_info_upgrade_core" />
         <Image id="UpgradeCoreImage" src="file://{images}/custom_game/game_info/upgrade_core.psd" />

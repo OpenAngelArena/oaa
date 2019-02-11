@@ -171,12 +171,12 @@ function generateFileForTranslations (languageName, translations, cb) {
         lines.push();
       }
       var indent = (new Array(100 - key.length)).join(' ');
-      lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key].replace(/\\n/g, '\n')));
+      lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key]));
 
       if (duplicateStrings[key]) {
         duplicateStrings[key].keys.forEach(function (dupKey) {
           var indent = (new Array(100 - dupKey.length)).join(' ');
-          lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key].replace(/\\n/g, '\n')));
+          lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key]));
         });
       }
     });

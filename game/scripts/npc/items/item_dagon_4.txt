@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "180"
-    "ItemCost"                                            "6465"
+    "ItemCost"                                            "6450"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 4"
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3"
+        "bonus_all_stats"                                 "5"
       }
       "03"
       {
