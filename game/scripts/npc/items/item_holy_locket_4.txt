@@ -1,0 +1,84 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Holy Locket 4
+  //=================================================================================================================
+  "item_recipe_holy_locket_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "8553"
+    "BaseClass"                   "item_datadriven"
+    "Model"                       "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"          "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "8000"
+    "ItemShopTags"                ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                  "1"
+    "ItemResult"                  "item_holy_locket_4"
+    "ItemRequirements"
+    {
+      "01"                        "item_holy_locket_3;item_upgrade_core_3"
+      "02"                        "item_holy_locket_3;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Holy Locket 4
+  //=================================================================================================================
+  "item_holy_locket_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "8554"
+    "BaseClass"                   "item_holy_locket"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityTextureName"          "custom/holy_locket_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "15700"
+    "ItemShopTags"                ""
+    "ItemQuality"                 "rare"
+    "ItemAliases"                 "holy locket 4"
+
+    "MaxUpgradeLevel"             "5"
+    "ItemBaseLevel"               "4"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_health"            "200 400 650 1150 2000"
+      }
+      "02"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "bonus_mana"              "325 800 1350 1900 2550"
+      }
+      "03"
+      {
+        "var_type"                "FIELD_FLOAT"
+        "health_regen"            "4 10 16 23 30"
+      }
+      "04"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "magic_resist"            "15 17 19 22 25"
+      }
+      "05"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "heal_increase"           "25 30 35 45 50"
+      }
+    }
+  }
+}
