@@ -10,7 +10,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "900"
     "ItemShopTags"                                        "unique"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "morbid mask"
@@ -21,11 +21,6 @@
     "AbilitySpecial"
     {
       "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10"
-      }
-      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "lifesteal_percent"                               "15"

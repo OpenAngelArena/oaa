@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "8250"
+    "ItemCost"                                            "8150"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -78,7 +78,7 @@
 			"03"
 			{
 				"var_type"				    "FIELD_INTEGER"
-        "bonus_health_regen"  "7 14 21 28 35"
+        "bonus_health_regen"  "10 20 30 40 50"
 			}
 			"04"
 			{

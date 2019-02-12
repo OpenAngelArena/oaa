@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -47,12 +47,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_cost_percent"                             "0.34 0.39 0.44 0.47 0.5"
+        "health_cost_percent"                             "0.32 0.38 0.44 0.47 0.5"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_damage"                                   "0.34 0.39 0.44 0.47 0.5"
+        "health_damage"                                   "0.32 0.38 0.44 0.47 0.5"
       }
       "03"
       {
@@ -67,12 +67,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_damage"                           "34 38 42 46 50"
+        "tooltip_health_damage"                           "32 38 44 47 50"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_cost_percent"                     "34 38 42 46 50"
+        "tooltip_health_cost_percent"                     "32 38 44 47 50"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "07"
