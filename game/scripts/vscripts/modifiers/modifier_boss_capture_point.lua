@@ -105,6 +105,21 @@ function modifier_boss_capture_point:OnIntervalThink()
     FIND_ANY_ORDER,
     false
   )
+
+  local function remove_wraith_heroes_from_table(table1)
+    for k,v in pairs(table1) do
+      local hero_to_test = table1[k]
+      if hero_to_test then
+        if hero_to_test:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
+          table.remove(table1, k)
+        end
+      end
+    end
+  end
+
+  remove_wraith_heroes_from_table(radiantUnits)
+  remove_wraith_heroes_from_table(direUnits)
+
   local captureTick
   local heroMultiplierTable = {
     1,
