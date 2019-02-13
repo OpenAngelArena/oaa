@@ -41,12 +41,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "25"
+        "chance_pct"                                      "10 15 20 25 25 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 120 175 325 500"
+        "bonus_damage"                                    "60 90 120 175 325 500" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "05"
