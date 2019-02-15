@@ -55,7 +55,7 @@
   }
 
   //=================================================================================================================
-  // Visage: Summon Familiars Stone Form Self Cat
+  // Visage: Summon Familiars Stone Form Self Cat - doesn't work at level 4 and 5
   //=================================================================================================================
 	"visage_stone_form_self_cast"
 	{
@@ -65,7 +65,7 @@
 		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-		"MaxLevel"                                            "5"
+		"MaxLevel"                                            "3" // when reworked, set it to 5
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 "DOTAAbilities"
 {
-"visage_summon_familiars"
+  // needs rework, level 5 is borked
+  "visage_summon_familiars"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01"  // level 5 familiar never spawns
       {
         "var_type"                                        "FIELD_INTEGER"
         "familiar_hp"                                     "400 550 700 1450 2200"
