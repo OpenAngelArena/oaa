@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 100 90 90 90"
+    "AbilityCooldown"                                     "110 100 90 80 70"
     "AbilityDuration"                                     "10.0"
 
     // Cost
@@ -89,7 +89,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "125 200 275 600 950"
+        "damage"                                          "125 200 275 600 950" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
       }
       "11"
