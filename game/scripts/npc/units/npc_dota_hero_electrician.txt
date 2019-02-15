@@ -7,13 +7,13 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"npc_dota_hero_dazzle"
-		"Model"							"models/heroes/electrician/electrician.vmdl"
-		"SoundSet"						"Hero_Electrician"
-		"HeroID"						"129"
-		"particle_folder"				"particles/units/heroes/hero_electrician"
-		"GameSoundsFile"				"soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
-		"VoiceFile"						"soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
+		"BaseClass"                 "npc_dota_hero_dazzle"
+		"Model"                     "models/heroes/electrician/electrician.vmdl"
+		"SoundSet"                  "Hero_Electrician"
+		"HeroID"                    "129"
+		"particle_folder"           "particles/units/heroes/hero_electrician"
+		"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
+		"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
 
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
@@ -34,59 +34,58 @@
 
 		// Armor
 		//-------------------------------------------------------------------------------------------------------------
-		"ArmorPhysical"					"3.5"
-		"MagicalResistance"				"25"
-
+		"ArmorPhysical"             "3.5"
+		"MagicalResistance"         "25"
 
 		// Attack
 		//-------------------------------------------------------------------------------------------------------------
-		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"				"58"
-		"AttackDamageMax"				"64"
-		"AttackRate"					"1.7"
-		"AttackAnimationPoint"			"0.3"
-		"AttackAcquisitionRange"		"600"
-		"AttackRange"					"150"
-		"ProjectileSpeed"				"0"
+		"AttackCapabilities"			  "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"           "58"
+		"AttackDamageMax"           "64"
+		"AttackRate"                "1.7"
+		"AttackAnimationPoint"      "0.3"
+		"AttackAcquisitionRange"    "600"
+		"AttackRange"               "150"
+		"ProjectileSpeed"           "0"
 
 		// Attributes
 		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"			"23"
-		"AttributeStrengthGain"			"3.4"
-		"AttributeBaseAgility"			"13"
-		"AttributeAgilityGain"			"2.0"
-		"AttributeBaseIntelligence"		"25"
-		"AttributeIntelligenceGain"		"2.5"
+		"AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"     "23"
+		"AttributeStrengthGain"     "3.9"
+		"AttributeBaseAgility"      "13"
+		"AttributeAgilityGain"      "2.0"
+		"AttributeBaseIntelligence" "25"
+		"AttributeIntelligenceGain" "2.5"
 
 		// Movement
 		//-------------------------------------------------------------------------------------------------------------
-		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"					"295"
-		"MovementTurnRate"				"0.5"
-		"BoundsHullName"				"DOTA_HULL_SIZE_HERO"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"             "295"
+		"MovementTurnRate"          "0.5"
+		"BoundsHullName"            "DOTA_HULL_SIZE_HERO"
 
 		// Status
 		//-------------------------------------------------------------------------------------------------------------
-		"StatusHealth"					"200"
-		"StatusHealthRegen"			"1.5"
-		"StatusMana"					  "75"
-		"StatusManaRegen"				"0.9"
+		"StatusHealth"              "200"
+		"StatusHealthRegen"         "1.5"
+		"StatusMana"                "75"
+		"StatusManaRegen"           "0.9"
 
 		// Team
 		//-------------------------------------------------------------------------------------------------------------
-		"TeamName"						"DOTA_TEAM_GOODGUYS"
-		"CombatClassAttack"				"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"				"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"			"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+		"TeamName"                  "DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 
 		// Vision
 		//-------------------------------------------------------------------------------------------------------------
-		"VisionDaytimeRange"			"1800"
-		"VisionNighttimeRange"			"800"
+		"VisionDaytimeRange"        "1800"
+		"VisionNighttimeRange"      "800"
 
 		//Inventory
 		//-------------------------------------------------------------------------------------------------------------
-		"HasInventory"					"1"
+		"HasInventory"              "1"
 	}
 }
