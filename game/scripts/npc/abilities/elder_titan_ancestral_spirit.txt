@@ -74,14 +74,14 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_heroes"                                   "15 30 60 80 100 210"
+        "damage_heroes"                                   "15 30 60 80 100 140"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan"
         "CalculateSpellDamageTooltip"                     "0"
       }
 	    "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "armor_creeps"                                    "0.5"
+        "armor_creeps"                                    "0.4" //OAA
       }
 	    "11"
       {
