@@ -37,6 +37,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "10"
+        "LinkedSpecialBonus"	                            "special_bonus_unique_sniper_3"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "-100"
       }
     }
