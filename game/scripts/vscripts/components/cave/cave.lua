@@ -2,8 +2,6 @@
 local MAX_DOORS = 2
 local MAX_ZONES = 2
 
-Debug.EnableDebugging()
-
 if CaveHandler == nil then
   DebugPrint ('creating new CaveHandler object.')
   CaveHandler = class({})

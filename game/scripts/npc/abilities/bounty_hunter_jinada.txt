@@ -16,8 +16,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0 10.0 8.0 6.0 6.0 6.0"
-    
+    "AbilityCooldown"                                     "12 9 6 3 3 3"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -25,23 +25,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "150 175 200 225 250 275"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
+        "bonus_damage"                                    "80 110 140 170 260 400"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed"                                 "-15 -20 -25 -30 -40 -50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attackspeed"                               "-15 -20 -25 -30 -60 -120"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0"
+        "gold_steal"                                      "60 120 180 240 1200 2400" //OAA
+                                                  // GPM 300 800 1800 4800 24000 48000
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
       }
     }
   }

@@ -52,19 +52,14 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "pounce_damage"                                   "30 60 90 120 300 500"
+        "var_type"                                        "FIELD_FLOAT"
+        "leash_duration"                                  "2.5 2.75 3 3.25 3.5 4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slark"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "leash_duration"                                  "3.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slark"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "leash_radius"                                    "325"
+        "leash_radius"                                    "400"
       }
     }
   }

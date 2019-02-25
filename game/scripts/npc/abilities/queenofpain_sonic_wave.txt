@@ -68,6 +68,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "370 480 590 1125 1700"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "350"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "1.4"
+      }
     }
   }
 }

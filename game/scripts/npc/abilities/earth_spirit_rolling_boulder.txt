@@ -26,7 +26,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -64,18 +63,19 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 150 225 300 675 1050" //OAA
+        "damage"                                          "100 150 225 300 675 1050" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "80"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.4 0.6 0.8 1.0 1.2 1.4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_3"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8 1.2 1.6 2.0 2.8 3.6"
+        "rock_bonus_duration"                             "0.4 0.6 0.8 1.0 1.2 1.4"
       }
     }
   }

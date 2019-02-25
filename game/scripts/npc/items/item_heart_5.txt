@@ -70,16 +70,21 @@
         "bonus_health"                                    "300 700 1200 2000 2700"  //OAA
       }
       "03"
+			{
+				"var_type"                                        "FIELD_INTEGER"
+				"hp_regen_amp"                                    "50"
+			}
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "health_regen_rate"                               "3 4 5 6 7" //OAA
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_melee"                                  "5"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_ranged_tooltip"                         "7"

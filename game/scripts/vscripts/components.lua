@@ -9,7 +9,7 @@ COMPONENT_GAME_IN_PROGRESS = 5
 Components = Components or class({})
 
 function Components:Init()
-  Debug:EnableDebugging()
+  -- Debug:EnableDebugging()
   if not self.components then
     self.components = {}
     self.initTime = {}
@@ -26,7 +26,7 @@ function Components:Init()
 end
 
 function Components:Register (name, startup)
-  Debug:EnableDebugging()
+  -- Debug:EnableDebugging()
   DebugPrint('Registering ' .. name)
   if not self.components then
     self.components = {}
