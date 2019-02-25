@@ -59,8 +59,8 @@
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"    "1 1.25 1.5 2 2.75 3.75 5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2 2.5 3.0 4.0 5.5 7.5 10.0"
       }
       "03"
       {
@@ -90,7 +90,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "explosion"                                       "550 675 800 1200 1800 2600 3600"
+        "explosion"                                       "600 700 800 1200 1800 2600 3600"
       }
       "09"
       {
@@ -115,7 +115,7 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_aura_radius_tooltip"                      "900"
+        "archer_aura_radius_tooltip"                      "1200"
       }
       "14"
       {
