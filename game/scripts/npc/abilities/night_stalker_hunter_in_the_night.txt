@@ -11,9 +11,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxLevel"                                            "6"
 
-    "AbilityCooldown"                                     "30 26 22 18 18 18"
-    "AbilityManaCost"                                     "80"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -21,18 +18,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct_night"                  "20 25 30 35 40 50"
+        "bonus_movement_speed_pct_night"                  "22 28 34 40 45 50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed_night"                        "30 50 70 90 115 150"
-        "LinkedSpecialBonus"    "special_bonus_unique_night_stalker_2"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_night_stalker_2"
       }
     }
   }

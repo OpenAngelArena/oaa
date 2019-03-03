@@ -81,6 +81,12 @@ globals = { -- these globals can be set and accessed.
 "COMPONENT_HERO_SELECT",
 "COMPONENT_STRATEGY",
 "COMPONENT_GAME_IN_PROGRESS",
+"FIRST_BOUNTY_RUNE_SPAWN_TIME",
+"BOUNTY_RUNE_SPAWN_INTERVAL",
+"FIRST_POWER_RUNE_SPAWN_TIME",
+"POWER_RUNE_SPAWN_INTERVAL",
+"BOUNTY_RUNE_INITIAL_TEAM_GOLD",
+"BOUNTY_RUNE_INITIAL_TEAM_XP",
 "Components"
 }
 
@@ -2811,7 +2817,8 @@ read_globals = { -- these globals can only be accessed.
 "HeroSelection",
 "FindCustomBuildingsInRadius",
 "FindAllBuildingsInRadius",
-"PreventGettingStuck"
+"PreventGettingStuck",
+"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE"
 }
 
 ignore = {

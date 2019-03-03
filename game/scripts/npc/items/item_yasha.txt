@@ -1,0 +1,53 @@
+"DOTAItems"
+{
+  "item_recipe_yasha"
+  {
+    "ID"              "169"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityTextureName"            "custom/recipe/recipe_1"
+  }
+  //=================================================================================================================
+  // Yasha
+  //=================================================================================================================
+  "item_yasha"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "170"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "2050"
+    "ItemShopTags"                  "agi;attack_speed;move_speed"
+    "ItemQuality"                   "artifact"
+    "ItemAliases"                   "yasha"
+    "ShouldBeSuggested"             "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_agility"         "16 24"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_attack_speed"    "12 16"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "movement_speed_percent_bonus"  "8 12" //OAA
+      }
+    }
+  }
+}

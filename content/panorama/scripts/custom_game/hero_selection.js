@@ -79,7 +79,12 @@ var hilariousLoadingPhrases = [
   'Nerfing Tinker more',
   'Replacing all heroes with Oracle',
   'Losing self in the music the moment I owned it',
-  'Practicing invincible ledgedash'
+  'Practicing invincible ledgedash',
+  'Actually playing Auto Chess instead',
+  'Remember to poop aggressively',
+  'Sneaking loading screen text into the game simply because I can',
+  'Forgetting to upgrade boots',
+  'Hope everyone is having a great day'
 ];
 
 SetupTopBar();

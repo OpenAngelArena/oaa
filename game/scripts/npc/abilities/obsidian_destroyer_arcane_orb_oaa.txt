@@ -50,6 +50,11 @@
         "int_steal_duration"                              "80"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "175"
+      }
     }
   }
 }

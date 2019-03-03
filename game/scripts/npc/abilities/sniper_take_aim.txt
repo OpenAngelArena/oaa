@@ -8,11 +8,18 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5156"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCastPoint"                                    "0"
+
+    "AbilityCooldown"                                     "15 12 9 6 6 6"
+
+    "AbilityManaCost"                                     "30"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

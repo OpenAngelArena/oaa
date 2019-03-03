@@ -20,13 +20,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550 600 650 700 900 1200"
+    "AbilityCastRange"                                    "475 550 625 700 800 1000" //OAA
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "6" //OAA
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,18 +38,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "550 600 650 700 900 1200"
+        "cast_range"                                      "475 550 625 700 800 1000" //OAA, Valve still has it wrong
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-1 -3 -5 -7 -17 -27"
-        "LinkedSpecialBonus"    "special_bonus_unique_chaos_knight_2"
+        "pull_distance"                                   "250 300 350 400 600 900"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_duration"                                  "8"
+        "movement_slow"                                   "10 20 30 40 50 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow"                                     "30 50 70 90 120 150"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "3"
       }
     }
   }

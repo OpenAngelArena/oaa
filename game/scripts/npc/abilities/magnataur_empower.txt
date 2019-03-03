@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -39,18 +39,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "empower_duration"                                "40.0 40.0 40.0 40.0 40.0 40.0"
+        "empower_duration"                                "40.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "10 20 30 40 50 60" //OAA
+        "bonus_damage_pct"                                "10 20 30 40 60 80"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "10 20 30 40 50 60" //OAA
+        "cleave_damage_pct"                               "30 40 50 60 70 80" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "04"
@@ -61,12 +61,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "330"
+        "cleave_ending_width"                             "360"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "625"
+        "cleave_distance"                                 "650"
       }
       "07"
       {

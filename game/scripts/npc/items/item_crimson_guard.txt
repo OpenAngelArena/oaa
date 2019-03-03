@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "750"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -40,15 +40,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "46.0"
     "AbilitySharedCooldown"                               "guard"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3550"
+    "ItemCost"                                            "3700"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard"
@@ -67,7 +66,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 19 27"
+        "bonus_health_regen"                              "7 10 15 20 30"
       }
       "03"
       {
@@ -107,7 +106,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "900"
+        "bonus_aoe_radius"                                "1200"
       }
       "11"
       {
