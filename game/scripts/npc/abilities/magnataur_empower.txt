@@ -14,7 +14,11 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
@@ -26,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 50 70 90 190 290"
+    "AbilityManaCost"                                     "45 60 75 90 190 290"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +54,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "30 40 50 60 70 80" //OAA
+        "cleave_damage_pct"                               "15 30 45 60 70 80" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "04"

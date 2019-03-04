@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"visage_summon_familiars"
+  "visage_summon_familiars"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_attack_damage"                          "30 45 60 140 230"
+        "familiar_attack_damage"                          "20 40 60 140 230"
       }
     }
   }

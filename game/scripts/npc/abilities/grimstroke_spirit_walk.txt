@@ -16,6 +16,7 @@
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
     "AbilitySound"              "Hero_ObsidianDestroyer.AstralImprisonment"
     "FightRecapLevel"           "1"
+
     "MaxLevel"                  "6"
     "RequiredLevel"             "1"
     "LevelsBetweenUpgrades"     "2"
@@ -38,56 +39,55 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue" "0.75"
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "cast_range_tooltip"  "400 500 600 700 900 1100"
+        "var_type"              "FIELD_INTEGER"
+        "cast_range_tooltip"    "400 500 600 700 900 1100"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "buff_duration"     "3.0"
+        "var_type"              "FIELD_FLOAT"
+        "buff_duration"         "3.0"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "movespeed_bonus_pct" "12 14 16 18 28 38"
+        "var_type"              "FIELD_INTEGER"
+        "movespeed_bonus_pct"   "12 14 16 18 28 38"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "radius"          "400"
-        "LinkedSpecialBonus"  "special_bonus_unique_grimstroke_1"
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "400"
+        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_1"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "max_damage"      "100 200 300 400 500 650"
+        "var_type"              "FIELD_INTEGER"
+        "max_damage"            "100 200 300 400 600 700"
       }
       "06"
       {
-        "var_type"        "FIELD_FLOAT"
-        "max_stun"        "1.4 2.2 3 3.8 4.5 5.0"
+        "var_type"              "FIELD_FLOAT"
+        "max_stun"              "1.0 1.9 2.8 3.7 4.5 5.0"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "damage_per_tick"   "5 7 9 11 18 28"
+        "var_type"              "FIELD_INTEGER"
+        "damage_per_tick"       "5 7 9 11 18 28"
       }
       "08"
       {
-        "var_type"        "FIELD_FLOAT"
-        "tick_rate"       "0.2"
+        "var_type"              "FIELD_FLOAT"
+        "tick_rate"             "0.2"
       }
       "09"
       {
-        "var_type"        "FIELD_INTEGER"
-        "tick_dps_tooltip"    "25 35 45 55 90 140"
+        "var_type"              "FIELD_INTEGER"
+        "tick_dps_tooltip"      "25 35 45 55 90 140"
       }
     }
   }
