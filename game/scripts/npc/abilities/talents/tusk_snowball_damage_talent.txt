@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+/=================================================================================================================
+	// Snowball damage talent
+	//=================================================================================================================
+	"special_bonus_unique_tusk_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6411"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"275" //OAA
+			}
+		}
+	}
+}
