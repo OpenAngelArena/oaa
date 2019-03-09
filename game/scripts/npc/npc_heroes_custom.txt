@@ -100,12 +100,12 @@
   //=================================================================================================================
   "npc_dota_hero_electrician"
   {
-    "BaseClass"					"npc_dota_hero_dazzle"
-    "HeroID"					"202"
-    "Model"						"models/heroes/dazzle/dazzle.vmdl"
+    "BaseClass"                 "npc_dota_hero_dazzle"
+    "HeroID"                    "202"
+    "Model"                     "models/heroes/dazzle/dazzle.vmdl"
 
     // Attributes
     //-------------------------------------------------------------------------------------------------------------
-    "AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
   }
 }
