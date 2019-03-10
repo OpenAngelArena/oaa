@@ -13,9 +13,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
-    "MaxLevel"                                            "6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +71,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_creeps"                                   "6 9 12 15 18 21"
+        "damage_creeps"                                   "3 7 11 15 18 21"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "09"

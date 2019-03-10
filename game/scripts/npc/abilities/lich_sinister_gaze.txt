@@ -14,7 +14,10 @@
 		"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -22,7 +25,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityChannelTime"                                  "1.6 1.9 2.2 2.5 3.0 4.0"
+		"AbilityChannelTime"                                  "1.9 2.25 3 4 5 6" //OAA
 		"AbilityCooldown"                                     "30"
 
 		// Cost
@@ -36,7 +39,7 @@
 			"01"
 			{
 				"var_type"			                  "FIELD_FLOAT"
-				"duration"			                  "1.6 1.9 2.2 2.5 3.0 4.0"
+				"duration"			                  "1.9 2.25 3 4 5 6"  //OAA
 			}
 			"02"
 			{

@@ -10,7 +10,11 @@
     "ID"                                                  "5691"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     "AbilityCastPoint"                                    "0.1"
     "AbilityCooldown"                                     "40 34 28 22 22 22"
     "AbilityManaCost"                                     "75"
