@@ -13,7 +13,11 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -34,35 +38,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"900 900 900 900 1100 1300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"5 8 11 14 23 32"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"latch_distance"			"700"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"latch_speed"				"1000"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tether_heal_amp"			"1.05 1.2 1.35 1.5 1.7 2.0"
-			}
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900 900 900 900 1100 1300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed"                                       "5 8 11 14 23 32"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_distance"                                  "700"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_speed"                                     "1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tether_heal_amp"                                 "1.05 1.2 1.35 1.5 1.7 2.0"
+      }
       "06"
       {
-        "var_type"					"FIELD_INTEGER"
-        "self_bonus"			  "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "self_bonus"                                      "0"
       }
     }
   }
