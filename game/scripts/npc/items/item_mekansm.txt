@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "900"
+    "ItemCost"            "950"
     "ItemShopTags"          ""
 
     // Recipe
@@ -40,16 +40,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "65.0 55.0 45.0 35.0 25.0"
+    "AbilityCooldown"       "65.0"
     "AbilitySharedCooldown"                               "restore"
-    "AbilityCastRange"        "900"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "1"
+    "AbilityCastRange"        "1200"
+    //"MaxUpgradeLevel"               "5"
+    //"ItemBaseLevel"                 "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "225"
-    "ItemCost"            "2350"
+    "ItemCost"            "2275"
     "ItemShopTags"          "agi;int;str;armor;boost_health"
     "ItemQuality"         "rare"
     "ItemAliases"         "mechanism;mekansm;meka"
@@ -63,42 +63,42 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"   "5 10 15 25 40"
+        "bonus_all_stats"   "5"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "5 10 15 20 25"
+        "bonus_armor"     "5"
       }
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "aura_radius"     "900"
+        "aura_radius"     "1200"
       }
       "04"
       {
         "var_type"        "FIELD_FLOAT"
-        "aura_health_regen"   "3.5 7 14 21 28"
+        "aura_health_regen"   "4.5"
       }
       "05"
       {
         "var_type"        "FIELD_INTEGER"
-        "heal_amount"     "275 500 800 1200 1800"
+        "heal_amount"     "275"
       }
       "06"
       {
         "var_type"        "FIELD_INTEGER"
-        "heal_bonus_armor"    "2 4 6 8 10"
+        "heal_bonus_armor"    "2"
       }
       "07"
       {
         "var_type"        "FIELD_INTEGER"
-        "heal_armor_duration" "25"
+        "heal_armor_duration" "15"
       }
       "08"
       {
         "var_type"        "FIELD_INTEGER"
-        "heal_radius"     "900"
+        "heal_radius"     "1200"
       }
     }
   }

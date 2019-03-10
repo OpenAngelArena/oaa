@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5017"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,14 +26,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "7 18 29 40 52 64"
+        "bonus_movement_speed"                            "12 18 24 30 36 48" // OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "7 18 29 40 52 64"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
+        "bonus_attack_speed"                              "30 45 60 75 90 105"
       }
       "04"
       {

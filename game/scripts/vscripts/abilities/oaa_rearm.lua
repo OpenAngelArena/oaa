@@ -158,13 +158,13 @@ if IsServer() then
     return totalCooldown, total
   end
 
-  Debug:EnableDebugging()
   function oaa_rearm:OnChannelThink (time)
     local caster = self:GetCaster()
     local totalCooldown, total = self:GetTotalCooldowns()
 
     if total < 1 then
-      self:EndChannel(false)
+      self:EndChannel(true)
+      return
     end
 
     local manaPool = caster:GetMaxMana()
@@ -211,7 +211,7 @@ if IsServer() then
 
     -- saves 0.033s off shift queued stuff
     if total < 1 then
-      self:EndChannel(false)
+      self:EndChannel(true)
     end
   end
 end

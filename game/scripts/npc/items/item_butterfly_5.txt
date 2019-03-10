@@ -31,13 +31,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3139"      // unique ID
     "BaseClass"                                           "item_butterfly"
-    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/butterfly_5"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25.0"
-    "AbilitySharedCooldown"                               "flutter"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "35 45 55 65 75"
+        "bonus_agility"                                   "35 40 45 50 75"
       }
       "02"
       {
@@ -75,17 +71,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 60 70"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "35"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2"
+        "bonus_attack_speed"                              "30 35 40 45 50"
       }
     }
   }

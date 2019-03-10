@@ -152,7 +152,7 @@ modifier_item_greater_guardian_greaves.OnRefresh = modifier_item_greater_guardia
 
 function modifier_item_greater_guardian_greaves:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -170,7 +170,7 @@ end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Strength()
   return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
-function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
+function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Percentage()
   return self:GetAbility():GetSpecialValueFor("bonus_movement")
 end
 function modifier_item_greater_guardian_greaves:GetModifierManaBonus()

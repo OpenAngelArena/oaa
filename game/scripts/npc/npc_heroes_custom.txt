@@ -17,6 +17,7 @@
 #base "heroes/enigma.txt"
 #base "heroes/faceless_void.txt"
 #base "heroes/furion.txt"
+#base "heroes/grimstroke.txt"
 #base "heroes/io.txt"
 #base "heroes/jakiro.txt"
 #base "heroes/keeper_of_the_light.txt"
@@ -35,6 +36,7 @@
 #base "heroes/puck.txt"
 #base "heroes/pudge.txt"
 #base "heroes/queenofpain.txt"
+#base "heroes/riki.txt"
 #base "heroes/shadow_demon.txt"
 #base "heroes/shadow_shaman.txt"
 #base "heroes/silencer.txt"
@@ -66,7 +68,7 @@
   "npc_dota_hero_sohei"
   {
     "BaseClass"					"npc_dota_hero_juggernaut"
-    "HeroID"					"128"
+    "HeroID"					"201"
     "Model"						"models/heroes/juggernaut/juggernaut.vmdl"
 
     "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -99,7 +101,7 @@
   "npc_dota_hero_electrician"
   {
     "BaseClass"					"npc_dota_hero_dazzle"
-    "HeroID"					"129"
+    "HeroID"					"202"
     "Model"						"models/heroes/dazzle/dazzle.vmdl"
 
     // Attributes
