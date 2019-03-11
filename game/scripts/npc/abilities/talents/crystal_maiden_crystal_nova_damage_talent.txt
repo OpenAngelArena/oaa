@@ -1,0 +1,25 @@
+DOTAAbilities
+{
+//=================================================================================================================
+	// Crystal Maiden Crystal Nova Damage
+	//=================================================================================================================
+	"special_bonus_unique_crystal_maiden_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6234"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"600" //OAA 
+			}
+		}
+	}
+}
