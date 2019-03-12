@@ -117,8 +117,8 @@ function modifier_boss_capture_point:OnIntervalThink()
     end
   end
 
-  -- remove_wraith_heroes_from_table(radiantUnits)
-  -- remove_wraith_heroes_from_table(direUnits)
+  remove_wraith_heroes_from_table(radiantUnits)
+  remove_wraith_heroes_from_table(direUnits)
 
   local captureTick
   local heroMultiplierTable = {
