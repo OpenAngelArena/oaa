@@ -58,22 +58,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 24 32 48 72"
+        "bonus_strength"                                  "16 32 32 48 72"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48 72"
+        "bonus_agility"                                   "16 32 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "16"
+        "status_resistance"                               "8 12 16 18 21" //OAA
 			}
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16"
+        "bonus_attack_speed"                              "12 16 20 26 34" //OAA
       }
       "05"
       {
