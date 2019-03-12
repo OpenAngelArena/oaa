@@ -20,7 +20,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-    "AbilityCooldown"                                     "13.0"
+    "AbilityCooldown"                                     "13"
     "AbilityManaCost"                                     "115 120 125 130 195 260"
 
     // Special
@@ -41,7 +41,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stomp_damage"                                    "80 110 140 170 500 750"
+        "stomp_damage"                                    "80 120 160 200 500 750" //OAA
       }
     }
   }
