@@ -64,7 +64,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 14 18 21 28"
+        "bonus_armor"                                     "10 13 16 19 25"
       }
       "03"
       {
@@ -79,12 +79,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 6 7 9 12"
+        "aura_positive_armor"                             "5 7 9 11 15"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_negative_armor"                             "-5 -6 -7 -9 -12"
+        "aura_negative_armor"                             "-5 -7 -9 -11 -15"
       }
     }
   }
