@@ -170,7 +170,7 @@ function Gold:PassiveGPM()
   local time = HudTimer:GetGameTime()
   if time and time > 0 then
     local goldTick =  math.floor(time/GPM_TICK_INTERVAL);
-    GameRules:SetGoldPerTick((goldTick*goldTick - 31*goldTick + 8624)*15/19200)
+    GameRules:SetGoldPerTick((goldTick*goldTick - 28*goldTick + 7688)*15/13800)
   else
     GameRules:SetGoldPerTick(0)
   end
