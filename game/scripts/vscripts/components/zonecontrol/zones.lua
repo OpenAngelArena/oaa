@@ -232,10 +232,35 @@ function ZoneControl:EnforceRules (state)
 end
 
 function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
+  if state.disabled then
+    return
+  end
   local player = PlayerResource:GetPlayer(playerId)
 
   if player and player:GetAssignedHero() then
-    ZoneControl:EnforceRulesOnEntity(state, playerId, player:GetAssignedHero())
+    local hero = player:GetAssignedHero()
+    ZoneControl:EnforceRulesOnEntity(state, playerId, hero)
+
+
+    local playerAdditionalUnits = FindUnitsInRadius(
+        hero:GetTeam(),
+        hero:GetAbsOrigin(),
+        nil,
+        FIND_UNITS_EVERYWHERE,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
+        FIND_ANY_ORDER,
+        false)
+    playerAdditionalUnits = playerAdditionalUnits or {} -- assign empty table instead of nil so iter can be called without errors
+
+    iter(playerAdditionalUnits)
+      :filter(function (unit)
+        return unit:GetPlayerOwnerID() == hero:GetPlayerOwnerID() and unit:HasMovementCapability()
+      end)
+      :foreach(function (unit)
+        ZoneControl:EnforceRulesOnEntity(state, playerId, unit)
+      end)
   end
 end
 

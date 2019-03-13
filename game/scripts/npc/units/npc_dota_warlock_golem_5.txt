@@ -55,11 +55,11 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "360"    // Speed.
+    "MovementSpeed"                                       "380"    // Speed.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "7000"    // Base health.
+    "StatusHealth"                                        "10000"    // Base health.
     "StatusHealthRegen"                                   "325"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
@@ -104,7 +104,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "42"      // Physical protection.
+    "ArmorPhysical"                                       "50"      // Physical protection.
     "MagicalResistance"                                   "37"
 
     // Attack
@@ -132,11 +132,11 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "360"    // Speed.
+    "MovementSpeed"                                       "380"    // Speed.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "7500"    // Base health.
+    "StatusHealth"                                        "7500"   // Base health.
     "StatusHealthRegen"                                   "325"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.

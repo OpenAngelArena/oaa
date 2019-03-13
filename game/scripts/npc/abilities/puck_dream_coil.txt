@@ -11,11 +11,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
     "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
@@ -23,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 60 60"
+    "AbilityCooldown"                                     "70 65 60 55 50"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -80,7 +83,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration_scepter"                      "2 3 4.5 4.75 5.5" //OAA
+        "coil_stun_duration_scepter"                      "2.0 3.0 4.5 4.75 5.5" //OAA
       }
     }
   }

@@ -14,7 +14,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -45,7 +49,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_pct"                                        "25 30 35 40 45 50"
+        "slow_pct"                                        "10 20 30 40 50 60"
       }
       "04"
       {
@@ -66,6 +70,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tree_radius"                                     "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tool_attack_slow"                                "10 20 30 40 50 60"
       }
     }
   }
