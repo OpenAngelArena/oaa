@@ -19,7 +19,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
@@ -50,7 +50,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "70 140 210 280 630 980"
+        "damage"                                          "80 160 240 320 660 1000" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
