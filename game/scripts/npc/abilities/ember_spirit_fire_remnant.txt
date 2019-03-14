@@ -15,7 +15,7 @@
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1500"
+    "AbilityCastRange"                                    "2000" //OAA
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -51,7 +51,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 200 300 700 1200"
+        "damage"                                          "150 2225 300 700 1200" //OAA
       }
       "05"
       {

@@ -18,7 +18,7 @@
     "MaxLevel"                                            "6"
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 14 10 6 6 6"
+    "AbilityCooldown"                                     "12 10 8 6 6 6" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250 350 450 550 550 550"
+        "radius"                                          "550" //OAA
       }
       "02"
       {
@@ -49,13 +49,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_penalty"                            "-50"
+        "creep_damage_penalty"                            "-50 -45 -40 -35 -30 -25" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "18 14 10 6 6 6"  //OAA, Valve has it wrong
+        "charge_restore_time"                             "12 10 8 6 6 6"  //OAA, Valve has it wrong
       }
     }
   }
