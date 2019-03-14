@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3025"
+    "ItemCost"                                            "3125"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance 2;drums 2"
@@ -86,7 +86,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aura_movement_speed"                       "6 10 15 20 25"
+        "bonus_movement_speed"                            "20 25 30 35 40"
       }
       "06"
       {

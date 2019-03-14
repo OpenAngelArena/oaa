@@ -34,17 +34,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "8 12 16 20 24 28"
+        "movespeed"                                       "5 10 15 20 25 30"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_shield"                                       "110 220 330 440 880 1320"
+        "hp_shield"                                       "80 110 140 170 230 320"  //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "self_bonus"                                      "25"
+        "var_type"                                        "FIELD_FLOAT"
+        "strength_multiplier"                             "1 1.5 2 2.5 2.6 2.7"
       }
       "04"
       {

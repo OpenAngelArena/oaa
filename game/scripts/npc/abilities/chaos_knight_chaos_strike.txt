@@ -14,7 +14,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCooldown"                                     "7 6 5 4 4 4"
+    "AbilityCooldown"                                     "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,12 +28,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_max"                                        "160 190 220 250 300 350"
+        "crit_max"                                        "160 195 230 265 300 350"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal"                                       "50 55 60 65 90 115"
+        "lifesteal"                                       "25 40 55 70 90 110"
       }
     }
   }

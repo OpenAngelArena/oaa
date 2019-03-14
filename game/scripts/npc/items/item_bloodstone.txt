@@ -3,15 +3,17 @@
   //=================================================================================================================
   // Recipe: Bloodstone
   //=================================================================================================================
-  "item_recipe_bloodstone"
+  "item_recipe_bloodstone"                                "REMOVED"
+  "item_recipe_bloodstone_1"
   {
-    "ID"                                                  "120"
+    "ID"                                                  "3400"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "item_recipe"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodstone"
+    "ItemResult"                                          "item_bloodstone_1"
     "ItemRequirements"
     {
       "01"                                                "item_pers;item_soul_booster"
@@ -21,11 +23,14 @@
   //=================================================================================================================
   // Bloodstone
   //=================================================================================================================
-  "item_bloodstone"
+  "item_bloodstone"                                       "REMOVED"
+  "item_bloodstone_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "121"
+    "ID"                                                  "9121"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/bloodstone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "2"
 
@@ -33,13 +38,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "250.0"
+    "AbilitySharedCooldown"                               "bloodstone"
     "AbilityTextureName"                                  "custom/bloodstone"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_bloodstone;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
+    "UpgradesItems"                                       "item_bloodstone_1;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -69,22 +75,22 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.0 8.5 13 17 21"
+        "bonus_health_regen"                              "6 8.5 13 17 21"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 3.5 4.25 5.0 6.0"
+        "bonus_mana_regen"                                "3 3.5 4.25 5 6"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "150 200 350 500 750" // OAA
+        "mana_regen_multiplier"                           "150 200 350 500 750"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "regen_per_charge"                                "0.4" // OAA
+        "regen_per_charge"                                "0.3"
       }
       "07"
       {
@@ -109,7 +115,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_percentage"                            "60"
+        "mana_cost_percentage"                            "30 40 50 60 70"
       }
       "12"
       {

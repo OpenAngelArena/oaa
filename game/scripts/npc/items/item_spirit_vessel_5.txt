@@ -65,7 +65,7 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_movement_speed"  "6"
+        "bonus_movement_speed"  "20 22 28 34 40"
       }
       "03"
       {
@@ -125,7 +125,7 @@
       "14"
       {
         "var_type"        "FIELD_FLOAT"
-        "enemy_hp_drain"    "4.5"
+        "enemy_hp_drain"    "5"
       }
     }
   }

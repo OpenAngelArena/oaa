@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14525"
+    "ItemCost"                                            "14625"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance 4;drums 4"
@@ -88,7 +88,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aura_movement_speed"                       "6 10 15 20 25"
+        "bonus_movement_speed"                            "20 25 30 35 40"
       }
       "06"
       {

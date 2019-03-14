@@ -9,7 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5273"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -17,7 +21,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maximum_attack_speed"                            "220 260 300 340 380 420"
+        "maximum_attack_speed"                            "160 220 280 340 380 420"
       }
       "02"
       {
