@@ -33,12 +33,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus"                              "40 50 60 70 80 90"
+        "attack_speed_bonus"                              "40 50 60 70 90 110"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.0 5.0 6.0 7.0 8.0"
+        "duration"                                        "3.0 4.0 5.0 6.0 6.0 6.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer"
       }
     }
