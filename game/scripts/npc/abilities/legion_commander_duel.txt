@@ -45,7 +45,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.75 5.5 6.25 7.0"
+        "duration"                                        "5.0 5.5 6.0 6.5 7.0" //OAA 
       }
       "02"
       {
@@ -55,7 +55,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reward_damage"                                   "10 18 26 42 58"
+        "reward_damage"                                   "12 24 36 48 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander"
       }
       "04"
