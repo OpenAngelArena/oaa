@@ -23,12 +23,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 950 1200 1450 1700"
+    "AbilityCastRange"                                    "700 850 1000 1300 1600"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
+    "AbilityCooldown"                                     "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,22 +41,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "700 950 1200 1450 1700"
+        "tooltip_range"                                   "700 850 1000 1300 1600"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "nether_swap_cooldown_scepter"                    "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "2"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_damage_out_pct_scepter"                 "100"
+        "charge_restore_time"                             "90 80 70 50 30"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct_scepter"                  "150"
+        "var_type"                                        "FIELD_FLOAT"
+        "charge_restore_time_scepter"                     "10"
       }
     }
   }

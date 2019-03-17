@@ -10,7 +10,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5224"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -18,18 +22,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900 900 900 900 900 900"
+        "radius"                                          "1200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "14 28 42 56 112 168" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_luna_3"
+        "primary_attribute"                               "6 12 18 24 48 100"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "250 500 750 1000 1250 1500"
+        "bonus_night_vision"                              "200 400 600 800 1000 1500"
       }
     }
   }

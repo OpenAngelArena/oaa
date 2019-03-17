@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -18,11 +19,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12"
+    "AbilityCooldown"                                     "12"  //OAA
     "AbilityDuration"                                     "3.0 3.5 4.0 4.5 5.0 5.5" //OAA
 
     // Cost
@@ -41,7 +42,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.0 5.0 6.0 8.0 11.0"
+        "duration"                                        "3.0 3.5 4.0 4.5 5.0 5.5" //OAA
       }
     }
   }
