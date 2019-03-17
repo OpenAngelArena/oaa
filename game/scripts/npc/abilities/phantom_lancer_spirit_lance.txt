@@ -19,11 +19,11 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0 7.0 7.0 7.0"
+    "AbilityCooldown"                                     "9.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,14 +39,14 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "lance_damage"        "100 150 200 250 475 700"
-        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "lance_damage"                                    "100 150 200 250 475 700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lance_speed"                                     "1000 1000 1000 1000"
+        "lance_speed"                                     "1000"
       }
       "03"
       {
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "2.0 4.0 6.0 8.0 14.0 20.0"
+        "illusion_duration"                               "2.0 4.0 6.0 8.0 8.5 9.0"
       }
       "06"
       {
@@ -76,12 +76,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "300 300 300 300"
+        "illusion_damage_in_pct"                          "300"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_in_pct"            "400 400 400 400"
+        "tooltip_illusion_total_damage_in_pct"            "400"
       }
       "10"
       {
