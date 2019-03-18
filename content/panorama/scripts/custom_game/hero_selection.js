@@ -813,10 +813,9 @@ function SelectArcana () {
     var data = {
       Hero: selectedArcana.hero,
       Arcana: selectedArcana.setName,
-      PlayerId: Game.GetLocalPlayerID()
     };
 
-    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + data.PlayerId + ' for hero ' + data.Hero);
+    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + Game.GetLocalPlayerID() + ' for hero ' + data.Hero);
     GameEvents.SendCustomGameEventToServer('arcana_selected', data);
   }
 }
@@ -867,9 +866,8 @@ function SelectBottle () {
   }
   var data = {
     BottleId: bottleId,
-    PlayerId: Game.GetLocalPlayerID()
   };
-  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + data.PlayerId);
+  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
 
@@ -903,7 +901,6 @@ function SelectHero (hero) {
     } else {
       $.Msg('Selecting ' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
-        PlayerID: Game.GetLocalPlayerID(),
         hero: newhero
       });
     }
