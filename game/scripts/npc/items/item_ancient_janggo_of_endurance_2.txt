@@ -40,7 +40,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
     "AbilitySharedCooldown"                               "drums"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3115"
+    "ItemCost"                                            "3125"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance 2;drums 2"
@@ -71,22 +71,22 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "7 16 32 48 64"
+        "bonus_str"                                       "6 15 30 45 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "3 10 15 30 40"
+        "bonus_agi"                                       "6 15 30 45 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.5 3.0 4.5 6.25"
+        "bonus_mana_regen"                                "1.5 3.0 4.5 6.0 7.5"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aura_movement_speed"                       "20 25 30 35 40"
+        "bonus_movement_speed"                            "20 25 30 35 40"
       }
       "06"
       {
@@ -106,7 +106,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
+        "radius"                                          "1200"
       }
     }
   }
