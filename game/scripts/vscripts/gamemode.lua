@@ -160,6 +160,9 @@ function GameMode:OnPreGame()
   InitModule(NGP)
   InitModule(Doors)
   InitModule(HeroKillGold)
+  if GetMapName()~="ranked" and GetMapName()~="captains_mode" then
+    InitModule(HeroKillXP)
+  end
   InitModule(EntityStatProvider)
   InitModule(RespawnManager)
   InitModule(BountyRunePick)
