@@ -9,38 +9,38 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "6"
-  
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10 10 10 10 10 10" //OAA
-   
+    "AbilityCooldown"                                     "10" //OAA
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "damage"      "20 30 40 50 100 150"
+        "var_type"          "FIELD_FLOAT"
+        "damage"            "30 45 60 75 150 175"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "radius"    "300"
+        "var_type"          "FIELD_INTEGER"
+        "radius"            "380"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
+        "var_type"          "FIELD_INTEGER"
         "magic_resistance"  "-10 -15 -20 -25 -30 -35"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"      "8"
+        "var_type"          "FIELD_FLOAT"
+        "duration"          "8"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
+        "var_type"          "FIELD_INTEGER"
         "projectile_speed"  "2000"
       }
     }

@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "1.5"
+    "AbilityCooldown"                                     "1.8" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -38,8 +38,8 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "20 40 40 80 140 200" //OAA
-        "LinkedSpecialBonus"  "special_bonus_unique_spirit_breaker_3"
+        "damage"                                          "15 25 35 45 120 190" // OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_3"
       }
       "03"
       {

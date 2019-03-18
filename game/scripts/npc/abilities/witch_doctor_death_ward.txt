@@ -19,16 +19,16 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.35 0.35 0.35"
+    "AbilityCastPoint"                                    "0.35"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "80.0"
-    "AbilityChannelTime"                                  "8.0 8.0 8.0"
+    "AbilityChannelTime"                                  "8.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 200 200"
+    "AbilityManaCost"                                     "200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,23 +37,23 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 120 200 700 1200" //OAA
+        "damage"                                          "75 125 175 700 1200"
         "LinkedSpecialBonus"  "special_bonus_unique_witch_doctor_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces"                                         "0 0 0"
+        "bounces"                                         "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces_scepter"                                 "4 4 4"
+        "bounces_scepter"                                 "4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounce_radius"                                   "650 650 650"
+        "bounce_radius"                                   "650"
       }
     }
   }

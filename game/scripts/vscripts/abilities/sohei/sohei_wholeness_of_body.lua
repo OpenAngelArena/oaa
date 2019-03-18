@@ -25,6 +25,8 @@ function sohei_wholeness_of_body:OnSpellStart()
   local target = self:GetCursorTarget() or caster
   -- Activation sound
   target:EmitSound("Sohei.Guard")
+  -- Basic Dispel
+  target:Purge(false, true, false, false, false)
   -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_status", {duration = self:GetTalentSpecialValueFor("sr_duration")})
   -- Knockback talent
