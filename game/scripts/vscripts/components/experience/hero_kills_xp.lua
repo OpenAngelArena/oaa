@@ -7,6 +7,11 @@ end
 function HeroKillXP:Init()
   GameEvents:OnHeroKilled(partial(self.HeroDeathHandler, self))
   FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(HeroKillXP, "ExperienceFilter"))
+  GameEvents:OnHeroInGame(partial(self.HeroSpawnNoXP, self))
+end
+
+function HeroKillXP:HeroSpawnNoXP(hero)
+  hero:SetCustomDeathXP(0)
 end
 
 function HeroKillXP:ExperienceFilter(keys)
@@ -124,6 +129,7 @@ function HeroKillXP:HeroDeathHandler(keys)
   end
 
   local xp = math.floor((HERO_XP_BOUNTY_BASE + killedHeroStreakXP + (killedHeroXP * HERO_XP_BONUS_FACTOR)) / distributeCount)
+  xp = math.max(0, xp)
 
   -- Non-player kills
   if rewardHeroes then

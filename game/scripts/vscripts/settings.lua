@@ -123,7 +123,7 @@ USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP w
 
 -- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
 -- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
-HERO_XP_BOUNTY_BASE = 13            -- 40 in normal dota
+HERO_XP_BOUNTY_BASE = 20            -- 40 in normal dota
 HERO_XP_BOUNTY_STREAK_BASE = 60     -- 200 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
 HERO_XP_BOUNTY_STREAK_INCREASE = 50 -- 150 in normal dota
 HERO_XP_BOUNTY_STREAK_MAX = 420     -- 1250 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
