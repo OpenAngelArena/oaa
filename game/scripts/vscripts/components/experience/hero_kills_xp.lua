@@ -70,11 +70,11 @@ function HeroKillXP:HeroDeathHandler(keys)
   local killedHeroStreakXP = 0
 
   if killedHeroStreak > 2 then
-    killedHeroStreakXP = 200 + 150*(killedHeroStreak-3)
+    killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_BASE + HERO_XP_BOUNTY_STREAK_INCREASE*(killedHeroStreak-3)
   end
 
   if killedHeroStreak > 10 then
-    killedHeroStreakXP = 1250
+    killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_MAX
   end
 
   local numAttackers = killedHero:GetNumAttackers()
@@ -123,7 +123,7 @@ function HeroKillXP:HeroDeathHandler(keys)
     distributeCount = #heroes
   end
 
-  local xp = math.floor((HERO_XP_BOUNTY_BASE + killedHeroStreakXP + (killedHeroXP * AOE_XP_BONUS_FACTOR)) / distributeCount)
+  local xp = math.floor((HERO_XP_BOUNTY_BASE + killedHeroStreakXP + (killedHeroXP * HERO_XP_BONUS_FACTOR)) / distributeCount)
 
   -- Non-player kills
   if rewardHeroes then
