@@ -3,11 +3,11 @@
   //=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_nevermore_1"
+	"special_bonus_unique_techies"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6670"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"6282"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
+				"value"				"300"
 			}
 		}
 	}
@@ -26,11 +26,11 @@
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_nevermore_2"
+	"special_bonus_unique_techies_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6070"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"6552"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"150"
+				"value"				"1"
 			}
 		}
 	}
@@ -49,11 +49,11 @@
 	//=================================================================================================================
 	// Ability: Special Bonus
 	//=================================================================================================================
-	"special_bonus_unique_nevermore_3"
+	"special_bonus_unique_techies_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6875"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"6997"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -64,54 +64,31 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"0"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_nevermore_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6876"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"20"
+				"value"				"4"
 			}
 		}
 	}
 
   //=================================================================================================================
-  // Upgrades Shadow Fiend Dark Lord Presence Aura - increases armor reduction
+  // Mines gain Movement Speed
   //=================================================================================================================
-  "special_bonus_unique_nevermore_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                  "6912"
-		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  "special_bonus_unique_techies_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "6998"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"        "FIELD_INTEGER"
-				"value"           "-15" // OAA
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "200" // OAA
+      }
+    }
+  }
 }
