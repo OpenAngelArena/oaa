@@ -2,7 +2,6 @@
 if HeroKillXP == nil then
   DebugPrint ( 'Creating new HeroKillXP object.' )
   HeroKillXP = class({})
-  Debug.EnabledModules['experience:hero_kills'] = false
 end
 
 function HeroKillXP:Init()
@@ -67,11 +66,20 @@ function HeroKillXP:HeroDeathHandler(keys)
 
   local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local killedHeroXP = killedHero:GetCurrentXP()
+  local killedHeroStreak = killedHero:GetStreak()
   local killedHeroStreakXP = 0
+
+  if killedHeroStreak > 2 then
+    killedHeroStreakXP = 200 + 150*(killedHeroStreak-3)
+  end
+
+  if killedHeroStreak > 10 then
+    killedHeroStreakXP = 1250
+  end
 
   local numAttackers = killedHero:GetNumAttackers()
   local rewardPlayerIDs = iter({killerPlayerID})
-  local rewardHeroes = iter({killerHero})
+  local rewardHeroes
   local distributeCount = 1
 
   -- Heroes around the killed hero
@@ -117,14 +125,16 @@ function HeroKillXP:HeroDeathHandler(keys)
 
   local xp = math.floor((HERO_XP_BOUNTY_BASE + killedHeroStreakXP + (killedHeroXP * AOE_XP_BONUS_FACTOR)) / distributeCount)
 
-  -- If the killer is not a hero: Give xp to heroes that were involved in a kill
-  for _, hero in rewardHeroes:unwrap() do
-    if hero then
-      hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
+  -- Non-player kills
+  if rewardHeroes then
+    for _, hero in rewardHeroes:unwrap() do
+      if hero then
+        hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
+      end
     end
   end
 
-  -- If the killer is a hero: Give xp to the killer and to heroes around the killed hero
+  -- Player kills: Give xp to the killer and to heroes around the killed hero
   for _, hero in ipairs(heroes) do
     if hero then
       hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
