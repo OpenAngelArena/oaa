@@ -43,12 +43,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "whirling_damage"                                 "100 200 250 300 600 900" // OAA
+        "whirling_damage"                                 "90 120 150 180 500 800"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_damage_scale"                               "10 15 20 25 50 100"
+        "tree_damage_scale"                               "12 18 24 30 50 100"
       }
       "04"
       {
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stat_loss_pct"                                   "12 13 14 15 15 15"
+        "stat_loss_pct"                                   "13 14 15 16 17 18"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw"
       }
       "06"

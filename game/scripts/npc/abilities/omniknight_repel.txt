@@ -14,20 +14,23 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.35" // OAA
+    "AbilityCastPoint"                                    "0.35"  //OAA
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 14 14"
+    "AbilityCooldown"                                     "17"  //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 75 75 75 150 300"
+    "AbilityManaCost"                                     "80 90 100 110 220 330"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -40,14 +43,19 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8"
+        "duration"                                        "12"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "50 60 70 80 85 90"
+        "status_resistance"                               "50"
       }
       "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_str"                                       "7 14 21 28 35 48"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "hp_regen"                                        "8 12 16 20 48 60"

@@ -14,7 +14,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +42,7 @@
 			"02"
 			{
 				"var_type"                     "FIELD_INTEGER"
-				"movement_slow"                "35"
+				"movement_slow"                "20 25 30 35 40 45"
 			}
 			"03"
 			{

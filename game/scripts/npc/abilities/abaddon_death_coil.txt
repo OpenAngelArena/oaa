@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -44,13 +45,13 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_damage"                                   "100 150 200 250 500 750"
+        "target_damage"                                   "120 165 210 255 510 765"
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "100 150 200 250 500 750"
+        "heal_amount"                                     "120 165 210 255 510 765"
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "04"

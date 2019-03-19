@@ -151,10 +151,10 @@ AOE_XP_BONUS_FACTOR ={
 --5 Heroes: AOE_XP_LEVEL_MULTIPLIER[5] × L + AOE_XP_BONUS_FACTOR[5] × XPDiff × HeroXP + f(Level)/5
 
 -- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 120      -- After what delay in seconds will the first bounty rune spawn?
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 0        -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
-BOUNTY_RUNE_INITIAL_TEAM_GOLD = 20
-BOUNTY_RUNE_INITIAL_TEAM_XP = 10
+BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
+BOUNTY_RUNE_INITIAL_TEAM_XP = 9
 -- gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD x game_time x (1 + gold_difference x game_time/10)
 -- gold_difference = (EnemyTeamGold - AlliedTeamGold) / (EnemyTeamGold + AlliedTeamGold) (minimum 0)
 -- xp_reward = BOUNTY_RUNE_INITIAL_TEAM_XP x game_time x (1 + XPDiff x game_time/10)
