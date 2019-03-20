@@ -1,4 +1,4 @@
-/* global Game, GameEvents, $ */
+/* global GameEvents, $ */
 
 'use strict';
 

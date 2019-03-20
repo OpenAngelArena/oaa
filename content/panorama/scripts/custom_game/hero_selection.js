@@ -812,7 +812,7 @@ function SelectArcana () {
 
     var data = {
       Hero: selectedArcana.hero,
-      Arcana: selectedArcana.setName,
+      Arcana: selectedArcana.setName
     };
 
     $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + Game.GetLocalPlayerID() + ' for hero ' + data.Hero);
@@ -865,7 +865,7 @@ function SelectBottle () {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
   var data = {
-    BottleId: bottleId,
+    BottleId: bottleId
   };
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
