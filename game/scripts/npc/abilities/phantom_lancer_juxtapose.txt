@@ -18,13 +18,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_illusions"                                   "2 3 4 5 5" //OAA
+        "max_illusions"                                   "4" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_chance_pct"                                 "40"  //OAA
+        "proc_chance_pct"                                 "40 45 50 50 50"
       }
       "03"
       {
@@ -39,12 +39,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "-84 -84 -84 -70 -65" //OAA
+        "illusion_damage_out_pct"                         "-76 -68 -60 -52 -44" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_damage"                         "16 16 16 30 35"  //OAA
+        "tooltip_illusion_damage"                         "24 32 40 48 56"  //OAA
       }
       "07"
       {
