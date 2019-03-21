@@ -24,7 +24,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_chance_pct"                                 "40 45 50 50 50"
+        "proc_chance_pct"                                 "40 45 50 55 60"
       }
       "03"
       {
@@ -49,12 +49,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "550"
+        "illusion_damage_in_pct"                          "350" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_total_illusion_damage_in_pct"            "650"
+        "tooltip_total_illusion_damage_in_pct"            "450" //OAA
       }
       "09"
       {
