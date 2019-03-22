@@ -18,10 +18,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE" //OAA
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -41,17 +40,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "2.0"
+        "buff_duration"                                   "5.0" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spiderling_duration"                             "60.0"
+        "spiderling_duration"                             "80.0" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 200 300 400 800 1200" //OAA
+        "damage"                                          "125 250 375 500 1000 1500" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
