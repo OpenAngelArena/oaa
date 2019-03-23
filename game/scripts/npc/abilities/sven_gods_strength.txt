@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80"
+    "AbilityCooldown"                                     "80"  //OAA
     "AbilityDuration"                                     "25.0"
 
     // Cost
@@ -45,12 +45,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "gods_strength_bonus_str"                         "10 20 30 50 70"
-        "LinkedSpecialBonus"    "special_bonus_unique_sven_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "900"
+        "radius_scepter"                                  "1200"
       }
       "04"
       {

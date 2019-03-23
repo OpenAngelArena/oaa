@@ -71,7 +71,10 @@ var GlyphScanContainer = /** @class */ (function () {
     });
     this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseout' /* ON_MOUSE_OUT */, function () {
       _this.GlyphTooltip.SetHasClass('Hidden', true);
-      FindDotaHudElement('DOTAHUDRadarTooltip').visible = false;
+      var el = FindDotaHudElement('DOTAHUDRadarTooltip');
+      if (el) {
+        el.visible = false;
+      }
     });
   };
   GlyphScanContainer.prototype.CreateRadarTooltip = function () {
