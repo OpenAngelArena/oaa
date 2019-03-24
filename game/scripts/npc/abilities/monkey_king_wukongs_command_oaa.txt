@@ -63,38 +63,23 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed"                                      "700"
+        "bonus_armor"                                     "12 18 24 30 36"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12 18 24 30 36"
-        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_interval"                                 "1.2"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_speed"                                    "1.2"
+        "duration"                                        "13.0"
       }
       "08"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "13.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "leadership_radius_buffer"                        "30"
-      }
-      "10"
-      {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_tooltip"                              "550"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "outer_attack_buffer"                             "0"
       }
     }
   }
