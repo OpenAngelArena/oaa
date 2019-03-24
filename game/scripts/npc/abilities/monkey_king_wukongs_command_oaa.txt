@@ -10,6 +10,7 @@
     "ID"                                                  "85725"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_wukongs_command.lua"
+    "AbilityTextureName"                                  "monkey_king_wukongs_command"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -26,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "1.2"
     "AbilityCastRange"                                    "550"
-    "AbilityCastAnimation"                                "ACT_INVALID"
+    "AbilityCastAnimation"                                "ACT_DOTA_MK_FUR_ARMY"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
