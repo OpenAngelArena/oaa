@@ -3,9 +3,8 @@
   //=================================================================================
   // Lycan Wolf 6
   //=================================================================================
-
   "npc_dota_lycan_wolf6"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/lycan/summon_wolves.vmdl"  // Model.  // Model.
@@ -27,19 +26,19 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "1"      // Physical protection.
-    "MagicalResistance"                                   "80"    // Magical protection.
+    "MagicalResistance"                                   "90"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "338"    // Damage range min.
-    "AttackDamageMax"                                     "342"    // Damage range max.  
+    "AttackDamageMin"                                     "340"    // Damage range min.
+    "AttackDamageMax"                                     "340"    // Damage range max.
     "AttackRate"                                          "0.7"    // Speed of attack.
     "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "90"    // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -58,14 +57,13 @@
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"                                       "500"    // Speed.
 
-
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2720"    // Base health.
+    "StatusHealth"                                        "3000"    // Base health.
     "StatusHealthRegen"                                   "0.5"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
-    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
-    
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1200"    // Range of vision during day light.
@@ -77,6 +75,6 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-  }  
-  
+  }
+
 }

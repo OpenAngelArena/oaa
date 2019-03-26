@@ -57,22 +57,22 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20 20 20 20 20"
+        "corrosive_breath_damage"                         "20"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "corrosive_breath_duration"                       "5.0 5.0 5.0 5.0 5.0"
+        "corrosive_breath_duration"                       "5.0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "150 225 300 350 375"
+        "splash_radius"                                   "300"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "100 75 50 50 50"
+        "splash_damage_percent"                           "75"
       }
       "09"
       {
@@ -82,12 +82,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-20"
+        "frost_bonus_attack_speed"                        "-30"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "frost_duration"                                  "3.0 3.0 3.0 3.0 3.0"
+        "frost_duration"                                  "3.0"
       }
       "12"
       {
@@ -104,7 +104,6 @@
         "var_type"                                        "FIELD_FLOAT"
         "rage_duration"                                   "2.0"
       }
-
     }
   }
 }

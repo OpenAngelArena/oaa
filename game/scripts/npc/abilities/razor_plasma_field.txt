@@ -33,12 +33,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_min"                                      "30 50 70 90 190 290"
+        "damage_min"                                      "15 25 35 45 95 195"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "160 230 300 370 720 1070"
+        "damage_max"                                      "80 115 150 185 360 535"
       }
       "03"
       {
@@ -49,6 +49,21 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "636"  // 1.2 second to reach radius
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_min"                                        "5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_max"                                        "25 30 35 40 50 60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.5"
       }
     }
   }
