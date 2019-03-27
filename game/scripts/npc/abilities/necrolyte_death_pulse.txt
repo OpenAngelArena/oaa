@@ -16,7 +16,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 150 225 300 600 800" //OAA
+    "AbilityDamage"                                       "100 150 225 300 600 800" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,32 +43,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "heal"                                            "100 150 200 250 450 600" //OAA
-        "LinkedSpecialBonus"    "special_bonus_unique_necrophos_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "projectile_speed"                                "400"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_regen"                                    "2 3 4 5 10 15"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "2.25 2.5 2.75 3 4.25 5.5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "regen_duration"                                  "7"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hero_multiplier"                                 "6"
       }
     }
   }

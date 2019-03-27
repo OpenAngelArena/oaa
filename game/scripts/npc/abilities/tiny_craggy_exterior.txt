@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "24 20 16 12 10 7" // tiny talent gives -7 second CD, so at max with the talent you can be perma-tree
+    "AbilityCooldown"       "27 22 17 12 10 7" // tiny talent gives -7 second CD, so at max with the talent you can be perma-tree
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "bonus_damage"        "25 30 35 40 80 120"
+        "bonus_damage"        "10 20 30 40 80 140"
       }
       "03"
       {

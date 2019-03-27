@@ -1,0 +1,2 @@
+
+require('components/runes/runes')

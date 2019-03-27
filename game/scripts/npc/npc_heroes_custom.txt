@@ -17,6 +17,7 @@
 #base "heroes/enigma.txt"
 #base "heroes/faceless_void.txt"
 #base "heroes/furion.txt"
+#base "heroes/grimstroke.txt"
 #base "heroes/io.txt"
 #base "heroes/jakiro.txt"
 #base "heroes/keeper_of_the_light.txt"
@@ -36,6 +37,7 @@
 #base "heroes/puck.txt"
 #base "heroes/pudge.txt"
 #base "heroes/queenofpain.txt"
+#base "heroes/riki.txt"
 #base "heroes/shadow_demon.txt"
 #base "heroes/shadow_shaman.txt"
 #base "heroes/silencer.txt"
@@ -66,45 +68,45 @@
   //=================================================================================================================
   "npc_dota_hero_sohei"
   {
-    "BaseClass"					"npc_dota_hero_juggernaut"
-    "HeroID"					"128"
-    "Model"						"models/heroes/juggernaut/juggernaut.vmdl"
+    "BaseClass"                 "npc_dota_hero_juggernaut"
+    "HeroID"                    "125"
+    "Model"                     "models/heroes/juggernaut/juggernaut.vmdl"
 
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementTurnRate"			"1.5"
-    "MovementSpeed"				"325"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementTurnRate"          "1.5"
+    "MovementSpeed"             "325"
 
-    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"			"31"
-    "AttackDamageMax"			"33"
-    "AttackRate"				"1.7"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "31"
+    "AttackDamageMax"           "33"
+    "AttackRate"                "1.7"
 
-    "ArmorPhysical"				"5"
-    "StatusHealthRegen"			"3.25"
+    "ArmorPhysical"             "5"
+    "StatusHealthRegen"         "3.25"
 
-    "AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"		"23"
-    "AttributeStrengthGain"		"4.0"
-    "AttributeBaseAgility"		"18"
-    "AttributeAgilityGain"		"1.5"
-    "AttributeBaseIntelligence"	"17"
-    "AttributeIntelligenceGain"	"1.5"
+    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+    "AttributeBaseStrength"     "23"
+    "AttributeStrengthGain"     "4.5"
+    "AttributeBaseAgility"      "18"
+    "AttributeAgilityGain"      "1.5"
+    "AttributeBaseIntelligence" "17"
+    "AttributeIntelligenceGain" "1.5"
 
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
   }
   //=================================================================================================================
   // HERO: Electrician
   //=================================================================================================================
   "npc_dota_hero_electrician"
   {
-    "BaseClass"					"npc_dota_hero_dazzle"
-    "HeroID"					"129"
-    "Model"						"models/heroes/dazzle/dazzle.vmdl"
+    "BaseClass"                 "npc_dota_hero_dazzle"
+    "HeroID"                    "126"
+    "Model"                     "models/heroes/dazzle/dazzle.vmdl"
 
     // Attributes
     //-------------------------------------------------------------------------------------------------------------
-    "AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
   }
 }
