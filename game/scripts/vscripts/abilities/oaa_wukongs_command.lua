@@ -36,7 +36,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
 
   if caster:HasTalent("special_bonus_unique_monkey_king_6") then
     third_ring_radius = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value")
-    units_on_third_ring = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value2")
+    third_ring = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value2")
     self.active_radius = third_ring_radius
   end
   -- Particle
