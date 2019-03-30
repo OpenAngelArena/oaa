@@ -84,7 +84,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   end
   local top_monkey = self.clones[ringNumber]["top"]
   -- setting the origin is causing a wierd visual glitch I could not fix
-  top_monkey:SetAbsOrigin(GetGroundPosition(point, top_monkey))
+  top_monkey:SetAbsOrigin(GetGroundPosition(top_point, top_monkey))
   top_monkey:FaceTowards(center)
   top_monkey:RemoveNoDraw()
 
