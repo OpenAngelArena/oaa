@@ -3,9 +3,16 @@ monkey_king_wukongs_command_oaa = class(AbilityBaseClass)
 LinkLuaModifier("modifier_wukongs_command_oaa_buff", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wukongs_command_oaa_thinker", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_monkey_clone_oaa", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_monkey_clone_oaa_status_effect", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
-  EmitSoundOn("Hero_MonkeyKing.FurArmy.Channel", self:GetCaster())
+  local caster = self:GetCaster()
+  EmitSoundOn("Hero_MonkeyKing.FurArmy.Channel", caster)
+  -- Particle
+  if IsServer() then
+    local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf", PATTACH_ABSORIGIN, caster)
+    ParticleManager:ReleaseParticleIndex( castHandle )
+  end
   return true
 end
 
@@ -39,8 +46,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     third_ring = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value2")
     self.active_radius = third_ring_radius
   end
-  -- Particle
-  --"particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf"
+
   -- Sound
   EmitSoundOn("Hero_MonkeyKing.FurArmy", caster)
    -- Remove previos instance of Wukongs Command
@@ -48,7 +54,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     caster.monkeys_thinker:Destroy()
   end
   -- Thinker
-  CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
+  CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration"), center = center}, center, caster:GetTeamNumber(), false)
   -- Inner Ring:
   self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius)
   -- Outer Ring:
@@ -61,7 +67,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   if number == 0 or radius == 0 then
     return
   end
-  --"particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf"
+  
   local top_direction = Vector(0,1,0)
   local top_point = center + top_direction*radius
   local top_monkey = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
@@ -83,11 +89,16 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
   local allied_units = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD), FIND_ANY_ORDER, false)
   for _,unit in pairs(allied_units) do
     if unit:GetUnitName() == unit_name then
-      --"particles/units/heroes/hero_monkey_king/monkey_king_fur_army_destroy.vpcf"
+      if IsServer() then
+        local handle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_destroy.vpcf", PATTACH_ABSORIGIN, caster)
+        ParticleManager:SetParticleControl(handle, 0, unit:GetAbsOrigin())
+        ParticleManager:ReleaseParticleIndex( handle )
+      end
       unit:AddNoDraw()
       unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 0.2})
     end
   end
+
   -- Sounds
   StopSoundOn("Hero_MonkeyKing.FurArmy", caster)
   EmitSoundOn("Hero_MonkeyKing.FurArmy.End", caster)
@@ -152,10 +163,17 @@ function modifier_wukongs_command_oaa_thinker:DeclareFunctions()
 	return funcs
 end
 
-function modifier_wukongs_command_oaa_thinker:OnCreated()
+function modifier_wukongs_command_oaa_thinker:OnCreated(kv)
   local caster = self:GetCaster()
   caster.monkeys_thinker = self
   -- Start checking caster for the buff
+
+  if IsServer() then
+    self.particleHandler = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
+    ParticleManager:SetParticleControl(self.particleHandler, 0, self:GetParent():GetOrigin())
+    ParticleManager:SetParticleControl(self.particleHandler, 1, Vector(self:GetAuraRadius(),0,0))
+  end
+
   self:StartIntervalThink(0.3)
 end
 
@@ -183,6 +201,9 @@ function modifier_wukongs_command_oaa_thinker:OnDestroy()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
     ability:RemoveMonkeys(caster)
+
+    ParticleManager:DestroyParticle(self.particleHandler, true);
+    ParticleManager:ReleaseParticleIndex( self.particleHandler )
   end
 end
 
@@ -280,20 +301,48 @@ function modifier_monkey_clone_oaa:OnCreated()
     parent:SetBaseDamageMin(caster:GetBaseDamageMin())
     parent:SetNeverMoveToClearSpace(true)
 	  -- For attacking animations - requires Animations library
-    AddAnimationTranslate(parent, "attack_normal_range")
+    AddAnimationTranslate(parent, "attack_normal_range")    
   end
 end
 
 function modifier_monkey_clone_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_START 
   }
   return funcs
 end
 
+function modifier_monkey_clone_oaa:GetStatusEffectName()
+  return "particles/status_fx/status_effect_monkey_king_fur_army.vpcf"
+end
+
+
 function modifier_monkey_clone_oaa:GetModifierFixedAttackRate(params)
   local ability = self:GetAbility()
   return ability:GetSpecialValueFor("attack_interval")
+end
+
+function modifier_monkey_clone_oaa:OnAttackLanded(keys)
+  if IsServer() then    
+    if self:GetParent() == keys.attacker then
+      local parent = self:GetParent()
+      local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
+      ParticleManager:ReleaseParticleIndex( castHandle )
+    end
+  end
+end
+
+
+function modifier_monkey_clone_oaa:OnAttackStart(keys)
+  if IsServer() then    
+    if self:GetParent() == keys.attacker then
+      local parent = self:GetParent()
+      local duration = 1 / self:GetAbility():GetCaster():GetAttacksPerSecond();
+      parent:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_status_effect", {duration = 1 + duration}) 
+    end
+  end
 end
 
 function modifier_monkey_clone_oaa:CheckState()
@@ -312,3 +361,19 @@ function modifier_monkey_clone_oaa:CheckState()
   }
   return state
 end
+
+
+modifier_monkey_clone_oaa_status_effect = class(ModifierBaseClass)
+
+function modifier_monkey_clone_oaa_status_effect:IsPurgable()
+  return false
+end
+
+function modifier_monkey_clone_oaa_status_effect:GetStatusEffectName()
+  return "particles/status_fx/status_effect_monkey_king_spring_slow.vpcf"
+end
+
+function modifier_monkey_clone_oaa_status_effect:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
