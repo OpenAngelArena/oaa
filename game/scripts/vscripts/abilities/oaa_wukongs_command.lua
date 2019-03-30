@@ -55,30 +55,60 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
   end
   -- Thinker
   CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration"), center = center}, center, caster:GetTeamNumber(), false)
+
+  if self.clones == nil then
+    self.clones={}
+    self.clones[1]={}
+    self.clones[2]={}
+    self.clones[3]={}
+  end
+
   -- Inner Ring:
-  self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius)
+  self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1)
   -- Outer Ring:
-  self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius)
+  self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2)
   -- Extra Ring with the talent:
-  self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius)
+  self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3)
 end
 
-function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius)
+function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius, ringNumber)
   if number == 0 or radius == 0 then
     return
   end
-  
+
   local top_direction = Vector(0,1,0)
   local top_point = center + top_direction*radius
-  local top_monkey = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
-  top_monkey:SetOwner(caster)
+  if self.clones[ringNumber]["top"] == nil or self.clones[ringNumber]["top"]:IsNull() or not self.clones[ringNumber]["top"]:IsAlive()  then
+    self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
+    self.clones[ringNumber]["top"]:SetOwner(caster)
+  end
+  local top_monkey = self.clones[ringNumber]["top"]
+  -- setting the origin is causing a wierd visual glitch I could not fix
+  top_monkey:SetAbsOrigin(GetGroundPosition(point, top_monkey))
+  top_monkey:FaceTowards(center)
+  top_monkey:RemoveNoDraw()
+
+  -- Re add the modifier to update the items
+  top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa")
   top_monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
+
+
   local angle_degrees = 360/number
   for i=1, number-1 do
     -- Rotate a point around center for angle_degrees to get a new point
     local point = RotatePosition(center, QAngle(0,i*angle_degrees,0), top_point)
-    local monkey = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
-    monkey:SetOwner(caster)
+    if self.clones[ringNumber][i] == nil or self.clones[ringNumber][i]:IsNull() or not self.clones[ringNumber][i]:IsAlive() then
+      self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
+      self.clones[ringNumber][i]:SetOwner(caster)
+    end
+    local monkey = self.clones[ringNumber][i]
+    -- setting the origin is causing a wierd visual glitch I could not fix
+    monkey:SetAbsOrigin(GetGroundPosition(point, monkey))
+    monkey:FaceTowards(center)
+    monkey:RemoveNoDraw()
+
+    -- Re add the modifier to update the items
+    monkey:RemoveModifierByName("modifier_monkey_clone_oaa")
     monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
   end
 end
@@ -95,7 +125,8 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
         ParticleManager:ReleaseParticleIndex( handle )
       end
       unit:AddNoDraw()
-      unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 0.2})
+      unit:SetAbsOrigin(Vector(-10000,-10000,-10000))
+      --unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 0.2})
     end
   end
 
@@ -169,7 +200,7 @@ function modifier_wukongs_command_oaa_thinker:OnCreated(kv)
   -- Start checking caster for the buff
 
   if IsServer() then
-    self.particleHandler = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
+    self.particleHandler = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_ABSORIGIN , self:GetParent())
     ParticleManager:SetParticleControl(self.particleHandler, 0, self:GetParent():GetOrigin())
     ParticleManager:SetParticleControl(self.particleHandler, 1, Vector(self:GetAuraRadius(),0,0))
   end
@@ -301,7 +332,7 @@ function modifier_monkey_clone_oaa:OnCreated()
     parent:SetBaseDamageMin(caster:GetBaseDamageMin())
     parent:SetNeverMoveToClearSpace(true)
 	  -- For attacking animations - requires Animations library
-    AddAnimationTranslate(parent, "attack_normal_range")    
+    AddAnimationTranslate(parent, "attack_normal_range")
   end
 end
 
@@ -309,7 +340,7 @@ function modifier_monkey_clone_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_EVENT_ON_ATTACK_START 
+    MODIFIER_EVENT_ON_ATTACK_START
   }
   return funcs
 end
@@ -325,7 +356,7 @@ function modifier_monkey_clone_oaa:GetModifierFixedAttackRate(params)
 end
 
 function modifier_monkey_clone_oaa:OnAttackLanded(keys)
-  if IsServer() then    
+  if IsServer() then
     if self:GetParent() == keys.attacker then
       local parent = self:GetParent()
       local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
@@ -336,11 +367,11 @@ end
 
 
 function modifier_monkey_clone_oaa:OnAttackStart(keys)
-  if IsServer() then    
+  if IsServer() then
     if self:GetParent() == keys.attacker then
       local parent = self:GetParent()
       local duration = 1 / self:GetAbility():GetCaster():GetAttacksPerSecond();
-      parent:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_status_effect", {duration = 1 + duration}) 
+      parent:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_status_effect", {duration = 1 + duration})
     end
   end
 end
