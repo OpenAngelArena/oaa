@@ -10,6 +10,7 @@ end
 
 AbilityKV = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
 MergeTables(AbilityKV, LoadKeyValues("scripts/npc/npc_abilities_override.txt"))
+MergeTables(AbilityKV, LoadKeyValues("scripts/npc/npc_abilities.txt"))
 
 function C_DOTA_BaseNPC:HasTalent(talentName)
 	local data = CustomNetTables:GetTableValue("talents", tostring(self:entindex())) or {}
