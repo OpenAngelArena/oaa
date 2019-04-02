@@ -9,7 +9,7 @@ LinkLuaModifier("modifier_monkey_clone_oaa_idle_effect", "abilities/oaa_wukongs_
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
   EmitSoundOn("Hero_MonkeyKing.FurArmy.Channel", caster)
-  -- Particle
+  -- Particle during casting
   if IsServer() then
     self.castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf", PATTACH_ABSORIGIN, caster)
   end
@@ -70,7 +70,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     end
 
     -- Thinker
-    CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration"), center = center}, center, caster:GetTeamNumber(), false)
+    CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
 
     if self.clones == nil then
       self.clones={}
@@ -138,18 +138,15 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
       if IsServer() then
         local handle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_destroy.vpcf", PATTACH_ABSORIGIN, caster)
         ParticleManager:SetParticleControl(handle, 0, unit:GetAbsOrigin())
-
         -- for some weid reason calling DestroyParticle(... , false) do destroy the particle immediatly
         -- thanks volvo
         Timers:CreateTimer(5,function()
           ParticleManager:DestroyParticle(handle, false)
           ParticleManager:ReleaseParticleIndex(handle)
         end)
-
       end
       unit:AddNoDraw()
       unit:SetAbsOrigin(Vector(-10000,-10000,-10000))
-
     end
   end
 
@@ -217,12 +214,13 @@ function modifier_wukongs_command_oaa_thinker:DeclareFunctions()
 	return funcs
 end
 
-function modifier_wukongs_command_oaa_thinker:OnCreated(kv)
+function modifier_wukongs_command_oaa_thinker:OnCreated()
   local caster = self:GetCaster()
-  caster.monkeys_thinker = self
-  -- Ring particle
+
   if IsServer() then
-    self.particleHandler = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_ABSORIGIN , self:GetParent())
+    caster.monkeys_thinker = self
+    -- Ring particle
+    self.particleHandler = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_furarmy_ring.vpcf", PATTACH_ABSORIGIN, caster)
     ParticleManager:SetParticleControl(self.particleHandler, 0, self:GetParent():GetOrigin())
     ParticleManager:SetParticleControl(self.particleHandler, 1, Vector(self:GetAuraRadius(),0,0))
   end
@@ -254,7 +252,7 @@ function modifier_wukongs_command_oaa_thinker:OnDestroy()
     ability:RemoveMonkeys(caster)
 
     ParticleManager:DestroyParticle(self.particleHandler, false);
-    ParticleManager:ReleaseParticleIndex( self.particleHandler )
+    ParticleManager:ReleaseParticleIndex(self.particleHandler)
     self.particleHandler = nil
   end
 end
@@ -387,7 +385,6 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
   end
 end
 
-
 function modifier_monkey_clone_oaa:OnAttackStart(keys)
   if IsServer() then
     local parent = self:GetParent()
@@ -420,6 +417,10 @@ end
 
 modifier_monkey_clone_oaa_status_effect = class(ModifierBaseClass)
 
+function modifier_monkey_clone_oaa_status_effect:IsHidden()
+  return true
+end
+
 function modifier_monkey_clone_oaa_status_effect:IsPurgable()
   return false
 end
@@ -438,9 +439,14 @@ if IsServer() then
     self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
   end
 end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_monkey_clone_oaa_idle_effect = class(ModifierBaseClass)
+
+function modifier_monkey_clone_oaa_idle_effect:IsHidden()
+  return true
+end
 
 function modifier_monkey_clone_oaa_idle_effect:IsPurgable()
   return false
