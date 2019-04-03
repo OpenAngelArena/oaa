@@ -72,11 +72,12 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     -- Thinker
     CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
 
-    if self.clones == nil then
-      self.clones={}
-      self.clones[1]={}
-      self.clones[2]={}
-      self.clones[3]={}
+    if caster.clones == nil then
+      print("[MONKEY KING WUKONG'S COMMAND] Clones/Soldiers were not created when Monkey King spawned for the first time!")
+      --self.clones={}
+      --self.clones[1]={}
+      --self.clones[2]={}
+      --self.clones[3]={}
     end
 
     -- Inner Ring:
@@ -95,17 +96,19 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
 
   local top_direction = Vector(0,1,0)
   local top_point = center + top_direction*radius
-  if self.clones[ringNumber]["top"] == nil or self.clones[ringNumber]["top"]:IsNull() or not self.clones[ringNumber]["top"]:IsAlive() then
-    self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
-    self.clones[ringNumber]["top"]:SetOwner(caster)
+  if caster.clones[ringNumber]["top"] == nil or caster.clones[ringNumber]["top"]:IsNull() or not caster.clones[ringNumber]["top"]:IsAlive() then
+    print("[MONKEY KING WUKONG'S COMMAND] Monkey on the top point doesn't exist for some reason")
+    return
+    --self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
+    --self.clones[ringNumber]["top"]:SetOwner(caster)
   end
-  local top_monkey = self.clones[ringNumber]["top"]
+  local top_monkey = caster.clones[ringNumber]["top"]
   -- setting the origin is causing a wierd visual glitch I could not fix
   top_monkey:SetAbsOrigin(GetGroundPosition(top_point, top_monkey))
   top_monkey:FaceTowards(center)
   top_monkey:RemoveNoDraw()
 
-  -- Re add the modifier to update the items
+  top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
   top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa")
   top_monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
 
@@ -114,16 +117,19 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   for i=1, number-1 do
     -- Rotate a point around center for angle_degrees to get a new point
     local point = RotatePosition(center, QAngle(0,i*angle_degrees,0), top_point)
-    if self.clones[ringNumber][i] == nil or self.clones[ringNumber][i]:IsNull() or not self.clones[ringNumber][i]:IsAlive() then
-      self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
-      self.clones[ringNumber][i]:SetOwner(caster)
+    if caster.clones[ringNumber][i] == nil or caster.clones[ringNumber][i]:IsNull() or not caster.clones[ringNumber][i]:IsAlive() then
+      print("[MONKEY KING WUKONG'S COMMAND] Monkey number "..i.."in ring "..ringNumber.." doesn't exist for some reason!")
+      return
+      --self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
+      --self.clones[ringNumber][i]:SetOwner(caster)
     end
-    local monkey = self.clones[ringNumber][i]
+    local monkey = caster.clones[ringNumber][i]
     -- setting the origin is causing a wierd visual glitch I could not fix
     monkey:SetAbsOrigin(GetGroundPosition(point, monkey))
     monkey:FaceTowards(center)
     monkey:RemoveNoDraw()
-    -- Re add the modifier to update the items
+
+    monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
     monkey:RemoveModifierByName("modifier_monkey_clone_oaa")
     monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
   end
@@ -315,6 +321,14 @@ function modifier_monkey_clone_oaa:OnCreated()
     "item_courier"
   }
   if IsServer() then
+    -- Remove all previous items from the parent (clone) if there are any
+    for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      local item = parent:GetItemInSlot(item_slot)
+      if item then
+        parent:RemoveItem(item)
+      end
+    end
+    -- Recreate items of the caster
     for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
       local item = caster:GetItemInSlot(item_slot)
       if item then
@@ -461,4 +475,40 @@ end
 
 function modifier_monkey_clone_oaa_idle_effect:GetActivityTranslationModifiers()
   return "fur_army_soldier"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_monkey_clone_oaa_hidden = class(ModifierBaseClass)
+
+function modifier_monkey_clone_oaa_hidden:IsHidden()
+  return true
+end
+
+function modifier_monkey_clone_oaa_hidden:IsDebuff()
+  return false
+end
+
+function modifier_monkey_clone_oaa_hidden:IsPurgable()
+  return false
+end
+
+function modifier_monkey_clone_oaa_hidden:CheckState()
+  local state = {
+    [MODIFIER_STATE_ROOTED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_SILENCED] = true,
+    [MODIFIER_STATE_MUTED] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_BLIND] = true,
+    [MODIFIER_STATE_DISARMED] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+  }
+  return state
 end

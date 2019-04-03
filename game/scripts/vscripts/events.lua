@@ -71,6 +71,32 @@ function GameMode:OnNPCSpawned(keys)
     end)
   end
 
+  if npc:GetUnitName() == "npc_dota_hero_monkey_king" and npc:IsRealHero() then
+    LinkLuaModifier("modifier_monkey_clone_oaa_hidden", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
+    if npc.clones == nil then
+      local unit_name = "npc_dota_monkey_clone_oaa"
+      local max_number_of_rings = 3
+      local max_number_of_monkeys_per_ring = 10
+      local hidden_point = Vector(-10000,-10000,-10000)
+      -- Initialize tables
+      npc.clones={}
+      npc.clones[1]={}
+      npc.clones[2]={}
+      npc.clones[3]={}
+      -- Populate tables
+      for i= 1, max_number_of_rings do
+        npc.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, npc, npc:GetOwner(), npc:GetTeam())
+        npc.clones[i]["top"]:SetOwner(npc)
+        npc.clones[i]["top"]:AddNewModifier(npc, nil, "modifier_monkey_clone_oaa_hidden", {})
+        for j=1, max_number_of_monkeys_per_ring-1 do
+          npc.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, npc, npc:GetOwner(), npc:GetTeam())
+          npc.clones[i][j]:SetOwner(npc)
+          npc.clones[i][j]:AddNewModifier(npc, nil, "modifier_monkey_clone_oaa_hidden", {})
+        end
+      end
+    end
+  end
+
   if npc.GetPhysicalArmorValue then
     LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
     if npc:IsRealHero() or (npc:IsConsideredHero() and (not npc:IsIllusion())) then
