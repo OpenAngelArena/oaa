@@ -310,31 +310,31 @@ function modifier_monkey_clone_oaa:OnCreated()
   local caster = self:GetCaster()
   local parent = self:GetParent()
 
-  local banned_items = {
-    "item_abyssal_blade",
-    "item_abyssal_blade_2",
-    "item_abyssal_blade_3",
-    "item_abyssal_blade_4",
-    "item_abyssal_blade_5",
-    "item_rapier",
-    "item_gem",
-    "item_courier"
-  }
+  --local banned_items = {
+    --"item_abyssal_blade",
+    --"item_abyssal_blade_2",
+    --"item_abyssal_blade_3",
+    --"item_abyssal_blade_4",
+    --"item_abyssal_blade_5",
+    --"item_rapier",
+    --"item_gem",
+    --"item_courier"
+  --}
   if IsServer() then
-    -- Remove all previous items from the parent (clone) if there are any
+    -- -- Remove all previous items from the parent (clone) if there are any
     --for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
       --local item = parent:GetItemInSlot(item_slot)
       --if item then
         --parent:RemoveItem(item)
       --end
    --end
-    -- Recreate items of the caster
-    for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      local item = caster:GetItemInSlot(item_slot)
+    -- -- Recreate items of the caster
+    --for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      --local item = caster:GetItemInSlot(item_slot)
       --local clone_item = parent:GetItemInSlot(item_slot)
-      if item then
-        local item_name = item:GetName()
-        local skip = false
+      --if item then
+        --local item_name = item:GetName()
+        --local skip = false
         --if clone_item then
           --if clone_item:GetName() == item_name then
             --skip = true
@@ -342,30 +342,30 @@ function modifier_monkey_clone_oaa:OnCreated()
             --parent:RemoveItem(clone_item)
           --end
         --end
-        -- Don't add certain items like Abyssal Blade
-        for i= 1, #banned_items do
-          if item_name == banned_items[i] then
-            skip = true
-          end
-        end
+        -- -- Don't add certain items like Abyssal Blade
+        -- for i= 1, #banned_items do
+          -- if item_name == banned_items[i] then
+            -- skip = true
+          -- end
+        -- end
 
-        -- Dont add items with charges to avoid weird bugs
-        if item:RequiresCharges() then
-          skip = true
-        end
+        -- -- Dont add items with charges to avoid weird bugs
+        -- if item:RequiresCharges() then
+          -- skip = true
+        -- end
 
-        if not skip then
-          local new_item = CreateItem(item_name, parent, parent)
-          parent:AddItem(new_item)
-          new_item:SetStacksWithOtherOwners(true)
-          new_item:SetPurchaser(nil)
+        -- if not skip then
+          -- local new_item = CreateItem(item_name, parent, parent)
+          -- parent:AddItem(new_item)
+          -- new_item:SetStacksWithOtherOwners(true)
+          -- new_item:SetPurchaser(nil)
 
-          if new_item:IsToggle() and item:GetToggleState() then
-            new_item:ToggleAbility()
-          end
-        end
-      end
-    end
+          -- if new_item:IsToggle() and item:GetToggleState() then
+            -- new_item:ToggleAbility()
+          -- end
+        -- end
+      -- end
+    -- end
 
     parent:SetBaseDamageMax(caster:GetBaseDamageMax())
     parent:SetBaseDamageMin(caster:GetBaseDamageMin())
@@ -400,6 +400,7 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
     local parent = self:GetParent()
     if parent == keys.attacker then
       local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
+      -- This particle isnt showing, maybe it needs a timer delay before its destroyed?
       ParticleManager:DestroyParticle(castHandle, false)
       ParticleManager:ReleaseParticleIndex(castHandle)
     end
@@ -410,8 +411,10 @@ function modifier_monkey_clone_oaa:OnAttackStart(keys)
   if IsServer() then
     local parent = self:GetParent()
     if parent == keys.attacker then
-      local duration = 1 / self:GetAbility():GetCaster():GetAttacksPerSecond()
-      parent:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_status_effect", {duration = 1 + duration})
+      local ability = self:GetAbility()
+      local attack_interval = ability:GetSpecialValueFor("attack_interval")
+	    local attack_backswing = 0.2
+      parent:AddNewModifier(self:GetCaster(), ability, "modifier_monkey_clone_oaa_status_effect", {duration = attack_backswing + attack_interval})
       parent:RemoveModifierByName("modifier_monkey_clone_oaa_idle_effect")
     end
   end
