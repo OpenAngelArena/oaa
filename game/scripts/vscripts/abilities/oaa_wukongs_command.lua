@@ -322,19 +322,26 @@ function modifier_monkey_clone_oaa:OnCreated()
   }
   if IsServer() then
     -- Remove all previous items from the parent (clone) if there are any
-    for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      local item = parent:GetItemInSlot(item_slot)
-      if item then
-        parent:RemoveItem(item)
-      end
-    end
+    --for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      --local item = parent:GetItemInSlot(item_slot)
+      --if item then
+        --parent:RemoveItem(item)
+      --end
+   --end
     -- Recreate items of the caster
     for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
       local item = caster:GetItemInSlot(item_slot)
+      --local clone_item = parent:GetItemInSlot(item_slot)
       if item then
         local item_name = item:GetName()
         local skip = false
-
+        --if clone_item then
+          --if clone_item:GetName() == item_name then
+            --skip = true
+          --else
+            --parent:RemoveItem(clone_item)
+          --end
+        --end
         -- Don't add certain items like Abyssal Blade
         for i= 1, #banned_items do
           if item_name == banned_items[i] then
