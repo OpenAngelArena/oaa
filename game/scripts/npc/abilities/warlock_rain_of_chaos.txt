@@ -16,11 +16,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "170 170 170 170 170"
+    "AbilityCooldown"                                     "120" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -56,17 +56,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 2000 3000 4500 7000"
+        "golem_hp_tooltip"                                "1000 2000 3000 5000 10000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip"                               "75 125 175 375 600"
+        "golem_dmg_tooltip"                               "100 150 200 400 700"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_armor_tooltip"                             "6 9 12 17 42"
+        "golem_armor_tooltip"                             "6 9 15 25 50" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_warlock_2"
       }
       "07"
@@ -82,12 +82,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "750 1500 2250 3375 5250"
+        "golem_hp_tooltip_scepter"                        "750 1500 2250 3750 7500"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "56 94 131 280 450"
+        "golem_dmg_tooltip_scepter"                       "75 110 150 320 510"
       }
       "11"
       {

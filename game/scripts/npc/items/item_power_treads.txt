@@ -20,8 +20,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_power_treads"
-    "ItemRequirements"
-    {
+    "ItemRequirements" // OAA
+    { // OAA
       "01"                                                "item_boots;item_gloves;item_belt_of_strength"
       "02"                                                "item_boots;item_gloves;item_robe"
       "03"                                                "item_boots;item_gloves;item_boots_of_elves"
@@ -56,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50"
+        "bonus_movement_speed"                            "15"
       }
       "02"
       {
@@ -66,7 +66,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25"
+        "bonus_attack_speed"                              "20"
       }
       "04"
       {
