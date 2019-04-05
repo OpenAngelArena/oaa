@@ -5,6 +5,121 @@ LinkLuaModifier("modifier_wukongs_command_oaa_thinker", "abilities/oaa_wukongs_c
 LinkLuaModifier("modifier_monkey_clone_oaa", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_monkey_clone_oaa_status_effect", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_monkey_clone_oaa_idle_effect", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_monkey_clone_oaa_hidden", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
+
+if IsServer() then
+  function monkey_king_wukongs_command_oaa:OnUpgrade( )
+
+    if self.clones == nil then
+      local unit_name = "npc_dota_monkey_clone_oaa"
+      local max_number_of_rings = 3
+      local max_number_of_monkeys_per_ring = 10
+      local hidden_point = Vector(-10000,-10000,-10000)
+      -- Initialize tables
+      self.clones={}
+      self.clones[1]={}
+      self.clones[2]={}
+      self.clones[3]={}
+      -- Populate tables
+      for i= 1, max_number_of_rings do
+        self.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, self, self:GetOwner(), self:GetTeam())
+        self.clones[i]["top"]:SetOwner(self:GetCaster())
+        self.clones[i]["top"]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa_hidden", {})
+        self.clones[i]["top"]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa", {})
+        print("Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "]['top']")
+        for j=1, max_number_of_monkeys_per_ring-1 do
+          self.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, self, self:GetOwner(), self:GetTeam())
+          self.clones[i][j]:SetOwner(self:GetCaster())
+          self.clones[i][j]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa_hidden", {})
+          self.clones[i][j]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa", {})
+          print("Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "][" .. tostring(j) .. "]")
+        end
+      end
+      -- Update Items first time
+      self:OnInventoryContentsChanged()
+    end
+  end
+
+  function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
+    if self.clones ~= nil then
+      local max_number_of_rings = 3
+      local max_number_of_monkeys_per_ring = 10
+      local hidden_point = Vector(-10000,-10000,-10000)
+      -- Populate tables
+      for i= 1, max_number_of_rings do
+        self:CopyCasterItems(self.clones[i]["top"], self:GetCaster())
+        for j=1, max_number_of_monkeys_per_ring-1 do
+          self:CopyCasterItems(self.clones[i][j], self:GetCaster())
+        end
+      end
+    end
+  end
+end
+
+function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
+  local banned_items = {
+    "item_abyssal_blade",
+    "item_abyssal_blade_2",
+    "item_abyssal_blade_3",
+    "item_abyssal_blade_4",
+    "item_abyssal_blade_5",
+    "item_rapier",
+    "item_gem",
+    "item_courier"
+  }
+  -- Recreate items of the caster
+  for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+    local item = caster:GetItemInSlot(item_slot)
+    local clone_item = parent:GetItemInSlot(item_slot)
+    if item == nil and clone_item ~= nil then parent:RemoveItem(clone_item) end
+    if item then
+      local item_name = item:GetName()
+      local skip = false
+      if clone_item then
+        if clone_item:GetName() == item_name then
+          skip = true
+        else
+          parent:RemoveItem(clone_item)
+        end
+      end
+      -- Don't add certain items like Abyssal Blade
+      for i= 1, #banned_items do
+        if item_name == banned_items[i] then
+          skip = true
+        end
+      end
+
+      -- Dont add items with charges to avoid weird bugs
+      if item:RequiresCharges() then
+        skip = true
+      end
+
+      -- Create new Item
+      if not skip then
+        local new_item = CreateItem(item_name, parent, parent)
+        print("copy item: " .. item_name)
+        parent:AddItem(new_item)
+
+        -- Set correct inventory position
+        if parent:GetItemInSlot(item_slot) ~= new_item then
+          for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+            if parent:GetItemInSlot(slot) == new_item then
+              parent:SwapItems(slot, item_slot)
+              break
+            end
+          end
+        end
+
+        new_item:SetStacksWithOtherOwners(true)
+        new_item:SetPurchaser(nil)
+
+        if new_item:IsToggle() and item:GetToggleState() then
+          new_item:ToggleAbility()
+        end
+      end
+    end
+  end
+end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
@@ -72,12 +187,12 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     -- Thinker
     CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
 
-    if caster.clones == nil then
+    if self.clones == nil then
       print("[MONKEY KING WUKONG'S COMMAND] Clones/Soldiers were not created when Monkey King spawned for the first time!")
-      --self.clones={}
-      --self.clones[1]={}
-      --self.clones[2]={}
-      --self.clones[3]={}
+      self.clones={}
+      self.clones[1]={}
+      self.clones[2]={}
+      self.clones[3]={}
     end
 
     -- Inner Ring:
@@ -96,42 +211,45 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
 
   local top_direction = Vector(0,1,0)
   local top_point = center + top_direction*radius
-  if caster.clones[ringNumber]["top"] == nil or caster.clones[ringNumber]["top"]:IsNull() or not caster.clones[ringNumber]["top"]:IsAlive() then
+
+  if self.clones[ringNumber]["top"] == nil or self.clones[ringNumber]["top"]:IsNull() or not self.clones[ringNumber]["top"]:IsAlive() then
     print("[MONKEY KING WUKONG'S COMMAND] Monkey on the top point doesn't exist for some reason")
+    self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
+    self.clones[ringNumber]["top"]:SetOwner(caster)
+    top_monkey = self.clones[ringNumber]["top"]
     return
-    --self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
-    --self.clones[ringNumber]["top"]:SetOwner(caster)
   end
-  local top_monkey = caster.clones[ringNumber]["top"]
+  local top_monkey = self.clones[ringNumber]["top"]
   -- setting the origin is causing a wierd visual glitch I could not fix
   top_monkey:SetAbsOrigin(GetGroundPosition(top_point, top_monkey))
   top_monkey:FaceTowards(center)
   top_monkey:RemoveNoDraw()
+  top_monkey:SetBaseDamageMax(caster:GetBaseDamageMax())
+  top_monkey:SetBaseDamageMin(caster:GetBaseDamageMin())
 
   top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
-  top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa")
-  top_monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
+
 
   -- Create remaining monkeys
   local angle_degrees = 360/number
   for i=1, number-1 do
     -- Rotate a point around center for angle_degrees to get a new point
     local point = RotatePosition(center, QAngle(0,i*angle_degrees,0), top_point)
-    if caster.clones[ringNumber][i] == nil or caster.clones[ringNumber][i]:IsNull() or not caster.clones[ringNumber][i]:IsAlive() then
+    if self.clones[ringNumber][i] == nil or self.clones[ringNumber][i]:IsNull() or not self.clones[ringNumber][i]:IsAlive() then
       print("[MONKEY KING WUKONG'S COMMAND] Monkey number "..i.."in ring "..ringNumber.." doesn't exist for some reason!")
+      self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
+      self.clones[ringNumber][i]:SetOwner(caster)
       return
-      --self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
-      --self.clones[ringNumber][i]:SetOwner(caster)
     end
-    local monkey = caster.clones[ringNumber][i]
+    local monkey = self.clones[ringNumber][i]
     -- setting the origin is causing a wierd visual glitch I could not fix
     monkey:SetAbsOrigin(GetGroundPosition(point, monkey))
     monkey:FaceTowards(center)
     monkey:RemoveNoDraw()
+    monkey:SetBaseDamageMax(caster:GetBaseDamageMax())
+    monkey:SetBaseDamageMin(caster:GetBaseDamageMin())
 
     monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
-    monkey:RemoveModifierByName("modifier_monkey_clone_oaa")
-    monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
   end
 end
 
@@ -153,6 +271,7 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
       end
       unit:AddNoDraw()
       unit:SetAbsOrigin(Vector(-10000,-10000,-10000))
+      unit:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa_hidden", {})
     end
   end
 
@@ -310,65 +429,7 @@ function modifier_monkey_clone_oaa:OnCreated()
   local caster = self:GetCaster()
   local parent = self:GetParent()
 
-  --local banned_items = {
-    --"item_abyssal_blade",
-    --"item_abyssal_blade_2",
-    --"item_abyssal_blade_3",
-    --"item_abyssal_blade_4",
-    --"item_abyssal_blade_5",
-    --"item_rapier",
-    --"item_gem",
-    --"item_courier"
-  --}
   if IsServer() then
-    -- -- Remove all previous items from the parent (clone) if there are any
-    --for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      --local item = parent:GetItemInSlot(item_slot)
-      --if item then
-        --parent:RemoveItem(item)
-      --end
-   --end
-    -- -- Recreate items of the caster
-    --for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-      --local item = caster:GetItemInSlot(item_slot)
-      --local clone_item = parent:GetItemInSlot(item_slot)
-      --if item then
-        --local item_name = item:GetName()
-        --local skip = false
-        --if clone_item then
-          --if clone_item:GetName() == item_name then
-            --skip = true
-          --else
-            --parent:RemoveItem(clone_item)
-          --end
-        --end
-        -- -- Don't add certain items like Abyssal Blade
-        -- for i= 1, #banned_items do
-          -- if item_name == banned_items[i] then
-            -- skip = true
-          -- end
-        -- end
-
-        -- -- Dont add items with charges to avoid weird bugs
-        -- if item:RequiresCharges() then
-          -- skip = true
-        -- end
-
-        -- if not skip then
-          -- local new_item = CreateItem(item_name, parent, parent)
-          -- parent:AddItem(new_item)
-          -- new_item:SetStacksWithOtherOwners(true)
-          -- new_item:SetPurchaser(nil)
-
-          -- if new_item:IsToggle() and item:GetToggleState() then
-            -- new_item:ToggleAbility()
-          -- end
-        -- end
-      -- end
-    -- end
-
-    parent:SetBaseDamageMax(caster:GetBaseDamageMax())
-    parent:SetBaseDamageMin(caster:GetBaseDamageMin())
     parent:SetNeverMoveToClearSpace(true)
 
     -- animation stances
@@ -400,9 +461,11 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
     local parent = self:GetParent()
     if parent == keys.attacker then
       local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
-      -- This particle isnt showing, maybe it needs a timer delay before its destroyed?
-      ParticleManager:DestroyParticle(castHandle, false)
-      ParticleManager:ReleaseParticleIndex(castHandle)
+
+      Timers:CreateTimer(3, function()
+        ParticleManager:DestroyParticle(castHandle, false)
+        ParticleManager:ReleaseParticleIndex(castHandle)
+      end)
     end
   end
 end
@@ -458,7 +521,6 @@ function modifier_monkey_clone_oaa_status_effect:StatusEffectPriority()
 end
 
 if IsServer() then
-
   function modifier_monkey_clone_oaa_status_effect:OnDestroy()
     self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
   end
