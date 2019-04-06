@@ -74,8 +74,8 @@ function BountyRunePick:Filter(filter_table)
   local xp_difference = math.max(0, xp_diff)
 
   local gold_reward = (BOUNTY_RUNE_INITIAL_TEAM_GOLD*game_time*(1 + (1 - (1 - gold_difference)*(1 - gold_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
-  local xp_reward = (BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + (1 - (1 - gold_difference)*(1 - gold_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
-  xp_reward = math.ceil(xp_reward);
+  local xp_reward = (BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + (1 - (1 - xp_difference)*(1 - xp_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
+  xp_reward = math.ceil(xp_reward)
 
   allied_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
