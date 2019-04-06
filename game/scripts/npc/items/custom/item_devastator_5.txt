@@ -54,7 +54,6 @@
     "AbilityCastPoint"                                    "0.25"
     "AbilityCooldown"                                     "10"
     "AbilityManaCost"                                     "100"
-    "AbilityDamage"                                       "200 300 400 600 800"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -78,6 +77,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "50 70 100 130 180"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
