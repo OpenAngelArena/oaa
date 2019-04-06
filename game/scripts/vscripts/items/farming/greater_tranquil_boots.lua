@@ -185,7 +185,7 @@ end
 
 function modifier_item_greater_tranquil_boots:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -260,7 +260,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Percentage( event )
+function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Percentage_Unique( event )
 	local spell = self:GetAbility()
 
 	if self:GetRemainingTime() <= 0 then

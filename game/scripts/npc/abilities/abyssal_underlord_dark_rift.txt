@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5616"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
@@ -25,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 120 110 100 90"
+    "AbilityCooldown"                                     "90"  //OAA, for picking screen tooltip
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 200 300 375 600"
+    "AbilityManaCost"                                     "75 150 225 375 600"  //OAA, for picking screen tooltip
 
 
     "AbilitySpecial"
@@ -37,12 +37,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
+        "radius"                                          "250" // OAA, for picking screen tooltip
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "6.0 5.0 4.0 3.5 3.0"
+        "teleport_delay"                                  "3.0" // OAA, for picking screen tooltip
       }
     }
   }
