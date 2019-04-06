@@ -40,6 +40,9 @@ if IsServer() then
     end
   end
 
+  -- For Rubick OnUpgrade never happens, that's why OnStolen is needed
+  -- monkey_king_wukongs_command_oaa.OnStolen() = monkey_king_wukongs_command_oaa.OnUpgrade() -- dunno if this works
+
   function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
     if self.clones ~= nil then
       local max_number_of_rings = 3
@@ -216,8 +219,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
     print("[MONKEY KING WUKONG'S COMMAND] Monkey on the top point doesn't exist for some reason")
     self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
     self.clones[ringNumber]["top"]:SetOwner(caster)
-    top_monkey = self.clones[ringNumber]["top"]
-    return
+    --return
   end
   local top_monkey = self.clones[ringNumber]["top"]
   -- setting the origin is causing a wierd visual glitch I could not fix
@@ -226,9 +228,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   top_monkey:RemoveNoDraw()
   top_monkey:SetBaseDamageMax(caster:GetBaseDamageMax())
   top_monkey:SetBaseDamageMin(caster:GetBaseDamageMin())
-
   top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
-
 
   -- Create remaining monkeys
   local angle_degrees = 360/number
@@ -239,7 +239,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
       print("[MONKEY KING WUKONG'S COMMAND] Monkey number "..i.."in ring "..ringNumber.." doesn't exist for some reason!")
       self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
       self.clones[ringNumber][i]:SetOwner(caster)
-      return
+      --return
     end
     local monkey = self.clones[ringNumber][i]
     -- setting the origin is causing a wierd visual glitch I could not fix
@@ -248,7 +248,6 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
     monkey:RemoveNoDraw()
     monkey:SetBaseDamageMax(caster:GetBaseDamageMax())
     monkey:SetBaseDamageMin(caster:GetBaseDamageMin())
-
     monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
   end
 end
