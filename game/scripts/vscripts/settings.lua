@@ -17,7 +17,7 @@ setmetatable(RESPAWN_TIME_TABLE, {
     local minLevel = 1
     local maxLevel = 49
     local minTime = 5
-    local maxTime = 20
+    local maxTime = 40
     local clampedLevel = math.min(maxLevel, key)
     -- Store result instead of recalculating for lookups for the same level
     -- Linear interpolation between min and max level/time pairs
