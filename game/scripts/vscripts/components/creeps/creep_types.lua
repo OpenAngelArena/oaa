@@ -59,7 +59,7 @@ CreepTypes = {
       {"npc_dota_neutral_custom_big_pupper",        600,  480,  35,    2,    85,  91}
     },
     {
-      {"npc_dota_neutral_satyr_tickster",           350,  160,  10,    1,    28,  27},
+      {"npc_dota_neutral_satyr_trickster",          350,  160,  10,    1,    28,  27},
       {"npc_dota_neutral_satyr_soulstealer",        450,  480,  20,    1,    38,  40},
       {"npc_dota_neutral_satyr_hellcaller",         550,  480,  30,   1.5,   51,  53}
     }
