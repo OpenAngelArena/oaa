@@ -28,8 +28,8 @@ function StartingItems.GiveStartingItems (hero)
     DebugPrint("Giving starting items to " .. hero:GetUnitName())
 
     -- Create couriers and then cast them straight away
-    for _, item in pairs(StartingItems.itemList) do
-        local item = hero:AddItemByName(item)
+    for _, itemName in pairs(StartingItems.itemList) do
+        local item = hero:AddItemByName(itemName)
 	    -- no idea if this stuff is gonna be used for anything other than farming cores
 	    -- but if it is, let's emulate dota random bonuses ( aka can't be sold )
 	    -- item:SetSellable(false) -- this removes the right-click menu that's a terrible idea
