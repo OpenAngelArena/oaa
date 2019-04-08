@@ -4,13 +4,14 @@ if Talents == nil then
 end
 
 GameEvents:OnPlayerLearnedAbility(function(keys)
+  -- OnPlayerLearnedAbility event doesn't happen for abilities that are leveled up in Lua with: ability:SetLevel(level)
   local player = EntIndexToHScript(keys.player)
   local abilityname = keys.abilityname
-  local pID = keys.PlayerID
-  if pID and string.match(abilityname, "special_bonus") then
-    local hero = PlayerResource:GetSelectedHeroEntity( pID )
+  local playerID = keys.PlayerID
+  if playerID and string.find(abilityname, "special_bonus") then
+    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
     local talentData = CustomNetTables:GetTableValue("talents", tostring(hero:entindex())) or {}
     talentData[abilityname] = true
-    CustomNetTables:SetTableValue( "talents", tostring(hero:entindex()), talentData )
+    CustomNetTables:SetTableValue("talents", tostring(hero:entindex()), talentData)
   end
 end)

@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_aghanims_talents", "items/aghanims.lua", LUA_MODIFIER_MOTION_NONE)
+-- Modifiers for problematic talents
+LinkLuaModifier("modifier_special_bonus_sohei_wholeness_allycast", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_ultimate_scepter_1 = class(ItemBaseClass)
 
@@ -130,12 +132,43 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       'Trying to update talent but talent choice was let through!'
     )
 
+    local problematic_talents ={
+      {"special_bonus_sohei_wholeness_allycast", "modifier_special_bonus_sohei_wholeness_allycast"},
+      {"special_bonus_unique_hero_name", "modifier_special_bonus_unique_hero_name"}
+    }
+
     if claim then
       if leftLevel == 0 then
         leftAbility:SetLevel(1)
+        -- Check if this talent is on problematic list, add modifier if true
+        for i = 1, #problematic_talents do
+          local talent = problematic_talents[i]
+          local leftAbilityName = leftAbility:GetName()
+          if leftAbilityName == talent[1] then
+            local talent_ability = parent:FindAbilityByName(leftAbilityName)
+            if talent_ability then
+              local talent_modifier = talent[2]
+              parent:AddNewModifier(parent, talent_ability, talent_modifier, {})
+            end
+          end
+        end
+
       end
       if rightLevel == 0 then
         rightAbility:SetLevel(1)
+        -- Check if this talent is on problematic list, add modifier if true
+        for i = 1, #problematic_talents do
+          local talent = problematic_talents[i]
+          local rightAbilityName = rightAbility:GetName()
+          if rightAbilityName == talent[1] then
+            local talent_ability = parent:FindAbilityByName(rightAbilityName)
+            if talent_ability then
+              local talent_modifier = talent[2]
+              parent:AddNewModifier(parent, talent_ability, talent_modifier, {})
+            end
+          end
+        end
+
       end
     else
       -- print ('disabling talents')
@@ -190,7 +223,8 @@ function modifier_item_aghanims_talents:GetTalentModifier(name)
     special_bonus_unique_treant_3 = "modifier_special_bonus_unique_treant_3",
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
-    special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger"
+    special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
+    special_bonus_sohei_wholeness_allycast = "modifier_special_bonus_sohei_wholeness_allycast"
   }
 
   if exceptionBonuses[name] then

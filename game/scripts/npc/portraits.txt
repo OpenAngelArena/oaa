@@ -2344,6 +2344,47 @@
 		"PortraitHideDropShadow"		"0"
 		"PortraitDesaturateParticles"		"0"
 	}
+  "models/heroes/sohei/bepis_sohei/bepis_sohei_base.vmdl"
+  {
+		"PortraitLightPosition"		"106.913757 -64.295067 186.072372"
+		"PortraitLightAngles"		"48.081665 135.670166 0.000000"
+		"PortraitLightFOV"		"90.000000"
+		"PortraitLightDistance"		"133.000000"
+		"PortraitLightColor"		"229 239 255"
+		"PortraitShadowColor"		"33 33 33"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"99 50 38"
+		"PortraitAmbientScale"		"6.202000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitParticle"		"particles/units/heroes/hero_juggernaut/juggernaut_portrait.vpcf"
+		"PortraitBackgroundTexture"		"materials/portraits_card/portrait_backgrounds/juggernaut.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-0.546 0.791 0.276"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"331.764404 109.020172 93.554466"
+				"PortraitAngles"		"354.919342 200.797699 0.000000"
+				"PortraitFOV"		"10.000000"
+				"PortraitFar"		"1000.000000"
+			}
+		}
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"1.000000 1.000000 1.000000"
+		"PortraitBackgroundColor2"		"1.000000 1.000000 1.000000"
+		"PortraitBackgroundColor3"		"1.000000 1.000000 1.000000"
+		"PortraitBackgroundColor4"		"1.000000 1.000000 1.000000"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+		"PortraitHideParticles"		"0"
+		"PortraitHideDropShadow"		"0"
+		"PortraitDesaturateParticles"		"0"
+	}
   "models/heroes/sohei/sohei_arcana/sohei_arcana.vmdl"
   {
 		"PortraitLightPosition"		"106.913757 -64.295067 186.072372"
@@ -2427,6 +2468,37 @@
 		"PortraitDesaturateParticles"		"0"
 	}
   "models/heroes/electrician/electrician.vmdl"
+  {
+    "PortraitLightPosition"   "50.45 -31.84 189.14"
+    "PortraitLightAngles"   "52.57 131.53 0.00"
+    "PortraitLightFOV"    "80"
+    "PortraitLightDistance"   "120"
+    "PortraitLightColor"    "160 210 255"
+    "PortraitShadowColor"   "56 56 56"
+    "PortraitShadowScale"   "5.000000"
+    "PortraitAmbientColor"    "120 50 104"
+    "PortraitAmbientScale"    "7.000000"
+    "PortraitSpecularColor"   "251 64 84"
+    "PortraitBackgroundTexture"   "materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+    "PortraitBackgroundColor1"    ".45 .3 .68"
+    "PortraitBackgroundColor2"    "1 1 1"
+    "PortraitBackgroundColor3"    ".18 .1 .28"
+    "PortraitBackgroundColor4"    "0 0 0"
+    "PortraitLightScale"    "2.4000"
+    "PortraitGroundShadowScale"   "1.500000"
+    "PortraitAmbientDirection"    "15.590 51.600 21.350"
+    "PortraitAnimationActivity"   "ACT_DOTA_IDLE"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"    "175.87 -110.45 137.76"
+        "PortraitAngles"    "1.54 147.00 0.00"
+        "PortraitFOV"   "20"
+      }
+    }
+  }
+  "models/heroes/electrician/electrician_arcana/electrician_arcana_base.vmdl"
   {
     "PortraitLightPosition"   "50.45 -31.84 189.14"
     "PortraitLightAngles"   "52.57 131.53 0.00"
