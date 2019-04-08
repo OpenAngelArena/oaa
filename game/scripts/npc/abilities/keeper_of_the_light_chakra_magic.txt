@@ -13,15 +13,19 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900 900 900 900 900 900"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 14 14"
+    "AbilityCooldown"                                     "20 18 16 14 14 14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,18 +43,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_restore"                                    "75 150 225 300 650 1000"
+        "mana_restore"                                    "80 160 240 320 650 1000"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_2"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
+        "var_type"                                        "FIELD_INTEGER"
         "cooldown_reduction"                              "3 4 5 6 7 8"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15"
       }
     }
   }

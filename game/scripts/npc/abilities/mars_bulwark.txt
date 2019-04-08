@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Mars Bulwark
+  //=================================================================================================================
+  "mars_bulwark"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"            "6582"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                                            "6"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "physical_damage_reduction"   "25 40 55 70 75 80"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "forward_angle"         "140"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "physical_damage_reduction_side"  "12 20 27 35 42 50"
+      }
+      "04"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "side_angle"          "240"
+      }
+    }
+  }
+}

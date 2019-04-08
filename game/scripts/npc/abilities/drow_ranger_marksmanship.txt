@@ -21,13 +21,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "marksmanship_agility_bonus"                      "35 75 120 200 280" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_3"
+        "chance"                                          "10 20 30 40 50" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "bonus_damage"                                    "120"
       }
       "03"
       {
@@ -43,6 +42,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_reduction_scepter"                        "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "disable_range"                                   "400"
       }
     }
   }
