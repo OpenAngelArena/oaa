@@ -1,68 +1,62 @@
 "DOTAItems"
 {
+  "item_travel_boots"                                     "REMOVED"
+  "item_travel_boots_2"                                   "REMOVED"
   //=================================================================================================================
-  // Recipe: Greater Boots of Travel
+  // Recipe: Travel Origin
   //=================================================================================================================
-  "item_recipe_greater_travel_boots"
+  "item_recipe_travel_origin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3020"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8620"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "recipe"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_greater_travel_boots"
+    "ItemResult"                                          "item_travel_origin"
     "ItemRequirements"
     {
-      "01"                                                "item_travel_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_travel_origin;item_boots;item_upgrade_core_2"
-      "03"                                                "item_travel_origin;item_boots;item_upgrade_core_3"
-      "04"                                                "item_travel_origin;item_boots;item_upgrade_core_4"
+      "01"                                                "item_farming_core"
     }
   }
 
   //=================================================================================================================
-  // Greater Boots of Travel
+  // Travel Origin
   //=================================================================================================================
-  "item_greater_travel_boots"
+  "item_travel_origin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3024"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8621"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_travel_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "AbilityTextureName"                                  "item_custom/greater_travels"
+    "AbilityTextureName"                                  "item_custom/travel_origin"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "travel"
-    "AbilityChannelTime"                                  "2.5 2.2 1.9 1.6"
+    "AbilityChannelTime"                                  "4.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
+    "ItemAliases"                                         "bot;boots of travel;travel spark;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-
-    //"UpgradesItems"                                     "item_greater_travel_boots;item_greater_travel_boots_2;item_greater_travel_boots_3;item_greater_travel_boots_4"
-    //"UpgradeRecipe"                                     "item_recipe_greater_travel_boots"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -71,12 +65,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "32 40 45 50"
+        "bonus_movement_speed"                            "17"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "90 105 120 135"
+        "assist_percent"                                  "75"
       }
       "03"
       {
