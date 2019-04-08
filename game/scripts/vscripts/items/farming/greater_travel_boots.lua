@@ -13,7 +13,7 @@ end
 function item_greater_travel_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_travel_boots",
-    "modifier_creep_assist_gold",
+    --"modifier_creep_assist_gold",
     "modifier_creep_bounty"
   }
 end
