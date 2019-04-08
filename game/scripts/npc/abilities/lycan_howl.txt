@@ -17,12 +17,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 45 45"
-    "AbilityDuration"                                     "13"
+    "AbilityCooldown"                                     "50 45 40 35 35 35"
+    "AbilityDuration"                                     "9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40"
+    "AbilityManaCost"                                     "25 30 35 40 45 50"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -35,28 +35,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "howl_duration"                                   "13.0"
+        "howl_duration"                                   "9.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_bonus_damage"                               "10 15 20 25 50 75"
+        "attack_speed"                                    "20 30 40 50 75 100"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unit_bonus_damage"                               "4 6 8 10 14 26"
+        "armor"                                           "3 4 5 6 8 12"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_bonus_hp"                                   "50 100 150 200 450 700"
-        "LinkedSpecialBonus"  "special_bonus_unique_lycan_5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unit_bonus_hp"                                   "25 50 75 100 150 350"
+        "hp_regen"                                        "5 10 15 20 35 50"  //OAA
       }
     }
   }

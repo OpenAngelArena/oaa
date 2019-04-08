@@ -11,12 +11,12 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "1500" 
+    "ItemCost"            "1500"
     "ItemShopTags"          ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
@@ -45,27 +45,27 @@
     "FightRecapLevel"             "1"
     "AbilityTextureName"          "custom/glimmer_cape_2"
 
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"            "800"
     "AbilityCooldown"             "14.0"
     "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "4650"
+    "ItemCost"                    "4525"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                 "glimmer cape 2;glimmer 2"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "2"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
-    {     
+    {
       "01"
       {
         "var_type"                "FIELD_INTEGER"
