@@ -11,21 +11,21 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"  
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "700 850 1000 1050 1150"
     "AbilityCastPoint"                                    "0.3"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 70 40 40 40" //OAA
+    "AbilityCooldown"                                     "115 80 45 40 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100 150 200 400 600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

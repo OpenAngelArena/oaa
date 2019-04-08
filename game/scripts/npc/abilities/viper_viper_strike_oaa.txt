@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 30 30"
+    "AbilityCooldown"                                     "50 40 30 20 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -106,7 +106,7 @@
     "ID"                    "86819"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"           "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
