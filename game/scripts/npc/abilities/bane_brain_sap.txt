@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
+    "AbilityCooldown"                                     "14 13 12 11 10 9"
 
 
     // Cost
@@ -39,13 +39,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "brain_sap_damage"                                "75 150 225 300 650 1000"
+        "brain_sap_damage"                                "75 150 225 300 450 750"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_brain_sap_heal_amt"                      "75 150 225 300 650 1000"
+        "tooltip_brain_sap_heal_amt"                      "75 150 225 300 450 750"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_2"
       }
       "03"

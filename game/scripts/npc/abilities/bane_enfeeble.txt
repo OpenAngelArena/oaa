@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "900" //OAA
     "AbilityCastPoint"                                    "0.3"
 
     "AbilityCooldown"                                     "12 10 8 6 6 6"
@@ -40,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_reduction"                          "50 75 100 125 250 400"
+        "attack_speed_reduction"                          "50 75 100 125 200 300"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_1"
       }
       "03"
