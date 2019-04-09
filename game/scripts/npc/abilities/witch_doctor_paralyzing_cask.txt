@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_duration"                                   "1.0"
+        "hero_duration"                                   "1.0 1.0 1.0 1.0 1.25 1.5" //OAA
       }
       "02"
       {
@@ -52,7 +52,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_damage"                                     "50"
+        "hero_damage"                                     "75" //OAA
       }
       "04"
       {
@@ -62,7 +62,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces"                                         "3 5 7 9 11 13"
+        "bounces"                                         "3 5 7 9 9 9" 
       }
       "06"
       {
@@ -77,7 +77,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces_tooltip"                                 "2 4 6 8 10 12"
+        "bounces_tooltip"                                 "2 4 6 8 8 8"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_3"
       }
     }
