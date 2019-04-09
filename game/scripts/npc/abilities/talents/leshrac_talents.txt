@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "100" // OAA
+				"value"           "90" // OAA
 			}
 		}
 	}
@@ -64,13 +64,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"50"
+				"value"             "90" //OAA
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// Leshrac becomes Ethereal during Diabolic Edict - unused
+	// Leshrac becomes Ethereal during Diabolic Edict - unused and overpowered
 	//=================================================================================================================
 	"special_bonus_unique_leshrac_4"
 	{
