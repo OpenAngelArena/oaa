@@ -1,63 +1,112 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild
-  //=================================================================================================================
-  "beastmaster_call_of_the_wild"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5169"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
-    "AbilityTextureName"                                  "beastmaster_call_of_the_wild"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+	// Beastmaster: Call of the Wild Boar
+	//=================================================================================================================
+	"beastmaster_call_of_the_wild_boar"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                    "7230"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilitySound"					"Hero_Beastmaster.Call.Boar"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"42 38 34 30 26 22"
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 60 70 80 140 200"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                        "FIELD_INTEGER"
-        "duration"                        "60"
-      }
-      "02"
-      {
-        "var_type"                        "FIELD_INTEGER"
-        "boar_hp_tooltip"                 "275 350 425 500 2500 5000"
-      }
-      "03"
-      {
-        "var_type"                        "FIELD_INTEGER"
-        "boar_damage_tooltip"             "20 30 40 50 250 500"
-		"LinkedSpecialBonus"	          "special_bonus_unique_beastmaster_2"
-      }
-      "04"
-      {
-        "var_type"                        "FIELD_INTEGER"
-        "boar_moveslow_tooltip"           "10 20 30 40 100 160"
-      }
-      "05"
-      {
-        "var_type"                        "FIELD_FLOAT"
-        "boar_poison_duration_tooltip"    "3.0"
-      }
-    }
-  }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                 "FIELD_INTEGER"
+				"duration"                 "60"
+			}
+			"02"
+			{
+				"var_type"                 "FIELD_INTEGER"
+				"boar_hp_tooltip"          "300 450 600 750 2500 5000"
+			}
+			"03"
+			{
+				"var_type"                 "FIELD_INTEGER"
+				"boar_damage_tooltip"      "20 35 50 65 250 500" //OAA, for picking screen tooltip
+				"LinkedSpecialBonus"       "special_bonus_unique_beastmaster_2"
+			}
+			"04"
+			{
+				"var_type"                 "FIELD_INTEGER"
+				"boar_moveslow_tooltip"    "10 20 30 40 100 160"
+			}
+			"05"
+			{
+				"var_type"                 "FIELD_FLOAT"
+				"boar_poison_duration_tooltip"	"3.0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Beastmaster: Call of the Wild Hawk
+	//=================================================================================================================
+	"beastmaster_call_of_the_wild_hawk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					          "7231"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilitySound"					"Hero_Beastmaster.Call.Hawk"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.3"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60 50 40 30 30 20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"120" // OAA, for picking screen tooltip
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hawk_hp_tooltip"			"150 200 250 300 1250 2500"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hawk_speed_tooltip"		"300 340 380 420 480 575"
+				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster_2"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hawk_vision_tooltip"		"600 700 800 900 2000 3000"
+			}
+		}
+	}
 }
