@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 100 100"
+    "AbilityCooldown"                                     "120 110 100 90 80"
     "AbilityDuration"                                     "5.0"
 
     // Damage.
@@ -35,7 +35,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 250 500"
+    "AbilityManaCost"                                     "150 175 200 300 500"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -58,17 +58,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_ms"                            "-25"
+        "requiem_reduction_ms"                            "-25 -25 -25 -30 -40" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_damage"                        "-70" //OAA
+        "requiem_reduction_damage"                        "-50 -60 -70 -80 -90" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_tooltip"                       "-70" //OAA
+        "requiem_reduction_tooltip"                       "-50 -60 -70 -80 -90" //OAA
       }
       "06"
       {
