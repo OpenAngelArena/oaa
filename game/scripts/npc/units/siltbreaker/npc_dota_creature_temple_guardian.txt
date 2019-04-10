@@ -32,10 +32,16 @@
 		"Ability8"          "boss_cliffwalk"
 		"Ability9"          "siltbreaker_boss_protection"
 
-    // Armor
-    //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"        // Physical protection.
-    "MagicalResistance"                                   "-25"        // Magical protection.
+    	// Armor
+    	//----------------------------------------------------------------
+    	"ArmorPhysical"                                       "25"        // Physical protection.
+    	"MagicalResistance"                                   "-50"       // Magical protection.
+        
+        // Bounty
+   		//----------------------------------------------------------------
+    	"BountyXP"                                            "4000"  // Experience earn.
+    	"BountyGoldMin"                                       "0"     // Gold earned min.
+    	"BountyGoldMax"                                       "0"     // Gold earned max.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -63,7 +69,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				  "12500"
+		"StatusHealth"				  "11000"
 		"StatusHealthRegen"			"25" // they can spam heal bombs for effective 500 hp/s heals
 		"StatusMana"				    "5000"
 		"StatusManaRegen"			  "30"
