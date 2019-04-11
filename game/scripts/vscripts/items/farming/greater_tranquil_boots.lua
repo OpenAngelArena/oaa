@@ -91,9 +91,9 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 			if cdRemaining > 0 then
 				self:SetDuration( cdRemaining, true )
 			end
-
-			self:StartIntervalThink( self.interval )
 		end
+
+		self:StartIntervalThink( self.interval )
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
@@ -129,9 +129,9 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 			if cdRemaining > 0 then
 				self:SetDuration( cdRemaining, true )
 			end
-
-			self:StartIntervalThink( self.interval )
 		end
+
+		self:StartIntervalThink( self.interval )
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
