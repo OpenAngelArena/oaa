@@ -5,7 +5,7 @@ if SellBlackList == nil then
 end
 
 local ItemSellBlackList = {
-  "item_upgrade_core",
+  --"item_upgrade_core",
   "item_infinite_bottle",
   "item_farming_core"
 }
