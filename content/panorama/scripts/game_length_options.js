@@ -24,7 +24,6 @@ function SetPlayerVote (vote) {
 
   console.log(Players.GetLocalPlayer() + ' votes for ' + vote);
   GameEvents.SendCustomGameEventToServer('gamelength_vote', {
-    playerId: Players.GetLocalPlayer(),
     vote: vote
   });
 }

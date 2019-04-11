@@ -17,7 +17,7 @@ setmetatable(RESPAWN_TIME_TABLE, {
     local minLevel = 1
     local maxLevel = 49
     local minTime = 5
-    local maxTime = 20
+    local maxTime = 40
     local clampedLevel = math.min(maxLevel, key)
     -- Store result instead of recalculating for lookups for the same level
     -- Linear interpolation between min and max level/time pairs
@@ -122,45 +122,21 @@ LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly to
 
 -- XP gain and rubberband on hero kills
 USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
-AOE_XP_LEVEL_MULTIPLIER = {
-  18,
-  13.5,
-  9,
-  6.3,
-  4.5
-}
-AOE_XP_BONUS_FACTOR ={
-  0.3,
-  0.3,
-  0.25,
-  0.2,
-  0.15
-}
 
--- Level = Killed hero's level (Dying Hero's Level)
--- Kill experience: f(Level) = 30*Level when Level<6; f(Level) = f(Level - 1) + 110 when Level>7; f(6) = 200; f(7) = 220;
--- HeroXP = Total XP of the killed hero (Dying Hero's XP)
--- EnemyTeamXP = Enemy team's total experience
--- AlliedTeamXP = Your team's total experience
--- XPDiff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP) (minimum 0)
-
--- Total experience that a hero gets when there is (number_of_heroes) in 1500 radius:
--- number_of_heroes:
---1 Hero: AOE_XP_LEVEL_MULTIPLIER[1] × L + AOE_XP_BONUS_FACTOR[1] × XPDiff × HeroXP + f(Level)
---2 Heroes: AOE_XP_LEVEL_MULTIPLIER[2] × L + AOE_XP_BONUS_FACTOR[2] × XPDiff × HeroXP + f(Level)/2
---3 Heroes: AOE_XP_LEVEL_MULTIPLIER[3] × L + AOE_XP_BONUS_FACTOR[3] × XPDiff × HeroXP + f(Level)/3
---4 Heroes: AOE_XP_LEVEL_MULTIPLIER[4] × L + AOE_XP_BONUS_FACTOR[4] × XPDiff × HeroXP + f(Level)/4
---5 Heroes: AOE_XP_LEVEL_MULTIPLIER[5] × L + AOE_XP_BONUS_FACTOR[5] × XPDiff × HeroXP + f(Level)/5
+-- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
+-- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
+HERO_XP_BOUNTY_BASE = 20            -- 40 in normal dota
+HERO_XP_BOUNTY_STREAK_BASE = 60     -- 200 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
+HERO_XP_BOUNTY_STREAK_INCREASE = 50 -- 150 in normal dota
+HERO_XP_BOUNTY_STREAK_MAX = 420     -- 1250 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
+HERO_XP_BONUS_FACTOR = 0.07         -- 0.14 in normal dota
+HERO_KILL_XP_RADIUS = 1500          -- 1500 in normal dota
 
 -- Bounty runes
 FIRST_BOUNTY_RUNE_SPAWN_TIME = 0        -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
--- gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD x game_time x (1 + gold_difference x game_time/10)
--- gold_difference = (EnemyTeamGold - AlliedTeamGold) / (EnemyTeamGold + AlliedTeamGold) (minimum 0)
--- xp_reward = BOUNTY_RUNE_INITIAL_TEAM_XP x game_time x (1 + XPDiff x game_time/10)
--- XPDiff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP) (minimum 0)
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------

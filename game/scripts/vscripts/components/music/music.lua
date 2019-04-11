@@ -92,7 +92,7 @@ end
 
 -- Receives mute requests
 function Music:MuteHandler(keys)
-  local playerID = keys.playerID
+  local playerID = keys.PlayerID
   DebugPrintTable(keys)
   --sets his state
   local muteTable = CustomNetTables:GetTableValue('music', 'mute')
