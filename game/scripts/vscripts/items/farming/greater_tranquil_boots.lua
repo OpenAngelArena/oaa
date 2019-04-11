@@ -374,3 +374,10 @@ item_greater_tranquil_boots_3 = class(item_greater_tranquil_boots)
 item_greater_tranquil_boots_4 = class(item_greater_tranquil_boots)
 item_greater_tranquil_boots_5 = class(item_greater_tranquil_boots)
 item_tranquil_origin = class(item_greater_tranquil_boots)
+
+function item_tranquil_origin:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_greater_tranquil_boots",
+    --"modifier_creep_bounty"
+  }
+end
