@@ -1,67 +1,60 @@
 "DOTAItems"
 {
+  "item_tranquil_boots"                                   "REMOVED"
   //=================================================================================================================
-  // Recipe: Tranquil Boots
+  // Recipe: Tranquil Origin
   //=================================================================================================================
-  "item_recipe_greater_tranquil_boots"
+  "item_recipe_tranquil_origin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3040"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8640"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "recipe"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_greater_tranquil_boots"
+    "ItemResult"                                          "item_tranquil_origin"
     "ItemRequirements"
     {
-      "01"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_tranquil_origin;item_boots;item_upgrade_core_2"
-      "03"                                                "item_tranquil_origin;item_boots;item_upgrade_core_3"
-      "04"                                                "item_tranquil_origin;item_boots;item_upgrade_core_4"
+      "01"                                                "item_farming_core"
 
     }
   }
 
   //=================================================================================================================
-  // Tranquil Boots
+  // Tranquil Origin
   //=================================================================================================================
-  "item_greater_tranquil_boots"
+  "item_tranquil_origin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3045"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8641"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_tranquil_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/greater_tranquils"
+    "AbilityTextureName"                                  "custom/tranquil_origin"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13.0"
+    "AbilityCooldown"                                     "0.0"
     "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "greater tranquil boots;tranquil boots;tranquils"
+    "ItemAliases"                                         "tranquil spark;tranquil boots;tranquils;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_greater_tranquil_boots_1;item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
-    "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
-
-
     "ItemDisplayCharges"                                  "1"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -69,7 +62,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "28 33 38 43"
+        "bonus_movement_speed"                            "7"
       }
       "02"
       {
@@ -79,7 +72,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "20 27 36 45"
+        "bonus_health_regen"                              "5"
       }
       "04"
       {
@@ -114,7 +107,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "25 30 35 40"
+        "broken_movement_speed"                           "0"
       }
       "11"
       {
@@ -134,7 +127,7 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "3000 5800 10000 17000"
+        "bonus_gold"                                      "900"
       }
       "15"
       {

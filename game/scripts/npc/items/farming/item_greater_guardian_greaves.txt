@@ -1,5 +1,6 @@
 "DOTAItems"
 {
+  "item_guardian_greaves"                                 "REMOVED"
   //=================================================================================================================
   // Recipe: Greater Guardian Greaves
   //=================================================================================================================
@@ -23,11 +24,7 @@
 
     "ItemRequirements"
     {
-      "01"                                     "item_guardian_greaves;item_greater_guardian_greaves_dummy;item_upgrade_core"
-      "02"                                     "item_guardian_greaves;item_greater_guardian_greaves_dummy;item_upgrade_core_2"
-      "03"                                     "item_guardian_greaves;item_greater_guardian_greaves_dummy;item_upgrade_core_3"
-      "04"                                     "item_guardian_greaves;item_greater_guardian_greaves_dummy;item_upgrade_core_4"
-      "05"                                     "item_greater_arcane_boots;item_mekansm;item_recipe_guardian_greaves"
+      "01"                                                "item_greater_arcane_boots;item_mekansm;item_recipe_guardian_greaves"
     }
   }
 
@@ -53,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "5475"
+    "ItemCost"                                            "5175"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves;guardian greaves;ggg"

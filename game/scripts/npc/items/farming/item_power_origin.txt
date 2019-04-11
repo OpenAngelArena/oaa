@@ -1,56 +1,51 @@
 "DOTAItems"
 {
+  "item_power_treads"                                     "REMOVED"
   //=================================================================================================================
-  // Recipe: Power Treads
+  // Recipe: Power Origin
   //=================================================================================================================
-  "item_recipe_greater_power_treads"
+  "item_recipe_power_origin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3010"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8610"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "recipe"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_greater_power_treads"
+    "ItemResult"                                          "item_power_origin"
     "ItemRequirements"
     {
-      "01"                                                "item_power_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_power_origin;item_boots;item_upgrade_core_2"
-      "03"                                                "item_power_origin;item_boots;item_upgrade_core_3"
-      "04"                                                "item_power_origin;item_boots;item_upgrade_core_4"
+      "01"                                                "item_farming_core"
     }
   }
 
   //=================================================================================================================
-  // Power Treads
+  // Power Origin
   //=================================================================================================================
-  "item_greater_power_treads"
+  "item_power_origin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3015"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8611"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/greater_power_treads"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/power_origin"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "greater power treads;power treads;treads"
+    "ItemAliases"                                         "power spark;power treads;treads;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,17 +54,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35"
+        "bonus_movement_speed"                            "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "16 24 36 54"
+        "bonus_stat"                                      "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 30 35 40"
+        "bonus_attack_speed"                              "15"
       }
       "04"
       {
@@ -84,12 +79,17 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "25 35 45 55"
+        "split_damage"                                    "15"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "25 35 45 55"
+        "split_damage_ranged"                             "15"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "all_stats"                                       "3"
       }
     }
 
