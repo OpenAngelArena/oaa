@@ -31,11 +31,20 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 	-- ability is destroyed, or will still complete
 	if coreType and not interrupted then
 		local coreCount = self:GetSpecialValueFor( "core_count" )
+		-- if we don't make the purchase time persist, then players could split a "stale" core
+		-- into two "fresh" cores that'll sell for more
+		-- that's silly so we're not doing that
+		-- ( could also just set the resulting core's purchase time forwad ten seconds, but
+		-- this is slicker )
+		local purchaseTime = self:GetPurchaseTime()
+		local player = self:GetPurchaser():GetPlayerOwner()
 
 		caster:RemoveItem( self )
 
 		for i = 1, coreCount do
-			caster:AddItemByName( coreType )
+			local item = CreateItem( coreType, player, player )
+			item:SetPurchaseTime( purchaseTime )
+			caster:AddItem( item )
 		end
 	end
 end
