@@ -69,3 +69,11 @@ item_greater_arcane_boots_3 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_4 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_5 = class(item_greater_arcane_boots)
 item_arcane_origin = class(item_greater_arcane_boots)
+
+function item_arcane_origin:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_arcane_boots",
+    "modifier_passive_gpm",
+    --"modifier_creep_bounty"
+  }
+end
