@@ -22,10 +22,10 @@
     "ItemResult"                                          "item_greater_travel_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_travel_boots;item_upgrade_core"
-      "02"                                                "item_travel_boots;item_upgrade_core_2"
-      "03"                                                "item_travel_boots;item_upgrade_core_3"
-      "04"                                                "item_travel_boots;item_upgrade_core_4"
+      "01"                                                "item_travel_origin;item_boots;item_upgrade_core"
+      "02"                                                "item_travel_origin;item_boots;item_upgrade_core_2"
+      "03"                                                "item_travel_origin;item_boots;item_upgrade_core_3"
+      "04"                                                "item_travel_origin;item_boots;item_upgrade_core_4"
     }
   }
 
@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
