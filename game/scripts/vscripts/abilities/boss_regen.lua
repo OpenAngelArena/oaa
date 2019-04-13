@@ -99,7 +99,7 @@ function modifier_boss_regen:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
- 
+
 	return funcs
 end
 
@@ -210,7 +210,7 @@ function modifier_boss_regen_degen:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_TOOLTIP,
 	}
- 
+
 	return funcs
 end
 
@@ -218,6 +218,6 @@ end
 
 function modifier_boss_regen_degen:OnTooltip( event )
 	local spell = self:GetAbility()
-	
+
 	return spell:GetSpecialValueFor( "health_degen_rate" )
 end
