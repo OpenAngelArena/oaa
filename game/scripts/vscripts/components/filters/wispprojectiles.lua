@@ -27,7 +27,7 @@ function WispProjectileFilter:Filter(filter_table)
 
   if attacker and not attacker:IsNull() then
     if attacker:IsRealHero() and attacker:HasTalent("special_bonus_unique_wisp_4") and is_an_attack_projectile == 1 then
-      if attacker:IsDisarmed() or attacker:IsStunned() or attacker:IsOutOfGame() or attacker:IsHexed() or attacker:IsCommandRestricted() then
+      if attacker:IsDisarmed() or attacker:IsStunned() or attacker:IsOutOfGame() or attacker:IsHexed() then
         return false
       end
     end
