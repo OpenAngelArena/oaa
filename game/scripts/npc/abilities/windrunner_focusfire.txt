@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"windrunner_focusfire"
+  "windrunner_focusfire"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "70"
-    "AbilityDuration"                                     "20.0 20.0 20.0"
+    "AbilityDuration"                                     "20.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "400"
+        "bonus_attack_speed"                              "425"
       }
       "02"
       {
@@ -52,17 +52,17 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "15.0 15.0 15.0"
+        "cooldown_scepter"                                "15.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "focusfire_damage_reduction_scepter"              "-30 -22 -14 -6 0"  //OAA
+        "focusfire_damage_reduction_scepter"              "-30 -20 -10 -5 0"  //OAA
       }
       "06"
       {
-        "var_type"            "FIELD_INTEGER"
-        "focusfire_fire_on_the_move"  "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "focusfire_fire_on_the_move"                      "1"
       }
     }
   }

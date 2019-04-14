@@ -1,0 +1,53 @@
+"DOTAItems"
+{
+  "item_recipe_sange"
+  {
+    "ID"              "161"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityTextureName"            "custom/recipe/recipe_1"
+  }
+  //=================================================================================================================
+  // Sange
+  //=================================================================================================================
+  "item_sange"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "162"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "2050"
+    "ItemShopTags"          "damage;str;unique"
+    "ItemQuality"         "artifact"
+    "ItemAliases"         "sange"
+    "ShouldBeSuggested"       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_strength"    "16 32"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "status_resistance"       "8 12" //OAA
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"      "8 20"
+      }
+    }
+  }
+}

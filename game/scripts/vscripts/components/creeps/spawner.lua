@@ -29,7 +29,7 @@ function CreepCamps:Init ()
   self.CampPRDCounters = {}
   self.firstSpawn = true
   if not SKIP_TEAM_SETUP then
-    Timers:CreateTimer(INITIAL_CREEP_DELAY, Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+    HudTimer:At(INITIAL_CREEP_DELAY, partial(self.CreepSpawnTimer, self))
   else
     Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
   end
@@ -67,10 +67,9 @@ function CreepCamps:CreepSpawnTimer ()
   Minimap:Respawn()
 
   if self.firstSpawn then
+    HudTimer:OnThe(CREEP_SPAWN_INTERVAL, partial(self.CreepSpawnTimer, self))
     self.firstSpawn = false
-    return CREEP_SPAWN_INTERVAL - INITIAL_CREEP_DELAY
   end
-  return CREEP_SPAWN_INTERVAL - (HudTimer:GetGameTime() % CREEP_SPAWN_INTERVAL)
 end
 
 function CreepCamps:UpgradeCreeps ()

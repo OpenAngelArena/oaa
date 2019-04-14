@@ -21,16 +21,16 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 700 800 900 1000 1100"
+    "AbilityCastRange"                                    "500 600 700 800 900 1000"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "27 24 21 18 18 18"
+    "AbilityCooldown"                                     "27 24 21 18 17 16"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "110 120 130 140 180 280"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,23 +42,23 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
+        "var_type"            "FIELD_INTEGER"
         "start_radius"        "200"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "end_radius"        "300"
+        "var_type"            "FIELD_INTEGER"
+        "end_radius"          "300"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
+        "var_type"            "FIELD_INTEGER"
         "end_distance"        "600 700 800 900 1000 1100"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "targets"         "8" //OAA
+        "var_type"            "FIELD_INTEGER"
+        "targets"             "8" //OAA
       }
       "05"
       {
@@ -68,23 +68,24 @@
       }
       "06"
       {
-        "var_type"      "FIELD_INTEGER"
-        "slow"      "-14 -16 -18 -20 -22 -24"
+        "var_type"            "FIELD_INTEGER"
+        "slow"                "-14 -16 -18 -20 -25 -30"
+        "LinkedSpecialBonus"  "special_bonus_unique_dazzle_1"
       }
       "07"
       {
-        "var_type"      "FIELD_INTEGER"
-        "projectile_speed"  "1300"
+        "var_type"            "FIELD_INTEGER"
+        "projectile_speed"    "1300"
       }
       "08"
       {
-        "var_type"      "FIELD_FLOAT"
-        "duration"    "4 5 6 7 9 11"
+        "var_type"            "FIELD_FLOAT"
+        "duration"            "4 5 6 7 8 9"
       }
       "09"
       {
-        "var_type"      "FIELD_INTEGER"
-        "range_tooltip"   "600 700 800 900 1000 1100"
+        "var_type"            "FIELD_INTEGER"
+        "range_tooltip"       "500 600 700 800 900 1000"
       }
     }
   }

@@ -17,7 +17,7 @@ if BossSpawner == nil then
 end
 
 function BossSpawner:Init ()
-  Timers:CreateTimer(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
+  HudTimer:At(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
   ChatCommand:LinkDevCommand("-spawnbosses", Dynamic_Wrap(self, 'SpawnAllBosses'), self)
 
   local allGoodPlayers = {}

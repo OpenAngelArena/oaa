@@ -79,7 +79,12 @@ var hilariousLoadingPhrases = [
   'Nerfing Tinker more',
   'Replacing all heroes with Oracle',
   'Losing self in the music the moment I owned it',
-  'Practicing invincible ledgedash'
+  'Practicing invincible ledgedash',
+  'Actually playing Auto Chess instead',
+  'Remember to poop aggressively',
+  'Sneaking loading screen text into the game simply because I can',
+  'Forgetting to upgrade boots',
+  'Hope everyone is having a great day'
 ];
 
 SetupTopBar();
@@ -807,11 +812,10 @@ function SelectArcana () {
 
     var data = {
       Hero: selectedArcana.hero,
-      Arcana: selectedArcana.setName,
-      PlayerId: Game.GetLocalPlayerID()
+      Arcana: selectedArcana.setName
     };
 
-    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + data.PlayerId + ' for hero ' + data.Hero);
+    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + Game.GetLocalPlayerID() + ' for hero ' + data.Hero);
     GameEvents.SendCustomGameEventToServer('arcana_selected', data);
   }
 }
@@ -861,10 +865,9 @@ function SelectBottle () {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
   var data = {
-    BottleId: bottleId,
-    PlayerId: Game.GetLocalPlayerID()
+    BottleId: bottleId
   };
-  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + data.PlayerId);
+  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
 
@@ -898,7 +901,6 @@ function SelectHero (hero) {
     } else {
       $.Msg('Selecting ' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
-        PlayerID: Game.GetLocalPlayerID(),
         hero: newhero
       });
     }

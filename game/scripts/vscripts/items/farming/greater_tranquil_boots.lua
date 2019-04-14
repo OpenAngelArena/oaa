@@ -10,6 +10,10 @@ LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.l
 function item_greater_tranquil_boots:GetAbilityTextureName()
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
 
+	if not self:IsBreakable() then
+		return baseName
+	end
+
 	local brokeName = ""
 
 	if self.tranqMod and not self.tranqMod:IsNull() and self.tranqMod:GetRemainingTime() > 0 then
@@ -34,6 +38,14 @@ end
 
 function item_greater_tranquil_boots:ShouldUseResources()
   return true
+end
+
+--------------------------------------------------------------------------------
+
+-- used for various checks to accomodate for origin
+-- ( or any future changes that make them unbreakable or something )
+function item_greater_tranquil_boots:IsBreakable()
+	return self:GetCooldown( self:GetLevel() ) > 0
 end
 
 --------------------------------------------------------------------------------
@@ -71,13 +83,15 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 
 	self.interval = spell:GetSpecialValueFor( "check_interval" )
 
-  if IsServer() then
-		local cdRemaining = spell:GetCooldownTimeRemaining()
-    -- Break for any remaining duration (e.g. if item was dropped and picked up)
-    -- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
-    if cdRemaining > 0 then
-      self:SetDuration( cdRemaining, true )
-    end
+	if IsServer() then
+		if spell:IsBreakable() then
+			local cdRemaining = spell:GetCooldownTimeRemaining()
+			-- Break for any remaining duration (e.g. if item was dropped and picked up)
+			-- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
+			if cdRemaining > 0 then
+				self:SetDuration( cdRemaining, true )
+			end
+		end
 
 		self:StartIntervalThink( self.interval )
 	end
@@ -107,13 +121,15 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 
 	self.interval = spell:GetSpecialValueFor( "check_interval" )
 
-  if IsServer() then
-    local cdRemaining = spell:GetCooldownTimeRemaining()
-    -- Break for any remaining duration (e.g. if item was dropped and picked up)
-    -- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
-    if cdRemaining > 0 then
-      self:SetDuration( cdRemaining, true )
-    end
+	if IsServer() then
+		if spell:IsBreakable() then
+			local cdRemaining = spell:GetCooldownTimeRemaining()
+			-- Break for any remaining duration (e.g. if item was dropped and picked up)
+			-- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
+			if cdRemaining > 0 then
+				self:SetDuration( cdRemaining, true )
+			end
+		end
 
 		self:StartIntervalThink( self.interval )
 	end
@@ -137,8 +153,8 @@ if IsServer() then
 		local parent = self:GetParent()
 		local spell = self:GetAbility()
 
-		-- disable everything here for illusions
-		if parent:IsIllusion() then
+		-- disable everything here for illusions or during duels / pre 0:00
+		if parent:IsIllusion() or not Gold:IsGoldGenActive() then
 			return
 		end
 
@@ -179,25 +195,16 @@ if IsServer() then
 			self.originOld = originParent
 		end
 	end
-
---------------------------------------------------------------------------------
-
-	function modifier_item_greater_tranquil_boots:IsNeutralCreep( unit )
-		local parent = self:GetParent()
-
-		return ( UnitFilter( unit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not unit:IsControllableByAnyPlayer() )
-	end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_item_greater_tranquil_boots:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
-		--MODIFIER_EVENT_ON_TAKEDAMAGE,
 	}
 
 	return funcs
@@ -206,38 +213,40 @@ end
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
+	function modifier_item_greater_tranquil_boots:IsNeutralCreep( unit )
 		local parent = self:GetParent()
 
-		-- thankfully, tranqs don't have complicated trigger requirements
-		if event.attacker == parent or event.target == parent then
-			local spell = self:GetAbility()
+		return ( UnitFilter( unit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not unit:IsControllableByAnyPlayer() )
+	end
 
-			-- determine the other unit that isn't the parent
-			local checkUnit = event.attacker
-			if event.attacker == parent then
-				checkUnit = event.target
-			end
+  function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local attacked_unit = event.target
 
-			-- if the checked unit is a neutral creep, don't break
-			if self:IsNeutralCreep( checkUnit ) then
-				-- nah
-				--[[
-				-- if both creep sap specials are greater than 0, and the attacker is the creep
-				-- apply the creep sap modifier
-				if checkUnit == event.attacker then
-					if spell:GetSpecialValueFor( "creep_sap_duration" ) > 0 and spell:GetSpecialValueFor( "creep_sap_damage" ) > 0 then
-						event.attacker:AddNewModifier( parent, spell, "modifier_item_greater_tranquil_boots_sap", {
-							duration = spell:GetSpecialValueFor( "creep_sap_duration" ),
-						} )
-					end
-				end
-				--]]
+    if attacker == parent or attacked_unit == parent then
+      local spell = self:GetAbility()
 
-				-- then check for naturalize eating
-				local currentCharges = spell:GetCurrentCharges()
+      -- Break Tranquils only in the following cases:
+      -- 1. If the parent attacked a hero
+      -- 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
+	  -- 3. Either of the above, and we don't have an origin.
+      if spell:IsBreakable() and ((attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer()))) then
+        spell:UseResources(false, false, true)
 
-				if currentCharges >= 100 and event.attacker == parent and not spell:IsMuted() and not parent:IsIllusion() then
+        local cdRemaining = spell:GetCooldownTimeRemaining()
+        if cdRemaining > 0 then
+          self:SetDuration( cdRemaining, true )
+        end
+      end
+
+      -- Tranquils instant kill should work only on neutrals (not bosses)
+	  -- and never in duels
+      if attacker == parent and self:IsNeutralCreep(attacked_unit) and Gold:IsGoldGenActive() then
+        local currentCharges = spell:GetCurrentCharges()
+
+        -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating
+				if currentCharges >= 100 and not spell:IsMuted() and not parent:IsIllusion() then
 					local player = parent:GetPlayerOwner()
 
 					-- remove 100 charges
@@ -260,63 +269,23 @@ if IsServer() then
 					parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
 
 					-- kill the target
-					event.target:Kill( spell, parent )
+					attacked_unit:Kill( spell, parent )
 				end
-
-				return
-			end
-
-      spell:UseResources(false, false, true)
-
-			-- seriously, this is easy
-
-			-- less so is actually making this do anything
-			-- because valve
-      local cdRemaining = spell:GetCooldownTimeRemaining()
-      if cdRemaining > 0 then
-        self:SetDuration( cdRemaining, true )
       end
-		end
-	end
-
---------------------------------------------------------------------------------
-
-	function modifier_item_greater_tranquil_boots:OnTakeDamage( event )
-		local parent = self:GetParent()
-
-		if event.unit == parent then
-			local attacker = event.attacker
-
-			-- return if the damage isn't from a creep
-			-- creep heroes count as not a creep, in this case
-			if UnitFilter( attacker, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) ~= UF_SUCCESS then
-				return
-			end
-
-			-- uncomment this if player units shouldn't proc this, either
-			if attacker:IsControllableByAnyPlayer() then
-				return
-			end
-
-			if not self.storedDamage then
-				self.storedDamage = event.damage
-			else
-				self.storedDamage = self.storedDamage + event.damage
-			end
 		end
 	end
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Special_Boots( event )
+function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Percentage_Unique( event )
 	local spell = self:GetAbility()
 
-	if self:GetRemainingTime() <= 0 then
-		return self.moveSpd or spell:GetSpecialValueFor( "bonus_movement_speed" )
+	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
+		return self.moveSpd
 	end
 
-	return self.moveSpdBroken or spell:GetSpecialValueFor( "broken_movement_speed" )
+	return self.moveSpdBroken
 end
 
 --------------------------------------------------------------------------------
@@ -324,7 +293,7 @@ end
 function modifier_item_greater_tranquil_boots:GetModifierPhysicalArmorBonus( event )
 	local spell = self:GetAbility()
 
-	return self.armor or spell:GetSpecialValueFor( "bonus_armor" )
+	return self.armor
 end
 
 --------------------------------------------------------------------------------
@@ -332,8 +301,8 @@ end
 function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen( event )
 	local spell = self:GetAbility()
 
-	if self:GetRemainingTime() <= 0 then
-		return self.healthRegen or spell:GetSpecialValueFor( "bonus_health_regen" )
+	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
+		return self.healthRegen
 	end
 
 	return 0
@@ -400,7 +369,15 @@ end
 
 --------------------------------------------------------------------------------
 
-item_greater_tranquil_boots_2 = item_greater_tranquil_boots
-item_greater_tranquil_boots_3 = item_greater_tranquil_boots
-item_greater_tranquil_boots_4 = item_greater_tranquil_boots
-item_greater_tranquil_boots_5 = item_greater_tranquil_boots
+item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)
+item_greater_tranquil_boots_3 = class(item_greater_tranquil_boots)
+item_greater_tranquil_boots_4 = class(item_greater_tranquil_boots)
+item_greater_tranquil_boots_5 = class(item_greater_tranquil_boots)
+item_tranquil_origin = class(item_greater_tranquil_boots)
+
+function item_tranquil_origin:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_greater_tranquil_boots",
+    --"modifier_creep_bounty"
+  }
+end

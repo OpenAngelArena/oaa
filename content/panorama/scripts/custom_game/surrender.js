@@ -1,4 +1,4 @@
-/* global Game, GameEvents, $ */
+/* global GameEvents, $ */
 
 'use strict';
 
@@ -60,5 +60,5 @@ function SendResult (result) {
 }
 
 function StartSurrenderVote () { // eslint-disable-line no-unused-vars
-  GameEvents.SendCustomGameEventToServer('surrender_start_vote', { playerid: Game.GetLocalPlayerID() });
+  GameEvents.SendCustomGameEventToServer('surrender_start_vote', {});
 }

@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "145.0"
+    "AbilityCooldown"                                     "90.0" //OAA
     "AbilityDuration"                                     "35"
 
     // Cost
@@ -64,22 +64,22 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "56 56 56 149 242"
+        "min_damage"                                      "59 59 59 156 254"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "61 61 61 162 264"
+        "max_damage"                                      "64 64 64 169 276"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "heal_percent"                                    "25"
       }
-      "09"
+      "09" // average_damage is important for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "58"
+        "average_damage"                                  "62 62 62 162 265" //OAA, Valve has it wrong
       }
       "10"
       {

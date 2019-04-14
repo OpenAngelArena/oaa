@@ -37,7 +37,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "ItemCost"                                            "8350"
+    "ItemCost"                                            "8250"
     "ItemAliases"                                         "ad 3;aeon disk 3"
 
     "AbilitySharedCooldown"                               "combobreaker"
@@ -51,12 +51,12 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health"      "250 1000 2000 3000 4000"
+        "bonus_health"      "300 1000 2000 3000 4000"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_mana"      "250 500 1000 1500 2000"
+        "bonus_mana"      "300 500 1000 2400 3000"
       }
       "03"
       {
@@ -66,7 +66,7 @@
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "status_resistance"   "25"
+        "status_resistance"   "75"
       }
       "05"
       {

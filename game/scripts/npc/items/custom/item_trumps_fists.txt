@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16550"
+    "ItemCost"                                            "16450"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps fists;covfefe"
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 100"
+        "bonus_damage"                                    "10 20"
       }
       "02"
       {

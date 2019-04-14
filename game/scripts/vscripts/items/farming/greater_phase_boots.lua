@@ -305,7 +305,8 @@ end
 ]]--
 --------------------------------------------------------------------------------
 
-item_greater_phase_boots_2 = item_greater_phase_boots
-item_greater_phase_boots_3 = item_greater_phase_boots
-item_greater_phase_boots_4 = item_greater_phase_boots
-item_greater_phase_boots_5 = item_greater_phase_boots
+item_greater_phase_boots_2 = class(item_greater_phase_boots)
+item_greater_phase_boots_3 = class(item_greater_phase_boots)
+item_greater_phase_boots_4 = class(item_greater_phase_boots)
+item_greater_phase_boots_5 = class(item_greater_phase_boots)
+item_phase_origin = class(item_greater_phase_boots)

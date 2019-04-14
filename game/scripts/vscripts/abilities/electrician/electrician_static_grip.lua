@@ -201,20 +201,14 @@ if IsServer() then
 		local caster = self:GetCaster()
 		local spell = self:GetAbility()
 
-		-- if we're past the break distance, destroy the modifier
-		if caster:GetRangeToUnit( parent ) > self.distBreak then
-			self:Destroy()
-		-- otherwise, inflict damage
-		else
-			ApplyDamage( {
-				victim = parent,
-				attacker = caster,
-				damage = self.damagePerInterval,
-				damage_type = self.damageType,
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
-				ability = spell,
-			} )
-		end
+		ApplyDamage( {
+			victim = parent,
+			attacker = caster,
+			damage = self.damagePerInterval,
+			damage_type = self.damageType,
+			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			ability = spell,
+		} )
 	end
 end
 
