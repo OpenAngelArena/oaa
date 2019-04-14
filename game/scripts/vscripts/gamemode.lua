@@ -164,6 +164,7 @@ function GameMode:OnPreGame()
   InitModule(EntityStatProvider)
   InitModule(RespawnManager)
   InitModule(BountyRunePick)
+  InitModule(WispProjectileFilter)
 
   CheckCheatMode()
 end
