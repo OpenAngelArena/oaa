@@ -15,7 +15,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCooldown"                                     "40 38 36 34 32 30" //OAA
+    "AbilityCooldown"                                     "35" //OAA
 
     //"AbilityManaCost"                                   "0"
 
@@ -26,7 +26,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "return_damage"                                   "30 55 70 85 150 250" //OAA
+        "return_damage"                                   "30 50 70 90 150 300" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_centaur_3"
       }
       "02"
