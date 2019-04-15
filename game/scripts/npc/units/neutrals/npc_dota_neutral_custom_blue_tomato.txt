@@ -14,7 +14,7 @@
     "ModelScale"                                          "0.95"
     "IsNeutralUnitType"                                   "1"
     "CanBeDominated"                                      "1"     // Helm of Dominator interaction
-    "UseNeutralCreepBehavior"                             "0"     // If you want to use a custom behavior (AI), set to 0
+    "UseNeutralCreepBehavior"                             "1"     // If you want to use a custom behavior (AI), set to 0
 
     // Abilities
     //----------------------------------------------------------------
@@ -36,7 +36,7 @@
     "AttackRate"                                          "1.55"  // Speed of attack.
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
-    "AttackRange"                                         "150"   // Range within a target can be attacked.
+    "AttackRange"                                         "100"   // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"     // Speed of projectile.
 

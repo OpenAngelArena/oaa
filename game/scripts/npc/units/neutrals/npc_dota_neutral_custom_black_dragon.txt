@@ -1,31 +1,32 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Neutral: now Ancient, it will be Corner Camp - Black Dragon
+  // Neutral: Corner Camp - Black Ancient Dragon
   //=================================================================================
   "npc_dota_neutral_custom_black_dragon"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_dragon/n_creep_black_dragon.vmdl"  // change model if needed
-    "BaseClass"                                           "npc_dota_creep_neutral"        // change to npc_dota_creature when it becomes Corner
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_drake/n_creep_black_drake.vmdl"
+    "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Ranged"
     "Level"                                               "6"
     "IsAncient"                                           "1"
-    "ModelScale"                                          "1"
+    "ModelScale"                                          "0.7"
     "IsNeutralUnitType"                                   "1"
+    "UseNeutralCreepBehavior"                             "0"     // If you want to use a custom behavior (AI), set to 0
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "black_dragon_fireball"
-    "Ability2"                                            "black_dragon_splash_attack"    // replace with black_dragon_dragonhide_aura_oaa when it becomes Corner
-    "Ability3"                                            "black_dragon_dragonhide_aura"  // remove when it becomes Corner camp
+    "Ability2"                                            "black_dragon_dragonhide_aura_oaa"
+    "Ability3"                                            ""
     "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "3"       // Physical protection.
-    "MagicalResistance"                                   "70"      // Magical protection.
+    "MagicalResistance"                                   "25"      // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -36,8 +37,8 @@
     "AttackAnimationPoint"                                "0.94"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "300"     // Range within a target can be acquired.
     "AttackRange"                                         "300"     // Range within a target can be attacked.
-    "ProjectileModel"                                     "particles/neutral_fx/black_dragon_attack.vpcf" // Particle system model for projectile.
-    "ProjectileSpeed"                                     "1500"    // Speed of projectile.
+    "ProjectileModel"                                     "particles/neutral_fx/black_drake_attack.vpcf"
+    "ProjectileSpeed"                                     "900"    // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -53,12 +54,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "300"     // Speed.
+    "MovementSpeed"                                       "350"     // Speed.
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "2000"    // Base health.
-    "StatusHealthRegen"                                   "2"       // Health regeneration rate.
+    "StatusHealthRegen"                                   "1"       // Health regeneration rate.
     "StatusMana"                                          "500"     // Base mana.
     "StatusManaRegen"                                     "1"       // Mana regeneration rate.
 
