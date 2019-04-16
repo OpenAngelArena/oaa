@@ -21,8 +21,8 @@ function WispProjectileFilter:Filter(filter_table)
   local projectile_speed = filter_table.move_speed
 
   local attacker
-  if filter_table.entindex_source_const then
-		attacker = EntIndexToHScript(filter_table.entindex_source_const)
+  if source_index then
+		attacker = EntIndexToHScript(source_index)
 	end
 
   if attacker and not attacker:IsNull() then
