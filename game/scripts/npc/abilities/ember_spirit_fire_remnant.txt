@@ -15,7 +15,7 @@
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "2000" //OAA
+    "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -44,14 +44,14 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "38.0"
+        "charge_restore_time"                             "25.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 225 300 700 1200" //OAA
+        "damage"                                          "100 200 300 700 1200"
       }
       "05"
       {
