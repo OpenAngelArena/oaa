@@ -47,12 +47,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "55.0"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "32600"
+    "ItemCost"                                            "32700"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater arcane boots 4;greater arcanes 4;arcanes 4"
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "55 61 68 75"
+        "bonus_movement"                                  "25 30 35 40"
       }
       "02"
       {
@@ -78,17 +78,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_amount"                                "170 250 400 600"
+        "replenish_amount"                                "180 260 410 610"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_radius"                                "900"
+        "replenish_radius"                                "1200"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "1800 3200 5500 9000"
+        "bonus_gold_per_minute"                           "2000 3200 5500 9000"
       }
       "06"
       {

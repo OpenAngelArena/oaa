@@ -37,27 +37,12 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "images_do_damage_percent"  "0"
+        "illusion_damage_out_pct"  "100"
       }
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "images_do_damage_percent_tooltip"      "100"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "images_take_damage_percent"  "100"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "images_take_damage_percent_tooltip"      "200"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "illusion_duration"     "6"
+        "illusion_damage_in_pct"      "150"
       }
     }
   }

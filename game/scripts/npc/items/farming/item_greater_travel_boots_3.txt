@@ -55,14 +55,15 @@
     "AbilityTextureName"                                  "item_custom/greater_travels_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
-    "AbilitySharedCooldown"                               "teleport"
-    "AbilityChannelTime"                                  "2.75 2.5 2.25 2"
+    "AbilityCooldown"                                     "90.0"
+    "AbilitySharedCooldown"                               "travel"
+    "AbilityChannelTime"                                  "2.5 2.2 1.9 1.6"
+
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "12600"
+    "ItemCost"                                            "12700"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot 3;boots of travel 3;greater boots of travel 3"
@@ -80,17 +81,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "125 150 175 200"
+        "bonus_movement_speed"                            "32 40 45 50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "85 100 115 130"
+        "assist_percent"                                  "90 105 120 135"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1300 1400 1500 1600"
+        "assist_radius"                                   "1500"
       }
       "04"
       {

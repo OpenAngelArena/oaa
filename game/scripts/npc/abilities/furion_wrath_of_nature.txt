@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
     "MaxLevel"                                            "5"
@@ -25,8 +25,8 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5"
-    "AbilityCooldown"                                     "60 60 60 60 60"
+    "AbilityCastPoint"                                    "0.5"
+    "AbilityCooldown"                                     "60"
     "AbilityManaCost"                                     "175 225 275 525 750"
 
     // Special
@@ -36,12 +36,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_targets"                                     "16 16 16"
+        "max_targets"                                     "18"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 140 170 320 475"
+        "damage"                                          "110 140 170 340 510"
       }
       "03"
       {
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "135 170 205 375 550"
+        "damage_scepter"                                  "135 170 205 410 615"
       }
       "06"
       {

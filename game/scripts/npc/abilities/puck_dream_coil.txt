@@ -11,19 +11,22 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
     "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "5"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.1 0.1 0.1"
+    "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 60 60"
+    "AbilityCooldown"                                     "70 65 60 55 50"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,12 +43,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_duration"                                   "6.0 6.0 6.0"
+        "coil_duration"                                   "6.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_break_radius"                               "600 600 600"
+        "coil_break_radius"                               "600"
       }
       "03"
       {
@@ -55,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration"                              "1.5 2.25 3.0 3.5 4.0"
+        "coil_stun_duration"                              "1.8 2.4 3.0 3.5 4.0"
       }
       "05"
       {
@@ -65,7 +68,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_radius"                                     "375 375 375"
+        "coil_radius"                                     "375"
       }
       "07"
       {
@@ -80,7 +83,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration_scepter"                      "1.5 3 4.5 4.75 5.5"
+        "coil_stun_duration_scepter"                      "2 3 4.5 4.75 5.5" //OAA
       }
     }
   }

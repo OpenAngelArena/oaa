@@ -10,10 +10,9 @@
     "ID"                                                  "5012"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,16 +20,13 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8"
-    "AbilityDuration"                                     "8 12 16 20 20 20"
+    "AbilityCooldown"                                     "12 10 8 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95"
+    "AbilityManaCost"                                     "50 75 100 125 270 500"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,13 +35,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "enfeeble_attack_reduction"                       "30 60 90 120 270 420"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bane_1"
+        "status_resistance_reduction"                     "36 44 52 60 68 76"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "enfeeble_tooltip_duration"                       "8 12 16 20 20 20"
+        "attack_speed_reduction"                          "50 75 100 125 200 300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bane_1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "8"
       }
     }
   }

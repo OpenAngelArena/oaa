@@ -21,7 +21,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625"
@@ -29,9 +28,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "5.0"
-    "AbilityCooldown"                                     "120.0 110.0 100.0 100.0 100.0"
-
+    "AbilityChannelTime"                                  "6.0"
+    "AbilityCooldown"                                     "120 110 100 100 100"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +52,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fiend_grip_duration"                             "5.0"
+        "fiend_grip_duration"                             "6.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_3"
       }
       "04"

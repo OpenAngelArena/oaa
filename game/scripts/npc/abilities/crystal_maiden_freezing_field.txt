@@ -22,16 +22,16 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "10"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 100 90 90 90"
+    "AbilityCooldown"                                     "110 100 90 80 70"
     "AbilityDuration"                                     "10.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 400 600 775 875"
+    "AbilityManaCost"                                     "200 400 600 800 1000"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -51,6 +51,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "explosion_radius"                                "300"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "20 30 40 50 60"  //OAA
+      }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -59,12 +64,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow"                                  "-30"
+        "movespeed_slow"                                  "-20 -30 -40 -50 -60" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_slow"                                     "-60"
+        "attack_slow"                                     "-60 -90 -120 -150 -180" //OAA
       }
       "07"
       {
@@ -84,7 +89,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "105 170 250 600 950"
+        "damage"                                          "125 200 275 600 950" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
       }
       "11"

@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 14 11 8 8 8" //OAA
+    "AbilityCooldown"                                     "16 14 12 10 8 8" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,13 +43,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "750" //OAA
+        "movement_speed"                                  "300 325 350 375 400 425"
         "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.2 1.6 2.0 2.4 2.6 3.0"
+        "stun_duration"                                   "1.2 1.6 2.0 2.4 2.6 2.8"
       }
       "03"
       {

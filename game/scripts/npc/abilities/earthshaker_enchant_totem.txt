@@ -64,6 +64,26 @@
         "var_type"                                        "FIELD_INTEGER"
         "aftershock_range"                                "300"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_height"                                  "950"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_height_arcbuffer"                        "100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_acceleration_z"                          "4000"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_acceleration_horizontal"                 "3000"
+      }
     }
   }
 }

@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spirit Breaker: Bulldoze
+  //=================================================================================================================
+  "spirit_breaker_bulldoze"
+  {
+    "ID"                                                  "7301"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25 30 35 40 100 150"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "12 18 24 30 36 42"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "30 40 50 60 70 80"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8"
+      }
+    }
+  }
+}

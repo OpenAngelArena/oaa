@@ -145,6 +145,7 @@ end
 
 function GameMode:OnPreGame()
   -- initialize modules
+  InitModule(PointsManager)
   InitModule(Music)
   InitModule(Gold)
   InitModule(BlinkBlock)
@@ -159,9 +160,10 @@ function GameMode:OnPreGame()
   InitModule(NGP)
   InitModule(Doors)
   InitModule(HeroKillGold)
+  InitModule(HeroKillXP)
   InitModule(EntityStatProvider)
-  InitModule(ProtectionAura)
   InitModule(RespawnManager)
+  InitModule(BountyRunePick)
 
   CheckCheatMode()
 end
@@ -176,7 +178,6 @@ function GameMode:OnGameInProgress()
 
   -- initialize modules
   InitModule(HudTimer)
-  InitModule(PointsManager)
   InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
@@ -191,6 +192,8 @@ function GameMode:OnGameInProgress()
   InitModule(PlayerConnection)
   InitModule(StatusResistance)
   InitModule(SaveLoadState)
+  InitModule(Runes)
+  InitModule(ProtectionAura)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
@@ -231,6 +234,7 @@ function GameMode:InitGameMode()
   InitModule(FilterManager)
   InitModule(Bottlepass)
   InitModule(Courier)
+  InitModule(StartingItems)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)

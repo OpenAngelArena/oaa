@@ -1,8 +1,8 @@
 "addon"
 {
   "addon_game_name"                 "Open Angel Arena"
-  "npc_dota_hero_sohei"                                     "Sohei"
-  "npc_dota_hero_electrician"                                     "Chatterjee"
+  "npc_dota_hero_sohei"             "Sohei"
+  "npc_dota_hero_electrician"       "Chatterjee"
 
   "oaa_game_length_short"           "Extra gold and low kill limits to keep the action at maximum and burn out fast. Should take about 20-30 minutes."
   "oaa_game_length_normal"          "Classic Angel Arena pace with gradual buildups into powerful godlike heroes. Games last about 45 minutes to an hour."
@@ -12,7 +12,6 @@
   "oaa_game_length_normal_title"    "Normal Game"
   "oaa_game_length_long_title"      "Long Game"
 
-
   "ngp_builds_into"                 "Builds into"
   "ngp_need"                        "Need"
   "ngp_greed"                       "Greed"
@@ -21,18 +20,18 @@
   "dota_gamemode_15"                "Open Angel Arena"
 
   "game_info_header_objective"      "Objective:"
-  "brief_description"               "Accumulate points by killing players and bosses. First to hit the kill limit wins!"
+  "brief_description"               "Accumulate points by killing players and bosses and by capturing Capture Points. First to hit the kill limit wins!"
   "game_info_header_how_to_play"    "How To Play:"
 
   "game_info_duels"                "Take to the <span class='duels'>Duel</span> Arena in a variety of team comps and battle to the death. Activate the highground and use the shop to get the upper hand."
 
   "game_info_bosses"               "<span class='bosses'>Bosses</span> and their loot are the key to unlocking powerful item upgrades. Their difficulty increases as you defeat them and some don't play by the rules."
 
-  "game_info_farming_core"           "There are two boss pits near your base. Killing a boss in either pit for the first time rewards your team with a <span class='farmingcore'>Farming Core.</span> When combined with your upgraded boots this item grants your hero special creep-killing abilities."
+  "game_info_farming_core"           "Players start with a <span class='upgradecore'>Yearning Spark</span> that can be upgraded into starting items with potent stats and that aid in gold generation. With an <span class='upgradecore'>Upgrade Core</span>, these Sparks can be combined with Boots of Speed and will retain all benefits."
 
-  "game_info_reflex_core"          "Killing the boss in the other nearby pit for the first time rewards your team with a <span class='reflexcore'>Reflex Core.</span> The Reflex items are among the most powerful in the game."
+  //"game_info_reflex_core"          "Killing the boss in the other nearby pit for the first time rewards your team with a <span class='reflexcore'>Reflex Core.</span> The Reflex items are among the most powerful in the game."
 
-  "game_info_farming_cave"          "Behind your team's fountain is the <span class='farmingcave'>Farming Cave</span>, which serves as an alternate area to explore safer from enemy interference."
+  //"game_info_farming_cave"          "Behind your team's fountain is the <span class='farmingcave'>Farming Cave</span>, which serves as an alternate area to explore safer from enemy interference."
 
-  "game_info_upgrade_core"                 "<span class='upgradecore'>Upgrade Cores</span> drop from all bosses. The more powerful the boss, the more powerful the core. Higher tier upgrade cores can serve as any tier below them. Use them wisely."
+  "game_info_upgrade_core"         "<span class='upgradecore'>Upgrade Cores</span> drop from all bosses. The more powerful the boss, the more powerful the core. Higher tier upgrade cores can serve as a replacement for any tier below them. Use them wisely."
 }

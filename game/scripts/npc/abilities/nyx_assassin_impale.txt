@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "125 125 125 125"
+        "width"                                           "125"
       }
       "02"
       {
@@ -51,18 +51,18 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1600 1600 1600 1600"
+        "speed"                                           "1600"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_upgrade"                                "7"
+        "cooldown_upgrade"                                "11" //OAA, I hope this is setting the cd to this value and not decreasing by this value
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "impale_damage"     "80 140 200 260 560 860"
-        "LinkedSpecialBonus"  "special_bonus_unique_nyx_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "impale_damage"                                   "80 140 200 260 560 860"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nyx_2"
       }
     }
   }

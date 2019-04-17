@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
+    "ItemCost"                                            "850"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_rod_of_atos"
     "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_bracer;item_bracer"
+      "01"                                                "item_staff_of_wizardry;item_crown;item_crown"
     }
   }
 
@@ -40,16 +40,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "atos"
-    "AbilityCastRange"                                    "1150"
+    "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
     "AbilityTextureName"                                  "custom/rod_of_atos_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 150 250 350 450"
-    "ItemCost"                                            "2930"
+    "ItemCost"                                            "2750"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "rod of atos;atos"
@@ -70,12 +70,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 25 35 45 55"
+        "bonus_strength"                                  "12 22 32 42 52"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "6 9 14 20 30"
+        "bonus_agility"                                   "12 22 32 42 52"
       }
       "04"
       {

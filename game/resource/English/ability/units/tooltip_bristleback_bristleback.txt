@@ -2,11 +2,13 @@
 // Bristleback Bristleback
 //=============================================================================
 
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa"              "Bristleback"
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Description"        "Bristleback takes less damage if hit on the sides or rear.  If Bristleback takes %quill_release_threshold% damage from the rear, he releases a Quill Spray of the current level."
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Lore"            "Turning his back to a fight might be just the thing."
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Note0"          "Bristleback's rear is considered to be within 70 degrees from the back."
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Note1"          "Bristleback's side is considered to be within 110 degrees from the back."
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa_side_damage_reduction"  "%SIDE DAMAGE REDUCTION:"
-"DOTA_Tooltip_ability_bristleback_bristleback_oaa_back_damage_reduction"  "%BACK DAMAGE REDUCTION:"
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa"                          "Bristleback"
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Description"              "Bristleback takes less damage if hit on the sides or rear.  If Bristleback takes %quill_release_threshold% damage from the rear, he releases a Quill Spray of the current level.<font color='#FFA500'>Bristleback has a cooldown.</font>"
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Lore"                     "Turning his back to a fight might be just the thing."
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Note0"                    "Bristleback's rear is considered to be within 70 degrees from the back."
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_Note1"                    "Bristleback's side is considered to be within 110 degrees from the back."
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_side_damage_reduction"    "%SIDE DAMAGE REDUCTION:"
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_back_damage_reduction"    "%BACK DAMAGE REDUCTION:"
 "DOTA_Tooltip_ability_bristleback_bristleback_oaa_quill_release_threshold"  "DAMAGE THRESHOLD:"
+
+"DOTA_Tooltip_ability_bristleback_bristleback_Description"                  "#{DOTA_Tooltip_ability_bristleback_bristleback_oaa_Description}"

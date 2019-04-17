@@ -24,7 +24,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0"
+        "duration"                                        "1.0" //OAA, for picking screen tooltip
       }
       "02"
       {
@@ -34,12 +34,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "10 15 20 25 25 25"
+        "chance_pct"                                      "10 15 20 25 25 25" //OAA, for picking screen tooltip
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 125 300 475"
+        "bonus_damage"                                    "75 100 125 150 325 500"  //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
     }

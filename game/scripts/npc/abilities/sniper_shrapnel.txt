@@ -27,7 +27,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
 
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
@@ -44,6 +43,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed"                             "-15 -20 -25 -30 -35 -40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_5"
       }
       "02"
       {
@@ -80,7 +80,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "55"
+        "charge_restore_time"                             "40"
       }
     }
   }
