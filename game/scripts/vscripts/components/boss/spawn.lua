@@ -145,9 +145,9 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     return
   end
 
-  local heart = CreateItem("item_heart", bossHandle, bossHandle)
+  --local heart = CreateItem("item_heart", bossHandle, bossHandle)
 
-  bossHandle:AddItem(heart)
+  --bossHandle:AddItem(heart)
 
   --Adding cores to the bosses inventory
   local core = CreateItem(BossSpawner.CoreItems[bossTier], bossHandle, bossHandle)
