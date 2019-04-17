@@ -69,7 +69,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 750 1000 1500"
+        "bonus_health"                                    "400 650 900 1200 1600" //OAA
       }
       "02"
       {
@@ -79,7 +79,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 3 5 7 10"
+        "bonus_all_stats"                                 "5" //OAA
       }
       "04"
       {
@@ -89,17 +89,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100 150 200 300"
+        "block_damage_melee"                              "25 45 75 100 150 200" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 45 75 100 150"
+        "block_damage_ranged"                             "15 20 35 50 70 90" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "block_chance"                                    "100" //OAA
       }
       "08"
       {
@@ -116,15 +116,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_aoe_radius"                                "1200"
       }
-      "11"
+       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_melee_active"                       "60 100 150 210 280" //OAA
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
+        "block_damage_ranged_active"                      "60 100 150 210 280" //OAA
       }
       "13"
       {
