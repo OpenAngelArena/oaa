@@ -22,10 +22,10 @@
     "ItemResult"                                          "item_greater_tranquil_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_tranquil_boots;item_upgrade_core"
-      "02"                                                "item_tranquil_boots;item_upgrade_core_2"
-      "03"                                                "item_tranquil_boots;item_upgrade_core_3"
-      "04"                                                "item_tranquil_boots;item_upgrade_core_4"
+      "01"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
+      "02"                                                "item_tranquil_origin;item_boots;item_upgrade_core_2"
+      "03"                                                "item_tranquil_origin;item_boots;item_upgrade_core_3"
+      "04"                                                "item_tranquil_origin;item_boots;item_upgrade_core_4"
 
     }
   }
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1150"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots;tranquil boots;tranquils"
@@ -61,7 +61,7 @@
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
 
 
-    "ItemDisplayCharges"      "1"
+    "ItemDisplayCharges"                                  "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

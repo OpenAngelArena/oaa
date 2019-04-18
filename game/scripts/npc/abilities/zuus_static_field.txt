@@ -13,9 +13,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -23,7 +20,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_health_pct"                               "4 6 8 10 10 10"
+        "damage_health_pct"                               "5 7 9 11 12 13"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus"
       }
     }

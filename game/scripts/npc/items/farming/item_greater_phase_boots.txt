@@ -22,10 +22,10 @@
     "ItemResult"                                          "item_greater_phase_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_phase_boots;item_upgrade_core"
-      "02"                                                "item_phase_boots;item_upgrade_core_2"
-      "03"                                                "item_phase_boots;item_upgrade_core_3"
-      "04"                                                "item_phase_boots;item_upgrade_core_4"
+      "01"                                                "item_phase_origin;item_boots;item_upgrade_core"
+      "02"                                                "item_phase_origin;item_boots;item_upgrade_core_2"
+      "03"                                                "item_phase_origin;item_boots;item_upgrade_core_3"
+      "04"                                                "item_phase_origin;item_boots;item_upgrade_core_4"
     }
   }
 
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1580"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots;phase boots;phase"

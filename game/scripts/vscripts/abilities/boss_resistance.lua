@@ -32,6 +32,9 @@ end
 
 function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+  if keys.attacker == self:GetParent() then -- boss degen nonsense
+    return 0
+  end
   return keys.damage * damageReduction / 100
 end
 
