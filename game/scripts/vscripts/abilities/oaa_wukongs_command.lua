@@ -8,12 +8,12 @@ LinkLuaModifier("modifier_monkey_clone_oaa_idle_effect", "abilities/oaa_wukongs_
 LinkLuaModifier("modifier_monkey_clone_oaa_hidden", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 
 if IsServer() then
-  function monkey_king_wukongs_command_oaa:OnUpgrade( )
-
+  -- For Rubick OnUpgrade never happens, that's why OnStolen is needed but then it will lag
+  function monkey_king_wukongs_command_oaa:OnUpgrade()
     if self.clones == nil then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = 10
+      local max_number_of_monkeys_per_ring = 9
       local hidden_point = Vector(-10000,-10000,-10000)
       -- Initialize tables
       self.clones={}
@@ -39,9 +39,6 @@ if IsServer() then
       self:OnInventoryContentsChanged()
     end
   end
-
-  -- For Rubick OnUpgrade never happens, that's why OnStolen is needed
-  -- monkey_king_wukongs_command_oaa.OnStolen() = monkey_king_wukongs_command_oaa.OnUpgrade() -- dunno if this works
 
   function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
     if self.clones ~= nil then
@@ -283,6 +280,10 @@ function monkey_king_wukongs_command_oaa:ProcsMagicStick()
   return true
 end
 
+function monkey_king_wukongs_command_oaa:IsStealable()
+  return false
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_wukongs_command_oaa_thinker = class(ModifierBaseClass)
@@ -432,7 +433,7 @@ function modifier_monkey_clone_oaa:OnCreated()
     parent:SetNeverMoveToClearSpace(true)
 
     -- animation stances
-    parent:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
+    parent:AddNewModifier(caster, self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
     AddAnimationTranslate(parent, "attack_normal_range")
   end
 end
@@ -461,7 +462,7 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
     if parent == keys.attacker then
       local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
 
-      Timers:CreateTimer(3, function()
+      Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(castHandle, false)
         ParticleManager:ReleaseParticleIndex(castHandle)
       end)
