@@ -11,14 +11,8 @@ end
 
 function WispProjectileFilter:Filter(filter_table)
   --Debug:EnableDebugging()
-  local can_be_dodged = filter_table.dodgeable              -- values: 1 for yes or 0 for no
-  local ability_index = filter_table.entindex_ability_const -- value if not ability: -1
   local source_index = filter_table.entindex_source_const
-  local target_index = filter_table.entindex_target_const
-  local expire_time = filter_table.expire_time
   local is_an_attack_projectile = filter_table.is_attack    -- values: 1 for yes or 0 for no
-  local max_impact_time = filter_table.max_impact_time
-  local projectile_speed = filter_table.move_speed
 
   local attacker
   if source_index then
