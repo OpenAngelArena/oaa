@@ -15,7 +15,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "MaxLevel"                                            "6"
 
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -36,13 +35,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-30 -35 -40 -45 -50 -55"
-        "LinkedSpecialBonus"  "special_bonus_unique_skywrath_3"
+        "resist_debuff"                                   "-25 -30 -35 -40 -45 -50" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_skywrath_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "seal_duration"                                   "2.0 3.0 4.0 5.0 6.0 7.0" //OAA
+        "seal_duration"                                   "2.5 3.0 4.0 5.0 5.5 6.0" //OAA
       }
       "03"
       {

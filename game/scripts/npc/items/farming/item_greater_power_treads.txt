@@ -22,10 +22,10 @@
     "ItemResult"                                          "item_greater_power_treads"
     "ItemRequirements"
     {
-      "01"                                                "item_power_treads;item_upgrade_core"
-      "02"                                                "item_power_treads;item_upgrade_core_2"
-      "03"                                                "item_power_treads;item_upgrade_core_3"
-      "04"                                                "item_power_treads;item_upgrade_core_4"
+      "01"                                                "item_power_origin;item_boots;item_upgrade_core"
+      "02"                                                "item_power_origin;item_boots;item_upgrade_core_2"
+      "03"                                                "item_power_origin;item_boots;item_upgrade_core_3"
+      "04"                                                "item_power_origin;item_boots;item_upgrade_core_4"
     }
   }
 
@@ -43,7 +43,7 @@
     "AbilityTextureName"                                  "custom/greater_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1550"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads;power treads;treads"

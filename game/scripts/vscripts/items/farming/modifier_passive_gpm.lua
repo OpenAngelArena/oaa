@@ -27,8 +27,8 @@ if IsServer() then
     local caster = self:GetCaster()
     local gpm = self:GetAbility():GetSpecialValueFor('bonus_gold_per_minute')
 
-    -- Don't give gold on illusions, Tempest Doubles, or Meepo clones
-    if caster:IsIllusion() or caster:IsTempestDouble() or caster:IsClone() then
+    -- Don't give gold on illusions, Tempest Doubles, or Meepo clones, or during duels
+    if caster:IsIllusion() or caster:IsTempestDouble() or caster:IsClone() or not Gold:IsGoldGenActive() then
       return
     end
     Gold:ModifyGold(caster:GetPlayerOwnerID(), gpm / 60, true, DOTA_ModifyGold_GameTick)
