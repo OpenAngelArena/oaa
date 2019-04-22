@@ -116,7 +116,7 @@ function HeroSelection:Init ()
     if self.isARDM and ARDMMode then
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
-      HeroSelection:StrategyTimer(3)
+      --HeroSelection:StrategyTimer(3)
       PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
         lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
       end)
@@ -130,6 +130,7 @@ function HeroSelection:Init ()
         LoadFinishEvent.broadcast()
       end)
     else
+      print("START HERO SELECTION")
       HeroSelection:StartSelection()
     end
   end)
@@ -630,7 +631,7 @@ function HeroSelection:APTimer (time, message)
     if loadingHeroes == 0 then
       LoadFinishEvent.broadcast()
     end
-    HeroSelection:StrategyTimer(3)
+    --HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
     Timers:CreateTimer({
@@ -798,7 +799,7 @@ function HeroSelection:StrategyTimer (time)
       useGameTime = not HERO_SELECTION_WHILE_PAUSED,
       endTime = 1,
       callback = function()
-        HeroSelection:StrategyTimer(time -1)
+        --HeroSelection:StrategyTimer(time -1)
       end
     })
   end
@@ -906,4 +907,13 @@ function HeroSelection:GetSteamAccountID(playerID)
     end
   end
   return tostring(steamid)
+end
+
+function HeroSelection:ForceAssignHeroes()
+	for nPlayerID = 0, ( DOTA_MAX_TEAM_PLAYERS - 1 ) do
+		local hPlayer = PlayerResource:GetPlayer( nPlayerID )
+		if hPlayer and not PlayerResource:HasSelectedHero( nPlayerID ) then
+			hPlayer:MakeRandomHeroSelection()
+		end
+	end
 end

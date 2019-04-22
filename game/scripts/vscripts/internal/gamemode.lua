@@ -33,6 +33,7 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
 
+  GameRules:SetStrategyTime( 0 )
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
@@ -179,7 +180,7 @@ function GameMode:_CaptureGameMode()
     mode:SetAlwaysShowPlayerInventory( SHOW_ONLY_PLAYER_INVENTORY )
     mode:SetAnnouncerDisabled( DISABLE_ANNOUNCER )
     if FORCE_PICKED_HERO ~= nil then
-      mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
+      --mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
     end
     mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME )
     mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
@@ -200,6 +201,7 @@ function GameMode:_CaptureGameMode()
       end
       mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
       mode:SetPowerRuneSpawnInterval(POWER_RUNE_SPAWN_INTERVAL)
+      GameRules:SetRuneSpawnTime(0)
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )

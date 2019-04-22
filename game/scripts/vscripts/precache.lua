@@ -72,7 +72,7 @@ g_ParticlePrecache = {
 
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
-  "particles/econ/items", -- Precache all hero cosmetics
+  --"particles/econ/items", -- Precache all hero cosmetics
   "particles/items",
   "particles/items/dispel_orb",
   "particles/items/dagger_of_moriah",

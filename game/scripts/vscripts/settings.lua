@@ -54,12 +54,12 @@ CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/b
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
 
-RANKED_PREGAME_TIME = 10
+RANKED_PREGAME_TIME = 25
 RANKED_BAN_TIME = 30
 RANKED_PICK_TIME = 25
 
 -- Game timings
-PREGAME_TIME = 10
+PREGAME_TIME = 25
 AP_GAME_TIME = 90
 
 -- Duels
@@ -135,7 +135,7 @@ HERO_XP_BONUS_FACTOR = 0.07         -- 0.14 in normal dota
 HERO_KILL_XP_RADIUS = 1500          -- 1500 in normal dota
 
 -- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 0        -- After what delay in seconds will the first bounty rune spawn?
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 120        -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9

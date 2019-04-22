@@ -16,7 +16,7 @@
     // Uncomment any of the following lines in order to disable that portion of the default UI
 
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false );      //Time of day (clock).
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false );     //Heroes and team score at the top of the HUD.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, true );     //Heroes and team score at the top of the HUD.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, false );      //Lefthand flyout scoreboard.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );     //Hero actions UI.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, false );     //Minimap.
@@ -91,7 +91,7 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/stat_display.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/oaa_game_info.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/timer.xml" />
-    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
+    <!-- <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" /> -->
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/bottle_announcement.xml" />
