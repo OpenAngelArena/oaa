@@ -13,8 +13,9 @@ if IsServer() then
     if self.clones == nil then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = 9
+      local max_number_of_monkeys_per_ring = math.max(9, self:GetSpecialValueFor("num_second_soldiers"))
       local hidden_point = Vector(-10000,-10000,-10000)
+      local caster = self:GetCaster()
       -- Initialize tables
       self.clones={}
       self.clones[1]={}
@@ -22,16 +23,16 @@ if IsServer() then
       self.clones[3]={}
       -- Populate tables
       for i= 1, max_number_of_rings do
-        self.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, self, self:GetOwner(), self:GetTeam())
-        self.clones[i]["top"]:SetOwner(self:GetCaster())
-        self.clones[i]["top"]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa_hidden", {})
-        self.clones[i]["top"]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa", {})
+        self.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
+        self.clones[i]["top"]:SetOwner(caster)
+        self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
+        self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
         print("Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "]['top']")
         for j=1, max_number_of_monkeys_per_ring-1 do
-          self.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, self, self:GetOwner(), self:GetTeam())
-          self.clones[i][j]:SetOwner(self:GetCaster())
-          self.clones[i][j]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa_hidden", {})
-          self.clones[i][j]:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa", {})
+          self.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
+          self.clones[i][j]:SetOwner(caster)
+          self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
+          self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
           print("Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "][" .. tostring(j) .. "]")
         end
       end
@@ -43,7 +44,7 @@ if IsServer() then
   function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
     if self.clones ~= nil then
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = 10
+      local max_number_of_monkeys_per_ring = math.max(9, self:GetSpecialValueFor("num_second_soldiers"))
       local hidden_point = Vector(-10000,-10000,-10000)
       -- Populate tables
       for i= 1, max_number_of_rings do
@@ -216,7 +217,6 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
     print("[MONKEY KING WUKONG'S COMMAND] Monkey on the top point doesn't exist for some reason")
     self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
     self.clones[ringNumber]["top"]:SetOwner(caster)
-    --return
   end
   local top_monkey = self.clones[ringNumber]["top"]
   -- setting the origin is causing a wierd visual glitch I could not fix
@@ -236,7 +236,6 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
       print("[MONKEY KING WUKONG'S COMMAND] Monkey number "..i.."in ring "..ringNumber.." doesn't exist for some reason!")
       self.clones[ringNumber][i] = CreateUnitByName(unit_name, point, false, caster, caster:GetOwner(), caster:GetTeam())
       self.clones[ringNumber][i]:SetOwner(caster)
-      --return
     end
     local monkey = self.clones[ringNumber][i]
     -- setting the origin is causing a wierd visual glitch I could not fix
