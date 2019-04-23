@@ -211,21 +211,42 @@ function WalkTowardsSpot (spot)
   })
 end
 
+local FIRST_MIN_X = 1600
+local FIRST_MIN_Y = 2000
+
 function GetNextWanderLocation (startPosition)
-  local maxY = 2000
-  local maxX = 2000
+  local maxY = FIRST_MIN_Y
+  local maxX = FIRST_MIN_X
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
+  local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
   if scoreDiff > 10 then
     maxY = 4000
   end
   if scoreDiff > 20 then
     maxX = 5500
   end
-  local nextPosition = GetRandomWanderLocation(startPosition, maxX, maxY)
+  local nextPosition = nil
+  local isValidPosition = false
 
-  while (nextPosition - startPosition):Length2D() < 2000 or (scoreDiff < 30 and IsInZone4(nextPosition)) do
-    print('Got a bad position option ' .. tostring(nextPosition))
+  while not isValidPosition do
+    if nextPosition then
+      print('Got a bad position option ' .. tostring(nextPosition))
+    end
     nextPosition = GetRandomWanderLocation(startPosition, maxX, maxY)
+    isValidPosition = true
+    if (nextPosition - startPosition):Length2D() < 2000 then
+      isValidPosition = false
+    elseif scoreDiff < 30 and IsInZone4(nextPosition) then
+      isValidPosition = false
+    elseif isGoodLead and nextPosition.x < 0 - FIRST_MIN_X then
+      isValidPosition = false
+    elseif not isGoodLead and nextPosition.x > FIRST_MIN_X then
+      isValidPosition = false
+    elseif isGoodLead and nextPosition.x < 0 and math.abs(nextPosition.y) > FIRST_MIN_Y then
+      isValidPosition = false
+    elseif not isGoodLead and nextPosition.x > 0 and math.abs(nextPosition.y) > FIRST_MIN_Y then
+      isValidPosition = false
+    end
   end
 
   return nextPosition
@@ -238,15 +259,18 @@ end
 function GetRandomWanderLocation (startPosition, maxX, maxY)
   local x = startPosition.x
   local y = startPosition.y
+  -- negative amount..?
+  local minX = maxX - math.abs(x)
+  local minY = maxY - math.abs(y)
   if x > 0 then
-    x = x - RandomInt(100, maxX + x/2)
+    x = x - RandomInt(100 - minX, maxX + x/2)
   else
-    x = x + RandomInt(100, maxX - x/2)
+    x = x + RandomInt(100 - minX, maxX - x/2)
   end
   if y > 0 then
-    y = y - RandomInt(100, maxY + y/2)
+    y = y - RandomInt(100 - minY, maxY + y/2)
   else
-    y = y + RandomInt(100, maxY - y/2)
+    y = y + RandomInt(100 - minY, maxY - y/2)
   end
   return Vector(x, y, startPosition.z)
 end
