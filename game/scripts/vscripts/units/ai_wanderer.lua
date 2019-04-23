@@ -62,6 +62,7 @@ function WandererThink ()
   if thisEntity.isAggro and not shouldAggro then
     -- giving up on aggro
     thisEntity.aggroOrigin = nil
+    thisEntity.isLeashing = false
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
     thisEntity:RemoveModifierByName("modifier_wanderer_boss_buff")
   end
@@ -91,16 +92,17 @@ function WandererThink ()
     local distanceFromOrigin = (thisEntity:GetAbsOrigin() - thisEntity.aggroOrigin):Length2D()
     local shouldLeash = distanceFromOrigin > MAX_LEASH_DISTANCE
 
+    if thisEntity.isLeashing and distanceFromOrigin < MIN_LEASH_DISTANCE then
+      thisEntity.isLeashing = false
+    end
+
     if thisEntity.isLeashing or shouldLeash then
       if not thisEntity.isLeashing or thisEntity:IsIdle() then
+        thisEntity:Stop()
         thisEntity.isLeashing = true
         WalkTowardsSpot(thisEntity.aggroOrigin)
       end
       return 1
-    end
-
-    if thisEntity.isLeashing and distanceFromOrigin < MIN_LEASH_DISTANCE then
-      thisEntity.isLeashing = false
     end
   end
 
@@ -270,6 +272,7 @@ function CheckPathBlocking ()
 end
 
 function StartWandering ()
+  thisEntity:Stop()
   thisEntity.startPosition = thisEntity:GetAbsOrigin()
   thisEntity.destination = nil
   thisEntity.wandering = true
