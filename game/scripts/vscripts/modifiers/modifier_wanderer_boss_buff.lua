@@ -3,11 +3,6 @@ LinkLuaModifier("modifier_wanderer_boss_buff", "modifiers/modifier_wanderer_boss
 
 modifier_wanderer_boss_buff = class(ModifierBaseClass)
 
-function modifier_wanderer_boss_buff:OnCreated ()
-  if IsServer() then
-  end
-end
-
 function modifier_wanderer_boss_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE
