@@ -78,7 +78,14 @@ function BossAI:GiveItemToWholeTeam (item, teamId)
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)
-  state.deathEvent.broadcast(deathEventData)
+  if type(state) == "number" then
+    state = {
+      tier = state
+    }
+    teamId = teamId or deathEventData
+  else
+    state.deathEvent.broadcast(deathEventData)
+  end
   local team = GetShortTeamName(teamId)
   if not IsPlayerTeam(teamId) then
     return
