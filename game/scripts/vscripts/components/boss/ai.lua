@@ -240,11 +240,4 @@ function BossAI:Leash (state)
     Position = location,
     Queue = 0,
   })
-  ExecuteOrderFromTable({
-    UnitIndex = state.handle:entindex(),
-    -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    Position = state.origin,
-    Queue = 1,
-  })
 end
