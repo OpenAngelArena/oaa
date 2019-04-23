@@ -94,7 +94,7 @@ var hilariousLoadingPhrases = [
   'Use your glyph hotkey to drop a free ward',
   'Before 0:00 on the clock, you cannot leave base and creeps do not spawn',
   'Bosses spawn into the map at 3:00',
-  'The wandering boss spawns at 12:00',
+  'The wandering boss spawns at 12:00'
 ];
 
 SetupTopBar();
