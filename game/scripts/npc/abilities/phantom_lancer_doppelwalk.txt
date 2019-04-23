@@ -13,7 +13,7 @@
     "MaxLevel"                                            "6"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 600 600 600 700 800"
+    "AbilityCastRange"                                    "600 600 600 600 800 1000"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -76,7 +76,7 @@
       "10"	//OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "600 600 600 600 700 800"
+        "cast_range_tooltip"                              "600 600 600 600 800 1000"
       }
     }
   }
