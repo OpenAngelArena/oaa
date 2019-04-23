@@ -225,6 +225,9 @@ function BossAI:Leash (state)
   local difference = state.handle:GetAbsOrigin() - state.origin
   local location = state.origin + (difference / 8)
 
+  if state.state ~= BossAI.LEASHING then
+    state.handle:Stop()
+  end
   state.state = BossAI.LEASHING
 
   state.handle:SetIdleAcquire(false)
