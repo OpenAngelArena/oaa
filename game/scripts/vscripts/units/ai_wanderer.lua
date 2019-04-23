@@ -56,9 +56,9 @@ function WandererThink ()
   end
 
   local shouldAggro = hpPercent < 0.95
-  if not thisEntity.isAggro and shouldAggro then
+  -- if not thisEntity.isAggro and shouldAggro then
     -- is aggroing now from a non-aggro state
-  end
+  -- end
   if thisEntity.isAggro and not shouldAggro then
     -- giving up on aggro
     thisEntity.aggroOrigin = nil
