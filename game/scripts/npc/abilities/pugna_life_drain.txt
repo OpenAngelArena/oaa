@@ -35,7 +35,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.0 0.0 0.0 0.0"  // All about the damage
+    "AbilityModifierSupportValue"                         "0.0"  // All about the damage
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0.0"
+        "scepter_cooldown"                                "0.0 0.0 0.0"
       }
       "05"
       {
