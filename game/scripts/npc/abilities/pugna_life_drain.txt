@@ -44,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "150 250 350 650 950" //OAA
+        "health_drain"                                    "150 225 300 500 750"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
@@ -60,7 +60,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0.0"
+        "scepter_cooldown"                                "0.0 0.0 0.0"
       }
       "05"
       {
