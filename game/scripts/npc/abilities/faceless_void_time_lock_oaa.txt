@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "1.65"
+    "AbilityCooldown"                                     "0.2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0"
+        "duration"                                        "0.2"
       }
       "02"
       {
@@ -41,18 +41,18 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "10 15 20 25 25 25"
+        "chance_pct"                                      "15 20 25 30 35 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "75 100 125 150 325 500"
+        "bonus_damage"                                    "100 125 150 175 350 550"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_cooldown"                                "1.65"
+        "tooltip_cooldown"                                "0.2"
       }
     }
   }
