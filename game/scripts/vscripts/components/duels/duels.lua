@@ -383,8 +383,8 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
   goodGuy.duelNumber = duelNumber
   badGuy.duelNumber = duelNumber
 
-  SafeTeleportAll(goodHero, spawn1, 150)
-  SafeTeleportAll(badHero, spawn2, 150)
+  SafeTeleportAll(goodHero, spawn1, 250)
+  SafeTeleportAll(badHero, spawn2, 250)
 
   self.zones[arenaIndex].addPlayer(goodGuy.id)
   self.zones[arenaIndex].addPlayer(badGuy.id)

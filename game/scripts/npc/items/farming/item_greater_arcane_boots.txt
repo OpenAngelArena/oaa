@@ -23,10 +23,10 @@
     "ItemResult"                                          "item_greater_arcane_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_arcane_boots;item_upgrade_core"
-      "02"                                                "item_arcane_boots;item_upgrade_core_2"
-      "03"                                                "item_arcane_boots;item_upgrade_core_3"
-      "04"                                                "item_arcane_boots;item_upgrade_core_4"
+      "01"                                                "item_arcane_origin;item_boots;item_upgrade_core"
+      "02"                                                "item_arcane_origin;item_boots;item_upgrade_core_2"
+      "03"                                                "item_arcane_origin;item_boots;item_upgrade_core_3"
+      "04"                                                "item_arcane_origin;item_boots;item_upgrade_core_4"
     }
   }
 
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater arcane boots;greater arcanes;arcanes"

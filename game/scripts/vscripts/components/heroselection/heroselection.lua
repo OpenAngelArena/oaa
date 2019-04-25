@@ -213,14 +213,14 @@ end
 
 function HeroSelection:OnBottleSelected (selectedBottle)
   if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
-  HeroSelection.SelectedBottle[selectedBottle.PlayerId] = selectedBottle.BottleId
+  HeroSelection.SelectedBottle[selectedBottle.PlayerID] = selectedBottle.BottleId
   CustomNetTables:SetTableValue( 'bottlepass', 'selected_bottles', HeroSelection.SelectedBottle )
 end
 
 function HeroSelection:OnArcanaSelected (selectedArcana)
   if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
-  if HeroSelection.SelectedArcana[selectedArcana.PlayerId] == nil then HeroSelection.SelectedArcana[selectedArcana.PlayerId] = {} end
-  HeroSelection.SelectedArcana[selectedArcana.PlayerId][selectedArcana.Hero] = selectedArcana.Arcana
+  if HeroSelection.SelectedArcana[selectedArcana.PlayerID] == nil then HeroSelection.SelectedArcana[selectedArcana.PlayerID] = {} end
+  HeroSelection.SelectedArcana[selectedArcana.PlayerID][selectedArcana.Hero] = selectedArcana.Arcana
   CustomNetTables:SetTableValue( 'bottlepass', 'selected_arcanas', HeroSelection.SelectedArcana )
 end
 
