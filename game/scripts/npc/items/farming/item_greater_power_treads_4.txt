@@ -45,7 +45,7 @@
     "AbilityTextureName"                                  "custom/greater_power_treads_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "32600"
+    "ItemCost"                                            "32700"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads 4;power treads 4;treads 4"
@@ -86,12 +86,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "25 35 45 55"
+        "split_damage"                                    "30 40 50 60"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "25 35 45 55"
+        "split_damage_ranged"                             "30 40 50 60"
       }
     }
   }
