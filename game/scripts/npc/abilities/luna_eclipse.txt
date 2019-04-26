@@ -27,11 +27,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "140"
+    "AbilityCooldown"                                     "140.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 300 350"
+    "AbilityManaCost"                                     "150 200 250 450 650"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "beam_interval_scepter"                           "0.4" //OAA
+        "beam_interval_scepter"                           "0.3"
       }
       "05"
       {
@@ -75,17 +75,17 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count_scepter"                               "6 7 8 9 10" //OAA
+        "hit_count_scepter"                               "8 9 10 11 12" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip_scepter"                        "3.2 4.8 6.4 8.0 9.6" //OAA
+        "duration_tooltip_scepter"                        "2.4 3.6 4.8 6 7.2" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip_scepter"                      "1500" //OAA
+        "cast_range_tooltip_scepter"                      "1600" //OAA
       }
     }
   }
