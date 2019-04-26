@@ -57,7 +57,6 @@ function CheckLevelUpOnSelectionChange (data) {
   if (selectedEntity !== undefined) {
     var level = Entities.GetLevel(selectedEntity);
     GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
-      player: player,
       selectedEntity: selectedEntity,
       level: level
     });

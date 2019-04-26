@@ -34,12 +34,13 @@
 		"Ability5"					        "lycan_boss_rupture_ball_tier5"
 		"Ability6"                  "boss_resistance"
 		"Ability7"                  "boss_cliffwalk"
-		"Ability8"                  "siltbreaker_boss_protection"
+		"Ability8"          		"boss_regen"
+		"Ability9"                  "siltbreaker_boss_protection"
 
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"25"
-		"MagicalResistance"                                   "-25"            // Magical protection.
+		"MagicalResistance"                                   "-50"            // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -60,7 +61,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					  "900"
+		"BountyXP"					  "5000"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 

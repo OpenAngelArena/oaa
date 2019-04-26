@@ -21,7 +21,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "40" //OAA
+    "AbilityCooldown"                                     "35" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20 30 40 50 90 130"
+        "damage_per_second"                               "20 30 40 50 100 150"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"

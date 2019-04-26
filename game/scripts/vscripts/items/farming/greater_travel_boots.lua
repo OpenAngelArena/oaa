@@ -13,7 +13,7 @@ end
 function item_greater_travel_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_travel_boots",
-    "modifier_creep_assist_gold",
+    --"modifier_creep_assist_gold",
     "modifier_creep_bounty"
   }
 end
@@ -144,11 +144,11 @@ end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE
   }
 end
 
-function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Percentage()
+function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Percentage_Unique()
   if self:GetAbility() then
     return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
   end
@@ -157,7 +157,16 @@ end
 --------------------------------------------------------------------------------
 -- All the upgrades are exactly the same
 --------------------------------------------------------------------------------
-item_greater_travel_boots_2 = item_greater_travel_boots
-item_greater_travel_boots_3 = item_greater_travel_boots
-item_greater_travel_boots_4 = item_greater_travel_boots
-item_greater_travel_boots_5 = item_greater_travel_boots
+item_greater_travel_boots_2 = class(item_greater_travel_boots)
+item_greater_travel_boots_3 = class(item_greater_travel_boots)
+item_greater_travel_boots_4 = class(item_greater_travel_boots)
+item_greater_travel_boots_5 = class(item_greater_travel_boots)
+item_travel_origin = class(item_greater_travel_boots)
+
+function item_travel_origin:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_greater_travel_boots",
+    --"modifier_creep_assist_gold",
+    --"modifier_creep_bounty"
+  }
+end
