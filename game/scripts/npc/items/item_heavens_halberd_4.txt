@@ -80,7 +80,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 50 75 100 150"
+        "bonus_damage"                                    "25 40 60 90 135"
       }
       "03"
       {
@@ -105,7 +105,7 @@
       "07"
 			{
 				"var_type"                                        "FIELD_INTEGER"
-				"status_resistance"                               "14 16 18 20 22"
+				"status_resistance"                               "14"
 			}
     }
   }
