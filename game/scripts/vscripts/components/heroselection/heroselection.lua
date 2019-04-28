@@ -32,7 +32,7 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
-
+  Debug.EnabledModules['heroselection:*'] = false
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "captains_mode"
   self.isARDM = GetMapName() == "ardm"
@@ -102,21 +102,23 @@ function HeroSelection:Init ()
   GameEvents:OnHeroInGame(function (npc)
     local playerId = npc:GetPlayerID()
     DebugPrint('An NPC spawned ' .. npc:GetUnitName())
-    if npc:GetUnitName() == FORCE_PICKED_HERO then
-      npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
-      npc:AddNoDraw()
+    DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. npc:GetUnitName())
+    -- if npc:GetUnitName() == FORCE_PICKED_HERO then
+    --   npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+    --   npc:AddNoDraw()
 
-      if self.attemptedSpawnPlayers[playerId] then
-        self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
-      end
-    end
+    --   if self.attemptedSpawnPlayers[playerId] then
+    --     self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
+    --   end
+    -- end
   end)
 
-  GameEvents:OnPreGame(function (keys)
+  GameEvents:OnHeroSelection(function (keys)
+    Debug:EnableDebugging()
     if self.isARDM and ARDMMode then
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
-      --HeroSelection:StrategyTimer(3)
+      HeroSelection:StrategyTimer(3)
       PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
         lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
       end)
@@ -124,7 +126,7 @@ function HeroSelection:Init ()
       ARDMMode:OnPrecache(function ()
         DebugPrint('Precache finished! Woohoo!')
         PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-          DebugPrint('Giving starting hero ' .. lockedHeroes[playerID])
+          DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. lockedHeroes[playerID])
           HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
         end)
         LoadFinishEvent.broadcast()
@@ -182,7 +184,7 @@ function HeroSelection:StartSelection ()
   elseif self.isBanning then
     HeroSelection:RankedManager(nil)
   else
-    HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
+    HeroSelection:APTimer(0, "ALL PICK")
   end
 
   -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
@@ -236,6 +238,7 @@ function HeroSelection:GetSelectedArcanaForPlayer(playerId)
 end
 
 function HeroSelection:RankedManager (event)
+  print("RankedManager")
   local function save ()
     CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
   end
@@ -601,6 +604,7 @@ end
 
 -- start heropick AP timer
 function HeroSelection:APTimer (time, message)
+  print("APTimer")
   HeroSelection:CheckPause()
   if forcestop == true or time < 0 then
     for key, value in pairs(selectedtable) do
@@ -631,7 +635,7 @@ function HeroSelection:APTimer (time, message)
     if loadingHeroes == 0 then
       LoadFinishEvent.broadcast()
     end
-    --HeroSelection:StrategyTimer(3)
+    HeroSelection:StrategyTimer(3)
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = message})
     Timers:CreateTimer({
@@ -671,8 +675,8 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if self.hasGivenStartingGold then
     startingGold = STARTING_GOLD
   end
-
-  PlayerResource:ReplaceHeroWith(playerId, heroName, startingGold, 0)
+  PlayerResource:GetPlayer(playerId):SetSelectedHero(heroName)
+  --PlayerResource:ReplaceHeroWith(playerId, heroName, startingGold, 0)
   local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
   if hero and hero:GetUnitName() ~= FORCE_PICKED_HERO then
@@ -784,6 +788,9 @@ function HeroSelection:EndStrategyTime ()
 end
 
 function HeroSelection:StrategyTimer (time)
+  if true then return end
+  print("StrategyTimer!!!!!!!!!!!")
+  print(time)
   HeroSelection:CheckPause()
   if time < 0 then
     if finishedLoading then
@@ -799,7 +806,7 @@ function HeroSelection:StrategyTimer (time)
       useGameTime = not HERO_SELECTION_WHILE_PAUSED,
       endTime = 1,
       callback = function()
-        --HeroSelection:StrategyTimer(time -1)
+        HeroSelection:StrategyTimer(time -1)
       end
     })
   end

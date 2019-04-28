@@ -28,9 +28,9 @@
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false );      //Glyph.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_GOLD, false );     //Gold display.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false );      //Suggested items shop panel.
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_TEAMS, false );     //Hero selection Radiant and Dire player lists.
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_GAME_NAME, false );     //Hero selection game mode name display.
-    //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_CLOCK, false );     //Hero selection clock.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_TEAMS, true );     //Hero selection Radiant and Dire player lists.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_GAME_NAME, true );     //Hero selection game mode name display.
+    GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_CLOCK, true );     //Hero selection clock.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_MENU_BUTTONS, false );     //Top-left menu buttons in the HUD.
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false );      //Endgame scoreboard.
     //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_BAR_BACKGROUND, false );     //Top-left menu buttons in the HUD.
@@ -91,8 +91,9 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/stat_display.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/oaa_game_info.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/timer.xml" />
-    <!-- <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" /> -->
+    <!-- <CustomUIElement type="HeroSelection"       layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" /> -->
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
+    <CustomUIElement type="HeroSelection"                 layoutfile="file://{resources}/layout/custom_game/talent_branch_tooltip.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/bottle_announcement.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/surrender.xml" />
