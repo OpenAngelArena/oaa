@@ -13,7 +13,7 @@
   </scripts>
   <Panel class='Holder'>
     <Panel class='DOTATooltipStatBranch ' hittest="false">
-      <Panel id='DOTAHUDStatBrnachTooltipAlt' class='TooltipContainer TopArrowVisible' hittest='false' hittestchildren='false'>
+      <Panel id='DOTAHUDStatBranchTooltipAlt' class='TooltipContainer TopArrowVisible' hittest='false' hittestchildren='false'>
         <Panel id='TopArrow' hittest='false'/>
         <Panel id='TooltipRow' hittest='false'>
           <Panel id='LeftArrow' hittest='false'/>

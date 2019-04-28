@@ -69,6 +69,22 @@
     GameEvents.Subscribe("onGameInCheatMode", function () {
       $.Msg("\nThis Match is in Cheat Mode!\n")
     })
+    function HidePickScreen() {
+			var dotaHud = $.GetContextPanel().GetParent().GetParent();
+			if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
+				dotaHud.FindChild("PreGame").visible = false;
+			}
+			else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
+				dotaHud.FindChild("PreGame").visible = true;
+			}
+			else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME)) {
+				dotaHud.FindChild("PreGame").visible = false;
+			}
+		}
+		(function()
+		{
+			GameEvents.Subscribe( "game_rules_state_change", HidePickScreen );
+		})();
   </script>
 
   <Panel>

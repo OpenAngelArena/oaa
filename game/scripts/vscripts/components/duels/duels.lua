@@ -101,9 +101,9 @@ function Duels:Init ()
     end
   end)
 
-  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY
-  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME, function ()
-  -- HudTimer:At(INITIAL_DUEL_DELAY, function ()
+  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY -1
+  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME -1, function ()
+  --HudTimer:At(INITIAL_DUEL_DELAY, function ()
     self:StartDuel({
       players = 0,
       firstDuel = true,
