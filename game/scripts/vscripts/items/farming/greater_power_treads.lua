@@ -118,7 +118,7 @@ function modifier_item_greater_power_treads:OnCreated( event )
     -- this is probably a bit weird
     -- but it's a method that came to me and it's also kinda cool
     -- so!
-    self.damageTable = { 
+    self.damageTable = {
       { self.creepDamageMelee, self.creepDamageMeleeIllusion, },
       { self.creepDamageRanged, self.creepDamageRangedIllusion, },
     }
