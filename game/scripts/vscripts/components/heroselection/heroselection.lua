@@ -101,19 +101,19 @@ function HeroSelection:Init ()
 
 
   -- lock down the "pick" hero so that they can't do anything
-  GameEvents:OnHeroInGame(function (npc)
-    local playerId = npc:GetPlayerID()
-    DebugPrint('An NPC spawned ' .. npc:GetUnitName())
-    DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. npc:GetUnitName())
-    -- if npc:GetUnitName() == FORCE_PICKED_HERO then
-    --   npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
-    --   npc:AddNoDraw()
+  -- GameEvents:OnHeroInGame(function (npc)
+  --   local playerId = npc:GetPlayerID()
+  --   DebugPrint('An NPC spawned ' .. npc:GetUnitName())
+  --   DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. npc:GetUnitName())
+  --   -- if npc:GetUnitName() == FORCE_PICKED_HERO then
+  --   --   npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
+  --   --   npc:AddNoDraw()
 
-    --   if self.attemptedSpawnPlayers[playerId] then
-    --     self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
-    --   end
-    -- end
-  end)
+  --   --   if self.attemptedSpawnPlayers[playerId] then
+  --   --     self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
+  --   --   end
+  --   -- end
+  -- end)
 
   GameEvents:OnHeroSelection(function (keys)
     Debug:EnableDebugging()
@@ -678,18 +678,15 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
     startingGold = STARTING_GOLD
   end
   PlayerResource:GetPlayer(playerId):SetSelectedHero(heroName)
-  --PlayerResource:ReplaceHeroWith(playerId, heroName, startingGold, 0)
-  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-  if hero and hero:GetUnitName() ~= FORCE_PICKED_HERO then
-    table.insert(self.spawnedHeroes, hero)
-    self.spawnedPlayers[playerId] = true
-    HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
-  else
-    self.attemptedSpawnPlayers[playerId] = heroName
+  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  self.spawnedPlayers[playerId] = true
+  if hero == nil then
     Timers:CreateTimer(2, function ()
-      self:GiveStartingHero(playerId, heroName)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+      HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
     end)
+    return
   end
 
 end

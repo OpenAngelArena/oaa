@@ -10,7 +10,8 @@ function GameMode:_InitGameMode()
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
   GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
-  GameRules:SetHeroSelectionTime( 9999 )
+  -- SetHeroSelectionTime is ignored because "EnablePickRules"   "1" on addoninfo
+  GameRules:SetHeroSelectionTime( RANKED_PICK_TIME )
   GameRules:SetHeroSelectPenaltyTime( 10 )
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
@@ -151,7 +152,6 @@ function GameMode:_InitGameMode()
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
   GameMode._reentrantCheck = true
   GameMode:InitGameMode()
-  GameRules:SetHeroSelectPenaltyTime( 0 )
   GameMode._reentrantCheck = false
 end
 
@@ -162,6 +162,13 @@ function GameMode:_CaptureGameMode()
   if mode == nil then
     -- Set GameMode parameters
     mode = GameRules:GetGameModeEntity()
+    if GetMapName() ~= "unranked" then
+      mode:SetDraftingBanningTimeOverride(0)
+      mode:SetDraftingHeroPickSelectTimeOverride(9999)
+    else
+      mode:SetDraftingBanningTimeOverride(RANKED_BAN_TIME)
+      mode:SetDraftingHeroPickSelectTimeOverride(RANKED_PICK_TIME)
+    end
     mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
     mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
     mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
