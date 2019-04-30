@@ -27,30 +27,31 @@ if IsServer() then
         self.clones[i]["top"]:SetOwner(caster)
         self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
         self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
-        print("Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "]['top']")
+        print("[MONKEY KING WUKONG'S COMMAND] Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "]['top']")
         for j=1, max_number_of_monkeys_per_ring-1 do
           self.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
           self.clones[i][j]:SetOwner(caster)
           self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
           self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
-          print("Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "][" .. tostring(j) .. "]")
+          print("[MONKEY KING WUKONG'S COMMAND] Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "][" .. tostring(j) .. "]")
         end
       end
-      -- Update Items first time
+      -- Update items of the clones for the first time
       self:OnInventoryContentsChanged()
     end
   end
 
   function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
-    if self.clones ~= nil then
+    local caster = self:GetCaster()
+    -- Do this only if Wukong's command is not active to prevent lag (Wukong's Command is active only if caster has a buff)
+    if self.clones and not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
       local max_number_of_rings = 3
       local max_number_of_monkeys_per_ring = math.max(9, self:GetSpecialValueFor("num_second_soldiers"))
-      local hidden_point = Vector(-10000,-10000,-10000)
-      -- Populate tables
+      -- Update items of the clones
       for i= 1, max_number_of_rings do
-        self:CopyCasterItems(self.clones[i]["top"], self:GetCaster())
+        self:CopyCasterItems(self.clones[i]["top"], caster)
         for j=1, max_number_of_monkeys_per_ring-1 do
-          self:CopyCasterItems(self.clones[i][j], self:GetCaster())
+          self:CopyCasterItems(self.clones[i][j], caster)
         end
       end
     end
@@ -72,7 +73,7 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
   for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = caster:GetItemInSlot(item_slot)
     local clone_item = parent:GetItemInSlot(item_slot)
-    if item == nil and clone_item ~= nil then parent:RemoveItem(clone_item) end
+    if item == nil and clone_item then parent:RemoveItem(clone_item) end
     if item then
       local item_name = item:GetName()
       local skip = false
@@ -98,7 +99,7 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
       -- Create new Item
       if not skip then
         local new_item = CreateItem(item_name, parent, parent)
-        print("copy item: " .. item_name)
+        --print("copy item: " .. item_name)
         parent:AddItem(new_item)
 
         -- Set correct inventory position
@@ -174,6 +175,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
   EmitSoundOn("Hero_MonkeyKing.FurArmy", caster)
 
   if IsServer() then
+    -- Remove ability phase (cast) particle
     if self.castHandle then
       ParticleManager:DestroyParticle(self.castHandle, false)
       ParticleManager:ReleaseParticleIndex(self.castHandle)
@@ -214,7 +216,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   local top_point = center + top_direction*radius
 
   if self.clones[ringNumber]["top"] == nil or self.clones[ringNumber]["top"]:IsNull() or not self.clones[ringNumber]["top"]:IsAlive() then
-    print("[MONKEY KING WUKONG'S COMMAND] Monkey on the top point doesn't exist for some reason")
+    print("[MONKEY KING WUKONG'S COMMAND] Monkey on the top point doesn't exist for some reason!")
     self.clones[ringNumber]["top"] = CreateUnitByName(unit_name, top_point, false, caster, caster:GetOwner(), caster:GetTeam())
     self.clones[ringNumber]["top"]:SetOwner(caster)
   end
@@ -266,7 +268,7 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
       end
       unit:AddNoDraw()
       unit:SetAbsOrigin(Vector(-10000,-10000,-10000))
-      unit:AddNewModifier(self:GetCaster(), self, "modifier_monkey_clone_oaa_hidden", {})
+      unit:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
     end
   end
 
@@ -279,6 +281,7 @@ function monkey_king_wukongs_command_oaa:ProcsMagicStick()
   return true
 end
 
+-- Rubick creates lag when he steals and casts a spell
 function monkey_king_wukongs_command_oaa:IsStealable()
   return false
 end
