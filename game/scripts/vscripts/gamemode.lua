@@ -235,7 +235,7 @@ function GameMode:InitGameMode()
   InitModule(Bottlepass)
   InitModule(Courier)
   InitModule(StartingItems)
-  --InitModule(HeroSelection)
+  InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
 

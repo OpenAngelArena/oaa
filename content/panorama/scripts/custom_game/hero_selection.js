@@ -97,30 +97,40 @@ var hilariousLoadingPhrases = [
   'The wandering boss spawns at 12:00'
 ];
 
-SetupTopBar();
+init();
 
-$('#MainContent').SetHasClass(currentMap, true);
+function init(){
+  $.GetContextPanel().AddClass(currentMap);
+  if(currentMap=="unranked")
+  {
+    return;
+  }
 
-CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
-CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
+  SetupTopBar();
 
-// load hero selection
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
-onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+  $('#MainContent').SetHasClass(currentMap, true);
 
-onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
-onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
-onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
-onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
-onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
-UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-changeHilariousLoadingText();
-UpdateBottleList();
+  CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
+  CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
 
-$('#ARDMLoading').style.opacity = 0;
+  // load hero selection
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
+  onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+
+  onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
+  onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
+  onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
+  onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+  ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+  changeHilariousLoadingText();
+  UpdateBottleList();
+
+  $('#ARDMLoading').style.opacity = 0;
+}
 
 function changeHilariousLoadingText () {
   var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];

@@ -9,9 +9,9 @@ function GameMode:_InitGameMode()
   GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
-  GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
-  GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME * 10 + 30 )
-  GameRules:SetHeroSelectPenaltyTime( 10 )
+  GameRules:SetCustomGameSetupTimeout( -1 )
+  GameRules:SetHeroSelectionTime( 120 )
+  GameRules:SetHeroSelectPenaltyTime( 0 )
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
   if USE_CUSTOM_HERO_LEVELS then
@@ -46,7 +46,7 @@ function GameMode:_InitGameMode()
   else
     GameRules:SetCustomGameSetupAutoLaunchDelay( AUTO_LAUNCH_DELAY )
     GameRules:LockCustomGameSetupTeamAssignment( LOCK_TEAM_SETUP )
-    GameRules:EnableCustomGameSetupAutoLaunch( ENABLE_AUTO_LAUNCH )
+    GameRules:EnableCustomGameSetupAutoLaunch( false )
   end
 
   -- This is multiteam configuration stuff
@@ -151,6 +151,8 @@ function GameMode:_InitGameMode()
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
   GameMode._reentrantCheck = true
   GameMode:InitGameMode()
+  GameRules:SetHeroSelectionTime( 120 )
+  GameRules:SetHeroSelectPenaltyTime( 0 )
   GameMode._reentrantCheck = false
 end
 

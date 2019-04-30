@@ -43,6 +43,8 @@ function HeroSelection:Init ()
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
 
+  if self.isUnranked then return end
+
   local herolistFile = 'scripts/npc/herolist.txt'
 
   if self.isCM or self.isRanked then
@@ -113,7 +115,7 @@ function HeroSelection:Init ()
     -- end
   end)
 
-  GameEvents:OnHeroSelection(function (keys)
+  GameEvents:OnPreGame(function (keys)
     Debug:EnableDebugging()
     if self.isARDM and ARDMMode then
       -- if it's ardm, show strategy screen right away,

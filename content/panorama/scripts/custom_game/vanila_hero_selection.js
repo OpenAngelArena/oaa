@@ -4,6 +4,8 @@ var heroNamePanel = FindDotaHudElement("HeroInspectHeroName");
 var info = FindDotaHudElement("HeroInspectInfo");
 var tooltipManager = FindDotaHudElement("Tooltips");
 var abilities = info.GetParent().FindChildTraverse('HeroAbilities');
+var currentMap = Game.GetMapInfo().map_display_name;
+$.Msg(currentMap)
 
 var altTooltip = tooltipManager.FindChildTraverse('DOTAHUDStatBranchTooltipAlt');
 if(altTooltip==null)
@@ -25,6 +27,7 @@ function CreateAbilityPanel (parent, ability) {
   });
   return icon
 }
+
 function OnUpdateHeroSelection()
 {
   var port = info.FindChildTraverse('HeroPortrait');
@@ -81,6 +84,7 @@ function SetTalentsSohei()
   altTooltip.SetDialogVariable('name_7', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_dash_recharge").replace("%value%", "3"))
   altTooltip.SetDialogVariable('name_8', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_fob_radius").replace("%value%", "200"))
 }
+
 function SetTalentsElectrician()
 {
   altTooltip.SetDialogVariable('name_1', $.Localize("#Dota_tooltip_ability_special_bonus_mp_regen_6"))
