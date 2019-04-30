@@ -115,7 +115,7 @@ function HeroSelection:Init ()
     -- end
   end)
 
-  GameEvents:OnPreGame(function (keys)
+  GameEvents:OnHeroSelection(function (keys)
     Debug:EnableDebugging()
     if self.isARDM and ARDMMode then
       -- if it's ardm, show strategy screen right away,
