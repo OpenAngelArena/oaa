@@ -19,11 +19,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.35 0.3" //OAA
+    "AbilityCastPoint"                                    "0.45 0.42 0.4 0.35 0.3" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30"
+    "AbilityManaCost"                                     "10 20 30 40 50" //OAA
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
@@ -36,17 +36,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_initial_mana_percentage"          "8 9 10 11 12" //OAA
+        "ball_lightning_initial_mana_percentage"          "8 9 10 12 14" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_initial_mana_base"                "30"
+        "ball_lightning_initial_mana_base"                "10 20 30 40 50" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_move_speed"                       "1250 1875 2500 3000 3500"
+        "ball_lightning_move_speed"                       "1250 1875 2500 3100 3500"
       }
       "04"
       {
@@ -61,7 +61,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ball_lightning_travel_cost_percent"              "0.7 0.7 0.7 0.8 1.0" //OAA
+        "ball_lightning_travel_cost_percent"              "0.7"
       }
       "07"
       {
