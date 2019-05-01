@@ -10,6 +10,16 @@
   margin-right: 680px;
   horizontal-align: center;
   vertical-align: bottom;
+  transform: translateY(300px);
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-delay: 1.7s;
+  transition-timing-function: ease-out;
+}
+
+.Holder.unranked
+{
+  transform: translateY(0px);
 }
 #StatBranchAlt
 {
@@ -59,8 +69,10 @@ Label.StatBonusLabel
   text-shadow: 0px 0px 0px 1.0 #ffffff00;
 }
 
-.BottlePassSelection
+:not(.BottlePassSelection.unranked)
 {
+  visibility: collapse;
+  opacity: 0.0;
 }
 
 #BottlePassSelectionTitle

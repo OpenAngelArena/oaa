@@ -1,15 +1,14 @@
+/* global $ GameEvents CustomNetTables FindDotaHudElement Game */
 
-
-var heroNamePanel = FindDotaHudElement("HeroInspectHeroName");
-var info = FindDotaHudElement("HeroInspectInfo");
-var tooltipManager = FindDotaHudElement("Tooltips");
+var heroNamePanel = FindDotaHudElement('HeroInspectHeroName');
+var info = FindDotaHudElement('HeroInspectInfo');
+var tooltipManager = FindDotaHudElement('Tooltips');
 var abilities = info.GetParent().FindChildTraverse('HeroAbilities');
 var currentMap = Game.GetMapInfo().map_display_name;
-$.Msg(currentMap)
+$.Msg(currentMap);
 
 var altTooltip = tooltipManager.FindChildTraverse('DOTAHUDStatBranchTooltipAlt');
-if(altTooltip==null)
-{
+if (altTooltip == null) {
   FindDotaHudElement('DOTAHUDStatBranchTooltipAlt').SetParent(tooltipManager);
   altTooltip = tooltipManager.FindChildTraverse('DOTAHUDStatBranchTooltipAlt');
 }
@@ -17,7 +16,7 @@ if(altTooltip==null)
 function CreateAbilityPanel (parent, ability) {
   var id = 'Ability_' + ability;
   parent.BCreateChildren('<DOTAAbilityImage abilityname="' + ability + '" id="' + id + '" />');
-  var icon = parent.FindChildTraverse(id)
+  var icon = parent.FindChildTraverse(id);
 
   icon.SetPanelEvent('onmouseover', function () {
     $.DispatchEvent('DOTAShowAbilityTooltip', icon, ability);
@@ -25,82 +24,79 @@ function CreateAbilityPanel (parent, ability) {
   icon.SetPanelEvent('onmouseout', function () {
     $.DispatchEvent('DOTAHideAbilityTooltip', icon);
   });
-  return icon
+  return icon;
 }
 
-function OnUpdateHeroSelection(key)
-{
-  var port = info.FindChildTraverse('HeroPortrait');
-	if (heroNamePanel && heroNamePanel.text=='SOHEI') {
-    port.style.backgroundImage = 'url("file://{images}/heroes/selection/npc_dota_hero_sohei.png")';
-    port.style.backgroundSize= '100% 100%';
-
-    CreateAbilityPanel(abilities, 'sohei_dash')
-    CreateAbilityPanel(abilities, 'sohei_wholeness_of_body')
-    CreateAbilityPanel(abilities, 'sohei_palm_of_life')
-    var lastAbility = CreateAbilityPanel(abilities, 'sohei_flurry_of_blows')
-
-    var talents =abilities.GetChild(0);
-    talents.SetPanelEvent('onmouseover' , function(){
-      altTooltip.SetHasClass('visible', true);
-      SetTalentsSohei()
-    });
-    talents.SetPanelEvent('onmouseout' , function(){
-      altTooltip.SetHasClass('visible', false);
-    });
-
-    abilities.MoveChildAfter(talents, lastAbility)
-    UpdateBottlePassArcana('npc_dota_hero_sohei');
-  }
-  else if(heroNamePanel && heroNamePanel.text=='CHATTERJEE') {
-    port.style.backgroundImage = 'url("file://{images}/heroes/selection/npc_dota_hero_electrician.png")';
-    port.style.backgroundSize= '100% 100%';
-
-    CreateAbilityPanel(abilities, 'electrician_static_grip')
-    CreateAbilityPanel(abilities, 'electrician_electric_shield')
-    CreateAbilityPanel(abilities, 'electrician_energy_absorption')
-    var lastAbility = CreateAbilityPanel(abilities, 'electrician_cleansing_shock')
-
-    var talents =abilities.GetChild(0);
-    talents.SetPanelEvent('onmouseover' , function(){
-      altTooltip.SetHasClass('visible', true);
-      SetTalentsElectrician()
-    });
-    talents.SetPanelEvent('onmouseout' , function(){
-      altTooltip.SetHasClass('visible', false);
-    });
-
-    abilities.MoveChildAfter(talents, lastAbility)
-    UpdateBottlePassArcana('npc_dota_hero_electrician');
-  }
-  else
-  {
+function OnUpdateHeroSelection (key) {
+  var portrait = info.FindChildTraverse('HeroPortrait');
+  if (heroNamePanel && heroNamePanel.text === 'SOHEI') {
+    SetupSohei(portrait);
+  } else if (heroNamePanel && heroNamePanel.text === 'CHATTERJEE') {
+    SetupElectrician(portrait);
+  } else {
     UpdateBottlePassArcana('');
   }
 }
 
-function SetTalentsSohei()
-{
-  altTooltip.SetDialogVariable('name_1', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_stun"))
-  altTooltip.SetDialogVariable('name_2', $.Localize("#Dota_tooltip_ability_special_bonus_cleave_25"))
-  altTooltip.SetDialogVariable('name_3', $.Localize("#Dota_tooltip_ability_special_bonus_strength_20"))
-  altTooltip.SetDialogVariable('name_4', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_wholeness_knockback"))
-  altTooltip.SetDialogVariable('name_5', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_wholeness_allycast"))
-  altTooltip.SetDialogVariable('name_6', $.Localize("#Dota_tooltip_ability_special_bonus_movement_speed_60"))
-  altTooltip.SetDialogVariable('name_7', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_dash_recharge").replace("%value%", "3"))
-  altTooltip.SetDialogVariable('name_8', $.Localize("#Dota_tooltip_ability_special_bonus_sohei_fob_radius").replace("%value%", "200"))
+function SetupElectrician (portrait) {
+  portrait.style.backgroundImage = 'url("file://{images}/heroes/selection/npc_dota_hero_electrician.png")';
+  portrait.style.backgroundSize = '100% 100%';
+  CreateAbilityPanel(abilities, 'electrician_static_grip');
+  CreateAbilityPanel(abilities, 'electrician_electric_shield');
+  CreateAbilityPanel(abilities, 'electrician_energy_absorption');
+  var lastAbility = CreateAbilityPanel(abilities, 'electrician_cleansing_shock');
+  var talents = abilities.GetChild(0);
+  talents.SetPanelEvent('onmouseover', function () {
+    altTooltip.SetHasClass('visible', true);
+    SetTalentsElectrician();
+  });
+  talents.SetPanelEvent('onmouseout', function () {
+    altTooltip.SetHasClass('visible', false);
+  });
+  abilities.MoveChildAfter(talents, lastAbility);
+  UpdateBottlePassArcana('npc_dota_hero_electrician');
 }
 
-function SetTalentsElectrician()
-{
-  altTooltip.SetDialogVariable('name_1', $.Localize("#Dota_tooltip_ability_special_bonus_mp_regen_6"))
-  altTooltip.SetDialogVariable('name_2', $.Localize("#Dota_tooltip_ability_special_bonus_hp_regen_10"))
-  altTooltip.SetDialogVariable('name_3', $.Localize("#Dota_tooltip_ability_special_bonus_movement_speed_30"))
-  altTooltip.SetDialogVariable('name_4', $.Localize("#Dota_tooltip_ability_special_bonus_cast_range_250"))
-  altTooltip.SetDialogVariable('name_5', $.Localize("#Dota_tooltip_ability_special_bonus_electrician_absorption_hero_mana_restore").replace("%value%", "2"))
-  altTooltip.SetDialogVariable('name_6', $.Localize("#Dota_tooltip_ability_special_bonus_mp_800"))
-  altTooltip.SetDialogVariable('name_7', $.Localize("#Dota_tooltip_ability_special_bonus_electrician_shock_autoself"))
-  altTooltip.SetDialogVariable('name_8', $.Localize("#Dota_tooltip_ability_special_bonus_hp_1000"))
+function SetupSohei (portrait) {
+  portrait.style.backgroundImage = 'url("file://{images}/heroes/selection/npc_dota_hero_sohei.png")';
+  portrait.style.backgroundSize = '100% 100%';
+  CreateAbilityPanel(abilities, 'sohei_dash');
+  CreateAbilityPanel(abilities, 'sohei_wholeness_of_body');
+  CreateAbilityPanel(abilities, 'sohei_palm_of_life');
+  var lastAbility = CreateAbilityPanel(abilities, 'sohei_flurry_of_blows');
+  var talents = abilities.GetChild(0);
+  talents.SetPanelEvent('onmouseover', function () {
+    altTooltip.SetHasClass('visible', true);
+    SetTalentsSohei();
+  });
+  talents.SetPanelEvent('onmouseout', function () {
+    altTooltip.SetHasClass('visible', false);
+  });
+  abilities.MoveChildAfter(talents, lastAbility);
+
+  UpdateBottlePassArcana('npc_dota_hero_sohei');
+}
+
+function SetTalentsSohei () {
+  altTooltip.SetDialogVariable('name_1', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_stun'));
+  altTooltip.SetDialogVariable('name_2', $.Localize('#Dota_tooltip_ability_special_bonus_cleave_25'));
+  altTooltip.SetDialogVariable('name_3', $.Localize('#Dota_tooltip_ability_special_bonus_strength_20'));
+  altTooltip.SetDialogVariable('name_4', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_wholeness_knockback'));
+  altTooltip.SetDialogVariable('name_5', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_wholeness_allycast'));
+  altTooltip.SetDialogVariable('name_6', $.Localize('#Dota_tooltip_ability_special_bonus_movement_speed_60'));
+  altTooltip.SetDialogVariable('name_7', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_dash_recharge').replace('%value%', '3'));
+  altTooltip.SetDialogVariable('name_8', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_fob_radius').replace('%value%', '200'));
+}
+
+function SetTalentsElectrician () {
+  altTooltip.SetDialogVariable('name_1', $.Localize('#Dota_tooltip_ability_special_bonus_mp_regen_6'));
+  altTooltip.SetDialogVariable('name_2', $.Localize('#Dota_tooltip_ability_special_bonus_hp_regen_10'));
+  altTooltip.SetDialogVariable('name_3', $.Localize('#Dota_tooltip_ability_special_bonus_movement_speed_30'));
+  altTooltip.SetDialogVariable('name_4', $.Localize('#Dota_tooltip_ability_special_bonus_cast_range_250'));
+  altTooltip.SetDialogVariable('name_5', $.Localize('#Dota_tooltip_ability_special_bonus_electrician_absorption_hero_mana_restore').replace('%value%', '2'));
+  altTooltip.SetDialogVariable('name_6', $.Localize('#Dota_tooltip_ability_special_bonus_mp_800'));
+  altTooltip.SetDialogVariable('name_7', $.Localize('#Dota_tooltip_ability_special_bonus_electrician_shock_autoself'));
+  altTooltip.SetDialogVariable('name_8', $.Localize('#Dota_tooltip_ability_special_bonus_hp_1000'));
 }
 
 function UpdateBottleList () {
@@ -150,7 +146,7 @@ function SelectBottle () {
   var data = {
     BottleId: bottleId
   };
-  $('#Bottle0').SetHasClass('Selected', true)
+  $('#Bottle0').SetHasClass('Selected', true);
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
@@ -231,7 +227,9 @@ function SelectArcana () {
   var arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
     var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
-
+    if(selectedArcana==null) {
+      return;
+    }
     var data = {
       Hero: selectedArcana.hero,
       Arcana: selectedArcana.setName
@@ -242,28 +240,28 @@ function SelectArcana () {
   }
 }
 
-function init()
-{
+function init () {
+  $.GetContextPanel().SetHasClass(Game.GetMapInfo().map_display_name, true);
+  $.GetContextPanel().FindChildrenWithClassTraverse('BottlePassSelection')[0].SetHasClass(Game.GetMapInfo().map_display_name, true);
   // Subscribe hero pre select event
-  GameEvents.Subscribe( "dota_player_hero_selection_dirty", OnUpdateHeroSelection );
-
+  GameEvents.Subscribe('dota_player_hero_selection_dirty', OnUpdateHeroSelection);
 
   CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
 
   // Enable top bar
-  FindDotaHudElement('PreGame').FindChildTraverse('Header').style.visibility = 'visible'
+  FindDotaHudElement('PreGame').FindChildTraverse('Header').style.visibility = 'visible';
 
   // SetMinimap
   var minimap = FindDotaHudElement('HeroPickMinimap');
-  minimap.style.backgroundImage='url("s2r://materials/overviews/oaa.tga")';
-  minimap.style.borderRadius ='20px';
+  minimap.style.backgroundImage = 'url("s2r://materials/overviews/oaa.tga")';
+  minimap.style.borderRadius = '20px';
 
   for (var i = 0; i < minimap.GetChildCount(); i++) {
     var lastPanel = minimap.GetChild(i);
-    lastPanel.style.visibility = 'collapse'
+    lastPanel.style.visibility = 'collapse';
   }
 
   UpdateBottleList();
 }
 
-init()
+init();

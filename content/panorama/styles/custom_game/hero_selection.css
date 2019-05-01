@@ -11,7 +11,7 @@
   transform: scaleX(1) scaleY(1) translateY(0);
 }
 
-:not(.HeroSelection.unranked){
+.HeroSelection:not(.unranked){
   opacity: 1.0;
   visibility: visible;
 }

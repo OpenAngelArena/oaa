@@ -99,7 +99,7 @@ function HeroSelection:Init ()
   GameEvents:OnHeroInGame(function (npc)
     local playerId = npc:GetPlayerID()
     DebugPrint('An NPC spawned ' .. npc:GetUnitName())
-    DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. npc:GetUnitName())
+    DebugPrint('Giving player' .. tostring(playerId)  .. ' starting hero ' .. npc:GetUnitName())
     HeroCosmetics:ApplySelectedArcana(npc, HeroSelection:GetSelectedArcanaForPlayer(playerId)[npc:GetUnitName()])
   end)
 
@@ -676,8 +676,8 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   self.spawnedPlayers[playerId] = true
   if hero == nil then
     Timers:CreateTimer(2, function ()
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-      HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
+      local loadedHero = PlayerResource:GetSelectedHeroEntity(playerId)
+      HeroCosmetics:ApplySelectedArcana(loadedHero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[loadedHero:GetUnitName()])
     end)
     return
   end
@@ -780,9 +780,6 @@ function HeroSelection:EndStrategyTime ()
 end
 
 function HeroSelection:StrategyTimer (time)
-  if true then return end
-  print("StrategyTimer!!!!!!!!!!!")
-  print(time)
   HeroSelection:CheckPause()
   if time < 0 then
     if finishedLoading then

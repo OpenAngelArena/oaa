@@ -99,10 +99,9 @@ var hilariousLoadingPhrases = [
 
 init();
 
-function init(){
+function init () {
   $.GetContextPanel().AddClass(currentMap);
-  if(currentMap=="unranked")
-  {
+  if (currentMap === 'unranked') {
     return;
   }
 
