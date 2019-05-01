@@ -1,17 +1,29 @@
 <root>
   <styles>
     <include src="s2r://panorama/styles/tooltips/tooltip_base.vcss_c" />
-		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="s2r://panorama/styles/tooltips/tooltip_stat_branch.vcss_c" />
 		<include src="s2r://panorama/styles/ui_stat_branch.vcss_c" />
     <include src="s2r://panorama/styles/hud/dota_hud_stat_branch.vcss_c" />
     <include src="file://{resources}/styles/custom_game/talent_tooltip.css" />
+    <include src="file://{resources}/styles/custom_game/bottlepass_rewards.css" />
   </styles>
   <scripts>
     <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/vanila_hero_selection.js"/>
   </scripts>
-  <Panel class='Holder'>
+  <snippets>
+    <snippet name="BottleRadio">
+      <RadioButton class="BottleOption" group="BottleOption" onactivate="SelectBottle()" hittest="true">
+        <Panel class="Bottle"/>
+      </RadioButton>
+    </snippet>
+    <snippet name="ArcanaRadio">
+      <RadioButton class="ArcanaOption" group="ArcanaOption" onactivate="SelectArcana()" hittest="true">
+        <Panel class="Arcana"/>
+      </RadioButton>
+    </snippet>
+  </snippets>
+  <Panel class='Holder' hittest="false">
     <Panel class='DOTATooltipStatBranch ' hittest="false">
       <Panel id='DOTAHUDStatBranchTooltipAlt' class='TooltipContainer TopArrowVisible' hittest='false' hittestchildren='false'>
         <Panel id='TopArrow' hittest='false'/>
@@ -107,6 +119,17 @@
           <Panel id='RightArrow' hittest='false'/>
         </Panel>
         <Panel id='BottomArrow' hittest='false'/>
+      </Panel>
+    </Panel>
+    <Panel class="BottlePassSelection" hittest="true" hittestchildren="true" >
+      <Label id="BottlePassSelectionTitle" text="#BottlePassSelection"/>
+      <Label id="BottleSelectionTitle" text="#BottleSelection"/>
+      <Panel id="BottleSelection" hittest="true" hittestchildren="true" >
+      </Panel>
+      <Panel class="ArcanaPanel" id="ArcanaPanel">
+        <Label id="ArcanaSelectionTitle" text="#ArcanaSelection"/>
+        <Panel id="ArcanaSelection" hittest="true" hittestchildren="true" >
+        </Panel>
       </Panel>
     </Panel>
   </Panel>

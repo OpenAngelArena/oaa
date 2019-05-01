@@ -43,7 +43,6 @@ function HeroSelection:Init ()
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
 
-  if self.isUnranked then return end
 
   local herolistFile = 'scripts/npc/herolist.txt'
 
@@ -97,23 +96,12 @@ function HeroSelection:Init ()
     CustomNetTables:SetTableValue( 'hero_selection', 'abilities_' .. attr, data)
   end
 
-
-
-
-  -- lock down the "pick" hero so that they can't do anything
-  -- GameEvents:OnHeroInGame(function (npc)
-  --   local playerId = npc:GetPlayerID()
-  --   DebugPrint('An NPC spawned ' .. npc:GetUnitName())
-  --   DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. npc:GetUnitName())
-  --   -- if npc:GetUnitName() == FORCE_PICKED_HERO then
-  --   --   npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
-  --   --   npc:AddNoDraw()
-
-  --   --   if self.attemptedSpawnPlayers[playerId] then
-  --   --     self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
-  --   --   end
-  --   -- end
-  -- end)
+  GameEvents:OnHeroInGame(function (npc)
+    local playerId = npc:GetPlayerID()
+    DebugPrint('An NPC spawned ' .. npc:GetUnitName())
+    DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. npc:GetUnitName())
+    HeroCosmetics:ApplySelectedArcana(npc, HeroSelection:GetSelectedArcanaForPlayer(playerId)[npc:GetUnitName()])
+  end)
 
   GameEvents:OnHeroSelection(function (keys)
     Debug:EnableDebugging()
@@ -189,6 +177,10 @@ function HeroSelection:StartSelection ()
     HeroSelection:APTimer(0, "ALL PICK")
   end
 
+  HeroSelection:BuildBottlePass()
+end
+
+function HeroSelection:BuildBottlePass()
   -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
   local special_bottles = {}
   local special_arcanas = {}
@@ -240,7 +232,8 @@ function HeroSelection:GetSelectedArcanaForPlayer(playerId)
 end
 
 function HeroSelection:RankedManager (event)
-  print("RankedManager")
+  -- unranked uses regular picking screen
+  if self.isUnranked then return end
   local function save ()
     CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
   end

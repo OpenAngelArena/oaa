@@ -164,7 +164,7 @@ function GameMode:_CaptureGameMode()
     mode = GameRules:GetGameModeEntity()
     if GetMapName() ~= "unranked" then
       mode:SetDraftingBanningTimeOverride(0)
-      mode:SetDraftingHeroPickSelectTimeOverride(9999)
+      mode:SetDraftingHeroPickSelectTimeOverride(99999)
     else
       mode:SetDraftingBanningTimeOverride(RANKED_BAN_TIME)
       mode:SetDraftingHeroPickSelectTimeOverride(RANKED_PICK_TIME)

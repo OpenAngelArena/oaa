@@ -28,7 +28,7 @@ function CreateAbilityPanel (parent, ability) {
   return icon
 }
 
-function OnUpdateHeroSelection()
+function OnUpdateHeroSelection(key)
 {
   var port = info.FindChildTraverse('HeroPortrait');
 	if (heroNamePanel && heroNamePanel.text=='SOHEI') {
@@ -50,6 +50,7 @@ function OnUpdateHeroSelection()
     });
 
     abilities.MoveChildAfter(talents, lastAbility)
+    UpdateBottlePassArcana('npc_dota_hero_sohei');
   }
   else if(heroNamePanel && heroNamePanel.text=='CHATTERJEE') {
     port.style.backgroundImage = 'url("file://{images}/heroes/selection/npc_dota_hero_electrician.png")';
@@ -70,6 +71,11 @@ function OnUpdateHeroSelection()
     });
 
     abilities.MoveChildAfter(talents, lastAbility)
+    UpdateBottlePassArcana('npc_dota_hero_electrician');
+  }
+  else
+  {
+    UpdateBottlePassArcana('');
   }
 }
 
@@ -97,18 +103,167 @@ function SetTalentsElectrician()
   altTooltip.SetDialogVariable('name_8', $.Localize("#Dota_tooltip_ability_special_bonus_hp_1000"))
 }
 
-// Subscribe hero pre select event
-GameEvents.Subscribe( "dota_player_hero_selection_dirty", OnUpdateHeroSelection );
+function UpdateBottleList () {
+  var playerID = Game.GetLocalPlayerID();
+  var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
+  var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
-// Enable top bar
-FindDotaHudElement('PreGame').FindChildTraverse('Header').style.visibility = 'visible'
+  if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
+    // ignore repaint if radio is already filled
+    return;
+  }
 
-// SetMinimap
-var minimap = FindDotaHudElement('HeroPickMinimap');
-minimap.style.backgroundImage='url("s2r://materials/overviews/oaa.tga")';
-minimap.style.borderRadius ='20px';
+  $('#BottleSelection').RemoveAndDeleteChildren();
+  // Wait the parent be updated
+  $.Schedule(0.2, function () {
+    var selectedBottle;
 
-for (var i = 0; i < minimap.GetChildCount(); i++) {
-  var lastPanel = minimap.GetChild(i);
-  lastPanel.style.visibility = 'collapse'
+    var selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
+    if (selectedBottles !== undefined && selectedBottles[playerID.toString()] !== undefined) {
+      selectedBottle = selectedBottles[playerID.toString()];
+    }
+
+    CreateBottleRadioElement(0, selectedBottle === 0);
+    var bottleCount = Object.keys(bottles).length;
+    Object.keys(bottles).forEach(function (bottleId, i) {
+      var id = bottles[bottleId];
+      CreateBottleRadioElement(bottles[bottleId], selectedBottle === undefined ? i === bottleCount - 1 : id === selectedBottle);
+    });
+
+    SelectBottle();
+  });
 }
+
+function CreateBottleRadioElement (id, isChecked) {
+  var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
+  radio.BLoadLayoutSnippet('BottleRadio');
+  radio.bottleId = id;
+  radio.checked = isChecked;
+}
+
+function SelectBottle () {
+  var bottleId = 0;
+  var btn = $('#Bottle0');
+  if (btn != null) {
+    bottleId = $('#Bottle0').GetSelectedButton().bottleId;
+  }
+  var data = {
+    BottleId: bottleId
+  };
+  $('#Bottle0').SetHasClass('Selected', true)
+  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
+  GameEvents.SendCustomGameEventToServer('bottle_selected', data);
+}
+
+function UpdateBottlePassArcana (heroName) {
+  var playerID = Game.GetLocalPlayerID();
+  $('#ArcanaSelection').RemoveAndDeleteChildren();
+
+  if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician') {
+    $('#ArcanaPanel').SetHasClass('HasArcana', false);
+    return;
+  }
+  $('#ArcanaPanel').SetHasClass('HasArcana', true);
+
+  var selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
+  var selectedArcana = 'DefaultSet';
+
+  if (selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined) {
+    selectedArcana = selectedArcanas[playerID.toString()][heroName];
+  }
+
+  $.Schedule(0.2, function () {
+    $.Msg('UpdateBottlePassArcana(' + heroName + ')');
+    var arcanas = null;
+
+    var specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
+    for (var arcanaIndex in specialArcanas) {
+      if (specialArcanas[arcanaIndex].PlayerId === playerID) {
+        arcanas = specialArcanas[arcanaIndex].Arcanas;
+      }
+    }
+    var radio = null;
+    if (heroName === 'npc_dota_hero_sohei') {
+      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultSoheiSet');
+      radio.BLoadLayoutSnippet('ArcanaRadio');
+      radio.hero = heroName;
+      radio.setName = 'DefaultSet';
+      radio.checked = selectedArcana === radio.setName;
+
+      for (var index in arcanas) {
+        if (arcanas[index] === 'DBZSohei') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DBZSoheiSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'DBZSohei';
+          radio.checked = selectedArcana === radio.setName;
+        }
+        if (arcanas[index] === 'PepsiSohei') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'PepsiSohei';
+          radio.checked = selectedArcana === radio.setName;
+        }
+      }
+    } else if (heroName === 'npc_dota_hero_electrician') {
+      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultElectricianSet');
+      radio.BLoadLayoutSnippet('ArcanaRadio');
+      radio.hero = heroName;
+      radio.setName = 'DefaultSet';
+      radio.checked = selectedArcana === radio.setName;
+
+      for (var index2 in arcanas) {
+        if (arcanas[index2] === 'RockElectrician') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'RockElectrician';
+          radio.checked = selectedArcana === radio.setName;
+        }
+      }
+    }
+    SelectArcana();
+  });
+}
+
+function SelectArcana () {
+  var arcanasList = $('#ArcanaSelection');
+  if (arcanasList.GetChildCount() > 0) {
+    var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+
+    var data = {
+      Hero: selectedArcana.hero,
+      Arcana: selectedArcana.setName
+    };
+
+    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + Game.GetLocalPlayerID() + ' for hero ' + data.Hero);
+    GameEvents.SendCustomGameEventToServer('arcana_selected', data);
+  }
+}
+
+function init()
+{
+  // Subscribe hero pre select event
+  GameEvents.Subscribe( "dota_player_hero_selection_dirty", OnUpdateHeroSelection );
+
+
+  CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
+
+  // Enable top bar
+  FindDotaHudElement('PreGame').FindChildTraverse('Header').style.visibility = 'visible'
+
+  // SetMinimap
+  var minimap = FindDotaHudElement('HeroPickMinimap');
+  minimap.style.backgroundImage='url("s2r://materials/overviews/oaa.tga")';
+  minimap.style.borderRadius ='20px';
+
+  for (var i = 0; i < minimap.GetChildCount(); i++) {
+    var lastPanel = minimap.GetChild(i);
+    lastPanel.style.visibility = 'collapse'
+  }
+
+  UpdateBottleList();
+}
+
+init()
