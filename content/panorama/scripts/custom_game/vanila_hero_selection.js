@@ -227,7 +227,7 @@ function SelectArcana () {
   var arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
     var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
-    if(selectedArcana==null) {
+    if(selectedArcana == null) {
       return;
     }
     var data = {
