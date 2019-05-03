@@ -19,3 +19,7 @@ function modifier_item_devastator_reduce_armor:GetTexture()
     return baseIconName
   end
 end
+
+function modifier_item_devastator_reduce_armor:IsPurgable()
+  return true
+end
