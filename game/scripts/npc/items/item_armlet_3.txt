@@ -67,7 +67,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 28 32 36 40"
+        "bonus_attack_speed"                              "25 30 35 40 45"
       }
       "03"
       {
@@ -77,7 +77,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5 9 13 17 21"
+        "bonus_health_regen"                              "5 10 15 20 25"
       }
       "05"
       {
@@ -102,12 +102,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 11 15 19 22"
+        "unholy_health_drain_per_tick"                    "6 8 11 14 18"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 100 140 175 200"
+        "unholy_health_drain_per_second_tooltip"          "54 70 100 130 160"
       }
       "11"
       {

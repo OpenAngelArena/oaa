@@ -87,6 +87,8 @@ BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
+BOSS_WANDERER_SPAWN_START = 12 * 60     -- start time for wanderer spawn
+BOSS_WANDERER_RESPAWN = 5 * 60          -- start time for wanderer spawn
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
