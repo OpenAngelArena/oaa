@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "10 20 30 40 50" //OAA
+    "AbilityManaCost"                                     "5" //OAA
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
@@ -36,12 +36,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_initial_mana_percentage"          "8 9 10 12 14" //OAA
+        "ball_lightning_initial_mana_percentage"          "15" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_initial_mana_base"                "10 20 30 40 50" //OAA
+        "ball_lightning_initial_mana_base"                "5" //OAA
       }
       "03"
       {
@@ -56,12 +56,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_travel_cost_base"                 "12"
+        "ball_lightning_travel_cost_base"                 "2" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ball_lightning_travel_cost_percent"              "0.7"
+        "ball_lightning_travel_cost_percent"              "1.0" //OAA
       }
       "07"
       {
