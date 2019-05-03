@@ -58,6 +58,10 @@ function sohei_momentum:OnUpgrade()
 	end
 end
 
+function sohei_momentum:ResetToggleOnRespawn()
+	return false
+end
+
 --------------------------------------------------------------------------------
 
 -- Momentum's passive modifier
