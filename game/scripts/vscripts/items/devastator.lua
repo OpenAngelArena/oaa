@@ -83,13 +83,14 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
     end
 
     -- Damage part should always be applied
-		local damage = {
-			victim = hTarget,
-			attacker = self:GetCaster(),
-			damage = self.devastator_damage,
-			damage_type = DAMAGE_TYPE_PHYSICAL,
-			ability = self
-		}
+    local damage = {
+      victim = hTarget,
+      attacker = self:GetCaster(),
+      damage = self.devastator_damage,
+      damage_type = DAMAGE_TYPE_PHYSICAL,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+      ability = self
+    }
 
 		ApplyDamage( damage )
     self:GetCaster():PerformAttack(hTarget, true, true, true, false, false, false, true)
