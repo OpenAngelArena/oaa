@@ -6,7 +6,7 @@
   "miniboss_apply_buff"
   {
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/miniboss_base_buff.lua"
+    "ScriptFile"                                          "abilities/miniboss_apply_buff.lua"
     "AbilityTextureName"                                  "pudge_flesh_heap"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxLevel"                                            "1"
