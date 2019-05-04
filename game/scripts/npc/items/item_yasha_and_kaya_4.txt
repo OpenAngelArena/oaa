@@ -53,8 +53,8 @@
     "ItemCost"                      "15050"
     "ItemShopTags"                  "damage;str;agi;attack_speed;unique"
     "ItemQuality"                   "artifact"
-    "ItemAliases"                   "ynk;y&k;sk;yasha and kaya"
-    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                   "ynk 4;y&k 4;yk 4;yasha and kaya 4"
+    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"             "1"
 
