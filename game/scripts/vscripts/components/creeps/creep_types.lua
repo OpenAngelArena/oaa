@@ -85,7 +85,8 @@ CreepTypes = {
        {"npc_dota_neutral_black_drake",            1500,    0,  70,    3,   152, 156}
     }
   }
-   -- 6 miniboss camps
+}
+MinibossTypes = {
   {
     {
        {"npc_dota_miniboss_dragon",            2500,    0,  100,    3,   110, 100}
