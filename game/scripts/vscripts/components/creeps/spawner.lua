@@ -79,7 +79,10 @@ end
 
 function CreepCamps:DoSpawn (location, difficulty, maximumUnits)
   local creepCategory = CreepTypes[difficulty]
-  if difficulty >= 100 then creepCategory = MinibossTypes[101-difficulty] end
+  if difficulty >= 100 then
+    if CreepPowerLevel < 3 then return end
+    creepCategory = MinibossTypes[101-difficulty]
+  end
   local creepGroup = creepCategory[RandomInt(1, #creepCategory)]
   for i=1, #creepGroup do
     self:SpawnCreepInCamp (location, creepGroup[i], maximumUnits)
