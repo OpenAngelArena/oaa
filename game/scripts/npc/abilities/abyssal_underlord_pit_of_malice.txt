@@ -13,7 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastRange"                                    "750"
+    "AbilityCastRange"                                    "750 750 750 750 850 950"
     "AbilityCastPoint"                                    "0.45"
     "FightRecapLevel"                                     "1"
 
@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 115 130 145 160 175"
+    "AbilityManaCost"                                     "100 115 130 145 205 295"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
