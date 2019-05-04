@@ -1,6 +1,6 @@
 modifier_miniboss_base = class(ModifierBaseClass)
 
-function modifier_miniboss_base:IsHidden()		return false end
+function modifier_miniboss_base:IsHidden()		return true end
 
 function modifier_miniboss_base:RemoveOnDeath()	return true end
 
@@ -33,7 +33,7 @@ function modifier_miniboss_base:OnIntervalThink()
 	local newmod = false
 	if (not blue) and (not red) then
 		if RollPercentage(50)	then newmod = "modifier_miniboss_red"
-								else newmod = "modifier_miniboss_blue" end
+		                      else newmod = "modifier_miniboss_blue" end
 	elseif not red then newmod = "modifier_miniboss_red"
 	elseif not blue then newmod = "modifier_miniboss_blue"
 	end
