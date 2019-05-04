@@ -189,6 +189,7 @@ if IsServer() then
 		end
 
 		local degen = ( spell:GetSpecialValueFor( "health_degen_rate" ) / 100 ) * interval
+    if self:GetParent():FindModifierByName("modifier_miniboss_blue_amplifier") then degen = degen * 2 end
 		local damage = ApplyDamage( {
 			victim = parent,
 			attacker = parent,
