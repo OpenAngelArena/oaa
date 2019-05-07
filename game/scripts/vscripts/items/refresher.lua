@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_item_refresher_oaa", "items/refresher.lua", LUA_MODIFI
 
 item_refresher_2 = class(ItemBaseClass)
 
-function item_refresher_2:GetIntrinsicModifierNames()
+function item_refresher_2:GetIntrinsicModifierName()
   return "modifier_item_refresher_oaa"
 end
 
