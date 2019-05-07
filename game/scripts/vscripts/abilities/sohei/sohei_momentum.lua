@@ -58,8 +58,13 @@ function sohei_momentum:OnUpgrade()
 	end
 end
 
-function sohei_momentum:ResetToggleOnRespawn()
-	return false
+-- Remove if the ability is passive
+function sohei_momentum:OnOwnerSpawned()
+  if self:GetLevel() >= 1 then
+    if not self:GetToggleState() then
+      self:ToggleAbility()
+    end
+  end
 end
 
 --------------------------------------------------------------------------------
