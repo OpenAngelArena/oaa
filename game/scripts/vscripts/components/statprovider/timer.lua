@@ -10,7 +10,7 @@ function HudTimer:Init()
   Debug:EnableDebugging()
 
   self.isPaused = false
-  self.gameTime = 0 - (CLOCK_SYNC_INTERVAL - (GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
+  self.gameTime = DOTA_CLOCK_SKEW--0 - (CLOCK_SYNC_INTERVAL - (GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
   if self.gameTime > -15 then
     self.gameTime = self.gameTime - CLOCK_SYNC_INTERVAL
   end
@@ -19,8 +19,21 @@ function HudTimer:Init()
   local startingOffset = math.floor(GameRules:GetDOTATime(true, true)) - self.gameTime
 
   DebugPrint('Using an initial clock skew of ' .. startingOffset .. ' at ' .. self.gameTime)
+  self.IsGameInProgress = false
+
 
   Timers:CreateTimer(1 - GameRules:GetDOTATime(true, true) % 1, function()
+    local gameState = GameRules:State_Get()
+    if (gameState ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and gameState ~= DOTA_GAMERULES_STATE_PRE_GAME) or self.isPaused then
+      return 1
+    end
+
+    if self.IsGameInProgress == false and gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+      self.gameTime = 0
+      startingOffset = math.floor(GameRules:GetDOTATime(true, true))
+      self.IsGameInProgress =true
+    end
+
     local timeToNextDuel = Duels:GetNextDuelTime()
     if timeToNextDuel == nil then timeToNextDuel = 0 else timeToNextDuel = timeToNextDuel - self.gameTime end
     if timeToNextDuel < 0 then timeToNextDuel = 0 end
