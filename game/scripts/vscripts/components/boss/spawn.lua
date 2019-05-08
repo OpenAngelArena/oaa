@@ -112,7 +112,7 @@ function BossSpawner:SpawnBossAtPit (pit)
     -- DebugPrint('There are ' .. #bossName .. 'options for this boss')
     bossName = bossName[RandomInt(1, #bossName)]
   end
-  local isProtected = bossList == 1 and pit.killCount == 1
+  local isProtected = false --bossList == 1 and pit.killCount == 1
 
   DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
   BossSpawner:SpawnBoss(pit, bossName, bossTier, isProtected)
@@ -145,9 +145,9 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     return
   end
 
-  local heart = CreateItem("item_heart", bossHandle, bossHandle)
+  --local heart = CreateItem("item_heart", bossHandle, bossHandle)
 
-  bossHandle:AddItem(heart)
+  --bossHandle:AddItem(heart)
 
   --Adding cores to the bosses inventory
   local core = CreateItem(BossSpawner.CoreItems[bossTier], bossHandle, bossHandle)

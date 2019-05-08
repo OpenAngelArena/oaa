@@ -17,7 +17,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "115"
+    "AbilityCooldown"                                     "70"  //OAA, for picking screen tooltip
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "60"
+        "duration"                                        "45"  //OAA, for picking screen tooltip
       }
       "02"
       {
@@ -75,13 +75,13 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_movement_speed"                      "-30"
+        "frost_bonus_movement_speed"                      "-40"
         "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_5"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-30"
+        "frost_bonus_attack_speed"                        "-40"
         "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_5"
       }
       "11"

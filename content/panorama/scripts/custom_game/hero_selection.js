@@ -84,7 +84,17 @@ var hilariousLoadingPhrases = [
   'Remember to poop aggressively',
   'Sneaking loading screen text into the game simply because I can',
   'Forgetting to upgrade boots',
-  'Hope everyone is having a great day'
+  'Hope everyone is having a great day',
+  'Wards cannot be bought individually, instead the Ward Stack item is used to generate both observer and sentry wards passively',
+  'Upgrade cores allow you to upgrade your times',
+  'You can split an upgrade core into 2 of a lower tier',
+  'Heroes are invulnerable for 2 seconds at the start of every duel',
+  'Each capture point is worth more points than the previous',
+  'Each hero on a capture point speeds up the capture time',
+  'Use your glyph hotkey to drop a free ward',
+  'Before 0:00 on the clock, you cannot leave base and creeps do not spawn',
+  'Bosses spawn into the map at 3:00',
+  'The wandering boss spawns at 12:00'
 ];
 
 SetupTopBar();
@@ -812,11 +822,10 @@ function SelectArcana () {
 
     var data = {
       Hero: selectedArcana.hero,
-      Arcana: selectedArcana.setName,
-      PlayerId: Game.GetLocalPlayerID()
+      Arcana: selectedArcana.setName
     };
 
-    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + data.PlayerId + ' for hero ' + data.Hero);
+    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + Game.GetLocalPlayerID() + ' for hero ' + data.Hero);
     GameEvents.SendCustomGameEventToServer('arcana_selected', data);
   }
 }
@@ -866,10 +875,9 @@ function SelectBottle () {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
   var data = {
-    BottleId: bottleId,
-    PlayerId: Game.GetLocalPlayerID()
+    BottleId: bottleId
   };
-  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + data.PlayerId);
+  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
 
@@ -903,7 +911,6 @@ function SelectHero (hero) {
     } else {
       $.Msg('Selecting ' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
-        PlayerID: Game.GetLocalPlayerID(),
         hero: newhero
       });
     }

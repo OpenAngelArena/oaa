@@ -1,0 +1,100 @@
+"DOTAUnits"
+{
+	//=================================================================================
+	// Monkey King Clone for Wukongs Command
+	// Notes:
+	//=================================================================================
+	"npc_dota_monkey_clone_oaa"
+	{
+		"BaseClass"                                   "npc_dota_creature"
+		"Model"                                       "models/heroes/monkey_king/monkey_king.vmdl"
+		"ModelScale"                                  "0.8100"
+		"IdleExpression"                              "scenes/monkey_king/monkey_king_exp_idle_01.vcd"
+		"SoundSet"                                    "Hero_MonkeyKing"
+		"particle_folder"                             "particles/units/heroes/hero_monkey_king"
+		"GameSoundsFile"                              "soundevents/game_sounds_heroes/game_sounds_monkey_king.vsndevts"
+		"Level"                                       "1"
+		"UnitLabel"                                   "monkey_clone"
+
+		"CanBeDominated"                              "0"
+		"ConsideredHero"                              "0"
+
+		"AutoAttacksByDefault"                        "1"
+		"IgnoreAddSummonedToSelection"                "1"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"                               "0"
+		"MagicalResistance"                           "0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"                          "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"                             "29"
+		"AttackDamageMax"                             "35"
+		"AttackRate"                                  "1.7"
+		"AttackAnimationPoint"                        "0.45"
+		"AttackSpeedActivityModifiers"
+		{
+			"fast"		"170"
+			"faster"	"275"
+			"fastest"	"350"
+		}
+		"AttackAcquisitionRange"                      "800"
+		"AttackRange"                                 "300"
+		"AttackRangeActivityModifiers"
+		{
+			"attack_normal_range"	"0"
+			"attack_long_range"		"200"
+		}
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"                                    "0"
+		"BountyGoldMin"                               "0"
+		"BountyGoldMax"                               "0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"                              "DOTA_HULL_SIZE_SMALL"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"                        "DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"                               "0"
+		"MovementTurnRate"                            "0.6"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"                                "150"
+		"StatusHealthRegen"                           "0"
+		"StatusMana"                                  "0"
+		"StatusManaRegen"                             "0"
+
+		// Combat
+		//----------------------------------------------------------------
+		"TeamName"                                    "DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"                           "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"                           "DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"                       "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"                          "600"
+		"VisionNighttimeRange"                        "600"
+
+		"HasInventory"                                "1"
+		"WakesNeutrals"                               "0"
+
+		"Creature"
+		{
+      "AttachWearables"
+			{
+				"Wearable1"	{ "ItemDef" "594" }			// head
+				"Wearable2"	{ "ItemDef"	"608" }			// armor
+				"Wearable3" { "ItemDef"	"609" }			// weapon
+				"Wearable4" { "ItemDef"	"657" }			// shoulders
+			}
+		}
+	}
+}

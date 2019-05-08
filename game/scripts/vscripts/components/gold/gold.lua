@@ -177,3 +177,8 @@ function Gold:PassiveGPM()
 
   return GPM_TICK_INTERVAL
 end
+
+-- used to determine whether or not gold generation from farming boots should occur
+function Gold:IsGoldGenActive()
+  return (not Duels:IsActive()) and HudTimer:GetGameTime() > 0
+end

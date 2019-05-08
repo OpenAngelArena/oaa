@@ -51,8 +51,8 @@
     "ItemCost"            "5600"
     "ItemShopTags"          "damage;str;agi;attack_speed;unique"
     "ItemQuality"         "artifact"
-    "ItemAliases"         "snk;s&k;sk;sange and kaya"
-    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"         "snk 2;s&k 2;sk 2;sange and kaya 2"
+    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"       "1"
 
@@ -78,7 +78,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" //OAA
+        "manacost_reduction"                              "12 16 22 28 34" //OAA
       }
       "05"
       {

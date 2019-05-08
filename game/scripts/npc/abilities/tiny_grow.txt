@@ -26,17 +26,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 16 25 35 55"
+        "bonus_armor"                                     "7 15 25 35 55" //OAA, for picking screen tooltip
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 60 90 150 270" //OAA
+        "bonus_damage"                                    "30 60 90 150 270" //OAA, for picking screen tooltip
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed_reduction"                          "20 35 50 60 70"
+      }
+      "04"  //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "10 20 30 40 50"
       }
     }
   }

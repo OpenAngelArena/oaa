@@ -48,14 +48,14 @@
     "AbilityTextureName"                                  "item_custom/greater_travels_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
+    "AbilityCooldown"                                     "90.0"
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "2.5 2.2 1.9 1.6"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "32600"
+    "ItemCost"                                            "32700"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot 4;boots of travel 4;greater boots of travel 4"

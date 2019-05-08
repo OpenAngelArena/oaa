@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+	// Bonus Precision Aura Attack Speed
+	//=================================================================================================================
+	"special_bonus_unique_drow_ranger_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6202"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"25"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Bonus Gust Distance/Knockback
+	//=================================================================================================================
+	"special_bonus_unique_drow_ranger_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6209"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"550"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Bonus Marksmanship ... - unused
+	//=================================================================================================================
+	"special_bonus_unique_drow_ranger_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6280"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"40"
+			}
+		}
+	}
+
+  //=================================================================================================================
+  // upgrades Gust - increases silence duration
+  //=================================================================================================================
+  "special_bonus_unique_drow_ranger_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                  "6634"
+		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"value"           "2.0" // OAA
+			}
+		}
+	}
+}

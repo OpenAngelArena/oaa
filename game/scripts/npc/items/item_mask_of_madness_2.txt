@@ -36,14 +36,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-  "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_2"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_mask_of_madness_2"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
@@ -51,6 +53,7 @@
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 2;mask of madness 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
