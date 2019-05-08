@@ -294,6 +294,11 @@ if IsServer() then
 
     local damage = self.damageTable[attackCap][illusion]
 
+    if damage > 0 then
+      -- "OVERHEAD_ALERT_MAGICAL_BLOCK" isn't used by dota anymore, lets steal it
+      SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
+    end
+
     return damage
   end
 
