@@ -513,7 +513,7 @@ function Duels:GetNextDuelTime()
 end
 
 function Duels:EndDuel ()
-  if self.currentDuel == nil then
+  if self.currentDuel == nil or type(self.currentDuel) == "number" then
     DebugPrint ('There is no duel running')
     return
   end

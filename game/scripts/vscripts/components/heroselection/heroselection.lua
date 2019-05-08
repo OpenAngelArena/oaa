@@ -677,11 +677,13 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if hero == nil then
     Timers:CreateTimer(2, function ()
       local loadedHero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if not loadedHero then
+        return 2
+      end
       HeroCosmetics:ApplySelectedArcana(loadedHero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[loadedHero:GetUnitName()])
     end)
     return
   end
-
 end
 
 function HeroSelection:IsHeroDisabled (hero)
@@ -762,7 +764,7 @@ function HeroSelection:EndStrategyTime ()
   HeroSelection.shouldBePaused = false
   HeroSelection:CheckPause()
 
-  GameRules:SetTimeOfDay(0.25)
+  -- GameRules:SetTimeOfDay(0.25)
 
   if self.isCM then
     PauseGame(true)

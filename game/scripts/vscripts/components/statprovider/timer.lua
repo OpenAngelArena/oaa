@@ -1,6 +1,6 @@
 HudTimer = HudTimer or class({})
 
-local DOTA_CLOCK_SKEW = 0 - PREGAME_TIME - 1
+local DOTA_CLOCK_SKEW = 0 - PREGAME_TIME
 local CLOCK_SYNC_INTERVAL = 120
 
 HudTimer.registeredListeners = {}
@@ -10,11 +10,8 @@ function HudTimer:Init()
   Debug:EnableDebugging()
 
   self.isPaused = false
-  self.gameTime = DOTA_CLOCK_SKEW--0 - (CLOCK_SYNC_INTERVAL - (GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
-  if self.gameTime > -15 then
-    self.gameTime = self.gameTime - CLOCK_SYNC_INTERVAL
-  end
-  self.gameTime = math.floor(self.gameTime)
+  self.gameTime = DOTA_CLOCK_SKEW
+  Debug:EnableDebugging()
 
   local startingOffset = math.floor(GameRules:GetDOTATime(true, true)) - self.gameTime
 
@@ -64,7 +61,7 @@ function HudTimer:Init()
     local gameMinuteOffset = math.floor((GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
     local localMinuteOffset = math.floor(self.gameTime % CLOCK_SYNC_INTERVAL)
 
-    if gameMinuteOffset ~= localMinuteOffset then
+    if self.gameTime > 0 and gameMinuteOffset ~= localMinuteOffset then
       Debug:EnableDebugging()
       DebugPrint('Clock skew detected! ' .. gameMinuteOffset .. ' / ' .. localMinuteOffset)
     end
