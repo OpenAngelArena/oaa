@@ -100,9 +100,9 @@ function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
 
     -- generate damage stuff
     local damage = keys.original_damage
-    local damageType = DAMAGE_TYPE_PHYSICAL
+    local damageType = ability:GetAbilityDamageType()
     local damageFlags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-    local damageMod = ability:GetAbilityDamageType()
+    local damageMod = spell:GetSpecialValueFor("splinter_attack_outgoing") * 0.01
     damage = damage * damageMod
 
     local function ApplySplinterDamage(target)
