@@ -167,7 +167,7 @@ function GameMode:OnPreGame()
   InitModule(WispProjectileFilter)
   InitModule(HudTimer)
   InitModule(Duels)
-  --InitModule(ProtectionAura)
+  InitModule(ProtectionAura)
 
   CheckCheatMode()
 end
