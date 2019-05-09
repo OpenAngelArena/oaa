@@ -3,7 +3,10 @@
 		<Panel id="container" style="visibility:collapse;">
 			<Image src="file://panorama/images/heroes/npc_dota_hero_sohei.png" hittest="false" />
       <Image src="file://panorama/images/heroes/npc_dota_hero_electrician.png" hittest="false" /> <!-- Cookies: Find out why it doesn't precache the image, and then hide it just like the other one -->
-<!--		<Image src="file://panorama/images/heroes/icons/npc_dota_hero_sohei.png" hittest="false" /> -->
+      <Image src="file://panorama/images/heroes/electrician/npc_dota_hero_electrician.png" hittest="false" />
+      <Image src="file://panorama/images/heroes/selection/npc_dota_hero_electrician.png" hittest="false" />
+      <Image src="file://panorama/images/heroes/selection/npc_dota_hero_sohei.png" hittest="false" />
+      <Image src="file://materials/overviews/oaa.tga" hittest="false" />
 		</Panel>
 	</Panel>
 </root>
