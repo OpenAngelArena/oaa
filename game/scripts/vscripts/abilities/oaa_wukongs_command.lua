@@ -60,6 +60,17 @@ end
 
 function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
   local banned_items = {
+    -- prevent nutty passive gpm shenanigans
+    "item_arcane_origin",
+    "item_greater_arcane_boots",
+    "item_greater_arcane_boots_2",
+    "item_greater_arcane_boots_3",
+    "item_greater_arcane_boots_4",
+    "item_greater_guardian_greaves",
+    "item_greater_guardian_greaves_2",
+    "item_greater_guardian_greaves_3",
+    "item_greater_guardian_greaves_4",
+    -- none of the other boots matter for MK...
     "item_abyssal_blade",
     "item_abyssal_blade_2",
     "item_abyssal_blade_3",
