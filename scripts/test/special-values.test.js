@@ -547,13 +547,13 @@ function buildItemTree (t, data, cb) {
         }
       });
 
-      if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
-        var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
+      // if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
+        // var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
         // console.log(item, 'is made with tier', minCore, 'items');
-        for (var i = minCore; i < 5; ++i) {
-          t.notEqual(upgradeCores.indexOf(i), -1, item + ' has reverse compatible upgrade core ' + i);
-        }
-      }
+        // for (var i = minCore; i < 5; ++i) {
+          // t.notEqual(upgradeCores.indexOf(i), -1, item + ' has reverse compatible upgrade core ' + i);
+        // }
+      // }
 
       /*
         item_preemptive_3a { values:
