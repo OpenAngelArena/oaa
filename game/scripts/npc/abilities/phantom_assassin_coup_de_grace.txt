@@ -19,13 +19,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "15"
+        "crit_chance"                                     "20"
         "LinkedSpecialBonus"    "special_bonus_unique_phantom_assassin_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_bonus"                                      "200 300 400 500 600" //OAA
+        "crit_bonus"                                      "175 250 325 400 475" //OAA
       }
     }
   }
