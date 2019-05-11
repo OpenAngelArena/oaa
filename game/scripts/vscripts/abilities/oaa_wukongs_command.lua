@@ -82,7 +82,8 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
     "item_upgrade_core",
     "item_upgrade_core_2",
     "item_upgrade_core_3",
-    "item_upgrade_core_4"
+    "item_upgrade_core_4",
+    "item_infinite_bottle"
   }
   -- Recreate items of the caster (ignore backpack and stash)
   for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
