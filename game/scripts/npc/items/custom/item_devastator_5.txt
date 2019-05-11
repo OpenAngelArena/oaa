@@ -51,7 +51,7 @@
     "AbilityTextureName"                                  "custom/devastator_5"
 
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastPoint"                                    "0"
     "AbilityCooldown"                                     "10"
     "AbilityManaCost"                                     "100"
 
@@ -115,6 +115,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_damage"                               "100 200 300 400 500"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {

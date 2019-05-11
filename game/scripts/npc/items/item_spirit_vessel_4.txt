@@ -40,19 +40,21 @@
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "AbilitySharedCooldown"     "urn"
-    "AbilityCooldown"       	"7.0"
-    "AbilityTextureName"            "custom/spirit_vessel_4"
+
+    "AbilitySharedCooldown"           "urn"
+    "AbilityCooldown"                 "7.0"
+    "AbilityTextureName"              "custom/spirit_vessel_4"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "4"
+    "MaxUpgradeLevel"                 "5"
+    "ItemBaseLevel"                   "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "15975"
-    "ItemAliases"         "sv 4;spirit vessel 4"
+    "ItemCost"                        "15975"
+    "ItemAliases"                     "sv 4;spirit vessel 4"
+    "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
