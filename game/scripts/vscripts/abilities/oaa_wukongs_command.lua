@@ -10,7 +10,7 @@ LinkLuaModifier("modifier_monkey_clone_oaa_hidden", "abilities/oaa_wukongs_comma
 if IsServer() then
   -- For Rubick OnUpgrade never happens, that's why OnStolen is needed but then it will lag
   function monkey_king_wukongs_command_oaa:OnUpgrade()
-    if self.clones == nil then
+    if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
       local max_number_of_monkeys_per_ring = math.max(9, self:GetSpecialValueFor("num_second_soldiers"))
@@ -44,7 +44,7 @@ if IsServer() then
   function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
     local caster = self:GetCaster()
     -- Do this only if Wukong's command is not active to prevent lag (Wukong's Command is active only if caster has a buff)
-    if self.clones and not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
+    if self.clones and (not caster:HasModifier("modifier_wukongs_command_oaa_buff")) and caster:IsRealHero() then
       local max_number_of_rings = 3
       local max_number_of_monkeys_per_ring = math.max(9, self:GetSpecialValueFor("num_second_soldiers"))
       -- Update items of the clones
@@ -78,9 +78,13 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
     "item_abyssal_blade_5",
     "item_rapier",
     "item_gem",
-    "item_courier"
+    "item_courier",
+    "item_upgrade_core",
+    "item_upgrade_core_2",
+    "item_upgrade_core_3",
+    "item_upgrade_core_4"
   }
-  -- Recreate items of the caster
+  -- Recreate items of the caster (ignore backpack and stash)
   for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = caster:GetItemInSlot(item_slot)
     local clone_item = parent:GetItemInSlot(item_slot)
@@ -272,7 +276,7 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
         ParticleManager:SetParticleControl(handle, 0, unit:GetAbsOrigin())
         -- for some weid reason calling DestroyParticle(... , false) do destroy the particle immediatly
         -- thanks volvo
-        Timers:CreateTimer(5,function()
+        Timers:CreateTimer(3,function()
           ParticleManager:DestroyParticle(handle, false)
           ParticleManager:ReleaseParticleIndex(handle)
         end)
@@ -363,14 +367,14 @@ function modifier_wukongs_command_oaa_thinker:OnCreated()
     ParticleManager:SetParticleControl(self.particleHandler, 1, Vector(self:GetAuraRadius(),0,0))
   end
   -- Start checking caster for the buff
-  self:StartIntervalThink(0.3)
+  self:StartIntervalThink(0.1)
 end
 
 function modifier_wukongs_command_oaa_thinker:OnIntervalThink()
   local caster = self:GetCaster()
   if not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
     self:StartIntervalThink(-1)
-    self:SetDuration(0.1, false)
+    self:SetDuration(0.01, false)
   end
 end
 
@@ -378,7 +382,7 @@ function modifier_wukongs_command_oaa_thinker:OnDeath(event)
   if IsServer() then
     if event.unit == self:GetCaster() then
       self:StartIntervalThink(-1)
-      self:SetDuration(0.1, false)
+      self:SetDuration(0.01, false)
     end
   end
 end
