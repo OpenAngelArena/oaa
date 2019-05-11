@@ -27,3 +27,7 @@ function modifier_item_devastator_slow_movespeed:GetTexture()
     return baseIconName
   end
 end
+
+function modifier_item_devastator_slow_movespeed:IsPurgable()
+  return true
+end
