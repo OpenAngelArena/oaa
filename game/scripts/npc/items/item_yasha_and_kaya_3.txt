@@ -38,15 +38,15 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "8548"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_yasha_and_kaya"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-    "BaseClass"                                           "item_yasha_and_kaya"
-    "AbilityTextureName"                                  "item_yasha_and_kaya"
+    "AbilityTextureName"            "custom/yasha_and_kaya_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
