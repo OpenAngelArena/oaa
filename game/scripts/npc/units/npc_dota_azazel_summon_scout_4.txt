@@ -25,7 +25,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"      // Physical protection.
-    "MagicalResistance"                                   "0"    // Magical protection.
+    "MagicalResistance"                                   "100"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -53,20 +53,20 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"    // Speed.
+    "MovementSpeed"                                       "400"    // Speed.
     "MovementTurnRate"                                    "1.0"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "4000"    // Base health.
+    "StatusHealth"                                        "8000"    // Base health.
     "StatusHealthRegen"                                   "0"      // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "2400"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "2400"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "900"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "900"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------
