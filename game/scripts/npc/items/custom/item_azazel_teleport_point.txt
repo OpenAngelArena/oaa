@@ -1,29 +1,32 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Azazel Teleport Point
+  // Recipe: Azazel's Shrine
   //=================================================================================================================
-  "item_recipe_teleport_point"
+  "item_recipe_azazel_summon_shrine"
   {
     "ID"                            "8560"
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "item_datadriven"
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                      "100"
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_azazel_teleport_point"
     "AbilityTextureName"            "custom/recipe/recipe_3"
+    "Model"                         "models/props_gameplay/recipe.vmdl"
+
+    "ItemCost"                      "100"
     "SecretShop"                    "1"
+
+    "ItemRecipe"                    "1"
+    "ItemResult"                    "item_azazel_summon_shrine"
+
     "ItemRequirements"
     {
       "01"                        "item_upgrade_core_3"
     }
   }
   //=================================================================================================================
-  // Azazel: Teleport Point
+  // Azazel: Shrine
   //=================================================================================================================
-  "item_azazel_teleport_point"
+  "item_azazel_summon_shrine"
   {
     "ID"                            "8561"
     // General
@@ -36,11 +39,13 @@
     "ItemPermanent"                 "0"
     "ItemInitialCharges"            "1"
     "ItemRequiresCharges"           "1"
-
+    "ItemKillable"                  "1"
+    "ItemPurchasable"               "1"
+    "ItemSellable"                  "0"
     "ItemStackable"                 "1"
     "ItemCost"                      "100"
     "SecretShop"                    "1"
-    "SecretShopType"                "Buildings"
+    "SecretShopType"                "Summons"
     "IsTempestDoubleClonable"       "0"
 
     // Special
