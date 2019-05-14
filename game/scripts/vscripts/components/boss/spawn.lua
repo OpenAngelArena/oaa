@@ -55,6 +55,16 @@ function BossSpawner:Init ()
   for _,bossPit in ipairs(bossPits) do
     bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
   end
+
+  self.hasKilledTiers = {
+    [1] = false,
+    [2] = false,
+    [3] = false,
+    [4] = false,
+    [5] = true,
+    [6] = true,
+    [7] = true,
+  }
 end
 
 function BossSpawner:GetState ()
@@ -65,6 +75,8 @@ function BossSpawner:GetState ()
     state[self:PitID(bossPit)] = bossPit.killCount
   end
 
+  state.hasKilledTiers = self.hasKilledTiers
+
   return state
 end
 
@@ -74,6 +86,8 @@ function BossSpawner:LoadState (state)
   for _,bossPit in ipairs(bossPits) do
     bossPit.killCount = state[self:PitID(bossPit)]
   end
+
+  self.hasKilledTiers = state.hasKilledTiers
 
   BossSpawner:SpawnAllBosses()
 end
@@ -178,6 +192,10 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
+    if not self.hasKilledTiers[bossTier] then
+      self.hasKilledTiers[bossTier] = true
+      PointsManager:IncreaseLimit(10)
+    end
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)
     end)
