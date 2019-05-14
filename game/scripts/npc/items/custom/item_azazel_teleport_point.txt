@@ -5,7 +5,7 @@
   //=================================================================================================================
   "item_recipe_teleport_point"
   {
-    "ID"                            "8508"
+    "ID"                            "8560"
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "item_datadriven"
@@ -26,12 +26,12 @@
   //=================================================================================================================
   "item_azazel_teleport_point"
   {
-    "ID"                            "8496"
+    "ID"                            "8561"
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "item_lua"
     "ScriptFile"                    "items/azazel_shrine.lua"
-    "AbilityTextureName"            "custom/wall_3"
+    "AbilityTextureName"            "custom/shrine"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityCastRange"              "600"
     "ItemPermanent"                 "0"
@@ -58,6 +58,11 @@
       {
         "var_type"                  "FIELD_INTEGER"
         "sink_height"               "200"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "construction_time"         "10"
       }
     }
   }

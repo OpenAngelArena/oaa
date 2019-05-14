@@ -37,7 +37,7 @@ function azazel_summon:OnSpellStart()
       azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
     elseif string.find(summon_name, "scout") then
       azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
-      azazel:AddNewModifier(azazel, self, "modifier_azazel_summon_scout_innate", {})
+      azazel_summon:AddNewModifier(azazel_summon, self, "modifier_azazel_summon_scout_innate", {})
     end
 
     self:SpendCharge()
