@@ -213,12 +213,6 @@ end
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_item_greater_tranquil_boots:IsNeutralCreep( unit )
-		local parent = self:GetParent()
-
-		return ( UnitFilter( unit, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO ), parent:GetTeamNumber() ) == UF_SUCCESS and not unit:IsControllableByAnyPlayer() )
-	end
-
   function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
     local parent = self:GetParent()
     local attacker = event.attacker
@@ -242,7 +236,7 @@ if IsServer() then
 
       -- Tranquils instant kill should work only on neutrals (not bosses)
 	  -- and never in duels
-      if attacker == parent and self:IsNeutralCreep(attacked_unit) and Gold:IsGoldGenActive() then
+      if attacker == parent and attacked_unit:IsNeutralCreep( true ) and Gold:IsGoldGenActive() then
         local currentCharges = spell:GetCurrentCharges()
 
         -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating

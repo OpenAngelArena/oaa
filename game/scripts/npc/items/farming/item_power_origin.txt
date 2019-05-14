@@ -39,6 +39,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/power_origin"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -75,22 +76,27 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_radius"                                    "300"
+        "creep_damage_melee"                              "24"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "15"
+        "creep_damage_ranged"                             "7"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "15"
+        "creep_damage_melee_illusion"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "all_stats"                                       "3"
+        "creep_damage_ranged_illusion"                    "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "all_stats"                                       "5"
       }
     }
 

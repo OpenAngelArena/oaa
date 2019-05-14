@@ -22,7 +22,7 @@ function OnClientCheckIn (args) {
   $.AsyncWebRequest('https://api.getdotastats.com/s2_check_in.php',
     {
       type: 'POST',
-      data: {payload: JSON.stringify(payload)},
+      data: { payload: JSON.stringify(payload) },
       success: function (data) {
         $.Msg('GDS Reply: ', data);
       }

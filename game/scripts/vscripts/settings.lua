@@ -54,12 +54,12 @@ CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/b
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
 
-RANKED_PREGAME_TIME = 10
+RANKED_PREGAME_TIME = 0
 RANKED_BAN_TIME = 30
-RANKED_PICK_TIME = 25
+RANKED_PICK_TIME = 60
 
 -- Game timings
-PREGAME_TIME = 10
+PREGAME_TIME = 25
 AP_GAME_TIME = 90
 
 -- Duels
@@ -87,6 +87,8 @@ BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
+BOSS_WANDERER_SPAWN_START = 12 * 60     -- start time for wanderer spawn
+BOSS_WANDERER_RESPAWN = 5 * 60          -- start time for wanderer spawn
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
@@ -133,7 +135,7 @@ HERO_XP_BONUS_FACTOR = 0.07         -- 0.14 in normal dota
 HERO_KILL_XP_RADIUS = 1500          -- 1500 in normal dota
 
 -- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 0        -- After what delay in seconds will the first bounty rune spawn?
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 120        -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9

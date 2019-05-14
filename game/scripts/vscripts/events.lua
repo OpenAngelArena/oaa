@@ -37,6 +37,9 @@ function GameMode:OnGameRulesStateChange(keys)
     GameMode:OnPreGame()
   elseif newState == DOTA_GAMERULES_STATE_POST_GAME then
     OnEndGameEvent(keys)
+  elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    GameMode:OnGameInProgress()
+    OnGameInProgressEvent()
   end
 end
 

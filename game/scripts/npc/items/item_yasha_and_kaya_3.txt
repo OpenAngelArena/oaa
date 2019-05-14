@@ -38,23 +38,23 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "8548"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_yasha_and_kaya"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-    "BaseClass"                                           "item_yasha_and_kaya"
-    "AbilityTextureName"                                  "item_yasha_and_kaya"
+    "AbilityTextureName"            "custom/yasha_and_kaya_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "3"
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                      "7050"
     "ItemShopTags"                  "damage;str;agi;attack_speed;unique"
     "ItemQuality"                   "artifact"
-    "ItemAliases"                   "ynk;y&k;sk;yasha and kaya"
-    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                   "ynk 3;y&k 3;yk 3;yasha and kaya 3"
+    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"             "1"
 
@@ -80,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" //OAA
+        "manacost_reduction"                              "12 16 22 28 34" //OAA
       }
       "05"
       {
