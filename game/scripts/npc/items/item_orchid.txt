@@ -33,6 +33,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "98"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityTextureName"        "custom/orchid_1"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

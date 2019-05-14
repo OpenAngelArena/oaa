@@ -8,8 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3531"      // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/upgrade_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -24,10 +25,23 @@
     "ItemPurchasable"                                     "0"
     //"ItemSellable"                                      "0"
     "ItemKillable"                                        "1"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_time"                                    "3.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "core_count"                                      "2"
+      }
+	}
     "precache"
     {
       "particle"                  "particles/items/upgrade_2.vpcf"

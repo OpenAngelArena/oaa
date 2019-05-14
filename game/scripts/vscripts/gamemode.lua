@@ -164,6 +164,10 @@ function GameMode:OnPreGame()
   InitModule(EntityStatProvider)
   InitModule(RespawnManager)
   InitModule(BountyRunePick)
+  InitModule(WispProjectileFilter)
+  InitModule(HudTimer)
+  InitModule(Duels)
+  InitModule(ProtectionAura)
 
   CheckCheatMode()
 end
@@ -175,15 +179,12 @@ end
 ]]
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
-
   -- initialize modules
-  InitModule(HudTimer)
   InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
   InitModule(CaveHandler)
-  InitModule(Duels)
   InitModule(CapturePoints)
   InitModule(BossSpawner)
   InitModule(BottleCounter)
@@ -193,7 +194,6 @@ function GameMode:OnGameInProgress()
   InitModule(StatusResistance)
   InitModule(SaveLoadState)
   InitModule(Runes)
-  InitModule(ProtectionAura)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
@@ -234,6 +234,7 @@ function GameMode:InitGameMode()
   InitModule(FilterManager)
   InitModule(Bottlepass)
   InitModule(Courier)
+  InitModule(StartingItems)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)

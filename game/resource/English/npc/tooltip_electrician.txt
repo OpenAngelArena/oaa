@@ -1,11 +1,12 @@
 "npc_dota_hero_electrician"                                                     "Chatterjee"
+"npc_dota_hero_electrician_hype"                                                "Wielding a powerful generator and spanner, Chatterjee can engineer any fight in her favour, by using electricity to boost allies and hinder her enemies."
 
 "DOTA_Tooltip_Ability_electrician_static_grip"                                  "Static Grip"
 "DOTA_Tooltip_Ability_electrician_static_grip_Description"                      "CHANNELED - Creates a magnetic link towards an enemy that stuns, reveals, and damages it over time. #{npc_dota_hero_electrician} is pulled towards the target while the link holds."
 "DOTA_Tooltip_Ability_electrician_static_grip_channel_time"                     "MAX CHANNEL TIME:"
 "DOTA_Tooltip_Ability_electrician_static_grip_damage_per_second"                "DAMAGE PER SECOND:"
 "DOTA_Tooltip_Ability_electrician_static_grip_Note0"                            "Pulls #{npc_dota_hero_electrician} towards the target at a speed of 120."
-"DOTA_Tooltip_Ability_electrician_static_grip_Note1"                            "The link will break if the target is moved over 750 distance away from #{npc_dota_hero_electrician}."
+//"DOTA_Tooltip_Ability_electrician_static_grip_Note1"                            "The link will break if the target is moved over 750 distance away from #{npc_dota_hero_electrician}."
 
 "DOTA_Tooltip_Ability_electrician_electric_shield"                              "Electric Shield"
 "DOTA_Tooltip_Ability_electrician_electric_shield_Description"                  "Converts up to %mana_cost%%% of #{npc_dota_hero_electrician}'s total mana pool into a shield that absorbs incoming damage, fading if it sustains too much damage. While the shield holds, nearby enemies are shocked and damaged every second."

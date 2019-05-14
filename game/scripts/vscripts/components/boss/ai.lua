@@ -78,7 +78,14 @@ function BossAI:GiveItemToWholeTeam (item, teamId)
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)
-  state.deathEvent.broadcast(deathEventData)
+  if type(state) == "number" then
+    state = {
+      tier = state
+    }
+    teamId = teamId or deathEventData
+  else
+    state.deathEvent.broadcast(deathEventData)
+  end
   local team = GetShortTeamName(teamId)
   if not IsPlayerTeam(teamId) then
     return
@@ -218,6 +225,9 @@ function BossAI:Leash (state)
   local difference = state.handle:GetAbsOrigin() - state.origin
   local location = state.origin + (difference / 8)
 
+  if state.state ~= BossAI.LEASHING then
+    state.handle:Stop()
+  end
   state.state = BossAI.LEASHING
 
   state.handle:SetIdleAcquire(false)
@@ -229,12 +239,5 @@ function BossAI:Leash (state)
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
     Position = location,
     Queue = 0,
-  })
-  ExecuteOrderFromTable({
-    UnitIndex = state.handle:entindex(),
-    -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    Position = state.origin,
-    Queue = 1,
   })
 end

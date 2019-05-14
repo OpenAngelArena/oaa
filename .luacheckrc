@@ -50,6 +50,8 @@ globals = { -- these globals can be set and accessed.
 "SCAN_REVEAL_DURATION",
 "SCAN_DURATION",
 "CREEP_POWER_MAX",
+"CREEP_BOUNTY_SHARE_RADIUS",
+"CREEP_BOUNTY_SHARE_PERCENT",
 "CAVE_RELEVANCE_FACTOR",
 "CAVE_MAX_MULTIPLIER",
 "XP_PER_LEVEL_TABLE",
@@ -2824,7 +2826,10 @@ read_globals = { -- these globals can only be accessed.
 "FindCustomBuildingsInRadius",
 "FindAllBuildingsInRadius",
 "PreventGettingStuck",
-"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE"
+"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE",
+"AddAnimationTranslate",
+"BOSS_WANDERER_SPAWN_START",
+"BOSS_WANDERER_RESPAWN"
 }
 
 ignore = {
