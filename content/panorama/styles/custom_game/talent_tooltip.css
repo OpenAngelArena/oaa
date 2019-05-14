@@ -1,0 +1,186 @@
+#DOTAHUDStatBranchTooltipAlt
+{
+  margin-left: 1457px;
+  margin-top: 524px;
+}
+.Holder
+{
+  height: 270px;
+  width: 400px;
+  margin-right: 680px;
+  horizontal-align: center;
+  vertical-align: bottom;
+  transform: translateY(300px);
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-delay: 1.7s;
+  transition-timing-function: ease-out;
+}
+
+.Holder.unranked
+{
+  transform: translateY(0px);
+}
+#StatBranchAlt
+{
+  width: 430px;
+  height: fit-children;
+  flow-children: down;
+}
+
+Label.StatBonusLabel
+{
+  color: #676E70;
+  text-shadow: 1px 1px 2px 2.0 #00000066;
+}
+#MainBranchContainerAlt
+{
+  flow-children: down;
+  width: 100%;
+}
+
+.TooltipContainer.visible
+{
+  visibility: visible;
+  opacity: 1.0;
+}
+
+#TopArrow
+{
+  margin-left: 189px;
+}
+#StatBranchAlt .LeftBranch.BranchChoiceContainer
+{
+  background-color: gradient( linear, 0% 0%, 100% 0%, from ( #0e1011), to ( #22292f00 ) );
+}
+#StatBranchAlt .RightBranch.BranchChoiceContainer
+{
+  background-color: gradient( linear, 0% 0%, 100% 0%, from ( #22292f00), to ( #0e1011 ) );
+}
+.TooltipContainer.TopArrowVisible #Contents
+{
+  margin-top: 0px;
+  min-width: 60px;
+}
+
+.BottlePassSelection Label
+{
+  color: #516b96;
+  text-shadow: 0px 0px 0px 1.0 #ffffff00;
+}
+
+:not(.BottlePassSelection.unranked)
+{
+  visibility: collapse;
+  opacity: 0.0;
+}
+
+#BottlePassSelectionTitle
+{
+  margin: 10px 20px;
+  font-size: 30px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#BottleSelectionTitle
+{
+  margin: 60px 30px;
+  font-size: 20px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+.ArcanaPanel
+{
+  margin: 160px 0px 0px 0px;
+  visibility: collapse;
+}
+
+.ArcanaPanel.HasArcana{
+  visibility: visible;
+}
+
+#ArcanaSelectionTitle
+{
+  margin: 0px 30px;
+  font-size: 20px;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+}
+
+#BottleSelection
+{
+  margin: 100px 20px 20px 30px;
+  height: 60px;
+  width: fill-parent-flow(1.0);
+  flow-children: right;
+  overflow: scroll squish;
+}
+
+.BottleOption
+{
+  height: 100px;
+  width: 100px;
+  vertical-align: center;
+}
+
+.Bottle
+{
+  margin: 3px;
+  height: fill-parent-flow(1.0);
+  width:  fill-parent-flow(1.0);
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+}
+
+#ArcanaSelection
+{
+  margin: 40px 20px 10px 30px;
+  height: 60px;
+  width: fill-parent-flow(1.0);
+  flow-children: right;
+  overflow: scroll squish;
+}
+
+.ArcanaOption
+{
+  height: 100px;
+  width: 100px;
+  vertical-align: center;
+}
+
+.Arcana
+{
+  margin: 3px;
+  height:  fill-parent-flow(1.0);
+  width:  fill-parent-flow(1.0);
+  background-size: 100% 100%;
+  background-repeat: no-repeat round;
+  background-color: transparent;
+}
+
+RadioButton {
+  margin: 3px;
+  width: 80px;
+  height: 45px;
+  box-shadow: #000000ff -2px -2px 4px 4px;
+}
+
+RadioButton:hover {
+  box-shadow: #666666ff -2px -2px 4px 4px;
+}
+
+RadioButton:selected {
+  box-shadow: #999999ff -2px -2px 4px 4px;
+}
+
+RadioButton.Disabled {
+  brightness: 0.05;
+}
+
+RadioButton.Disabled:hover {
+  box-shadow: none;
+}
+
+RadioButton.Disabled:selected {
+  box-shadow: none;
+}
