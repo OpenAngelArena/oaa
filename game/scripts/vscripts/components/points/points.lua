@@ -53,15 +53,17 @@ function PointsManager:Init ()
 
   local position = Vector(-5300, 0, 512)
   local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-  for playerID,_ in pairs(allGoodPlayers) do
+  coreDude:AddNewModifier(hero, nil, "modifier_invulnerable", {})
+  PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS):each(function (playerID)
     coreDude:SetControllableByPlayer(playerID, false)
-  end
+  end)
 
-  local position = Vector(5300, 0, 512)
-  local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_BADGUYS)
-  for playerID,_ in pairs(allBadPlayers) do
+  position = Vector(5300, 0, 512)
+  coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_BADGUYS)
+  coreDude:AddNewModifier(hero, nil, "modifier_invulnerable", {})
+  PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS):each(function (playerID)
     coreDude:SetControllableByPlayer(playerID, false)
-  end
+  end)
 end
 
 function PointsManager:GetState ()
