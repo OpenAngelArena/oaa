@@ -11,7 +11,7 @@ function sohei_wholeness_of_body:GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
   end
 
-  return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+  return bit.bor(DOTA_ABILITY_BEHAVIOR_NO_TARGET, DOTA_ABILITY_BEHAVIOR_IMMEDIATE)
 end
 --------------------------------------------------------------------------------
 
@@ -25,8 +25,8 @@ function sohei_wholeness_of_body:OnSpellStart()
   local target = self:GetCursorTarget() or caster
   -- Activation sound
   target:EmitSound("Sohei.Guard")
-  -- Basic Dispel
-  target:Purge(false, true, false, false, false)
+  -- Strong Dispel
+  target:Purge(false, true, false, true, false)
   -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_status", {duration = self:GetTalentSpecialValueFor("sr_duration")})
   -- Knockback talent
@@ -64,7 +64,7 @@ function modifier_sohei_wholeness_of_body_status:IsHidden()
 end
 
 function modifier_sohei_wholeness_of_body_status:IsPurgable()
-  return false
+  return true
 end
 
 --------------------------------------------------------------------------------
