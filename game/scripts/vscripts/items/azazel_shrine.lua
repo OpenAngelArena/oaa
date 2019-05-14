@@ -1,8 +1,8 @@
 LinkLuaModifier("modifier_shrine", "items/azazel_shrine.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_azazel_teleport_point = class(ItemBaseClass)
+item_azazel_summon_shrine = class(ItemBaseClass)
 
-function item_azazel_teleport_point:CastFilterResultLocation(location)
+function item_azazel_summon_shrine:CastFilterResultLocation(location)
   local SEGMENT_RADIUS = 96
   if IsServer() and self:GetCaster():IsPositionInRange(location, SEGMENT_RADIUS + self:GetCaster():GetHullRadius()) then
     return UF_FAIL_CUSTOM
@@ -10,12 +10,12 @@ function item_azazel_teleport_point:CastFilterResultLocation(location)
     return UF_SUCCESS
   end
 end
-function item_azazel_teleport_point:GetCustomCastErrorLocation(location)
+function item_azazel_summon_shrine:GetCustomCastErrorLocation(location)
   return "#dota_hud_error_no_buildings_here"
 end
 
 -- Spawns a line of wall segments perpendicular to the line between the cast location and the caster.
-function item_azazel_teleport_point:OnSpellStart()
+function item_azazel_summon_shrine:OnSpellStart()
   local caster = self:GetCaster()
   local location = self:GetCursorPosition()
   local SEGMENT_RADIUS = 96 -- the wall segments's collision radius as defined in the script data.
