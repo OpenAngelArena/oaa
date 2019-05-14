@@ -66,18 +66,6 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouchBad)
   end
 
-  local position = Vector(-5300, 0, 512)
-  local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-  for playerID,_ in pairs(allGoodPlayers) do
-    coreDude:SetControllableByPlayer(playerID, false)
-  end
-
-  local position = Vector(5300, 0, 512)
-  local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_BADGUYS)
-  for playerID,_ in pairs(allBadPlayers) do
-    coreDude:SetControllableByPlayer(playerID, false)
-  end
-
   ProtectionAura.active = true
 
 end

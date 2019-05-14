@@ -50,6 +50,18 @@ function PointsManager:Init ()
   ChatCommand:LinkDevCommand("-add_enemy_points", Dynamic_Wrap(PointsManager, "AddEnemyPointsCommand"), self)
   ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
   ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
+
+  local position = Vector(-5300, 0, 512)
+  local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  for playerID,_ in pairs(allGoodPlayers) do
+    coreDude:SetControllableByPlayer(playerID, false)
+  end
+
+  local position = Vector(5300, 0, 512)
+  local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_BADGUYS)
+  for playerID,_ in pairs(allBadPlayers) do
+    coreDude:SetControllableByPlayer(playerID, false)
+  end
 end
 
 function PointsManager:GetState ()
@@ -140,6 +152,11 @@ end
 
 function PointsManager:SetLimit(killLimit)
   CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit, name = self:GetGameLength() })
+end
+
+function PointsManager:IncreaseLimit(extend_amount)
+  PointsManager:SetLimit(PointsManager:GetLimit() + extend_amount)
+  Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=extend_amount}})
 end
 
 function PointsManager:AddEnemyPointsCommand(keys)
