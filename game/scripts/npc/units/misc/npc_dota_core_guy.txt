@@ -1,0 +1,29 @@
+"DOTAUnits"
+{
+  "npc_dota_core_guy"
+  {
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/courier/greevil/greevil.vmdl"   // Model.
+    "SoundSet"                                            "Greevil"                   // Name of sound set.
+    "ModelScale"                                          "1.5"
+    "vscripts"                                            "units/ai_core_guy.lua"
+    "ConsideredHero"                                      "1"
+
+    "VisionDaytimeRange"          "0"
+    "VisionNighttimeRange"        "0"
+
+    "Ability1"                                            "core_guy_consume"
+    "Ability2"                                            "core_guy_score_limit"
+    "Ability3"                                            "core_guy_points"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "322322"     // Base health
+    "StatusHealthRegen"                                   "322"        // Health regeneration rate.
+    "StatusMana"                                          "500"     // Base mana.
+    "StatusManaRegen"                                     "0"     // Mana regeneration rate.
+
+    "HasInventory"                                        "1"
+
+  }
+}
