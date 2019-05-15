@@ -22,7 +22,6 @@ function CoreGuyThink ()
     thisEntity.currentMana = 0
   end
 
-
   if thisEntity:GetAbsOrigin() ~= thisEntity.vInitialSpawnPos then
     thisEntity:SetAbsOrigin(thisEntity.vInitialSpawnPos)
   end
@@ -46,10 +45,11 @@ function CoreGuyThink ()
         end
         item:Destroy()
         thisEntity.currentMana = thisEntity.currentMana + corePoints
-        thisEntity:SetMana(thisEntity.currentMana)
       end
     end
   end
+
+  thisEntity:SetMana(thisEntity.currentMana)
 
   return 1
 end
