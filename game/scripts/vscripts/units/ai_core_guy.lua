@@ -19,7 +19,12 @@ function CoreGuyThink ()
   if not thisEntity.bInitialized then
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
-    thisEntity:SetMana(0)
+    thisEntity.currentMana = 0
+  end
+
+
+  if thisEntity:GetAbsOrigin() ~= thisEntity.vInitialSpawnPos then
+    thisEntity:SetAbsOrigin(thisEntity.vInitialSpawnPos)
   end
 
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
@@ -40,7 +45,8 @@ function CoreGuyThink ()
           corePoints = 8
         end
         item:Destroy()
-        thisEntity:GiveMana(corePoints)
+        thisEntity.currentMana = thisEntity.currentMana + corePoints
+        thisEntity:SetMana(thisEntity.currentMana)
       end
     end
   end
