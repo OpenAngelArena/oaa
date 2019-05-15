@@ -16,10 +16,10 @@ function azazel_summon:OnSpellStart()
 
     caster:EmitSound("DOTA_Item.Necronomicon.Activate")
 
-    -- Destroy any existing summons tied to this caster (uncomment if needed)
-    --if caster.azazel_summon ~= nil and not caster.azazel_summon:IsNull() and IsValidEntity(caster.azazel_summon) then
-      --caster.azazel_summon:Kill(nil, caster)
-    --end
+    -- Destroy any existing summons tied to this caster
+    if caster.azazel_summon ~= nil and not caster.azazel_summon:IsNull() and IsValidEntity(caster.azazel_summon) then
+      caster.azazel_summon:Kill(nil, caster)
+    end
 
     -- Summon parameters
     local summon_position = caster:GetAbsOrigin() + caster:GetForwardVector() * 100
@@ -28,16 +28,18 @@ function azazel_summon:OnSpellStart()
 
     -- Summon the creature
     GridNav:DestroyTreesAroundPoint(summon_position, 128, false)
-    local azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
-    azazel_summon:SetControllableByPlayer(caster:GetPlayerID(), true)
-    --azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
+    caster.azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
+    caster.azazel_summon:SetControllableByPlayer(caster:GetPlayerID(), true)
+    --caster.azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
 
     -- Level up any relevant abilities
     if string.find(summon_name, "farmer") then
-      azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
+      caster.azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
     elseif string.find(summon_name, "scout") then
-      azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
-      azazel_summon:AddNewModifier(azazel_summon, self, "modifier_azazel_summon_scout_innate", {})
+      caster.azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
+      caster.azazel_summon:AddNewModifier(caster.azazel_summon, self, "modifier_azazel_summon_scout_innate", {})
+    elseif string.find(summon_name, "fighter") then
+      caster.azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
     end
 
     self:SpendCharge()

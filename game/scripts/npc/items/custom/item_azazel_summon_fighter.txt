@@ -57,7 +57,7 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "summon_health"             "25000"
+        "summon_health"             "50000"
       }
       "02"
       {
@@ -83,6 +83,16 @@
       {
         "var_type"                  "FIELD_INTEGER"
         "summon_vision"             "800"
+      }
+      "07" // seconds
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_duration"           "300"
+      }
+      "08" // minutes
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_duration_tooltip"   "5"
       }
     }
   }

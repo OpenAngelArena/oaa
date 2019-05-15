@@ -29,7 +29,7 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1600"       // Damage range min.
+    "AttackDamageMin"                                     "1700"       // Damage range min.
     "AttackDamageMax"                                     "1700"       // Damage range max.
     "AttackRate"                                          "1"
     "AttackAnimationPoint"                                "0.6"
@@ -58,7 +58,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "25000"
+    "StatusHealth"                                        "50000"
     "StatusHealthRegen"                                   "0.5"
     "StatusMana"                                          "400"
     "StatusManaRegen"                                     "1.0"
