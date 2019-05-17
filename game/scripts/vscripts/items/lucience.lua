@@ -170,6 +170,9 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     end
   end
 end
+function modifier_item_lucience_aura_handler:GetAttributes()
+   return MODIFIER_ATTRIBUTE_MULTIPLE
+end
 
 function modifier_item_lucience_aura_handler:DeclareFunctions()
   return {
