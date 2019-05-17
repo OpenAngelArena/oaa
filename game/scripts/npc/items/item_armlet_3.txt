@@ -82,7 +82,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_damage"                             "31 40 55 75 110"
+        "unholy_bonus_damage"                             "31 60 100 140 180"
       }
       "06"
       {
@@ -92,22 +92,22 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_strength"                           "25 55 85 110 140"
+        "unholy_bonus_strength"                           "25 50 75 100 125"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_armor"                              "4 7 8 9 10"
+        "unholy_bonus_armor"                              "4 5 7 9 11"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 8 11 14 18"
+        "unholy_health_drain_per_tick"                    "6 9 12 15 19"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 70 100 130 160"
+        "unholy_health_drain_per_second_tooltip"          "54 80 110 140 170"
       }
       "11"
       {
