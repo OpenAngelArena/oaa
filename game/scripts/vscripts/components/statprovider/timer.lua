@@ -58,8 +58,8 @@ function HudTimer:Init()
       timeToNextCapture = timeToNextCapture
     })
 
-    local gameMinuteOffset = math.floor((GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
-    local localMinuteOffset = math.floor(self.gameTime % CLOCK_SYNC_INTERVAL)
+    local gameMinuteOffset = (math.floor(GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
+    local localMinuteOffset = math.floor(self.gameTime) % CLOCK_SYNC_INTERVAL
 
     if self.gameTime > 0 and gameMinuteOffset ~= localMinuteOffset then
       Debug:EnableDebugging()

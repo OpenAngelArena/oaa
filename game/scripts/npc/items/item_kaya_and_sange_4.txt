@@ -31,17 +31,17 @@
     }
   }
   //=================================================================================================================
-  // Kaya and Sange 3
+  // Kaya and Sange 4
   //=================================================================================================================
   "item_kaya_and_sange_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8543"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8543"
+    "BaseClass"                                           "item_kaya_and_sange"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "BaseClass"                                           "item_kaya_and_sange"
-    "AbilityTextureName"                                  "item_kaya_and_sange"
+    "AbilityTextureName"                                  "custom/kaya_and_sange_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
