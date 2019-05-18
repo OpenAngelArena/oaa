@@ -22,7 +22,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 260 360"
+    "AbilityManaCost"                                     "90 110 130 150 225 300" //OAA
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "6 7 8 9 10 11"
+        "mana_pool_damage_pct"                            "8 9 10 11 12 13" //OAA
       }
       "02"
       {

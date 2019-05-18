@@ -23,9 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_power_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_power_origin;item_boots;item_upgrade_core_2"
-      "03"                                                "item_power_origin;item_boots;item_upgrade_core_3"
-      "04"                                                "item_power_origin;item_boots;item_upgrade_core_4"
+      "02"                                                "item_arcane_origin;item_boots;item_upgrade_core"
+      "03"                                                "item_phase_origin;item_boots;item_upgrade_core"
+      "04"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
+      "05"                                                "item_travel_origin;item_boots;item_upgrade_core"
     }
   }
 
@@ -40,6 +41,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/greater_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -79,17 +81,22 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_radius"                                    "300"
+        "creep_damage_melee"                              "40 60 90 135"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "30 40 50 60"
+        "creep_damage_ranged"                             "40 60 90 135"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "30 40 50 60"
+        "creep_damage_melee_illusion"                     "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_ranged_illusion"                    "0"
       }
     }
 

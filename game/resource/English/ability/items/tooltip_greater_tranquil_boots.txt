@@ -8,7 +8,7 @@
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_Lore"                         "These boots give the wearer the ability to use a dying enemy's life energy."
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_bonus_movement_speed"         "%+$move_speed"
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_bonus_health_regen"           "+$hp_regen"
-"item_greater_tranquil_boots_naturalize_Description"                            "<h1>Passive: Naturalize</h1> Generate charges every %distance_per_charge% distance moved. At 100 charges, your next attack on a neutral creep will consume them to instantly kill it for %bonus_gold% additional gold."
+"item_greater_tranquil_boots_naturalize_Description"                            "<h1>Passive: Naturalize</h1> Generate charges every %distance_per_charge% distance moved. At 100 charges, your next attack on a non-ancient neutral creep will consume them to instantly kill it for %bonus_gold% additional gold."
 
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_2"                            "#{DOTA_Tooltip_Ability_item_greater_tranquil_boots}"
 "DOTA_Tooltip_Ability_item_recipe_greater_tranquil_boots_2"                     "#{DOTA_Tooltip_Ability_item_recipe_greater_tranquil_boots}"

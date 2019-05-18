@@ -21,3 +21,7 @@ function modifier_item_devastator_corruption_armor:GetTexture()
     return baseIconName
   end
 end
+
+function modifier_item_devastator_corruption_armor:IsPurgable()
+  return true
+end

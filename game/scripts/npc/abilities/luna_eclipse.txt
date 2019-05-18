@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 500 1000"
+    "AbilityManaCost"                                     "150 200 250 400 550"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "beams"                                           "6 9 12 14 16"
+        "beams"                                           "6 9 12 15 18"
       }
       "02"
       {
@@ -55,7 +55,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "beam_interval_scepter"                           "0.5" //OAA
+        "beam_interval_scepter"                           "0.4" //OAA
       }
       "05"
       {
@@ -70,22 +70,22 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "beams_scepter"                                   "8 11 14 16 18" //OAA
+        "beams_scepter"                                   "8 12 16 20 24" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count_scepter"                               "8 11 14 16 18" //OAA
+        "hit_count_scepter"                               "8 12 16 20 24" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip_scepter"                        "3.5 5.5 7.0 8.0 9.0" //OAA
+        "duration_tooltip_scepter"                        "3.2 4.8 6.4 8 9.6" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip_scepter"                      "2500"
+        "cast_range_tooltip_scepter"                      "1600" //OAA
       }
     }
   }

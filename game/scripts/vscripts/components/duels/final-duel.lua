@@ -109,7 +109,5 @@ function FinalDuel:EndDuelHandler (currentDuel)
   self.badCanWin = false
 
   local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]
-  Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=addToLimit}})
-
-  PointsManager:SetLimit(PointsManager:GetLimit() + addToLimit)
+  PointsManager:IncreaseLimit(addToLimit)
 end
