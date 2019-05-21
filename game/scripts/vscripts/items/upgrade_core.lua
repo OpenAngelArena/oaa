@@ -61,7 +61,8 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 		-- ( could also just set the resulting core's purchase time forwad ten seconds, but
 		-- this is slicker )
 		local purchaseTime = self:GetPurchaseTime()
-		local player = self:GetPurchaser():GetPlayerOwner()
+		local purchaser = self:GetPurchaser()
+		local player = purchaser:GetPlayerOwner()
 
 		caster:RemoveItem( self )
 
@@ -69,6 +70,7 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 			local item = CreateItem( coreType, player, player )
 			item:SetPurchaseTime( purchaseTime )
 			caster:AddItem( item )
+			item:SetPurchaser( purchaser )
 		end
 	end
 end
