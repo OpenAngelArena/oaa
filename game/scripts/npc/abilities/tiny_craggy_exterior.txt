@@ -8,12 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5108"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilitySound"          "Hero_Tiny.CraggyExterior.Stun"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilitySound"                                        "Hero_Tiny.CraggyExterior.Stun"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,20 +21,20 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "165"
-    "AbilityCastPoint"        "0.2"
+    "AbilityCastRange"                                    "165"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "27 22 17 12 10 7" // tiny talent gives -7 second CD, so at max with the talent you can be perma-tree
+    "AbilityCooldown"                                     "27 22 17 12 10 7" // tiny talent gives -7 second CD, so at max with the talent you can be perma-tree
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "50 50 50 50 110 170"
+    "AbilityManaCost"                                     "50"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportBonus"   "35"
+    "AbilityModifierSupportBonus"                         "35"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,38 +42,38 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "attack_count"        "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_count"                                    "5"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_damage"        "10 20 30 40 80 140"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10 20 30 40 80 140"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_damage_buildings"        "80 120 160 200 240 280" // should be boss damage some day...
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_buildings"                          "80 120 160 200 240 280" // should be boss damage some day...
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "attack_range"        "350"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range"                                    "350"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "splash_width"        "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_width"                                    "200"
       }
       "06"
       {
-        "var_type"          "FIELD_INTEGER"
-        "splash_range"        "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_range"                                    "400"
       }
       "07"
       {
-        "var_type"          "FIELD_INTEGER"
-        "splash_pct"        "100" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_pct"                                      "100" //OAA
       }
     }
   }
