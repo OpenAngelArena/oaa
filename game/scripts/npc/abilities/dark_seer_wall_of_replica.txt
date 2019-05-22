@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100.0 100.0 100.0 95.0 90.0"
+    "AbilityCooldown"                                     "100.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +44,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_outgoing"                         "-30 -15 0 20 140"
+        "replica_damage_outgoing"                         "-30 -15 0 30 90"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing"                                "70 85 100 120 240"
+        "tooltip_outgoing"                                "70 85 100 130 190"
       }
       "04"
       {
@@ -80,17 +80,17 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_outgoing_scepter"                 "0 20 40 80 240"
+        "replica_damage_outgoing_scepter"                 "0 20 40 80 160"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing_scepter"                        "100 120 140 180 340"
+        "tooltip_outgoing_scepter"                        "100 120 140 180 260"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "50 60 70 80 85"
+        "movement_slow"                                   "50 60 70 80 90"
       }
       "12"
       {
