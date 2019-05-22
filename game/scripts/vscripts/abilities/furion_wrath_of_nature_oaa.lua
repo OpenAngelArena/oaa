@@ -8,7 +8,6 @@ function furion_wrath_of_nature_oaa:OnAbilityPhaseStart()
 	ParticleManager:SetParticleControlEnt( nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetOrigin(), false )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-
 	return true
 end
 
@@ -17,6 +16,10 @@ end
 function furion_wrath_of_nature_oaa:OnSpellStart()
 	self.hTarget = self:GetCursorTarget()
 	self.vTargetPos = self:GetCursorPosition()
+
+  if self.hTarget and self.hTarget:TriggerSpellAbsorb(self) then
+    return
+  end
 
 	EmitSoundOn( "Hero_Furion.WrathOfNature_Cast", self:GetCaster() )
 

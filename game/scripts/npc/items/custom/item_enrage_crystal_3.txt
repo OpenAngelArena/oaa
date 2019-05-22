@@ -55,8 +55,8 @@
     "ItemCost"                                            "36975"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "stun hard enrage crystal"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "enrage crystal 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
