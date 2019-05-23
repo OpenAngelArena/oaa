@@ -17,6 +17,7 @@ g_ItemPrecache = {
 }
 
 g_UnitPrecache = {
+  "npc_dota_monkey_clone_oaa",
   "npc_dota_visage_familiar",
   "npc_dota_hero_sohei",
   "npc_dota_hero_electrician",
@@ -50,7 +51,10 @@ g_UnitPrecache = {
   "npc_dota_creature_small_lycosidae",
   "npc_dota_creature_spider_boss",
   "npc_dota_boss_spiders",
-  "npc_dota_boss_swiper"
+  "npc_dota_boss_swiper",
+  "npc_dota_boss_wanderer_1",
+  "npc_dota_boss_wanderer_2",
+  "npc_dota_boss_wanderer_3",
 }
 
 g_ModelPrecache = {
@@ -69,7 +73,7 @@ g_ParticlePrecache = {
 
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
-  "particles/econ/items", -- Precache all hero cosmetics
+  --"particles/econ/items", -- Precache all hero cosmetics
   "particles/items",
   "particles/items/dispel_orb",
   "particles/items/dagger_of_moriah",
