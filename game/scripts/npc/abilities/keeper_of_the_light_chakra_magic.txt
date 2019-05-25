@@ -7,33 +7,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5473"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "ID"              "5473"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "AbilitySound"          "Hero_KeeperOfTheLight.ChakraMagic.Target"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"        "900 900 900 900"
+    "AbilityCastPoint"        "0.3 0.3 0.3 0.3"
 
-    // Time
+    // Time   
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 14 14"
+    "AbilityCooldown"       "20 18 16 14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"       "0"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
+    "AbilityModifierSupportValue" "3.0" // Value much higher than cost.
 
 
     // Special
@@ -42,25 +39,26 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_restore"                                    "80 160 240 320 650 1000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_2"
-      }
+        "var_type"                    "FIELD_INTEGER"
+        "mana_restore"                "80 160 240 320 960 1920"
+        "LinkedSpecialBonus"          "special_bonus_unique_keeper_of_the_light_2"
+      }           
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_reduction"                              "3 4 5 6 7 8"
+        "var_type"                    "FIELD_INTEGER"
+        "cooldown_reduction"          "3 4 5 6 7 8"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_leak_pct"                                   "4 4.5 5 5.5 6.0 6.5"
+        "var_type"                    "FIELD_FLOAT"
+        "mana_leak_pct"               "4 4.5 5 5.5 6.0 6.5"
       } 
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5"
+        "var_type"                    "FIELD_FLOAT"
+        "duration"                    "5"
       }
     }
+    
   }
 }

@@ -1,31 +1,35 @@
 "DOTAAbilities"
 {
-"windrunner_windrun"
+//=================================================================================================================
+  // Windrunner: Windrun
+  //=================================================================================================================
+  "windrunner_windrun"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5132"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"
+    "ID"          "5132"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "AbilitySound"          "Ability.Windrun"
+    "HasScepterUpgrade"     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"        "0.3"
 
-    // Time
+    // Time   
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12"
-    "AbilityDuration"                                     "3 4 5 6 7 9"
-
+    "AbilityCooldown"       "15 14 13 12 12 12"
+    "AbilityDuration"       "3 4 5 6 7 8"
+  
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"       "50"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.1"  // Mostly about dodging all attacks
+    "AbilityModifierSupportValue" "0.1" // Mostly about dodging all attacks
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,50 +37,50 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus_pct"                             "60"
+        "var_type"                              "FIELD_INTEGER"
+        "movespeed_bonus_pct"                   "60"    
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "evasion_pct_tooltip"                             "100"
+        "var_type"                              "FIELD_INTEGER"
+        "evasion_pct_tooltip"                   "100"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "enemy_movespeed_bonus_pct"                       "-15 -20 -25 -30 -30 -30"
-        "LinkedSpecialBonus"    "special_bonus_unique_windranger_2"
+        "var_type"                              "FIELD_INTEGER"
+        "enemy_movespeed_bonus_pct"             "-15 -20 -25 -30 -35 -40"
+        "LinkedSpecialBonus"                    "special_bonus_unique_windranger_2"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
+        "var_type"                              "FIELD_INTEGER"
+        "radius"                                "325"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 4 5 6 7 9"
+        "var_type"                              "FIELD_FLOAT"
+        "duration"                              "3 4 5 6 7 8"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
+        "var_type"                              "FIELD_INTEGER"
+        "max_charges"                           "2"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "15 14 13 12 12 12"
+        "var_type"                              "FIELD_INTEGER"
+        "charge_restore_time"                   "15 14 13 12 12 12"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_movement"                          "45"
+        "var_type"                              "FIELD_INTEGER"
+        "scepter_bonus_movement"                "45"
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_movespeed_bonus_pct_tooltip"             "105"
+        "var_type"                              "FIELD_INTEGER"
+        "scepter_movespeed_bonus_pct_tooltip"   "105"
       }
     }
-  }
+  }  
 }
