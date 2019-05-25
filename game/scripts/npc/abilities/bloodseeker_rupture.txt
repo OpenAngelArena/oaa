@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 60 50 45 40"
+    "AbilityCooldown"                                     "60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,33 +49,33 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8 10 12 14 16"
+        "var_type"          "FIELD_FLOAT"
+        "duration"          "12"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_damage_pct"                             "8"
+        "var_type"          "FIELD_INTEGER"
+        "movement_damage_pct"   "30 45 60 90 120"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_cap_amount"                               "200"
+        "var_type"          "FIELD_INTEGER"
+        "damage_cap_amount"     "200"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700 800 900 1000 1100"
+        "var_type"          "FIELD_INTEGER"
+        "cast_range_tooltip"    "800"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges_scepter"                             "2"
+        "var_type"      "FIELD_INTEGER"
+        "max_charges_scepter"   "2"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time_scepter"                     "40"
+        "var_type"      "FIELD_INTEGER"
+        "charge_restore_time_scepter"   "40"
       }
     }
   }

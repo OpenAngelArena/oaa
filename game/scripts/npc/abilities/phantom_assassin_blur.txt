@@ -16,6 +16,7 @@
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityManaCost"                                     "50"
+    "HasScepterUpgrade"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,6 +42,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "fade_duration"                                   "0.75"
+      }
+      "05"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "scepter_cooldown"      "12"
       }
     }
   }

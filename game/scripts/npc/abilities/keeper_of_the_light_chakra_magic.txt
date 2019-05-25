@@ -51,6 +51,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_reduction"                              "3 4 5 6 7 8"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_leak_pct"                                   "4 4.5 5 5.5 6.0 6.5"
+      } 
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
+      }
     }
   }
 }

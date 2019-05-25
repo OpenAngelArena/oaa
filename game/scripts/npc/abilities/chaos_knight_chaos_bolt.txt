@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "13.0 12.0 11.0 10.0 10.0 10.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,23 +41,23 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stun_min"                                        "1 1 1 2 2 2"
+        "stun_min"                                        "1.25 1.5 1.75 2.0 2.0 2.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stun_max"                                        "2 3 4 4 5 5"
+        "stun_max"                                        "2.2 2.8 3.4 4.0 5.0 5.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_min"                                      "60 90 120 150 180 210"
+        "damage_min"                                      "90 110 130 150 300 450"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "180 210 240 270 420 570"
+        "damage_max"                                      "180 220 260 300 600 900"
       }
     }
   }

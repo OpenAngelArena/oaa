@@ -57,6 +57,26 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3 4 5 6 7 9"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "2"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "15 14 13 12 12 12"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_movement"                          "45"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_movespeed_bonus_pct_tooltip"             "105"
+      }
     }
   }
 }

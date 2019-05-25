@@ -17,6 +17,7 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -58,6 +59,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "range"                                           "900"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "35"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_duration_enemies"                        "3.25"
       }
     }
   }
