@@ -14,8 +14,11 @@
     "FightRecapLevel"       "2"
     "AbilitySound"          "Hero_TrollWarlord.BattleTrance.Cast"
     "AbilityType"         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "MaxLevel"            "3"
-        "HasScepterUpgrade"     "1"
+    "HasScepterUpgrade"     "1"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
