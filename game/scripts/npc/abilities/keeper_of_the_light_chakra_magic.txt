@@ -13,12 +13,15 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "AbilitySound"          "Hero_KeeperOfTheLight.ChakraMagic.Target"
+    
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "900 900 900 900"
-    "AbilityCastPoint"        "0.3 0.3 0.3 0.3"
+    "AbilityCastRange"        "900"
+    "AbilityCastPoint"        "0.3"
 
     // Time   
     //-------------------------------------------------------------------------------------------------------------
