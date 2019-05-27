@@ -20,7 +20,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 
 		// Time		
@@ -38,33 +38,33 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"5.0 6.0 7.0"
+				"duration"					"4.0 5.0 6.0 7.0 8.0" //OAA
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_outgoing"	"-60 -40 -20"
+				"illusion_damage_outgoing"	"-60 -40 -20 -10 0"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"tooltip_outgoing"	"40 60 80"
+				"tooltip_outgoing"	"40 60 80 90 100"
 				"LinkedSpecialBonus"		"special_bonus_unique_spectre_4"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_incoming"	"100 100 100"
+				"illusion_damage_incoming"	"100"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"tooltip_illusion_total_damage_incoming"	"200 200 200"
+				"tooltip_illusion_total_damage_incoming"	"200"
 			}			
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"attack_delay"				"1.0 1.0 1.0"
+				"attack_delay"				"1.0"
 			}			
 		}
 	}
