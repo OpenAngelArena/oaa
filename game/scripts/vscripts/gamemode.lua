@@ -239,6 +239,9 @@ function GameMode:InitGameMode()
   InitModule(ChatCommand)
   InitModule(DevCheats)
 
+  -- Increase maximum owned item limit
+  Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
+
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
