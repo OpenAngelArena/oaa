@@ -75,22 +75,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_movement_speed"                             "-35 -37 -39 -41 -43"
+        "cold_slow_melee"                                 "-20 -23 -26 -29 -31"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cold_attack_speed"                               "-45 -60 -80 -105 -130"
+        "var_type"                                         "FIELD_INTEGER"
+        "cold_slow_ranged"                                 "-45 -48 -51 -54 -57"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cold_duration_melee"                             "5.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cold_duration_ranged"                            "2.5"
+        "var_type"                                         "FIELD_FLOAT"
+        "cold_duration"                                    "3.0"
       }
     }
   }

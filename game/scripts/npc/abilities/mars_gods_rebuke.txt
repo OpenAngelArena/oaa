@@ -8,13 +8,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "6495"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
-    "FightRecapLevel"       "1"
-    "AbilitySound"          "Hero_Mars.Shield.Cast"
-    "MaxLevel"                                            "6"
+    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitTargetTeam"           "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"           "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"           "DAMAGE_TYPE_PHYSICAL"
+    "FightRecapLevel"                 "1"
+    "AbilitySound"                    "Hero_Mars.Shield.Cast"
+    "MaxLevel"                        "6"
+    "HasScepterUpgrade"               "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -36,39 +37,49 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "crit_mult"         "160 200 240 280 320 360"
-        "LinkedSpecialBonus"    "special_bonus_unique_mars_gods_rebuke_extra_crit"
+        "var_type"                    "FIELD_INTEGER"
+        "crit_mult"                   "160 200 240 280 320 360"
+        "LinkedSpecialBonus"          "special_bonus_unique_mars_gods_rebuke_extra_crit"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "angle"           "140"
+        "var_type"                    "FIELD_INTEGER"
+        "angle"                       "140"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "radius"          "500"
+        "var_type"                    "FIELD_INTEGER"
+        "radius"                      "500"
+      }
+      "04"
+      {
+        "var_type"                    "FIELD_FLOAT"
+        "knockback_duration"          "0.3"
+      }
+      "05"
+      {
+        "var_type"                    "FIELD_FLOAT"
+        "knockback_distance"          "150"
       }
       "06"
       {
-        "var_type"          "FIELD_FLOAT"
-        "knockback_duration"    "0.3"
+        "var_type"                    "FIELD_FLOAT"
+        "activity_duration"           "2"
       }
       "07"
       {
-        "var_type"          "FIELD_FLOAT"
-        "knockback_distance"    "150"
+        "var_type"                    "FIELD_INTEGER"
+        "bonus_damage_vs_heroes"      "25"
       }
       "08"
       {
-        "var_type"          "FIELD_FLOAT"
-        "activity_duration"     "2"
+        "var_type"                    "FIELD_FLOAT"
+        "scepter_duration"            "2"
       }
       "09"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_damage_vs_heroes"  "25"
+        "var_type"                    "FIELD_FLOAT"
+        "scepter_cooldown"            "1.4"
       }
     }
   }
