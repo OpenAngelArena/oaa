@@ -32,10 +32,10 @@
     "AttackDamageMin"                                     "6500"    // Damage range min.
     "AttackDamageMax"                                     "6550"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "0.35"      // Speed of attack.
+    "AttackRate"                                          "0.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "350"    // Range within a target can be acquired.
-    "AttackRange"                                         "528"    // Range within a target can be attacked.
+    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackRange"                                         "960"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/items2_fx/necronomicon_archer_projectile.vpcf"
     "ProjectileSpeed"                                     "1000"
 
