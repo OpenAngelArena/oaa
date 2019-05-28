@@ -13,6 +13,7 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "HasScepterUpgrade"                                   "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -55,6 +56,20 @@
         "var_type"                                        "FIELD_FLOAT"
         "charge_restore_time"                             "45.0"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges_scepter"                             "8 12 16 20 24 28"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed_scepter"                         "40 60 80 100 110 120"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "count_scepter"                                   "8 12 16 20 24 28"
     }
   }
 }

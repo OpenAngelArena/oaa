@@ -25,5 +25,5 @@ function core_guy_score_limit:OnSpellStart()
 end
 
 function core_guy_score_limit:GetManaCost()
-  return (self.timesUsed or 1) * 10
+  return (self.timesUsed or 1) * 100
 end
