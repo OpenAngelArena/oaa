@@ -34,7 +34,7 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 50
+NORMAL_KILL_LIMIT = 40
 TEN_V_TEN_KILL_LIMIT = 80
 
 -- poop wards
