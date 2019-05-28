@@ -21,7 +21,7 @@
 		"AbilityChannelTime"			"2.4"
 		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
@@ -38,40 +38,35 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"		"1000.0"
+				"var_type"			    "FIELD_INTEGER"
+				"speed"		            "1000.0"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"range"		"1300"
+				"var_type"			    "FIELD_INTEGER"
+				"range"		            "1300"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_radius"				"400"
+				"var_type"			     "FIELD_INTEGER"
+				"splash_radius"		     "400"
 			}
 			"04"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_pct"				"120"
+				"var_type"			     "FIELD_INTEGER"
+				"tree_grab_radius"		 "525"
 			}
 			"05"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"tree_grab_radius"		"525"
+				"var_type"			     "FIELD_FLOAT"
+				"interval"		         "0.4"
 			}
 			"06"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"interval"		"0.4"
+				"var_type"				  "FIELD_INTEGER"
+				"bonus_damage"			  "20"
 			}
 			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"10 20 30 40 80 120"
-			}
-			"08"
 			{
 				"var_type"					"FIELD_FLOAT"
                 "max_channel_time_tooltip"		"2.4"            			
