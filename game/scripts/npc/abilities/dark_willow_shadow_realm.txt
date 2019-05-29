@@ -13,10 +13,11 @@
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                      "6"
+    "HasScepterUpgrade"     "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "21 18 15 12 12 12" //OAA
+    "AbilityCooldown"               "20 18 16 14 14 14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +35,7 @@
       "02"
       {
         "var_type"                      "FIELD_INTEGER"
-        "damage"                        "120 200 280 360 720 1180" //OAA
+        "damage"                        "90 180 270 360 450 540"
         "LinkedSpecialBonus"            "special_bonus_unique_dark_willow_1"
       }
       "03"
@@ -45,8 +46,13 @@
       "04"
       {
         "var_type"                      "FIELD_FLOAT"
-        "max_damage_duration"           "3"
+        "max_damage_duration"           "4"
         "CalculateSpellDamageTooltip"   "0"
+      }
+      "05"
+      {
+        "var_type"                       "FIELD_INTEGER"
+        "scepter_radius"                 "900"
       }
     }
   }

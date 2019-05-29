@@ -19,6 +19,8 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
+    "HasScepterUpgrade"                                   "1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "525"
@@ -54,6 +56,21 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "attackspeed_slow"                                "-50"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_scepter"                                  "900"
+      }
+      "06"
+      {
+        "var_type"                                         "FIELD_FLOAT"
+        "scepter_ministun"                                 "0.6"
+      }
+      "07"
+      {
+        "var_type"                                          "FIELD_FLOAT"
+        "scepter_cooldown_reduction"                        "2"
       }
     }
   }
