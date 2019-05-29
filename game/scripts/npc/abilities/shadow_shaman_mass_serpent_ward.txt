@@ -12,7 +12,7 @@
     "ScriptFile"                                          "abilities/oaa_shadow_shaman_mass_serpent_ward.lua"
     "AbilityTextureName"                                  "shadow_shaman_mass_serpent_ward"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
@@ -47,8 +47,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_tooltip"                                  "40 70 100 250 400"
-        "LinkedSpecialBonus"    "special_bonus_unique_shadow_shaman_4"
+        "damage_tooltip"                                  "50 75 100 250 400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
       }
       "03"
       {
@@ -59,6 +59,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range"                                   "225"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spawn_radius"                                    "150"
       }
     }
   }
