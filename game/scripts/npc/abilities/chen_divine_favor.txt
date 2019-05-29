@@ -7,30 +7,16 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"                    "7306"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"     "SPELL_IMMUNITY_ALLIES_YES"
+		"ID"							"7306"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"FightRecapLevel"				"1"
-    "MaxLevel"              "6"
-    "RequiredLevel"         "1"
-    "LevelsBetweenUpgrades" "2"
 		"AbilitySound"					"Hero_Chen.TestOfFaith.Target"
+    "MaxLevel"              "6"
 
-		// Casting
+		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"			"0.3"
-    "AbilityCastAnimation"  "ACT_DOTA_CAST_ABILITY_2"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"			"800"
-		"AbilityCooldown"				"26 24 22 20 18 16"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 80 90 100 110 120"
+		"AbilityCastRange"				"1200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,24 +24,30 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amp"				"25"
+				"var_type"				        "FIELD_INTEGER"
+				"heal_amp"				        "8 12 16 20 24 28"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_rate"       "10 20 30 40 70 100" //OAA
+				"var_type"				        "FIELD_INTEGER"
+				"heal_rate"					    "1 2 3 4 8 16"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"		"20 40 60 80 160 320" //OAA
+				"var_type"			 	        "FIELD_INTEGER"
+				"damage_bonus"		            "14 22 30 38 76 114" //OAA
+				"LinkedSpecialBonus"	        "special_bonus_unique_chen_5"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"14.0" //OAA
+				"var_type"				        "FIELD_FLOAT"
+				"army_damage_multiplier"		"2"
 			}
-		}
+			"05"
+			{
+				"var_type"				        "FIELD_INTEGER"
+				"aura_radius"		            "1200"
+			}
+	    }
 	}
 }

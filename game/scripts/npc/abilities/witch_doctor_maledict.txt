@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 26 22 18 18 18"
+    "AbilityCooldown"                                     "30 26 22 18 17 16"
     "AbilityDuration"                                     "12.0"
 
     // Damage.
@@ -44,7 +44,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration_tooltip"                                "12"
-        "LinkedSpecialBonus"  "special_bonus_unique_witch_doctor_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_4"
       }
       "03"
       {

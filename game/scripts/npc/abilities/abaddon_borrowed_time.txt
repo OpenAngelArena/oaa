@@ -47,18 +47,13 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "redirect"                                        "0.5"
+        "var_type"          "FIELD_INTEGER"
+        "ally_threshold_scepter"  "525"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "redirect_pct_tooltip_scepter"                    "50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "redirect_range_tooltip_scepter"                  "1200"
+        "var_type"          "FIELD_INTEGER"
+        "redirect_range_scepter"    "1600"
       }
     }
   }

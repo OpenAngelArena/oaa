@@ -34,8 +34,8 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 30
-TEN_V_TEN_KILL_LIMIT = 60
+NORMAL_KILL_LIMIT = 40
+TEN_V_TEN_KILL_LIMIT = 80
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -59,11 +59,11 @@ RANKED_BAN_TIME = 30
 RANKED_PICK_TIME = 60
 
 -- Game timings
-PREGAME_TIME = 25
+PREGAME_TIME = 35
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 25                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 35                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate

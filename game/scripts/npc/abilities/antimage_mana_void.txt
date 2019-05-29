@@ -19,6 +19,7 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -57,6 +58,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_void_aoe_radius"                            "300" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown_increase"                       "70"
+      }     
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_ministun"                                "1.3"
       }
     }
   }

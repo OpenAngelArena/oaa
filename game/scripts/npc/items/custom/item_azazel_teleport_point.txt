@@ -1,0 +1,72 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Azazel's Shrine
+  //=================================================================================================================
+  "item_recipe_azazel_summon_shrine"
+  {
+    "ID"                            "8560"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "item_datadriven"
+    "AbilityTextureName"            "custom/recipe/recipe_3"
+    "Model"                         "models/props_gameplay/recipe.vmdl"
+
+    "ItemCost"                      "100"
+    "SecretShop"                    "1"
+
+    "ItemRecipe"                    "1"
+    "ItemResult"                    "item_azazel_summon_shrine"
+
+    "ItemRequirements"
+    {
+      "01"                        "item_upgrade_core_3"
+    }
+  }
+  //=================================================================================================================
+  // Azazel: Shrine
+  //=================================================================================================================
+  "item_azazel_summon_shrine"
+  {
+    "ID"                            "8561"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/azazel_shrine.lua"
+    "AbilityTextureName"            "custom/shrine"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityCastRange"              "600"
+    "ItemPermanent"                 "0"
+    "ItemInitialCharges"            "1"
+    "ItemRequiresCharges"           "1"
+    "ItemKillable"                  "1"
+    "ItemPurchasable"               "1"
+    "ItemSellable"                  "0"
+    "ItemStackable"                 "1"
+    "ItemCost"                      "100"
+    "SecretShop"                    "1"
+    "SecretShopType"                "Summons"
+    "IsTempestDoubleClonable"       "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "health"                    "40000"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "sink_height"               "200"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "construction_time"         "10"
+      }
+    }
+  }
+}
