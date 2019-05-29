@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"350"
+				"value"				"700" //OAA
 			}
 		}
 	}
@@ -88,6 +88,29 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"value"				"1000"
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Divine Favour Bonus Damage
+	//=================================================================================================================
+	"special_bonus_unique_chen_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7869"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"20" //OAA
 			}
 		}
 	}

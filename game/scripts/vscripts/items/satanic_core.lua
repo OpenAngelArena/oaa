@@ -111,6 +111,10 @@ end
 
 modifier_satanic_core_unholy = class(ModifierBaseClass)
 
+function modifier_satanic_core_unholy:IsPurgable()
+  return true
+end
+
 function modifier_satanic_core_unholy:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOOLTIP

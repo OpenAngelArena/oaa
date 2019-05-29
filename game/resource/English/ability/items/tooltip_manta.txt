@@ -12,7 +12,7 @@
 "DOTA_Tooltip_Ability_item_manta_1_bonus_strength"                              "+$str"
 "DOTA_Tooltip_Ability_item_manta_1_bonus_intellect"                             "+$int"
 "DOTA_Tooltip_Ability_item_manta_1_bonus_attack_speed"                          "+$attack"
-"DOTA_Tooltip_Ability_item_manta_1_bonus_movement_speed"                        "%+$move_speed"
+"DOTA_Tooltip_Ability_item_manta_1_bonus_movement_speed"                        "+$move_speed"
 
 "DOTA_Tooltip_Ability_item_manta_2"                                             "#{DOTA_Tooltip_Ability_item_manta_1}"
 "DOTA_Tooltip_Ability_item_recipe_manta_2"                                      "#{DOTA_Tooltip_Ability_item_recipe_manta_1}"

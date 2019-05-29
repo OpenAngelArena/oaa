@@ -17,6 +17,7 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "HasScepterUpgrade"     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -68,6 +69,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "1"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "puddle_duration"                                 "25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_radius"                                   "550"
       }
     }
   }

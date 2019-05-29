@@ -7,12 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5512"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "3"
-    "FightRecapLevel"                                     "2"
+    "ID"          "5512"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"       "2"
+    "AbilitySound"          "Hero_TrollWarlord.BattleTrance.Cast"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "HasScepterUpgrade"     "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,15 +22,18 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastGestureSlot"    "DEFAULT"
+    "AbilityCastPoint"        "0.0 0.0 0.0"
+    "AbilityCastRange"        "525"
 
-    // Time
+    // Time   
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90"
-
+    "AbilityCooldown"       "90"
+  
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"       "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,28 +41,38 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "trance_duration"                                 "6.5"
+        "var_type"                   "FIELD_FLOAT"
+        "trance_duration"            "6.5"   
       }
       "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal"                                       "40 60 80 100 120"
+      { 
+        "var_type"                   "FIELD_INTEGER"
+        "lifesteal"                  "40 60 80 100 120"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "140 170 200 230 260"
+        "var_type"                   "FIELD_INTEGER"
+        "attack_speed"               "140 170 200 230 260"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "30 35 40 50 60"
+        "var_type"                   "FIELD_INTEGER"
+        "movement_speed"             "30 35 40 45 50"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "900"
+        "var_type"                    "FIELD_INTEGER"
+        "range"                       "900"
+      }
+      "06"
+      {
+        "var_type"                    "FIELD_INTEGER"
+        "scepter_cooldown"            "35"
+      }
+      "07"
+      {
+        "var_type"                    "FIELD_FLOAT"
+        "scepter_duration_enemies"    "3.25"
       }
     }
   }
