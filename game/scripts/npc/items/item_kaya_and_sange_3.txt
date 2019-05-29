@@ -78,22 +78,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "16 17 18 19 20" //OAA
+        "status_resistance"                               "16 17 18 19 20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 20 24 28 32" //OAA
+        "manacost_reduction"                              "16 20 24 28 32"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "12 18 24 30 36" //OAA
+        "spell_amp"                                       "12 18 26 34 42"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 28 44 68" //OAA
+        "bonus_damage"                                    "12 20 28 44 68"
       }
     }
   }
