@@ -26,6 +26,14 @@
       "02"                                                "item_yasha_and_kaya;item_upgrade_core_2"
       "03"                                                "item_yasha_and_kaya;item_upgrade_core_3"
       "04"                                                "item_yasha_and_kaya;item_upgrade_core_4"
+      "05"                                                "item_kaya_and_sange;item_upgrade_core"
+      "06"                                                "item_kaya_and_sange;item_upgrade_core_2"
+      "07"                                                "item_kaya_and_sange;item_upgrade_core_3"
+      "08"                                                "item_kaya_and_sange;item_upgrade_core_4"
+      "09"                                                "item_sange_and_yasha;item_upgrade_core"
+      "10"                                                "item_sange_and_yasha;item_upgrade_core_2"
+      "11"                                                "item_sange_and_yasha;item_upgrade_core_3"
+      "12"                                                "item_sange_and_yasha;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
@@ -63,32 +71,32 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_agility"                                   "16 32 32 48 72"
+        "bonus_agility"                                   "16 24 32 48 72"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 32 32 48 72"
+        "bonus_intellect"                                 "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 16 20 26 34" //OAA
+        "bonus_attack_speed"                              "16 18 20 26 34"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 16 22 28 34" //OAA
+        "manacost_reduction"                              "16 20 24 28 32"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
+        "movement_speed_percent_bonus"                    "30 32 34 36 40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 18 26 34 42" //OAA
+        "spell_amp"                                       "12 18 24 30 36"
       }
     }
   }
