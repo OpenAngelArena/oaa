@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 12 10 8"
+    "AbilityCooldown"                                     "14 12 10 8 7 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "140 200 260 320 620 920"
-        "LinkedSpecialBonus"    "special_bonus_unique_shadow_shaman_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_3"
       }
     }
   }

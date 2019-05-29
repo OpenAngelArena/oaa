@@ -13,7 +13,7 @@
     "ID"                                                  "5109"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilitySound"          "Tiny.Grow"
+    "AbilitySound"                                        "Tiny.Grow"
 
     "MaxLevel"                                            "3"
     "RequiredLevel"                                       "6"
@@ -41,7 +41,7 @@
       "04"  //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "10 20 30 40 50"
+        "status_resistance"                               "10 15 20 25 30"
       }
     }
   }
