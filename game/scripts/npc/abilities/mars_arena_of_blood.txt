@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"        "400"
-    "AbilityCastPoint"        "0.1"
+    "AbilityCastPoint"        "0.2"
     "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 
     // Time
@@ -53,7 +53,7 @@
       "04"
       {
         "var_type"      "FIELD_INTEGER"
-        "spear_damage"    "150 200 250 450 850"
+        "spear_damage"    "120 185 250 450 850"
       }
       "05"
       {

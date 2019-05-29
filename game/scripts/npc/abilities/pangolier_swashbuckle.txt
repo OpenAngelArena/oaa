@@ -75,6 +75,17 @@
         "var_type"              "FIELD_INTEGER"
         "strikes"               "4"
       }
+      "09"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "max_charges"           "2"
+      }
+      "10"
+      {
+        "var_type"               "FIELD_INTEGER"
+        "charge_restore_time"    "20 16 12 8"
+        "LinkedSpecialBonus"     "special_bonus_unique_pangolier_4"
+      }
     }
   }
 }
