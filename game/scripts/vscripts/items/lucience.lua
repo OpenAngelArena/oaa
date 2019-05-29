@@ -170,15 +170,28 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     end
   end
 end
+function modifier_item_lucience_aura_handler:GetAttributes()
+   return MODIFIER_ATTRIBUTE_MULTIPLE
+end
 
 function modifier_item_lucience_aura_handler:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS
   }
 end
 
-function modifier_item_lucience_aura_handler:GetModifierPreAttack_BonusDamage()
-  return self.bonusDamage
+function modifier_item_lucience_aura_handler:GetModifierBonusStats_Agility()
+  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_lucience_aura_handler:GetModifierBonusStats_Intellect()
+  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_lucience_aura_handler:GetModifierBonusStats_Strength()
+  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 ------------------------------------------------------------------------

@@ -73,6 +73,31 @@
         "var_type"                                        "FIELD_INTEGER"
         "metamorph_aura_tooltip"                          "1200"
       }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fear_duration"                                   "3"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown_reduction"                      "0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "1600"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_speed"                                   "1000"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_spawn_delay"                             "0.6"
+      }
     }
   }
 

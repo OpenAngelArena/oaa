@@ -63,8 +63,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "total_cast_time_tooltip"                         "2"
-        "LinkedSpecialBonus"  "special_bonus_unique_sniper_4"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_4"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "04"
       {
@@ -74,7 +74,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_crit_bonus"                              "280"
+        "scepter_crit_bonus"                              "280 320 360 400 450" //OAA
       }
     }
   }
