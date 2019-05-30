@@ -22,8 +22,8 @@ function item_dagon:OnSpellStart()
   local particleName = "particles/items/dagon_oaa.vpcf"
   local particleThickness = 300 + (100 * level) --Control Point 2 in Dagon's particle effect takes a number between 400 and 2000, depending on its level.
 
-  local damage = (target:IsIllusion()) and 13371337 or self:GetSpecialValueFor("damage")
-  local damage_type = (target:IsIllusion()) and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL
+  local damage = self:GetSpecialValueFor("damage") -- Damage should never be a big value because of the spells like Fatal Bonds that share dmg
+  local damage_type = DAMAGE_TYPE_MAGICAL
 
   local particle = ParticleManager:CreateParticle(particleName,  PATTACH_POINT_FOLLOW, caster)
   ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
@@ -39,6 +39,12 @@ function item_dagon:OnSpellStart()
 
   -- Don't do anything if target has Linken's effect
   if target:TriggerSpellAbsorb(self) then
+    return
+  end
+
+  -- If the target is an illusion, just kill it and don't do damage
+  if target:IsIllusion() and not target:IsNull() then
+    target:Kill(self, caster)
     return
   end
 
