@@ -444,7 +444,25 @@ function modifier_wukongs_command_oaa_buff:DeclareFunctions()
 end
 
 function modifier_wukongs_command_oaa_buff:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor") + self:GetCaster():FindTalentValue("special_bonus_unique_monkey_king_4")
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+  local bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+
+  if caster:HasTalent("special_bonus_unique_monkey_king_4") then
+    local talent_bonus = caster:FindTalentValue("special_bonus_unique_monkey_king_4")
+
+    if talent_bonus then
+      return bonus_armor + talent_bonus
+    end
+
+    local total_bonus_armor = ability:GetTalentSpecialValueFor("bonus_armor")
+
+    if total_bonus_armor then
+      return total_bonus_armor
+    end
+  end
+
+  return bonus_armor
 end
 
 ---------------------------------------------------------------------------------------------------
