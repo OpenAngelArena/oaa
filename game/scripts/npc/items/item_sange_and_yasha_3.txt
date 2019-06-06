@@ -41,7 +41,8 @@
     "ID"                                                  "3840"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_sange_and_yasha"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "item_sange_and_yasha"
+    "AbilityTextureName"                                  "custom/sange_and_yasha_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -84,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "8 12 16 20 24" //OAA
+        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
       }
       "06"
       {
