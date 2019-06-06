@@ -95,15 +95,18 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 
 	if params.inflictor then
 		if params.attacker == hero then
-			local heal_amount = 0
+      local heal_amount = 0
+      local damaged_unit = params.unit
 
-			if params.unit:IsCreep() then
-				heal_amount = dmg * nCreepHeal
-			elseif params.unit:IsHero() then
-				if params.unit ~= hero then
-					heal_amount = dmg * nHeroHeal
-				end
-			end
+      if damaged_unit:IsRealHero() then
+        -- Don't heal on self damage
+        if damaged_unit ~= hero then
+          heal_amount = dmg * nHeroHeal
+        end
+      else
+        -- Illusions are treated as creeps too
+        heal_amount = dmg * nCreepHeal
+      end
 
 			if heal_amount > 0 then
 				local healthCalculated = hero:GetHealth() + heal_amount

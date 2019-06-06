@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "100.0 100.0 100.0 100.0 200.0 300.0"
+        "damage_per_second"                               "100.0 100.0 100.0 100.0 250.0 400.0"
       }
       "02"
       {
@@ -91,7 +91,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "200 300 400 500 1000 1500"
+        "total_damage"                                    "200 300 400 500 1250 2000"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
     }

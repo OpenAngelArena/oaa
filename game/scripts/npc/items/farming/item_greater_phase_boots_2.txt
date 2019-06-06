@@ -54,6 +54,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_phase_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/greater_phase_boots_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -144,11 +145,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "splinter_count"                                  "4 5 6 7"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "melee_splinter_speed"                            "1250" // The projectile speed to use for splinters from melee heroes
       }
     }
   }
