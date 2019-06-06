@@ -17,6 +17,7 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -66,6 +67,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_amp"                                      "6 8 10 12 15 18"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "scepter_cooldown"    "0"
       }
     }
   }

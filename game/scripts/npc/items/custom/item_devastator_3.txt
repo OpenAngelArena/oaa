@@ -56,7 +56,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0"
     "AbilityCooldown"                                     "10"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "75"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -76,16 +76,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // less than desolator
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 130 180"
+        "bonus_damage"                                    "50 70 100 120 140"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "02"
+      "02" // same as desolator
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-4 -7 -10 -13 -16"
+        "corruption_armor"                                "-7 -10 -14 -19 -25"
       }
       "03"
       {
@@ -133,7 +133,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_armor_reduction"                      "-8 -11 -14 -17 -20"
+        "devastator_armor_reduction"                      "-10 -13 -17 -22 -28"
       }
       "12"
       {

@@ -34,8 +34,8 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 100
-TEN_V_TEN_KILL_LIMIT = 150
+NORMAL_KILL_LIMIT = 40
+TEN_V_TEN_KILL_LIMIT = 80
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -59,11 +59,11 @@ RANKED_BAN_TIME = 30
 RANKED_PICK_TIME = 60
 
 -- Game timings
-PREGAME_TIME = 25
+PREGAME_TIME = 35
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 25                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 35                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
@@ -239,7 +239,7 @@ STARTING_GOLD = 825                     -- How much starting gold should we give
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
 DISABLE_KILLING_SPREE_ANNOUNCER = false -- Should we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
-SKIP_TEAM_SETUP = false and IsInToolsMode()       -- Should we skip the team setup entirely?
+SKIP_TEAM_SETUP = true and IsInToolsMode()       -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 30                  -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams

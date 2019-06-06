@@ -167,6 +167,8 @@ function GameMode:OnPreGame()
   InitModule(WispProjectileFilter)
   InitModule(HudTimer)
   InitModule(Duels)
+  InitModule(DuelRunes)
+  InitModule(PlayerConnection)
   InitModule(ProtectionAura)
 
   CheckCheatMode()
@@ -188,9 +190,7 @@ function GameMode:OnGameInProgress()
   InitModule(CapturePoints)
   InitModule(BossSpawner)
   InitModule(BottleCounter)
-  InitModule(DuelRunes)
   InitModule(FinalDuel)
-  InitModule(PlayerConnection)
   InitModule(StatusResistance)
   InitModule(SaveLoadState)
   InitModule(Runes)
@@ -238,6 +238,9 @@ function GameMode:InitGameMode()
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
+
+  -- Increase maximum owned item limit
+  Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
