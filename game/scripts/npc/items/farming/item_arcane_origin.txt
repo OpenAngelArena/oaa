@@ -15,7 +15,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "590"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -50,9 +50,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
     "ItemCost"                                            "600"
-    "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
+    "ItemShopTags"                                        "boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "arcane spark;greater arcanes;arcanes;spark"
+    "ItemAliases"                                         "arcane spark;arcanes;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

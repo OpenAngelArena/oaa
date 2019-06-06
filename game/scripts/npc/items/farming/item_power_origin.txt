@@ -15,8 +15,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "590"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -44,9 +44,9 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "600"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemShopTags"                                        "attack_speed;int;agi;str"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "power spark;power treads;treads;spark"
+    "ItemAliases"                                         "power spark;power;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
