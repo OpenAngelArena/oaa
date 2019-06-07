@@ -13,6 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
@@ -62,6 +63,21 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "45.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_range_multiplier"                        "3"
+      }
+      "08"
+      {
+        "var_type"                                         "FIELD_FLOAT"
+        "scepter_speed_multiplier"                         "2"
+      }
+      "09"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "scepter_max_charges_tooltip"                      "5"
       }
     }
   }

@@ -42,6 +42,21 @@
         "var_type"                                        "FIELD_INTEGER"
         "move_speed_bonus_pct"                            "15 25 35 45 55 65"
       }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus"                                   "30"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_skeleton_count"                          "2"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_tooltip"                           "45 55 65 75 85 95"
+      }
     }
   }
 }

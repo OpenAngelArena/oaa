@@ -81,6 +81,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "80" //OAA
+      } 
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage_scepter"                         "80"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage_tooltip_scepter"                 "180"
       }
     }
   }
