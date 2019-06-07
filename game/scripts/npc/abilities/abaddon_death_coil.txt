@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
@@ -51,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "120 165 210 255 510 765"
+        "heal_amount"                                     "120 165 210 255 510 765" // it needs to be lower than 465
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "04"
