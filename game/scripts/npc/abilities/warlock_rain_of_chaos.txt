@@ -56,23 +56,23 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 2000 3000 5000 10000"
+        "golem_hp_tooltip"                                "1500 2750 4000 7000 10000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip"                               "100 150 200 400 700"
+        "golem_dmg_tooltip"                               "100 200 300 550 800"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_armor_tooltip"                             "6 9 15 25 50" //OAA
+        "golem_armor_tooltip"                             "10 20 30 40 50" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_warlock_2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_regen_tooltip"                             "25 50 75 200 325"
+        "golem_regen_tooltip"                             "30 60 90 150 300" //OAA
       }
       "08"
       {
@@ -82,12 +82,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "750 1500 2250 3750 7500"
+        "golem_hp_tooltip_scepter"                        "1000 2000 3000 5500 8000" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "75 110 150 320 510"
+        "golem_dmg_tooltip_scepter"                       "75 150 225 400 575" //OAA
       }
       "11"
       {
