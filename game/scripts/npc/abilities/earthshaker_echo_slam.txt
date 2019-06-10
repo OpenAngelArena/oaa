@@ -49,13 +49,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_damage"                           "110 130 150 375 500" //OAA
+        "echo_slam_echo_damage"                           "110 130 150 275 400" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_initial_damage"                        "100 200 300 600 900" //OAA
+        "echo_slam_initial_damage"                        "100 200 300 500 800" //OAA
       }
     }
   }
