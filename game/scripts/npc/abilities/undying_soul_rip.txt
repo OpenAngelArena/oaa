@@ -46,7 +46,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_unit"                                 "18 22 26 30 80 140"
+        "damage_per_unit"                                 "22 26 30 34 80 140"
       }
       "02"
       {
@@ -61,7 +61,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tombstone_heal"                                  "2 4 6 8 10 12"
+        "tombstone_heal"                                  "4 8 12 16 20 24"
       }
     }
   }
