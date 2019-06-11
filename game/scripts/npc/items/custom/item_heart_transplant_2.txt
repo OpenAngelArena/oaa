@@ -79,7 +79,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_cooldown"                             "7"
+        "transplant_cooldown"                             "20"
       }
       "03"
       {
@@ -89,13 +89,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "90 120"
+        "bonus_strength"                                  "40 50"
       }
       // Heart Parameters
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1900 2400"
+        "bonus_health"                                    "1000 1400"
       }
       "06"
       {
