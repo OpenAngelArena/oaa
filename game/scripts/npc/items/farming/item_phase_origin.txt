@@ -47,10 +47,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25"
-    "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
+    "ItemCost"                                            "35"
+    "ItemShopTags"                                        "damage;armor"
+
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "phase spark;phase boots;phase;spark"
+    "ItemAliases"                                         "phase spark;phase;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
