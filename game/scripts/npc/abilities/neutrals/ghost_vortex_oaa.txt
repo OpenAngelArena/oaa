@@ -7,7 +7,7 @@
   {
     "ID"                                                  "85346"
     "BaseClass"                                           "ability_lua"
-    //"ScriptFile"                                          "abilities/neutrals/oaa_ghost_vortex.lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_ghost_vortex.lua"
     "AbilityTextureName"                                  "ancient_apparition_ice_vortex"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -24,26 +24,31 @@
     "AbilityManaCost"                                     "110"
     "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
 
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+    }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "radius"          "275"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275"
       }
 
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "attack_speed"    "-50"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "-50"
       }
 
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0"
       }
     }
   }
