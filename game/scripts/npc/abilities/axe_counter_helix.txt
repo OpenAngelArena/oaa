@@ -19,25 +19,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.45 0.4 0.35 0.3 0.25 0.2"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "60 100 140 180 350 530"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
+      
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
+        "var_type"                                       "FIELD_INTEGER"
+        "damage"                                         "60 100 140 180 350 530"
+        "LinkedSpecialBonus"                             "special_bonus_unique_axe_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "trigger_chance"                                  "20"
+        "radius"                                          "275"
       }
       "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "trigger_chance"                                  "20"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown"                                        "0.45 0.4 0.35 0.3 0.25 0.2"

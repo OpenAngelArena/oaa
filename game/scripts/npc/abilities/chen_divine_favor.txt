@@ -8,15 +8,28 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"7306"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Chen.TestOfFaith.Target"
-    "MaxLevel"              "6"
+		"MaxLevel"                      "6"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
+		"AbilityCooldown"				"30" //OAA
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"130"
+
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -30,23 +43,17 @@
 			"02"
 			{
 				"var_type"				        "FIELD_INTEGER"
-				"heal_rate"					    "1 2 3 4 8 16"
+				"heal_rate"					    "5 10 15 20 30 50" //OAA
 			}
 			"03"
 			{
-				"var_type"			 	        "FIELD_INTEGER"
-				"damage_bonus"		            "14 22 30 38 76 114" //OAA
-				"LinkedSpecialBonus"	        "special_bonus_unique_chen_5"
+				"var_type"				        "FIELD_INTEGER"
+				"aura_radius"		            "1200"
 			}
 			"04"
 			{
 				"var_type"				        "FIELD_FLOAT"
-				"army_damage_multiplier"		"2"
-			}
-			"05"
-			{
-				"var_type"				        "FIELD_INTEGER"
-				"aura_radius"		            "1200"
+				"teleport_delay"	            "6.0 5.0 4.0 3.0 2.0 1.0" //OAA
 			}
 	    }
 	}
