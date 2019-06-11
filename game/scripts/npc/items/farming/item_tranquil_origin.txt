@@ -15,7 +15,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "500"
+    "ItemCost"                                            "25"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -48,8 +48,9 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "35"
     "ItemShopTags"                                        "move_speed;regen_health"
+
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "tranquil spark;tranquil;tranquils;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
