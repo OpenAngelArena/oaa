@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: trumps_fists
+  // Recipe: Blade of Judecca 1
   //=================================================================================================================
   "item_recipe_trumps_fists"
   {
@@ -29,7 +29,7 @@
   }
 
   //=================================================================================================================
-  // trumps_fists (Based on Desolator)
+  // Blade of Judecca 1 (Covfefe 1)
   //=================================================================================================================
   "item_trumps_fists"
   {
@@ -51,7 +51,7 @@
     "ItemCost"                                            "18500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "trumps fists;covfefe"
+    "ItemAliases"                                         "trumps fists;covfefe;blade of judecca"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "UpgradesItems"                                       "item_trumps_fists"
 

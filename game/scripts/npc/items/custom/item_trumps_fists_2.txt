@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: trumps_fists
+  // Recipe: Blade of Judecca 2
   //=================================================================================================================
   "item_recipe_trumps_fists_2"
   {
@@ -30,7 +30,7 @@
   }
 
   //=================================================================================================================
-  // trumps_fists (Based on Desolator)
+  // Blade of Judecca 2 (Covfefe 2)
   //=================================================================================================================
   "item_trumps_fists_2"
   {
@@ -41,6 +41,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/trumps_fists_2"
     "ScriptFile"                                          "items/trumps_fists.lua"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "2"
@@ -51,7 +52,7 @@
     "ItemCost"                                            "38500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "trumps fists 2;covfefe 2"
+    "ItemAliases"                                         "trumps fists 2;covfefe 2;blade of judecca 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
