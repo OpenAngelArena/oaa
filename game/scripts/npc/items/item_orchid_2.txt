@@ -17,9 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_orchid;item_upgrade_core"
-      "02"                                                "item_orchid;item_upgrade_core_2"
-      "03"                                                "item_orchid;item_upgrade_core_3"
-      "04"                                                "item_orchid;item_upgrade_core_4"
     }
   }
 
@@ -32,6 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                        "8512" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                 "item_orchid"
+    "AbilityTextureName"        "custom/orchid_2"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

@@ -24,24 +24,29 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_steal"                                      "65 90 115 140 200 260"
+        "var_type"                                  "FIELD_INTEGER"
+        "mana_steal"                                "11 18 25 32 46 60"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "12 22 32 42 52 62"
-        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_2"
+        "var_type"                                  "FIELD_INTEGER"
+        "mana_steal_active"                         "33 54 75 96 138 180"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1.75"
+        "var_type"                                  "FIELD_INTEGER"
+        "movement_slow"                             "12 22 32 42 52 62"
+        "LinkedSpecialBonus"                        "special_bonus_unique_outworld_devourer_2"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7"
+        "var_type"                                  "FIELD_FLOAT"
+        "slow_duration"                             "1.75"
+      }
+      "05"
+      {
+        "var_type"                                  "FIELD_FLOAT"
+        "duration"                                  "7"
       }
     }
   }
