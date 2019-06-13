@@ -74,19 +74,30 @@
       }
       "09"
       {
-        "var_type"              "FIELD_INTEGER"
-        "leadership_radius_buffer"      "30"
+        "var_type"                                        "FIELD_INTEGER"
+        "leadership_radius_buffer"                        "30"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range"                                      "550"
       }
-      "11"
+     "11"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "outer_attack_buffer"                             "0"
+        "var_type"                                         "FIELD_INTEGER"
+        "cast_range_scepter"                               "1550"
       }
+      "12"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "outer_attack_buffer"                              "0"
+      }
+      "13"
+      {
+        "var_type"                                          "FIELD_INTEGER"
+        "cooldown_scepter"                                  "90 70 50 50 50"
+      }
+
     }
   }
 }
