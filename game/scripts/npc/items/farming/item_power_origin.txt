@@ -15,8 +15,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "25"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -39,13 +39,16 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/power_origin"
-    // Item Info
+
+	// Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "attack_speed;int;agi;str"
+
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "power spark;power treads;treads;spark"
+    "ItemAliases"                                         "power spark;power;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -75,22 +78,27 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_radius"                                    "300"
+        "creep_damage_melee"                              "40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "15"
+        "creep_damage_ranged"                             "40"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "15"
+        "creep_damage_melee_illusion"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "all_stats"                                       "3"
+        "creep_damage_ranged_illusion"                    "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "all_stats"                                       "5"
       }
     }
 

@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_core;item_upgrade_core_3"
-      "02"                                                "item_satanic_core;item_upgrade_core_4"
-      "03"                                                "item_octarine_core_3;item_upgrade_core_3"
-      "04"                                                "item_octarine_core_3;item_upgrade_core_4"
+      "02"                                                "item_octarine_core_3;item_upgrade_core_3"
     }
   }
 
@@ -121,7 +119,7 @@
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "10 20 30"
+        "creep_lifesteal"                                 "10 12 14"
       }
       // unholy spellsteal
       "12"
@@ -132,7 +130,7 @@
       "13"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_spellsteal_unholy"                         "190 180 170"
+        "creep_spellsteal_unholy"                         "190 188 186"
       }
     }
   }

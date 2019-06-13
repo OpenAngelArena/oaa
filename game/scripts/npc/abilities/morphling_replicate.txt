@@ -14,6 +14,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"                                            "5"
+    "HasScepterUpgrade"                                   "1"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
@@ -25,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 150 250"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,6 +38,21 @@
         "duration"                                        "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_morphling_8"
       }
+      "02"
+      {
+        "var_type"                                                 "FIELD_INTEGER"
+        "scepter_cooldown_reduction_tooltip"                       "35"
+      }
+      "03"
+     {
+       "var_type"                                                   "FIELD_INTEGER"
+       "scepter_manacost_reduction_tooltip"                         "50"
+     }
+     "04"
+     {
+       "var_type"                                                    "FIELD_INTEGER"
+       "scepter_cast_range_tooltip"                                  "600"
+     }
     }
   }
 }

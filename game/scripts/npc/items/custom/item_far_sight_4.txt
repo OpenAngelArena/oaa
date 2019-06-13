@@ -46,11 +46,11 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0 75.0 60.0 45.0"
+    "AbilityCooldown"                                     "60.0 50.0 40.0 30.0"
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "750"
+    "AoERadius"                                           "750 800 850 900"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -105,7 +105,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "750"
+        "reveal_radius"                                   "750 800 850 900"
       }
       "07"
       {
