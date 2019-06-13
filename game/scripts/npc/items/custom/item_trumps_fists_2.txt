@@ -72,12 +72,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "750 1250"
+        "bonus_health"                                    "900 1125"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "800 1000"
+        "bonus_mana"                                      "1000 1250"
       }
       "05"
       {
@@ -87,7 +87,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_duration"                           "2 2"
+        "heal_prevent_duration"                           "3"
       }
     }
   }
