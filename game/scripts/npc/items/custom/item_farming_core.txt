@@ -28,5 +28,15 @@
     "ItemStockInitial"                                    "0"
     "ItemStockTime"                                       "1500.0"
 
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold_per_minute"                           "500"
+      }
+    }
   }
 }
