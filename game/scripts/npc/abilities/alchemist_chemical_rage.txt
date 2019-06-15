@@ -57,13 +57,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "50 75 100 150 250"
+        "bonus_health_regen"                              "50 100 200 300 400" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_4"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4 10 16 38 66"
+        "bonus_mana_regen"                                "4 16 28 48 68" //OAA
       }
       "07"
       {

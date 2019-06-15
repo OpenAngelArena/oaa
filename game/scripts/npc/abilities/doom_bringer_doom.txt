@@ -27,7 +27,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
-    "AbilityCooldown"                                     "105" //OAA
+    "AbilityCooldown"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,12 +40,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16.0"
+        "duration"                                        "10.0" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "25 40 55 130 205"
+        "damage"                                          "25 55 85 145 205" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_5"
       }
       "03"

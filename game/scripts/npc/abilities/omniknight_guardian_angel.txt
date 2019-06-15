@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "160" //OAA
+    "AbilityCooldown"                                     "120" //OAA
     "AbilityCastPoint"                                    "0.4"
 
     // Cost
@@ -47,7 +47,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_regen"                                   "40"
+        "scepter_regen"                                   "40 80 120 160 200" //OAA
       }
     }
   }

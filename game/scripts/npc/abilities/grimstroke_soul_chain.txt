@@ -23,7 +23,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"             "100 75 50 50 50"
+    "AbilityCooldown"             "50" //OAA
     "AbilityCastRange"            "700 800 900 1000 1100"
     "AbilityCastPoint"            "0.15"
     "AbilityCastAnimation"        "ACT_DOTA_GS_SOUL_CHAIN"
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                "FIELD_FLOAT"
-        "chain_duration"          "6.0 7.0 8.0 11.0 12.0"
+        "chain_duration"          "6.0 7.0 8.0 9.0 10.0"
       }
       "02"
       {
@@ -68,7 +68,7 @@
       "07"
       {
         "var_type"                "FIELD_INTEGER"
-        "movement_slow"           "10 20 30 60 80"
+        "movement_slow"           "10 20 30 40 50"
       }
       "08"
       {
