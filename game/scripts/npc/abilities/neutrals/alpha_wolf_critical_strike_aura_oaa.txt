@@ -22,20 +22,20 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "crit_chance"       "20"
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "20"
       }
 
       "02"
       {
-        "var_type"          "FIELD_FLOAT"
-        "crit_multiplier"   "2.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "crit_multiplier"                                 "2.5"
       }
 
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "radius"            "900"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
       }
     }
   }
