@@ -57,3 +57,10 @@ function modifier_kobold_foreman_warcry_oaa_buff:GetModifierAttackSpeedBonus_Con
   return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
+function modifier_kobold_foreman_warcry_oaa_buff:GetEffectName()
+	return "particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
+end
+
+function modifier_kobold_foreman_warcry_oaa_buff:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW -- PATTACH_POINT_FOLLOW , PATTACH_ABSORIGIN_FOLLOW
+end
