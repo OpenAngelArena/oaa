@@ -63,6 +63,14 @@ function modifier_harpy_null_field_oaa_effect:IsPurgable()
   return false
 end
 
+function modifier_harpy_null_field_oaa_effect:OnCreated()
+  self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance")
+end
+
+function modifier_harpy_null_field_oaa_effect:OnRefresh()
+  self.magic_resistance = self.magic_resistance or self:GetAbility():GetSpecialValueFor("magic_resistance")
+end
+
 function modifier_harpy_null_field_oaa_effect:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
@@ -71,5 +79,5 @@ function modifier_harpy_null_field_oaa_effect:DeclareFunctions()
 end
 
 function modifier_harpy_null_field_oaa_effect:GetModifierMagicalResistanceBonus()
-  return self:GetAbility():GetSpecialValueFor("magic_resistance")
+  return self.magic_resistance
 end

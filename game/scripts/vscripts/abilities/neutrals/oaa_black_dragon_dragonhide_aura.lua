@@ -72,6 +72,14 @@ function modifier_dragonhide_aura_oaa_effect:IsPurgable()
   return false
 end
 
+function modifier_dragonhide_aura_oaa_effect:OnCreated()
+  self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_dragonhide_aura_oaa_effect:OnRefresh()
+  self.bonus_armor = self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
 function modifier_dragonhide_aura_oaa_effect:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
@@ -80,5 +88,5 @@ function modifier_dragonhide_aura_oaa_effect:DeclareFunctions()
 end
 
 function modifier_dragonhide_aura_oaa_effect:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor")
+  return self.bonus_armor
 end

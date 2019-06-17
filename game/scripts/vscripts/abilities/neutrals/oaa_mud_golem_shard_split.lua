@@ -9,9 +9,12 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
   end
 
   -- Get all needed values from the caster before its deleted from C++
-  local playerID = caster:GetPlayerID()
-  local caster_owner = caster:GetOwner()
+  local playerID
   local caster_team = caster:GetTeam()
+  if caster_team ~= DOTA_TEAM_NEUTRALS then
+    playerID = caster:GetPlayerID()
+  end
+  local caster_owner = caster:GetOwner()
   local caster_fv = caster:GetForwardVector()
   local caster_location = caster:GetOrigin()
   local caster_dmg_max = caster:GetBaseDamageMax()
