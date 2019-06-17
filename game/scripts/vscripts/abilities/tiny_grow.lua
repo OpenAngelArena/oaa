@@ -83,6 +83,15 @@ function tiny_grow_oaa:OnUpgrade()
         end
       end
     end
+
+    -- Cast animation
+    self:GetCaster():StartGesture(ACT_TINY_GROWL)
+    -- Sound
+    EmitSoundOn("Tiny.Grow", self:GetCaster())
+    -- Particle
+    local grow = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+    ParticleManager:SetParticleControl(grow, 0, self:GetCaster():GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(grow)
   end
 end
 
@@ -106,29 +115,30 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   -- this is bonus raw (green) damage
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base (white) damage
     MODIFIER_PROPERTY_STATUS_RESISTANCE
   }
 
   return funcs
 end
 
-function modifier_tiny_grow_oaa:GetModifierPhysicalArmorBonus (params)
-  local hAbility = self:GetAbility ()
-  return hAbility:GetSpecialValueFor ("bonus_armor")
+function modifier_tiny_grow_oaa:GetModifierPhysicalArmorBonus()
+  return self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
-function modifier_tiny_grow_oaa:GetModifierPreAttack_BonusDamage (params)
-  local hAbility = self:GetAbility ()
-  return hAbility:GetSpecialValueFor ("bonus_damage")
+--function modifier_tiny_grow_oaa:GetModifierPreAttack_BonusDamage()
+  --return self:GetAbility():GetSpecialValueFor("bonus_damage")
+--end
+
+function modifier_tiny_grow_oaa:GetModifierBaseAttack_BonusDamage()
+  return self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
-function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant (params)
-  local hAbility = self:GetAbility ()
-  return 0 - hAbility:GetSpecialValueFor ("attack_speed_reduction")
+function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant()
+  return 0 - math.abs(self:GetAbility():GetSpecialValueFor("attack_speed_reduction"))
 end
 
 function modifier_tiny_grow_oaa:GetModifierStatusResistance (params)
-  local hAbility = self:GetAbility ()
-  return hAbility:GetSpecialValueFor ("status_resistance")
+  return self:GetAbility():GetSpecialValueFor("status_resistance")
 end
