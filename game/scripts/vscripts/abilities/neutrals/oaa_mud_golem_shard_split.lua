@@ -42,7 +42,7 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
   local shard_gold_percentage = self:GetSpecialValueFor("shard_gold_percentage")
   local shard_xp_percentage = self:GetSpecialValueFor("shard_xp_percentage")
 
-  -- If the number of shards or shard's hp is supposed to be 0 or less then don't continue
+  -- If the number of shards or shard's hp is 0 or less then don't continue
   if number_of_shards <= 0 or shard_hp_percentage <= 0 then
     return
   end
@@ -67,12 +67,12 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
     shard:SetBaseDamageMax(caster_dmg_max*shard_dmg_percentage/100)
     shard:SetBaseDamageMin(caster_dmg_min*shard_dmg_percentage/100)
 
-    if not caster_is_a_hero then
-      -- HEALTH
-      shard:SetBaseMaxHealth(caster_max_hp*shard_hp_percentage/100)
-      shard:SetMaxHealth(caster_max_hp*shard_hp_percentage/100)
-      shard:SetHealth(caster_max_hp*shard_hp_percentage/100)
+    -- HEALTH
+    shard:SetBaseMaxHealth(caster_max_hp*shard_hp_percentage/100)
+    shard:SetMaxHealth(caster_max_hp*shard_hp_percentage/100)
+    shard:SetHealth(caster_max_hp*shard_hp_percentage/100)
 
+    if not caster_is_a_hero then
       -- BOUNTY
       shard:SetMinimumGoldBounty(caster_gold_min_bounty*shard_gold_percentage/100)
       shard:SetMaximumGoldBounty(caster_gold_max_bounty*shard_gold_percentage/100)

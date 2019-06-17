@@ -1,5 +1,5 @@
-
 ghost_vortex_oaa = class(AbilityBaseClass)
+
 LinkLuaModifier("modifier_vortex_oaa_thinker", "abilities/neutrals/oaa_ghost_vortex.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vortex_oaa_debuff", "abilities/neutrals/oaa_ghost_vortex.lua", LUA_MODIFIER_MOTION_NONE)
 

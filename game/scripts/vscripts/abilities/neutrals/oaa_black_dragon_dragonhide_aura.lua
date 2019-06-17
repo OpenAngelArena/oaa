@@ -49,7 +49,7 @@ end
 
 function modifier_dragonhide_aura_oaa_applier:GetAuraEntityReject(hEntity)
   local caster = self:GetCaster()
-  -- Dont provide the aura effect to allies when caster (owner of this aura) is on the neutral team
+  -- Dont provide the aura effect to allies when caster (owner of this aura) cannot be controlled
   if hEntity ~= caster and not caster:IsControllableByAnyPlayer() then
     return true
   end

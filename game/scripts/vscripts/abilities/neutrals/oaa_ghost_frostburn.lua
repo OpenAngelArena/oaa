@@ -39,7 +39,7 @@ function modifier_frostburn_oaa_applier:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
     if attacker == self:GetParent() and not attacker:IsIllusion() and not target:IsMagicImmune() then
-      target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
+      target:AddNewModifier(attacker, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
     end
   end
 end
@@ -62,8 +62,9 @@ end
 
 function modifier_frostburn_oaa_effect:OnCreated()
   if IsServer() then
-    self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor("heal_prevent_percent")
-    self.duration = self:GetAbility():GetSpecialValueFor("heal_prevent_duration")
+    local ability = self:GetAbility()
+    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
+    self.duration = ability:GetSpecialValueFor("heal_prevent_duration")
     self.health_fraction = 0
   end
 end
@@ -79,6 +80,7 @@ function modifier_frostburn_oaa_effect:OnHealthGained(event)
   if IsServer() then
     -- Check that event is being called for the unit that self is attached to
     local parent = self:GetParent()
+    -- Covfefe debuff has more priority
     if event.unit == parent and event.gain > 0 and not parent:HasModifier("modifier_item_trumps_fists_frostbite") then
       local heal_percent = self.heal_prevent_percent / 100 * (self:GetRemainingTime() / self.duration)
       local desiredHP = parent:GetHealth() + event.gain * heal_percent + self.health_fraction
