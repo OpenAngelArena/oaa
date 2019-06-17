@@ -1,15 +1,21 @@
+require("libraries/timers")
+
 alpha_wolf_invisibility_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_alpha_invisibility_oaa_buff", "abilities/neutrals/oaa_alpha_wolf_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
 
 function alpha_wolf_invisibility_oaa:OnSpellStart()
-	local caster = self:GetCaster()
+  local caster = self:GetCaster()
+  local duration = self:GetSpecialValueFor("duration")
+  local fade_time = self:GetSpecialValueFor("fade_time")
 
-	local duration = self:GetSpecialValueFor("duration")
+  -- Sound
+  EmitSoundOn("Hero_BountyHunter.WindWalk", caster)
 
-	-- Apply a buff
-  caster:AddNewModifier(caster, self, "modifier_alpha_invisibility_oaa_buff", { duration = duration } )
-
+  -- Apply a buff after fade time
+  Timers:CreateTimer(fade_time, function()
+    caster:AddNewModifier(caster, self, "modifier_alpha_invisibility_oaa_buff", { duration = duration } )
+  end)
 end
 --------------------------------------------------------------------------------
 
@@ -63,7 +69,8 @@ if IsServer() then
 
   function modifier_alpha_invisibility_oaa_buff:CheckState()
     local state = {
-      [MODIFIER_STATE_INVISIBLE] = true
+      [MODIFIER_STATE_INVISIBLE] = true,
+      --[MODIFIER_STATE_NO_UNIT_COLLISION] = true -- add this if you don't want units with this ability to be able to block other units
     }
     return state
   end
