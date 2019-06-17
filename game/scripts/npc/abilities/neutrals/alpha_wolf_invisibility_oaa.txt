@@ -7,7 +7,7 @@
   {
     "ID"                                                  "85308"
     "BaseClass"                                           "ability_lua"
-    //"ScriptFile"                                          "abilities/neutrals/oaa_alpha_wolf_invisibility.lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_alpha_wolf_invisibility.lua"
     "AbilityTextureName"                                  "lycan_summon_wolves_invisibility"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -19,7 +19,7 @@
     "AbilityCooldown"                                     "30.0"
 
     "AbilityManaCost"                                     "75"
-    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
+    "AbilityProcsMagicStick"                              "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
