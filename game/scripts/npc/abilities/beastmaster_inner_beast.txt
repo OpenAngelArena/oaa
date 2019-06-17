@@ -28,6 +28,31 @@
         "bonus_attack_speed"                              "10 20 30 40 65 105"
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_4"
       }
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "scepter_multiplier"  "2"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "scepter_duration"    "4"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "scepter_radius"        "1200"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "scepter_cooldown"        "35"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "scepter_manacost"        "50"
+      }
     }
   }
 }

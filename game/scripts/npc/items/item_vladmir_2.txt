@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_vladmir;item_upgrade_core"
-      "02"                                                "item_vladmir;item_upgrade_core_2"
-      "03"                                                "item_vladmir;item_upgrade_core_3"
-      "04"                                                "item_vladmir;item_upgrade_core_4"
     }
   }
   //=================================================================================================================
@@ -61,7 +58,7 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura" "1.75 2.5 4.0 6.0 7.5"
+        "mana_regen_aura" "1.5 2.5 4.0 6.0 7.5"
       }
       "02"
       {
