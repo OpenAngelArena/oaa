@@ -10,9 +10,13 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
 
   -- Get all needed values from the caster before its deleted from C++
   local playerID
+  local caster_is_a_hero = false
   local caster_team = caster:GetTeam()
-  if caster_team ~= DOTA_TEAM_NEUTRALS then
+  if caster:IsRealHero() then
     playerID = caster:GetPlayerID()
+    caster_is_a_hero = true
+  else
+    playerID = caster:GetPlayerOwnerID()
   end
   local caster_owner = caster:GetOwner()
   local caster_fv = caster:GetForwardVector()
@@ -28,11 +32,10 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
   --local particle = ParticleManager:CreateParticle("particles/creature_splitter/splitter_a.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
   local unit_name
-  local caster_is_a_hero = false
-  if caster:IsRealHero() then
+
+  if caster_is_a_hero then
     -- Doom, Morphling, Rubick when he casts spell steal on Doom/Morphling
     unit_name = "npc_dota_neutral_mud_golem_split_doom"
-    caster_is_a_hero = true
   else
     unit_name = "npc_dota_neutral_custom_mud_golem_split"
   end
@@ -55,9 +58,9 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
     local shard = CreateUnitByName(unit_name, position, true, caster, caster_owner, caster_team)
     if caster_team ~= DOTA_TEAM_NEUTRALS then
       shard:SetControllableByPlayer(playerID, false)
-      if caster_is_a_hero then
-        shard:SetOwner(caster)
-      end
+    end
+    if caster_is_a_hero then
+      shard:SetOwner(caster)
     end
 
     -- Set the facing of the shards to be the same as the caster

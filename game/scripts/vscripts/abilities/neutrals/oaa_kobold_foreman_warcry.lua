@@ -62,5 +62,5 @@ function modifier_kobold_foreman_warcry_oaa_buff:GetEffectName()
 end
 
 function modifier_kobold_foreman_warcry_oaa_buff:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW -- PATTACH_POINT_FOLLOW , PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_OVERHEAD_FOLLOW
 end

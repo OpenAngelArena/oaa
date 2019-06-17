@@ -55,7 +55,7 @@ if IsServer() then
   end
 
   function modifier_alpha_invisibility_oaa_buff:OnAttack(event)
-    if event.attacker ~= parent then
+    if event.attacker ~= self:GetParent() then
       return
     end
     self:Destroy()
