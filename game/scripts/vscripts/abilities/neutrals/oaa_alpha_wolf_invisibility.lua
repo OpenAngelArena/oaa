@@ -36,7 +36,7 @@ function modifier_alpha_invisibility_oaa_buff:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
-		MODIFIER_EVENT_ON_ATTACK,
+    MODIFIER_EVENT_ON_ATTACK,
   }
   return funcs
 end

@@ -3,21 +3,21 @@ kobold_foreman_warcry_oaa = class(AbilityBaseClass)
 LinkLuaModifier("modifier_kobold_foreman_warcry_oaa_buff", "abilities/neutrals/oaa_kobold_foreman_warcry.lua", LUA_MODIFIER_MOTION_NONE)
 
 function kobold_foreman_warcry_oaa:OnSpellStart()
-	local caster = self:GetCaster()
+  local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("radius")
-	local duration = self:GetSpecialValueFor("buff_duration")
+  local duration = self:GetSpecialValueFor("buff_duration")
 
-	local allies = FindUnitsInRadius(
-		caster:GetTeamNumber(),
-		caster:GetOrigin(),
-		nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-		bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-		bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
-		FIND_ANY_ORDER,
-		false
-	)
+  local allies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    caster:GetOrigin(),
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+    FIND_ANY_ORDER,
+    false
+  )
 
   for _,ally in pairs(allies) do
     -- Apply a buff
@@ -58,9 +58,9 @@ function modifier_kobold_foreman_warcry_oaa_buff:GetModifierAttackSpeedBonus_Con
 end
 
 function modifier_kobold_foreman_warcry_oaa_buff:GetEffectName()
-	return "particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
+  return "particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
 end
 
 function modifier_kobold_foreman_warcry_oaa_buff:GetEffectAttachType()
-	return PATTACH_OVERHEAD_FOLLOW -- PATTACH_POINT_FOLLOW , PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_OVERHEAD_FOLLOW -- PATTACH_POINT_FOLLOW , PATTACH_ABSORIGIN_FOLLOW
 end
