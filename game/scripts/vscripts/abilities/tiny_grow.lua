@@ -105,6 +105,24 @@ function modifier_tiny_grow_oaa:IsPurgable()
   return false
 end
 
+function modifier_tiny_grow_oaa:OnCreated()
+  local ability = self:GetAbility()
+  self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+  self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction")
+  self.bonus_status_resistance = ability:GetSpecialValueFor("status_resistance")
+  self.scaleMultiplier = ability.scaleMultiplier or 1
+end
+
+function modifier_tiny_grow_oaa:OnRefresh()
+  local ability = self:GetAbility()
+  self.bonus_armor = self.bonus_armor or ability:GetSpecialValueFor("bonus_armor")
+  self.bonus_damage = self.bonus_damage or ability:GetSpecialValueFor("bonus_damage")
+  self.attack_speed_reduction = self.attack_speed_reduction or ability:GetSpecialValueFor("attack_speed_reduction")
+  self.bonus_status_resistance = self.bonus_status_resistance or ability:GetSpecialValueFor("status_resistance")
+  self.scaleMultiplier = self.scaleMultiplier or ability.scaleMultiplier
+end
+
 function modifier_tiny_grow_oaa:OnDestroy()
   if self.scaleMultiplier then
     self:GetCaster():SetModelScale(self:GetCaster():GetModelScale() / self.scaleMultiplier)
@@ -124,21 +142,21 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
 end
 
 function modifier_tiny_grow_oaa:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor")
+  return self.bonus_armor
 end
 
 --function modifier_tiny_grow_oaa:GetModifierPreAttack_BonusDamage()
-  --return self:GetAbility():GetSpecialValueFor("bonus_damage")
+  --return self.bonus_damage
 --end
 
 function modifier_tiny_grow_oaa:GetModifierBaseAttack_BonusDamage()
-  return self:GetAbility():GetSpecialValueFor("bonus_damage")
+  return self.bonus_damage
 end
 
 function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant()
-  return 0 - math.abs(self:GetAbility():GetSpecialValueFor("attack_speed_reduction"))
+  return 0 - math.abs(self.attack_speed_reduction)
 end
 
 function modifier_tiny_grow_oaa:GetModifierStatusResistance (params)
-  return self:GetAbility():GetSpecialValueFor("status_resistance")
+  return self.bonus_status_resistance
 end
