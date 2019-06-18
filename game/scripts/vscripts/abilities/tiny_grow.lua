@@ -85,7 +85,7 @@ function tiny_grow_oaa:OnUpgrade()
     end
 
     -- Cast animation
-    self:GetCaster():StartGesture(ACT_TINY_GROWL)
+    --self:GetCaster():StartGesture(ACT_TINY_GROWL)
     -- Sound
     EmitSoundOn("Tiny.Grow", self:GetCaster())
     -- Particle
@@ -111,22 +111,14 @@ function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction")
   self.bonus_status_resistance = ability:GetSpecialValueFor("status_resistance")
-  self.scaleMultiplier = ability.scaleMultiplier or 1
 end
 
 function modifier_tiny_grow_oaa:OnRefresh()
   local ability = self:GetAbility()
-  self.bonus_armor = self.bonus_armor or ability:GetSpecialValueFor("bonus_armor")
-  self.bonus_damage = self.bonus_damage or ability:GetSpecialValueFor("bonus_damage")
-  self.attack_speed_reduction = self.attack_speed_reduction or ability:GetSpecialValueFor("attack_speed_reduction")
-  self.bonus_status_resistance = self.bonus_status_resistance or ability:GetSpecialValueFor("status_resistance")
-  self.scaleMultiplier = self.scaleMultiplier or ability.scaleMultiplier
-end
-
-function modifier_tiny_grow_oaa:OnDestroy()
-  if self.scaleMultiplier then
-    self:GetCaster():SetModelScale(self:GetCaster():GetModelScale() / self.scaleMultiplier)
-  end
+  self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+  self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction")
+  self.bonus_status_resistance = ability:GetSpecialValueFor("status_resistance")
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
