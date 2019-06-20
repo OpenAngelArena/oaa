@@ -16,11 +16,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_ancient_janggo_3;item_upgrade_core_3"
-      "02"                                                "item_ancient_janggo_3;item_upgrade_core_4"
-      "03"                                                "item_lucience;item_upgrade_core_3"
-      "04"                                                "item_lucience;item_upgrade_core_4"
-      "05"                                                "item_sonic;item_upgrade_core_3"
-      "06"                                                "item_sonic;item_upgrade_core_4"
+      "02"                                                "item_lucience;item_upgrade_core_3"
+      "03"                                                "item_sonic;item_upgrade_core_3"
     }
   }
 
@@ -83,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.5 3.0 4.5 6.0 7.5"
+        "bonus_mana_regen"                                "1.25 3.0 4.5 6.0 7.5"
       }
       "05"
       {

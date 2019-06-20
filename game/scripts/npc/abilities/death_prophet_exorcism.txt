@@ -64,12 +64,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "59 59 59 156 254"
+        "min_damage"                                      "69 69 69 156 254" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "64 64 64 169 276"
+        "max_damage"                                      "74 74 74 169 276" //OAA
       }
       "08"
       {
@@ -79,7 +79,7 @@
       "09" // average_damage is important for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "62 62 62 162 265" //OAA, Valve has it wrong
+        "average_damage"                                  "72 72 72 162 265" //OAA, Valve has it wrong
       }
       "10"
       {

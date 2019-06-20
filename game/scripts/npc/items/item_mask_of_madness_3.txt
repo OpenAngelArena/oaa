@@ -16,8 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_2;item_upgrade_core_2"
-      "02"                                                "item_satanic_2;item_upgrade_core_3"
-      "03"                                                "item_satanic_2;item_upgrade_core_4"
     }
   }
 
@@ -50,6 +48,7 @@
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 3;mask of madness 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -79,7 +78,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "25 30 35 40 45"
+        "berserk_bonus_movement_speed"                    "30 35 40 45 50"
       }
       "06"
       {
