@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Neutral: Hard Camp - Centaur Chief
+  // Neutral: Hard Camp - Centaur Chief (Conquerer)
   //=================================================================================
   "npc_dota_neutral_custom_centaur_khan"
   {
@@ -74,5 +74,7 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "HasInventory"                                        "0"
   }
 }
