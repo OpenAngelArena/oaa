@@ -1,0 +1,61 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_witch_doctor"
+	"Title"			"Recommended items for Witch Doctor"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_tango"
+			"item"		"item_ward_observer"
+			"item"		"item_clarity"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_courier"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_magic_stick"
+			"item"		"item_boots"
+			"item"		"item_urn_of_shadows"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_arcane_boots"
+			"item"		"item_glimmer_cape"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_black_king_bar"
+		}
+		
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_tranquil_boots"
+			"item"		"item_medallion_of_courage"
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+			"item"		"item_bloodstone"
+			"item"		"item_dagon_5"
+			"item"		"item_sphere"
+			"item"		"item_guardian_greaves"
+			"item"		"item_aether_lens"
+			"item"		"item_assault"
+			"item"		"item_invis_sword"
+			"item"		"item_ghost"
+			"item"		"item_cyclone"
+			"item"		"item_hand_of_midas"
+			"item"		"item_octarine_core"
+			"item"		"item_veil_of_discord"	
+			"item"		"item_lotus_orb"
+			"item"		"item_vladmir"
+		}
+	}
+}

@@ -1,0 +1,62 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_abaddon"
+	"Title"			"Recommended items for Abaddon"
+
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+      "item"		"item_tranquil_origin"
+      "item"		"item_tango"
+      "item"		"item_flask"
+      "item"		"item_clarity"
+      "item"		"item_stout_shield"
+		}
+
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_greater_tranquil_boots"
+			"item"		"item_magic_wand"
+			"item"		"item_ring_of_basilius"
+      "item"		"item_urn_of_shadows"
+		}
+
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_holy_locket"
+			"item"		"item_blade_mail"
+			"item"		"item_solar_crest"
+			"item"		"item_vladmir"
+		}
+
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_heart"
+      "item"    "item_martyrs_mail_4"
+      "item"    "item_refresher_4"
+		}
+
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"    "item_octarine_core"
+      "item"		"item_radiance"
+			"item"		"item_blink"
+			"item"		"item_manta"
+      "item"    "item_heavens_halberd"
+			"item"		"item_echo_sabre_2"
+			"item"		"item_mjollnir"
+      "item"		"item_pipe"
+			"item"		"item_glimmer_cape_2"
+			"item"		"item_lotus_orb"
+			"item"		"item_lucience"
+			"item"		"item_shivas_guard"
+			"item"		"item_aeon_disk_4"
+			"item"		"item_bloodthorn_3"
+      "item"    "item_skadi"
+      "item"    "item_abyssal_blade_3"
+		}
+	}
+}

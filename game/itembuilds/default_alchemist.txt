@@ -1,0 +1,56 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_alchemist"
+	"Title"			"Recommended items for Alchemist"
+
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"    "item_phase_origin"
+      "item"		"item_tango"
+			"item"		"item_flask"
+			"item"		"item_stout_shield"
+      "item"		"item_quelling_blade"
+		}
+
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_greater_phase_boots"
+			"item"		"item_helm_of_iron_will"
+		}
+
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_armlet"
+			"item"		"item_desolator"
+			"item"		"item_assault"
+      "item"		"item_skadi"
+		}
+
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_black_king_bar"
+      "item"		"item_abyssal_blade_3"
+			"item"		"item_satanic"
+		}
+
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_greater_crit"
+      "item"		"item_monkey_king_bar"
+      "item"		"item_devastator_3"
+      "item"		"item_blink"
+			"item"		"item_mjollnir"
+			"item"		"item_heavens_halberd"
+			"item"		"item_heart"
+			"item"		"item_solar_crest"
+			"item"		"item_silver_edge"
+			"item"		"item_trumps_fists"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_shivas_guard"
+			"item"		"item_lotus_orb"
+		}
+	}
+}

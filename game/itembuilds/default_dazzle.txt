@@ -1,0 +1,67 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_dazzle"
+	"Title"			"Recommended items for Dazzle"
+
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_branches"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+			"item"		"item_tango"
+			"item"		""
+			"item"		""
+
+		}
+
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_magic_stick"
+			"item"		"item_boots"
+			"item"		"item_urn_of_shadows"
+		}
+
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_arcane_boots"
+			"item"		"item_medallion_of_courage"
+
+		}
+
+		"#DOTA_Item_Build_Late_Items"
+		{
+
+			"item"		""
+			"item"		"item_force_staff"
+			"item"		""
+		}
+
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_solar_crest"
+			"item"		"item_aether_lens"
+      "item"    "item_holy_locket"
+			"item"		"item_sheepstick"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_shivas_guard"
+			"item"		"item_glimmer_cape"
+			"item"		"item_pipe"
+			"item"		"item_cyclone"
+			"item"		"item_ancient_janggo"
+			"item"		"item_desolator"
+			"item"		""
+			"item"		"item_vladmir"
+			"item"		"item_sphere"
+			"item"		"item_lotus_orb"
+			"item"		"item_invis_sword"
+			"item"		"item_helm_of_the_dominator"
+			"item"		""
+			"item"		"item_bloodthorn"
+
+		}
+	}
+}

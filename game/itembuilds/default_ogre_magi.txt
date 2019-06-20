@@ -1,0 +1,63 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_ogre_magi"
+	"Title"			"Recommended items for Ogre Magi"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_tango"
+			"item"		"item_ward_observer"
+			"item"		"item_clarity"
+			"item"		"item_orb_of_venom"
+			"item"		"item_branches"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_boots"
+			"item"		"item_magic_stick"
+			
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_arcane_boots"
+			"item"		"item_force_staff"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_aether_lens"
+			"item"		"item_ghost"
+		}
+		
+		
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_soul_ring"	
+			"item"		"item_urn_of_shadows"
+			"item"		"item_glimmer_cape"
+			"item"		"item_blink"
+			"item"		"item_guardian_greaves"
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+			"item"		"item_ancient_janggo"
+			"item"		"item_bloodstone"
+			"item"		"item_veil_of_discord"
+			"item"		"item_cyclone"
+			"item"		"item_force_staff"
+			"item"		"item_pipe"
+			"item"		"item_blade_mail"
+			"item"		"item_vladmir"
+			"item"		"item_octarine_core"
+			"item"		"item_helm_of_the_dominator"
+			"item"		"item_ethereal_blade"
+
+		}
+	}
+}

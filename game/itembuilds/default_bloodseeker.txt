@@ -1,0 +1,60 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_bloodseeker"
+	"Title"			"Recommended items for Bloodseeker"
+	
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_tango"
+			"item"		"item_stout_shield"
+			"item"		"item_quelling_blade"
+		}
+	
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_magic_wand"
+			"item"		"item_boots"
+			"item"		"item_ring_of_aquila"
+			
+		}
+	
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_power_treads"
+			"item"		"item_sange_and_yasha"
+			"item"		"item_blade_mail"
+		}
+	
+		"#DOTA_Item_Build_Late_Items"
+		{
+			
+			"item"		"item_black_king_bar"
+			"item"		"item_mjollnir"
+		}	
+		
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_phase_boots"
+			"item"		"item_abyssal_blade"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_skadi"
+			"item"		"item_radiance"
+			"item"		"item_butterfly"
+			"item"		"item_silver_edge"
+			"item"		"item_echo_sabre"
+			"item"		"item_cyclone"
+			"item"		"item_heavens_halberd"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_assault"
+			"item"		"item_desolator"
+			"item"		"item_heart"
+			"item"		"item_vladmir"
+			"item"		"item_dagon_5"
+			"item"		"item_bloodthorn"
+			
+		}
+	}
+}

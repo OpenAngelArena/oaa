@@ -1,0 +1,63 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_mirana"
+	"Title"			"Recommended items for Mirana"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_wraith_band"
+			"item"		"item_tango"
+	
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_bottle"
+			"item"		"item_magic_stick"
+			"item"		"item_boots"
+			"item"		"item_ring_of_aquila"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_phase_boots"
+			"item"		"item_ultimate_scepter"
+			
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			
+			"item"		"item_blink"
+			"item"		"item_diffusal_blade_2"
+			"item"		"item_butterfly"
+		}	
+		
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_ancient_janggo"
+			"item"		"item_desolator"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_greater_crit"
+			"item"		"item_sphere"
+			"item"		"item_manta"
+			"item"		"item_skadi"
+			"item"		"item_dagon_5"
+			"item"		"item_ethereal_blade"
+			"item"		"item_cyclone"
+			"item"		"item_lotus_orb"
+			"item"		"item_mjollnir"
+			"item"		"item_sange_and_yasha"
+			"item"		"item_hurricane_pike"
+			"item"		"item_bloodthorn"
+			"item"		"item_hand_of_midas"
+			"item"		"item_veil_of_discord"
+			"item"		"item_moon_shard"
+			
+		}
+	}
+}

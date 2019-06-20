@@ -1,0 +1,60 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_luna"
+	"Title"			"Recommended items for Luna"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_ring_of_protection"
+			"item"		"item_circlet"
+			"item"		"item_tango"
+			"item"		"item_flask"	
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_magic_stick"
+			"item"		"item_boots"
+			"item"		"item_ring_of_aquila"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_power_treads"
+			"item"		"item_dragon_lance"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			
+			"item"		"item_manta"
+			"item"		"item_hurricane_pike"
+			"item"		"item_black_king_bar"
+		}	
+		
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_satanic"
+			"item"		"item_butterfly"
+			"item"		"item_invis_sword"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_skadi"
+			"item"		"item_sange_and_yasha"
+			"item"		"item_greater_crit"
+			"item"		"item_sphere"
+			"item"		"item_assault"
+			"item"		"item_mask_of_madness"
+			"item"		"item_desolator"
+			"item"		"item_mjollnir"
+			"item"		"item_veil_of_discord"
+			"item"		"item_bloodthorn"
+			"item"		"item_helm_of_the_dominator"
+			"item"		"item_vladmir"
+		}
+	}
+}

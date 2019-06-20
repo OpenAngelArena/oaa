@@ -1,0 +1,64 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_nyx_assassin"
+	"Title"			"Recommended items for Nyx Assassin"
+
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_clarity"
+			"item"		"item_stout_shield"
+			"item"		"item_tango"
+			"item"		"item_ward_observer"
+		}
+
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_boots"
+			"item"		""
+			"item"		"item_magic_stick"
+		}
+
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_lotus_orb"
+			"item"		"item_shivas_guard"
+			"item"		"item_blink"
+		}
+
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_aether_lens"
+      "item"		"item_octarine_core"
+			"item"		"item_ultimate_scepter"
+      "item"    "item_stoneskin"
+      "item"    "item_bubble_orb_1"
+		}
+
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_force_staff"
+			"item"		"item_dagon_5"
+			"item"		"item_sheepstick"
+			"item"		""
+			"item"		"item_sphere"
+			"item"		""
+
+			"item"		"item_ethereal_blade"
+			"item"		"item_cyclone"
+			"item"		""
+			"item"		""
+			"item"		"item_desolator"
+			"item"		""
+			"item"		"item_monkey_king_bar"
+			"item"		""
+			"item"		""
+			"item"		"item_blade_mail"
+			"item"		""
+		}
+	}
+}

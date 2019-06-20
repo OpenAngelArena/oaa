@@ -1,0 +1,61 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_necrolyte"
+	"Title"			"Recommended items for Necrolyte"
+
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_null_talisman"
+			"item"		"item_tango"
+		}
+
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"    "item_magic_wand"
+			"item"		""
+			"item"		"item_headdress"
+		}
+
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_veil_of_discord"
+			"item"		"item_holy_locket"
+			"item"		"item_mekansm"
+
+		}
+
+		"#DOTA_Item_Build_Late_Items"
+		{
+
+			"item"		""
+			"item"		"item_ultimate_scepter"
+			"item"		"item_blink"
+		}
+
+
+		"#DOTA_Item_Build_Other_Items"
+		{
+			"item"		"item_power_treads"
+			"item"		"item_bloodstone"
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+			"item"		"item_pipe"
+			"item"		"item_heart"
+			"item"		"item_radiance"
+			"item"		"item_octarine_core"
+			"item"		"item_lotus_orb"
+			"item"		"item_rod_of_atos"
+			"item"		"item_dagon_5"
+			"item"		"item_blade_mail"
+			"item"		"item_cyclone"
+			"item"		"item_veil_of_discord"
+			"item"		"item_force_staff"
+			"item"		"item_urn_of_shadows"
+			"item"		"item_ghost"
+			"item"		"item_glimmer_cape"
+		}
+	}
+}

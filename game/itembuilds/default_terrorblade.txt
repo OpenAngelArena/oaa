@@ -1,0 +1,62 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_terrorblade"
+	"Title"			"Recommended items for Terrorblade"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item" "item_branches"
+			"item" "item_branches"
+			"item" "item_stout_shield"
+			"item" "item_tango"
+			"item" "item_flask"
+		}
+
+		"#DOTA_Item_Build_Early_Game"
+		{ 
+			"item" "item_boots"
+			"item" "item_ring_of_aquila"
+
+		}
+
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item" 	"item_power_treads"
+			"item" "item_ancient_janggo"
+			"item" "item_manta"
+			
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_skadi"
+			"item"		"item_butterfly"
+			"item" "item_greater_crit"
+		}
+
+		"#DOTA_Item_Build_Other_Items"
+		{
+
+			"item" 	"item_radiance"
+			"item"	"item_dragon_lance"
+			"item"		"item_satanic"
+			"item"		"item_diffusal_2"
+			"item"		"item_sphere"
+			"item"	"item_sange_and_yasha"
+			"item"	"item_silver_edge"
+			"item"	"item_armlet"
+			"item"	"item_assault"
+			"item" "item_black_king_bar"
+			"item" "item_heart"
+			"item"	"item_hand_of_midas"
+			"item"	"item_hurricane_pike"
+			"item"	"item_dagon_5"
+			"item"	"item_helm_of_the_dominator"
+			"item"	"item_item_desolator"
+			"item"	"item_rapier"
+		}
+	}
+}
