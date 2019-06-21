@@ -22,7 +22,6 @@
 
 		"#DOTA_Item_Build_Mid_Items"
 		{
-			"item"		"item_monkey_king_bar"
 			"item"		"item_manta"
 			"item"		"item_skadi"
       "item"    "item_diffusal_blade"
@@ -35,17 +34,21 @@
 			"item"		"item_satanic"
 		}
 
-		"#DOTA_Item_Build_Other_Items"
+		"#DOTA_Item_Build_Luxury"
 		{
-      "item"    "item_black_king_bar"
-			"item"		"item_sphere"
-			"item"		"item_greater_crit"
-			"item"		"item_ultimate_scepter"
-      "item"		"item_octarine_core"
-			"item"		"item_ethereal_blade"
-      "item"    "item_yasha_and_kaya_3"
-      "item"		"item_dagon_5"
-      "item"    "item_dagger_of_moriah"
+      "item"    "item_monkey_king_bar"
+      "item"    "item_greater_crit"
+      "item"    "item_bloodthorn_3"
+      "item"    "item_devastator_3"                 // Alternative
+      "item"    "item_black_king_bar_1"
+      "item"    "item_sphere"
+      "item"    "item_octarine_core"                // Magic
+      "item"    "item_ethereal_blade"               // Magic
+      "item"    "item_yasha_and_kaya_3"             // Magic
+      "item"    "item_dagon_5"                      // Magic/Meme
+      "item"    "item_dagger_of_moriah"             // Magic/Meme
+      "item"    "item_ultimate_scepter"             // Meme
+      "item"    "item_lotus_orb"                    // Defensive/Meme
 		}
 	}
 }

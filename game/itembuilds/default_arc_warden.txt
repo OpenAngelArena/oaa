@@ -40,22 +40,24 @@
       "item"		"item_satanic"
 		}
 
-		"#DOTA_Item_Build_Other_Items"
+		"#DOTA_Item_Build_Luxury"
 		{
-			"item"		"item_hand_of_midas_1"
-      "item"		"item_blink"
+      "item"    "item_hand_of_midas_1"
+      "item"    "item_blink"
       "item"    "item_silver_edge"
-      "item"		"item_black_king_bar"
-			"item"		"item_sphere"
-			"item"		"item_necronomicon_3"
-			"item"		"item_manta"
-      "item"		"item_skadi"
-			"item"		"item_butterfly_2"
-			"item"		"item_octarine_core"
-			"item"		"item_ethereal_blade"
-      "item"    "item_yasha_and_kaya_3"
-      "item"		"item_dagon_5"
-      "item"    "item_dagger_of_moriah"
+      "item"    "item_black_king_bar_1"
+      "item"    "item_butterfly_2"
+      "item"    "item_manta"                        // Situational
+      "item"    "item_skadi"                        // Situational
+      "item"    "item_sphere"                       // Situational
+      "item"    "item_nullifier_4"                  // Situational
+      "item"    "item_necronomicon_3"               // Meme/Situational
+      "item"    "item_octarine_core"                // Magic
+      "item"    "item_ethereal_blade"               // Magic
+      "item"    "item_yasha_and_kaya_3"             // Magic
+      "item"    "item_dagon_5"                      // Magic
+      "item"    "item_dagger_of_moriah"             // Magic
+      "item"    "item_ultimate_scepter"             // Meme/Support
 		}
 	}
 }

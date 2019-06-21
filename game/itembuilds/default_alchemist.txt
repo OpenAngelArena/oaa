@@ -31,26 +31,28 @@
 
 		"#DOTA_Item_Build_Late_Items"
 		{
-			"item"		"item_black_king_bar"
+			"item"		"item_black_king_bar_1"
+      "item"		"item_assault_2"
       "item"		"item_abyssal_blade_3"
 			"item"		"item_satanic"
 		}
 
-		"#DOTA_Item_Build_Other_Items"
+		"#DOTA_Item_Build_Luxury"
 		{
-			"item"		"item_greater_crit"
-      "item"		"item_monkey_king_bar"
-      "item"		"item_devastator_3"
-      "item"		"item_blink"
-			"item"		"item_mjollnir"
-			"item"		"item_heavens_halberd"
-			"item"		"item_heart"
-			"item"		"item_solar_crest"
-			"item"		"item_silver_edge"
-			"item"		"item_trumps_fists"
-			"item"		"item_ultimate_scepter"
-			"item"		"item_shivas_guard"
-			"item"		"item_lotus_orb"
+      "item"    "item_greater_crit"
+      "item"    "item_bloodthorn_3"
+      "item"    "item_monkey_king_bar"
+      "item"    "item_devastator_3"                 // Alternative
+      "item"    "item_blink"
+      "item"    "item_silver_edge"
+      "item"    "item_mjollnir"
+      "item"    "item_heavens_halberd"              // Situational
+      "item"    "item_heart"
+      "item"    "item_solar_crest"                  // Support
+      "item"    "item_trumps_fists"                 // Situational
+      "item"    "item_shivas_guard"
+      "item"    "item_blade_mail"
+      "item"    "item_ultimate_scepter"
 		}
 	}
 }

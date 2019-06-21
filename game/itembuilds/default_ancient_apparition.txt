@@ -8,7 +8,7 @@
 	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
-			"item"		"item_tranquil_origin"
+			"item"		"item_arcane_origin"
 			"item"		"item_flask"
 			"item"		"item_clarity"
 			"item"		"item_clarity"
@@ -37,18 +37,18 @@
       "item"		"item_sheepstick_4"
 		}
 
-		"#DOTA_Item_Build_Other_Items"
+		"#DOTA_Item_Build_Luxury"
 		{
-			"item"		"item_force_staff"
-      "item"		"item_spirit_vessel"
-      "item"		"item_kaya"
-			"item"		"item_veil_of_discord"
-			"item"		"item_ethereal_blade"
-			"item"		"item_solar_crest"
-			"item"		"item_sphere"
-			"item"		"item_shivas_guard"
-			"item"		"item_lotus_orb"
-			"item"		"item_dagon_5"
+      "item"    "item_force_staff"                  // Situational
+      "item"    "item_spirit_vessel"                // Situational
+      "item"    "item_kaya"
+      "item"    "item_veil_of_discord"
+      "item"    "item_ethereal_blade"
+      "item"    "item_shivas_guard"                 // Aura/Situational
+      "item"    "item_lotus_orb"                    // Defensive
+      "item"    "item_refresher_4"                  // Situational
+      "item"    "item_solar_crest"                  // Situational
+      "item"    "item_dagon_5"                      // Meme
 		}
 	}
 }

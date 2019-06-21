@@ -19,16 +19,15 @@
 		{
 			"item"		"item_greater_tranquil_boots"
 			"item"		"item_magic_wand"
-			"item"		"item_ring_of_basilius"
-      "item"		"item_urn_of_shadows"
+      "item"		"item_solar_crest"
+      "item"		"item_ward_stack"
 		}
 
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_holy_locket"
 			"item"		"item_blade_mail"
-			"item"		"item_solar_crest"
-			"item"		"item_vladmir"
+      "item"    "item_octarine_core"
 		}
 
 		"#DOTA_Item_Build_Late_Items"
@@ -39,24 +38,26 @@
       "item"    "item_refresher_4"
 		}
 
-		"#DOTA_Item_Build_Other_Items"
+		"#DOTA_Item_Build_Luxury"
 		{
-			"item"    "item_octarine_core"
-      "item"		"item_radiance"
-			"item"		"item_blink"
-			"item"		"item_manta"
-      "item"    "item_heavens_halberd"
-			"item"		"item_echo_sabre_2"
-			"item"		"item_mjollnir"
-      "item"		"item_pipe"
-			"item"		"item_glimmer_cape_2"
-			"item"		"item_lotus_orb"
-			"item"		"item_lucience"
-			"item"		"item_shivas_guard"
-			"item"		"item_aeon_disk_4"
-			"item"		"item_bloodthorn_3"
-      "item"    "item_skadi"
-      "item"    "item_abyssal_blade_3"
+      "item"    "item_vladmir"                      // Aura
+      "item"    "item_helm_of_the_dominator_2"      // Aura
+      "item"    "item_pipe"                         // Aura/Situational
+      "item"    "item_glimmer_cape_2"               // Defensive
+      "item"    "item_ancient_janggo"               // Aura
+      "item"    "item_lucience"                     // Aura
+      "item"    "item_shivas_guard"                 // Aura
+      "item"    "item_assault"                      // Aura
+      "item"    "item_radiance"
+      "item"    "item_blink"
+      "item"    "item_lotus_orb"                    // Defensive
+      "item"    "item_heavens_halberd"              // Situational
+      "item"    "item_echo_sabre_2"                 // Rightclick
+      "item"    "item_manta"                        // Rightclick
+      "item"    "item_bloodthorn_3"                 // Rightclick
+      "item"    "item_skadi"                        // Rightclick
+      "item"    "item_abyssal_blade_3"              // Rightclick
+      "item"    "item_aeon_disk_4"                  // Defensive/Meme
 		}
 	}
 }
