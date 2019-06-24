@@ -3,9 +3,9 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_chaos_knight"
 	"Title"			"Recommended items for Chaos Knight"
-	
+
 	"Items"
-	{		
+	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
 			"item"		"item_tango"
@@ -13,14 +13,14 @@
 			"item"		"item_enchanted_mango"
 			"item"		"item_stout_shield"
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
 		{
 			"item"		"item_boots"
 			"item"		"item_magic_stick"
 			"item"		"item_helm_of_iron_will"
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_power_treads"
@@ -28,15 +28,15 @@
 			"item"		"item_armlet"
 			"item"		"item_ancient_janggo"
 		}
-		
+
 		"#DOTA_Item_Build_Late_Items"
 		{
-			
+
 			"item"		"item_black_king_bar"
 			"item"		"item_manta"
 			"item"		"item_heart"
-		}	
-		
+		}
+
 		"#DOTA_Item_Build_Other_Items"
 		{
 			"item"		"item_ultimate_scepter"
@@ -47,17 +47,17 @@
 			"item"		"item_heavens_halberd"
 			"item"		"item_echo_sabre"
 			"item"		"item_skadi"
-			"item"		"item_monkey_king_bar"
+			"item"		""
 			"item"		"item_abyssal_blade"
 			"item"		"item_desolator"
-			"item"		"item_urn_of_shadows"
-			"item"		"item_mjollnir"
+			"item"		""
+			"item"		""
 			"item"		"item_helm_of_the_dominator"
-			"item"		"item_hand_of_midas"
-			"item"		"item_aether_lens"
-			"item"		"item_blade_mail"
-			"item"		"item_butterfly"
-			
+			"item"		""
+			"item"		""
+			"item"		""
+			"item"		""
+
 		}
 	}
 }
