@@ -100,11 +100,11 @@
   //=================================================================================================================
   // Keeper of the Light: Illuminate End
   //=================================================================================================================
-  "keeper_of_the_light_illuminate_end"
+  "keeper_of_the_light_spirit_form_illuminate_end"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5477"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5503"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
     // Casting
@@ -112,7 +112,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_INVALID"
 
-	"MaxLevel"                                            "6"
+    "MaxLevel"                                            "6"
   }
 
 }
