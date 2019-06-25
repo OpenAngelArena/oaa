@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5434"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5434"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -17,9 +17,9 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.6"
-    "AbilityCooldown"       "10 8 6 4 4 4"
-    "AbilityManaCost"       "30 40 50 60 70 80"
+    "AbilityCastPoint"                                    "0.6"
+    "AbilityCooldown"                                     "10 8 6 4 4 4"
+    "AbilityManaCost"                                     "30 40 50 60 70 80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "total_damage"                                     "60 110 160 210 420 630"
+        "total_damage"                                    "60 110 160 210 420 630"
       }
       "06"
       {
