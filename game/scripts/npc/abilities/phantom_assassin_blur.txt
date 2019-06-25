@@ -16,6 +16,7 @@
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityManaCost"                                     "50"
+
     "HasScepterUpgrade"                                   "1"
 
     // Special
@@ -45,8 +46,8 @@
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "scepter_cooldown"      "12"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "12"
       }
     }
   }
