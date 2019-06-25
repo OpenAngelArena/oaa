@@ -11,7 +11,6 @@
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
     "AbilitySound"              "Hero_ObsidianDestroyer.AstralImprisonment"
@@ -84,7 +83,7 @@
         "var_type"              "FIELD_FLOAT"
         "tick_rate"             "0.2"
       }
-      "09"
+      "09" // damage_per_tick divided by tick_rate
       {
         "var_type"              "FIELD_INTEGER"
         "tick_dps_tooltip"      "25 35 45 55 90 140"

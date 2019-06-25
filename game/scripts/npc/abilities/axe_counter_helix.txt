@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,12 +24,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      
       "01"
       {
-        "var_type"                                       "FIELD_INTEGER"
-        "damage"                                         "60 100 140 180 350 530"
-        "LinkedSpecialBonus"                             "special_bonus_unique_axe_4"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "60 100 140 180 350 530"
+        "LinkedSpecialBonus"                              "special_bonus_unique_axe_4"
       }
       "02"
       {

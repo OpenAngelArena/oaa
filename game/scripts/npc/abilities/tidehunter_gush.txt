@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
@@ -41,9 +42,9 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "gush_damage"   "110 160 210 260 510 760"
-        "LinkedSpecialBonus"  "special_bonus_unique_tidehunter_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "gush_damage"                                     "110 160 210 260 510 760"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_2"
       }
       "02"
       {
