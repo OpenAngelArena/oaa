@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_kaya;item_upgrade_core"
-      "02"                                                "item_kaya;item_upgrade_core_2"
-      "03"                                                "item_kaya;item_upgrade_core_3"
-      "04"                                                "item_kaya;item_upgrade_core_4"
     }
   }
 
@@ -67,7 +64,7 @@
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "manacost_reduction"    "12 18 26 34 42"
+        "manacost_reduction"    "12 16 22 28 34"
       }
       "03"
       {

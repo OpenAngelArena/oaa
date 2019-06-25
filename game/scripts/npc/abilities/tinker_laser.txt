@@ -30,14 +30,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20 18 16 14 14 14"
 
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 130 150 170 300 420"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.3"  // Primarily about the damageo
+    "AbilityModifierSupportValue"                         "0.3"  // Primarily about the damage
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,11 +51,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_hero"                                   "3 3.5 4 4.5 5.0 5.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_creep"                                  "6.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker_4"
       }
       "04"
       {
