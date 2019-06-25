@@ -13,8 +13,13 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
     "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
@@ -40,19 +45,19 @@
       }
       "02"
       {
-        "var_type"                                                 "FIELD_INTEGER"
-        "scepter_cooldown_reduction_tooltip"                       "35"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown_reduction_tooltip"              "35"
       }
       "03"
-     {
-       "var_type"                                                   "FIELD_INTEGER"
-       "scepter_manacost_reduction_tooltip"                         "50"
-     }
-     "04"
-     {
-       "var_type"                                                    "FIELD_INTEGER"
-       "scepter_cast_range_tooltip"                                  "600"
-     }
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_manacost_reduction_tooltip"              "50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cast_range_tooltip"                      "600"
+      }
     }
   }
 }

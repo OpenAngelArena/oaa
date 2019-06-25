@@ -10,7 +10,8 @@
     "ID"                                                  "7300"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    //"AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
@@ -41,28 +42,28 @@
     {
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				  "100 155 210 265 485 705"
+				"var_type"                                        "FIELD_INTEGER"
+				"damage"                                          "100 155 210 265 485 705"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				  "500"
+				"var_type"                                        "FIELD_INTEGER"
+				"radius"                                          "500"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"disarm_duration"		"1.75 2.5 3.25 4 4.75 5.5"
+				"var_type"                                        "FIELD_FLOAT"
+				"disarm_duration"                                 "1.75 2.5 3.25 4 4.75 5.5"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_distance"	"550"
+				"var_type"                                        "FIELD_INTEGER"
+				"knockback_distance"                              "550"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"knockback_duration"	"0.6"
+				"var_type"                                        "FIELD_FLOAT"
+				"knockback_duration"                              "0.6"
 			}
     }
   }
