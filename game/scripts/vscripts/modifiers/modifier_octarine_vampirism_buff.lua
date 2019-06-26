@@ -28,8 +28,8 @@ function modifier_octarine_vampirism_buff:OnCreated( kv )
 	self.hero_lifesteal = self:GetAbility():GetSpecialValueFor( "hero_lifesteal" )
 	self.creep_lifesteal = self:GetAbility():GetSpecialValueFor( "creep_lifesteal" )
 
-	self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_hero_spell_lifesteal" )
-	self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_creep_spell_lifesteal" )
+	self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "hero_spellsteal_unholy" )
+	self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "creep_spellsteal_unholy" )
 end
 
 --------------------------------------------------------------------------------
@@ -38,8 +38,8 @@ function modifier_octarine_vampirism_buff:OnRefresh( kv )
 	self.hero_lifesteal = self:GetAbility():GetSpecialValueFor( "hero_lifesteal" )
 	self.creep_lifesteal = self:GetAbility():GetSpecialValueFor( "creep_lifesteal" )
 
-	self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_hero_spell_lifesteal" )
-	self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_creep_spell_lifesteal" )
+	self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "hero_spellsteal_unholy" )
+	self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "creep_spellsteal_unholy" )
 end
 
 --------------------------------------------------------------------------------
@@ -89,8 +89,8 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 	local nCreepHeal = self.creep_lifesteal / 100
 
 	if self.hero_spellsteal_unholy and hero:HasModifier("modifier_satanic_core_unholy") and hero:HasModifier("modifier_item_satanic_core") then
-		nHeroHeal = self.hero_spellsteal_unholy / 100
-		nCreepHeal = self.creep_spellsteal_unholy / 100
+		nHeroHeal = (self.hero_lifesteal + self.hero_spellsteal_unholy) / 100
+		nCreepHeal = (self.creep_lifesteal + self.creep_spellsteal_unholy) / 100
 	end
 
 	if params.inflictor then
@@ -111,9 +111,13 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 			if heal_amount > 0 then
 				local healthCalculated = hero:GetHealth() + heal_amount
 				hero:Heal(heal_amount, self:GetAbility())
-				local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
+				local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, hero)
 				ParticleManager:ReleaseParticleIndex(particle)
 			end
 		end
 	end
 end
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

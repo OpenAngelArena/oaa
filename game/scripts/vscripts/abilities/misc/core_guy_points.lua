@@ -1,8 +1,15 @@
 
 core_guy_points = class(AbilityBaseClass)
 
-function core_guy_points:GetIntrinsicModifierName ()
-  return "modifier_core_shrine"
+if IsServer() then
+  function core_guy_points:OnAbilityPhaseStart()
+    local caster = self:GetCaster();
+    if self:GetManaCost() > caster.currentMana then
+      return false
+    end
+    caster.currentMana = caster.currentMana - self:GetManaCost()
+    return true
+  end
 end
 
 function core_guy_points:OnSpellStart()
@@ -16,6 +23,6 @@ function core_guy_points:OnSpellStart()
   end
 end
 
-function core_guy_points:GetCooldown()
-  return (self.timesUsed or 1) * 5 * 10
+function core_guy_points:GetManaCost()
+  return (self.timesUsed or 1) * 5
 end

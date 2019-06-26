@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3510"      // unique ID
     "BaseClass"                                           "item_datadriven"
-    "ScriptFile"                                          "items/farming/greater_arcane_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats
@@ -28,15 +27,5 @@
     "ItemStockInitial"                                    "0"
     "ItemStockTime"                                       "1500.0"
 
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "500"
-      }
-    }
   }
 }

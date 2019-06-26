@@ -19,8 +19,7 @@ function CoreGuyThink ()
   if not thisEntity.bInitialized then
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
-    thisEntity.ability = thisEntity:FindAbilityByName("core_guy_score_limit") or thisEntity:FindAbilityByName("core_guy_points")
-    thisEntity.corePoints = 0
+    thisEntity.currentMana = 0
   end
 
   if thisEntity:GetAbsOrigin() ~= thisEntity.vInitialSpawnPos then
@@ -45,23 +44,12 @@ function CoreGuyThink ()
           corePoints = 8
         end
         item:Destroy()
-        thisEntity.corePoints = thisEntity.corePoints + corePoints
+        thisEntity.currentMana = thisEntity.currentMana + corePoints
       end
     end
   end
 
-  local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
-  if cooldown > 0 and thisEntity.corePoints > 0 then
-    print("before: " .. cooldown)
-    cooldown = cooldown - (thisEntity.corePoints * 10)
-    print("after: " .. cooldown)
-    thisEntity.ability:EndCooldown()
-    if cooldown > 0 then
-      thisEntity.ability:StartCooldown(cooldown)
-    else
-      thisEntity.corePoints = math.ceil(0 - cooldown) / 10
-    end
-  end
+  thisEntity:SetMana(thisEntity.currentMana)
 
   return 1
 end
