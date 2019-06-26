@@ -45,13 +45,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 140 180 360 580"
+        "damage"                                          "100 180 260 420 580" //OAA
         "LinkedSpecialBonus"  "special_bonus_unique_leshrac_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "160 190 220 450 680"
+        "damage_scepter"                                  "200 280 360 520 680" //OAA, Old Aghs
         "LinkedSpecialBonus"  "special_bonus_unique_leshrac_3"
       }
     }
