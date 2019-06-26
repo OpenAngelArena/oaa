@@ -45,7 +45,7 @@
     "AbilityTextureName"                                  "custom/greater_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "725"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads;power treads;treads"
@@ -81,12 +81,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_melee"                              "60 120 240 480"
+        "creep_damage_melee"                              "120 200 280 360"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_ranged"                             "60 120 240 480"
+        "creep_damage_ranged"                             "120 200 280 360"
       }
       "07"
       {

@@ -15,6 +15,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0."
@@ -50,13 +52,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_range"                                     "400"
-        "LinkedSpecialBonus"  "special_bonus_unique_terrorblade_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_attack_range"                            "550"
-        "LinkedSpecialBonus"  "special_bonus_unique_terrorblade_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "06"
       {
