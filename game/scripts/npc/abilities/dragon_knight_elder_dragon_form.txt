@@ -44,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "350"
+        "bonus_attack_range"                              "350 350 350 450"
       }
       "04"
       {
@@ -54,7 +54,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20"
+        "corrosive_breath_damage"                         "20 20 20 30"
       }
       "06"
       {
@@ -69,19 +69,19 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "75"
+        "splash_damage_percent"                           "75 75 75 115"
         "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_6"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_movement_speed"                      "-40"
+        "frost_bonus_movement_speed"                      "-40 -40 -40 -60"
         "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_5"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-40"
+        "frost_bonus_attack_speed"                        "-40 -40 -40 -60"
         "LinkedSpecialBonus"			                        "special_bonus_unique_dragon_knight_5"
       }
       "11"
@@ -93,6 +93,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "frost_aoe"                                       "300"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "magic_resistance"                                "0 0 0 30"
+      }
+      "14"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "model_scale"                                      "0 0 0 30"
       }
     }
   }

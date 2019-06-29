@@ -17,9 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone_1;item_upgrade_core"
-      "02"                                                "item_bloodstone_1;item_upgrade_core_2"
-      "03"                                                "item_bloodstone_1;item_upgrade_core_3"
-      "04"                                                "item_bloodstone_1;item_upgrade_core_4"
     }
   }
 
@@ -57,6 +54,7 @@
     "ItemAliases"                                         "bs 2;bloodstone 2"
     "ItemDisplayCharges"                                  "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "AllowedInBackpack"                                   "0"
 
     // Special

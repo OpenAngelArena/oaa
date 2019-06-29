@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_reflection_shard_1;item_upgrade_core_3"
-      "02"                                                "item_reflection_shard_1;item_upgrade_core_4"
-      "03"                                                "item_sphere_3;item_upgrade_core_3"
-      "04"                                                "item_sphere_3;item_upgrade_core_4"
+      "02"                                                "item_sphere_3;item_upgrade_core_3"
     }
   }
 
@@ -61,7 +59,7 @@
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "reflect shard 2"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
