@@ -29,14 +29,6 @@ if IsServer() then
         end
       end
 
-      if self:HasModifier("modifier_tiny_grow_oaa") then
-        local modifier = self:FindModifierByName("modifier_tiny_grow_oaa")
-        if modifier and modifier.bonus_status_resistance then
-          local bonus = (modifier.bonus_status_resistance or 10)/100
-          reduction = reduction - bonus
-        end
-      end
-
       -- Min and Max cases
       if reduction >= 1 then
         return value*0.99
