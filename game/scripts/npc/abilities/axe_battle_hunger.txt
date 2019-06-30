@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75" //OAA
+    "AbilityManaCost"                                     "100" //OAA
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12.0"
+        "duration"                                        "9 10 11 12 14 16" //OAA
       }
       "02"
       {
@@ -64,7 +64,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "16 24 32 40 80 120"
+        "damage_per_second"                               "22 28 34 40 76 124" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_axe"
       }
       "05"

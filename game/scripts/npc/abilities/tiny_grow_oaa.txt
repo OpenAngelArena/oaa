@@ -25,19 +25,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "10 15 20 25 30"
+        "bonus_armor"                                     "10 18 26 36 46"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 18 26 36 56"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "30 60 90 150 270"
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed_reduction"                          "20 35 50 60 70"

@@ -96,6 +96,9 @@ if IsServer() then
       -- use cooldown ( and mana, if necessary )
       spell:UseResources( true, true, true )
 
+      -- do another atttack that cannot miss after cd is started to prevent self-proccing
+      parent:PerformAttack(target, true, true, true, false, false, false, true)
+
       -- because talents are dumb we need to manually get its value
       local damageTalent = 0
 

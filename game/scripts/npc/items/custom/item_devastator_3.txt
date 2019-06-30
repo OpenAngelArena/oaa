@@ -75,7 +75,7 @@
       "01" // less than desolator
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 120 140"
+        "bonus_damage"                                    "50 70 100 110 120"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "02" // same as desolator
@@ -129,7 +129,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_armor_reduction"                      "-10 -13 -17 -22 -28"
+        "devastator_armor_reduction"                      "-9 -12 -16 -21 -27"
       }
       "12"
       {

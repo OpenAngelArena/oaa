@@ -16,7 +16,7 @@
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "3000"
     "AbilityCooldown"                                     "44 36 28 20 20 20"
-    "AbilityManaCost"                                     "110 110 110 110 150 200"
+    "AbilityManaCost"                                     "110"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +34,18 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_rate"                                     "1.25 1.1 0.95 0.8 0.65 0.4"
+        "attack_rate"                                     "1.25 1.1 0.95 0.8 0.65 0.5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "12 12 12 12"
+        "count"                                           "12"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "1 1 1 1"
-        "LinkedSpecialBonus"  "special_bonus_unique_weaver_3"
+        "armor_reduction"                                 "1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_3"
       }
       "05"
       {
@@ -55,22 +55,22 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "destroy_attacks"                                 "8 8 8 8"
+        "destroy_attacks"                                 "8"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "100 100 100 100"
+        "radius"                                          "100"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "600 600 600 600"
+        "speed"                                           "600"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spawn_radius"                                    "300 300 300 300"
+        "spawn_radius"                                    "300"
       }
     }
   }

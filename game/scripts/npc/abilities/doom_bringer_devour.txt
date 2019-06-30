@@ -13,7 +13,11 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -21,7 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "70 60 50 40 40 40"
+    "AbilityCooldown"                                     "40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +38,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "125 250 500 750 1500 3000" //OAA
+        "bonus_gold"                                      "75 125 250 375 750 1500" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devour_time"                                     "80"
+        "devour_time"                                     "50" //OAA
       }
       "03"
       {
@@ -50,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_level"                                     "3 4 5 6 7 8"
+        "creep_level"                                     "6" //OAA
       }
     }
   }

@@ -24,8 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_lotus_orb_4;item_upgrade_core_4"
-      "02"                                                "item_dispel_orb_2;item_upgrade_core_4"
-      "03"                                                "item_bubble_orb_1;item_upgrade_core_4"
+      "02"                                                "item_bubble_orb_1;item_upgrade_core_4"
+      //"03"                                                "item_dispel_orb_2;item_upgrade_core_4"
     }
   }
 
@@ -67,7 +67,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 17 25 32 40"
+        "bonus_armor"                                     "10 12 15 19 24"
       }
       "02"
       {
