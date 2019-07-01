@@ -5,6 +5,21 @@ LinkLuaModifier( "modifier_electrician_cleansing_shock_enemy", "abilities/electr
 
 --------------------------------------------------------------------------------
 
+-- CastFilterResultTarget runs on client side first
+function electrician_cleansing_shock:CastFilterResultTarget(target)
+  local default_result = self.BaseClass.CastFilterResultTarget(self, target)
+
+  if default_result == UF_FAIL_MAGIC_IMMUNE_ENEMY then
+    local caster = self:GetCaster()
+    -- Talent that allows to target Spell Immune units
+    if caster:HasTalent("special_bonus_electrician_shock_spell_immunity") then
+      return UF_SUCCESS
+    end
+  end
+
+  return default_result
+end
+
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
