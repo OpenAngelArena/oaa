@@ -7,7 +7,7 @@ Darklord is a god of the modding community; even though he doesn't contribute di
 his existence alone is an extreme asset to our team. Thanks homie.
 
 Refactored heavily by chrisinajar
-Updated to 7.07 by chrisinajar
+Updated to 7.22 by Darkonius
 
 ]]
 if tiny_grow_oaa == nil then tiny_grow_oaa = class(AbilityBaseClass) end
@@ -101,7 +101,6 @@ function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction")
-  self.bonus_status_resistance = ability:GetSpecialValueFor("status_resistance")
 end
 
 function modifier_tiny_grow_oaa:OnRefresh()
@@ -109,7 +108,6 @@ function modifier_tiny_grow_oaa:OnRefresh()
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction")
-  self.bonus_status_resistance = ability:GetSpecialValueFor("status_resistance")
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
@@ -117,8 +115,7 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   -- this is bonus raw damage (green)
-    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
-    MODIFIER_PROPERTY_STATUS_RESISTANCE
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE     -- this is bonus base damage (white)
   }
 
   return funcs
@@ -138,8 +135,4 @@ end
 
 function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant()
   return 0 - math.abs(self.attack_speed_reduction)
-end
-
-function modifier_tiny_grow_oaa:GetModifierStatusResistance()
-  return self.bonus_status_resistance
 end
