@@ -165,6 +165,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
       ministun_duration = ministun_duration + talent:GetSpecialValueFor("value")
     end
 
+    ministun_duration = target:GetValueChangedByStatusResistance(ministun_duration)
     target:AddNewModifier(caster, lightning_bolt_ability, "modifier_stunned", {duration = ministun_duration})
     ApplyDamage({victim = target, attacker = parent, damage = lightning_bolt_ability:GetAbilityDamage(), damage_type = lightning_bolt_ability:GetAbilityDamageType()})
     -- Renders the particle on the sigil

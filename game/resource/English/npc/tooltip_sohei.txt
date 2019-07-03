@@ -1,9 +1,11 @@
 "npc_dota_hero_sohei"                                                           "Sohei"
+"npc_dota_hero_sohei_hype"                                                      "Sohei is a strength hero designed around fast movement and powerful abilities to dodge enemies. He dashes around and reflects projectiles while removing negative effects and building up momentum to slam enemies with powerful blasts knocking them back, and his ultimate that keeps enemies in an area while dealing damage to them"
 
 "DOTA_Tooltip_Ability_sohei_dash"                                               "Dash"
-"DOTA_Tooltip_Ability_sohei_dash_description"                                   "Consumes a charge to quickly dash %dash_distance% units in the direction you are facing, granting invincibility for the duration of the dash. Can be used to dash over cliffs and through trees. Dash charges restore every %charge_restore_time% seconds."
+"DOTA_Tooltip_Ability_sohei_dash_description"                                   "Consumes a charge to quickly dash %dash_distance% units in the direction you are facing. Can be used to dash over cliffs and through trees. Dash charges restore every %charge_restore_time% seconds."
 "dota_tooltip_ability_sohei_dash_max_charges"                                   "CHARGES:"
 "dota_tooltip_ability_sohei_dash_dash_speed"                                    "DASH SPEED:"
+"DOTA_Tooltip_Ability_sohei_dash_Lore"                                          "Takuan likes manipulating his movement for good unlike others."
 
 "DOTA_Tooltip_Ability_sohei_guard"                                              "Guard"
 "DOTA_Tooltip_Ability_sohei_guard_description"                                  "Removes most negative effects and reflects all projectiles that would hit you for the next %guard_duration% seconds. Can be used while stunned but consumes %charges_required% charges of Dash if used while stunned.\n\nDISPEL TYPE: Strong Dispel"
@@ -11,10 +13,12 @@
 "DOTA_Tooltip_Ability_sohei_guard_guard_duration"                               "DURATION:"
 
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body"                                  "Wholeness of Body"
-"DOTA_Tooltip_Ability_sohei_wholeness_of_body_description"                      "Grants 100% status resistance for %sr_duration% seconds. When the buff expires, Sohei will be healed for a base amount plus a percentage of the damage he took while the buff was active.\n\nDISPEL TYPE: Basic Dispel"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_description"                      "Grants 90% status resistance for %sr_duration% seconds. When the buff expires, Sohei will be healed for a base amount plus a percentage of the damage he took while the buff was active.\n\nDISPEL TYPE: Strong Dispel"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_Note0"                            "Cannot be used while stunned."
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_guard_duration"                   "DURATION:"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_post_heal"                        "BASE HEAL:"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_damage_taken_heal"                "%HEAL PER DAMAGE TAKEN:"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_Lore"                             "Takuan can mend any illness or damage with his ki energy."
 
 "DOTA_Tooltip_Ability_sohei_momentum"                                           "Momentum"
 "DOTA_Tooltip_Ability_sohei_momentum_description"                               "When toggled ON: After moving %trigger_distance% units your next attack is a critical strike and pushes your target %knockback_distance% units. If an enemy unit is pushed into a cliff or tree then that unit is slowed and the knockback stops. If colliding with another enemy hero, both heroes are slowed."
@@ -22,17 +26,20 @@
 "DOTA_Tooltip_Ability_sohei_momentum_movement_slow"                             "%MOVEMENT SLOW:"
 "DOTA_Tooltip_Ability_sohei_momentum_slow_duration"                             "DURATION:"
 "DOTA_Tooltip_Ability_sohei_momentum_knockback_speed"                           "KNOCKBACK SPEED:"
+"DOTA_Tooltip_Ability_sohei_momentum_Lore"                                      "Takuan's ki power bludgeons and pushes those who stand before him."
 
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows"                                    "Flurry of Blows"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_description"                        "CHANNELED - Sohei becomes invulnerable, randomly attacking one target at a time in a selected area with the intention of pushing them back into the epicenter. Each hit triggers Momentum. Ends after either the duration or the maximum amount of attacks have run out."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_attacks"                        "ATTACKS:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_attack_interval"                    "ATTACK INTERVAL:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"                       "MAX DURATION:"
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Lore"                               "Offensive ki feature created through meditation."
 
 "DOTA_Tooltip_Ability_sohei_palm_of_life"                                       "Palm of Life"
 "DOTA_Tooltip_Ability_sohei_palm_of_life_description"                           "Consumes a Dash charge to dash to an ally. If cast while Momentum is ready, it is discharged upon reaching the ally to heal them for a portion of Sohei's current health."
 "DOTA_Tooltip_Ability_sohei_palm_of_life_hp_as_heal"                            "%CURRENT HEALTH AS HEAL:"
 "DOTA_Tooltip_Ability_sohei_palm_of_life_dash_speed"                            "DASH SPEED:"
+"DOTA_Tooltip_Ability_sohei_palm_of_life_Lore"                                  "Healing is more prevalent than damaging for monks like Takuan."
 
 // modifiers
 "DOTA_Tooltip_modifier_sohei_dash_charges"                                      "Dash Charges"

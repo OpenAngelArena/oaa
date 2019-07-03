@@ -74,30 +74,27 @@ end
 
 -- helper function for applying the purge and move speed change
 function electrician_cleansing_shock:ApplyEffect( target )
-	local caster = self:GetCaster()
-	local duration = self:GetSpecialValueFor( "duration" )
+  local caster = self:GetCaster()
+  local duration = self:GetSpecialValueFor( "duration" )
 
-	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-		target:Purge( true, false, false, false, false )
-		target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", {
-			duration = duration,
-		} )
-	else
-		target:Purge( false, true, false, false, false )
-		target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", {
-			duration = duration,
-		} )
-	end
+  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    target:Purge( true, false, false, false, false )
+    duration = target:GetValueChangedByStatusResistance( duration )
+    target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
+  else
+    target:Purge( false, true, false, false, false )
+    target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", {	duration = duration	} )
+  end
 
-	-- particle
-	local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
-	ParticleManager:ReleaseParticleIndex( part )
+  -- particle
+  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+  ParticleManager:ReleaseParticleIndex( part )
 
-	-- sound
-	target:EmitSound( "Hero_Tinker.LaserImpact" )
+  -- sound
+  target:EmitSound( "Hero_Tinker.LaserImpact" )
 
-	-- add unit to hitlist
-	table.insert( self.hitTargets, target )
+  -- add unit to hitlist
+  table.insert( self.hitTargets, target )
 end
 
 --------------------------------------------------------------------------------

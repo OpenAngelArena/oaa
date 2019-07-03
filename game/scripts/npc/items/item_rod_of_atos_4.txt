@@ -24,11 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_rod_of_atos_3;item_upgrade_core_3"
-      "02"                                                "item_rod_of_atos_3;item_upgrade_core_4"
-      "03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
-      "04"                                                "item_meteor_hammer_3;item_upgrade_core_4"
-      "05"                                                "item_cyclone_3;item_upgrade_core_3"
-      "06"                                                "item_cyclone_3;item_upgrade_core_4"
+      "02"                                                "item_meteor_hammer_3;item_upgrade_core_3"
+      "03"                                                "item_cyclone_3;item_upgrade_core_3"
     }
   }
 
@@ -78,12 +75,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 22 32 42 52"
+        "bonus_strength"                                  "10 22 32 42 52"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 22 32 42 52"
+        "bonus_agility"                                   "10 22 32 42 52"
       }
       "04"
       {
@@ -93,7 +90,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1150"
+        "tooltip_range"                                   "1100"
       }
     }
   }
