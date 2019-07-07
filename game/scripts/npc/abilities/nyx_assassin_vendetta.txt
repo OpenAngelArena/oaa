@@ -14,10 +14,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70.0 60.0 50.0 50.0 50.0"
+    "AbilityCooldown"                                     "90.0 70.0 50.0 50.0 50.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -51,7 +54,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "70 60 50 50 50"
+        "cooldown_scepter"                                "90.0 70.0 50.0 50.0 50.0" //OAA, Valve has it wrong
       }
       "06"
       {

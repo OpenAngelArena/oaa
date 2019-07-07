@@ -12,6 +12,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
@@ -50,7 +51,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_regen_pct"                                 "3 5 7 9 12"
+        "bonus_regen_pct"                                 "5 6 7 9 12"
       }
       "05"
       {
@@ -65,7 +66,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_aoe"                                     "325"
+        "scepter_aoe"                                     "425"
       }
       "08"
       {
