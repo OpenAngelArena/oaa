@@ -76,13 +76,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 120 140"
+        "bonus_damage"                                    "50 70 100 110 120"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-7 -10 -14 -19 -25"
+        "corruption_armor"                                "-5 -8 -12 -17 -23"
       }
       "03"
       {
@@ -130,7 +130,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_armor_reduction"                      "-10 -13 -17 -22 -28"
+        "devastator_armor_reduction"                      "-7 -10 -14 -19 -25"
       }
       "12"
       {
