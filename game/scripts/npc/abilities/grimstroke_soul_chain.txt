@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                "FIELD_FLOAT"
-        "chain_duration"          "6.0 7.0 8.0 11.0 12.0"
+        "chain_duration"          "6.0 7.0 8.0 9.0 10.0"
       }
       "02"
       {
@@ -68,7 +68,7 @@
       "07"
       {
         "var_type"                "FIELD_INTEGER"
-        "movement_slow"           "10"
+        "movement_slow"           "10 20 30 40 50" // OAA
       }
       "08"
       {
