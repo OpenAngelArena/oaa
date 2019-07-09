@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_far_sight;item_upgrade_core_2"
-      "02"                                                "item_veil_of_discord_2;item_upgrade_core_2"
+      "02"                                                "item_ward_stack_2;item_upgrade_core_2"
     }
   }
 
@@ -61,7 +61,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "7050"
+    "ItemCost"                                            "5625"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -85,7 +85,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 20 30"
+        "bonus_armor"                                     "6 9 13 18"
       }
       "03"
       {
@@ -95,7 +95,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "10 20 30 40"
+        "bonus_str"                                       "20 30 40 50"
       }
       "05"
       {
