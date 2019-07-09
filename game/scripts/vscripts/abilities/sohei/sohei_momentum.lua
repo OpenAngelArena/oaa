@@ -408,18 +408,15 @@ if IsServer() then
 --------------------------------------------------------------------------------
 
   function modifier_sohei_momentum_knockback:SlowAndStun( unit, caster, ability )
-    unit:AddNewModifier( caster, ability, "modifier_sohei_momentum_slow", {
-      duration = ability:GetSpecialValueFor( "slow_duration" ),
-    } )
+    unit:AddNewModifier( caster, ability, "modifier_sohei_momentum_slow", { duration = ability:GetSpecialValueFor( "slow_duration" ) } )
 
     local talent = caster:FindAbilityByName( "special_bonus_sohei_stun" )
 
     if talent and talent:GetLevel() > 0 then
-      local stunDuration = talent:GetSpecialValueFor("value")
+      local stunDuration = talent:GetSpecialValueFor( "value" )
+      stunDuration = unit:GetValueChangedByStatusResistance( stunDuration )
 
-      unit:AddNewModifier( caster, ability, "modifier_stunned", {
-        duration = stunDuration
-      } )
+      unit:AddNewModifier( caster, ability, "modifier_stunned", { duration = stunDuration } )
     end
   end
 end
@@ -450,13 +447,25 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_slow:OnCreated( event )
-  self.slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
+  local parent = self:GetParent()
+  local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
+  if IsServer() then
+    self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
+  else
+    self.slow = movement_slow
+  end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_slow:OnRefresh( event )
-  self.slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
+  local parent = self:GetParent()
+  local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
+  if IsServer() then
+    self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
+  else
+    self.slow = movement_slow
+  end
 end
 
 --------------------------------------------------------------------------------

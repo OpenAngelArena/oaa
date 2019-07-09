@@ -569,6 +569,7 @@
 #base "abilities/talents/doom_talents.txt"
 #base "abilities/talents/drow_ranger_talents.txt"
 #base "abilities/talents/invoker_talents.txt"
+#base "abilities/talents/jakiro_talents.txt"
 #base "abilities/talents/keeper_of_the_light_talents.txt"
 #base "abilities/talents/legion_commander_talents.txt"
 #base "abilities/talents/leshrac_talents.txt"
@@ -608,7 +609,6 @@
   "item_refresher"                "REMOVE"
   "item_hurricane_pike"			      "REMOVE"
   "item_glimmer_cape"			        "REMOVE"
-  "item_bloodthorn"				        "REMOVE"
   "item_butterfly"				        "REMOVE"
   "item_bfury"                    "REMOVE"
   "item_abyssal_blade"            "REMOVE"
@@ -620,7 +620,4 @@
   "item_ward_sentry"              "REMOVE"
   "item_ward_observer"            "REMOVE"
   "item_ward_dispenser"           "REMOVE"
-  "item_sange_and_yasha"          "REMOVE"
-  "item_yasha_and_kaya"           "REMOVE"
-  "item_kaya_and_sange"           "REMOVE"
 }

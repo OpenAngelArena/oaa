@@ -31,6 +31,11 @@ function WandererThink ()
     return 1
   end
 
+  if Duels:IsActive() then
+    thisEntity:Stop()
+    return 1
+  end
+
   if not thisEntity.hasSpawned then
     thisEntity.hasSpawned = true
     StartWandering()
@@ -65,6 +70,10 @@ function WandererThink ()
     thisEntity.isLeashing = false
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
     thisEntity:RemoveModifierByName("modifier_wanderer_boss_buff")
+  end
+  if not thisEntity.isAggro and shouldAggro then
+      thisEntity:Stop()
+      thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
   -- end pre assign stuff
@@ -156,7 +165,7 @@ function WandererThink ()
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = thisEntity.destination,
+          Position = thisEntity.aggroOrigin,
           Queue = 1,
         })
       else
@@ -164,7 +173,7 @@ function WandererThink ()
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = thisEntity.destination,
+          Position = thisEntity.aggroOrigin,
           Queue = 0,
         })
       end
