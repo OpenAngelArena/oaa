@@ -5,6 +5,21 @@ LinkLuaModifier( "modifier_electrician_cleansing_shock_enemy", "abilities/electr
 
 --------------------------------------------------------------------------------
 
+-- CastFilterResultTarget runs on client side first
+function electrician_cleansing_shock:CastFilterResultTarget(target)
+  local default_result = self.BaseClass.CastFilterResultTarget(self, target)
+
+  if default_result == UF_FAIL_MAGIC_IMMUNE_ENEMY then
+    local caster = self:GetCaster()
+    -- Talent that allows to target Spell Immune units
+    if caster:HasTalent("special_bonus_electrician_shock_spell_immunity") then
+      return UF_SUCCESS
+    end
+  end
+
+  return default_result
+end
+
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
@@ -74,30 +89,27 @@ end
 
 -- helper function for applying the purge and move speed change
 function electrician_cleansing_shock:ApplyEffect( target )
-	local caster = self:GetCaster()
-	local duration = self:GetSpecialValueFor( "duration" )
+  local caster = self:GetCaster()
+  local duration = self:GetSpecialValueFor( "duration" )
 
-	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-		target:Purge( true, false, false, false, false )
-		target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", {
-			duration = duration,
-		} )
-	else
-		target:Purge( false, true, false, false, false )
-		target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", {
-			duration = duration,
-		} )
-	end
+  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    target:Purge( true, false, false, false, false )
+    duration = target:GetValueChangedByStatusResistance( duration )
+    target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
+  else
+    target:Purge( false, true, false, false, false )
+    target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", { duration = duration } )
+  end
 
-	-- particle
-	local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
-	ParticleManager:ReleaseParticleIndex( part )
+  -- particle
+  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+  ParticleManager:ReleaseParticleIndex( part )
 
-	-- sound
-	target:EmitSound( "Hero_Tinker.LaserImpact" )
+  -- sound
+  target:EmitSound( "Hero_Tinker.LaserImpact" )
 
-	-- add unit to hitlist
-	table.insert( self.hitTargets, target )
+  -- add unit to hitlist
+  table.insert( self.hitTargets, target )
 end
 
 --------------------------------------------------------------------------------

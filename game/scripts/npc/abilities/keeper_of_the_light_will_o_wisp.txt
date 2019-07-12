@@ -20,7 +20,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				                              "120"
+		"AbilityCooldown"				                              "80" //OAA
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -37,18 +37,18 @@
 			"01"
 			{
 				"var_type"					         "FIELD_INTEGER"
-				"on_count"					         "3 4 5 6 7"
+				"on_count"					         "4 5 6 7 8" //OAA
 				"LinkedSpecialBonus"		     "special_bonus_unique_keeper_of_the_light_3"
 			}
 			"02"
 			{
 				"var_type"					         "FIELD_INTEGER"
-				"radius"					           "675"
+				"radius"					           "700"
 			}
 			"03"
 			{
 				"var_type"					         "FIELD_INTEGER"
-				"hit_count"					         "4 5 6 7 8"
+				"hit_count"					         "4 6 8 10 12" //OAA
         "LinkedSpecialBonus"         "special_bonus_unique_keeper_of_the_light_4"
 			}
 			"04"
@@ -69,7 +69,7 @@
 			"07"
 			{
 				"var_type"					         "FIELD_INTEGER"
-				"fixed_movement_speed"		   "25"
+				"fixed_movement_speed"		   "35"
 			}
       "08"
       {

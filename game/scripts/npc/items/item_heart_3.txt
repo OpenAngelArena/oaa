@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_2;item_upgrade_core_2"
-      "02"                                                "item_heart_2;item_upgrade_core_3"
-      "03"                                                "item_heart_2;item_upgrade_core_4"
-      "04"                                                "item_crimson_guard_2;item_upgrade_core_2"
-      "05"                                                "item_crimson_guard_2;item_upgrade_core_3"
-      "06"                                                "item_crimson_guard_2;item_upgrade_core_4"
+      "02"                                                "item_crimson_guard_2;item_upgrade_core_2"
     }
   }
 
@@ -51,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10200"
+    "ItemCost"                                            "8700"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot 3;heart of tarrasque 3;heart 3"
