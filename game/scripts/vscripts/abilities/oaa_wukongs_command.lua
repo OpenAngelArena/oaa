@@ -26,13 +26,13 @@ if IsServer() then
         self.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
         self.clones[i]["top"]:SetOwner(caster)
         self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
-        self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
+        --self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
         print("[MONKEY KING WUKONG'S COMMAND] Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "]['top']")
         for j=1, max_number_of_monkeys_per_ring-1 do
           self.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
           self.clones[i][j]:SetOwner(caster)
           self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
-          self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
+          --self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
           print("[MONKEY KING WUKONG'S COMMAND] Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "][" .. tostring(j) .. "]")
         end
       end
@@ -293,6 +293,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   top_monkey:RemoveNoDraw()
   top_monkey:SetBaseDamageMax(damage_percent*caster:GetBaseDamageMax())
   top_monkey:SetBaseDamageMin(damage_percent*caster:GetBaseDamageMin())
+  top_monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
   top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
 
   -- Create remaining monkeys
@@ -312,6 +313,7 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
     monkey:RemoveNoDraw()
     monkey:SetBaseDamageMax(damage_percent*caster:GetBaseDamageMax())
     monkey:SetBaseDamageMin(damage_percent*caster:GetBaseDamageMin())
+    monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
     monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
   end
 end
@@ -335,6 +337,7 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
       unit:AddNoDraw()
       unit:SetAbsOrigin(Vector(-10000,-10000,-10000))
       unit:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
+      unit:RemoveModifierByName("modifier_monkey_clone_oaa")
     end
   end
 
@@ -522,8 +525,8 @@ function modifier_monkey_clone_oaa:OnCreated()
     parent:AddNewModifier(caster, self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
     AddAnimationTranslate(parent, "attack_normal_range")
 
-    -- Start attacking AI
-    self:StartIntervalThink(0.3)
+    -- Start attacking AI (which targets are allowed to be attacked)
+    self:StartIntervalThink(0.1)
   end
 end
 if IsServer() then
@@ -531,7 +534,7 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
     local parent_position = parent:GetAbsOrigin()
-    local search_radius = parent:GetAttackRange()
+    local search_radius = parent:GetAttackRange() + parent:GetHullRadius()
     if parent and not parent:IsNull() and parent:IsAlive() then
       if not parent.target or parent.target:IsNull() or not parent.target:IsAlive() then
         parent.target = nil
