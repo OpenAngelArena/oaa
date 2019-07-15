@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_vladmir_4;item_upgrade_core_4"
-      "02"                       					 	  "item_helm_of_the_dominator_4;item_upgrade_core_4"
+      "02"                       					 	              "item_helm_of_the_dominator_4;item_upgrade_core_4"
     }
   }
 
@@ -59,12 +59,12 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura" "1.75 2.5 4.0 6.0 7.5"
+        "mana_regen_aura" "1.5 2.5 4.0 6.0 7.5"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "armor_aura"      "4 8 12 16 20"
+        "armor_aura"      "4 6 9 13 18"
       }
       "03"
       {

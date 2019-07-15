@@ -24,9 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodthorn_3;item_upgrade_core_3"
-      "02"                                                "item_bloodthorn_3;item_upgrade_core_4"
-      "03"                                                "item_greater_crit_3;item_upgrade_core_3"
-      "04"                                                "item_greater_crit_3;item_upgrade_core_4"
+      "02"                                                "item_greater_crit_3;item_upgrade_core_3"
+      "03"                                                "item_nullifier_3;item_upgrade_core_3"
     }
   }
 
@@ -60,7 +59,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "17075"
+    "ItemCost"                                            "18330"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 4"
