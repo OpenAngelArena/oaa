@@ -1,0 +1,12 @@
+"DOTAAbilities"
+{
+  "core_guy_points"
+  {
+    "ID"                                                  "9907"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/misc/core_guy_points.lua"
+    "MaxLevel"                                            "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/core_guy_points"
+  }
+}

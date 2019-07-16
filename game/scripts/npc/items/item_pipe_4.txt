@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_pipe_3;item_upgrade_core_3"
-      "02"                                                "item_pipe_3;item_upgrade_core_4"
-      "03"                                                "item_glimmer_cape_3;item_upgrade_core_3"
-      "04"                                                "item_glimmer_cape_3;item_upgrade_core_4"
+      "02"                                                "item_glimmer_cape_3;item_upgrade_core_3"
     }
   }
 
@@ -89,7 +87,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "3 4 6 8 11"
+        "aura_health_regen"                               "2 4 6 8 11"
       }
       "06"
       {

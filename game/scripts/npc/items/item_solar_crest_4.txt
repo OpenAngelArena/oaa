@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_solar_crest_3;item_upgrade_core_3"
-      "02"                                                "item_solar_crest_3;item_upgrade_core_4"
     }
   }
 
@@ -67,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12 15 20 25 30"
+        "bonus_armor"                                     "7 10 14 19 25" //OAA
       }
       "02"
       {

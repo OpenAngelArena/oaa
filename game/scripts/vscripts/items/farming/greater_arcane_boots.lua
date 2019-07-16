@@ -77,3 +77,12 @@ function item_arcane_origin:GetIntrinsicModifierNames()
     --"modifier_creep_bounty"
   }
 end
+
+item_farming_core = class(item_arcane_origin)
+
+function item_farming_core:GetIntrinsicModifierNames()
+  return {
+    "modifier_passive_gpm",
+    --"modifier_creep_bounty"
+  }
+end

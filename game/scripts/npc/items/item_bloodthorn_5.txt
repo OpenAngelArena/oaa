@@ -23,8 +23,9 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_crit_4;item_upgrade_core_4"
       "01"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      "02"                                                "item_greater_crit_4;item_upgrade_core_4"
+      "03"                                                "item_nullifier_4;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "37075"
+    "ItemCost"                                            "38330"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 5"
