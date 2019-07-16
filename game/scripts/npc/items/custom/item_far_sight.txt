@@ -9,24 +9,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "127001"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                             "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                         "custom/recipe/recipe_1"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                        "1500"
-    "ItemShopTags"                                 ""
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                      "1"
-    "ItemResult"                                      "item_far_sight"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_far_sight"
     "ItemRequirements"
     {
-      "01"                                                "item_veil_of_discord;item_upgrade_core"
-      "02"                                                "item_veil_of_discord;item_upgrade_core_2"
-      "03"                                                "item_veil_of_discord;item_upgrade_core_3"
-      "04"                                                "item_veil_of_discord;item_upgrade_core_4"
+      "01"                                                "item_ward_stack;item_upgrade_core"
     }
   }
 
@@ -39,8 +36,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
 
-    "ID"                                                      "127002"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_lua"
+    "ID"                                                  "127002"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
     "AbilityTextureName"                                  "custom/far_sight"
@@ -48,11 +45,11 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0 75.0 60.0 45.0"
+    "AbilityCooldown"                                     "60.0 50.0 40.0 30.0"
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "750"
+    "AoERadius"                                           "750 800 850 900"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "3550"
+    "ItemCost"                                            "2125"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -87,7 +84,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 20 30"
+        "bonus_armor"                                     "6 9 13 18"
       }
       "03"
       {
@@ -97,7 +94,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "10 20 30 40"
+        "bonus_str"                                       "20 30 40 50"
       }
       "05"
       {
@@ -107,7 +104,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "750"
+        "reveal_radius"                                   "750 800 850 900"
       }
       "07"
       {

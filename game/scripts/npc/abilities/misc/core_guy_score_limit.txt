@@ -1,0 +1,12 @@
+"DOTAAbilities"
+{
+  "core_guy_score_limit"
+  {
+    "ID"                                                  "9908"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/misc/core_guy_score_limit.lua"
+    "MaxLevel"                                            "1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/core_guy_score_limit"
+  }
+}

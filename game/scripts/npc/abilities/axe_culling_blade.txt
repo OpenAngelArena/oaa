@@ -16,11 +16,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +46,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "kill_threshold"                                  "350 550 750 1050 1450" //OAA
+        "kill_threshold"                                  "250 450 650 1050 2250" //OAA
       }
       "02"
       {
@@ -71,11 +72,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed_aoe"                                       "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_aoe"                                     "700"
       }
     }
   }
