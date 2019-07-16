@@ -36,7 +36,9 @@ function item_pull_staff:OnSpellStart()
   end
   vVelocity = vVelocity:Normalized() * speed
 
-  target:Stop()
+  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    target:Stop()
+  end
 
   local info = {
     Ability = self,
