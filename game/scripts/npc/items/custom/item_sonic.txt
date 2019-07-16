@@ -66,10 +66,10 @@
         "var_type"                "FIELD_FLOAT"
         "bonus_mana_regen"        "4.5 6.0 7.5"
       }
-      "05"
+      "05" // percentage movement speed bonus
       {
         "var_type"                "FIELD_INTEGER"
-        "speed_bonus"             "30 45 60"
+        "speed_bonus"             "30 35 40"
       }
       "06" // percentage vision bonus
       {
