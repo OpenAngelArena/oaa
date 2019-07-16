@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_far_sight;item_upgrade_core_2"
-      "02"                                                "item_far_sight;item_upgrade_core_3"
-      "03"                                                "item_far_sight;item_upgrade_core_4"
-      "04"                                                "item_veil_of_discord_2;item_upgrade_core_2"
-      "05"                                                "item_veil_of_discord_2;item_upgrade_core_3"
-      "06"                                                "item_veil_of_discord_2;item_upgrade_core_4"
+      "02"                                                "item_ward_stack_2;item_upgrade_core_2"
     }
   }
 
@@ -50,11 +46,11 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0 75.0 60.0 45.0"
+    "AbilityCooldown"                                     "60.0 50.0 40.0 30.0"
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "750"
+    "AoERadius"                                           "750 800 850 900"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +61,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "7050"
+    "ItemCost"                                            "5625"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -89,7 +85,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 15 20 30"
+        "bonus_armor"                                     "6 9 13 18"
       }
       "03"
       {
@@ -99,7 +95,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "10 20 30 40"
+        "bonus_str"                                       "20 30 40 50"
       }
       "05"
       {
@@ -109,7 +105,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "750"
+        "reveal_radius"                                   "750 800 850 900"
       }
       "07"
       {
