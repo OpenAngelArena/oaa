@@ -2,19 +2,21 @@
 {
 
   //=================================================================================================================
-	// HERO: Electrician
-	//=================================================================================================================
-	"npc_dota_hero_electrician"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                 "npc_dota_hero_dazzle"
-		"Model"                     "models/heroes/electrician/electrician.vmdl"
-		"SoundSet"                  "Hero_Electrician"
-		"HeroID"                    "126"
-		"particle_folder"           "particles/units/heroes/hero_electrician"
-		"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
-		"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
+  // HERO: Electrician Chatterjee
+  //=================================================================================================================
+  "npc_dota_hero_electrician"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "npc_dota_hero_dazzle"
+    "HeroID"                    "126"
+    "Model"                     "models/heroes/electrician/electrician.vmdl"
+    "SoundSet"                  "Hero_Electrician"
+    "particle_folder"           "particles/units/heroes/hero_electrician"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
+    //"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
+
+    "BotImplemented"            "0"
 
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
