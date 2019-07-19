@@ -41,32 +41,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 32 32 48 72"
+        "bonus_agility"                                   "16 24 32 48 72"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 32 32 48 72"
+        "bonus_intellect"                                 "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 16 20 26 34" //OAA
+        "bonus_attack_speed"                              "16 18 20 26 34"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" //OAA
+        "manacost_reduction"                              "16 18 22 28 34"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "8 12 16 20 24" //OAA
+        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 18 26 34 42" //OAA
+        "spell_amp"                                       "12 18 26 34 42"
       }
     }
   }

@@ -14,13 +14,14 @@
 
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementTurnRate"          "1.5"
-    "MovementSpeed"             "325"
+    "MovementSpeed"             "320"
 
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"           "31"
     "AttackDamageMax"           "33"
     "AttackRange"               "150"
     "AttackRate"                "1.7"
+    "BaseAttackSpeed"           "100"
     "AttackAnimationPoint"      "0.33"
     "AttackSpeedActivityModifiers"
     {
@@ -34,7 +35,7 @@
 
     "StatusHealthRegen"         "3.25"
     "StatusHealth"              "200"
-    "StatusManaRegen"           "0.9"
+    "StatusManaRegen"           "0.0"
     "StatusMana"                "75"
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
@@ -42,7 +43,7 @@
     "AttributeStrengthGain"     "4.5"
     "AttributeBaseAgility"      "18"
     "AttributeAgilityGain"      "1.5"
-    "AttributeBaseIntelligence" "17"
+    "AttributeBaseIntelligence" "15"
     "AttributeIntelligenceGain" "1.5"
 
     "Ability1"                  "sohei_dash"
@@ -53,11 +54,14 @@
     "Ability6"                  "sohei_flurry_of_blows"
 
     "Ability10"                 "special_bonus_sohei_stun"                    // Momentum inflicts a brief stun if the target collides with an obstacle
-    "Ability11"                 "special_bonus_cleave_25"
+    "Ability11"                 "special_bonus_sohei_wholeness_allycast"      // Allow casting on allies
+
     "Ability12"                 "special_bonus_strength_20"
     "Ability13"                 "special_bonus_sohei_wholeness_knockback"     // Knockbacks enemies until they are 300 units away
-    "Ability14"                 "special_bonus_sohei_wholeness_allycast"      // Allow casting on allies
-    "Ability15"                 "special_bonus_movement_speed_60"
+
+    "Ability14"                 "special_bonus_cleave_40"
+    "Ability15"                 "special_bonus_movement_speed_50"
+
     "Ability16"                 "special_bonus_sohei_dash_recharge"           // Dash charges cool down all at once
     "Ability17"                 "special_bonus_sohei_fob_radius"              // Increases Flurry of Blows' AOE radius
 
