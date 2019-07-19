@@ -116,14 +116,19 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1500"
+        "bonus_armor"                                     "2 4 6 8"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
+        "speed"                                           "1500"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "distance"                                        "500 600 700 800"
