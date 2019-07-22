@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 13 13"
+    "AbilityCooldown"                                     "19 17 15 13 13 13"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bolt_stun_duration"                              "1.4 1.6 1.8 2.0 2.0 2.0"
-        "LinkedSpecialBonus"    "special_bonus_unique_sven_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_4"
       }
       "03"
       {

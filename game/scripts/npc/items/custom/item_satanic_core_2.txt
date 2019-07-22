@@ -88,49 +88,27 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "35"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "165"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_total_tooltip"                  "200"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "4.5"
-      }
-      // Octarine Core Parameters
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "hero_lifesteal"                                  "35"
       }
-      "11"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "creep_lifesteal"                                 "10 12 14"
       }
-      // unholy spellsteal
-      "12"
+      "07"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_spellsteal_unholy"                          "165"
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_hero_spell_lifesteal"                     "100"
       }
-      "13"
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_creep_spell_lifesteal"                    "50"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_spellsteal_unholy"                         "190 188 186"
+        "duration"                                        "5.0"
       }
     }
   }

@@ -16,9 +16,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -63,7 +65,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown_increase"                       "70"
-      }     
+      }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"

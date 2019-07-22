@@ -42,7 +42,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_from_hero"                          "30 35 40 45 90 150"
-        "LinkedSpecialBonus"      "special_bonus_unique_underlord_3"
       }
       "05"
       {
@@ -58,6 +57,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "permanent_bonus"                                 "2 3 4 5 10 20"
+        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_3"
       }
     }
   }

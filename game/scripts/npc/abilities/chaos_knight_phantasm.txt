@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -50,12 +51,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "-50 -25 0 10 20"
+        "outgoing_damage"                                 "-50 -25 0 25 50"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "50 75 100 110 120"
+        "outgoing_damage_tooltip"                         "50 75 100 125 150"
       }
       "05"
       {
@@ -81,7 +82,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "80" //OAA
-      } 
+      }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"

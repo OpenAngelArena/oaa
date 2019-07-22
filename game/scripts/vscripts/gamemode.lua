@@ -191,7 +191,7 @@ function GameMode:OnGameInProgress()
   InitModule(BossSpawner)
   InitModule(BottleCounter)
   InitModule(FinalDuel)
-  InitModule(StatusResistance)
+  --InitModule(StatusResistance)
   InitModule(SaveLoadState)
   InitModule(Runes)
 

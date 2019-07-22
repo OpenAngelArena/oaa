@@ -44,22 +44,22 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "puddle_regen"                                    "25"
+        "puddle_regen"                                    "35"
       }
       "05"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "puddle_armor"                                     "12"
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_armor"                                    "12"
       }
       "06"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "puddle_status_resistance"                         "40"
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_status_resistance"                        "40"
       }
-        "07"
+      "07" // bonus_speed + river_speed
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "river_speed_tooltip"                               "25 48 66 94 125 170"
+        "var_type"                                        "FIELD_INTEGER"
+        "river_speed_tooltip"                             "25 48 71 94 125 170" // OAA, Valve is bad at math
       }
     }
   }

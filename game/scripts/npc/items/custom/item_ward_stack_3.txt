@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_ward_stack_2;item_upgrade_core_2"
+      "02"                                                "item_far_sight;item_upgrade_core_2"
     }
   }
 
@@ -76,7 +77,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 10 16 23 30"
+        "bonus_armor"                                     "4 6 9 13 18"
       }
       "03"
       {

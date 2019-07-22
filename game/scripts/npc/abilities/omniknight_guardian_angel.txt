@@ -13,12 +13,16 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
     "HasScepterUpgrade"                                   "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "160" //OAA
+    "AbilityCooldown"                                     "160 150 140 130 120"
     "AbilityCastPoint"                                    "0.4"
 
     // Cost
@@ -47,7 +51,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_regen"                                   "40"
+        "scepter_regen"                                   "40 80 120 160 200" //OAA
       }
     }
   }

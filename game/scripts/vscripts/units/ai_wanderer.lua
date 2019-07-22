@@ -31,6 +31,11 @@ function WandererThink ()
     return 1
   end
 
+  if Duels:IsActive() then
+    thisEntity:Stop()
+    return 1
+  end
+
   if not thisEntity.hasSpawned then
     thisEntity.hasSpawned = true
     StartWandering()
@@ -65,6 +70,10 @@ function WandererThink ()
     thisEntity.isLeashing = false
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
     thisEntity:RemoveModifierByName("modifier_wanderer_boss_buff")
+  end
+  if not thisEntity.isAggro and shouldAggro then
+      thisEntity:Stop()
+      thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
   -- end pre assign stuff
@@ -156,7 +165,7 @@ function WandererThink ()
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = thisEntity.destination,
+          Position = thisEntity.aggroOrigin,
           Queue = 1,
         })
       else
@@ -164,7 +173,7 @@ function WandererThink ()
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = thisEntity.destination,
+          Position = thisEntity.aggroOrigin,
           Queue = 0,
         })
       end
@@ -212,18 +221,26 @@ function WalkTowardsSpot (spot)
 end
 
 local FIRST_MIN_X = 1600
-local FIRST_MIN_Y = 2000
+local FIRST_MIN_Y = 1900
 
 function GetNextWanderLocation (startPosition)
   local maxY = FIRST_MIN_Y
   local maxX = FIRST_MIN_X
+  local minY = 0
+  local minX = 0
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  if scoreDiff < 10 then
+    isGoodLead = RandomInt(0, 1) == 0
+  end
   if scoreDiff > 10 then
     maxY = 4000
+    maxX = 3100
+    minX = 500
   end
   if scoreDiff > 20 then
     maxX = 5500
+    minX = 2900
   end
   local nextPosition = nil
   local isValidPosition = false
@@ -232,19 +249,17 @@ function GetNextWanderLocation (startPosition)
     if nextPosition then
       print('Got a bad position option ' .. tostring(nextPosition))
     end
-    nextPosition = GetRandomWanderLocation(startPosition, maxX, maxY)
+    nextPosition = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), startPosition.z)
+    if RandomInt(0, 1) == 0 then
+      nextPosition.y = 0 - nextPosition.y
+    end
+    if not isGoodLead then
+      nextPosition.x = 0 - nextPosition.x
+    end
     isValidPosition = true
     if (nextPosition - startPosition):Length2D() < 2000 then
       isValidPosition = false
-    elseif scoreDiff < 30 and IsInZone4(nextPosition) then
-      isValidPosition = false
-    elseif isGoodLead and nextPosition.x < 0 - FIRST_MIN_X then
-      isValidPosition = false
-    elseif not isGoodLead and nextPosition.x > FIRST_MIN_X then
-      isValidPosition = false
-    elseif isGoodLead and nextPosition.x < 0 and math.abs(nextPosition.y) > FIRST_MIN_Y then
-      isValidPosition = false
-    elseif not isGoodLead and nextPosition.x > 0 and math.abs(nextPosition.y) > FIRST_MIN_Y then
+    elseif IsNearWell(nextPosition) then
       isValidPosition = false
     end
   end
@@ -252,27 +267,8 @@ function GetNextWanderLocation (startPosition)
   return nextPosition
 end
 
-function IsInZone4 (pos)
-  return math.abs(pos.x) > 2500 and math.abs(pos.y) < 3000
-end
-
-function GetRandomWanderLocation (startPosition, maxX, maxY)
-  local x = startPosition.x
-  local y = startPosition.y
-  -- negative amount..?
-  local minX = maxX - math.abs(x)
-  local minY = maxY - math.abs(y)
-  if x > 0 then
-    x = x - RandomInt(100 - minX, maxX + x/2)
-  else
-    x = x + RandomInt(100 - minX, maxX - x/2)
-  end
-  if y > 0 then
-    y = y - RandomInt(100 - minY, maxY + y/2)
-  else
-    y = y + RandomInt(100 - minY, maxY - y/2)
-  end
-  return Vector(x, y, startPosition.z)
+function IsNearWell (pos)
+  return math.abs(pos.x) > 4800 and math.abs(pos.y) < 1400
 end
 
 function CheckPathBlocking ()
