@@ -11,6 +11,8 @@ end
 function modifier_sonic_fly:CheckState()
   local state = {
     [MODIFIER_STATE_FLYING] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_UNSLOWABLE] = true,
   }
   return state
 end

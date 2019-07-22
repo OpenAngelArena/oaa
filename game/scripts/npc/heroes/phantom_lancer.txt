@@ -1,0 +1,22 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Phantom Lancer
+  //=================================================================================================================
+  "npc_dota_hero_phantom_lancer"
+  {
+    // Abilities
+    //-------------------------------------------------------------------------------------------------------------
+    "Ability10"   "special_bonus_evasion_20"
+    "Ability11"   "special_bonus_attack_speed_20"
+
+    "Ability12"   "special_bonus_hp_250"
+    "Ability13"   "special_bonus_unique_phantom_lancer_2"
+
+    "Ability14"   "special_bonus_unique_phantom_lancer"
+    "Ability15"   "special_bonus_strength_25" // replaces special_bonus_unique_phantom_lancer_3
+
+    "Ability16"   "special_bonus_hp_regen_80" // replaces special_bonus_unique_phantom_lancer_4
+    "Ability17"   "special_bonus_30_crit_2"
+  }
+}

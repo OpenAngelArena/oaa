@@ -37,7 +37,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "250.0"
+    "AbilityCooldown"                                     "160.0 140.0 120.0 100.0 80.0" //OAA
     "AbilitySharedCooldown"                               "bloodstone"
     "AbilityTextureName"                                  "custom/bloodstone"
 
@@ -115,7 +115,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_percentage"                            "30 40 50 60 70"
+        "mana_cost_percentage"                            "30"
       }
       "12"
       {
