@@ -41,7 +41,7 @@ function SimpleBossThink()
       if #nearby_enemies == 0 then
         nearby_enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity.spawn_position, nil, 3*SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE), FIND_CLOSEST, false)
       end
-	    -- Filter out couriers and invisible units
+      -- Filter out couriers and invisible units
       if #nearby_enemies ~= 0 then
         for i=1,#nearby_enemies do
           if nearby_enemies[i] then
@@ -78,10 +78,10 @@ function SimpleBossThink()
     -- Check how far did the boss go from the spawn position
     if (thisEntity:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > SIMPLE_BOSS_LEASH_SIZE then
       -- Remove aggro_target if boss goes outside of leash range
-	    if thisEntity.aggro_target then
-	      thisEntity.aggro_target = nil
-	    end
-	    -- Find units that attacked the boss outside of leash range (Sniper and other high attack range units)
+      if thisEntity.aggro_target then
+        thisEntity.aggro_target = nil
+      end
+      -- Find units that attacked the boss outside of leash range (Sniper and other high attack range units)
       local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity.spawn_position, nil, 3*SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE), FIND_CLOSEST, false)
       if #enemies ~=0 then
         for i=1,#enemies do
@@ -93,32 +93,32 @@ function SimpleBossThink()
         end
       else
         -- No enemies so no need for aggro_target
-		    thisEntity.aggro_target = nil
+        thisEntity.aggro_target = nil
       end
     end
 
     -- Check if aggro_target exists
     if thisEntity.aggro_target then
-	    -- Check if aggro_target is getting deleted soon from c++
-	    if thisEntity.aggro_target:IsNull() then
-	      thisEntity.aggro_target = nil
+      -- Check if aggro_target is getting deleted soon from c++
+      if thisEntity.aggro_target:IsNull() then
+        thisEntity.aggro_target = nil
         return 1
-	    end
-	    -- Check if aggro_target is dead or attack immune (ethereal) or a courier or invisible
+      end
+      -- Check if aggro_target is dead or attack immune (ethereal) or a courier or invisible
       if thisEntity.aggro_target:IsAlive() and not thisEntity.aggro_target:IsAttackImmune() and not thisEntity.aggro_target:IsCourier() and not thisEntity.aggro_target:IsInvisible() then
         thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
       else
-	      -- Don't try to attack dead units, attack-immune units, invisible units or couriers
+        -- Don't try to attack dead units, attack-immune units, invisible units or couriers
         thisEntity.aggro_target = nil
       end
     else
-	    -- Boss goes back angry (attack-moving to the spawn position) because he can't attack
-	    ExecuteOrderFromTable({
-	      UnitIndex = thisEntity:entindex(),
-		    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-		    Position = thisEntity.spawn_position,
-		    Queue = 0,
-	    })
+      -- Boss goes back angry (attack-moving to the spawn position) because he can't attack
+      ExecuteOrderFromTable({
+        UnitIndex = thisEntity:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+        Position = thisEntity.spawn_position,
+        Queue = 0,
+      })
 
       thisEntity.state = SIMPLE_AI_STATE_LEASH
     end
