@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_echo_sabre_3;item_upgrade_core_3"
-      "02"                                                "item_echo_sabre_3;item_upgrade_core_4"
-      "03"                                                "item_heavens_halberd_3;item_upgrade_core_3"
-      "04"                                                "item_heavens_halberd_3;item_upgrade_core_4"
+      "02"                                                "item_heavens_halberd_3;item_upgrade_core_3"
     }
   }
 
@@ -45,7 +43,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 3.6 3.0 2.4 1.8"
+    "AbilityCooldown"                                     "5.0 2.4 2.1 1.8 1.5"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
@@ -72,7 +70,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 18 30 42 60"
+        "bonus_strength"                                  "12 20 40 60 80"
       }
       "03"
       {
@@ -82,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 18 30 42 60"
+        "bonus_damage"                                    "12 20 40 60 80"
       }
       "05"
       {
@@ -107,7 +105,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8 0.9 1.0 1.1 1.2"
+        "slow_duration"                                   "0.5" //OAA
       }
     }
   }
