@@ -47,12 +47,14 @@ function SimpleBossThink()
       if #nearby_enemies ~= 0 then
         nearest_enemy = nearby_enemies[1]
       end
-      ExecuteOrderFromTable({
-        UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-        Position = nearest_enemy:GetAbsOrigin(),
-        Queue = 0,
-      })
+      if nearest_enemy then
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+          Position = nearest_enemy:GetAbsOrigin(),
+          Queue = 0,
+        })
+      end
       thisEntity.aggro_target = nearest_enemy
       thisEntity.state = SIMPLE_AI_STATE_AGGRO
     else
@@ -77,7 +79,7 @@ function SimpleBossThink()
           end
         end
         if thisEntity.aggro_target then
-          if thisEntity.aggro_target:IsAlive and not thisEntity.aggro_target:IsAttackImmune() then
+          if thisEntity.aggro_target:IsAlive() and not thisEntity.aggro_target:IsAttackImmune() then
             thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
             --ExecuteOrderFromTable({
               --UnitIndex = thisEntity:entindex(),
@@ -106,7 +108,7 @@ function SimpleBossThink()
       -- Boss is still within leash range and aggroed
       -- Check if aggro_target is dead or attack immune
       if thisEntity.aggro_target then
-        if thisEntity.aggro_target:IsAlive and not thisEntity.aggro_target:IsAttackImmune() then
+        if thisEntity.aggro_target:IsAlive() and not thisEntity.aggro_target:IsAttackImmune() then
           thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
         else
           thisEntity:MoveToPosition(thisEntity.spawn_position)
@@ -125,6 +127,7 @@ function SimpleBossThink()
       thisEntity:SetAcquisitionRange(0)
       thisEntity.state = SIMPLE_AI_STATE_IDLE
     end
-	end
+  end
 
+  return 1
 end
