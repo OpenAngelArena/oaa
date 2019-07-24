@@ -42,8 +42,11 @@ function modifier_item_devastator_desolator:OnAttackLanded( params )
           target:RemoveModifierByName("modifier_item_devastator_reduce_armor")
         end
 
+        -- Calculate duration of the debuff
+        local corruption_duration = self:GetAbility():GetSpecialValueFor("corruption_duration")
+        local armor_reduction_duration = target:GetValueChangedByStatusResistance(corruption_duration)
         -- Apply Devastator passive debuff
-        target:AddNewModifier( target, self:GetAbility(), "modifier_item_devastator_corruption_armor", {duration = self:GetAbility():GetSpecialValueFor("corruption_duration")})
+        target:AddNewModifier( target, self:GetAbility(), "modifier_item_devastator_corruption_armor", {duration = armor_reduction_duration})
       end
     end
   end
