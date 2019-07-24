@@ -13,7 +13,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = math.max(9, self:GetSpecialValueFor("num_second_soldiers"))
+      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers"))
       local hidden_point = Vector(-10000,-10000,-10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -26,21 +26,21 @@ if IsServer() then
         self.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
         self.clones[i]["top"]:SetOwner(caster)
         self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
-        self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
+        --self.clones[i]["top"]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
         print("[MONKEY KING WUKONG'S COMMAND] Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "]['top']")
         for j=1, max_number_of_monkeys_per_ring-1 do
           self.clones[i][j] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
           self.clones[i][j]:SetOwner(caster)
           self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
-          self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
+          --self.clones[i][j]:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
           print("[MONKEY KING WUKONG'S COMMAND] Creating unit: " .. unit_name .. " at: self.clones[" .. tostring(i) .. "][" .. tostring(j) .. "]")
         end
       end
-      -- Update items of the clones for the first time
-      self:OnInventoryContentsChanged()
+      -- Update items of the clones for the first time, causes minor lag on lvl-up
+      --self:OnInventoryContentsChanged()
     end
   end
-
+--[[
   function monkey_king_wukongs_command_oaa:OnInventoryContentsChanged()
     local caster = self:GetCaster()
     -- Do this only if Wukong's command is not active to prevent lag (Wukong's Command is active only if caster has a buff)
@@ -56,8 +56,10 @@ if IsServer() then
       end
     end
   end
+  ]]
 end
 
+--[[
 function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
   local banned_items = {
     -- prevent nutty passive gpm shenanigans
@@ -158,6 +160,18 @@ function monkey_king_wukongs_command_oaa:CopyCasterItems(parent, caster)
     end
   end
 end
+]]
+
+function monkey_king_wukongs_command_oaa:GetCooldown(level)
+  local cooldown = self.BaseClass.GetCooldown(self, level)
+  local caster = self:GetCaster()
+
+  if caster:HasScepter() then
+    cooldown = self:GetSpecialValueFor("cooldown_scepter")
+  end
+
+  return cooldown
+end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
@@ -189,7 +203,6 @@ end
 function monkey_king_wukongs_command_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local center = self:GetCursorPosition()
-  local unit_name = "npc_dota_monkey_clone_oaa"
 
   local first_ring_radius = self:GetSpecialValueFor("first_radius")
   local second_ring_radius = self:GetSpecialValueFor("second_radius")
@@ -205,12 +218,24 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     third_ring_radius = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value")
     third_ring = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value2")
     self.active_radius = third_ring_radius
+    if caster:HasScepter() then
+      third_ring = third_ring + 3 -- It should be 10 total
+    end
+  end
+
+  if caster:HasScepter() then
+    first_ring = self:GetSpecialValueFor("num_first_soldiers_scepter")
+    second_ring = self:GetSpecialValueFor("num_second_soldiers_scepter")
   end
 
   -- Sound
   EmitSoundOn("Hero_MonkeyKing.FurArmy", caster)
 
   if IsServer() then
+    local unit_name = "npc_dota_monkey_clone_oaa"
+    local spawn_interval = self:GetSpecialValueFor("ring_spawn_interval")
+    local base_damage_percent = self:GetSpecialValueFor("base_damage_percent")
+
     -- Remove ability phase (cast) particle
     if self.castHandle then
       ParticleManager:DestroyParticle(self.castHandle, false)
@@ -227,7 +252,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
 
     if self.clones == nil then
-      print("[MONKEY KING WUKONG'S COMMAND] Clones/Soldiers were not created when Monkey King spawned for the first time!")
+      print("[MONKEY KING WUKONG'S COMMAND] Clones/Soldiers were not created when Monkey King leveled up the spell for the first time!")
       self.clones={}
       self.clones[1]={}
       self.clones[2]={}
@@ -235,19 +260,24 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     end
 
     -- Inner Ring:
-    self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1)
+    self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
     -- Outer Ring:
-    self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2)
+    Timers:CreateTimer(spawn_interval, function()
+      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
+    end)
     -- Extra Ring with the talent:
-    self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3)
+    Timers:CreateTimer(2*spawn_interval, function()
+      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
+    end)
   end
 end
 
-function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius, ringNumber)
+function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius, ringNumber, damage_pct)
   if number == 0 or radius == 0 then
     return
   end
 
+  local damage_percent = damage_pct/100
   local top_direction = Vector(0,1,0)
   local top_point = center + top_direction*radius
 
@@ -261,8 +291,9 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
   top_monkey:SetAbsOrigin(GetGroundPosition(top_point, top_monkey))
   top_monkey:FaceTowards(center)
   top_monkey:RemoveNoDraw()
-  top_monkey:SetBaseDamageMax(caster:GetBaseDamageMax())
-  top_monkey:SetBaseDamageMin(caster:GetBaseDamageMin())
+  top_monkey:SetBaseDamageMax(damage_percent*caster:GetBaseDamageMax())
+  top_monkey:SetBaseDamageMin(damage_percent*caster:GetBaseDamageMin())
+  top_monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
   top_monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
 
   -- Create remaining monkeys
@@ -280,8 +311,9 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
     monkey:SetAbsOrigin(GetGroundPosition(point, monkey))
     monkey:FaceTowards(center)
     monkey:RemoveNoDraw()
-    monkey:SetBaseDamageMax(caster:GetBaseDamageMax())
-    monkey:SetBaseDamageMin(caster:GetBaseDamageMin())
+    monkey:SetBaseDamageMax(damage_percent*caster:GetBaseDamageMax())
+    monkey:SetBaseDamageMin(damage_percent*caster:GetBaseDamageMin())
+    monkey:AddNewModifier(caster, self, "modifier_monkey_clone_oaa", {})
     monkey:RemoveModifierByName("modifier_monkey_clone_oaa_hidden")
   end
 end
@@ -305,6 +337,7 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
       unit:AddNoDraw()
       unit:SetAbsOrigin(Vector(-10000,-10000,-10000))
       unit:AddNewModifier(caster, self, "modifier_monkey_clone_oaa_hidden", {})
+      unit:RemoveModifierByName("modifier_monkey_clone_oaa")
     end
   end
 
@@ -491,6 +524,50 @@ function modifier_monkey_clone_oaa:OnCreated()
     -- animation stances
     parent:AddNewModifier(caster, self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
     AddAnimationTranslate(parent, "attack_normal_range")
+
+    -- Start attacking AI (which targets are allowed to be attacked)
+    self:StartIntervalThink(0.1)
+  end
+end
+if IsServer() then
+  function modifier_monkey_clone_oaa:OnIntervalThink()
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+    local parent_position = parent:GetAbsOrigin()
+    local search_radius = parent:GetAttackRange() + parent:GetHullRadius()
+    if parent and not parent:IsNull() and parent:IsAlive() then
+      if not parent.target or parent.target:IsNull() or not parent.target:IsAlive() then
+        parent.target = nil
+      end
+      if parent.target then
+        local target_position = parent.target:GetAbsOrigin()
+        local distance = (parent_position - target_position):Length2D()
+        if distance <= search_radius then
+          parent:SetAttacking(parent.target)
+        else
+          parent.target = nil
+        end
+      else
+        local target_type = DOTA_UNIT_TARGET_HERO
+        if caster:HasScepter() then
+          target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
+        end
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        local enemy = nil
+        if #enemies ~= 0 then
+          enemy = enemies[1]
+        end
+        parent.target = enemy
+        parent:SetAttacking(parent.target)
+      end
+
+      if not parent.target then
+        parent:SetAttacking(nil)
+        parent:Interrupt()
+        parent:Stop()
+        parent:Hold()
+      end
+    end
   end
 end
 
