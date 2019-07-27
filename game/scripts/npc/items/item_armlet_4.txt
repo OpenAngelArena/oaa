@@ -17,7 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_armlet_3;item_upgrade_core_3"
-      "02"                                                "item_armlet_3;item_upgrade_core_4"
     }
   }
 
@@ -66,17 +65,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 28 32 36 40"
+        "bonus_attack_speed"                              "25 30 35 40 45"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 8 12 16 20"
+        "bonus_armor"                                     "5 7 10 14 19"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5 9 13 17 21"
+        "bonus_health_regen"                              "5 10 15 20 25"
       }
       "05"
       {
@@ -96,17 +95,17 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_armor"                              "4 7 8 9 10"
+        "unholy_bonus_armor"                              "4 5 6 7 8"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 11 15 19 22"
+        "unholy_health_drain_per_tick"                    "6 8 11 14 18"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 100 140 175 200"
+        "unholy_health_drain_per_second_tooltip"          "54 70 100 130 160"
       }
       "11"
       {

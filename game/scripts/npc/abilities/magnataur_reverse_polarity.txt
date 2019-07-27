@@ -18,7 +18,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "130"
+    "AbilityCooldown"                                     "100" //OAA
     "AbilityManaCost"                                     "200 250 300 525 750"
     "AbilityCastRange"                                    "410"
 
@@ -38,7 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "polarity_damage"                                 "50 125 200 350 500"
+        "polarity_damage"                                 "50 200 350 500 650" //OAA
       }
       "03"
       {

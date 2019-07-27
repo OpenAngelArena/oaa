@@ -9,20 +9,21 @@
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl" // Model.
+    "vscripts"                                            "units/ai_simple.lua"
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "100"
     "ModelScale"                                          "2.0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
-
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
 
     "Ability1"                                            "boss_resistance"
     "Ability2"                                            "boss_cliffwalk"
-    "Ability3"          								  "boss_regen"
+    "Ability3"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------

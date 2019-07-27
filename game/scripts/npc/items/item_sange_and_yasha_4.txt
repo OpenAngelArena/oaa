@@ -23,11 +23,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_sange_and_yasha_3;item_upgrade_core_3"
-      "02"                                                "item_sange_and_yasha_3;item_upgrade_core_4"
-      "03"                                                "item_kaya_and_sange_3;item_upgrade_core_3"
-      "04"                                                "item_kaya_and_sange_3;item_upgrade_core_4"
-      "05"                                                "item_yasha_and_kaya_3;item_upgrade_core_3"
-      "06"                                                "item_yasha_and_kaya_3;item_upgrade_core_4"
+      "02"                                                "item_kaya_and_sange_3;item_upgrade_core_3"
+      "03"                                                "item_yasha_and_kaya_3;item_upgrade_core_3"
     }
   }
 
@@ -41,7 +38,8 @@
     "ID"                                                  "3842"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_sange_and_yasha"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "item_sange_and_yasha"
+    "AbilityTextureName"                                  "custom/sange_and_yasha_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -49,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15050"
+    "ItemCost"                                            "17100"
     "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,32 +62,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 32 32 48 72"
+        "bonus_strength"                                  "16 24 32 48 72"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 32 32 48 72"
+        "bonus_agility"                                   "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "8 12 16 18 21" //OAA
-			}
+        "status_resistance"                               "16 17 18 19 20"
+      }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 16 20 26 34" //OAA
+        "bonus_attack_speed"                              "16 18 20 26 34"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "8 12 16 20 24" //OAA
+        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "8 20 28 44 68" //OAA
+        "bonus_damage"                                    "12 20 28 44 68"
       }
     }
   }

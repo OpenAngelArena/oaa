@@ -25,11 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_2;item_upgrade_core_2"
-      "02"                                                "item_blade_mail_2;item_upgrade_core_3"
-      "03"                                                "item_blade_mail_2;item_upgrade_core_4"
-      "04"                                                "item_assault_2;item_upgrade_core_2"
-      "05"                                                "item_assault_2;item_upgrade_core_3"
-      "06"                                                "item_assault_2;item_upgrade_core_4"
+      "02"                                                "item_assault_2;item_upgrade_core_2"
     }
   }
 
@@ -76,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 14 22 30 40"
+        "bonus_armor"                                     "5 8 12 17 23"
       }
       "03"
       {
@@ -86,7 +82,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.5 4.0 4.5 5.0"
+        "duration"                                        "4.5"
       }
     }
   }
