@@ -13,7 +13,9 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
+
       local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers_scepter"))
+
       local hidden_point = Vector(-10000,-10000,-10000)
       local caster = self:GetCaster()
       -- Initialize tables
