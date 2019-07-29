@@ -13,7 +13,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers"))
+      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers_scepter"))
       local hidden_point = Vector(-10000,-10000,-10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -175,7 +175,8 @@ end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
-  EmitSoundOn("Hero_MonkeyKing.FurArmy.Channel", caster)
+  -- Sound during casting
+  caster:EmitSound("Hero_MonkeyKing.FurArmy.Channel")
   -- Particle during casting
   if IsServer() then
     self.castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf", PATTACH_ABSORIGIN, caster)
@@ -184,7 +185,7 @@ function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
 end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseInterrupted()
-  StopSoundOn("Hero_MonkeyKing.FurArmy.Channel", self:GetCaster())
+  self:GetCaster():StopSound("Hero_MonkeyKing.FurArmy.Channel")
   if IsServer() then
     if self.castHandle then
       ParticleManager:DestroyParticle(self.castHandle, true)
@@ -219,7 +220,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     third_ring = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value2")
     self.active_radius = third_ring_radius
     if caster:HasScepter() then
-      third_ring = third_ring + 3 -- It should be 10 total
+      third_ring = self:GetSpecialValueFor("num_third_soldiers_scepter")
     end
   end
 
@@ -228,8 +229,8 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     second_ring = self:GetSpecialValueFor("num_second_soldiers_scepter")
   end
 
-  -- Sound
-  EmitSoundOn("Hero_MonkeyKing.FurArmy", caster)
+  -- Sound (EmitSoundOn doesn't respect fog of war)
+  caster:EmitSound("Hero_MonkeyKing.FurArmy")
 
   if IsServer() then
     local unit_name = "npc_dota_monkey_clone_oaa"
@@ -342,8 +343,8 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
   end
 
   -- Sounds
-  StopSoundOn("Hero_MonkeyKing.FurArmy", caster)
-  EmitSoundOn("Hero_MonkeyKing.FurArmy.End", caster)
+  caster:StopSound("Hero_MonkeyKing.FurArmy")
+  caster:EmitSound("Hero_MonkeyKing.FurArmy.End")
 end
 
 function monkey_king_wukongs_command_oaa:ProcsMagicStick()
@@ -520,6 +521,9 @@ function modifier_monkey_clone_oaa:OnCreated()
 
   if IsServer() then
     parent:SetNeverMoveToClearSpace(true)
+    -- Stop auto attacking everything
+    parent:SetIdleAcquire(false)
+    parent:SetAcquisitionRange(0)
 
     -- animation stances
     parent:AddNewModifier(caster, self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
@@ -534,38 +538,63 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
     local parent_position = parent:GetAbsOrigin()
-    local search_radius = parent:GetAttackRange() + parent:GetHullRadius()
+    local search_radius = parent:GetAttackRange() + parent:GetHullRadius() + 24
+
+    local function StopAttacking(unit)
+      unit.target = nil
+      unit:SetForceAttackTarget(nil)
+      unit:SetIdleAcquire(false)
+      unit:SetAcquisitionRange(0)
+      unit:Interrupt()
+      unit:Stop()
+      unit:Hold()
+    end
+
     if parent and not parent:IsNull() and parent:IsAlive() then
       if not parent.target or parent.target:IsNull() or not parent.target:IsAlive() then
-        parent.target = nil
+        StopAttacking(parent)
       end
+
       if parent.target then
         local target_position = parent.target:GetAbsOrigin()
         local distance = (parent_position - target_position):Length2D()
-        if distance <= search_radius then
-          parent:SetAttacking(parent.target)
-        else
-          parent.target = nil
+        local real_target = parent:GetAttackTarget() or parent.target  -- GetAttackTarget is nil sometimes
+        if parent.target:IsAttackImmune() or parent.target:IsInvulnerable() or (not caster:HasScepter() and not real_target:IsHero()) or distance > search_radius then
+          StopAttacking(parent)
         end
       else
-        local target_type = DOTA_UNIT_TARGET_HERO
-        if caster:HasScepter() then
-          target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
-        end
+        target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-        local enemy = nil
-        if #enemies ~= 0 then
-          enemy = enemies[1]
-        end
-        parent.target = enemy
-        parent:SetAttacking(parent.target)
-      end
 
-      if not parent.target then
-        parent:SetAttacking(nil)
-        parent:Interrupt()
-        parent:Stop()
-        parent:Hold()
+        -- Filter out attack-immune and non-hero units if caster doesn't have scepter
+        if #enemies ~= 0 then
+          for i=1,#enemies do
+            if enemies[i] then
+              if enemies[i]:IsAttackImmune() then
+                table.remove(enemies,i)
+              else
+                if not caster:HasScepter() then
+                  if not enemies[i]:IsHero() then
+                    table.remove(enemies,i)
+                  end
+                end
+              end
+            end
+          end
+        end
+
+        -- Check the new enemies table if its empty
+        if #enemies ~= 0 then
+          parent.target = enemies[1]
+        end
+
+        -- If target is found, enable auto-attacking of the parent and force him to attack found target
+        -- SetAttacking doesnt work; SetAttackTarget doesnt exist; SetAggroTarget probably doesnt work too
+        if parent.target then
+          parent:SetIdleAcquire(true)
+          parent:SetAcquisitionRange(search_radius)
+          parent:SetForceAttackTarget(parent.target)
+        end
       end
     end
   end
