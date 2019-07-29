@@ -13,9 +13,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-
       local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers_scepter"))
-
       local hidden_point = Vector(-10000,-10000,-10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -199,8 +197,25 @@ end
 
 function monkey_king_wukongs_command_oaa:GetAOERadius()
   local caster = self:GetCaster()
-
-  return math.max(caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value"), self:GetSpecialValueFor("second_radius"))
+  local radius = self:GetSpecialValueFor("second_radius")
+  local talent_radius = 0 -- FindTalentValue from talents library doesnt work well with OAA Aghanims
+  -- HasTalent(...) will return true on the server or client only when OnPlayerLearnedAbility event happens, this event doesnt happen for talents gained with aghs
+  -- HasModifier(...) will return true on the server or client only if the talent is leveled up with aghs
+  if caster:HasTalent("special_bonus_unique_monkey_king_6") or caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") then
+    if IsServer() then
+      talent_radius = caster:FindAbilityByName("special_bonus_unique_monkey_king_6"):GetSpecialValueFor("value")
+    else
+      if AbilityKV["special_bonus_unique_monkey_king_6"] then
+        local special = AbilityKV["special_bonus_unique_monkey_king_6"]["AbilitySpecial"]
+          for l,m in pairs(special) do
+            if m["value"] then
+              talent_radius = m["value"]
+            end
+          end
+      end
+    end
+  end
+  return math.max(talent_radius, radius)
 end
 
 function monkey_king_wukongs_command_oaa:OnSpellStart()
@@ -484,18 +499,24 @@ function modifier_wukongs_command_oaa_buff:GetModifierPhysicalArmorBonus()
   local ability = self:GetAbility()
   local bonus_armor = ability:GetSpecialValueFor("bonus_armor")
 
-  if caster:HasTalent("special_bonus_unique_monkey_king_4") then
-    local talent_bonus = caster:FindTalentValue("special_bonus_unique_monkey_king_4")
-
-    if talent_bonus then
-      return bonus_armor + talent_bonus
-    end
-
-    local total_bonus_armor = ability:GetTalentSpecialValueFor("bonus_armor")
-
-    if total_bonus_armor then
-      return total_bonus_armor
-    end
+  -- HasTalent(...) will return true on the server or client only when OnPlayerLearnedAbility event happens, this event never happens for talents gained with aghs
+  -- HasModifier(...) will return true on the server or client only if the talent is leveled up with aghs
+  if caster:HasTalent("special_bonus_unique_monkey_king_4") or caster:HasModifier("modifier_special_bonus_unique_monkey_king_armor") then
+	-- Because functions from the talents library dont work well with OAA Aghanim's scepter -> we reuse the code from talents library for the client that will work every time
+	local talent_bonus
+	if IsServer() then
+	  talent_bonus = caster:FindAbilityByName("special_bonus_unique_monkey_king_4"):GetSpecialValueFor("value")
+	else
+	  if AbilityKV["special_bonus_unique_monkey_king_4"] then
+        local special = AbilityKV["special_bonus_unique_monkey_king_4"]["AbilitySpecial"]
+		for l,m in pairs(special) do
+          if m["value"] then
+            talent_bonus = m["value"]
+          end
+        end
+      end
+	end
+    bonus_armor = bonus_armor + talent_bonus
   end
 
   return bonus_armor
@@ -584,14 +605,13 @@ if IsServer() then
             end
           end
         end
-
         -- Check the new enemies table if its empty
         if #enemies ~= 0 then
           parent.target = enemies[1]
         end
 
         -- If target is found, enable auto-attacking of the parent and force him to attack found target
-        -- SetAttacking doesnt work; SetAttackTarget doesnt exist; SetAggroTarget probably doesnt work too
+        -- SetAttacking doesn't work; SetAttackTarget doesn't exist; SetAggroTarget probably doesn't work too
         if parent.target then
           parent:SetIdleAcquire(true)
           parent:SetAcquisitionRange(search_radius)
@@ -625,6 +645,25 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
     local parent = self:GetParent()
     if parent == keys.attacker then
       local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
+      local caster = self:GetCaster()
+      local ability = self:GetAbility()
+      local chance = ability:GetSpecialValueFor("proc_chance")/100
+
+      if not parent.failure_count then
+        parent.failure_count = 0
+      end
+
+      -- Proccing caster's attack on a clone
+      local pseudo_rng_mult = parent.failure_count + 1
+      if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * pseudo_rng_mult ) then
+        -- Reset failure count
+        parent.failure_count = 0
+        -- Apply caster's attack that can miss
+        caster:PerformAttack(keys.target, true, true, true, false, false, false, false)
+      else
+        -- Increment failure count
+        parent.failure_count = pseudo_rng_mult
+      end
 
       Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(castHandle, false)
@@ -747,4 +786,29 @@ function modifier_monkey_clone_oaa_hidden:CheckState()
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
   }
   return state
+end
+
+-- Empty modifiers used for talents that improve Wukong's command (bonus armor talent and bonus ring talent)
+if modifier_special_bonus_unique_monkey_king_armor == nil then
+  modifier_special_bonus_unique_monkey_king_armor = class({})
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:AllowIllusionDuplicate()
+  return false
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:RemoveOnDeath()
+  return false
+end
+
+if modifier_special_bonus_unique_monkey_king_ring == nil then
+  modifier_special_bonus_unique_monkey_king_ring = modifier_special_bonus_unique_monkey_king_armor
 end
