@@ -57,6 +57,9 @@ if IsServer() then
     end
   end
   ]]
+else
+  -- AbilityKV is a table on the client
+  require("libraries/talents/talents_client")
 end
 
 --[[
@@ -207,11 +210,11 @@ function monkey_king_wukongs_command_oaa:GetAOERadius()
     else
       if AbilityKV["special_bonus_unique_monkey_king_6"] then
         local special = AbilityKV["special_bonus_unique_monkey_king_6"]["AbilitySpecial"]
-          for l,m in pairs(special) do
-            if m["value"] then
-              talent_radius = m["value"]
-            end
+        for l,m in pairs(special) do
+          if m["value"] then
+            talent_radius = m["value"]
           end
+        end
       end
     end
   end
@@ -508,15 +511,15 @@ function modifier_wukongs_command_oaa_buff:GetModifierPhysicalArmorBonus()
 	  talent_bonus = caster:FindAbilityByName("special_bonus_unique_monkey_king_4"):GetSpecialValueFor("value")
 	else
 	  if AbilityKV["special_bonus_unique_monkey_king_4"] then
-        local special = AbilityKV["special_bonus_unique_monkey_king_4"]["AbilitySpecial"]
-		for l,m in pairs(special) do
-          if m["value"] then
-            talent_bonus = m["value"]
-          end
+      local special = AbilityKV["special_bonus_unique_monkey_king_4"]["AbilitySpecial"]
+      for l,m in pairs(special) do
+        if m["value"] then
+          talent_bonus = m["value"]
         end
       end
+    end
 	end
-    bonus_armor = bonus_armor + talent_bonus
+  bonus_armor = bonus_armor + talent_bonus
   end
 
   return bonus_armor
@@ -586,7 +589,7 @@ if IsServer() then
           StopAttacking(parent)
         end
       else
-        target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
+        local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 
         -- Filter out attack-immune and non-hero units if caster doesn't have scepter
