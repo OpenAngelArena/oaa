@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"visage_grave_chill"
+  "visage_grave_chill"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,6 +11,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -19,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10"
+    "AbilityCooldown"                                     "16 14 12 10 9 9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,17 +37,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "chill_duration"                                  "3 4 5 6 7.5 9.5"
+        "chill_duration"                                  "6"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus"                                 "32"
+        "movespeed_bonus"                                 "17 23 29 35 41 47"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attackspeed_bonus"                               "64"
+        "attackspeed_bonus"                               "34 46 58 70 82 94"
       }
     }
   }

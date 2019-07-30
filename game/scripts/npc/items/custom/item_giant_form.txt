@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_dragon_lance_3;item_upgrade_core_3"
-      "02"                                                "item_dragon_lance_3;item_upgrade_core_4"
-      "03"                                                "item_hurricane_pike_3;item_upgrade_core_3"
-      "04"                                                "item_hurricane_pike_3;item_upgrade_core_4"
+      "02"                                                "item_hurricane_pike_3;item_upgrade_core_3"
     }
   }
 
@@ -48,7 +46,7 @@
     "AbilityTextureName"                                  "custom/giant_form_1"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "50"
-    "AbilityCooldown"                                     "6.0"
+    "AbilityCooldown"                                     "4.0 2.0"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "14900"
@@ -92,7 +90,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "giant_attack_rate"                               "0.8"
+        "giant_attack_rate"                               "0.7"
       }
       "07"
       {

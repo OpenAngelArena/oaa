@@ -23,11 +23,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "8"
+    "AbilityCooldown"       "12 11 10 9 8 7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "50"
+    "AbilityManaCost"       "75"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@
       "03"
       {
         "var_type"          "FIELD_INTEGER"
-        "max_charges"       "2 3 4 5 6 7"
+        "max_charges"       "4"
       }
       "04"
       {
@@ -64,7 +64,7 @@
       "05"
       {
         "var_type"            "FIELD_INTEGER"
-        "charge_restore_time" "8"
+        "charge_restore_time" "12 11 10 9 8 7"
         "LinkedSpecialBonus"      "special_bonus_sohei_dash_recharge"
         "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
       }

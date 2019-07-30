@@ -105,17 +105,16 @@ if IsServer() then
 
       -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
       local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+      stun_duration = target:GetValueChangedByStatusResistance(stun_duration)
       -- Stun
-      target:AddNewModifier(caster, self, "modifier_stunned", {
-        duration=stun_duration
-      })
+      target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
     end
 
     -- Add vision
     AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), data.arrow_vision, data.arrow_vision_duration, false)
 
     -- Add hit sound
-    caster:EmitSound("Hero_Mirana.ArrowImpact")
+    target:EmitSound("Hero_Mirana.ArrowImpact")
 
     self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
 
