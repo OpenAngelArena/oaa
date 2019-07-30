@@ -121,14 +121,18 @@ function modifier_pangolier_heartpiercer_oaa_debuff:GetEffectName()
   return "particles/units/heroes/hero_pangolier/pangolier_heartpiercer_debuff.vpcf"
 end
 
-if IsServer() then
-  function modifier_pangolier_heartpiercer_oaa_debuff:OnCreated(keys)
-    local parent = self:GetParent()
+function modifier_pangolier_heartpiercer_oaa_debuff:OnCreated(keys)
+  local parent = self:GetParent()
+  local slow_pct = self:GetAbility():GetSpecialValueFor("slow_pct")
+  if IsServer() then
     if parent:IsHero() then
       parent:EmitSound("Hero_Pangolier.HeartPiercer.Proc")
     else
       parent:EmitSound("Hero_Pangolier.HeartPiercer.Proc.Creep")
     end
+    self.slow = parent:GetValueChangedByStatusResistance(slow_pct)
+  else
+    self.slow = slow_pct
   end
 end
 
@@ -140,7 +144,7 @@ function modifier_pangolier_heartpiercer_oaa_debuff:DeclareFunctions()
 end
 
 function modifier_pangolier_heartpiercer_oaa_debuff:GetModifierMoveSpeedBonus_Percentage()
-  return self:GetAbility():GetSpecialValueFor("slow_pct")
+  return self.slow
 end
 
 function modifier_pangolier_heartpiercer_oaa_debuff:GetModifierPhysicalArmorBonus()
