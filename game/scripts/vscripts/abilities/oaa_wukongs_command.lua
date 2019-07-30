@@ -815,3 +815,7 @@ end
 if modifier_special_bonus_unique_monkey_king_ring == nil then
   modifier_special_bonus_unique_monkey_king_ring = modifier_special_bonus_unique_monkey_king_armor
 end
+
+function modifier_special_bonus_unique_monkey_king_ring:IsHidden()
+  return true
+end
