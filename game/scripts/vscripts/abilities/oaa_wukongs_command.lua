@@ -13,7 +13,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers"))
+      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers_scepter"))
       local hidden_point = Vector(-10000,-10000,-10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -57,6 +57,9 @@ if IsServer() then
     end
   end
   ]]
+else
+  -- AbilityKV is a table on the client
+  require("libraries/talents/talents_client")
 end
 
 --[[
@@ -175,7 +178,8 @@ end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
-  EmitSoundOn("Hero_MonkeyKing.FurArmy.Channel", caster)
+  -- Sound during casting
+  caster:EmitSound("Hero_MonkeyKing.FurArmy.Channel")
   -- Particle during casting
   if IsServer() then
     self.castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf", PATTACH_ABSORIGIN, caster)
@@ -184,7 +188,7 @@ function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
 end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseInterrupted()
-  StopSoundOn("Hero_MonkeyKing.FurArmy.Channel", self:GetCaster())
+  self:GetCaster():StopSound("Hero_MonkeyKing.FurArmy.Channel")
   if IsServer() then
     if self.castHandle then
       ParticleManager:DestroyParticle(self.castHandle, true)
@@ -196,8 +200,25 @@ end
 
 function monkey_king_wukongs_command_oaa:GetAOERadius()
   local caster = self:GetCaster()
-
-  return math.max(caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value"), self:GetSpecialValueFor("second_radius"))
+  local radius = self:GetSpecialValueFor("second_radius")
+  local talent_radius = 0 -- FindTalentValue from talents library doesnt work well with OAA Aghanims
+  -- HasTalent(...) will return true on the server or client only when OnPlayerLearnedAbility event happens, this event doesnt happen for talents gained with aghs
+  -- HasModifier(...) will return true on the server or client only if the talent is leveled up with aghs
+  if caster:HasTalent("special_bonus_unique_monkey_king_6") or caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") then
+    if IsServer() then
+      talent_radius = caster:FindAbilityByName("special_bonus_unique_monkey_king_6"):GetSpecialValueFor("value")
+    else
+      if AbilityKV["special_bonus_unique_monkey_king_6"] then
+        local special = AbilityKV["special_bonus_unique_monkey_king_6"]["AbilitySpecial"]
+        for l,m in pairs(special) do
+          if m["value"] then
+            talent_radius = m["value"]
+          end
+        end
+      end
+    end
+  end
+  return math.max(talent_radius, radius)
 end
 
 function monkey_king_wukongs_command_oaa:OnSpellStart()
@@ -219,7 +240,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     third_ring = caster:FindTalentValue("special_bonus_unique_monkey_king_6", "value2")
     self.active_radius = third_ring_radius
     if caster:HasScepter() then
-      third_ring = third_ring + 3 -- It should be 10 total
+      third_ring = self:GetSpecialValueFor("num_third_soldiers_scepter")
     end
   end
 
@@ -228,8 +249,8 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     second_ring = self:GetSpecialValueFor("num_second_soldiers_scepter")
   end
 
-  -- Sound
-  EmitSoundOn("Hero_MonkeyKing.FurArmy", caster)
+  -- Sound (EmitSoundOn doesn't respect fog of war)
+  caster:EmitSound("Hero_MonkeyKing.FurArmy")
 
   if IsServer() then
     local unit_name = "npc_dota_monkey_clone_oaa"
@@ -342,8 +363,8 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
   end
 
   -- Sounds
-  StopSoundOn("Hero_MonkeyKing.FurArmy", caster)
-  EmitSoundOn("Hero_MonkeyKing.FurArmy.End", caster)
+  caster:StopSound("Hero_MonkeyKing.FurArmy")
+  caster:EmitSound("Hero_MonkeyKing.FurArmy.End")
 end
 
 function monkey_king_wukongs_command_oaa:ProcsMagicStick()
@@ -481,18 +502,24 @@ function modifier_wukongs_command_oaa_buff:GetModifierPhysicalArmorBonus()
   local ability = self:GetAbility()
   local bonus_armor = ability:GetSpecialValueFor("bonus_armor")
 
-  if caster:HasTalent("special_bonus_unique_monkey_king_4") then
-    local talent_bonus = caster:FindTalentValue("special_bonus_unique_monkey_king_4")
-
-    if talent_bonus then
-      return bonus_armor + talent_bonus
+  -- HasTalent(...) will return true on the server or client only when OnPlayerLearnedAbility event happens, this event never happens for talents gained with aghs
+  -- HasModifier(...) will return true on the server or client only if the talent is leveled up with aghs
+  if caster:HasTalent("special_bonus_unique_monkey_king_4") or caster:HasModifier("modifier_special_bonus_unique_monkey_king_armor") then
+	-- Because functions from the talents library dont work well with OAA Aghanim's scepter -> we reuse the code from talents library for the client that will work every time
+	local talent_bonus
+	if IsServer() then
+	  talent_bonus = caster:FindAbilityByName("special_bonus_unique_monkey_king_4"):GetSpecialValueFor("value")
+	else
+	  if AbilityKV["special_bonus_unique_monkey_king_4"] then
+      local special = AbilityKV["special_bonus_unique_monkey_king_4"]["AbilitySpecial"]
+      for l,m in pairs(special) do
+        if m["value"] then
+          talent_bonus = m["value"]
+        end
+      end
     end
-
-    local total_bonus_armor = ability:GetTalentSpecialValueFor("bonus_armor")
-
-    if total_bonus_armor then
-      return total_bonus_armor
-    end
+	end
+  bonus_armor = bonus_armor + talent_bonus
   end
 
   return bonus_armor
@@ -520,6 +547,9 @@ function modifier_monkey_clone_oaa:OnCreated()
 
   if IsServer() then
     parent:SetNeverMoveToClearSpace(true)
+    -- Stop auto attacking everything
+    parent:SetIdleAcquire(false)
+    parent:SetAcquisitionRange(0)
 
     -- animation stances
     parent:AddNewModifier(caster, self:GetAbility(), "modifier_monkey_clone_oaa_idle_effect", {})
@@ -534,38 +564,62 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
     local parent_position = parent:GetAbsOrigin()
-    local search_radius = parent:GetAttackRange() + parent:GetHullRadius()
+    local search_radius = parent:GetAttackRange() + parent:GetHullRadius() + 24
+
+    local function StopAttacking(unit)
+      unit.target = nil
+      unit:SetForceAttackTarget(nil)
+      unit:SetIdleAcquire(false)
+      unit:SetAcquisitionRange(0)
+      unit:Interrupt()
+      unit:Stop()
+      unit:Hold()
+    end
+
     if parent and not parent:IsNull() and parent:IsAlive() then
       if not parent.target or parent.target:IsNull() or not parent.target:IsAlive() then
-        parent.target = nil
+        StopAttacking(parent)
       end
+
       if parent.target then
         local target_position = parent.target:GetAbsOrigin()
         local distance = (parent_position - target_position):Length2D()
-        if distance <= search_radius then
-          parent:SetAttacking(parent.target)
-        else
-          parent.target = nil
+        local real_target = parent:GetAttackTarget() or parent.target  -- GetAttackTarget is nil sometimes
+        if parent.target:IsAttackImmune() or parent.target:IsInvulnerable() or (not caster:HasScepter() and not real_target:IsHero()) or distance > search_radius then
+          StopAttacking(parent)
         end
       else
-        local target_type = DOTA_UNIT_TARGET_HERO
-        if caster:HasScepter() then
-          target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
-        end
+        local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-        local enemy = nil
-        if #enemies ~= 0 then
-          enemy = enemies[1]
-        end
-        parent.target = enemy
-        parent:SetAttacking(parent.target)
-      end
 
-      if not parent.target then
-        parent:SetAttacking(nil)
-        parent:Interrupt()
-        parent:Stop()
-        parent:Hold()
+        -- Filter out attack-immune and non-hero units if caster doesn't have scepter
+        if #enemies ~= 0 then
+          for i=1,#enemies do
+            if enemies[i] then
+              if enemies[i]:IsAttackImmune() then
+                table.remove(enemies,i)
+              else
+                if not caster:HasScepter() then
+                  if not enemies[i]:IsHero() then
+                    table.remove(enemies,i)
+                  end
+                end
+              end
+            end
+          end
+        end
+        -- Check the new enemies table if its empty
+        if #enemies ~= 0 then
+          parent.target = enemies[1]
+        end
+
+        -- If target is found, enable auto-attacking of the parent and force him to attack found target
+        -- SetAttacking doesn't work; SetAttackTarget doesn't exist; SetAggroTarget probably doesn't work too
+        if parent.target then
+          parent:SetIdleAcquire(true)
+          parent:SetAcquisitionRange(search_radius)
+          parent:SetForceAttackTarget(parent.target)
+        end
       end
     end
   end
@@ -594,6 +648,25 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
     local parent = self:GetParent()
     if parent == keys.attacker then
       local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
+      local caster = self:GetCaster()
+      local ability = self:GetAbility()
+      local chance = ability:GetSpecialValueFor("proc_chance")/100
+
+      if not parent.failure_count then
+        parent.failure_count = 0
+      end
+
+      -- Proccing caster's attack on a clone
+      local pseudo_rng_mult = parent.failure_count + 1
+      if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * pseudo_rng_mult ) then
+        -- Reset failure count
+        parent.failure_count = 0
+        -- Apply caster's attack that can miss
+        caster:PerformAttack(keys.target, true, true, true, false, false, false, false)
+      else
+        -- Increment failure count
+        parent.failure_count = pseudo_rng_mult
+      end
 
       Timers:CreateTimer(2, function()
         ParticleManager:DestroyParticle(castHandle, false)
@@ -716,4 +789,33 @@ function modifier_monkey_clone_oaa_hidden:CheckState()
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
   }
   return state
+end
+
+-- Empty modifiers used for talents that improve Wukong's command (bonus armor talent and bonus ring talent)
+if modifier_special_bonus_unique_monkey_king_armor == nil then
+  modifier_special_bonus_unique_monkey_king_armor = class({})
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:AllowIllusionDuplicate()
+  return false
+end
+
+function modifier_special_bonus_unique_monkey_king_armor:RemoveOnDeath()
+  return false
+end
+
+if modifier_special_bonus_unique_monkey_king_ring == nil then
+  modifier_special_bonus_unique_monkey_king_ring = modifier_special_bonus_unique_monkey_king_armor
+end
+
+function modifier_special_bonus_unique_monkey_king_ring:IsHidden()
+  return true
 end
