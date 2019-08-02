@@ -14,7 +14,28 @@ end
 
 --------------------------------------------------------------------------------
 
+function item_upgrade_core:IsStillInInventory()
+	local caster = self:GetCaster()
+
+	if self and IsValidEntity( self ) and self:GetItemState() == 1 then
+		return true
+	end
+
+	return false
+end
+
+--------------------------------------------------------------------------------
+
 function item_upgrade_core:OnSpellStart()
+end
+
+--------------------------------------------------------------------------------
+
+function item_upgrade_core:OnChannelThink( interval )
+	-- cease channeling immediately if core is no longer in active inventory
+	if not self:IsStillInInventory() then
+		self:EndChannel( true )
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -29,7 +50,10 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 
 	-- this'll be where i learn if ability scripts cancel immediately after their
 	-- ability is destroyed, or will still complete
-	if coreType and not interrupted then
+	-- turns out they still persist past this point
+	-- ... even if the item was destroyed several seconds ago
+	-- huh
+	if coreType and not interrupted and self:IsStillInInventory() then
 		local coreCount = self:GetSpecialValueFor( "core_count" )
 		-- if we don't make the purchase time persist, then players could split a "stale" core
 		-- into two "fresh" cores that'll sell for more
@@ -37,7 +61,8 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 		-- ( could also just set the resulting core's purchase time forwad ten seconds, but
 		-- this is slicker )
 		local purchaseTime = self:GetPurchaseTime()
-		local player = self:GetPurchaser():GetPlayerOwner()
+		local purchaser = self:GetPurchaser()
+		local player = purchaser:GetPlayerOwner()
 
 		caster:RemoveItem( self )
 
@@ -45,6 +70,7 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 			local item = CreateItem( coreType, player, player )
 			item:SetPurchaseTime( purchaseTime )
 			caster:AddItem( item )
+			item:SetPurchaser( purchaser )
 		end
 	end
 end

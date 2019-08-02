@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_veil_of_discord_3;item_upgrade_core_3"
-      "02"                                                "item_veil_of_discord_3;item_upgrade_core_4"
-      "03"                                                "item_far_sight_2;item_upgrade_core_3"
-      "04"                                                "item_far_sight_2;item_upgrade_core_4"
     }
   }
 
@@ -75,27 +72,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_spell_amp"                           "50 75"
+        "sangromancy_spell_amp"                           "75 100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "100 100"
+        "sangromancy_self_damage"                         "100"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "50 75"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "15 30"
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "26"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "11 15"
       }
       "05"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_health_regen"    "15 25"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "15 30"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "15 30"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "30 45"
       }
     }
   }

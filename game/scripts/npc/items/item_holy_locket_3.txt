@@ -24,8 +24,6 @@
     "ItemRequirements"
     {
       "01"                        "item_holy_locket_2;item_upgrade_core_2"
-      "02"                        "item_holy_locket_2;item_upgrade_core_3"
-      "03"                        "item_holy_locket_2;item_upgrade_core_4"
     }
   }
 
@@ -39,7 +37,7 @@
     "ID"                          "8552"
     "BaseClass"                   "item_holy_locket"
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    //"AbilityTextureName"          "custom/holy_locket_3"
+    "AbilityTextureName"          "custom/holy_locket_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
