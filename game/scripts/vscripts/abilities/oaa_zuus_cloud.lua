@@ -13,13 +13,14 @@ function zuus_cloud_oaa:OnSpellStart()
   hCloud:SetControllableByPlayer( self:GetCaster():GetPlayerOwnerID(), false )
   hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", nil )
   hCloud:AddNewModifier( caster, self, "modifier_kill", { duration = self:GetSpecialValueFor( "cloud_duration" ) } )
+  hCloud:AddNewModifier( caster, self, "modifier_phased", {} )
   FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
 end
 
 function zuus_cloud_oaa:OnHeroCalculateStatBonus()
 	local caster = self:GetCaster()
 
-	if caster:HasScepter() then
+	if caster:HasScepter() or self:IsStolen() then
 		self:SetHidden( false )
 		if self:GetLevel() <= 0 then
 			self:SetLevel( 1 )
@@ -37,12 +38,15 @@ function zuus_cloud_oaa:OnStolen(hSourceAbility)
   local caster = self:GetCaster()
   local lightning_bolt_ability = caster:FindAbilityByName("zuus_lightning_bolt")
 
-  if lightning_bolt_ability then
+  -- If the stealer is not morphling then hide lightning bolt
+  if lightning_bolt_ability and not caster:FindAbilityByName("morphling_replicate") then
     lightning_bolt_ability:SetHidden(true)
     lightning_bolt_ability:SetStolen(true)
   end
 end
+
 ------------------------------------------------------------------------------------------------------------------------------------------------
+
 modifier_zuus_cloud_oaa = class( ModifierBaseClass )
 
 function modifier_zuus_cloud_oaa:IsHidden()
@@ -197,12 +201,10 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
       -- Damage table values that are the same for both lightning bolt and static field
       local damage_table = {}
-      damage_table.attacker = parent
       damage_table.damage_type = DAMAGE_TYPE_MAGICAL
       damage_table.victim = target
 
-      -- Values needed for calculating Static Field damage (with spell amplification)
-      local spell_amp = caster:GetSpellAmplification(false) -- nimbus doesnt have spell amp, but caster does
+      -- Static Field damage comes from Zeus but cannot be reflected back to him
       local static_field_damage = 0
       -- Check for Static Field if its leveled up
       local static_field_ability = caster:FindAbilityByName("zuus_static_field")
@@ -215,17 +217,19 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
           static_field_damage = static_field_damage + static_field_talent:GetSpecialValueFor("value")
         end
       end
-      damage_table.damage = (target:GetHealth()/100)*static_field_damage*(1+spell_amp*0.01)
+      damage_table.attacker = caster
+      damage_table.damage = (target:GetHealth()/100)*static_field_damage
       damage_table.ability = static_field_ability
-      damage_table.damage_flags	= DOTA_DAMAGE_FLAG_HPLOSS -- static field damage has this flag in vanilla
+      damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_REFLECTION)
 
       -- Apply Static Field damage (before lightning bolt damage)
       ApplyDamage(damage_table)
 
       -- Lightning bolt damage table values
+      damage_table.attacker = parent
       damage_table.damage = lightning_bolt_ability:GetAbilityDamage()
       damage_table.ability = lightning_bolt_ability
-      damage_table.damage_flags	= DOTA_DAMAGE_FLAG_NONE
+      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
 
       -- Apply Lightning Bolt damage
       ApplyDamage(damage_table)
