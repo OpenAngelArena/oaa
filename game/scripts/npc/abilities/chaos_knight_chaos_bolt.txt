@@ -1,10 +1,13 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // Chaos Knight: Chaos Bolt
+  //=================================================================================================================
   "chaos_knight_chaos_bolt"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5426"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5426"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -12,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,11 +27,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
+    "AbilityCooldown"                                     "13 12 11 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,24 +44,24 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_min"                                        "1 1 1 2 2 2"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_min"                                        "1.25 1.5 1.75 2 2 2"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_max"                                        "2 3 4 4 5 5"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_max"                                        "2.2 2.8 3.4 4 4.5 5"
         "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_min"                                      "60 90 120 150 180 210"
+        "damage_min"                                      "90 110 130 150 180 210"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "180 210 240 270 420 570"
+        "damage_max"                                      "180 220 260 300 600 900"
       }
     }
   }

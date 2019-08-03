@@ -2826,7 +2826,12 @@ read_globals = { -- these globals can only be accessed.
 "FindCustomBuildingsInRadius",
 "FindAllBuildingsInRadius",
 "PreventGettingStuck",
-"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE"
+"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE",
+"MODIFIER_STATE_UNSLOWABLE",
+"AddAnimationTranslate",
+"BOSS_WANDERER_SPAWN_START",
+"BOSS_WANDERER_RESPAWN",
+"AbilityKV"
 }
 
 ignore = {

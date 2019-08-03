@@ -4,7 +4,7 @@
 // Brewmaster Fire 5
 //=================================================================================
   "npc_dota_brewmaster_fire_5"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/brewmaster/brewmaster_firespirit.vmdl"  // Model.
@@ -23,7 +23,7 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "brewmaster_fire_permanent_immolation"    // Ability 1
-    "Ability2"                                            "brewmaster_drunken_brawler"    // Ability 2    
+    "Ability2"                                            "brewmaster_drunken_brawler"    // Ability 2
 
     // Armor
     //----------------------------------------------------------------
@@ -33,7 +33,7 @@
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "655"    // Damage range min.
-    "AttackDamageMax"                                     "665"    // Damage range max.  
+    "AttackDamageMax"                                     "665"    // Damage range max.
     "AttackRate"                                          "0.75"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -55,7 +55,9 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "5200"    // Base health.
     "StatusHealthRegen"                                   "40"    // Health regeneration rate.
-    
+    "StatusMana"                                          "750"   // Base mana.
+    "StatusManaRegen"                                     "1.5" // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
@@ -67,6 +69,6 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-  }  
+  }
 
 }
