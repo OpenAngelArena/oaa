@@ -170,6 +170,10 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
   if not lightning_bolt_ability then
     return
   end
+   -- Rubick stole something else while cloud still exists
+  if lightning_bolt_ability:IsNull() then
+    return
+  end
   if GameRules:IsDaytime() then
     sight_radius = lightning_bolt_ability:GetSpecialValueFor("sight_radius_day")
   else
