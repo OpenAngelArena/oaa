@@ -61,7 +61,7 @@ function BossSpawner:Init ()
     [2] = false,
     [3] = false,
     [4] = false,
-    [5] = true,
+    [5] = false,
     [6] = true,
     [7] = true,
   }
@@ -106,7 +106,9 @@ function BossSpawner:SpawnAllBosses ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    BossSpawner:SpawnBossAtPit(bossPit)
+    Timers:CreateTimer(_ / 10, function ()
+      BossSpawner:SpawnBossAtPit(bossPit)
+    end)
   end
 end
 

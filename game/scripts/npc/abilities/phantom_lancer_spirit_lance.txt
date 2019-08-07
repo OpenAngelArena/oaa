@@ -15,8 +15,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "0" // OAA, causes lag
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -27,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 130 135 140 170 200"
+    "AbilityManaCost"                                     "110 120 130 140 170 220"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------

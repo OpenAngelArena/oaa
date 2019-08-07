@@ -14,9 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -79,7 +82,7 @@
       "09" // average_damage is important for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "72 72 72 162 265" //OAA, Valve has it wrong
+        "average_damage"                                  "72 72 72 162 265" //OAA
       }
       "10"
       {

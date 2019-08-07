@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "36 36 36 36 33 30"
+    "AbilityCooldown"                                     "26" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "dash_length"                                     "1400"
-        "LinkedSpecialBonus"  "special_bonus_unique_phoenix_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_4"
       }
       "03"
       {

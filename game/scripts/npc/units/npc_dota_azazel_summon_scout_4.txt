@@ -12,7 +12,7 @@
     "SoundSet"                                            "n_creep_SatyrSmall"
     "Level"                                               "4"
     "ModelScale"                                          "0.75"
-    "ConsideredHero"                                      "1"
+    "ConsideredHero"                                      "0"
     "UnitLabel"                                           "azazel_scout"
 
     // Abilities
@@ -25,7 +25,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"      // Physical protection.
-    "MagicalResistance"                                   "0"    // Magical protection.
+    "MagicalResistance"                                   "100"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -53,7 +53,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"    // Speed.
+    "MovementSpeed"                                       "400"    // Speed.
     "MovementTurnRate"                                    "1.0"    // Turning rate.
 
     // Status
@@ -65,8 +65,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "2400"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "2400"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1200"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1200"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------

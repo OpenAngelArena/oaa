@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170"
+    "AbilityManaCost"                                     "140 150 160 170 180 190"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,12 +59,17 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "eidolon_dmg_tooltip"                             "20 28 38 47 94 198"
-        "LinkedSpecialBonus"  "special_bonus_unique_enigma_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_3"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_tooltip"                                "35.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_level"                                     "7"
       }
     }
   }

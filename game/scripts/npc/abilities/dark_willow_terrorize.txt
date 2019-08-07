@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "1500"
     "AbilityCastPoint"              "1.0"
-    "AbilityCooldown"               "100 80 60 40 20"
+    "AbilityCooldown"               "100 90 80 60 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "destination_status_duration"   "4"
+        "destination_status_duration"   "3.5 3.75 4 4.25 4.5"
         "LinkedSpecialBonus"        "special_bonus_unique_dark_willow_2"
       }
       "04"
@@ -57,6 +57,5 @@
         "starting_height"       "300"
       }
     }
-    "AbilityDraftPreAbility"        "dark_willow_bedlam"
   }
 }

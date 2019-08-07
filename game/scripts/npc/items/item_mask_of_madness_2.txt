@@ -16,9 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_mask_of_madness;item_upgrade_core"
-      "02"                                                "item_mask_of_madness;item_upgrade_core_2"
-      "03"                                                "item_mask_of_madness;item_upgrade_core_3"
-      "04"                                                "item_mask_of_madness;item_upgrade_core_4"
     }
   }
 
@@ -83,7 +80,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "25 30 35 40 45"
+        "berserk_bonus_movement_speed"                    "30 35 40 45 50"
       }
       "06"
       {
