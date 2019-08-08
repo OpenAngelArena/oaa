@@ -71,11 +71,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_reduction_scepter"                        "30"
+        "CalculateSpellDamageTooltip"                     "0"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range"                                   "400"
+        "RequiresScepter"                                 "1"
       }
     }
   }
