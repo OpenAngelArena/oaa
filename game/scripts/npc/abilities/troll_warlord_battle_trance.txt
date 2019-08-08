@@ -7,12 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5512"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "ID"                                                  "5512"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "3"
     "FightRecapLevel"                                     "2"
+    "AbilitySound"                                        "Hero_TrollWarlord.BattleTrance.Cast"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,7 +23,10 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastGestureSlot"                              "DEFAULT"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "525"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -52,12 +58,22 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "30 35 40 50 60"
+        "movement_speed"                                  "30 35 40 45 50"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "range"                                           "900"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "35"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_duration_enemies"                        "3.25"
       }
     }
   }

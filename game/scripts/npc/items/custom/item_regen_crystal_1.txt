@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_2;item_upgrade_core_2"
-      "02"                                                "item_heart_2;item_upgrade_core_3"
-      "03"                                                "item_heart_2;item_upgrade_core_4"
-      "04"                                                "item_crimson_guard_2;item_upgrade_core_2"
-      "05"                                                "item_crimson_guard_2;item_upgrade_core_3"
-      "06"                                                "item_crimson_guard_2;item_upgrade_core_4"
+      "02"                                                "item_crimson_guard_2;item_upgrade_core_2"
     }
   }
 
@@ -56,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "ItemCost"                                            "10200"
+    "ItemCost"                                            "8700"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "regen crystal"
@@ -81,7 +77,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                             "300 400 500"
+        "active_health_regen"                             "500 650 800"
       }
       "04"
       {

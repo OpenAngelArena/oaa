@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_assault_3;item_upgrade_core_3"
-      "02"                                                "item_assault_3;item_upgrade_core_4"
-      "03"                                                "item_blade_mail_3;item_upgrade_core_3"
-      "04"                                                "item_blade_mail_3;item_upgrade_core_4"
+      "02"                                                "item_blade_mail_3;item_upgrade_core_3"
     }
   }
 
@@ -67,7 +65,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 13 16 19 25"
+        "bonus_armor"                                     "10 12 15 19 24"
       }
       "03"
       {
@@ -82,12 +80,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 7 9 11 15"
+        "aura_positive_armor"                             "5 7 9 11 13"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_negative_armor"                             "-5 -7 -9 -11 -15"
+        "aura_negative_armor"                             "-5 -7 -9 -11 -13"
       }
     }
   }

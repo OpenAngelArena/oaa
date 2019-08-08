@@ -16,9 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_mask_of_madness;item_upgrade_core"
-      "02"                                                "item_mask_of_madness;item_upgrade_core_2"
-      "03"                                                "item_mask_of_madness;item_upgrade_core_3"
-      "04"                                                "item_mask_of_madness;item_upgrade_core_4"
     }
   }
 
@@ -36,14 +33,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-  "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_2"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_mask_of_madness_2"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
@@ -51,6 +50,7 @@
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 2;mask of madness 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -80,7 +80,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "25 30 35 40 45"
+        "berserk_bonus_movement_speed"                    "30 35 40 45 50"
       }
       "06"
       {

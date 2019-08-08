@@ -7,28 +7,31 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6461"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"               "1"
-    "MaxLevel"                      "6"
-    "RequiredLevel"                 "1"
-    "LevelsBetweenUpgrades"         "2"
+    "ID"                                                  "6461"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "0"
-    "AbilityCastPoint"              "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "19 17 15 13 13 13"
+    "AbilityCooldown"                                     "19 17 15 13 13 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "90 100 110 120 170 220"
+    "AbilityManaCost"                                     "90 100 110 120 170 220"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,48 +39,48 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "damage"                "75 150 225 300 525 750"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "75 150 225 300 525 750"
       }
       "02"
       {
-        "var_type"              "FIELD_INTEGER"
-        "hero_stacks"           "9 12 15 18 19 20"
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_stacks"                                     "9 12 15 18 19 20"
       }
       "03"
       {
-        "var_type"              "FIELD_FLOAT"
-        "duration"              "10.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0"
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "radius"                "500"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
       }
       "05"
       {
-        "var_type"              "FIELD_FLOAT"
-        "jump_duration"         "0.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_duration"                                   "0.4"
       }
       "06"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "jump_duration_gyroshell"   "0.75"
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_duration_gyroshell"                         "0.75"
       }
       "07"
       {
-        "var_type"              "FIELD_INTEGER"
-        "jump_height"           "250"
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_height"                                     "250"
       }
       "08"
       {
-        "var_type"              "FIELD_INTEGER"
-        "jump_height_gyroshell" "350"
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_height_gyroshell"                           "350"
       }
       "09"
       {
-        "var_type"              "FIELD_INTEGER"
-        "jump_horizontal_distance"  "225"
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_horizontal_distance"                        "225"
       }
     }
   }

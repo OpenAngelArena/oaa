@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_mjollnir_4;item_upgrade_core_4"
+      "02"                                                "item_monkey_king_bar_4;item_upgrade_core_4"
     }
   }
 
@@ -55,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "38600"
+    "ItemCost"                                            "37175"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -69,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 36 56 84 120"
+        "bonus_damage"                                    "24 36 60 96 144"
       }
       "02"
       {
@@ -94,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "static_damage"                                   "200 250 300 400 500"
+        "static_damage"                                   "200 300 400 500 600"
       }
       "07"
       {
@@ -124,7 +125,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "170 200 250 350 450"
+        "chain_damage"                                    "170 210 290 410 570"
       }
       "13"
       {
