@@ -9,6 +9,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -19,7 +20,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "12 11 10 9 9 9"
-    "AbilityChannelTime"                                  "1.0 1.0 1.0 1.0"
+    "AbilityChannelTime"                                  "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,13 +38,14 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_reduction"                                "0.2"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "20"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_width"                                     "125 125 125 125"
+        "arrow_width"                                     "125"
       }
       "04"
       {
@@ -53,12 +55,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "arrow_speed"                                     "3000.0 3000.0 3000.0 3000.0"
+        "arrow_speed"                                     "3000.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tree_width"                                      "75 75 75 75"
+        "tree_width"                                      "75"
       }
       "07"
       {
@@ -68,7 +70,12 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.34 3.34 3.34 3.34"
+        "vision_duration"                                 "3.34"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_time_tooltip"                            "1.0"
       }
     }
   }

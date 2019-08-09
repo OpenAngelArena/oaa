@@ -15,6 +15,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
@@ -45,16 +47,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "puddle_regen"                                    "35"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "puddle_armor"                                    "12"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "puddle_status_resistance"                        "40"
+        "RequiresScepter"                                 "1"
       }
       "07" // bonus_speed + river_speed
       {

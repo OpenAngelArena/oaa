@@ -26,6 +26,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -63,6 +64,24 @@
         "var_type"                                        "FIELD_FLOAT"
         "ministun_duration"                               "0.2"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus_3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hits_to_kill_tooltip"                            "8"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_hits_to_kill_tooltip"                      "16"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cloud_bounty_tooltip"                            "100"
+        "RequiresScepter"                                 "1"
       }
     }
   }
