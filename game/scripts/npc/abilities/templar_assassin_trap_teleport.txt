@@ -9,7 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "7853"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
     "MaxLevel"                                            "5"
+
     "FightRecapLevel"                                     "1"
     "IsGrantedByScepter"                                  "1"
     "HasScepterUpgrade"                                   "1"
@@ -66,6 +68,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "trap_max_charge_duration"                        "4"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_channel_time"                            "2"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_cooldown"                                "30"
         "RequiresScepter"                                 "1"
       }
     }

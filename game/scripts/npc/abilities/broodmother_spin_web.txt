@@ -10,9 +10,11 @@
     "ID"                                                  "5280"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
     "HasScepterUpgrade"                                   "1"
 
     // Stats
@@ -60,16 +62,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges_scepter"                             "8 12 16 20 22 24"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movespeed_scepter"                         "40 60 80 100 110 120"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "count_scepter"                                   "8 12 16 20 22 24"
+        "RequiresScepter"                                 "1"
       }
     }
   }

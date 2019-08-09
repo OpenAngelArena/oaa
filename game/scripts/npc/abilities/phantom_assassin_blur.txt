@@ -9,15 +9,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5192"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     "AbilityCooldown"                                     "60 55 50 45 40 35"
 
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityManaCost"                                     "50"
-
-    "HasScepterUpgrade"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +49,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "12"
+        "RequiresScepter"                                 "1"
       }
     }
   }

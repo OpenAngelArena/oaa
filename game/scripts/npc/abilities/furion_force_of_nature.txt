@@ -14,6 +14,8 @@
     "ScriptFile"                                          "abilities/oaa_force_of_nature.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
+    "MaxLevel"                                            "6"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
@@ -22,14 +24,11 @@
 
     "AbilityCooldown"                                     "37"
     "AbilityManaCost"                                     "130 140 150 160 170 180"
-    "MaxLevel"                                            "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      // Number of trees
-      //-------------------------------------------------------------------------------------------------------------
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -50,11 +49,15 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_health_tooltip"                           "550 700 900 1200 1800 2700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_dmg_tooltip"                              "38 54 74 98 152 235"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "06"
       {

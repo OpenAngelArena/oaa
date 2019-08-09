@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"warlock_rain_of_chaos"
+  "warlock_rain_of_chaos"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -41,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "golem_duration"                                  "60 60 60 60 60"
+        "golem_duration"                                  "60"
       }
       "02"
       {
@@ -78,26 +80,31 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "number_of_golems_scepter"                        "2"
+        "RequiresScepter"                                 "1"
       }
-      "09"
+      "09" // 75% of golem_hp_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "golem_hp_tooltip_scepter"                        "750 1500 2250 3750 7500"
+        "RequiresScepter"                                 "1"
       }
-      "10"
+      "10" // at least 75% of golem_dmg_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "75 110 150 320 510"
+        "golem_dmg_tooltip_scepter"                       "75 110 150 320 525"
+        "RequiresScepter"                                 "1"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "hp_dmg_reduction_scepter"                        "25"
+        "RequiresScepter"                                 "1"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bounty_reduction_scepter"                        "50"
+        "RequiresScepter"                                 "1"
       }
     }
   }

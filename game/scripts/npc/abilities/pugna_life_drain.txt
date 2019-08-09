@@ -17,8 +17,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -61,6 +64,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown"                                "0.0"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
