@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Morphling: Replicate
+  // Morphling: Replicate (Morph)
   //=================================================================================================================
   "morphling_replicate"
   {
@@ -46,17 +46,14 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown_reduction_tooltip"              "35" // Valve didn't delete this
+        "scepter_manacost_reduction_tooltip"              "50"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_manacost_reduction_tooltip"              "50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "scepter_cast_range_tooltip"                      "600"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -13,11 +13,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -40,6 +40,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "gods_strength_damage"                            "80 120 160 200 240"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
@@ -51,11 +52,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "1200"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "gods_strength_damage_scepter"                    "75 100 125 150 175"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "25.0"
       }
     }
   }

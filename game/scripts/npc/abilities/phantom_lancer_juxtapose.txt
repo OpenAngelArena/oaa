@@ -40,21 +40,25 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_out_pct"                         "-70 -60 -40 -25 -10" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_damage"                         "30 40 60 75 90" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_in_pct"                          "400" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_total_illusion_damage_in_pct"            "500" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {

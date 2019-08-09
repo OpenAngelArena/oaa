@@ -14,8 +14,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -50,7 +53,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "strike_interval"                                 "0.7 0.6 0.5 0.4 0.4"
-        "LinkedSpecialBonus"  "special_bonus_unique_razor_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_razor_2"
       }
       "04"
       {
@@ -61,12 +64,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "40 70 140 210 280" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "strike_interval_scepter"                         "0.6 0.5 0.4 0.4 0.4"
-        "LinkedSpecialBonus"  "special_bonus_unique_razor_2"
       }
     }
   }
