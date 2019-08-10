@@ -11,10 +11,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     "AbilityCastPoint"                                    "0"
 
@@ -54,11 +56,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "fire_rate"                                       "1.1"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "600"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_tooltip"                                "15"
       }
     }
   }
