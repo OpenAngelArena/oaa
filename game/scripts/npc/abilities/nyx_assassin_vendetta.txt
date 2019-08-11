@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5465"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5465"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -18,6 +18,8 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +53,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "250 550 850 1425 2000" //OAA
       }
-      "05"
+      "05" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "90.0 70.0 50.0 50.0 50.0" //OAA, Valve has it wrong
