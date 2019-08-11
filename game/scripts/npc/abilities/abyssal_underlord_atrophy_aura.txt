@@ -16,6 +16,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -52,6 +53,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_damage_duration_scepter"                   "110" //OAA
+        "RequiresScepter"                                 "1"
       }
       "07"
       {

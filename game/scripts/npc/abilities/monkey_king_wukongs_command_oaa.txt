@@ -33,7 +33,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 110 90 90 90"
+    "AbilityCooldown"                                     "130 110 90 80 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -103,22 +103,26 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "110 90 70 50 50"
+        "RequiresScepter"                                 "1"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "num_first_soldiers_scepter"                      "6"
+        "RequiresScepter"                                 "1"
       }
 
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
         "num_second_soldiers_scepter"                     "10"
+        "RequiresScepter"                                 "1"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
         "num_third_soldiers_scepter"                      "10"
+        "RequiresScepter"                                 "1"
       }
     }
   }
