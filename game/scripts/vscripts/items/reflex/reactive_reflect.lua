@@ -148,9 +148,11 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     -- Check if the parent already has reflected ability
     local old = false
     for _,ability in pairs(parent.stored_reflected_spells) do
-      if ability ~= nil and ability:GetAbilityName() == ability_name then
-        old = true
-        break
+      if ability then
+        if ability:GetAbilityName() == ability_name then
+          old = true
+          break
+        end
       end
     end
 
@@ -162,7 +164,7 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       parent_ability = parent:FindAbilityByName(ability_name)
       if parent_ability then
         -- This is a rare case (Rubick stole the spell and then casted that same spell on the target he stole it from and target has reflection shard buff)
-        -- when parent already has the kv.ability naturally, it wasn't added or stolen, then it should not be stolen or hidden because that would mess up things
+        -- when parent already has the kv.ability naturally (it wasn't added or stolen), then it should not be stolen or hidden because that would mess up things
         -- We shouldn't duplicate abilities if the parent already has the kv.ability
         parent:SetCursorCastTarget(target) -- Set the target for the spell.
         parent_ability:OnSpellStart() -- Cast the spell back (to Rubick).
@@ -177,10 +179,15 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       end
     end
 
-    if reflect_ability == nil then return end -- If reflect_ability becomes nil for some reason, don't do other stuff
-    reflect_ability:SetLevel(ability_level) -- Set level to be the same as the level of the original ability
-    parent:SetCursorCastTarget(target) -- Set the target for the spell.
-    reflect_ability:OnSpellStart() -- Cast the spell.
+    if not reflect_ability then
+      -- If reflect_ability becomes nil for some reason, don't do other stuff
+      --print("reflect_ability not found")
+      return
+    end
+
+    reflect_ability:SetLevel(ability_level)       -- Set level to be the same as the level of the original ability
+    parent:SetCursorCastTarget(target)            -- Set the target for the spell.
+    reflect_ability:OnSpellStart()                -- Cast the spell.
 
   end
 end
