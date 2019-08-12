@@ -16,6 +16,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
@@ -43,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 250 350 700 1100" //OAA
+        "damage"                                          "100 250 400 850 1450" //OAA
       }
       "02"
       {
@@ -58,12 +59,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "850"
+        "cast_range_scepter"                              "950"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bash_radius_scepter"                             "250"
+        "bash_radius_scepter"                             "350"
       }
       "06"
       {
