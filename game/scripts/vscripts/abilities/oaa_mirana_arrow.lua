@@ -23,11 +23,16 @@ if IsServer() then
       self.next_projectile_id = 1
     end
 
+    local spawn_origin = caster:GetAbsOrigin() + (caster:GetForwardVector() * arrow_data.arrow_start_distance)
+    if self:IsStolen() then
+      spawn_origin = caster:GetAbsOrigin()
+    end
+
     local info =
     {
       Ability = self,
       EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf",
-      vSpawnOrigin = caster:GetAbsOrigin() + (caster:GetForwardVector() * arrow_data.arrow_start_distance),
+      vSpawnOrigin = spawn_origin,
       fDistance = arrow_data.arrow_range,
       fStartRadius = arrow_data.arrow_width,
       fEndRadius = arrow_data.arrow_width,
