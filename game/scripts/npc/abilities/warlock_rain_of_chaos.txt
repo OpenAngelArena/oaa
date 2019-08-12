@@ -64,6 +64,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "golem_dmg_tooltip"                               "100 150 200 400 700"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
@@ -93,6 +94,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "golem_dmg_tooltip_scepter"                       "75 110 150 320 525"
         "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "11"
       {
