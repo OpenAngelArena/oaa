@@ -57,26 +57,31 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_damage_pct"                             "30 60 90 150 210" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_cap_amount"                               "200"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_tooltip"                              "800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges_scepter"                             "2"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "charge_restore_time_scepter"                     "40"
+        "RequiresScepter"                                 "1"
       }
     }
   }

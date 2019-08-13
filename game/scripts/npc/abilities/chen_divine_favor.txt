@@ -12,18 +12,18 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "AbilitySound"                                        "Hero_Chen.TestOfFaith.Target"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
     "AbilityCastRange"                                    "1200"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

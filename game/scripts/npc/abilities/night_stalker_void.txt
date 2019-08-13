@@ -65,16 +65,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "900"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_ministun"                                "0.6"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown_reduction"                      "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

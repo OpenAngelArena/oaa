@@ -13,11 +13,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -67,11 +67,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_aoe"                                     "425"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "30"
+        "RequiresScepter"                                 "1"
       }
     }
   }

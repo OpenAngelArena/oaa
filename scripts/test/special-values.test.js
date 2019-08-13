@@ -405,7 +405,8 @@ var keyWhiteList = [
   'LinkedSpecialBonusField',
   'LinkedSpecialBonusOperation',
   'CalculateSpellDamageTooltip',
-  'levelkey'
+  'levelkey',
+  'RequiresScepter'
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
   return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);

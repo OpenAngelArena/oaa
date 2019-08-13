@@ -16,11 +16,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -66,21 +66,30 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed_scepter"                                   "1500"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aoe_scepter"                                     "260"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "7"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "2200"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "4.0"
       }
     }
   }

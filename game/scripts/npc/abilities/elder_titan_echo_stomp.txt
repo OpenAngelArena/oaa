@@ -69,6 +69,12 @@
         "wake_damage_limit"                               "50 100 150 200 400 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan_4"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_magic_immune_per_hero"                   "2"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

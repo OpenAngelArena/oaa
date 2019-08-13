@@ -8,23 +8,21 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5512"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
-    "AbilitySound"                                        "Hero_TrollWarlord.BattleTrance.Cast"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastGestureSlot"                              "DEFAULT"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "525"
 
@@ -69,11 +67,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "35"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration_enemies"                        "3.25"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cast_range_tooltip"                      "525"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -66,6 +66,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "duration_tooltip"                                "15"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "3.0"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
     }
   }
 }

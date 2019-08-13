@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Dark Rift
+  // Abyssal Underlord: Highway to Hell
   //=================================================================================================================
   "abyssal_underlord_dark_rift_oaa"
   {
@@ -15,6 +15,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "abyssal_underlord_dark_rift"
 
     "MaxLevel"                                            "5"
@@ -23,6 +25,7 @@
 
     "AbilityCastRange"                                    "5000"
     "AbilityCastPoint"                                    "0.6"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -70,6 +73,6 @@
     "Precache"
     {
       "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
-	}
+    }
   }
 }
