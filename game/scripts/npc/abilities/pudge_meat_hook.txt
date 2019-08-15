@@ -12,8 +12,10 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 140 140 140 190 240"
+    "AbilityManaCost"                                     "125 130 135 140 180 240"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,11 +67,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "4.0"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "180 270 360 450 900 1350"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -50,7 +50,7 @@ end
 function DevCheats:AddBots(keys)
   local numPlayers = PlayerResource:GetPlayerCount()
 
-  PlayerResource:RandomHeroForPlayersWithoutHero()
+  --PlayerResource:RandomHeroForPlayersWithoutHero()
 
   -- Eanble bots and fill empty slots
   if IsServer() and GameRules:GetMaxTeamPlayers() - numPlayers > 0 then

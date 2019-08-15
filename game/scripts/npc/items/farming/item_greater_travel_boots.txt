@@ -23,9 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_travel_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_travel_origin;item_boots;item_upgrade_core_2"
-      "03"                                                "item_travel_origin;item_boots;item_upgrade_core_3"
-      "04"                                                "item_travel_origin;item_boots;item_upgrade_core_4"
+      "02"                                                "item_arcane_origin;item_boots;item_upgrade_core"
+      "03"                                                "item_phase_origin;item_boots;item_upgrade_core"
+      "04"                                                "item_power_origin;item_boots;item_upgrade_core"
+      "05"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
     }
   }
 
@@ -53,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "725"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"

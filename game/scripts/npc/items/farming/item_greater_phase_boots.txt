@@ -23,9 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_phase_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_phase_origin;item_boots;item_upgrade_core_2"
-      "03"                                                "item_phase_origin;item_boots;item_upgrade_core_3"
-      "04"                                                "item_phase_origin;item_boots;item_upgrade_core_4"
+      "02"                                                "item_arcane_origin;item_boots;item_upgrade_core"
+      "03"                                                "item_power_origin;item_boots;item_upgrade_core"
+      "04"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
+      "05"                                                "item_travel_origin;item_boots;item_upgrade_core"
     }
   }
 
@@ -40,6 +41,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_phase_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/greater_phase_boots"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "725"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots;phase boots;phase"
@@ -64,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35"
+        "bonus_movement_speed"                            "15 20 25 30"
       }
       "02"
       {
@@ -94,12 +96,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "25 28 32 35"
+        "phase_movement_speed"                            "22 27 32 37"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "15 20 25 30"
+        "phase_movement_speed_range"                      "10 15 20 25"
       }
       "09"
       {
@@ -114,7 +116,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 9 11 13"
+        "bonus_armor"                                     "6 8 11 15"
       }
       "12"
       {
@@ -131,18 +133,13 @@
         "var_type"                                        "FIELD_INTEGER"
         "splinter_count"                                  "4 5 6 7"
       }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "melee_splinter_speed"                            "1250" // The projectile speed to use for splinters from melee heroes
-      }
     }
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+      "particle"                                          "particles/items/phase_splinter_impact_model.vpcf"
     }
   }
 }

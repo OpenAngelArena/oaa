@@ -9,9 +9,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
+    "MaxLevel"                                            "5"
+
     "AbilityCastRange"                                    "160"
     "AbilityCastPoint"                                    "0.0"
-    "MaxLevel"                                            "5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -64,8 +66,8 @@
 		"ID"                                                  "7116"
 		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-		"MaxLevel"                                            "3" // when reworked, set it to 5
+		"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+		"MaxLevel"                                            "5" // when reworked, set it to 5
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

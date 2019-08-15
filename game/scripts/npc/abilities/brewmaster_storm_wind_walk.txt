@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Brewmaster Storm: Wind Walk
+    //=================================================================================================================
+    "brewmaster_storm_wind_walk"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "5410"                          // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "5"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "75"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_damage"              "100 160 220 440 660"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_movement_speeed"     "50"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "20.0"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "fade_time"                 "0.6"
+            }
+        }
+    }
+}

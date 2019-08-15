@@ -7,62 +7,65 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"             "ability_lua"
-    "ID"                    "9511"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"     "SPELL_IMMUNITY_ALLIES_YES"
-    "AbilityTextureName"    "custom/ronin_guard"
-    "ScriptFile"            "abilities/sohei/sohei_wholeness_of_body.lua"
-    "MaxLevel"              "6"
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "9511"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/ronin_guard"
+    "ScriptFile"                                          "abilities/sohei/sohei_wholeness_of_body.lua"
+
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCastRange"        "1800"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "900"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
+    "AbilityCooldown"                                     "17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "80"
+    "AbilityManaCost"                                     "80"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/sohei/guard.vpcf"
-      "particle"          "particles/hero/sohei/knockback.vpcf"
-      "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
+      "particle"                                          "particles/hero/sohei/guard.vpcf"
+      "particle"                                          "particles/hero/sohei/knockback.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-		"01"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"status_resistance"			"100"
-		}
-		"02"
-		{
-			"var_type"					"FIELD_FLOAT"
-			"sr_duration"				"5"
-		}
-		"03"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"post_heal"					"90 160 230 300 650 1000"
-		}
-		"04"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"damage_taken_heal"			"25"
-		}
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "90"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "sr_duration"                                     "8"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "post_heal"                                       "90 160 230 300 650 1000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_taken_heal"                               "25"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
     }
   }
 }
