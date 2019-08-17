@@ -89,6 +89,36 @@
         "var_type"                                        "FIELD_FLOAT"
         "ghost_spawn_rate"                                "0.35"
       }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_movespeed_slow"                          "100"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_movespeed_debuff_duration"               "0.3"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spirit_life_duration"                    "20"
+        "RequiresScepter"                                 "1"
+      }
+      "14" // this is a percentage bonus
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spirit_bonus_damage"                     "75 75 75 100 125"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "35"
+      }
     }
   }
 }

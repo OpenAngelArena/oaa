@@ -16,6 +16,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
@@ -53,6 +54,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_range_scepter"                      "190"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -53,13 +53,14 @@ function CoreGuyThink ()
   local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
   if cooldown > 0 and thisEntity.corePoints > 0 then
     print("before: " .. cooldown)
-    cooldown = cooldown - (thisEntity.corePoints * 10)
+    cooldown = cooldown - (thisEntity.corePoints * 15)
     print("after: " .. cooldown)
     thisEntity.ability:EndCooldown()
     if cooldown > 0 then
       thisEntity.ability:StartCooldown(cooldown)
+      thisEntity.corePoints = 0
     else
-      thisEntity.corePoints = math.ceil(0 - cooldown) / 10
+      thisEntity.corePoints = math.ceil(0 - cooldown) / 15
     end
   end
 

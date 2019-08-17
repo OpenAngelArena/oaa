@@ -45,16 +45,19 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_scepter"                                "4.0 5.0 6.0 7.0 8.0"	//OAA
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ally_threshold_scepter"                          "525"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "redirect_range_scepter"                          "900" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

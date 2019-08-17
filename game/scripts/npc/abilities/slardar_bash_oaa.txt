@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Slardar Bash
+  // Ability: Slardar Bash (OAA rework)
   //=================================================================================================================
   "slardar_bash_oaa"
   {
@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "slardar_bash"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"

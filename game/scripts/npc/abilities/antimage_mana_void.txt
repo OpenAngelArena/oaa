@@ -65,11 +65,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown_increase"                       "70"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_ministun"                                "1.3"
+        "RequiresScepter"                                 "1"
       }
     }
   }

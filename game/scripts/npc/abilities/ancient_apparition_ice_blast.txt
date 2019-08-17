@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -31,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 150 150 275 400"
+    "AbilityManaCost"                                     "175 175 175 350 525"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -91,6 +92,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "frostbite_duration_scepter"                      "17"
+        "RequiresScepter"                                 "1"
       }
     }
   }

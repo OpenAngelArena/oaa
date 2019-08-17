@@ -70,16 +70,25 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_range_multiplier"                        "3"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_speed_multiplier"                        "2"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_max_charges_tooltip"                     "5"
+        "scepter_max_charges"                             "5"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_mana_cost"                               "25"
+        "RequiresScepter"                                 "1"
       }
     }
   }

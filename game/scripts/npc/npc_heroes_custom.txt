@@ -66,53 +66,10 @@
 #base "heroes/zeus.txt"
 
 #base "heroes/dummy_dummy.txt"
+#base "heroes/sohei.txt"
+#base "heroes/chatterjee.txt"
 
 "DOTAHeroes"
 {
-  //=================================================================================================================
-  // HERO: Ronin
-  //=================================================================================================================
-  "npc_dota_hero_sohei"
-  {
-    "BaseClass"                 "npc_dota_hero_juggernaut"
-    "HeroID"                    "125"
-    "Model"                     "models/heroes/juggernaut/juggernaut.vmdl"
 
-    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementTurnRate"          "1.5"
-    "MovementSpeed"             "320"
-
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "31"
-    "AttackDamageMax"           "33"
-    "AttackRate"                "1.7"
-
-    "ArmorPhysical"             "5"
-    "StatusHealthRegen"         "3.25"
-
-    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.5"
-    "AttributeBaseAgility"      "18"
-    "AttributeAgilityGain"      "1.5"
-    "AttributeBaseIntelligence" "15"
-    "AttributeIntelligenceGain" "1.5"
-
-    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
-  }
-  //=================================================================================================================
-  // HERO: Electrician
-  //=================================================================================================================
-  "npc_dota_hero_electrician"
-  {
-    "BaseClass"                 "npc_dota_hero_dazzle"
-    "HeroID"                    "126"
-    "Model"                     "models/heroes/dazzle/dazzle.vmdl"
-
-    // Attributes
-    //-------------------------------------------------------------------------------------------------------------
-    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-  }
 }

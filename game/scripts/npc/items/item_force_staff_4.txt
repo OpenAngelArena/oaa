@@ -47,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "750"
     "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "23.0 20.0 17.5 15.0 12.5"
+    "AbilityCooldown"       "23.0 20.0 17.0 15.0 12.0"
     "AbilitySharedCooldown"     "force"
 
     // Item Info
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 15 23 34 50"
+        "bonus_intellect"   "10 25 40 55 70"
       }
       "02"
       {

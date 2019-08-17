@@ -13,6 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
@@ -58,6 +59,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "60"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {

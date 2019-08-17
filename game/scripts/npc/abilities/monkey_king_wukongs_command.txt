@@ -90,6 +90,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "1550"
+        "RequiresScepter"                                 "1"
       }
       "12"
       {
@@ -100,6 +101,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "90 70 50 50 50"
+        "RequiresScepter"                                 "1"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_spawn_interval"                          "3.5"
+        "RequiresScepter"                                 "1"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_spawn_duration"                          "12"
+        "RequiresScepter"                                 "1"
       }
     }
   }

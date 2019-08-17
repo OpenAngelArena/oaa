@@ -13,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "FightRecapLevel"                                     "1"
-    "AbilitySound"                                        "Hero_Mars.Shield.Cast"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -23,7 +22,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.2"
 
@@ -42,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_mult"                                       "160 200 240 280 320 360"
+        "crit_mult"                                       "150 190 230 270 310 350"
         "LinkedSpecialBonus"                              "special_bonus_unique_mars_gods_rebuke_extra_crit"
       }
       "02"
@@ -79,11 +77,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration"                                "2"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown"                                "1.4"
+        "RequiresScepter"                                 "1"
       }
     }
   }

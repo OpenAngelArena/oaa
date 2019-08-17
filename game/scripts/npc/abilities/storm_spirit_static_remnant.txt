@@ -43,6 +43,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "static_remnant_damage_radius"                    "260"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
@@ -54,6 +55,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "static_remnant_damage"                           "120 175 230 285 400 510"
         "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "static_remnant_duration_tooltip"                 "12"
       }
     }
   }
