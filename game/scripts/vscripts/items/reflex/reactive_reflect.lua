@@ -20,7 +20,7 @@ function item_reflection_shard_1:OnSpellStart()
   ]]
 
   local caster = self:GetCaster()
-  local duration = self:GetSpecialValueFor( "duration" )
+  local duration = self:GetSpecialValueFor("duration")
 
   --[[
   self:SetCurrentCharges( charges - 1 )
@@ -29,7 +29,7 @@ function item_reflection_shard_1:OnSpellStart()
   end
   ]]
 
-  caster:AddNewModifier( caster, self, "modifier_item_reactive_reflect", { duration = duration } )
+  caster:AddNewModifier(caster, self, "modifier_item_reactive_reflect", {duration = duration})
 end
 
 modifier_item_reactive_reflect = class(ModifierBaseClass)
@@ -46,10 +46,10 @@ function modifier_item_reactive_reflect:IsPurgable()
   return false
 end
 
-function modifier_item_reactive_reflect:OnCreated( event )
+function modifier_item_reactive_reflect:OnCreated(event)
   if IsServer() and self.nPreviewFX == nil then
     local parent = self:GetParent()
-    parent:EmitSound( "Item.LotusOrb.Target" ) -- Hero_Antimage.Counterspell.Cast
+    parent:EmitSound("Hero_Antimage.Counterspell.Cast")
     self.nPreviewFX = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     --self.reflect_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
 
@@ -68,12 +68,19 @@ function modifier_item_reactive_reflect:OnDestroy()
       ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
       self.nPreviewFX = nil
     end
-    for i=1, #parent.stored_reflected_spells do
-      local ability = parent.stored_reflected_spells[i]
-      -- If this ability is not having active modifiers and its not channgeling it can be removed
-      if ability:NumModifiersUsingAbility() == 0 and not ability:IsChanneling() then
-        ability:RemoveSelf()
-        table.remove(parent.stored_reflected_spells,i)
+    for _,ability in pairs(parent.stored_reflected_spells) do
+      -- If this ability is not having active modifiers and its not channeling it can be removed
+      if ability and not ability:IsNull() then
+        if ability:NumModifiersUsingAbility() == 0 and not ability:IsChanneling() then
+          -- Some abilities need a delay in case they are dealing damage with a delay (Finger of Death for example)
+          -- 2 seconds delay should be enough
+          Timers:CreateTimer(2, function()
+            -- Check if ability is removed already
+            if ability and not ability:IsNull() then
+              ability:RemoveSelf()
+            end
+          end)
+        end
       end
     end
   end
@@ -108,7 +115,7 @@ end
 function modifier_item_reactive_reflect:GetReflectSpell(kv)
   if IsServer() then
     local parent = self:GetParent()
-    parent:EmitSound( "Item.LotusOrb.Activate" ) --Hero_Antimage.Counterspell.Target
+    parent:EmitSound("Hero_Antimage.Counterspell.Target")
 
     local burst = ParticleManager:CreateParticle( "particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, parent)
     Timers:CreateTimer(1.5, function()
@@ -119,10 +126,11 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     local ability_name = kv.ability:GetAbilityName()
     local target = kv.ability:GetCaster()
     local ability_level = kv.ability:GetLevel()
+    local ability_behaviour = kv.ability:GetBehavior()
 
     local exception_list = {
       ["rubick_spell_steal"] = true,
-      ["legion_commander_duel"] = true,
+      --["legion_commander_duel"] = true, -- uncomment this if Duel becomes buggy
     }
 
     -- Do not reflect allied spells for any reason
@@ -145,10 +153,15 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       return nil
     end
 
+    -- If ability is channeling, dont reflect it because channeling abilities are buggy as hell
+    if bit.band(ability_behaviour, DOTA_ABILITY_BEHAVIOR_CHANNELLED) == DOTA_ABILITY_BEHAVIOR_CHANNELLED then
+      return nil
+    end
+
     -- Check if the parent already has reflected ability
     local old = false
     for _,ability in pairs(parent.stored_reflected_spells) do
-      if ability then
+      if ability and not ability:IsNull() then
         if ability:GetAbilityName() == ability_name then
           old = true
           break
