@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_force_staff_2;item_upgrade_core_2"
-      "02"                                                "item_force_staff_2;item_upgrade_core_3"
-      "03"                                                "item_force_staff_2;item_upgrade_core_4"
-      "04"                                                "item_pull_staff;item_upgrade_core_2"
-      "05"                                                "item_pull_staff;item_upgrade_core_3"
-      "06"                                                "item_pull_staff;item_upgrade_core_4"
+      "02"                                                "item_pull_staff;item_upgrade_core_2"
     }
   }
 
@@ -51,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "750"
     "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "23.0 20.0 17.5 15.0 12.5"
+    "AbilityCooldown"       "23.0 20.0 17.0 15.0 12.0"
     "AbilitySharedCooldown"     "force"
 
     // Item Info
@@ -72,7 +68,7 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 15 23 34 50"
+        "bonus_intellect"   "10 25 40 55 70"
       }
       "02"
       {

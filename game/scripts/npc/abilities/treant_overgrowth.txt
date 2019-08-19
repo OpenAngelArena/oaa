@@ -13,15 +13,15 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "AbilityCastPoint"                                    "0.5"
     "FightRecapLevel"                                     "2"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,21 +38,25 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.25 4.0 4.75 5.25 5.75"
+        "duration"                                        "3.5 4.25 5.0 5.5 6.0"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "800"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "eyes_radius"                                     "800"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_damage_tooltip"                          "175"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -15,11 +15,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -41,9 +42,9 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "gush_damage"   "110 160 210 260 510 760"
-        "LinkedSpecialBonus"  "special_bonus_unique_tidehunter_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "gush_damage"                                     "110 160 210 260 510 760"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_2"
       }
       "02"
       {
@@ -58,28 +59,37 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "negative_armor"                                  "4 5 6 7 12 18"
+        "negative_armor"                                  "4 5 6 7 9 15"
         "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed_scepter"                                   "1500"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aoe_scepter"                                     "240"
+        "aoe_scepter"                                     "260"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "7"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "1800"
+        "cast_range_scepter"                              "2200"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "4.0"
       }
     }
   }

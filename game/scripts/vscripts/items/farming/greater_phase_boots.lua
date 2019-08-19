@@ -31,7 +31,7 @@ function item_greater_phase_boots:OnSpellStart()
 	-- add the vanilla phase active modifier
 	caster:AddNewModifier( caster, self, "modifier_item_phase_boots_active", { duration = self:GetSpecialValueFor( "phase_duration" ) } )
 end
-
+--[[
 function item_greater_phase_boots:OnProjectileHit(target, location)
   if IsValidEntity(target) then
     local caster = self:GetCaster()
@@ -43,7 +43,7 @@ function item_greater_phase_boots:OnProjectileHit(target, location)
     self.splinterMod.doReduction = false
   end
 end
-
+--]]
 --------------------------------------------------------------------------------
 
 modifier_item_greater_phase_boots_splinter_shot = class(ModifierBaseClass)
@@ -71,6 +71,71 @@ end
 
 modifier_item_greater_phase_boots_splinter_shot.OnRefresh = modifier_item_greater_phase_boots_splinter_shot.OnCreated
 
+function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
+  local parent = self:GetParent()
+
+  if parent:IsIllusion() then
+    return
+  end
+
+  if keys.attacker == parent then
+    local ability = self:GetAbility()
+    local originTarget = keys.target:GetOrigin()
+
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      originTarget,
+      nil,
+      ability:GetSpecialValueFor("splinter_radius"),
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_BASIC,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
+      FIND_ANY_ORDER,
+      false
+    )
+    -- Exclude the original attack target from list of units to splinter to
+    table.remove(units, index(keys.target, units))
+    -- Take only neutral unit types to avoid targeting summons
+    local function IsNeutralUnitType(unit)
+      return unit:IsNeutralCreep( false )
+    end
+    local neutralUnits = filter(IsNeutralUnitType, units)
+    -- Take the first splinter_number units to split to
+    local nUnits = take_n(ability:GetSpecialValueFor("splinter_count"), neutralUnits)
+
+    -- generate damage stuff
+    local damage = keys.original_damage
+    local damageType = ability:GetAbilityDamageType()
+    local damageFlags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+    local damageMod = ability:GetSpecialValueFor("splinter_attack_outgoing") * 0.01
+    damage = damage * damageMod
+
+    local function ApplySplinterDamage(target)
+      ApplyDamage({
+        victim = target,
+        attacker = parent,
+        damage = damage,
+        damage_type = damageType,
+        damage_flags = damageFlags,
+        ability = ability,
+      })
+
+      local origin = target:GetOrigin()
+      local part = ParticleManager:CreateParticle("particles/items/phase_splinter_impact_model.vpcf", PATTACH_ABSORIGIN, target)
+      ParticleManager:SetParticleControl(part, 1, origin)
+      ParticleManager:SetParticleControlForward(part, 1, (originTarget - origin):Normalized())
+      local facing = target:GetForwardVector()
+      facing.y = facing.y * -1.0
+      ParticleManager:SetParticleControlForward(part, 10, facing)
+      ParticleManager:ReleaseParticleIndex(part)
+    end
+
+    foreach(ApplySplinterDamage, nUnits)
+  end
+end
+
+-- old on attack function for projectiles and instant attacks
+--[[
 function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   local parent = self:GetParent()
   if keys.attacker == parent and keys.process_procs and not self.doReduction then
@@ -137,6 +202,7 @@ function modifier_item_greater_phase_boots_splinter_shot:GetModifierDamageOutgoi
 
  return 0
 end
+--]]
 
 --------------------------------------------------------------------------------
 --[[ Old mini-Shukuchi Greater Phase Boots effect

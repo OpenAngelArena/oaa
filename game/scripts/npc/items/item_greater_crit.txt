@@ -58,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 110 150 210 280"
+        "bonus_damage"                                    "80 100 140 200 280"
       }
       "02"
       {
@@ -68,12 +68,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "235 245 255 265 290"
+        "crit_multiplier"                                 "175 205 235 265 295" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "135 145 160 180 205"
+        "tooltip_crit_damage"                             "75 105 135 165 195" //OAA, unused in tooltip
       }
     }
   }

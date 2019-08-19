@@ -13,26 +13,27 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "1"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
-    "IsGrantedByScepter"                                  "1"
 
+    "MaxLevel"                                            "1"
+
+    "IsGrantedByScepter"                                  "1"
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.2"
-    
-    // Time    
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "50"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -41,18 +42,20 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "300"
+        "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700 700 700 700 700"
+        "radius"                                          "700"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "order_lock_duration"                             "2.0"
+        "RequiresScepter"                                 "1"
       }
-      
     }
   }
 }

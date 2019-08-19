@@ -15,10 +15,36 @@ if IsServer() then
     end
     return false
   end
+
+  function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value)
+    if self and value then
+      local reduction = self:GetStatusResistance()
+
+      -- Min and Max cases
+      if reduction >= 1 then
+        return value*0.99
+      end
+      if reduction <= 0 then
+        return value
+      end
+
+      return value*(1-reduction)
+    end
+  end
 end
 
 if CDOTA_BaseNPC then
   function CDOTA_BaseNPC:GetAttackRange()
     return self:Script_GetAttackRange()
+  end
+
+  function CDOTA_BaseNPC:IsNeutralCreep( notAncient )
+    local targetFlags = bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO )
+
+    if notAncient then
+      targetFlags = bit.bor( targetFlags, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS )
+    end
+
+    return ( UnitFilter( self, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, targetFlags, DOTA_TEAM_NEUTRALS ) == UF_SUCCESS and not self:IsControllableByAnyPlayer() )
   end
 end
