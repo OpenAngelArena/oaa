@@ -65,7 +65,13 @@ function HeroSelection:Init ()
     DebugPrint("Heroes: ".. key)
     if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
       DebugPrint(key .. " is not in vanilla file!")
-      local data = LoadKeyValues('scripts/npc/units/' .. key .. '.txt')
+      local data = {}
+      if key == "npc_dota_hero_electrician" then
+        data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
+      elseif key == "npc_dota_hero_sohei" then
+        data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      end
+
       if data and data[key] then
         allheroes[key] = data[key]
       end

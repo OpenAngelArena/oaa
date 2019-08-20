@@ -24,8 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_veil_of_discord_4;item_upgrade_core_4"
-      "02"                                                "item_far_sight_3;item_upgrade_core_4"
-      "03"                                                "item_dagger_of_moriah;item_upgrade_core_4"
+      "02"                                                "item_dagger_of_moriah;item_upgrade_core_4"
     }
   }
 
@@ -72,7 +71,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 20 29"
+        "bonus_armor"                                     "6 8 11 15 20"
       }
       "03"
       {
@@ -86,7 +85,7 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_int"                                       "15 20 30 45 68"
       }
       "06"

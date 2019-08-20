@@ -69,11 +69,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "700 900 1100 1300 1400 1500" //OAA
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "burrow_speed_scepter"                            "3000"
+        "RequiresScepter"                                 "1"
       }
     }
   }

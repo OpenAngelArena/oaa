@@ -28,7 +28,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16"
-    "AbilityDuration"                                     "1.4 1.8 2.2 2.6 2.85 3.5"
+    "AbilityDuration"                                     "1.4 1.8 2.2 2.6 2.85 3.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -61,13 +61,14 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "1.4 1.8 2.2 2.6 2.85 3.5"
+        "duration_tooltip"                                "1.4 1.8 2.2 2.6 2.85 3.25"
         "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "475"
+        "RequiresScepter"                                 "1"
       }
     }
   }

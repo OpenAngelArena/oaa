@@ -7,13 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5048"                          // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5048"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "3000"
@@ -21,12 +23,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17.0"
+    "AbilityCooldown"                                     "18 17 16 15 14 14"
     "AbilityDuration"                                     "3.11"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "50 140 230 320 720 1120"
+    "AbilityDamage"                                       "80 160 240 320 720 1120"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -69,7 +71,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_bonus_damage"                              "140 175 250 300 500 700" //OAA
+        "arrow_bonus_damage"                              "150 200 250 300 500 700" //OAA, for picking screen tooltip
       }
       "08"
       {

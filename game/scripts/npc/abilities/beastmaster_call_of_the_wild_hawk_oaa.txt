@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild
+  // Beastmaster: Call of the Wild Hawk (OAA rework)
   //=================================================================================================================
   "beastmaster_call_of_the_wild_hawk_oaa"
   {
@@ -12,7 +12,7 @@
     "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
     "AbilityTextureName"                                  "beastmaster_call_of_the_wild_hawk"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -37,24 +37,24 @@
     {
       "01"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "duration"                        "120"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "120"
       }
       "02"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "hawk_hp_tooltip"                 "150 200 250 300 1250 2500"
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_hp_tooltip"                                 "150 200 250 300 1250 2500"
       }
       "03"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "hawk_speed_tooltip"              "300 340 380 420 480 575"
-        "LinkedSpecialBonus"              "special_bonus_unique_beastmaster_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_speed_tooltip"                              "300 340 380 420 480 575"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
       }
       "04"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "hawk_vision_tooltip"             "600 700 800 900 2000 3000"
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_vision_tooltip"                             "600 700 800 900 2000 3000"
       }
     }
   }

@@ -1,7 +1,11 @@
 "DOTAHeroes"
 {
+  //=================================================================================================================
+  // HERO: Tinker
+  //=================================================================================================================
   "npc_dota_hero_tinker"
   {
     "Ability6"        "oaa_rearm" // replaces tinker_rearm
+    "Ability12"       "special_bonus_movement_speed_50" //  replaces special_bonus_gold_income_25
   }
 }

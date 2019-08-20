@@ -15,8 +15,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "650"
@@ -68,11 +71,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "interval_scepter"                                "1.75"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "750"
+        "RequiresScepter"                                 "1"
       }
     }
   }

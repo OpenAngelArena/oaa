@@ -18,7 +18,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     "HasScepterUpgrade"                                   "1"
 
     // Stats
@@ -61,16 +65,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "900"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "scepter_ministun"                                 "0.6"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_ministun"                                "0.6"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
-        "var_type"                                          "FIELD_FLOAT"
-        "scepter_cooldown_reduction"                        "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown_reduction"                      "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

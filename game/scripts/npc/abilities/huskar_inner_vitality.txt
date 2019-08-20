@@ -12,7 +12,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
@@ -30,7 +32,6 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // already gets credit for the healing
-
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,6 +66,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_hurt_attrib_bonus"                       "22 30 38 46 54 70"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_tooltip"                                "16"
       }
     }
   }
