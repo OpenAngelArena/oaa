@@ -10,6 +10,7 @@
     "ID"                                                  "5330"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -52,8 +53,15 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "6.0 5.0 4.0 3.0 2.0 1.0" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_bonus"                            "10 15 20 25 30 35"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_bonus"                                    "10 20 30 40 80 120" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_chen_5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

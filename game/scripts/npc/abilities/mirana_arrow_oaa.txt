@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mirana Arrow
+  // Ability: Mirana Arrow (OAA rework)
   //=================================================================================================================
   "mirana_arrow_oaa"
   {
@@ -10,15 +10,16 @@
     "BaseClass"                                           "ability_lua"
     "ID"                                                  "85048" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityUnitTargetTeam"							               	  "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"								                "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"						 	                "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "mirana_arrow"
     "ScriptFile"                                          "abilities/oaa_mirana_arrow.lua"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -29,12 +30,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17.0"
+    "AbilityCooldown"                                     "18 17 16 15 14 14"
     "AbilityDuration"                                     "3.11"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "50 140 230 320 720 1200"
+    "AbilityDamage"                                       "80 160 240 320 720 1200"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -84,17 +85,15 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_bonus_damage"                              "140 175 250 300 500 700"
+        "arrow_bonus_damage"                              "150 200 250 300 500 700"
       }
-      "08"
+      "08" // Radius around the arrow while flying
       {
-        // Radius around the arrow while flying
         "var_type"                                        "FIELD_INTEGER"
         "arrow_vision"                                    "500"
       }
-      "09"
+      "09" // Duration of vision after
       {
-        // Duration of vision after
         "var_type"                                        "FIELD_FLOAT"
         "arrow_vision_duration"                           "3"
       }

@@ -12,11 +12,12 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -70,17 +71,20 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "450 600 750 1700 2625"
+        "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "425"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "700"
+        "RequiresScepter"                                 "1"
       }
       "10"
       {
@@ -95,7 +99,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 10 20 20 20"     // Percentage over model scale
+        "model_scale"                                     "0 10 20 25 30"     // Percentage over model scale
       }
       "13"
       {

@@ -12,7 +12,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "0"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "1.2"
@@ -60,7 +64,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "12 18 24 30 36"
-        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
       }
       "07"
       {
@@ -74,8 +78,8 @@
       }
       "09"
       {
-        "var_type"              "FIELD_INTEGER"
-        "leadership_radius_buffer"      "30"
+        "var_type"                                        "FIELD_INTEGER"
+        "leadership_radius_buffer"                        "30"
       }
       "10"
       {
@@ -85,7 +89,31 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "1550"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "outer_attack_buffer"                             "0"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "90 70 50 50 50"
+        "RequiresScepter"                                 "1"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_spawn_interval"                          "3.5"
+        "RequiresScepter"                                 "1"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_spawn_duration"                          "12"
+        "RequiresScepter"                                 "1"
       }
     }
   }

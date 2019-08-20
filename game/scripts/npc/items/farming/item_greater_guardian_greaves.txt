@@ -51,7 +51,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
 
-    "ItemCost"                                            "5275"
+    "ItemCost"                                            "4800"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves;guardian greaves;ggg"
@@ -70,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "25 30 35 40"
+        "bonus_movement"                                  "17 22 27 32"
       }
       "02"
       {
@@ -85,7 +85,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 12 15"
+        "bonus_armor"                                     "5 7 10 14"
       }
       "05"
       {
@@ -95,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor"                                      "3 4 5 6"
+        "aura_armor"                                      "2 4 6 8"
       }
       "07"
       {
@@ -105,7 +105,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor_bonus"                                "17 20 23 26"
+        "aura_armor_bonus"                                "10 13 17 22"
       }
       "09"
       {

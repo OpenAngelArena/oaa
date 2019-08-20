@@ -13,11 +13,12 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "50 45 40 40 40"
     "AbilityManaCost"                                     "75"
-
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -55,6 +55,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus"                                   "2" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_scepter_cast_range"                      "1000"
+        "RequiresScepter"                                 "1"
       }
     }
   }

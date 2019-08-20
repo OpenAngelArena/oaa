@@ -24,7 +24,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_manta_1;item_manta_2;item_manta_3;item_manta_4;item_manta_5"
+    "UpgradesItems"                                       "item_manta;item_manta_2;item_manta_3;item_manta_4;item_manta_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -43,22 +43,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 14 19 25 32"
+        "bonus_strength"                                  "10 15 20 30 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 31 38 47 58"
+        "bonus_agility"                                   "26 32 44 62 86"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 14 19 25 32"
+        "bonus_intellect"                                 "10 15 20 30 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 15 20 25 30"
+        "bonus_attack_speed"                              "12 15 18 21 24"
       }
       "05"
       {
