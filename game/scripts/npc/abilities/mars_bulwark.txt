@@ -7,9 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"            "6582"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6582"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,23 +20,23 @@
     {
       "01"
       {
-        "var_type"            "FIELD_INTEGER"
-        "physical_damage_reduction"   "25 40 55 70 75 80"
+        "var_type"                                        "FIELD_INTEGER"
+        "physical_damage_reduction"                       "25 35 45 55 65 75" //OAA
       }
       "02"
       {
-        "var_type"            "FIELD_INTEGER"
-        "forward_angle"         "140"
+        "var_type"                                        "FIELD_INTEGER"
+        "forward_angle"                                   "140"
       }
       "03"
       {
-        "var_type"            "FIELD_INTEGER"
-        "physical_damage_reduction_side"  "12 20 27 35 42 50"
+        "var_type"                                        "FIELD_INTEGER"
+        "physical_damage_reduction_side"                  "12 17 21 25 40 50" //OAA
       }
       "04"
       {
-        "var_type"            "FIELD_INTEGER"
-        "side_angle"          "240"
+        "var_type"                                        "FIELD_INTEGER"
+        "side_angle"                                      "240"
       }
     }
   }

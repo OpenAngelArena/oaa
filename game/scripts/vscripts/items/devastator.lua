@@ -59,6 +59,8 @@ end
 -- Impact of the projectile
 function item_devastator:OnProjectileHit( hTarget, vLocation )
   if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) then
+    local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration)
+
     -- Apply the slow debuff always
     hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
 
@@ -74,11 +76,11 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
         -- and apply Devastator active armor reduction debuff
         if math.abs(armor_reduction) > math.abs(corruption_armor) then
           hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor")
-          hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = self.devastator_armor_reduction_duration } )
+          hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
         end
       else
         -- Apply the Devastator active armor reduction debuff if Devastator passive armor reduction debuff is not there
-        hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = self.devastator_armor_reduction_duration } )
+        hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
       end
     end
 

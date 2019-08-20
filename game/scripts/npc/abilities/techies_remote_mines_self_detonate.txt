@@ -14,7 +14,6 @@
     "AbilityCastRange"                                    "0"
     "MaxLevel"                                            "1"
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -22,7 +21,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400 410 425 425 425"
+        "radius"                                          "425" //OAA, Valve has it wrong
       }
     }
   }

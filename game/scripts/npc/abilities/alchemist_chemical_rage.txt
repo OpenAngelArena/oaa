@@ -12,9 +12,11 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -47,7 +49,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "base_attack_time"                                "1.2 1.1 1.0 0.9 0.8"
-        "LinkedSpecialBonus"    "special_bonus_unique_alchemist_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_3"
       }
       "04"
       {
@@ -57,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "50 75 100 150 250"
+        "bonus_health_regen"                              "50 100 150 250 350" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_4"
       }
       "06"
@@ -74,16 +76,19 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_gold_damage"                             "2"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus_damage"                            "30"
+        "RequiresScepter"                                 "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_spell_amp"                                "6"
+        "scepter_spell_amp"                               "6"
+        "RequiresScepter"                                 "1"
       }
     }
   }

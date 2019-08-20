@@ -15,8 +15,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "0" // OAA, causes lag
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -27,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 130 135 140 170 200"
+    "AbilityManaCost"                                     "110 120 130 140 170 220"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -67,21 +70,25 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_out_pct"                         "-80 -80 -80 -80 -75 -70"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_damage"                         "20 20 20 20 25 30"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_in_pct"                          "300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_total_damage_in_pct"            "400"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "10"
       {
@@ -92,16 +99,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "400"
+        "RequiresScepter"                                 "1"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_jumps"                                   "1" //OAA, to prevent lag
+        "RequiresScepter"                                 "1"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "lance_speed_bounces"                             "700"
+        "RequiresScepter"                                 "1"
       }
     }
   }

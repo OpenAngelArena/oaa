@@ -15,6 +15,22 @@ if IsServer() then
     end
     return false
   end
+
+  function CDOTA_BaseNPC:GetValueChangedByStatusResistance(value)
+    if self and value then
+      local reduction = self:GetStatusResistance()
+
+      -- Min and Max cases
+      if reduction >= 1 then
+        return value*0.99
+      end
+      if reduction <= 0 then
+        return value
+      end
+
+      return value*(1-reduction)
+    end
+  end
 end
 
 if CDOTA_BaseNPC then

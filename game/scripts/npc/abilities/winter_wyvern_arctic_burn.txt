@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"winter_wyvern_arctic_burn"
+  "winter_wyvern_arctic_burn"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,6 +8,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
 
     "HasScepterUpgrade"                                   "1"
@@ -52,6 +54,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_duration"                                 "5.0"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
@@ -88,6 +91,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_cost_scepter"                               "30"
+        "RequiresScepter"                                 "1"
       }
     }
   }

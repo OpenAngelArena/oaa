@@ -15,8 +15,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "25"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -41,12 +41,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/power_origin"
-    // Item Info
+
+	// Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "attack_speed;int;agi;str"
+
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "power spark;power treads;treads;spark"
+    "ItemAliases"                                         "power spark;power;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -76,12 +78,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_melee"                              "30"
+        "creep_damage_melee"                              "40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_ranged"                             "30"
+        "creep_damage_ranged"                             "40"
       }
       "07"
       {

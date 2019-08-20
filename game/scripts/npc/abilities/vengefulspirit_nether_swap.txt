@@ -15,11 +15,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -57,6 +57,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "charge_restore_time_scepter"                     "10"
+        "RequiresScepter"                                 "1"
       }
     }
   }
