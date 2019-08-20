@@ -64,6 +64,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "golem_dmg_tooltip"                               "100 200 300 600 900" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
@@ -86,6 +87,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "golem_hp_tooltip_scepter"                        "750 2250 3750 5625 7500" //OAA
+        "RequiresScepter"                                 "1"
       }
         "10" // at least 75% of golem_dmg_tooltip
       {
