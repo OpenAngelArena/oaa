@@ -1,9 +1,9 @@
 //==========================================
 // Reactive Reflex
 //==========================================
-"DOTA_Tooltip_Ability_item_reflection_shard_1"                                            "Divine Reflection Shard"
-"DOTA_Tooltip_Ability_item_recipe_reflection_shard_1"                                     "Divine Reflection Shard Recipe"
-"DOTA_Tooltip_Ability_item_reflection_shard_1_Description"                                "<h1>Active: Riposte</h1> Grants %duration% seconds of invulnerability and returns targeted spells. Can store up to %max_charges% charges. Restores a charge every %charge_restore_time% seconds."
+"DOTA_Tooltip_Ability_item_reflection_shard_1"                                            "Reflection Shard"
+"DOTA_Tooltip_Ability_item_recipe_reflection_shard_1"                                     "Reflection Shard Recipe"
+"DOTA_Tooltip_Ability_item_reflection_shard_1_Description"                                "<h1>Active: Riposte</h1> Creates a reflection shell for %duration% seconds, that sends any targeted spells back towards enemies instead of affecting you. Cooldown is %cooldown_tooltip% seconds." //Can store up to %max_charges% charges. Restores a charge every %charge_restore_time% seconds."
 "DOTA_Tooltip_Ability_item_reflection_shard_1_Lore"                                       "A chromatic shard from another dimension."
 "DOTA_Tooltip_Ability_item_reflection_shard_1_bonus_all_stats"                            "+$all"
 "DOTA_Tooltip_Ability_item_reflection_shard_1_bonus_health_regen"                         "+$hp_regen"
@@ -25,6 +25,6 @@
 "DOTA_Tooltip_Ability_item_reflection_shard_3_bonus_health_regen"                         "#{DOTA_Tooltip_Ability_item_reflection_shard_1_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_reflection_shard_3_bonus_mana_regen"                           "#{DOTA_Tooltip_Ability_item_reflection_shard_1_bonus_mana_regen}"
 
-"dota_tooltip_modifier_item_reactive_reflect"                                       "Spell Reflector"
-"dota_tooltip_modifier_item_reactive_reflect_description"                           "Taking no damage and reflecting spells for a short duration"
-"dota_tooltip_modifier_reactive_immunity"                                           "Invulnerability"
+"dota_tooltip_modifier_item_reactive_reflect"                                             "Riposte"
+"dota_tooltip_modifier_item_reactive_reflect_description"                                 "Causes all spells that target you to be blocked and reflected onto the enemy."
+"dota_tooltip_modifier_reactive_immunity"                                                 "Invulnerability"
