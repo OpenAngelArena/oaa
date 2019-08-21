@@ -7,10 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5441"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5441"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +22,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times"                               "0.7 0.7 0.7 0.7 0.7"
+        "multicast_2_times"                               "0.75 0.75 0.75 0.75 0.75"
       }
       "02"
       {
@@ -34,12 +37,12 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bloodlust_aoe"                                   "575"
+        "bloodlust_aoe"                                   "700"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times_tooltip"                       "70 70 70 70 70"
+        "multicast_2_times_tooltip"                       "75"
       }
       "06"
       {

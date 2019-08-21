@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
 
@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
@@ -51,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "120 165 210 255 510 765"
+        "heal_amount"                                     "120 165 210 255 510 765" // it needs to be lower than 465
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "04"

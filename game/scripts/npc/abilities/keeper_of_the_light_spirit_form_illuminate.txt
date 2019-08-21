@@ -8,22 +8,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5479"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5479"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1800"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0 10.0 10.0 10.0 10.0 10.0"
+    "AbilityCooldown"                                     "11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "100.0 100.0 100.0 100.0 200.0 300.0"
+        "damage_per_second"                               "100.0 100.0 100.0 100.0 250.0 400.0"
       }
       "02"
       {
@@ -61,12 +61,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vision_radius"                                   "800 800 800 800 800 800"
+        "vision_radius"                                   "800"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.34 3.34 3.34 3.34 3.34 3.34"
+        "vision_duration"                                 "3.34"
       }
       "08"
       {
@@ -91,10 +91,28 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "200 300 400 500 1000 1500"
+        "total_damage"                                    "200 300 400 500 1250 2000"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
     }
+  }
+
+  //=================================================================================================================
+  // Keeper of the Light: Illuminate End
+  //=================================================================================================================
+  "keeper_of_the_light_spirit_form_illuminate_end"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5503"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"                                "ACT_INVALID"
+
+    "MaxLevel"                                            "6"
   }
 
 }

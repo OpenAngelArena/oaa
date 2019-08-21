@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Beastmaster: Call of the Wild Boar
+  // Beastmaster: Call of the Wild Boar (OAA rework)
   //=================================================================================================================
   "beastmaster_call_of_the_wild_boar_oaa"
   {
@@ -12,6 +12,7 @@
     "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
     "AbilityTextureName"                                  "beastmaster_call_of_the_wild_boar"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -35,29 +36,30 @@
     {
       "01"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "duration"                        "60"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "60"
       }
       "02"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "boar_hp_tooltip"                 "300 450 600 750 2500 5000"
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_hp_tooltip"                                 "300 450 600 750 2500 5000"
       }
       "03"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "boar_damage_tooltip"             "20 35 50 65 250 500"
-		    "LinkedSpecialBonus"	            "special_bonus_unique_beastmaster_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_damage_tooltip"                             "20 35 50 65 250 500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
-        "var_type"                        "FIELD_INTEGER"
-        "boar_moveslow_tooltip"           "10 20 30 40 100 160"
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_moveslow_tooltip"                           "10 20 30 40 100 160"
       }
       "05"
       {
-        "var_type"                        "FIELD_FLOAT"
-        "boar_poison_duration_tooltip"    "3.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "boar_poison_duration_tooltip"                    "3.0"
       }
     }
   }

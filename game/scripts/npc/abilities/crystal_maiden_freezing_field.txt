@@ -89,7 +89,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "125 200 275 600 950" //OAA
+        "damage"                                          "125 250 375 675 975" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
       }
       "11"
@@ -101,6 +101,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_delay"                                   "2.5"
+        "RequiresScepter"                                 "1"
       }
     }
   }

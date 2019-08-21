@@ -25,9 +25,7 @@
     "ItemRequirements"
     {
       "01"                        "item_helm_of_the_dominator_3;item_upgrade_core_3"
-      "02"                        "item_helm_of_the_dominator_3;item_upgrade_core_4"
-      "03"                        "item_vladmir_3;item_upgrade_core_3"
-      "04"                        "item_vladmir_3;item_upgrade_core_4"
+      "02"                        "item_vladmir_3;item_upgrade_core_3"
     }
   }
 
@@ -106,7 +104,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_bounty"			"200"
+				"bounty_gold"			"200"
 			}
     }
   }

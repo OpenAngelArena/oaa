@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_veil_of_discord;item_upgrade_core"
-      "02"                                                "item_veil_of_discord;item_upgrade_core_2"
-      "03"                                                "item_veil_of_discord;item_upgrade_core_3"
-      "04"                                                "item_veil_of_discord;item_upgrade_core_4"
     }
   }
 
@@ -73,7 +70,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 20 29"
+        "bonus_armor"                                     "6 8 11 15 20"
       }
       "03"
       {
@@ -87,7 +84,7 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_int"                                       "15 20 30 45 68"
       }
       "06"

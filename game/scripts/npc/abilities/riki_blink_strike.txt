@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 600 700 800 900 1000"
+    "AbilityCastRange"                                    "600 700 800 900 1000 1100"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "500 600 700 800 900 1000"
+        "tooltip_range"                                   "600 700 800 900 1000 1100"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_3"
       }
       "02"
