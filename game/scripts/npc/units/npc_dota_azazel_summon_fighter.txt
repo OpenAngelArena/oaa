@@ -29,8 +29,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1700"       // Damage range min.
-    "AttackDamageMax"                                     "1700"       // Damage range max.
+    "AttackDamageMin"                                     "1000"       // Damage range min.
+    "AttackDamageMax"                                     "1000"       // Damage range max.
     "AttackRate"                                          "1"
     "AttackAnimationPoint"                                "0.6"
     "AttackAcquisitionRange"                              "700"
@@ -46,9 +46,9 @@
 
     // Bounty
 		//----------------------------------------------------------------
-    "BountyXP"                                            "124"
-    "BountyGoldMin"                                       "64"
-    "BountyGoldMax"                                       "71"
+    "BountyXP"                                            "1000"
+    "BountyGoldMin"                                       "1000"
+    "BountyGoldMax"                                       "2000"
 
     // Movement
     //----------------------------------------------------------------
@@ -58,13 +58,13 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "50000"
+    "StatusHealth"                                        "40000"
     "StatusHealthRegen"                                   "0.5"
     "StatusMana"                                          "400"
     "StatusManaRegen"                                     "1.0"
 
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
