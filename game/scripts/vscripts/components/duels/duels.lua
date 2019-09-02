@@ -334,7 +334,7 @@ function Duels:SplitDuelPlayers(options)
     playerSplitOffset = maxPlayers - playerSplitOffset
   end
 
-  if options.isFinalDuel then
+  if options.isFinalDuel or HeroSelection.isCM then
     playerSplitOffset = 0
   end
 

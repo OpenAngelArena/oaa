@@ -9,37 +9,37 @@ local FirstZones = {
 local Zones = {
 -- TODO, change this. These should be zones in the map or programatically generated
 -- hard coded is a bad in-between with the disadvantages of both
-  { left = Vector( -1280, -640, 0), right = Vector( 1280, 768, 0) }, --Zones
+  { left = Vector( -1280, -1000, 0), right = Vector( 1280, 1000, 0) }, --Zones
   { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
   { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
-  { left = Vector( -960, -1280, 0), right = Vector( 1152, 1280, 0) },
-  { left = Vector( -640, -1664, 0), right = Vector( 1024, 1664, 0) },
+  { left = Vector( -960, -1280, 0), right = Vector( 1152, 1180, 0) },
+  { left = Vector( -640, -1664, 0), right = Vector( 640, 1800, 0) },
   { left = Vector( -2048, -1408, 0), right = Vector( 1792, 1280, 0) },
-  { left = Vector( -2304, -2048, 0), right = Vector( 2304, 2048, 0) },
-  { left = Vector( -1664, -1920, 0), right = Vector( 1920, 1920, 0) },
+  { left = Vector( -2304, -2048, 0), right = Vector( 2304, 2048, 0) },  -- in the stairs
+  { left = Vector( -1700, -2300, 0), right = Vector( 1920, 1920, 0) },
   { left = Vector( -1408, -3200, 128), right = Vector( 1408, 3200, 128) },
-  { left = Vector( -1792, -2816, 128), right = Vector( 1792, 2816, 128) },
+  { left = Vector( -2492, -3216, 128), right = Vector( 1892, 3016, 128) },
   { left = Vector( -2304, -2944, 128), right = Vector( 2304, 2944, 128) },
   { left = Vector( -1566, -3584, 128), right = Vector( 1566, 3584, 128) },
   { left = Vector( -1152, -4096, 128), right = Vector( 1152, 4096, 128) },
-  { left = Vector( -2944, -3072, 128), right = Vector( 2944, 3072, 128) },
-  { left = Vector( -3584, -3072, 128), right = Vector( 3584, 3072, 128) },
+  { left = Vector( -2650, -3072, 128), right = Vector( 2650, 3072, 128) },
+  { left = Vector( -3584, -3072, 128), right = Vector( 3496, 3072, 128) },
   { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) },
-  { left = Vector( -1280, 768, 0), right = Vector( 1280, -768, 0) },
-  { left = Vector( -1920, 768, 0), right = Vector( 1920, -768, 0) },
+  { left = Vector( -2047, 670, 0), right = Vector( 2052, -625, 0) },
+  { left = Vector( -1920, 768, 0), right = Vector( 1920, -768, 0) },  -- same as the second one
   { left = Vector( -2176, 384, 0), right = Vector( 2176, -384, 0) },
   { left = Vector( -1024, 1280, 0), right = Vector( 1152, -1280, 0) },
   { left = Vector( -1024, 1664, 0), right = Vector( 1024, -1664, 0) },
-  { left = Vector( -1664, 1280, 0), right = Vector( 1792, -1280, 0) },
-  { left = Vector( -2304, 2048, 0), right = Vector( 2304, -2048, 0) },
+  { left = Vector( -1664, 1280, 0), right = Vector( 2192, -1380, 0) },
+  { left = Vector( -1726, 1924, 0), right = Vector( 1798, -2007, 0) },
   { left = Vector( -1664, 1920, 0), right = Vector( 1664, -1920, 0) },
   { left = Vector( -1408, 3200, 128), right = Vector( 1408, -3200, 128) },
-  { left = Vector( -1792, 2816, 128), right = Vector( 1792, -2816, 128) },
+  { left = Vector( -1792, 2816, 128), right = Vector( 2000, -2816, 128) },
   { left = Vector( -2304, 2944, 128), right = Vector( 2304, -2944, 128) },
   { left = Vector( -1566, 3584, 128), right = Vector( 1566, -3584, 128) },
   { left = Vector( -1152, 4096, 128), right = Vector( 1152, -4096, 128) },
-  { left = Vector( -2944, 3072, 128), right = Vector( 2944, -3072, 128) },
-  { left = Vector( -3584, 3072, 128), right = Vector( 3584, -3072, 128) },
+  { left = Vector( -3121, 3885, 128), right = Vector( 2709, -3830, 128) },
+  { left = Vector( -3584, 3072, 128), right = Vector( 3363, -3228, 128) },
   { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
 local NumZones = 32

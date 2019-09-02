@@ -50,7 +50,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "90.0"
+    "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "hand_of_midas"
 
     "MaxUpgradeLevel"                                     "3"
@@ -77,12 +77,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "1.85 3 4.5"
+        "xp_multiplier"                                   "1.85 3 4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "200 385 760"
+        "bonus_gold"                                      "160 350 550"
       }
       "04"
       {
