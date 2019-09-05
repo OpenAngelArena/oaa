@@ -12,7 +12,8 @@ if Gold == nil then
 end
 
 local GOLD_CAP = 50000
-local GPM_TICK_INTERVAL = 5
+local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in settings.lua
+local GOLD_PER_INTERVAL = GOLD_PER_TICK or 2   -- GOLD_PER_TICK is located in settings.lua
 
 function Gold:Init()
   -- a table for every player
@@ -169,8 +170,9 @@ end
 function Gold:PassiveGPM()
   local time = HudTimer:GetGameTime()
   if time and time > 0 then
-    local goldTick =  math.floor(time/GPM_TICK_INTERVAL);
-    GameRules:SetGoldPerTick((goldTick*goldTick - 28*goldTick + 7688)*15/13800)
+    local tick =  math.floor(time/GPM_TICK_INTERVAL)
+    local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor((tick*tick - 140*tick + 192200)/115000))
+    GameRules:SetGoldPerTick(gold_per_tick) -- SetGoldPerTick accepts integers
   else
     GameRules:SetGoldPerTick(0)
   end
