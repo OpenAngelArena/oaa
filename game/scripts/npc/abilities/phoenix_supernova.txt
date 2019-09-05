@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5630"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5630"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -17,8 +17,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
@@ -26,12 +29,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110.0 110.0 110.0"
+    "AbilityCooldown"                                     "90" //OAA
     "AbilityDuration"                                     "6.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 200 200 275 350"
+    "AbilityManaCost"                                     "200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,9 +48,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_sec"                                  "60 90 120 280 450"
+        "damage_per_sec"                                  "60 120 240 360 480" //OAA
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -65,6 +67,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_hero_attacks_scepter"                        "9 12 15 18 21" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
@@ -75,6 +78,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_tooltip_scepter"                      "500"
+        "RequiresScepter"                                 "1"
       }
     }
   }

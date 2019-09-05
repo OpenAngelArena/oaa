@@ -95,23 +95,25 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
 
     if enemies then
       for _, enemy in pairs(enemies) do
-          local damage = {
-                      victim = enemy,
-                      attacker = caster,
-                      damage_type = DAMAGE_TYPE_MAGICAL,
-                      ability = self.ability
-          }
-          -- Is the enemy a boss?
-          if enemy:FindAbilityByName( "boss_resistance" ) then
-             damage.damage = self.impact_damage_bosses
-          else
-            damage.damage = self.impact_damage
-          end
+        local damage = {
+          victim = enemy,
+          attacker = caster,
+          damage_type = DAMAGE_TYPE_MAGICAL,
+          ability = self.ability
+        }
+        -- Is the enemy a boss?
+        if enemy:FindAbilityByName( "boss_resistance" ) then
+          damage.damage = self.impact_damage_bosses
+        else
+          damage.damage = self.impact_damage
+        end
 
         ApplyDamage( damage )
-        --Applies danage and stun
+        -- Apply damage-over-time debuff (duration is not affected by status resistance)
         enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_damage_over_time", {duration = self.burn_duration} )
-        enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = self.stun_duration} )
+        -- Apply stun debuff (duration is affected by status resistance)
+        local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+        enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration} )
       end-- end of for enemy pairs
     end-- end of if enemies statemnt
 

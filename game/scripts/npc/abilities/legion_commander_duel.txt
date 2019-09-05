@@ -17,7 +17,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -37,7 +39,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -45,18 +46,20 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.75 5.5 6.25 7.0"
+        "duration"                                        "5.0 5.5 6.0 6.5 7.0" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_scepter"                                "6 7 8 9 10"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reward_damage"                                   "10 18 26 42 58"
+        "reward_damage"                                   "12 24 36 48 60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {

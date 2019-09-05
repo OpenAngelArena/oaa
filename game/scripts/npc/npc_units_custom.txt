@@ -11,6 +11,7 @@
 #base "units/twin/npc_dota_boss_twin.txt"
 #base "units/twin/npc_dota_boss_twin_dumb.txt"
 #base "units/swiper/npc_dota_boss_swiper.txt"
+#base "units/wanderer/npc_dota_boss_wanderer.txt"
 
 #base "units/stopfightingyourself/stopfightingyourself.txt"
 
@@ -47,19 +48,20 @@
 #base "units/boss/npc_dota_boss_simple_7.txt"
 
 
-
-#base "units/npc_dota_azazel_summon_farmer_1.txt"
-#base "units/npc_dota_azazel_summon_farmer_2.txt"
-#base "units/npc_dota_azazel_summon_farmer_3.txt"
-#base "units/npc_dota_azazel_summon_farmer_4.txt"
-#base "units/npc_dota_azazel_summon_scout_1.txt"
-#base "units/npc_dota_azazel_summon_scout_2.txt"
-#base "units/npc_dota_azazel_summon_scout_3.txt"
+#base "units/npc_dota_azazel_summon_fighter.txt"
+//#base "units/npc_dota_azazel_summon_farmer_1.txt"
+//#base "units/npc_dota_azazel_summon_farmer_2.txt"
+//#base "units/npc_dota_azazel_summon_farmer_3.txt"
+//#base "units/npc_dota_azazel_summon_farmer_4.txt"
+//#base "units/npc_dota_azazel_summon_scout_1.txt"
+//#base "units/npc_dota_azazel_summon_scout_2.txt"
+//#base "units/npc_dota_azazel_summon_scout_3.txt"
 #base "units/npc_dota_azazel_summon_scout_4.txt"
-#base "units/npc_dota_azazel_summon_tank_1.txt"
-#base "units/npc_dota_azazel_summon_tank_2.txt"
-#base "units/npc_dota_azazel_summon_tank_3.txt"
-#base "units/npc_dota_azazel_summon_tank_4.txt"
+//#base "units/npc_dota_azazel_summon_tank_1.txt"
+//#base "units/npc_dota_azazel_summon_tank_2.txt"
+//#base "units/npc_dota_azazel_summon_tank_3.txt"
+//#base "units/npc_dota_azazel_summon_tank_4.txt"
+
 
 #base "units/boss/tier5_bosses/charger/npc_dota_boss_charger_tier5.txt"
 #base "units/boss/tier5_bosses/shielder/npc_dota_boss_shielder_tier5.txt"
@@ -95,6 +97,7 @@
 #base "units/boss/tier5_bosses/npc_dota_boss_simple_7_tier5.txt"
 
 #base "units/misc/npc_dota_creature_pedestal.txt"
+#base "units/misc/npc_dota_core_guy.txt"
 
 #base "units/npc_dota_beastmaster_boar_1.txt"
 #base "units/npc_dota_beastmaster_boar_2.txt"
@@ -128,8 +131,8 @@
 #base "units/npc_dota_furion_treant_large_6.txt"
 #base "units/npc_dota_giant_eidolon.txt"
 #base "units/npc_dota_healing_mine.txt"
-#base "units/npc_dota_hero_sohei.txt"
-#base "units/npc_dota_hero_electrician.txt"
+//#base "heroes/sohei.txt"
+//#base "heroes/chatterjee.txt"
 #base "units/npc_dota_lone_druid_bear1.txt"
 #base "units/npc_dota_lone_druid_bear2.txt"
 #base "units/npc_dota_lone_druid_bear3.txt"
@@ -160,6 +163,9 @@
 #base "units/npc_dota_neutral_beardude.txt"
 #base "units/npc_dota_pugna_nether_ward_5.txt"
 #base "units/npc_dota_pugna_nether_ward_6.txt"
+#base "units/npc_dota_shadow_shaman_ward_1.txt"
+#base "units/npc_dota_shadow_shaman_ward_2.txt"
+#base "units/npc_dota_shadow_shaman_ward_3.txt"
 #base "units/npc_dota_shadow_shaman_ward_4.txt"
 #base "units/npc_dota_shadow_shaman_ward_5.txt"
 #base "units/npc_dota_spell_totem.txt"
@@ -173,11 +179,14 @@
 #base "units/npc_dota_venomancer_plague_ward_6.txt"
 #base "units/npc_dota_visage_familiar4.txt"
 #base "units/npc_dota_visage_familiar5.txt"
+#base "units/npc_dota_warlock_golem_1.txt"
+#base "units/npc_dota_warlock_golem_2.txt"
 #base "units/npc_dota_warlock_golem_3.txt"
 #base "units/npc_dota_warlock_golem_4.txt"
 #base "units/npc_dota_warlock_golem_5.txt"
 #base "units/dota_fountain.txt"
 #base "units/npc_dota_mini_roshan.txt"
+#base "units/npc_dota_monkey_clone_oaa.txt"
 
 #base "units/npc_dota_punching_bag.txt"
 

@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6000"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemAliases"                                         "hom"
 
@@ -47,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "90.0"
+    "AbilityCooldown"                                     "45.0"
     "AbilitySharedCooldown"                               "hand_of_midas"
 
     "MaxUpgradeLevel"                                     "3"
@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "11150"
+    "ItemCost"                                            "7150"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas 3;midas 3"
@@ -74,12 +74,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "1.85 3 4.5"
+        "xp_multiplier"                                   "1.85 3 4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "200 385 760"
+        "bonus_gold"                                      "160 350 550"
       }
       "04"
       {

@@ -7,18 +7,18 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "97"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "97"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "775"
-    "ItemShopTags"          ""
+    "ItemCost"                                            "775"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_orchid"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_orchid"
     "ItemRequirements"
     {
       "01"            "item_oblivion_staff;item_oblivion_staff"
@@ -32,19 +32,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "98"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"       "1"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "ID"                                                  "98"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "FightRecapLevel"                                     "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "900"
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "18.0"
-    "AbilitySharedCooldown"     "orchid"
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "orchid"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "2"
@@ -53,13 +54,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "100"
-    "ItemCost"            "4075"
-    "ItemShopTags"          "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
-    "ItemQuality"         "rare"
-    "ItemAliases"         "orchid malevolence"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"       "1"
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "4075"
+    "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "orchid malevolence;silence"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,38 +68,38 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "25 35"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "25"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_attack_speed"  "30 35"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "30"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "30 60"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "30"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"    "5.5 6.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "5.5"
       }
       "05"
       {
-        "var_type"        "FIELD_FLOAT"
-        "silence_damage_percent"  "30"
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_damage_percent"                          "30"
       }
       "06"
       {
-        "var_type"        "FIELD_FLOAT"
-        "silence_duration"    "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "5"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_range"     "900"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "900"
       }
     }
   }

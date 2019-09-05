@@ -41,12 +41,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900 900 900 900 1100 1300"
+        "radius"                                          "900"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "5 8 11 14 23 32"
+        "movespeed"                                       "5 8 11 14 17 20"
       }
       "03"
       {
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tether_heal_amp"                                 "1.05 1.2 1.35 1.5 1.7 2.0"
+        "tether_heal_amp"                                 "0.6 0.9 1.2 1.5 1.6 1.7"
       }
       "06"
       {

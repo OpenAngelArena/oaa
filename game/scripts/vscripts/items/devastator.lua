@@ -58,44 +58,46 @@ end
 
 -- Impact of the projectile
 function item_devastator:OnProjectileHit( hTarget, vLocation )
-	if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) then
+  if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) then
+    local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration)
 
-    --apply modifiers
+    -- Apply the slow debuff always
+    hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
 
-    -- check the current devastator_armor_reduction and the corruption_armor check the higher
+    -- Armor reduction values
     local armor_reduction = self:GetSpecialValueFor( "devastator_armor_reduction" )
     local corruption_armor = self:GetSpecialValueFor( "corruption_armor" )
 
-
-    -- if already has applied corruption
-    if hTarget:HasModifier("modifier_item_devastator_corruption_armor") then
-      -- if corruption is higher than armor reduction just exit
-      if   corruption_armor < armor_reduction then
-        return false
+    -- If the target has Desolator debuff then skip applying Devastator armor reduction debuffs
+    if not hTarget:HasModifier("modifier_desolator_buff") then
+      -- if the target has Devastator passive armor reduction debuff then check which armor reduction is better
+      if hTarget:HasModifier("modifier_item_devastator_corruption_armor") then
+        -- If active armor reduction is better than passive then remove Devastator passive armor reduction debuff
+        -- and apply Devastator active armor reduction debuff
+        if math.abs(armor_reduction) > math.abs(corruption_armor) then
+          hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor")
+          hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
+        end
+      else
+        -- Apply the Devastator active armor reduction debuff if Devastator passive armor reduction debuff is not there
+        hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
       end
-      -- so in this case should remove corruption and applied
-      hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor");
-
     end
-    -- if there is no other just applied it
-    hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = self.devastator_armor_reduction_duration } )
-    hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
 
-    -- deal damage
-
-		local damage = {
-			victim = hTarget,
-			attacker = self:GetCaster(),
-			damage = self.devastator_damage,
-			damage_type = DAMAGE_TYPE_PHYSICAL,
-			ability = self
-		}
+    -- Damage part should always be applied
+    local damage = {
+      victim = hTarget,
+      attacker = self:GetCaster(),
+      damage = self.devastator_damage,
+      damage_type = DAMAGE_TYPE_PHYSICAL,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+      ability = self
+    }
 
 		ApplyDamage( damage )
     self:GetCaster():PerformAttack(hTarget, true, true, true, false, false, false, true)
 
-    --particles
-
+    -- Particles
 		local vDirection = vLocation - self:GetCaster():GetOrigin()
 		vDirection.z = 0.0
 		vDirection = vDirection:Normalized()

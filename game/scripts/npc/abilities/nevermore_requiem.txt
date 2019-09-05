@@ -14,11 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -64,6 +65,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_reduction_damage"                        "-50 -60 -70 -80 -90" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
@@ -109,11 +111,14 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_heal_pct_scepter"                        "100"
+        "RequiresScepter"                                 "1"
       }
       "14"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_damage_pct_scepter"                      "40"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

@@ -31,10 +31,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "35 40 45 50 55 60"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "26 34 42 50 90 130"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0" // modifier is damage only.
@@ -47,6 +43,8 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "stack_damage"                                    "20 35 50 65 140 215"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
       "02"
       {
@@ -57,6 +55,8 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_stack_damage"                              "50"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
       "04"
       {
@@ -72,6 +72,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_duration"                                "10"
+      }
+      "07" // Damage that is applied every time shadow poison is applied.
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hit_damage"                                      "26 34 42 50 90 130"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
     }
   }

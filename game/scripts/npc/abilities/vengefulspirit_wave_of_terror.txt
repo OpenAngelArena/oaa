@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 9.5 9"
+    "AbilityCooldown"                                     "16 14 12 10 10 10"
     "AbilityDuration"                                     "8"
 
     // Damage.
@@ -52,8 +52,8 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-3 -4 -5 -6 -11 -16"
-        "LinkedSpecialBonus"  "special_bonus_unique_vengeful_spirit_4"
+        "armor_reduction"                                 "-3 -4 -5 -6 -8 -12"
+        "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_4"
       }
       "04"
       {
@@ -73,5 +73,4 @@
 
     }
   }
-
 }
