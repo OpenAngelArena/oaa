@@ -171,7 +171,7 @@ function Gold:PassiveGPM()
   local time = HudTimer:GetGameTime()
   if time and time > 0 then
     local tick =  math.floor(time/GPM_TICK_INTERVAL)
-    local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor((tick*tick - 140*tick + 192200)/115000))
+    local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
     GameRules:SetGoldPerTick(gold_per_tick) -- SetGoldPerTick accepts integers
   else
     GameRules:SetGoldPerTick(0)
