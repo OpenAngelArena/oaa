@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -37,7 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "90 140 190 240 290 340" //OAA
+        "attack_speed_bonus_pct"                          "90 120 150 180 210 260" //OAA, for picking screen tooltip
       }
     }
   }

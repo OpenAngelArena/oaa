@@ -13,15 +13,16 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +36,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "320 485 650 980 2300"
+    "AbilityDamage"                                       "320 650 980 1640 2300" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -63,18 +64,20 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "total_cast_time_tooltip"                         "2"
-        "LinkedSpecialBonus"  "special_bonus_unique_sniper_4"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_4"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "400"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_crit_bonus"                              "280"
+        "scepter_crit_bonus"                              "280 320 360 400 450" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

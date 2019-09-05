@@ -39,19 +39,23 @@
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "AbilitySharedCooldown"     "urn"
-    "AbilityCooldown"       	"7.0"
-    "AbilityTextureName"            "custom/spirit_vessel_5"
+
+    "AbilitySharedCooldown"           "urn"
+    "AbilityCooldown"                 "7.0"
+    "AbilityTextureName"              "custom/spirit_vessel_5"
+
+	"AbilityCastRange"                                    "950"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "MaxUpgradeLevel"                 "5"
+    "ItemBaseLevel"                   "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "35975"
-    "ItemAliases"         "sv 5;spirit vessel 5"
+    "ItemCost"                        "35975"
+    "ItemAliases"                     "sv 5;spirit vessel 5"
+    "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -80,7 +84,7 @@
       "05"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_armor"           "2 6 10 14 20"
+        "bonus_armor"           "2 4 7 11 16"
       }
       "06"
       {
@@ -120,12 +124,12 @@
       "13"
       {
         "var_type"        "FIELD_INTEGER"
-        "hp_regen_reduction_enemy"  "70"
+        "hp_regen_reduction_enemy"  "60 70 80 90 100"
       }
       "14"
       {
         "var_type"        "FIELD_FLOAT"
-        "enemy_hp_drain"    "5"
+        "enemy_hp_drain"    "4"
       }
     }
   }

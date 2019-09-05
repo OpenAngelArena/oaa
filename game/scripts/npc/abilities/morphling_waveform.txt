@@ -12,23 +12,25 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "700 800 900 1000 1000 1000"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 15 13 11 11 11"
+    "AbilityCooldown"                                     "20 17 14 11 11 11"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 175 250 325 675 1050" //OAA
+    "AbilityDamage"                                       "75 150 225 300 650 1000"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 155 160 165 195 225"
+    "AbilityManaCost"                                     "150 155 160 165 195 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +49,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "17 15 13 11 11 11" //OAA
+        "charge_restore_time"                             "20 17 14 11 11 11"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range_tooltip"                                   "700 800 900 1000 1000 1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_morphling_1"
       }
     }
   }
