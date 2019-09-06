@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "5.0.0"
+GAME_VERSION = "5.12.2"
 
 -- Setup the main logger
 require('internal/logging')
@@ -73,7 +73,7 @@ function Precache( context )
     if value == 1 then
       local hero = string.sub(key, 15)
       -- PrecacheResource("particle_folder", "particles/econ/items/" .. hero, context)
-      PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
+      -- PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
     end
   end
 

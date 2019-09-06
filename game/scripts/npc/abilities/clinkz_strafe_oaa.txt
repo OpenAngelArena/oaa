@@ -1,24 +1,28 @@
 ﻿"DOTAAbilities"
 {
   //=================================================================================================================
-  // Clinkz: Strafe
+  // Clinkz: Strafe (OAA rework)
   //=================================================================================================================
   "clinkz_strafe_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "ability_lua"
-    "ID"                  "85259"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "ID"                                                  "85259"
+    "BaseClass"                                           "ability_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityTextureName"      "clinkz_strafe"
-    "ScriptFile"          "abilities/oaa_clinkz_strafe.lua"
+    "AbilityTextureName"                                  "clinkz_strafe"
+    "ScriptFile"                                          "abilities/oaa_clinkz_strafe.lua"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30 25 20 15 15 15"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "90 140 190 240 290 340"
+        "attack_speed_bonus_pct"                          "90 120 150 180 210 260"
       }
     }
   }

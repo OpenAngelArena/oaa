@@ -23,9 +23,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_kaya_and_sange;item_upgrade_core"
-      "02"                                                "item_kaya_and_sange;item_upgrade_core_2"
-      "03"                                                "item_kaya_and_sange;item_upgrade_core_3"
-      "04"                                                "item_kaya_and_sange;item_upgrade_core_4"
+      "02"                                                "item_sange_and_yasha;item_upgrade_core"
+      "03"                                                "item_yasha_and_kaya;item_upgrade_core"
     }
   }
   //=================================================================================================================
@@ -51,8 +50,8 @@
     "ItemCost"            "5600"
     "ItemShopTags"          "damage;str;agi;attack_speed;unique"
     "ItemQuality"         "artifact"
-    "ItemAliases"         "snk;s&k;sk;sange and kaya"
-    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"         "snk 2;s&k 2;sk 2;sange and kaya 2"
+    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"       "1"
 
@@ -62,33 +61,33 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 32 32 48 72"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "16 24 32 48 72"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 32 32 48 72"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "8 12 16 18 21" //OAA
+        "status_resistance"                               "16 17 18 19 20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" //OAA
+        "manacost_reduction"                              "16 18 22 28 34"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 18 26 34 42" //OAA
+        "spell_amp"                                       "12 18 26 34 42"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "8 20 28 44 68" //OAA
+        "bonus_damage"                                    "12 20 28 44 68"
       }
     }
   }

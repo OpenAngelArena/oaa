@@ -18,8 +18,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_illusions"                                   "4 6 8 8 8" //OAA
-        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer_3"
+        "max_illusions"                                   "4" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_3"
       }
       "02"
       {
@@ -39,22 +39,26 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "-76 -76 -76 -72 -68" //OAA
+        "illusion_damage_out_pct"                         "-70 -60 -40 -25 -10" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_damage"                         "20 20 20 24 28"  //OAA
+        "tooltip_illusion_damage"                         "30 40 60 75 90" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "550"
+        "illusion_damage_in_pct"                          "400" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_total_illusion_damage_in_pct"            "650"
+        "tooltip_total_illusion_damage_in_pct"            "500" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {

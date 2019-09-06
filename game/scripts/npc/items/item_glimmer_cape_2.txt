@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_pipe;item_upgrade_core"
-      "02"                                                "item_pipe;item_upgrade_core_2"
-      "03"                                                "item_pipe;item_upgrade_core_3"
-      "04"                                                "item_pipe;item_upgrade_core_4"
     }
   }
 
@@ -79,7 +76,7 @@
       "03"
       {
         "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6"
+        "fade_delay"              "0.6 0.55 0.5 0.45 0.4"
       }
       "04"
       {

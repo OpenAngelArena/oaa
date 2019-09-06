@@ -16,13 +16,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
+    "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -32,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 55 70 105 175"
+    "AbilityManaCost"                                     "40 55 70 100 190"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_damage_pct"                             "16 22 28 68 116"
+        "distance_damage_pct"                             "16 24 32 56 80" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_4"
       }
       "02"
@@ -53,6 +54,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_range_scepter"                      "190"
+        "RequiresScepter"                                 "1"
       }
     }
   }

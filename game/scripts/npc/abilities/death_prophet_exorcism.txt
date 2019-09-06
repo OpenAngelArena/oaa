@@ -14,9 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -64,12 +67,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "59 59 59 156 254"
+        "min_damage"                                      "69 69 69 156 254" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "64 64 64 169 276"
+        "max_damage"                                      "74 74 74 169 276" //OAA
       }
       "08"
       {
@@ -79,12 +82,42 @@
       "09" // average_damage is important for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "62 62 62 162 265" //OAA, Valve has it wrong
+        "average_damage"                                  "72 72 72 162 265" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "ghost_spawn_rate"                                "0.35"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_movespeed_slow"                          "100"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_movespeed_debuff_duration"               "0.3"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spirit_life_duration"                    "20"
+        "RequiresScepter"                                 "1"
+      }
+      "14" // this is a percentage bonus
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spirit_bonus_damage"                     "75 75 75 100 125"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_tooltip"                                "35"
       }
     }
   }

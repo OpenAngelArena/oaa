@@ -15,16 +15,19 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+
     "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "4.0"
-    "AbilityCooldown"                                     "22 18 14 10 10 10"
+    "AbilityCooldown"                                     "16 14 12 10 10 10" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "225 300 375 450 500 600"
+    "AbilityCastRange"                                    "225 300 375 450 525 600"
     "AbilityCastPoint"                                    "0.25"
 
     // Cost
@@ -34,7 +37,6 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5" // applies multiple modifiers
-
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,22 +61,25 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "225 300 375 450 500 600"
+        "cast_range_tooltip"                              "225 300 375 450 525 600"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges_scepter"                             "2"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "charge_restore_time_scepter"                     "10" //OAA, same as the lowest cd
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range_bonus"                             "300"
+        "RequiresScepter"                                 "1"
       }
     }
   }

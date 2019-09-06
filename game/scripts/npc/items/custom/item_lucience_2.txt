@@ -24,11 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_lucience;item_upgrade_core_3"
-      "02"                                                "item_lucience;item_upgrade_core_4"
-      "03"                                                "item_ancient_janggo_3;item_upgrade_core_3"
-      "04"                                                "item_ancient_janggo_3;item_upgrade_core_4"
-      "05"                                                "item_sonic;item_upgrade_core_3"
-      "06"                                                "item_sonic;item_upgrade_core_4"
+      "02"                                                "item_ancient_janggo_3;item_upgrade_core_3"
+      "03"                                                "item_sonic;item_upgrade_core_3"
     }
   }
 
@@ -73,22 +70,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "65"
+        "bonus_all_stats"                                 "30 45 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen_bonus"                                     "70 140 270"
+        "regen_bonus"                                     "70 140 280"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "20 40 60"
+        "speed_bonus"                                     "20 25 30"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1000"
+        "aura_radius"                                     "1200"
       }
       "05"
       {

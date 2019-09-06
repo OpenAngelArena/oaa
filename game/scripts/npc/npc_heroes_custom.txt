@@ -1,5 +1,6 @@
 #base "heroes/abaddon.txt"
 #base "heroes/abyssal_underlord.txt"
+#base "heroes/alchemist.txt"
 #base "heroes/ancient_apparition.txt"
 #base "heroes/bane.txt"
 #base "heroes/beastmaster.txt"
@@ -11,6 +12,7 @@
 #base "heroes/clinkz.txt"
 #base "heroes/crystal_maiden.txt"
 #base "heroes/dark_willow.txt"
+#base "heroes/dazzle.txt"
 #base "heroes/disruptor.txt"
 #base "heroes/dragon_knight.txt"
 #base "heroes/earth_spirit.txt"
@@ -24,7 +26,9 @@
 #base "heroes/legion_commander.txt"
 #base "heroes/lich.txt"
 #base "heroes/lion.txt"
+#base "heroes/luna.txt"
 #base "heroes/mirana.txt"
+#base "heroes/monkey_king.txt"
 #base "heroes/nevermore.txt"
 #base "heroes/nyx_assassin.txt"
 #base "heroes/obsidian_destroyer.txt"
@@ -32,6 +36,7 @@
 #base "heroes/omniknight.txt"
 #base "heroes/oracle.txt"
 #base "heroes/pangolier.txt"
+#base "heroes/phantom_lancer.txt"
 #base "heroes/phoenix.txt"
 #base "heroes/puck.txt"
 #base "heroes/pudge.txt"
@@ -42,6 +47,7 @@
 #base "heroes/silencer.txt"
 #base "heroes/skywrath_mage.txt"
 #base "heroes/slardar.txt"
+#base "heroes/storm_spirit.txt"
 #base "heroes/techies.txt"
 #base "heroes/tidehunter.txt"
 #base "heroes/timbersaw.txt"
@@ -56,56 +62,14 @@
 #base "heroes/weaver.txt"
 #base "heroes/winter_wyvern.txt"
 #base "heroes/witch_doctor.txt"
+#base "heroes/vengeful_spirit.txt"
 #base "heroes/zeus.txt"
 
 #base "heroes/dummy_dummy.txt"
+#base "heroes/sohei.txt"
+#base "heroes/chatterjee.txt"
 
 "DOTAHeroes"
 {
-  //=================================================================================================================
-  // HERO: Ronin
-  //=================================================================================================================
-  "npc_dota_hero_sohei"
-  {
-    "BaseClass"                 "npc_dota_hero_juggernaut"
-    "HeroID"                    "125"
-    "Model"                     "models/heroes/juggernaut/juggernaut.vmdl"
 
-    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementTurnRate"          "1.5"
-    "MovementSpeed"             "325"
-
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "31"
-    "AttackDamageMax"           "33"
-    "AttackRate"                "1.7"
-
-    "ArmorPhysical"             "5"
-    "StatusHealthRegen"         "3.25"
-
-    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.5"
-    "AttributeBaseAgility"      "18"
-    "AttributeAgilityGain"      "1.5"
-    "AttributeBaseIntelligence" "17"
-    "AttributeIntelligenceGain" "1.5"
-
-    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
-  }
-  //=================================================================================================================
-  // HERO: Electrician
-  //=================================================================================================================
-  "npc_dota_hero_electrician"
-  {
-    "BaseClass"                 "npc_dota_hero_dazzle"
-    "HeroID"                    "126"
-    "Model"                     "models/heroes/dazzle/dazzle.vmdl"
-
-    // Attributes
-    //-------------------------------------------------------------------------------------------------------------
-    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-  }
 }

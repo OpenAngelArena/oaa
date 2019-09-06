@@ -12,9 +12,11 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -23,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "55.0"
+    "AbilityCooldown"                                     "55.0 50.0 45.0 45.0 45.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 100 150 275 400"
+    "AbilityManaCost"                                     "50 100 150 300 400"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,8 +48,8 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.2 1.1 1.0 0.9 0.8"
-        "LinkedSpecialBonus"    "special_bonus_unique_alchemist_3"
+        "base_attack_time"                                "1.2 1.1 1.0 1.0 0.9"
+        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_3"
       }
       "04"
       {
@@ -57,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "50 75 100 150 250"
+        "bonus_health_regen"                              "50 100 150 250 350" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_4"
       }
       "06"
@@ -69,6 +71,24 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movespeed"                                 "40 50 60 70 80"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_gold_damage"                             "2"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "30"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spell_amp"                               "6"
+        "RequiresScepter"                                 "1"
       }
     }
   }
