@@ -17,7 +17,9 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -27,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100.0 80.0 60.0 60.0 60.0"
+    "AbilityCooldown"                                     "60.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +46,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "250 375 500 900 1400"
+        "damage"                                          "250 550 750 1200 1650" //OAA
       }
       "02"
       {
@@ -84,12 +86,14 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "400 500 600 1050 1600"
+        "damage_scepter"                                  "400 600 1000 1400 1800" //OAA
+        "RequiresScepter"                                 "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "850"
+        "RequiresScepter"                                 "1"
       }
     }
   }

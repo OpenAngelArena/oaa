@@ -10,11 +10,12 @@
     "ID"                                                  "5062"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "OnCastbar"                                           "0"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,11 +26,13 @@
         "var_type"                                        "FIELD_INTEGER"
         "necromastery_damage_per_soul"                    "2 2 2 2 3 5"
         "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "necromastery_max_souls"                          "12 20 28 36 36 36"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_4"
       }
       "03"
       {
@@ -45,6 +48,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "necromastery_max_souls_scepter"                  "22 30 38 46 46 46"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_4"
+        "RequiresScepter"                                 "1"
       }
     }
   }

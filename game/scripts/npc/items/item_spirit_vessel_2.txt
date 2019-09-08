@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"            "item_spirit_vessel;item_upgrade_core"
-      "02"            "item_spirit_vessel;item_upgrade_core_2"
-      "03"            "item_spirit_vessel;item_upgrade_core_3"
-      "04"            "item_spirit_vessel;item_upgrade_core_4"
     }
   }
 
@@ -37,24 +34,28 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8424"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"       "item_spirit_vessel"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "AbilitySharedCooldown"     "urn"
-    "AbilityCooldown"       	"7.0"
-    "AbilityTextureName"            "custom/spirit_vessel_2"
+    "ID"                              "8424" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                       "item_spirit_vessel"
+    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"           "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"           "DOTA_UNIT_TARGET_HERO"
+
+    "AbilitySharedCooldown"           "urn"
+    "AbilityCooldown"                 "7.0"
+    "AbilityTextureName"              "custom/spirit_vessel_2"
+
+    "AbilityCastRange"                                    "950"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
+    "MaxUpgradeLevel"                 "5"
+    "ItemBaseLevel"                   "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "4475"
-    "ItemAliases"         "sv 2;spirit vessel 2"
+    "ItemCost"                        "4475"
+    "ItemAliases"                     "sv 2;spirit vessel 2"
+    "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,73 +63,73 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"      "250 500 750 1250 2000"
+        "var_type"                    "FIELD_INTEGER"
+        "bonus_health"                "250 500 750 1250 2000"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_movement_speed"  "20 22 28 34 40"
+        "var_type"                    "FIELD_INTEGER"
+        "bonus_movement_speed"        "20 22 28 34 40"
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
+        "var_type"                    "FIELD_FLOAT"
         "bonus_mana_regen"            "1.5 2.0 2.5 4.0 6.0"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_all_stats"       "2 15 30 45 60"
+        "var_type"                    "FIELD_INTEGER"
+        "bonus_all_stats"             "2 15 30 45 60"
       }
       "05"
       {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_armor"           "2 6 10 14 20"
+        "var_type"                    "FIELD_FLOAT"
+        "bonus_armor"                 "2 4 7 11 16"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "soul_radius"     "1400"
+        "var_type"                    "FIELD_INTEGER"
+        "soul_radius"                 "1400"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "soul_initial_charge" "2"
+        "var_type"                    "FIELD_INTEGER"
+        "soul_initial_charge"         "2"
       }
       "08"
       {
-        "var_type"        "FIELD_INTEGER"
-        "soul_additional_charges" "1"
+        "var_type"                    "FIELD_INTEGER"
+        "soul_additional_charges"     "1"
       }
       "09"
       {
-        "var_type"        "FIELD_INTEGER"
-        "soul_heal_amount"      "30 55 75 95 105"
+        "var_type"                    "FIELD_INTEGER"
+        "soul_heal_amount"            "30 55 75 95 105"
       }
       "10"
       {
-        "var_type"        "FIELD_INTEGER"
-        "soul_damage_amount"    "25 40 80 160 320"
+        "var_type"                    "FIELD_INTEGER"
+        "soul_damage_amount"          "25 40 80 160 320"
       }
       "11"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"      "8.0"
+        "var_type"                    "FIELD_FLOAT"
+        "duration"                    "8.0"
       }
       "12"
       {
-        "var_type"        "FIELD_INTEGER"
+        "var_type"                    "FIELD_INTEGER"
         "soul_release_range_tooltip"  "950"
       }
       "13"
       {
-        "var_type"        "FIELD_INTEGER"
-        "hp_regen_reduction_enemy"  "70"
+        "var_type"                    "FIELD_INTEGER"
+        "hp_regen_reduction_enemy"    "60 70 80 90 100"
       }
       "14"
       {
-        "var_type"        "FIELD_FLOAT"
-        "enemy_hp_drain"    "5"
+        "var_type"                    "FIELD_FLOAT"
+        "enemy_hp_drain"              "4"
       }
     }
   }

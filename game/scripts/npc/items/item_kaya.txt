@@ -10,7 +10,7 @@
     "ID"                            "258"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "Model"                         "models/props_gameplay/recipe.vmdl"
     "BaseClass"                     "item_datadriven"
-    "AbilityTextureName"            "custom/recipe/recipe_1"
+    //"AbilityTextureName"            "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -36,9 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                        "259"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/trident_1"
-
-
+    //"AbilityTextureName"            "custom/trident_1"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -60,17 +58,17 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "16 32 48 64 80"
+        "bonus_intellect"       "16"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "manacost_reduction"    "12 18 26 34 42"
+        "manacost_reduction"    "12"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "8 18 26 34 42"
+        "spell_amp"             "8"
       }
     }
   }

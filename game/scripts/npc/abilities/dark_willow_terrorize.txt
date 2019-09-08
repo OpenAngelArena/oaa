@@ -1,30 +1,32 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Dark Willow: Terrorize
-//=================================================================================================================
-"dark_willow_terrorize"
-{
+  //=================================================================================================================
+  // Dark Willow: Terrorize
+  //=================================================================================================================
+  "dark_willow_terrorize"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"               "1"
-    "MaxLevel"                      "5"
+    "ID"                                                  "8340"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
+    "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "1500"
-    "AbilityCastPoint"              "1.0"
-    "AbilityCooldown"               "100 80 60 40 20"
+    "AbilityCastRange"                                    "1500"
+    "AbilityCastPoint"                                    "1.0"
+
+    "AbilityCooldown"                                     "100 90 80 60 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "150"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,31 +34,30 @@
     {
       "01"
       {
-        "var_type"              "FIELD_FLOAT"
-        "destination_travel_speed"  "2000"
+        "var_type"                                        "FIELD_FLOAT"
+        "destination_travel_speed"                        "2000"
       }
       "02"
       {
-        "var_type"              "FIELD_INTEGER"
-        "destination_radius"        "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "destination_radius"                              "400"
       }
       "03"
       {
-        "var_type"              "FIELD_FLOAT"
-        "destination_status_duration"   "4"
-        "LinkedSpecialBonus"        "special_bonus_unique_dark_willow_2"
+        "var_type"                                        "FIELD_FLOAT"
+        "destination_status_duration"                     "3.5 3.75 4 4.25 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_2"
       }
       "04"
       {
-        "var_type"              "FIELD_FLOAT"
-        "return_travel_speed"   "500"
+        "var_type"                                        "FIELD_FLOAT"
+        "return_travel_speed"                             "500"
       }
       "05"
       {
-        "var_type"              "FIELD_FLOAT"
-        "starting_height"       "300"
+        "var_type"                                        "FIELD_FLOAT"
+        "starting_height"                                 "300"
       }
     }
-    "AbilityDraftPreAbility"        "dark_willow_bedlam"
   }
 }

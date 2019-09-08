@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_glimmer_cape_2;item_upgrade_core_2"
-      "02"                                                "item_glimmer_cape_2;item_upgrade_core_3"
-      "03"                                                "item_glimmer_cape_2;item_upgrade_core_4"
-      "04"                                                "item_pipe_2;item_upgrade_core_2"
-      "05"                                                "item_pipe_2;item_upgrade_core_3"
-      "06"                                                "item_pipe_2;item_upgrade_core_4"
+      "02"                                                "item_pipe_2;item_upgrade_core_2"
     }
   }
 
@@ -81,7 +77,7 @@
       "03"
       {
         "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6"
+        "fade_delay"              "0.6 0.55 0.5 0.45 0.4"
       }
       "04"
       {

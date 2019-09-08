@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"witch_doctor_death_ward"
+  "witch_doctor_death_ward"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -12,6 +12,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NO_INVIS | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
@@ -37,8 +38,9 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 125 175 700 1200"
-        "LinkedSpecialBonus"  "special_bonus_unique_witch_doctor_5"
+        "damage"                                          "90 240 390 900 1400" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
@@ -48,12 +50,25 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces_scepter"                                 "4"
+        "attack_range_tooltip"                            "700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "bounces_scepter"                                 "4"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "bounce_radius"                                   "650"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_tooltip"                                "8"
       }
     }
   }

@@ -49,8 +49,23 @@ SPECIAL_BOTTLES = {
   [56639681] = {2}, -- mr.random
   [312007829] = {2}, -- anti
 
-  -- special people
+  -- Way To Death, April major
+  [191556216] = {2}, -- SUPREME
+  [79590379] = {2}, -- !hypc
+  [242364033] = {2}, -- 3kkler
+  [142072268] = {2}, -- Niko
+  [144780201] = {2}, -- CyberPank
 
+  -- Nevermore, 2nd anniversary tournament
+  [79347944] = {2}, -- PSmist
+  [145308330] = {2}, -- Dolls
+  -- two time winners from nevermore
+  -- [56639681] = {2}, -- mr.random
+  -- [142072268] = {2}, -- Niko
+  -- [157285451] = {2}, -- larenall
+
+
+  -- special people
   [110318967] = {7}, -- timo
   [34314091] = {8}, -- frej
   [370166341] = {9}, -- Melon

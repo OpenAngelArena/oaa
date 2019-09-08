@@ -47,28 +47,33 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "hp_as_heal"        "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_as_heal"                                      "10"
+        "RequiresScepter"                                 "1"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "dash_speed"        "2400"
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_speed"                                      "2400"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "end_distance"      "70"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_distance"                                    "70"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "tree_radius"       "175"
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_radius"                                     "175"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
-        "var_type"          "FIELD_FLOAT"
-        "max_duration"      "1.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_duration"                                    "1.5"
+        "RequiresScepter"                                 "1"
       }
     }
   }
