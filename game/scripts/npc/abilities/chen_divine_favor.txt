@@ -1,61 +1,62 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Chen: Divine Favor
-	//=================================================================================================================
-	"chen_divine_favor"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                    "7306"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"     "SPELL_IMMUNITY_ALLIES_YES"
-		"FightRecapLevel"				"1"
-    "MaxLevel"              "6"
-    "RequiredLevel"         "1"
-    "LevelsBetweenUpgrades" "2"
-		"AbilitySound"					"Hero_Chen.TestOfFaith.Target"
+  // Chen: Divine Favor
+  //=================================================================================================================
+  "chen_divine_favor"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7306"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"			"0.3"
-    "AbilityCastAnimation"  "ACT_DOTA_CAST_ABILITY_2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"			"800"
-		"AbilityCooldown"				"26 24 22 20 18 16"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+    "AbilityCastRange"                                    "1200"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"70 80 90 100 110 120"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30" //OAA
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amp"				"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_rate"       "10 20 30 40 70 100" //OAA
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"		"20 40 60 80 160 320" //OAA
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"14.0" //OAA
-			}
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "130"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_amp"                                        "8 12 16 20 24 28"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_rate"                                       "5 10 15 20 30 50" //OAA
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay"                                  "6.0 5.0 4.0 3.0 2.0 1.0" //OAA
+      }
+    }
+  }
 }

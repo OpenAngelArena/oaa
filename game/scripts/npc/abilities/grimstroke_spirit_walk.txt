@@ -7,37 +7,35 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                        "8007"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "AbilitySound"              "Hero_ObsidianDestroyer.AstralImprisonment"
-    "FightRecapLevel"           "1"
+    "ID"                                                  "8007"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
 
-    "MaxLevel"                  "6"
-    "RequiredLevel"             "1"
-    "LevelsBetweenUpgrades"     "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"           "30 25 20 15 15 15"
+    "AbilityCooldown"                                     "30 25 20 15 15 15"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"          "400 500 600 700 900 1100"
-    "AbilityCastPoint"          "0.15"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                                    "700" //OAA
+    "AbilityCastPoint"                                    "0.15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"           "120 130 140 150 180 280"
+    "AbilityManaCost"                                     "120 130 140 150 180 280"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue" "0.75"
+    "AbilityModifierSupportValue"                         "0.75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,49 +43,49 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "cast_range_tooltip"    "400 500 600 700 900 1100"
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "700" //OAA
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "buff_duration"         "3.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "3.0"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "movespeed_bonus_pct"   "12 14 16 18 28 38"
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed_bonus_pct"                             "12 14 16 18 28 38"
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "radius"                "400"
-        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_1"
       }
       "05"
       {
-        "var_type"              "FIELD_INTEGER"
-        "max_damage"            "100 200 300 400 600 700"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage"                                      "100 200 300 400 600 1000"
       }
       "06"
       {
-        "var_type"              "FIELD_FLOAT"
-        "max_stun"              "1.0 1.9 2.8 3.7 4.5 5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_stun"                                        "2.0 2.6 3.2 3.8 4.4 5.0" //OAA
       }
       "07"
       {
-        "var_type"              "FIELD_INTEGER"
-        "damage_per_tick"       "5 7 9 11 18 28"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_tick"                                 "5 7 9 11 18 28"
       }
       "08"
       {
-        "var_type"              "FIELD_FLOAT"
-        "tick_rate"             "0.2"
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_rate"                                       "0.2"
       }
-      "09"
+      "09" // damage_per_tick divided by tick_rate
       {
-        "var_type"              "FIELD_INTEGER"
-        "tick_dps_tooltip"      "25 35 45 55 90 140"
+        "var_type"                                        "FIELD_INTEGER"
+        "tick_dps_tooltip"                                "25 35 45 55 90 140"
       }
     }
   }

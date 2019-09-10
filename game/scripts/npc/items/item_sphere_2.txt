@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere;item_upgrade_core"
-      "02"                                                "item_sphere;item_upgrade_core_2"
-      "03"                                                "item_sphere;item_upgrade_core_3"
-      "04"                                                "item_sphere;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +43,7 @@
     "AbilityTextureName"                                  "custom/linkens_sphere_2"
 
     "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "13.0 12.5 12.0 11.5 11.0"
+    "AbilityCooldown"                                     "13.0 12.0 11.0 10.0 9.0"
     "AbilitySharedCooldown"                               "linkens"
 
     // Item Info

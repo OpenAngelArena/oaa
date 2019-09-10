@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heavens_halberd_2;item_upgrade_core_2"
-      "02"                                                "item_heavens_halberd_2;item_upgrade_core_3"
-      "03"                                                "item_heavens_halberd_2;item_upgrade_core_4"
-      "04"                                                "item_echo_sabre_2;item_upgrade_core_2"
-      "05"                                                "item_echo_sabre_2;item_upgrade_core_3"
-      "06"                                                "item_echo_sabre_2;item_upgrade_core_4"
+      "02"                                                "item_echo_sabre_2;item_upgrade_core_2"
     }
   }
 
@@ -105,7 +101,7 @@
       "07"
 			{
 				"var_type"                                        "FIELD_INTEGER"
-				"status_resistance"                               "14"
+				"status_resistance"                               "14 15 16 17 18"
 			}
     }
   }
