@@ -3,23 +3,23 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_juggernaut"
 	"Title"			"Recommended items for Juggernaut"
-	
+
 	"Items"
-	{		
+	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
 			"item"		"item_tango"
 			"item"		"item_flask"
-			"item"		"item_enchanted_mango"	
+			"item"		"item_enchanted_mango"
 			"item"		"item_stout_shield"
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
-		{	
+		{
 			"item"		"item_boots"
 			"item"		"item_magic_stick"
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_phase_boots"
@@ -28,14 +28,13 @@
 		}
 		"#DOTA_Item_Build_Late_Items"
 		{
-			
+
 			"item"		"item_manta"
 			"item"		"item_abyssal_blade"
 			"item"		"item_butterfly"
-		}	
-		
-		
-		"#DOTA_Item_Build_Other_Items"
+		}
+
+		"#DOTA_Item_Build_Luxury"
 		{
 			"item"		"item_ring_of_aquila"
 			"item"		"item_bfury"

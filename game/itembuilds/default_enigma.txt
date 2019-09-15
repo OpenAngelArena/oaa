@@ -3,9 +3,9 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_enigma"
 	"Title"			"Recommended items for Enigma"
-	
+
 	"Items"
-	{		
+	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
 			"item"		"item_clarity"
@@ -14,32 +14,32 @@
 			"item"		"item_courier"
 			"item"		"item_ward_observer"
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
-		{	
+		{
 			"item"		"item_soul_ring"
 			"item"		"item_boots"
 			"item"		"item_magic_stick"
-			
+
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_magic_wand"
 			"item"		"item_blink"
 			"item"		"item_arcane_boots"
 		}
-		
+
 		"#DOTA_Item_Build_Late_Items"
 		{
 			"item"		"item_mekansm"
 			"item"		"item_black_king_bar"
 			"item"		"item_guardian_greaves"
-		}	
-		
-		"#DOTA_Item_Build_Other_Items"
+		}
+
+		"#DOTA_Item_Build_Luxury"
 		{
-			
+
 			"item"		"item_power_treads"
 			"item"		"item_refresher"
 			"item"		"item_ultimate_scepter"

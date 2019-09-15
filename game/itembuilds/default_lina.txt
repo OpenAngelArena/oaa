@@ -3,9 +3,9 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_lina"
 	"Title"			"Recommended items for Lina"
-	
+
 	"Items"
-	{		
+	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
 			"item"		"item_tango"
@@ -13,34 +13,32 @@
 			"item"		"item_wind_lace"
 			"item"		"item_branches"
 			"item"		"item_branches"
-			
+
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
-		{	
+		{
 			"item"		"item_magic_stick"
 			"item"		"item_boots"
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_arcane_boots"
 			"item"		"item_magic_wand"
 			"item"		"item_cyclone"
 			"item"		"item_kaya"
-
 		}
-		
+
 		"#DOTA_Item_Build_Late_Items"
 		{
-			
+
 			"item"		"item_force_staff"
 			"item"		"item_ultimate_scepter"
-		}	
-		
-		"#DOTA_Item_Build_Other_Items"
+		}
+
+		"#DOTA_Item_Build_Luxury"
 		{
-			
 			"item"		"item_phase_boots"
 			"item"		"item_null_talisman"
 			"item"		"item_ancient_janggo"
@@ -59,7 +57,6 @@
 			"item"		"item_hurricane_pike"
 			"item"		"item_ethereal_blade"
 			"item"		"item_skadi"
-			
 		}
 	}
 }

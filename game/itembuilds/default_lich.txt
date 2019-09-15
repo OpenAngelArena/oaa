@@ -3,9 +3,9 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_lich"
 	"Title"			"Recommended items for Lich"
-	
+
 	"Items"
-	{		
+	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
 			"item"		"item_tango"
@@ -14,26 +14,26 @@
 			"item"		"item_ward_observer"
 			"item"		"item_courier"
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
-		{	
+		{
 			"item"		"item_boots"
 			"item"		"item_magic_stick"
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_tranquil_boots"
 			"item"		"item_mekansm"
 		}
-		
+
 		"#DOTA_Item_Build_Late_Items"
 		{
 			"item"		"item_force_staff"
 			"item"		"item_ultimate_scepter"
-		}	
-		
-		"#DOTA_Item_Build_Other_Items"
+		}
+
+		"#DOTA_Item_Build_Luxury"
 		{
 			"item"		"item_urn_of_shadows"
 			"item"		"item_glimmer_cape"

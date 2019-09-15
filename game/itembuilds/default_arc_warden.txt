@@ -1,63 +1,79 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_arc_warden"
-	"Title"			"Recommended items for Arc Warden"
+  "author"		"Valve"
+  "hero"        "npc_dota_hero_arc_warden"
+  "Title"       "Recommended items for Arc Warden"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_power_origin"
-			"item"		"item_tango"
-			"item"		"item_flask"
-			"item"		"item_branches"
-			"item"		"item_branches"
-			"item"		"item_mango"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"    "item_tranquil_origin"
+      "item"    "item_tango"
+      "item"    "item_flask"
+      "item"    "item_branches"
+      "item"    "item_branches"
+      "item"    "item_mango"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_greater_phase_boots"
-			"item"		"item_maelstrom"
-      "item"		"item_dragon_lance"
-      "item"    "item_lesser_crit"
-		}
-
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_mjollnir"
-			"item"		"item_greater_crit"
-      "item"		"item_monkey_king_bar"
-      "item"    "item_diffusal_blade"
-		}
-
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"    "item_bloodthorn_3"
-      "item"    "item_hurricane_pike_3"
-			"item"		"item_sheepstick_4"
-      "item"		"item_satanic"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"    "item_wraith_band"
       "item"    "item_hand_of_midas_1"
-      "item"    "item_blink"
+      "item"    "item_invis_sword"
+      "item"    "item_maelstrom"
+      "item"    "item_dragon_lance"
+      "item"    "item_lesser_crit"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"    "item_mjollnir"
+      "item"    "item_greater_crit"
+      "item"    "item_monkey_king_bar"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_bloodthorn_2"
+      "item"    "item_hurricane_pike_3"
+      "item"    "item_sheepstick_4"
+      "item"    "item_satanic"
       "item"    "item_silver_edge"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_diffusal_blade"
+      "item"    "item_blink"
       "item"    "item_black_king_bar_1"
       "item"    "item_butterfly_2"
+      "item"    "item_assault"                      // Alternative
+      "item"    "item_desolator"                    // Alternative
+      "item"    "item_devastator_3"                 // Alternative
       "item"    "item_manta"                        // Situational
       "item"    "item_skadi"                        // Situational
+      "item"    "item_trumps_fists"                 // Situational
       "item"    "item_sphere"                       // Situational
-      "item"    "item_nullifier_4"                  // Situational
+      "item"    "item_nullifier_3"                  // Situational
       "item"    "item_necronomicon_3"               // Meme/Situational
       "item"    "item_octarine_core"                // Magic
       "item"    "item_ethereal_blade"               // Magic
-      "item"    "item_yasha_and_kaya_3"             // Magic
+      "item"    "item_yasha_and_kaya"               // Magic
       "item"    "item_dagon_5"                      // Magic
       "item"    "item_dagger_of_moriah"             // Magic
+      "item"    "item_regen_crystal_1"
+      "item"    "item_heart_transplant"
+      "item"    "item_reduction_orb_3"
+      "item"    "item_lucience"
+      "item"    "item_glimmer_cape_2"
+      "item"    "item_solar_crest"
+      "item"    "item_far_sight"
+      "item"    "item_cyclone"
+      "item"    "item_heavens_halberd"
+      "item"    "item_meteor_hammer_2"              // Meme
+      "item"    "item_giant_form"                   // Meme
       "item"    "item_ultimate_scepter"             // Meme/Support
-		}
-	}
+    }
+  }
 }
