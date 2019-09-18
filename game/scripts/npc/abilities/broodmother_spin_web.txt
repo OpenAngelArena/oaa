@@ -61,19 +61,19 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges_scepter"                             "8 12 16 20 22 24"
+        "max_charges_scepter"                             "6 10 14 18 20 22"
         "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed_scepter"                         "40 60 80 100 110 120"
+        "bonus_movespeed_scepter"                         "30 50 70 90 110 130"
         "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count_scepter"                                   "8 12 16 20 22 24"
+        "count_scepter"                                   "6 10 14 18 20 22"
         "RequiresScepter"                                 "1"
       }
     }

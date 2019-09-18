@@ -5,8 +5,16 @@
   //=================================================================================================================
   "npc_dota_hero_wisp"
   {
-    // Abilities
-    //-------------------------------------------------------------------------------------------------------------
-    "Ability14"   "special_bonus_movement_speed_50" // replaces special_bonus_gold_income_25
+	"Ability10"                                           "special_bonus_hp_100"       // replaces special_bonus_gold_income_15
+	"Ability11"                                           "special_bonus_attack_damage_45"
+
+	"Ability12"                                           "special_bonus_unique_wisp_7"
+	"Ability13"                                           "special_bonus_hp_regen_8"
+
+	"Ability14"                                           "special_bonus_unique_wisp"
+	"Ability15"                                           "special_bonus_armor_15"
+
+	"Ability16"                                           "special_bonus_unique_wisp_6"
+	"Ability17"                                           "special_bonus_unique_wisp_5"    // replaces special_bonus_unique_wisp_4
   }
 }
