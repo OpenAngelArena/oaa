@@ -9,7 +9,10 @@
     <include src="file://{resources}/scripts/custom_game/spark_selection.js" />
   </scripts>
   <Panel class="SparkSelectionHolder" hittest='false'>
-    <Panel id='SparkSelection' class='show'>
+    <Button class='PopupButton' id="ChangeSpark" onactivate='OpenSparkSelection()'>
+      <Label text='Change Spark'/>
+    </Button>
+    <Panel id='SparkSelection'>
       <Panel class='TopLabel'>
         <Label text='#spark_selection_header'/>
       </Panel>
@@ -19,7 +22,7 @@
             <Label text='#spark_selection_support'/>
           </Panel>
           <Panel class='SelectionRow'>
-            <Panel class='SparkPanel'>
+            <Panel class='SparkPanel' id='gpmPanel' onactivate='SelectSpark("gpm")'>
               <Panel class='TopLabel'>
                 <Label id='gpmCount' text='--'/>
               </Panel>
@@ -31,7 +34,7 @@
                 <Label text='Gain additional gold passively over time'/>
               </Panel>
             </Panel>
-            <Panel class='SparkPanel'>
+            <Panel class='SparkPanel' id='midasPanel' onactivate='SelectSpark("midas")'>
               <Panel class='TopLabel'>
                 <Label id='midasCount' text='--'/>
               </Panel>
@@ -50,7 +53,7 @@
             <Label class='FarmingCount' text='#spark_selection_carry'/>
           </Panel>
           <Panel class='SelectionRow'>
-            <Panel class='SparkPanel'>
+            <Panel class='SparkPanel' id='powerPanel' onactivate='SelectSpark("power")'>
               <Panel class='TopLabel'>
                 <Label id='powerCount' text='--'/>
               </Panel>
@@ -65,7 +68,7 @@
                 <Label text='Gains bonus gold on creep kills.'/>
               </Panel>
             </Panel>
-            <Panel class='SparkPanel'>
+            <Panel class='SparkPanel' id='cleavePanel' onactivate='SelectSpark("cleave")'>
               <Panel class='TopLabel'>
                 <Label id='cleaveCount' text='--'/>
               </Panel>
