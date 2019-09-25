@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 100 100"
+    "AbilityCooldown"                                     "120 110 100 90 80"
     "AbilityDuration"                                     "3.0"
     "AbilityChannelTime"                                  "2.0"
     "AbilityCastPoint"                                    "0.0"
@@ -52,7 +52,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_damage"                                "110 110 110 220 440"
+        "epicenter_damage"                                "110 165 220 480 660" //OAA
       }
       "04"
       {
@@ -62,13 +62,18 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_slow_as"                               "-30"
+        "epicenter_slow_as"                               "-30 -50 -70 -100 -130" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_3"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "epicenter_slow_duration_tooltip"                 "3"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_time_tooltip"                            "2.0"
       }
     }
   }

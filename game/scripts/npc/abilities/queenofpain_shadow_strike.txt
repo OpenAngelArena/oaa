@@ -15,21 +15,22 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 550 600 650 700 750" //OAA
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastRange"                                    "450 500 550 600 650 700"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0 12.0 8.0 4.0 4.0 4.0"
-    "AbilityDuration"                                     "15.0 15.0 15.0 15.0"
+    "AbilityCooldown"                                     "10 8 6 4 4 4" //OAA
+    "AbilityDuration"                                     "15.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110"
-
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -58,12 +59,18 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "500 550 600 650 700 750" //OAA
+        "cast_range_tooltip"                              "450 500 550 600 650 700"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration_tooltip"                                "15"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "3.0"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

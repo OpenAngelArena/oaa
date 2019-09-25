@@ -15,7 +15,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -38,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 140 180 370 560"
+        "damage"                                          "100 180 310 440 570" //OAA
       }
       "02"
       {
@@ -68,17 +70,20 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "125 175 225 425 650"
+        "damage_scepter"                                  "125 225 370 515 660" //OAA
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "1800"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration_scepter"                                "30"
+        "RequiresScepter"                                 "1"
       }
       "10"
       {

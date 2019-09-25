@@ -11,8 +11,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
@@ -60,6 +62,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "45.0" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

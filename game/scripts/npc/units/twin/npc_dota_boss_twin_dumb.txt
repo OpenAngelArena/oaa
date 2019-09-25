@@ -9,11 +9,13 @@
     //
     "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
     "Model"                                               "models\creeps\item_creeps\i_creep_necro_archer\necro_archer.vmdl"
+    "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------

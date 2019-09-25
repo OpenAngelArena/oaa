@@ -14,7 +14,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -56,7 +60,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "snake_mana_steal"                                "11 14 17 20 23 26"
-        "LinkedSpecialBonus"      "special_bonus_unique_medusa_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_medusa_3"
       }
       "06"
       {
@@ -77,11 +81,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "stone_form_scepter_base"                         "1.0"
+        "RequiresScepter"                                 "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "stone_form_scepter_increment"                    "0.3"
+        "RequiresScepter"                                 "1"
       }
     }
   }

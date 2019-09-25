@@ -13,6 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 50 40 30 30 30"
+    "AbilityCooldown"                                     "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +49,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "25 50 100 200 400 800"
+        "damage"                                          "50 100 150 200 400 800"
       }
       "04"
       {

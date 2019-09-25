@@ -197,7 +197,7 @@ function vampire:lifesteal(event, spell, parent, amount)
       target,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_NONE,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
       parentTeam
     )
 

@@ -12,6 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -21,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 18 14 10 10 10"
+    "AbilityCooldown"                                     "20 16 12 8 8 8"
     "AbilityDuration"                                     "3.75 4.5 5.25 6 7 8"
 
     // Cost

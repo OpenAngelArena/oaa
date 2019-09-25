@@ -12,6 +12,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -76,6 +77,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "ministun_duration"                               "0.4 0.5 0.6 0.7 1.2 1.7"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "100"
       }
     }
   }

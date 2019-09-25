@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "32700"
+    "ItemCost"                                            "32225"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots 4;tranquil boots 4;tranquils 4"
@@ -69,7 +69,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "28 33 38 43"
+        "bonus_movement_speed"                            "26 31 36 41"
       }
       "02"
       {
@@ -79,7 +79,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "20 27 36 45"
+        "bonus_health_regen"                              "20 30 45 65"
       }
       "04"
       {
@@ -114,12 +114,12 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "25 30 35 40"
+        "broken_movement_speed"                           "18 23 28 33"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_per_charge"                             "300.0"
+        "distance_per_charge"                             "80.0"
       }
       "12"
       {
@@ -134,7 +134,7 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "3000 5800 10000 17000"
+        "bonus_gold"                                      "1000 2000 3400 5700"
       }
       "15"
       {
@@ -144,7 +144,7 @@
       "16"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "200"
+        "max_charges"                                     "400"
       }
       "17"
       {
