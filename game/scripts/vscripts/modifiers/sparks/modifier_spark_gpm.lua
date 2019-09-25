@@ -27,15 +27,7 @@ function getSparkLevel ()
 end
 
 function modifier_spark_gpm:GetTexture()
-  local ability = self:GetAbility()
-  if ability == nil then
-    return self.BaseClass.GetTexture(self)
-  end
-
-  if ability:GetAbilityTextureName() then
-    return ability:GetAbilityTextureName()
-  end
-  return ability:GetAbilityName()
+  return "custom/arcane_origin"
 end
 
 if IsServer() then
