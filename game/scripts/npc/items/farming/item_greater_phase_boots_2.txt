@@ -23,11 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_phase_boots;item_upgrade_core_2"
-      "02"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
-      "03"                                                "item_greater_arcane_boots;item_upgrade_core_2"
-      "04"                                                "item_greater_power_treads;item_upgrade_core_2"
-      "05"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
-      "06"                                                "item_greater_travel_boots;item_upgrade_core_2"
+      "02"                                                "item_greater_power_treads;item_upgrade_core_2"
+      "03"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "04"                                                "item_greater_travel_boots;item_upgrade_core_2"
+      "05"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
     }
   }
 
@@ -72,12 +71,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "25 60 95 130"
+        "bonus_damage_melee"                              "38 68 108 158"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "20 50 85 120"
+        "bonus_damage_range"                              "32 62 102 152"
       }
       "04"
       {
@@ -118,21 +117,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "5 7 10 14"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_radius"                                 "375"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_attack_outgoing"                        "50"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_count"                                  "4 5 6 7"
       }
     }
   }

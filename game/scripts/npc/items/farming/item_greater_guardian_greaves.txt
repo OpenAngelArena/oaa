@@ -1,6 +1,6 @@
 "DOTAItems"
 {
-  "item_guardian_greaves"                                 "REMOVED"
+
   //=================================================================================================================
   // Recipe: Greater Guardian Greaves
   //=================================================================================================================
@@ -14,7 +14,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,7 +24,7 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_greater_arcane_boots;item_mekansm;item_recipe_guardian_greaves"
+      "01"                                                "item_guardian_greaves;item_upgrade_core"
     }
   }
 
@@ -75,7 +75,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "350 560 840 1260"
+        "bonus_mana"                                      "350 550 850 1250"
       }
       "03"
       {
@@ -120,27 +120,17 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_health"                                "400 575 750 1100"
+        "replenish_health"                                "400 600 800 1000"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_mana"                                  "300 400 575 750"
+        "replenish_mana"                                  "300 400 550 750"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "replenish_radius"                                "1200"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "2000 3200 5500 9000"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
       }
     }
   }

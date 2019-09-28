@@ -23,11 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_power_treads_3;item_upgrade_core_4"
-      "02"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
+      "02"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
       "03"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
-      "04"                                                "item_greater_arcane_boots_3;item_upgrade_core_4"
+      "04"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
       "05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
-      "06"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
     }
   }
 
@@ -67,12 +66,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "16 24 36 54"
+        "bonus_stat"                                      "15 25 40 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 30 35 40"
+        "bonus_attack_speed"                              "30 40 50 60"
       }
       "04"
       {
@@ -82,22 +81,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_melee"                              "120 200 280 360"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_ranged"                             "120 200 280 360"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_melee_illusion"                     "0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_ranged_illusion"                    "0"
+        "all_stats"                                       "0"
       }
     }
   }

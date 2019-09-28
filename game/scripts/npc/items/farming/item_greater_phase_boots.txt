@@ -13,7 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,11 +22,11 @@
     "ItemResult"                                          "item_greater_phase_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_phase_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_arcane_origin;item_boots;item_upgrade_core"
-      "03"                                                "item_power_origin;item_boots;item_upgrade_core"
-      "04"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
-      "05"                                                "item_travel_origin;item_boots;item_upgrade_core"
+      "01"                                                "item_phase_boots;item_upgrade_core"
+      "02"                                                "item_power_treads;item_upgrade_core"
+      "03"                                                "item_tranquil_boots;item_upgrade_core"
+      "04"                                                "item_travel_boots;item_upgrade_core"
+      "05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -71,12 +71,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "25 60 95 130"
+        "bonus_damage_melee"                              "38 68 108 158"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "20 50 85 120"
+        "bonus_damage_range"                              "32 62 102 152"
       }
       "04"
       {
@@ -118,28 +118,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "5 7 10 14"
       }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_radius"                                 "375"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_attack_outgoing"                        "50"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_count"                                  "4 5 6 7"
-      }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/items/phase_splinter_impact_model.vpcf"
     }
   }
 }

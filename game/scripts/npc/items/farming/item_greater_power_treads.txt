@@ -13,8 +13,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -22,11 +22,11 @@
     "ItemResult"                                          "item_greater_power_treads"
     "ItemRequirements"
     {
-      "01"                                                "item_power_origin;item_boots;item_upgrade_core"
-      "02"                                                "item_arcane_origin;item_boots;item_upgrade_core"
-      "03"                                                "item_phase_origin;item_boots;item_upgrade_core"
-      "04"                                                "item_tranquil_origin;item_boots;item_upgrade_core"
-      "05"                                                "item_travel_origin;item_boots;item_upgrade_core"
+      "01"                                                "item_power_treads;item_upgrade_core"
+      "02"                                                "item_phase_boots;item_upgrade_core"
+      "03"                                                "item_tranquil_boots;item_upgrade_core"
+      "04"                                                "item_travel_boots;item_upgrade_core"
+      "05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -66,12 +66,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "16 24 36 54"
+        "bonus_stat"                                      "15 25 40 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 30 35 40"
+        "bonus_attack_speed"                              "30 40 50 60"
       }
       "04"
       {
@@ -81,30 +81,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_melee"                              "120 200 280 360"
+        "all_stats"                                       "0"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_ranged"                             "120 200 280 360"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_melee_illusion"                     "0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_ranged_illusion"                    "0"
-      }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/items/powertreads_splash.vpcf"
     }
   }
 }

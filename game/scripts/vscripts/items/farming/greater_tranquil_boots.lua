@@ -1,9 +1,7 @@
 item_greater_tranquil_boots = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -26,15 +24,16 @@ end
 --------------------------------------------------------------------------------
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
-	return "modifier_intrinsic_multiplexer"
+	return "modifier_item_greater_tranquil_boots" -- "modifier_intrinsic_multiplexer"
 end
-
+-- uncomment this if we plan to add more effects to Greater Tranquil Boots
+--[[
 function item_greater_tranquil_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_tranquil_boots",
-    "modifier_creep_bounty"
   }
 end
+]]
 
 function item_greater_tranquil_boots:ShouldUseResources()
   return true
@@ -51,8 +50,6 @@ end
 --------------------------------------------------------------------------------
 
 modifier_item_greater_tranquil_boots = class(ModifierBaseClass)
-
---------------------------------------------------------------------------------
 
 function modifier_item_greater_tranquil_boots:IsHidden()
 	return true
@@ -74,14 +71,12 @@ function modifier_item_greater_tranquil_boots:DestroyOnExpire()
 	return false
 end
 
---------------------------------------------------------------------------------
-
 function modifier_item_greater_tranquil_boots:OnCreated( event )
 	local spell = self:GetAbility()
 
 	spell.tranqMod = self
 
-	self.interval = spell:GetSpecialValueFor( "check_interval" )
+	--self.interval = spell:GetSpecialValueFor( "check_interval" )
 
 	if IsServer() then
 		if spell:IsBreakable() then
@@ -93,7 +88,7 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 			end
 		end
 
-		self:StartIntervalThink( self.interval )
+		--self:StartIntervalThink( self.interval ) -- Old checking distance traveled and modifying charges accordingly (part of Naturalize)
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
@@ -101,15 +96,15 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
 	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
 
-	self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
-	self.distMax = spell:GetSpecialValueFor( "max_dist" )
-	self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
-	self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
-	self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
+	--self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
+	--self.distMax = spell:GetSpecialValueFor( "max_dist" )
+	--self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
+	--self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
+	--self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
 
 	-- this stuff prob shouldn't get refreshed
-	self.originOld = self:GetParent():GetAbsOrigin()
-	self.fracCharge = 0
+	--self.originOld = self:GetParent():GetAbsOrigin()
+	--self.fracCharge = 0
 end
 
 --------------------------------------------------------------------------------
@@ -119,7 +114,7 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 
 	spell.tranqMod = self
 
-	self.interval = spell:GetSpecialValueFor( "check_interval" )
+	--self.interval = spell:GetSpecialValueFor( "check_interval" )
 
 	if IsServer() then
 		if spell:IsBreakable() then
@@ -131,7 +126,7 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 			end
 		end
 
-		self:StartIntervalThink( self.interval )
+		--self:StartIntervalThink( self.interval )
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
@@ -139,15 +134,15 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
 	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
 
-	self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
-	self.distMax = spell:GetSpecialValueFor( "max_dist" )
-	self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
-	self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
-	self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
+	--self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
+	--self.distMax = spell:GetSpecialValueFor( "max_dist" )
+	--self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
+	--self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
+	--self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
 end
 
 --------------------------------------------------------------------------------
-
+--[[ Old checking distance traveled and modifying charges accordingly (part of Naturalize)
 if IsServer() then
 	function modifier_item_greater_tranquil_boots:OnIntervalThink()
 		local parent = self:GetParent()
@@ -196,8 +191,7 @@ if IsServer() then
 		end
 	end
 end
-
---------------------------------------------------------------------------------
+]]
 
 function modifier_item_greater_tranquil_boots:DeclareFunctions()
 	local funcs = {
@@ -218,14 +212,16 @@ if IsServer() then
     local attacker = event.attacker
     local attacked_unit = event.target
 
-    if attacker == parent or attacked_unit == parent then
+    if attacked_unit == parent then
       local spell = self:GetAbility()
 
       -- Break Tranquils only in the following cases:
-      -- 1. If the parent attacked a hero
-      -- 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
-	  -- 3. Either of the above, and we don't have an origin.
-      if spell:IsBreakable() and ((attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer()))) then
+      -- old 1. If the parent attacked a hero
+      -- old 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
+      -- ((attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer())))
+      --
+      -- new 1: if the parent was attacked by a real hero (not an illusion and not a hero creep or boss)
+      if spell:IsBreakable() and attacker:IsRealHero() then
         spell:UseResources(false, false, true)
 
         local cdRemaining = spell:GetCooldownTimeRemaining()
@@ -233,46 +229,47 @@ if IsServer() then
           self:SetDuration( cdRemaining, true )
         end
       end
+    end
 
-      -- Tranquils instant kill should work only on neutrals (not bosses)
-	  -- and never in duels
-      if attacker == parent and attacked_unit:IsNeutralCreep( true ) and Gold:IsGoldGenActive() then
-        local currentCharges = spell:GetCurrentCharges()
+    -- Tranquils instant kill should work only on neutrals (not bosses) and never in duels
+    --[[ old Naturalize effect
+    if attacker == parent and attacked_unit:IsNeutralCreep( true ) and Gold:IsGoldGenActive() then
+      local currentCharges = spell:GetCurrentCharges()
 
-        -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating
-				if currentCharges >= 100 and not spell:IsMuted() and not parent:IsIllusion() then
-					local player = parent:GetPlayerOwner()
+      -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating
+      if currentCharges >= 100 and not spell:IsMuted() and not parent:IsIllusion() then
+        local player = parent:GetPlayerOwner()
 
-					-- remove 100 charges
-					spell:SetCurrentCharges( currentCharges - 100 )
+        -- remove 100 charges
+        spell:SetCurrentCharges( currentCharges - 100 )
 
-					-- bonus gold
-					PlayerResource:ModifyGold( player:GetPlayerID(), self.bonusGold, false, DOTA_ModifyGold_CreepKill )
-					SendOverheadEventMessage( player, OVERHEAD_ALERT_GOLD, parent, self.bonusGold, player )
+        -- bonus gold
+        PlayerResource:ModifyGold( player:GetPlayerID(), self.bonusGold, false, DOTA_ModifyGold_CreepKill )
+        SendOverheadEventMessage( player, OVERHEAD_ALERT_GOLD, parent, self.bonusGold, player )
 
-					-- bonus exp
-					if self.bonusXP > 0 then
-						parent:AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
-					end
+        -- bonus exp
+        if self.bonusXP > 0 then
+          parent:AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
+        end
 
-					-- particle
-					local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", PATTACH_POINT_FOLLOW, event.target )
-					ParticleManager:ReleaseParticleIndex( part )
+        -- particle
+        local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", PATTACH_POINT_FOLLOW, event.target )
+        ParticleManager:ReleaseParticleIndex( part )
 
-					-- sound
-					parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
+        -- sound
+        parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
 
-					-- kill the target
-					attacked_unit:Kill( spell, parent )
-				end
+        -- kill the target
+        attacked_unit:Kill( spell, parent )
       end
-		end
+    end
+    ]]
 	end
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Percentage_Unique( event )
+function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Percentage_Unique()
 	local spell = self:GetAbility()
 
 	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
@@ -284,15 +281,13 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_tranquil_boots:GetModifierPhysicalArmorBonus( event )
-	local spell = self:GetAbility()
-
+function modifier_item_greater_tranquil_boots:GetModifierPhysicalArmorBonus()
 	return self.armor
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen( event )
+function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen()
 	local spell = self:GetAbility()
 
 	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
@@ -303,6 +298,8 @@ function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen( ev
 end
 
 --------------------------------------------------------------------------------
+--[[ Old Tranquils effect
+LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 modifier_item_greater_tranquil_boots_sap = class(ModifierBaseClass)
 
@@ -360,18 +357,10 @@ if IsServer() then
 		end
 	end
 end
-
---------------------------------------------------------------------------------
+]]
 
 item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)
 item_greater_tranquil_boots_3 = class(item_greater_tranquil_boots)
 item_greater_tranquil_boots_4 = class(item_greater_tranquil_boots)
 item_greater_tranquil_boots_5 = class(item_greater_tranquil_boots)
-item_tranquil_origin = class(item_greater_tranquil_boots)
-
-function item_tranquil_origin:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_greater_tranquil_boots",
-    --"modifier_creep_bounty"
-  }
-end
+--item_tranquil_origin = class(item_greater_tranquil_boots)

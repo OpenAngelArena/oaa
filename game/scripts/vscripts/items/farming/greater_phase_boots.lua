@@ -1,26 +1,20 @@
 item_greater_phase_boots = class(ItemBaseClass)
 
---LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
 function item_greater_phase_boots:GetIntrinsicModifierName()
-	return "modifier_intrinsic_multiplexer"
+	return "modifier_item_phase_boots" -- "modifier_intrinsic_multiplexer"
 end
-
+-- uncomment this if we plan to add more effects to Phase Boots
+--[[
 function item_greater_phase_boots:GetIntrinsicModifierNames()
   return {
-    -- we're not modifying the passive benefits at all
-    -- ( besides the numbers )
-    -- so we can just reuse the normal phase boot modifier
     "modifier_item_phase_boots",
-    "modifier_item_greater_phase_boots_splinter_shot"
   }
 end
-
---------------------------------------------------------------------------------
+]]
 
 function item_greater_phase_boots:OnSpellStart()
 	local caster = self:GetCaster()
@@ -31,7 +25,10 @@ function item_greater_phase_boots:OnSpellStart()
 	-- add the vanilla phase active modifier
 	caster:AddNewModifier( caster, self, "modifier_item_phase_boots_active", { duration = self:GetSpecialValueFor( "phase_duration" ) } )
 end
---[[
+
+--[[  Old split attack Greater Phase Boots effect - it procced instant attacks to splintered targets
+LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+
 function item_greater_phase_boots:OnProjectileHit(target, location)
   if IsValidEntity(target) then
     local caster = self:GetCaster()
@@ -43,99 +40,7 @@ function item_greater_phase_boots:OnProjectileHit(target, location)
     self.splinterMod.doReduction = false
   end
 end
---]]
---------------------------------------------------------------------------------
 
-modifier_item_greater_phase_boots_splinter_shot = class(ModifierBaseClass)
-
-function modifier_item_greater_phase_boots_splinter_shot:IsHidden()
-  return true
-end
-
-function modifier_item_greater_phase_boots_splinter_shot:IsPurgable()
-  return false
-end
-
-function modifier_item_greater_phase_boots_splinter_shot:DeclareFunctions()
-  return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
-  }
-end
-
-function modifier_item_greater_phase_boots_splinter_shot:OnCreated()
-  if IsServer() then
-    self:GetAbility().splinterMod = self
-  end
-end
-
-modifier_item_greater_phase_boots_splinter_shot.OnRefresh = modifier_item_greater_phase_boots_splinter_shot.OnCreated
-
-function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
-  local parent = self:GetParent()
-
-  if parent:IsIllusion() then
-    return
-  end
-
-  if keys.attacker == parent then
-    local ability = self:GetAbility()
-    local originTarget = keys.target:GetOrigin()
-
-    local units = FindUnitsInRadius(
-      parent:GetTeamNumber(),
-      originTarget,
-      nil,
-      ability:GetSpecialValueFor("splinter_radius"),
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_BASIC,
-      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
-      FIND_ANY_ORDER,
-      false
-    )
-    -- Exclude the original attack target from list of units to splinter to
-    table.remove(units, index(keys.target, units))
-    -- Take only neutral unit types to avoid targeting summons
-    local function IsNeutralUnitType(unit)
-      return unit:IsNeutralCreep( false )
-    end
-    local neutralUnits = filter(IsNeutralUnitType, units)
-    -- Take the first splinter_number units to split to
-    local nUnits = take_n(ability:GetSpecialValueFor("splinter_count"), neutralUnits)
-
-    -- generate damage stuff
-    local damage = keys.original_damage
-    local damageType = ability:GetAbilityDamageType()
-    local damageFlags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-    local damageMod = ability:GetSpecialValueFor("splinter_attack_outgoing") * 0.01
-    damage = damage * damageMod
-
-    local function ApplySplinterDamage(target)
-      ApplyDamage({
-        victim = target,
-        attacker = parent,
-        damage = damage,
-        damage_type = damageType,
-        damage_flags = damageFlags,
-        ability = ability,
-      })
-
-      local origin = target:GetOrigin()
-      local part = ParticleManager:CreateParticle("particles/items/phase_splinter_impact_model.vpcf", PATTACH_ABSORIGIN, target)
-      ParticleManager:SetParticleControl(part, 1, origin)
-      ParticleManager:SetParticleControlForward(part, 1, (originTarget - origin):Normalized())
-      local facing = target:GetForwardVector()
-      facing.y = facing.y * -1.0
-      ParticleManager:SetParticleControlForward(part, 10, facing)
-      ParticleManager:ReleaseParticleIndex(part)
-    end
-
-    foreach(ApplySplinterDamage, nUnits)
-  end
-end
-
--- old on attack function for projectiles and instant attacks
---[[
 function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   local parent = self:GetParent()
   if keys.attacker == parent and keys.process_procs and not self.doReduction then
@@ -206,6 +111,8 @@ end
 
 --------------------------------------------------------------------------------
 --[[ Old mini-Shukuchi Greater Phase Boots effect
+LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+
 modifier_item_greater_phase_boots_active = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
@@ -375,4 +282,4 @@ item_greater_phase_boots_2 = class(item_greater_phase_boots)
 item_greater_phase_boots_3 = class(item_greater_phase_boots)
 item_greater_phase_boots_4 = class(item_greater_phase_boots)
 item_greater_phase_boots_5 = class(item_greater_phase_boots)
-item_phase_origin = class(item_greater_phase_boots)
+--item_phase_origin = class(item_greater_phase_boots)
