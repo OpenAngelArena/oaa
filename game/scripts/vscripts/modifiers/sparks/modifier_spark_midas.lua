@@ -20,119 +20,124 @@ function modifier_spark_midas:GetTexture()
   return "custom/travel_origin"
 end
 
-function modifier_spark_midas:OnCreated( event )
-
-end
-
-function modifier_spark_midas:OnRefresh( event )
-
+function modifier_spark_midas:OnCreated()
+  if IsServer() then
+    self:StartIntervalThink(1)
+    self.stack_count = 0
+    -- Midas Spark variables
+    self.max_charges = 400
+    self.charges_needed_for_kill = 100
+    self.bonus_gold = {400, 1500, 2500, 4500, 7500} -- max allowed values: {800, 3000, 5000, 9000, 15000} - which is slightly less than gpm spark
+    self.bonus_xp = {0, 0, 0, 0, 0}
+  end
 end
 
 if IsServer() then
-	function modifier_spark_midas:OnIntervalThink()
-		local parent = self:GetParent()
-		local spell = self:GetAbility()
+  function modifier_spark_midas:OnIntervalThink()
+    local parent = self:GetParent()
 
-		-- disable everything here for illusions or during duels / pre 0:00
-		if parent:IsIllusion() or not Gold:IsGoldGenActive() then
-			return
-		end
+    -- disable everything here for illusions or during duels / pre 0:00
+    if parent:IsIllusion() or not Gold:IsGoldGenActive() then
+      return
+    end
 
-		local currentCharges = spell:GetCurrentCharges()
-
-		if currentCharges < self.maxCharges then
-			-- get the current point of the parent
-			local originParent = parent:GetAbsOrigin()
-
-			-- get the distance between that point and their old point
-			local dist = ( originParent - self.originOld ):Length2D()
-
-			-- cap the amount of distances so tps don't instafill it
-			dist = math.min( dist, self.distMax )
-
-			-- add the distance to the fraction charge
-			self.fracCharge = self.fracCharge + dist
-
-			-- determine the amount of charges to give
-			local addedCharges = math.floor( self.fracCharge / self.distPer )
-
-			-- give those charges, then subtract their fractional charge from the item
-			spell:SetCurrentCharges( math.min( currentCharges + addedCharges, self.maxCharges ) )
-			self.fracCharge = self.fracCharge - ( self.distPer * addedCharges )
-
-			-- set the old point of the parent
-			self.originOld = originParent
-		end
-	end
+    if self.stack_count < self.max_charges then
+      self.stack_count = self.stack_count + 1
+      self:SetStackCount(self.stack_count)
+    end
+  end
 end
-
---------------------------------------------------------------------------------
 
 function modifier_spark_midas:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
-
-	return funcs
 end
 
---------------------------------------------------------------------------------
-
 if IsServer() then
-  function modifier_spark_midas:OnAttackLanded( event )
+  function modifier_spark_midas:OnAttackLanded(event)
     local parent = self:GetParent()
-    local attacker = event.attacker
-    local attacked_unit = event.target
+    local target = event.target
 
-    if attacker == parent or attacked_unit == parent then
-      local spell = self:GetAbility()
+    if parent ~= event.attacker then
+      return
+    end
 
-      -- Break Tranquils only in the following cases:
-      -- 1. If the parent attacked a hero
-      -- 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
-	  -- 3. Either of the above, and we don't have an origin.
-      if spell:IsBreakable() and ((attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer()))) then
-        spell:UseResources(false, false, true)
+    if parent:IsIllusion() then
+      return
+    end
 
-        local cdRemaining = spell:GetCooldownTimeRemaining()
-        if cdRemaining > 0 then
-          self:SetDuration( cdRemaining, true )
+    -- To prevent crashes:
+    if not target then
+      return
+    end
+
+    if target:IsNull() then
+      return
+    end
+
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have this method; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings and wards
+    if target:IsTower() or target:IsBuilding() or target:IsOther() then
+      return
+    end
+
+    -- Instant kill should work only on neutrals (not bosses)
+	  -- and never in duels and number of charges is equal or above charges_needed_for_kill trigger naturalize eating
+    if target:IsNeutralCreep(true) and Gold:IsGoldGenActive() and self.stack_count >= self.charges_needed_for_kill then
+      local player = parent:GetPlayerOwner()
+
+      -- remove 100 charges
+      self.stack_count = self.stack_count - self.charges_needed_for_kill
+      self:SetStackCount(self.stack_count)
+
+      local function getSparkLevel()
+        local gameTime = GameRules:GetGameTime()
+
+        if gameTime > INITIAL_CAPTURE_POINT_DELAY + 3*CAPTURE_INTERVAL then
+          -- after 4th cap
+          return 5
+        elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + 2*CAPTURE_INTERVAL then
+          -- after third cap
+          return 4
+        elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL then
+          -- after second cap
+          return 3
+        elseif gameTime > INITIAL_CAPTURE_POINT_DELAY then
+          -- after first cap
+          return 2
         end
+
+        return 1
       end
 
-      -- Tranquils instant kill should work only on neutrals (not bosses)
-	  -- and never in duels
-      if attacker == parent and attacked_unit:IsNeutralCreep( true ) and Gold:IsGoldGenActive() then
-        local currentCharges = spell:GetCurrentCharges()
+      local bonus_gold = self.bonus_gold[getSparkLevel()]
+      local bonus_xp = self.bonus_xp[getSparkLevel()]
 
-        -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating
-				if currentCharges >= 100 and not spell:IsMuted() and not parent:IsIllusion() then
-					local player = parent:GetPlayerOwner()
+      -- bonus gold
+      PlayerResource:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, player)
 
-					-- remove 100 charges
-					spell:SetCurrentCharges( currentCharges - 100 )
-
-					-- bonus gold
-					PlayerResource:ModifyGold( player:GetPlayerID(), self.bonusGold, false, DOTA_ModifyGold_CreepKill )
-					SendOverheadEventMessage( player, OVERHEAD_ALERT_GOLD, parent, self.bonusGold, player )
-
-					-- bonus exp
-					if self.bonusXP > 0 then
-						parent:AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
-					end
-
-					-- particle
-					local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", PATTACH_POINT_FOLLOW, event.target )
-					ParticleManager:ReleaseParticleIndex( part )
-
-					-- sound
-					parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
-
-					-- kill the target
-					attacked_unit:Kill( spell, parent )
-				end
+      -- bonus exp
+      if bonus_xp > 0 then
+        parent:AddExperience(bonus_xp, DOTA_ModifyXP_CreepKill, false, true)
       end
-		end
+
+      -- particle
+      local part = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", PATTACH_POINT_FOLLOW, target)
+      ParticleManager:ReleaseParticleIndex(part)
+
+      -- sound
+      parent:EmitSound("Hero_Treant.LeechSeed.Cast")
+
+      -- kill the target
+      target:Kill(nil, parent)
+    end
 	end
 end
 

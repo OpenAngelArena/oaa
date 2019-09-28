@@ -13,7 +13,6 @@ g_ItemPrecache = {
   "item_dispel_orb_1",
   "item_reflection_shard_1",
   "item_heart_transplant",
-  "item_manta_1",
 }
 
 g_UnitPrecache = {
@@ -69,6 +68,8 @@ g_ParticlePrecache = {
   "particles/items/upgrade_2.vpcf",
   "particles/items/upgrade_3.vpcf",
   "particles/items/upgrade_4.vpcf",
+  "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
+  "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
 }
 
 g_ParticleFolderPrecache = {
@@ -87,6 +88,7 @@ g_ParticleFolderPrecache = {
 
 g_SoundPrecache = {
   "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", -- For Ogre Boss kill sound
+  "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds
   -- Ambient sounds
   "soundevents/ambient/doors.vsndevts",
   "soundevents/music/music.vsndevts",

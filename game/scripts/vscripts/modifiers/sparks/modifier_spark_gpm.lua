@@ -9,10 +9,10 @@ modifier_spark_gpm.OnRefresh = modifier_spark_gpm.OnCreated
 function getSparkLevel ()
   local gameTime = GameRules:GetGameTime()
 
-  if gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL + CAPTURE_INTERVAL + CAPTURE_INTERVAL then
-    -- after second cap
+  if gameTime > INITIAL_CAPTURE_POINT_DELAY + 3*CAPTURE_INTERVAL then
+    -- after 4th cap
     return 5
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL + CAPTURE_INTERVAL then
+  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + 2*CAPTURE_INTERVAL then
     -- after third cap
     return 4
   elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL then
@@ -36,7 +36,7 @@ if IsServer() then
       -- sometimes for no reason the player resource isn't there, usually only at the start of games in tools mode
       return
     end
-    local caster = self:GetCaster()
+    local caster = self:GetParent()
     local gpmChart = {500, 2000, 3200, 5500, 9000}
     local gpm = gpmChart[getSparkLevel()]
     -- Don't give gold on illusions, Tempest Doubles, or Meepo clones, or during duels
