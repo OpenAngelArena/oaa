@@ -4,7 +4,7 @@
 
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots"                              "Greater Tranquil Boots"
 "DOTA_Tooltip_Ability_item_recipe_greater_tranquil_boots"                       "Greater Tranquil Boots Recipe"
-"DOTA_Tooltip_Ability_item_greater_tranquil_boots_Description"                  "<h1>Passive: Break</h1> Whenever you attack a hero or are attacked by a hero, the bonus %bonus_health_health% HP regen is lost and the movement speed bonus is reduced to %broken_movement_speed% for %break_time% seconds. Bosses and player-controlled units also trigger Break when they attack you.\n#{item_greater_tranquil_boots_naturalize_Description}\n#{fools_gold_penalty_warning}"
+"DOTA_Tooltip_Ability_item_greater_tranquil_boots_Description"                  "<h1>Passive: Break</h1> Whenever you are attacked by a hero, the bonus %bonus_health_health% HP regen is lost and the movement speed bonus is reduced to %broken_movement_speed% for %break_time% seconds."
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_Lore"                         "These boots give the wearer the ability to use a dying enemy's life energy."
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_bonus_movement_speed"         "%+$move_speed"
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_bonus_health_regen"           "+$hp_regen"
