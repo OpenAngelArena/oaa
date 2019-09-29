@@ -24,6 +24,7 @@ SPECIAL_BOTTLES = {
   [72521220] = {1}, -- Abit Gray
   [290575742] = {1,54}, -- Obby
   [37885614] = {1,55}, --Darkonius
+  [339494265] = {1}, --Ganza991
 
 
   -- golden tournament winners
