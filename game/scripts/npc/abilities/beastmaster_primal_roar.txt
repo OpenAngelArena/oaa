@@ -21,7 +21,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70.0 60.0 50.0 40.0 30.0" // OAA
+    "AbilityCooldown"                                     "70.0 60.0 50.0 40.0 30.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -56,12 +56,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 225 300 650 1050"
+        "damage"                                          "150 300 550 800 1050" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "side_damage"                                     "150 225 300 650 1050"
+        "side_damage"                                     "150 300 550 800 1050" //OAA
       }
       "04"
       {
@@ -76,7 +76,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed_pct"                           "-60"
+        "slow_attack_speed_pct"                           "-60 -80 -100 -120 -140" //OAA
       }
       "07"
       {
@@ -91,24 +91,14 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "3 3.5 4 7 9"
+        "slow_duration"                                   "4 5 6 7 8" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "950"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "45.0 40.0 35.0 30.0 25.0" // OAA
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "movement_speed"                                  "40"
       }
-      "13"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "movement_speed_duration"                         "3.0"

@@ -23,23 +23,11 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_power_treads;item_upgrade_core_2"
-      "02"                                                "item_greater_power_treads;item_upgrade_core_3"
-      "03"                                                "item_greater_power_treads;item_upgrade_core_4"
-      "04"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
-      "05"                                                "item_greater_guardian_greaves;item_upgrade_core_3"
-      "06"                                                "item_greater_guardian_greaves;item_upgrade_core_4"
-      "07"                                                "item_greater_arcane_boots;item_upgrade_core_2"
-      "08"                                                "item_greater_arcane_boots;item_upgrade_core_3"
-      "09"                                                "item_greater_arcane_boots;item_upgrade_core_4"
-      "10"                                                "item_greater_phase_boots;item_upgrade_core_2"
-      "11"                                                "item_greater_phase_boots;item_upgrade_core_3"
-      "12"                                                "item_greater_phase_boots;item_upgrade_core_4"
-      "13"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
-      "14"                                                "item_greater_tranquil_boots;item_upgrade_core_3"
-      "15"                                                "item_greater_tranquil_boots;item_upgrade_core_4"
-      "16"                                                "item_greater_travel_boots;item_upgrade_core_2"
-      "17"                                                "item_greater_travel_boots;item_upgrade_core_3"
-      "18"                                                "item_greater_travel_boots;item_upgrade_core_4"
+      "02"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
+      "03"                                                "item_greater_arcane_boots;item_upgrade_core_2"
+      "04"                                                "item_greater_phase_boots;item_upgrade_core_2"
+      "05"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "06"                                                "item_greater_travel_boots;item_upgrade_core_2"
     }
   }
 
@@ -54,10 +42,11 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/greater_power_treads_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4700"
+    "ItemCost"                                            "4225"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads 2;power treads 2;treads 2"
@@ -93,17 +82,22 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_radius"                                    "300"
+        "creep_damage_melee"                              "120 200 280 360"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "25 35 45 55"
+        "creep_damage_ranged"                             "120 200 280 360"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "25 35 45 55"
+        "creep_damage_melee_illusion"                     "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_ranged_illusion"                    "0"
       }
     }
   }

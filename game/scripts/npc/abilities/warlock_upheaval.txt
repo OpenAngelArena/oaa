@@ -8,6 +8,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -54,6 +55,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "max_slow"                                        "84"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_time_tooltip"                            "16"
       }
     }
   }

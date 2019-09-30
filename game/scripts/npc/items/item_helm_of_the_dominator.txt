@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
+    "ItemCost"            "300"
     "ItemShopTags"          ""
 
     // Recipe
@@ -48,7 +48,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"            "1875"
+    "ItemCost"            "2175"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd;helm of the dominator;helm;dominator"
@@ -97,7 +97,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_bounty"			"200"
+				"bounty_gold"			"200"
 			}
     }
   }

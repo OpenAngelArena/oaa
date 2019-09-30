@@ -7,23 +7,24 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5429"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5429"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "AbilityCastRange"                                    "1200"
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "1200"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -50,12 +51,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "-50 -25 0 10 20"
+        "outgoing_damage"                                 "-50 -25 0 25 50"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "50 75 100 110 120"
+        "outgoing_damage_tooltip"                         "50 75 100 125 150"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
@@ -66,6 +68,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "incoming_damage_tooltip"                         "260"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
@@ -81,6 +84,26 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "80" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage_scepter"                         "80"
+        "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "incoming_damage_tooltip_scepter"                 "180"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_scepter_cast_range"                      "1200"
+        "RequiresScepter"                                 "1"
       }
     }
   }

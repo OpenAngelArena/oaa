@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_skadi_3;item_upgrade_core_3"
-      "02"                                                "item_skadi_3;item_upgrade_core_4"
-      "03"                                                "item_abyssal_blade_3;item_upgrade_core_3"
-      "04"                                                "item_abyssal_blade_3;item_upgrade_core_4"
+      "02"                                                "item_abyssal_blade_3;item_upgrade_core_3"
     }
   }
 
@@ -41,9 +39,10 @@
     "BaseClass"                                           "item_skadi"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/skadi_4"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16450"
+    "ItemCost"                                            "18500"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 4;eye of skadi 4;skadi 4"
@@ -51,7 +50,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_skadi_4"
+    "UpgradesItems"                                       "item_skadi_4;item_skadi_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,37 +59,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "25 30 40 50 70"
+        "bonus_all_stats"                                 "25 30 40 55 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "225 400 600 1000 1500"
+        "bonus_health"                                    "225 450 675 900 1125"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 450 700 1100 1600"
+        "bonus_mana"                                      "250 500 750 1000 1250"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_movement_speed"                             "-35 -37 -39 -41 -43"
+        "cold_slow_melee"                                 "-20 -25 -30 -35 -40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_attack_speed"                               "-45 -60 -80 -105 -130"
+        "cold_slow_ranged"                                "-45 -50 -55 -60 -65"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cold_duration_melee"                             "5.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cold_duration_ranged"                            "2.5"
+        "cold_duration"                                   "3.0"
       }
     }
   }

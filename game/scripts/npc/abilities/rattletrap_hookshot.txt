@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -22,7 +23,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "2000 2500 3000 3500 4000"
 
     // Time
@@ -31,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 150 150 150 150"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,17 +41,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "latch_radius"                                    "125 125 125 125"
+        "latch_radius"                                    "125"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stun_radius"                                     "175 175 175 175"
+        "stun_radius"                                     "175"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0 1.5 2.0 2.25 2.5"
+        "duration"                                        "1.5 1.75 2.0 2.5 3.0"
       }
 
       "04"
@@ -66,12 +67,13 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 175 275 775 1275"
+        "damage"                                          "75 275 625 975 1325" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "12.0 12.0 12.0 12.0 12.0"
+        "cooldown_scepter"                                "12.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }
