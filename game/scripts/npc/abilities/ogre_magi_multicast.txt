@@ -22,37 +22,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times"                               "0.75 0.75 0.75 0.75 0.75"
+        "multicast_2_times"                               "75"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times"                               "0 0.3 0.3 0.3 0.3"
+        "multicast_3_times"                               "0 30 30 30 30"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times"                               "0 0 0.15 0.25 0.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bloodlust_aoe"                                   "700"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times_tooltip"                       "75"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times_tooltip"                       "0 30 30 30 30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times_tooltip"                       "0 0 15 25 50"
+        "multicast_4_times"                               "0 0 15 25 50"
       }
     }
   }

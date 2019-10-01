@@ -62,23 +62,28 @@
       }
       "04"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "grace_period"                                    "3"
+      }
+      "05"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "mana_cost_scepter"                               "200 420 625 1400 2300"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0.25"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "100.0 60.0 20.0 20.0 20.0"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "splash_radius_scepter"                           "325"

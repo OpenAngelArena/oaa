@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=================================================================================================================
   // Luna: Eclipse
   //=================================================================================================================
@@ -61,41 +60,36 @@
         "beam_interval_scepter"                           "0.4" //OAA
         "RequiresScepter"                                 "1"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "2.4 4.2 6.0 7.2 8.4"
-      }
-      "06"
+      "06" // 05
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "675"
       }
-      "07"
+      "07" // 06
       {
         "var_type"                                        "FIELD_INTEGER"
         "beams_scepter"                                   "8 12 16 20 24" //OAA
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "08" // 07
       {
         "var_type"                                        "FIELD_INTEGER"
         "hit_count_scepter"                               "8 12 16 20 24" //OAA
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "09" // 08
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_tooltip_scepter"                        "3.2 4.8 6.4 8.0 9.6" //OAA
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "10" // 09
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_tooltip_scepter"                      "1600" //OAA
         "RequiresScepter"                                 "1"
       }
-      "11"
+      "11" // 10
       {
         "var_type"                                        "FIELD_FLOAT"
         "night_duration"                                  "10.0"

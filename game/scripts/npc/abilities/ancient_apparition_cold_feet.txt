@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -57,11 +58,6 @@
         "stun_duration"                                   "2.0 2.5 3.0 3.5 3.5 3.5"
       }
       "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700 800 900 1000 1000 1000"
-      }
-      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "charge_restore_time"                             "10 9 8 7 7 7"

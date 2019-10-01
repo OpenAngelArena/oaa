@@ -61,21 +61,16 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "225 300 375 450 525 600"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "max_charges_scepter"                             "2"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "charge_restore_time_scepter"                     "10" //OAA, same as the lowest cd
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range_bonus"                             "300"

@@ -34,53 +34,54 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "start_radius"          "120"
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "120"
       }
       "02"
       {
-        "var_type"              "FIELD_INTEGER"
-        "end_radius"            "160"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "160"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "projectile_speed"      "2400"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "2400"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "damage"          "120 180 240 300 600 900"
-        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_2"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "120 180 240 300 600 900"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "bonus_damage_per_target" "16 24 32 40 80 160"
-        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_2"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_per_target"                         "16 24 32 40 80 160"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "06"
       {
-        "var_type"              "FIELD_INTEGER"
-        "movement_slow_pct"     "50 60 70 80 80 80"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow_pct"                               "50 60 70 80 80 80"
       }
       "07"
       {
-        "var_type"        "FIELD_FLOAT"
-        "slow_duration"     "1.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.5"
       }
       "08"
       {
-        "var_type"          "FIELD_FLOAT"
-        "vision_duration"     "2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "2.0"
       }
       "09"
       {
-        "var_type"          "FIELD_INTEGER"
-        "range_tooltip"       "1400"
-        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_3"
+        "var_type"                                        "FIELD_INTEGER"
+        //"range_tooltip"                                   "1400"
+        "abilitycastrange"                                ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_3"
       }
     }
   }

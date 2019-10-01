@@ -52,26 +52,16 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "10"
-      }
-      "04"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown"                                "0.0"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_rate"                                       "0.25"
       }
-      "06"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "drain_buffer"                                    "200"
