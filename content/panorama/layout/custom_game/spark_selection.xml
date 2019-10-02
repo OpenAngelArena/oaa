@@ -10,6 +10,7 @@
   </scripts>
   <Panel class="SparkSelectionHolder" hittest='false'>
     <Button class='PopupButton' id="ChangeSpark" onactivate='OpenSparkSelection()'>
+      <Label id='ChangeSparkCooldown' text='69'/>
       <Label text='Change Spark'/>
     </Button>
     <Panel id='SparkSelection'>
@@ -92,6 +93,7 @@
       <Panel class='SelectionRow ButtonRow'>
         <Button id='Finished' class='PopupButton' onactivate='SparkFinished()' oncontextmenu='SparkFinished()'>
           <Label text='#UI_Submit'/>
+          <Label text='' id='SubmitSparkCooldown' />
         </Button>
       </Panel>
     </Panel>

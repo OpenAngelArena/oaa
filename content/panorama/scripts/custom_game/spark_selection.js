@@ -16,10 +16,10 @@ function SparkSelection (table, key, args) {
   }
   var playerID = Game.GetLocalPlayerID();
   var teamID = Players.GetTeam(playerID);
-  $.Msg(key);
   if (!args) {
     args = {
-      hasSpark: {}
+      hasSpark: {},
+      cooldowns: {}
     };
   }
   var teamData = args[teamID] || {};
@@ -53,6 +53,16 @@ function SparkSelection (table, key, args) {
       $('#' + value + 'Panel').RemoveClass('active');
     }
   });
+
+  if (args.cooldowns[playerID] && args.cooldowns[playerID] !== '0') {
+    $('#ChangeSparkCooldown').text = args.cooldowns[playerID];
+    $('#SubmitSparkCooldown').text = args.cooldowns[playerID];
+    $('#Finished').disabled = true;
+  } else {
+    $('#ChangeSparkCooldown').text = '';
+    $('#SubmitSparkCooldown').text = '';
+    $('#Finished').disabled = false;
+  }
 }
 
 function SelectSpark (spark) {

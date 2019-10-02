@@ -10,6 +10,7 @@
   margin-left: -5px;
   margin-top: 170px;
   min-width: 120px;
+  flow-children: right;
 }
 
 #ChangeSpark Label {
@@ -103,4 +104,12 @@
 #SparkSelection .ButtonRow
 {
   flow-children: left;
+}
+
+#SparkSelection .ButtonRow Button
+{
+  flow-children: right;
+  min-width: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 }

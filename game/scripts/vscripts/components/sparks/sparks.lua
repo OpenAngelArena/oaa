@@ -18,21 +18,54 @@ function Sparks:Init()
       power = 0,
       cleave = 0
     },
-    hasSpark = {}
+    hasSpark = {},
+    cooldowns = {}
   }
 
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
   CustomGameEventManager:RegisterListener('select_spark', partial(Sparks.OnSelectSpark, Sparks))
+
+  Timers:CreateTimer(1, function()
+    return Sparks:DecreaseCooldowns()
+  end)
+end
+
+function Sparks:DecreaseCooldowns ()
+  local didSomething = false
+
+  for playerId,cooldown in pairs(Sparks.data.cooldowns) do
+    if cooldown < 0 then
+      cooldown = 0
+      didSomething = true
+    end
+    if cooldown > 0 then
+      cooldown = cooldown - 1
+      didSomething = true
+    end
+
+    Sparks.data.cooldowns[playerId] = cooldown
+  end
+
+  if didSomething then
+    CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
+  end
+
+  return 1
 end
 
 function Sparks:OnSelectSpark (eventId, keys)
-  Debug:EnableDebugging()
+  -- Debug:EnableDebugging()
   DebugPrint(eventId)
   DebugPrintTable(keys)
 
   local playerId = keys.PlayerID
   local player = PlayerResource:GetPlayer(playerId)
   local spark = keys.spark
+
+  if Sparks.data.cooldowns[playerId] and Sparks.data.cooldowns[playerId] > 0 then
+    DebugPrint('Spark changing on cooldown!')
+    return
+  end
 
   if spark ~= "gpm" and spark ~= "midas" and spark ~= "power" and spark ~= "cleave" then
     DebugPrint('Invalid spark selection, what is a "' .. spark .. '"')
@@ -45,6 +78,7 @@ function Sparks:OnSelectSpark (eventId, keys)
   end
 
   Sparks.data.hasSpark[playerId] = spark
+  Sparks.data.cooldowns[playerId] = 60
   Sparks.data[player:GetTeam()][spark] = Sparks.data[player:GetTeam()][spark] + 1
 
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
