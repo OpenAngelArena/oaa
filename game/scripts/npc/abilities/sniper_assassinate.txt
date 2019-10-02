@@ -57,23 +57,18 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "3000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_cast_time_tooltip"                         "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "abilitycastpoint"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_4"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "400"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_crit_bonus"                              "280 320 360 400 450" //OAA

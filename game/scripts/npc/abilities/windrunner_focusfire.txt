@@ -43,14 +43,9 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "focusfire_damage_reduction"                      "-50 -40 -30 -20 -10"
-        "LinkedSpecialBonus"    "special_bonus_unique_windranger_8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_windranger_8"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "focusfire_duration_tooltip"                      "20"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "focusfire_fire_on_the_move"                      "1"

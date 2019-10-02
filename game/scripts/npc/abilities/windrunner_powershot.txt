@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"windrunner_powershot"
+  "windrunner_powershot"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -71,11 +71,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "3.34"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "channel_time_tooltip"                            "1.0"
       }
     }
   }
