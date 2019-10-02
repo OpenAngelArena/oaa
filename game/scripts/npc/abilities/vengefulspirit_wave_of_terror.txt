@@ -58,19 +58,13 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "8"
+        "vision_aoe"                                      "300"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_aoe"                                      "300"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "3.0"
       }
-
     }
   }
 }

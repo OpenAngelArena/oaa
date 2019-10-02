@@ -48,72 +48,62 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_time_tooltip"                               "1.67"
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_radius"                                  "1000"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_radius"                                  "1000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "requiem_reduction_ms"                            "-25 -25 -25 -30 -40" //OAA
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_reduction_damage"                        "-50 -60 -70 -80 -90" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_tooltip"                       "-50 -60 -70 -80 -90" //OAA
-      }
-      "06"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_slow_duration"                           "5.0"
       }
-      "07"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_reduction_radius"                        "700"
       }
-      "08"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_soul_conversion"                         "2"
       }
-      "09"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_line_width_start"                        "125"
       }
-      "10"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_line_width_end"                          "425"
       }
-      "11"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "requiem_line_speed"                              "700"
       }
-      "12"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "soul_death_release"                              "0.5"
       }
-      "13"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_heal_pct_scepter"                        "100"
         "RequiresScepter"                                 "1"
       }
-      "14"
+      "12"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_damage_pct_scepter"                      "40"

@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,8 +22,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_burn"                                 "0.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "percent_damage_per_burn"                         "50"
       }
       "02"
       {

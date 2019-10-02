@@ -83,6 +83,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "pass_slow_duration"                              "0.5"
       }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_health_percentage"                          "5"
+      }
     }
   }
 }

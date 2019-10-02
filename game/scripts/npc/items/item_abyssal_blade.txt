@@ -61,7 +61,7 @@
     {
       "01"
       {
-        "var_type"				                                "FIELD_INTEGER"
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "25 35 55 85 125"
       }
       "02"
@@ -123,11 +123,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "1.6 1.7 1.8 1.9 2.0" //OAA
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "140"
       }
     }
   }

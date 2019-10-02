@@ -55,21 +55,16 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "700"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "950"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bash_radius_scepter"                             "350"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "20.0"

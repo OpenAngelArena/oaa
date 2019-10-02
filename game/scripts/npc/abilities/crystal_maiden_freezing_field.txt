@@ -13,6 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -93,11 +94,6 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
       }
       "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "10"
-      }
-      "12"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_delay"                                   "2.5"

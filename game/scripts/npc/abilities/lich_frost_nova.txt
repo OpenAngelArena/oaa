@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -62,11 +63,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "aoe_damage"                                      "75 100 125 150 275 400"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "4.0"
       }
     }
   }
