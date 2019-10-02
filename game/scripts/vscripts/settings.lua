@@ -96,7 +96,7 @@ INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spaw
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 CREEP_BOUNTY_SHARE_RADIUS = 1500        -- the radius in which creep bounty is shared with allies
-CREEP_BOUNTY_SHARE_PERCENT = 10         -- the percentage of the creep's bounty that's given to shared allies
+CREEP_BOUNTY_SHARE_PERCENT = 35         -- the percentage of the creep's bounty that's given to shared allies
 
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
