@@ -23,11 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
-      "02"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
-      "03"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
-      "04"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
-      "05"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
-      "06"                                                "item_greater_power_treads_2;item_upgrade_core_3"
+      "02"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
+      "03"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
+      "04"                                                "item_greater_power_treads_2;item_upgrade_core_3"
+      "05"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
     }
   }
 
@@ -61,7 +60,6 @@
     "UpgradesItems"                                       "item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
 
-    "ItemDisplayCharges"      "1"
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -116,49 +114,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "broken_movement_speed"                           "18 23 28 33"
       }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "distance_per_charge"                             "80.0"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "check_interval"                                  "0.1" // rupture is 0.25, mana leak is 0.1
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_dist"                                        "300" // rupture is 1300, mana leak is 300
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "1000 2000 3400 5700"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_xp"                                        "0"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "400"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
-      }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
     }
   }
 }

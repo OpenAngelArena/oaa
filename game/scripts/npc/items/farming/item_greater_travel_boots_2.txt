@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Boots of Travel 2
+  // Recipe: Greater Boots of Travel 2
   //=================================================================================================================
   "item_recipe_greater_travel_boots_2"
   {
@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3500"
@@ -23,16 +24,15 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_travel_boots;item_upgrade_core_2"
-      "02"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
-      "03"                                                "item_greater_arcane_boots;item_upgrade_core_2"
-      "04"                                                "item_greater_phase_boots;item_upgrade_core_2"
-      "05"                                                "item_greater_power_treads;item_upgrade_core_2"
-      "06"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "02"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
+      "03"                                                "item_greater_phase_boots;item_upgrade_core_2"
+      "04"                                                "item_greater_power_treads;item_upgrade_core_2"
+      "05"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
-  // Boots of Travel 2
+  // Greater Boots of Travel 2
   //=================================================================================================================
   "item_greater_travel_boots_2"
   {
@@ -49,7 +49,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0"
+    "AbilityCooldown"                                     "75 65 55 45"
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "2.5 2.2 1.9 1.6"
 
@@ -74,28 +74,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "32 40 45 50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "90 105 120 135"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1500"
-      }
-      "04"
-      {
-        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
-        "var_type"                                        "FIELD_FLOAT"
-        "assist_stickiness"                               "0.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
+        "bonus_movement_speed"                            "35 40 45 50"
       }
     }
   }

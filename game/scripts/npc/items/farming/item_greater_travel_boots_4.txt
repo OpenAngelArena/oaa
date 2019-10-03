@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: GreaterBoots of Travel 4
+  // Recipe: Greater Boots of Travel 4
   //=================================================================================================================
   "item_recipe_greater_travel_boots_4"
   {
@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "20000"
@@ -24,10 +25,9 @@
     {
       "01"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
       "02"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
-      "03"                                                "item_greater_arcane_boots_3;item_upgrade_core_4"
-      "04"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
-      "05"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
-      "06"                                                "item_greater_power_treads_3;item_upgrade_core_4"
+      "03"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
+      "04"                                                "item_greater_power_treads_3;item_upgrade_core_4"
+      "05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
     }
   }
 
@@ -46,9 +46,10 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityTextureName"                                  "item_custom/greater_travels_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0"
+    "AbilityCooldown"                                     "75 65 55 45"
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "2.5 2.2 1.9 1.6"
 
@@ -62,6 +63,7 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
+
     //"UpgradesItems"                                     "item_greater_travel_boots_4"
     //"UpgradeRecipe"                                     "item_recipe_greater_travel_boots"
 
@@ -72,28 +74,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "32 40 45 50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "90 105 120 135"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1500"
-      }
-      "04"
-      {
-        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
-        "var_type"                                        "FIELD_FLOAT"
-        "assist_stickiness"                               "0.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
+        "bonus_movement_speed"                            "35 40 45 50"
       }
     }
   }
