@@ -40,7 +40,6 @@ function SparkSelection (table, key, args) {
       teamData[args.hasSpark[playerID]]--;
     }
   }
-  $.Msg(teamData);
 
   var selectedSpark = currentSpark || args.hasSpark[playerID];
 
