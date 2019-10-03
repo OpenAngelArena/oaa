@@ -50,7 +50,7 @@ if IsServer() then
 end
 
 function modifier_spark_midas:GetSparkLevel()
-  local gameTime = GameRules:GetGameTime()
+  local gameTime = HudTimer:GetGameTime()
 
   if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
     return 1

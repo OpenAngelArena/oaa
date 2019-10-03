@@ -33,7 +33,7 @@ function modifier_spark_power:OnCreated()
 end
 
 function modifier_spark_power:GetSparkLevel()
-  local gameTime = GameRules:GetGameTime()
+  local gameTime = HudTimer:GetGameTime()
 
   if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
     return 1

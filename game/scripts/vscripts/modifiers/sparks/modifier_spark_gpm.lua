@@ -7,7 +7,7 @@ end
 modifier_spark_gpm.OnRefresh = modifier_spark_gpm.OnCreated
 
 function modifier_spark_gpm:GetSparkLevel()
-  local gameTime = GameRules:GetGameTime()
+  local gameTime = HudTimer:GetGameTime()
 
   if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
     return 1

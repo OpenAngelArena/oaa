@@ -153,7 +153,6 @@ if IsServer() then
 			return
 		end
 
-		--[[
 		if self.storedDamage and self.storedDamage > 0 then
 			local parent = self:GetParent()
 			local maxHeal = math.min( spell:GetSpecialValueFor( "regen_from_creeps" ) * self.interval, self.storedDamage )
@@ -162,7 +161,6 @@ if IsServer() then
 
 			self.storedDamage = self.storedDamage - maxHeal
 		end
-		--]]
 
 		local currentCharges = spell:GetCurrentCharges()
 

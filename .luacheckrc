@@ -97,7 +97,9 @@ globals = { -- these globals can be set and accessed.
 "HERO_KILL_XP_RADIUS",
 "GOLD_PER_TICK",
 "GOLD_TICK_TIME",
-"Components"
+"Components",
+"CREEP_BOUNTY_BONUS_PERCENT_CLEAVE",
+"CREEP_BOUNTY_BONUS_PERCENT_POWER"
 }
 
 read_globals = { -- these globals can only be accessed.

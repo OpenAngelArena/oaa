@@ -1,3 +1,5 @@
+/* global CustomNetTables, Game, PlayerTables, GameEvents, Players, Entities, DOTA_GameState */
+
 var forcedPickSpark = false;
 var currentSpark = null;
 
@@ -5,6 +7,14 @@ var currentSpark = null;
   CustomNetTables.SubscribeNetTableListener('hero_selection', SparkSelection);
   ResetSparkDisplay();
 })();
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    SelectSpark: SelectSpark,
+    OpenSparkSelection: OpenSparkSelection,
+    SparkFinished: SparkFinished
+  };
+}
 
 function ResetSparkDisplay () {
   SparkSelection(null, 'team_sparks', CustomNetTables.GetTableValue('hero_selection', 'team_sparks'));
@@ -30,7 +40,7 @@ function SparkSelection (table, key, args) {
 
   if (!args.hasSpark[playerID]) {
     $.Msg('Forcing picking this spark');
-    $("#SparkSelection").AddClass('show');
+    $('#SparkSelection').AddClass('show');
     forcedPickSpark = true;
   }
 
@@ -77,11 +87,11 @@ function SelectSpark (spark) {
 
 function SparkFinished () {
   if (!forcedPickSpark || currentSpark) {
-    $("#SparkSelection").RemoveClass('show');
+    $('#SparkSelection').RemoveClass('show');
   }
 
   if (currentSpark) {
-    $.Msg('Selecting ' + currentSpark)
+    $.Msg('Selecting ' + currentSpark);
     GameEvents.SendCustomGameEventToServer('select_spark', {
       spark: currentSpark
     });
@@ -91,7 +101,7 @@ function SparkFinished () {
 }
 
 function OpenSparkSelection () {
-  $("#SparkSelection").AddClass('show');
+  $('#SparkSelection').AddClass('show');
   currentSpark = null;
   forcedPickSpark = false;
   ResetSparkDisplay();
