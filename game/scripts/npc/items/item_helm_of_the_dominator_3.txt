@@ -25,11 +25,7 @@
     "ItemRequirements"
     {
       "01"                        "item_helm_of_the_dominator_2;item_upgrade_core_2"
-      "02"                        "item_helm_of_the_dominator_2;item_upgrade_core_3"
-      "03"                        "item_helm_of_the_dominator_2;item_upgrade_core_4"
-      "04"                        "item_vladmir_2;item_upgrade_core_2"
-      "05"                        "item_vladmir_2;item_upgrade_core_3"
-      "06"                        "item_vladmir_2;item_upgrade_core_4"
+      "02"                        "item_vladmir_2;item_upgrade_core_2"
     }
   }
 
@@ -73,12 +69,12 @@
       "01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_stats"			"2 25 40 55 70"
+				"bonus_stats"			"2 15 30 45 60"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-        "attack_speed_aura"   "20 35 60 80 100"
+        "attack_speed_aura"   "20 40 60 80 100"
 			}
 			"03"
 			{
@@ -103,12 +99,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_range"			"700"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_bounty"			"200"
+				"bounty_gold"			"200"
 			}
     }
   }

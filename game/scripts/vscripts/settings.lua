@@ -17,7 +17,7 @@ setmetatable(RESPAWN_TIME_TABLE, {
     local minLevel = 1
     local maxLevel = 49
     local minTime = 5
-    local maxTime = 20
+    local maxTime = 30
     local clampedLevel = math.min(maxLevel, key)
     -- Store result instead of recalculating for lookups for the same level
     -- Linear interpolation between min and max level/time pairs
@@ -34,8 +34,8 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 100
-TEN_V_TEN_KILL_LIMIT = 150
+NORMAL_KILL_LIMIT = 50
+TEN_V_TEN_KILL_LIMIT = 80
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -54,16 +54,16 @@ CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/b
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
 
-RANKED_PREGAME_TIME = 10
+RANKED_PREGAME_TIME = 0
 RANKED_BAN_TIME = 30
-RANKED_PICK_TIME = 25
+RANKED_PICK_TIME = 60
 
 -- Game timings
-PREGAME_TIME = 10
+PREGAME_TIME = 35
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 25                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 35                 -- how long after the clock hits 0 should the initial duel start countind down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
@@ -87,12 +87,18 @@ BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
+BOSS_WANDERER_SPAWN_START = 12 * 60     -- start time for wanderer spawn
+BOSS_WANDERER_RESPAWN = 5 * 60          -- start time for wanderer spawn
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
 INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spawning the first wave of creeps
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
+CREEP_BOUNTY_SHARE_RADIUS = 1500        -- the radius in which creep bounty is shared with allies
+CREEP_BOUNTY_SHARE_PERCENT = 35         -- the percentage of the creep's bounty that's given to shared allies
+CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 15  -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
+CREEP_BOUNTY_BONUS_PERCENT_POWER = 30   -- the bonus percentage of the creep's bounty that's given to those that kill with Power Spark
 
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
@@ -120,45 +126,21 @@ LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly to
 
 -- XP gain and rubberband on hero kills
 USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
-AOE_XP_LEVEL_MULTIPLIER = {
-  18,
-  13.5,
-  9,
-  6.3,
-  4.5
-}
-AOE_XP_BONUS_FACTOR ={
-  0.3,
-  0.3,
-  0.25,
-  0.2,
-  0.15
-}
 
--- Level = Killed hero's level (Dying Hero's Level)
--- Kill experience: f(Level) = 30*Level when Level<6; f(Level) = f(Level - 1) + 110 when Level>7; f(6) = 200; f(7) = 220;
--- HeroXP = Total XP of the killed hero (Dying Hero's XP)
--- EnemyTeamXP = Enemy team's total experience
--- AlliedTeamXP = Your team's total experience
--- XPDiff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP) (minimum 0)
-
--- Total experience that a hero gets when there is (number_of_heroes) in 1500 radius:
--- number_of_heroes:
---1 Hero: AOE_XP_LEVEL_MULTIPLIER[1] × L + AOE_XP_BONUS_FACTOR[1] × XPDiff × HeroXP + f(Level)
---2 Heroes: AOE_XP_LEVEL_MULTIPLIER[2] × L + AOE_XP_BONUS_FACTOR[2] × XPDiff × HeroXP + f(Level)/2
---3 Heroes: AOE_XP_LEVEL_MULTIPLIER[3] × L + AOE_XP_BONUS_FACTOR[3] × XPDiff × HeroXP + f(Level)/3
---4 Heroes: AOE_XP_LEVEL_MULTIPLIER[4] × L + AOE_XP_BONUS_FACTOR[4] × XPDiff × HeroXP + f(Level)/4
---5 Heroes: AOE_XP_LEVEL_MULTIPLIER[5] × L + AOE_XP_BONUS_FACTOR[5] × XPDiff × HeroXP + f(Level)/5
+-- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
+-- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
+HERO_XP_BOUNTY_BASE = 20            -- 40 in normal dota
+HERO_XP_BOUNTY_STREAK_BASE = 60     -- 200 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
+HERO_XP_BOUNTY_STREAK_INCREASE = 50 -- 150 in normal dota
+HERO_XP_BOUNTY_STREAK_MAX = 420     -- 1250 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
+HERO_XP_BONUS_FACTOR = 0.07         -- 0.14 in normal dota
+HERO_KILL_XP_RADIUS = 1500          -- 1500 in normal dota
 
 -- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 0        -- After what delay in seconds will the first bounty rune spawn?
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 120        -- After what delay in seconds will the first bounty rune spawn?
 BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
--- gold_reward = BOUNTY_RUNE_INITIAL_TEAM_GOLD x game_time x (1 + gold_difference x game_time/10)
--- gold_difference = (EnemyTeamGold - AlliedTeamGold) / (EnemyTeamGold + AlliedTeamGold) (minimum 0)
--- xp_reward = BOUNTY_RUNE_INITIAL_TEAM_XP x game_time x (1 + XPDiff x game_time/10)
--- XPDiff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP) (minimum 0)
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -172,11 +154,11 @@ HERO_SELECTION_TIME = 30.0              -- How long should we let people select 
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
-GOLD_PER_TICK = 1                       -- How much gold should players get per tick?
-GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
+GOLD_PER_TICK = 2                       -- How much gold should players get per tick? This increases over time in OAA.
+GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes
-CAMERA_DISTANCE_OVERRIDE = -1           -- How far out should we allow the camera to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes
+CAMERA_DISTANCE_OVERRIDE = 1268           -- How far out should we allow the camera to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
 MINIMAP_CREEP_ICON_SIZE = 1             -- What icon size should we use for creeps?
@@ -259,7 +241,7 @@ STARTING_GOLD = 825                     -- How much starting gold should we give
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
 DISABLE_KILLING_SPREE_ANNOUNCER = false -- Should we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
-SKIP_TEAM_SETUP = false and IsInToolsMode()       -- Should we skip the team setup entirely?
+SKIP_TEAM_SETUP = true and IsInToolsMode()       -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 30                  -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams

@@ -1,0 +1,133 @@
+"DOTAItems"
+{
+  "item_phase_boots"                                      "REMOVED"
+  //=================================================================================================================
+  // Recipe: Phase Origin
+  //=================================================================================================================
+  "item_recipe_phase_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8600"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "25"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_phase_origin"
+    "ItemRequirements"
+    {
+      "01"                                                "item_farming_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Phase Origin
+  //=================================================================================================================
+  "item_phase_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8601"                          // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_phase_boots.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityTextureName"                                  "custom/phase_origin"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "damage;armor"
+
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "phase spark;phase;spark"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_melee"                              "10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_range"                              "6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block_melee"                              "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_block_ranged"                             "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "block_chance"                                    "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "phase_movement_speed"                            "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "phase_movement_speed_range"                      "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "phase_duration"                                  "0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "3"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splinter_radius"                                 "375"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splinter_attack_outgoing"                        "50"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splinter_count"                                  "2"
+      }
+    }
+  }
+}

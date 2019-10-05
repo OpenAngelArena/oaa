@@ -26,12 +26,13 @@
 		"Ability3"					"spider_boss_passive_tier5"
 		"Ability4"          "boss_resistance"
 		"Ability5"          "boss_cliffwalk"
-		"Ability6"          "siltbreaker_boss_protection"
+		"Ability6"          "boss_regen"
+		"Ability7"          "siltbreaker_boss_protection"
 
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"25"
-    "MagicalResistance"                                   "-25"        // Magical protection.
+    "MagicalResistance"                                   "-50"        // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------

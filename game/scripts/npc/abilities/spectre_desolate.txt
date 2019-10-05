@@ -29,17 +29,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "radius"                                          "325" //OAA, heroes are clamped-up a lot
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "blind_pct"       "40 50 60 70 70 70"
+        "var_type"                                        "FIELD_INTEGER"
+        "blind_pct"                                       "40" //OAA, its annoying and mostly useless
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "blind_duration"    "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "blind_duration"                                  "5.0"
       }
     }
   }

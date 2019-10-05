@@ -1,0 +1,91 @@
+"DOTAItems"
+{
+  "item_arcane_boots"                                     "REMOVED"
+  //=================================================================================================================
+  // Recipe: Arcane Origin
+  //=================================================================================================================
+  "item_recipe_arcane_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8650"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "25"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_arcane_origin"
+    "ItemRequirements"
+    {
+      "01"                                                "item_farming_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Arcane Origin
+  //=================================================================================================================
+  "item_arcane_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8651"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_arcane_boots.lua"
+    "AbilityTextureName"                                  "custom/arcane_origin"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "55.0"
+    "AbilityCastRange"                                    "1200"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "boost_mana;mana_pool"
+
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "arcane spark;arcanes;spark"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement"                                  "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "150"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_amount"                                "100"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_radius"                                "1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold_per_minute"                           "500"
+      }
+    }
+  }
+}

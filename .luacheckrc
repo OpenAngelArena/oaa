@@ -50,6 +50,8 @@ globals = { -- these globals can be set and accessed.
 "SCAN_REVEAL_DURATION",
 "SCAN_DURATION",
 "CREEP_POWER_MAX",
+"CREEP_BOUNTY_SHARE_RADIUS",
+"CREEP_BOUNTY_SHARE_PERCENT",
 "CAVE_RELEVANCE_FACTOR",
 "CAVE_MAX_MULTIPLIER",
 "XP_PER_LEVEL_TABLE",
@@ -87,7 +89,17 @@ globals = { -- these globals can be set and accessed.
 "POWER_RUNE_SPAWN_INTERVAL",
 "BOUNTY_RUNE_INITIAL_TEAM_GOLD",
 "BOUNTY_RUNE_INITIAL_TEAM_XP",
-"Components"
+"HERO_XP_BOUNTY_BASE",
+"HERO_XP_BOUNTY_STREAK_BASE",
+"HERO_XP_BOUNTY_STREAK_INCREASE",
+"HERO_XP_BOUNTY_STREAK_MAX",
+"HERO_XP_BONUS_FACTOR",
+"HERO_KILL_XP_RADIUS",
+"GOLD_PER_TICK",
+"GOLD_TICK_TIME",
+"Components",
+"CREEP_BOUNTY_BONUS_PERCENT_CLEAVE",
+"CREEP_BOUNTY_BONUS_PERCENT_POWER"
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -2818,7 +2830,12 @@ read_globals = { -- these globals can only be accessed.
 "FindCustomBuildingsInRadius",
 "FindAllBuildingsInRadius",
 "PreventGettingStuck",
-"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE"
+"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE",
+"MODIFIER_STATE_UNSLOWABLE",
+"AddAnimationTranslate",
+"BOSS_WANDERER_SPAWN_START",
+"BOSS_WANDERER_RESPAWN",
+"AbilityKV"
 }
 
 ignore = {

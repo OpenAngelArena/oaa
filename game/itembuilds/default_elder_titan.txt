@@ -1,0 +1,52 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_elder_titan"
+	"Title"			"Recommended items for Elder Titan."
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_stout_shield"
+			"item"		"item_enchanted_mango"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_ward_stack"
+			"item"		"item_medallion_of_courage"
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_solar_crest"
+			"item"		"item_mekansm"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_greater_guardian_greaves"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_sphere"
+			"item"		"item_lotus_orb"	
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			
+			"item"		"item_greater_guardian_greaves_4"
+			"item"		"item_aeon_disk_4"
+		}	
+		
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_pipe"
+			"item"		"item_vladmir"
+			"item"		"item_veil_of_discord"
+			"item"		"item_assault"
+			"item"		"item_crimson_guard"
+			"item"		"item_blademail"
+		}
+	}
+}

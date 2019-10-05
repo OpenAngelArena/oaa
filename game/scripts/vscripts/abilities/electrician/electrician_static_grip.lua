@@ -16,24 +16,20 @@ end
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:OnSpellStart()
-	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
+  local caster = self:GetCaster()
+  local target = self:GetCursorTarget()
 
-	-- trigger and get blocked by linkens
-	if not target:TriggerSpellAbsorb( self ) then
-		local durationMax = self:GetSpecialValueFor( "channel_time" )
+  -- trigger and get blocked by linkens
+  if not target:TriggerSpellAbsorb( self ) then
+    local durationMax = self:GetSpecialValueFor( "channel_time" )
+    durationMax = target:GetValueChangedByStatusResistance( durationMax )
 
-		-- create the stun modifier on target
-		target:AddNewModifier( caster, self, "modifier_electrician_static_grip", {
-			duration = durationMax,
-		} )
+    -- create the stun modifier on target
+    target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )
 
-		-- create the movement modifier on caster
-		caster:AddNewModifier( caster, self, "modifier_electrician_static_grip_movement", {
-			target = target:entindex(),
-			duration = durationMax,
-		} )
-	end
+    -- create the movement modifier on caster
+    caster:AddNewModifier( caster, self, "modifier_electrician_static_grip_movement", { target = target:entindex(), duration = durationMax } )
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -201,20 +197,14 @@ if IsServer() then
 		local caster = self:GetCaster()
 		local spell = self:GetAbility()
 
-		-- if we're past the break distance, destroy the modifier
-		if caster:GetRangeToUnit( parent ) > self.distBreak then
-			self:Destroy()
-		-- otherwise, inflict damage
-		else
-			ApplyDamage( {
-				victim = parent,
-				attacker = caster,
-				damage = self.damagePerInterval,
-				damage_type = self.damageType,
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
-				ability = spell,
-			} )
-		end
+		ApplyDamage( {
+			victim = parent,
+			attacker = caster,
+			damage = self.damagePerInterval,
+			damage_type = self.damageType,
+			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			ability = spell,
+		} )
 	end
 end
 

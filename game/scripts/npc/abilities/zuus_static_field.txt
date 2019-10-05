@@ -13,18 +13,16 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_health_pct"                               "4 6 8 10 10 10"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_health_pct"                               "6 8 10 12 14 16"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

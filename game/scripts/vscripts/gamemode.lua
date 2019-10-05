@@ -160,9 +160,16 @@ function GameMode:OnPreGame()
   InitModule(NGP)
   InitModule(Doors)
   InitModule(HeroKillGold)
+  InitModule(HeroKillXP)
   InitModule(EntityStatProvider)
   InitModule(RespawnManager)
   InitModule(BountyRunePick)
+  InitModule(WispProjectileFilter)
+  InitModule(HudTimer)
+  InitModule(Duels)
+  InitModule(DuelRunes)
+  InitModule(PlayerConnection)
+  InitModule(ProtectionAura)
 
   CheckCheatMode()
 end
@@ -174,25 +181,19 @@ end
 ]]
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
-
   -- initialize modules
-  InitModule(HudTimer)
   InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
   InitModule(CaveHandler)
-  InitModule(Duels)
   InitModule(CapturePoints)
   InitModule(BossSpawner)
   InitModule(BottleCounter)
-  InitModule(DuelRunes)
   InitModule(FinalDuel)
-  InitModule(PlayerConnection)
-  InitModule(StatusResistance)
+  --InitModule(StatusResistance)
   InitModule(SaveLoadState)
   InitModule(Runes)
-  InitModule(ProtectionAura)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
@@ -233,9 +234,13 @@ function GameMode:InitGameMode()
   InitModule(FilterManager)
   InitModule(Bottlepass)
   InitModule(Courier)
+  InitModule(StartingItems)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
+
+  -- Increase maximum owned item limit
+  Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )

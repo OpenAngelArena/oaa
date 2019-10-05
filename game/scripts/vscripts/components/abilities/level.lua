@@ -11,7 +11,7 @@ function AbilityLevels:Init ()
   GameEvents:OnPlayerLearnedAbility(partial(self.CheckAbilityLevels, self))
   CustomGameEventManager:RegisterListener("check_level_up_selection", function(_, keys)
     -- Change the player ID to an entity index
-    keys.player = PlayerResource:GetPlayer(keys.player):entindex()
+    keys.player = PlayerResource:GetPlayer(keys.PlayerID):entindex()
     self:CheckAbilityLevels(keys)
   end)
 end

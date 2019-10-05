@@ -39,12 +39,12 @@ end
 
 
 function SurrenderManager:CheckSurrenderConditions(keys)
-  local teamId = PlayerResource:GetTeam(keys.playerid)
+  local teamId = PlayerResource:GetTeam(keys.PlayerID)
   local now = HudTimer:GetGameTime()
   if SurrenderManager:ScoreAllowsSurrender(teamId) and
-      SurrenderManager:TimeAllowsSurrender(keys.playerid, now) then
+      SurrenderManager:TimeAllowsSurrender(keys.PlayerID, now) then
     lastTimeSurrenderWasCalled = GameRules:GetGameTime()
-    lastTimeSurrenderWasCalledByPlayer[keys.playerid] = now
+    lastTimeSurrenderWasCalledByPlayer[keys.PlayerID] = now
     teamIdToSurrender = teamId
     local timeout = SURRENDER_TIME_TO_DISPLAY
     local text = "#surrender_suggestion"

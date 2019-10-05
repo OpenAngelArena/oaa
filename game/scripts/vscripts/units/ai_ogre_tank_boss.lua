@@ -114,8 +114,8 @@ function SpawnAllies()
   table.insert(thisEntity.OgreSummonSeers, ally1)
   table.insert(thisEntity.OgreSummonSeers, ally2)
 
-  ally2:AddItem(CreateItem("item_heart", ally2, ally2))
-  ally1:AddItem(CreateItem("item_heart", ally1, ally1))
+  --ally2:AddItem(CreateItem("item_heart", ally2, ally2))
+  --ally1:AddItem(CreateItem("item_heart", ally1, ally1))
 end
 
 function Jump()

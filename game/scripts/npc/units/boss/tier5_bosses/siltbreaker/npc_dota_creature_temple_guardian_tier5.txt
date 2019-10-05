@@ -30,12 +30,19 @@
 		"Ability6"					"temple_guardian_passive_tier5"
 		"Ability7"          "boss_resistance"
 		"Ability8"          "boss_cliffwalk"
-		"Ability9"          "siltbreaker_boss_protection"
+		"Ability9"          "boss_regen"
+		"Ability10"         "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "25"        // Physical protection.
-    "MagicalResistance"                                   "25"        // Magical protection.
+    "MagicalResistance"                                   "-50"       // Magical protection.
+
+    	// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					  "5000"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -63,7 +70,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				  "20000"
+		"StatusHealth"				  "17000"
 		"StatusHealthRegen"			"55" // they can spam heal bombs for effective 500 hp/s heals
 		"StatusMana"				    "5000"
 		"StatusManaRegen"			  "30"

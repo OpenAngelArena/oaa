@@ -1,0 +1,89 @@
+"DOTAItems"
+{
+  "item_travel_boots"                                     "REMOVED"
+  "item_travel_boots_2"                                   "REMOVED"
+  //=================================================================================================================
+  // Recipe: Travel Origin
+  //=================================================================================================================
+  "item_recipe_travel_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8620"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "25"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_travel_origin"
+    "ItemRequirements"
+    {
+      "01"                                                "item_farming_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Travel Origin
+  //=================================================================================================================
+  "item_travel_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8621"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_travel_boots.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityTextureName"                                  "item_custom/travel_origin"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "90.0"
+    "AbilitySharedCooldown"                               "travel"
+    "AbilityChannelTime"                                  "4.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75"
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "teleport;move_speed"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "bot;travel;travel spark;spark"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "17"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "assist_percent"                                  "60"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "assist_radius"                                   "1500"
+      }
+      "04"
+      {
+        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
+        "var_type"                                        "FIELD_FLOAT"
+        "assist_stickiness"                               "0.1"
+      }
+    }
+  }
+}

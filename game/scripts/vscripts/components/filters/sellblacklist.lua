@@ -1,13 +1,15 @@
-if SellBlackList == nil then
-  Debug.EnabledModules['filters:sellblacklist'] = false
-  DebugPrint('creating new SellBlackList object')
-  SellBlackList = class({})
-end
+
+SellBlackList = Components:Register('SellBlackList', COMPONENT_STRATEGY)
 
 local ItemSellBlackList = {
-  "item_upgrade_core",
+  --"item_upgrade_core",
   "item_infinite_bottle",
-  "item_farming_core"
+  "item_farming_core",
+  "item_arcane_origin",
+  "item_phase_origin",
+  "item_power_origin",
+  "item_tranquil_origin",
+  "item_travel_origin",
 }
 
 function SellBlackList:Init ()

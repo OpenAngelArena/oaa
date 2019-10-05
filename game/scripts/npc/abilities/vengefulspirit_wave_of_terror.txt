@@ -24,12 +24,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 9.5 9"
+    "AbilityCooldown"                                     "16 14 12 10 10 10"
     "AbilityDuration"                                     "8"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "45 70 95 120 240 370"
+    "AbilityDamage"                                       "60 80 100 120 240 370"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,26 +52,19 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-3 -4 -5 -6 -11 -16"
-        "LinkedSpecialBonus"  "special_bonus_unique_vengeful_spirit_4"
+        "armor_reduction"                                 "-3 -4 -5 -6 -8 -12"
+        "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "8"
+        "vision_aoe"                                      "300"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_aoe"                                      "300"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "3.0"
       }
-
     }
   }
-
 }

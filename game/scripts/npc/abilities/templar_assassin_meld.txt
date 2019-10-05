@@ -24,7 +24,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "6"
-    "AbilityDuration"                                     "10.0"
+    "AbilityDuration"                                     "12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,18 +37,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 100 150 200 450 700"
+        "bonus_damage"                                    "50 100 150 200 300 450"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "-2 -4 -6 -8 -16 -24"
+        "bonus_armor"                                     "-2 -4 -6 -8 -12 -14"
         "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin_2"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_duration_tooltip"                "10"
       }
     }
   }

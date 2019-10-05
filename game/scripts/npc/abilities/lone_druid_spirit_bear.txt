@@ -11,15 +11,17 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "HasScepterUpgrade"                                   "1"
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30.0" //OAA
+    "AbilityCooldown"                                     "45.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,12 +56,13 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "backlash_damage"                                 "20.0" //OAA
+        "backlash_damage"                                 "30.0" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "30.0" //OAA
+        "cooldown_scepter"                                "45.0" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }
