@@ -79,7 +79,8 @@ GameEvents:OnEntityFatalDamage(function (keys)
     end
   end
 
-  -- only do fool's gold reduction after shared bounty
+  -- old fool's gold reduction after shared bounty
+  --[[
   local function HasCreepBountyMult(modifier)
     return modifier.DeclareFunctions and
       contains(MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER, modifier:DeclareFunctions())
@@ -91,6 +92,23 @@ GameEvents:OnEntityFatalDamage(function (keys)
   local newGoldBounty = math.floor(killedUnit:GetGoldBounty() * creepBountyMultiplier)
   killedUnit:SetMinimumGoldBounty(newGoldBounty)
   killedUnit:SetMaximumGoldBounty(newGoldBounty)
+  ]]
+
+  -- bonus gold if player has specific sparks that give percentage gold bonus bounty
+  -- I am not using MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER in case Valve makes it actually work
+  local creepBountyMultiplier = 1
+  if attacker:HasModifier("modifier_spark_cleave") then
+    creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_CLEAVE/100
+  elseif attacker:HasModifier("modifier_spark_power") then
+    creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_POWER/100
+  end
+
+  local oldGoldBountyMin = killedUnit:GetMinimumGoldBounty()
+  local oldGoldBountyMax = killedUnit:GetMaximumGoldBounty()
+  local newGoldBountyMin = oldGoldBountyMin * creepBountyMultiplier
+  local newGoldBountyMax = oldGoldBountyMax * creepBountyMultiplier
+  killedUnit:SetMinimumGoldBounty(newGoldBountyMin)
+  killedUnit:SetMaximumGoldBounty(newGoldBountyMax)
 
   -- PlayerResource:ModifyGold(playerID, goldBounty, false, DOTA_ModifyGold_CreepKill)
   -- if player then

@@ -1,22 +1,20 @@
 item_greater_travel_boots = class(ItemBaseClass)
 modifier_item_greater_travel_boots = class(ModifierBaseClass)
 
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_creep_assist_gold", "items/farming/modifier_creep_assist_gold.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
+  return "modifier_item_greater_travel_boots" -- "modifier_intrinsic_multiplexer"
 end
-
+-- uncomment this if we plan to add more effects to Greater Travel Boots
+--[[
 function item_greater_travel_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_travel_boots",
-    --"modifier_creep_assist_gold",
-    "modifier_creep_bounty"
   }
 end
+]]
 
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
@@ -161,12 +159,4 @@ item_greater_travel_boots_2 = class(item_greater_travel_boots)
 item_greater_travel_boots_3 = class(item_greater_travel_boots)
 item_greater_travel_boots_4 = class(item_greater_travel_boots)
 item_greater_travel_boots_5 = class(item_greater_travel_boots)
-item_travel_origin = class(item_greater_travel_boots)
-
-function item_travel_origin:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_greater_travel_boots",
-    --"modifier_creep_assist_gold",
-    --"modifier_creep_bounty"
-  }
-end
+--item_travel_origin = class(item_greater_travel_boots)

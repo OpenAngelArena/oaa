@@ -12,6 +12,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -20,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0 50.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,27 +39,25 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.0 5.0 6.0 7.0"	//OAA
+        "duration"                                        "4.0 5.0 6.0 7.0 8.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_scepter"                                "4.0 5.0 6.0 7.0 8.0"	//OAA
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "redirect"                                        "0.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "ally_threshold_scepter"                          "525"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "redirect_pct_tooltip_scepter"                    "50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "redirect_range_tooltip_scepter"                  "1200"
+        "redirect_range_scepter"                          "900" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

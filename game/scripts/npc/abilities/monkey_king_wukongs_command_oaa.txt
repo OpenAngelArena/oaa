@@ -1,0 +1,130 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Monkey King: Wukong's Command OAA version, affects creeps, cannot be stolen
+  //=================================================================================================================
+  "monkey_king_wukongs_command_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85725"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_wukongs_command.lua"
+    "AbilityTextureName"                                  "monkey_king_wukongs_command"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
+    "AbilitySound"                                        "Hero_MonkeyKing.FurArmy"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "1.2"
+    "AbilityCastRange"                                    "550"
+    "AbilityCastAnimation"                                "ACT_DOTA_MK_FUR_ARMY"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "130 110 90 80 70"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "first_radius"                                    "300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "second_radius"                                   "700"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_first_soldiers"                              "5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_second_soldiers"                             "9"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "12 18 24 30 36"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_interval"                                 "1.2"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage_percent"                             "100"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "proc_chance"                                     "35"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "13.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_tooltip"                              "550"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ring_spawn_interval"                             "0.7"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "110 90 70 50 50"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_first_soldiers_scepter"                      "6"
+        "RequiresScepter"                                 "1"
+      }
+
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_second_soldiers_scepter"                     "10"
+        "RequiresScepter"                                 "1"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_third_soldiers_scepter"                      "10"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

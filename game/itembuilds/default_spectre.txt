@@ -1,0 +1,63 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_spectre"
+    "Title"         "Recommended items for Spectre"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_tranquil_origin"
+            "item"      "item_stout_shield"
+            "item"      "item_tango"
+            "item"      "item_flask"
+            "item"      "item_branches"
+            "item"      "item_branches"
+            "item"      "item_clarity"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_tranquil_boots"
+            "item"      "item_diffusal_blade"
+            "item"      "item_manta"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_greater_crit"
+            "item"      "item_skadi"
+            "item"      "item_helm_of_the_dominantor"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_diffusal_blade_5"
+            "item"      "item_manta_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_skadi_5"
+            "item"      "item_helm_of_the_dominantor_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_abyssal_blade_5"
+            "item"      "item_butterfly_5"
+            "item"      "item_sange_and_yasha_5"
+            "item"      "item_blade_mail_5"
+            "item"      "item_nullifier_5"
+            "item"      "item_bloodthorn_5"
+            "item"      "item_monkey_king_bar_5"
+            "item"      "item_mjollnir_5"
+            "item"      "item_refresher_5"
+            "item"      "item_heart_5"
+            "item"      "item_satanic_5"
+            "item"      "item_assault_5"
+            "item"      "item_radiance_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_spirit_vessel_5"
+        }
+    }
+}

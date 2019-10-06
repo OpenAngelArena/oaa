@@ -80,8 +80,9 @@ function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
     local attacker = kv.attacker
     local target = kv.target
-    if attacker == self:GetParent() and kv.process_procs and not attacker:IsIllusion() and not target:IsMagicImmune() then
-      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+    if attacker == self:GetParent() and not attacker:IsIllusion() and not target:IsMagicImmune() then
+      local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
+      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = debuff_duration } )
     end
   end
 end
@@ -93,7 +94,7 @@ modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then
     self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
-    self.totalDuration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+    self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
     self.health_fraction = 0
   end
 end
