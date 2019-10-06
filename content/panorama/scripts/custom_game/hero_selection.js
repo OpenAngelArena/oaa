@@ -86,7 +86,7 @@ var hilariousLoadingPhrases = [
   'Forgetting to upgrade boots',
   'Hope everyone is having a great day',
   'Wards cannot be bought individually, instead the Ward Stack item is used to generate both observer and sentry wards passively',
-  'Upgrade cores allow you to upgrade your times',
+  'Upgrade cores allow you to upgrade your items',
   'You can split an upgrade core into 2 of a lower tier',
   'Heroes are invulnerable for 2 seconds at the start of every duel',
   'Each capture point is worth more points than the previous',

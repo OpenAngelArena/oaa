@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"winter_wyvern_arctic_burn"
+  "winter_wyvern_arctic_burn"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,6 +8,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
 
     "HasScepterUpgrade"                                   "1"
@@ -18,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50.0 40.0 30.0 20.0 20.0 20.0"
+    "AbilityCooldown"                                     "20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,11 +54,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_duration"                                 "5.0"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "22 28 34 40 40 40"
+        "move_slow"                                       "22 28 34 40 45 50"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_1"
       }
       "07"
@@ -88,6 +91,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_cost_scepter"                               "30"
+        "RequiresScepter"                                 "1"
       }
     }
   }

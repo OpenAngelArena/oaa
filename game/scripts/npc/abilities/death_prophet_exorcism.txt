@@ -14,9 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -79,12 +82,37 @@
       "09" // average_damage is important for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "72 72 72 162 265" //OAA, Valve has it wrong
+        "average_damage"                                  "72 72 72 162 265" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "ghost_spawn_rate"                                "0.35"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_movespeed_slow"                          "100"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_movespeed_debuff_duration"               "0.3"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spirit_life_duration"                    "20"
+        "RequiresScepter"                                 "1"
+      }
+      "14" // this is a percentage bonus
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spirit_bonus_damage"                     "75 75 75 100 125"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

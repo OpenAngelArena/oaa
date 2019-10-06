@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_veil_of_discord_2;item_upgrade_core_2"
-      "02"                                                "item_far_sight;item_upgrade_core_2"
     }
   }
 
@@ -71,7 +70,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 20 29"
+        "bonus_armor"                                     "6 8 11 15 20"
       }
       "03"
       {
@@ -85,7 +84,7 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_int"                                       "15 20 30 45 68"
       }
       "06"
@@ -102,11 +101,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "resist_debuff_duration"                          "16.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1000"
       }
     }
   }

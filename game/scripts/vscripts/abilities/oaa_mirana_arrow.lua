@@ -23,11 +23,16 @@ if IsServer() then
       self.next_projectile_id = 1
     end
 
+    local spawn_origin = position + (direction * arrow_data.arrow_start_distance)
+    if self:IsStolen() then
+      spawn_origin = position
+    end
+
     local info =
     {
       Ability = self,
       EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf",
-      vSpawnOrigin = caster:GetAbsOrigin() + (caster:GetForwardVector() * arrow_data.arrow_start_distance),
+      vSpawnOrigin = spawn_origin,
       fDistance = arrow_data.arrow_range,
       fStartRadius = arrow_data.arrow_width,
       fEndRadius = arrow_data.arrow_width,
@@ -105,17 +110,16 @@ if IsServer() then
 
       -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
       local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+      stun_duration = target:GetValueChangedByStatusResistance(stun_duration)
       -- Stun
-      target:AddNewModifier(caster, self, "modifier_stunned", {
-        duration=stun_duration
-      })
+      target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
     end
 
     -- Add vision
     AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), data.arrow_vision, data.arrow_vision_duration, false)
 
     -- Add hit sound
-    caster:EmitSound("Hero_Mirana.ArrowImpact")
+    target:EmitSound("Hero_Mirana.ArrowImpact")
 
     self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
 
@@ -131,8 +135,34 @@ if IsServer() then
   function mirana_arrow_oaa:OnSpellStart()
     local caster = self:GetCaster()
     local position = caster:GetAbsOrigin()
-    local direction = self:GetForwardVector()
+    local direction = caster:GetForwardVector()
 
+    local cursor_position = self:GetCursorPosition()
+    local target = self:GetCursorTarget()
+
+    local target_position
+    if target then
+      if target == caster then
+        -- Reverse cast direction for doubletap cast (self cast)
+        direction = direction * -1
+      else
+        target_position = target:GetAbsOrigin()
+      end
+    elseif cursor_position then
+      if cursor_position == position then
+        -- Reverse cast direction for self point cast
+        direction = direction * -1
+      else
+        target_position = cursor_position
+      end
+    else
+      return
+    end
+
+    if self:IsStolen() and target_position then
+      -- Stolen Arrow direction is sometimes messed up, so we calculate it just in case
+      direction = (target_position - position):Normalized()
+    end
     -- Maximum arrow range
     local arrow_range = self:GetSpecialValueFor( "arrow_range" )
     -- Global cast range applies to global range for the arrow too
@@ -155,11 +185,6 @@ if IsServer() then
       arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ), -- Vision duration after hit
       arrow_pierce_count = self:GetTalentSpecialValueFor("arrow_pierce_count") -- Pierce targets count
     }
-
-    -- Reverse cast direction for doubletap cast
-    if ( not self:GetCursorTargetingNothing() ) and self:GetCursorTarget() == caster then
-      direction = direction * -1
-    end
 
     -- Send arrow
     self:SendArrow(caster, position, direction, arrow_data)
@@ -188,7 +213,6 @@ if IsServer() then
 
       end
     end
-
   end
 
 end

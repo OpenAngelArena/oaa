@@ -1,5 +1,6 @@
 "itembuilds"
 {
+
   "author"		"Valve"
   "hero"        "npc_dota_hero_arc_warden"
   "Title"       "Recommended items for Arc Warden"
@@ -8,11 +9,9 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_tranquil_origin"
       "item"    "item_tango"
       "item"    "item_flask"
-      "item"    "item_branches"
-      "item"    "item_branches"
+      "item"    "item_boots"
       "item"    "item_mango"
     }
 
@@ -20,8 +19,8 @@
     {
       "item"    "item_wraith_band"
       "item"    "item_hand_of_midas_1"
+	  "item"    "item_maelstrom"
       "item"    "item_invis_sword"
-      "item"    "item_maelstrom"
       "item"    "item_dragon_lance"
       "item"    "item_lesser_crit"
     }
@@ -30,7 +29,7 @@
     {
       "item"    "item_mjollnir"
       "item"    "item_greater_crit"
-      "item"    "item_monkey_king_bar"
+	  "item"    "item_black_king_bar_1"
     }
 
     "#DOTA_Item_Build_Late_Items"

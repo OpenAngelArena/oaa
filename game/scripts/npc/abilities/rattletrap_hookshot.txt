@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -50,9 +51,8 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0 1.5 2.0 2.5 3.0"
+        "duration"                                        "1.5 1.75 2.0 2.5 3.0"
       }
-
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -61,17 +61,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "2000 2500 3000 3500 4000"
+        "damage"                                          "75 275 625 975 1325" //OAA
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 175 275 775 1275"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "12.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -19,7 +19,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_aeon_disk_4;item_upgrade_core_4"
-      "02"                                                "item_bloodstone_4;item_upgrade_core_4"
+      "02"                                                "item_reflection_shard_2;item_upgrade_core_4"
+      "03"                                                "item_sphere_4;item_upgrade_core_4"
     }
   }
 
@@ -36,7 +37,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
-    "ItemCost"                                            "37900"
+    "ItemCost"                                            "38050"
     "ItemAliases"                                         "ad 5;aeon disk 5"
 
     "AbilitySharedCooldown"                               "combobreaker"

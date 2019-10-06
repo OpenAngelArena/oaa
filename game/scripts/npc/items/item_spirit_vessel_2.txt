@@ -44,6 +44,8 @@
     "AbilityCooldown"                 "7.0"
     "AbilityTextureName"              "custom/spirit_vessel_2"
 
+    "AbilityCastRange"                                    "950"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                 "5"
@@ -82,7 +84,7 @@
       "05"
       {
         "var_type"                    "FIELD_FLOAT"
-        "bonus_armor"                 "2 6 10 14 20"
+        "bonus_armor"                 "2 4 7 11 16"
       }
       "06"
       {
@@ -117,14 +119,9 @@
       "12"
       {
         "var_type"                    "FIELD_INTEGER"
-        "soul_release_range_tooltip"  "950"
-      }
-      "13"
-      {
-        "var_type"                    "FIELD_INTEGER"
         "hp_regen_reduction_enemy"    "60 70 80 90 100"
       }
-      "14"
+      "13"
       {
         "var_type"                    "FIELD_FLOAT"
         "enemy_hp_drain"              "4"

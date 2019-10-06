@@ -1,6 +1,6 @@
 "DOTAItems"
 {
-  "item_guardian_greaves"                                 "REMOVED"
+
   //=================================================================================================================
   // Recipe: Greater Guardian Greaves
   //=================================================================================================================
@@ -14,7 +14,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,7 +24,7 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_greater_arcane_boots;item_mekansm;item_recipe_guardian_greaves"
+      "01"                                                "item_guardian_greaves;item_upgrade_core"
     }
   }
 
@@ -51,7 +51,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
 
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "5575"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves;guardian greaves;ggg"
@@ -70,12 +70,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "25 30 35 40"
+        "bonus_movement"                                  "17 22 27 32"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "350 560 840 1260"
+        "bonus_mana"                                      "350 550 850 1250"
       }
       "03"
       {
@@ -85,7 +85,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 12 15"
+        "bonus_armor"                                     "5 7 10 14"
       }
       "05"
       {
@@ -95,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor"                                      "3 4 5 6"
+        "aura_armor"                                      "2 4 6 8"
       }
       "07"
       {
@@ -105,7 +105,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor_bonus"                                "17 20 23 26"
+        "aura_armor_bonus"                                "10 13 17 22"
       }
       "09"
       {
@@ -120,27 +120,17 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_health"                                "400 575 750 1100"
+        "replenish_health"                                "400 600 800 1000"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replenish_mana"                                  "300 400 575 750"
+        "replenish_mana"                                  "300 400 550 750"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "replenish_radius"                                "1200"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "2000 3200 5500 9000"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
       }
     }
   }

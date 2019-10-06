@@ -96,7 +96,9 @@ INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spaw
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 CREEP_BOUNTY_SHARE_RADIUS = 1500        -- the radius in which creep bounty is shared with allies
-CREEP_BOUNTY_SHARE_PERCENT = 10         -- the percentage of the creep's bounty that's given to shared allies
+CREEP_BOUNTY_SHARE_PERCENT = 35         -- the percentage of the creep's bounty that's given to shared allies
+CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 15  -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
+CREEP_BOUNTY_BONUS_PERCENT_POWER = 30   -- the bonus percentage of the creep's bounty that's given to those that kill with Power Spark
 
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
@@ -152,11 +154,11 @@ HERO_SELECTION_TIME = 30.0              -- How long should we let people select 
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
-GOLD_PER_TICK = 1                       -- How much gold should players get per tick?
-GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
+GOLD_PER_TICK = 2                       -- How much gold should players get per tick? This increases over time in OAA.
+GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes
-CAMERA_DISTANCE_OVERRIDE = -1           -- How far out should we allow the camera to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes
+CAMERA_DISTANCE_OVERRIDE = 1268           -- How far out should we allow the camera to go?  Use -1 for the default (1134) while still allowing for panorama camera distance changes
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
 MINIMAP_CREEP_ICON_SIZE = 1             -- What icon size should we use for creeps?

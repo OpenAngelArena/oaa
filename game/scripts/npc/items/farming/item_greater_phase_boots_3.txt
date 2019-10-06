@@ -23,11 +23,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
-      "02"                                                "item_greater_arcane_boots_2;item_upgrade_core_3"
-      "03"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
-      "04"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
-      "05"                                                "item_greater_power_treads_2;item_upgrade_core_3"
-      "06"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "02"                                                "item_greater_power_treads_2;item_upgrade_core_3"
+      "03"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "04"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
+      "05"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
     }
   }
 
@@ -50,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "12225"
+    "ItemCost"                                            "14050"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots 3;phase boots 3;phase 3"
@@ -67,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35"
+        "bonus_movement_speed"                            "15 20 25 30"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "25 60 95 130"
+        "bonus_damage_melee"                              "38 68 108 158"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "20 50 85 120"
+        "bonus_damage_range"                              "32 62 102 152"
       }
       "04"
       {
@@ -97,12 +96,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "25 28 32 35"
+        "phase_movement_speed"                            "22 27 32 37"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "15 20 25 30"
+        "phase_movement_speed_range"                      "10 15 20 25"
       }
       "09"
       {
@@ -117,22 +116,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 9 11 13"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_radius"                                 "375"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_attack_outgoing"                        "50"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splinter_count"                                  "4 5 6 7"
+        "bonus_armor"                                     "5 7 10 14"
       }
     }
   }

@@ -16,7 +16,8 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-    "HasScepterUpgrade"     "1"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -59,6 +60,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_total_damage_incoming"          "200"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {

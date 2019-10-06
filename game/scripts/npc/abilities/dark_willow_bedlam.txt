@@ -12,9 +12,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "3"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "5"
 
     // Casting
@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_damage"                                   "60 120 180 360 540" //OAA
+        "attack_damage"                                   "60 160 260 360 540" //OAA
       }
       "02"
       {

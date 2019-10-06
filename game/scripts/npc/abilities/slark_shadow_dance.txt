@@ -12,15 +12,16 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 70 60 55 50"
+    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -66,11 +67,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_aoe"                                     "425"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "30"
+        "RequiresScepter"                                 "1"
       }
     }
   }

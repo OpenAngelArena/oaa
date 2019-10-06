@@ -13,7 +13,9 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 700 800 900 1000 1100" //OAA
@@ -40,11 +42,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "600 700 800 900 1000 1100"  //OAA
       }
     }
   }
