@@ -8,7 +8,6 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_arcane_origin"
       "item"    "item_tango"
       "item"    "item_flask"
       "item"    "item_stout_shield"
@@ -17,7 +16,6 @@
 
     "#DOTA_Item_Build_Early_Game"
     {
-      "item"    "item_greater_phase_boots"
       "item"    "item_wraith_band"
       "item"    "item_yasha"
     }
@@ -50,18 +48,16 @@
       "item"    "item_reduction_orb_3"              // Defensive
       "item"    "item_lucience"
       "item"    "item_helm_of_the_dominator_2"
-      "item"    "item_solar_crest"
       "item"    "item_sheepstick_4"
       "item"    "item_bfury_2"                      // Traditional
       "item"    "item_octarine_core"                // Magic
       "item"    "item_ethereal_blade"               // Magic
-      "item"    "item_yasha_and_kaya_3"             // Magic
+      "item"    "item_yasha_and_kaya"               // Magic
       "item"    "item_dagon_5"                      // Magic/Meme
       "item"    "item_dagger_of_moriah"             // Magic/Meme
       "item"    "item_ultimate_scepter"             // Meme
       "item"    "item_lotus_orb"                    // Defensive/Meme
       "item"    "item_reflection_shard_1"           // Meme
-      "item"    "item_necronomicon"                 // Meme
     }
   }
 }

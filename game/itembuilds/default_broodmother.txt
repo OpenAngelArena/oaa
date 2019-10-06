@@ -8,16 +8,15 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      "item_arcane_origin"
             "item"      "item_flask"
             "item"      "item_clarity"
             "item"      "item_wraith_band"
             "item"      "item_stout_shield"
+            "item"      "item_quelling_blade"
         }
 
         "#DOTA_Item_Build_Early_Game"
         {
-            "item"      "item_greater_arcane_boots"
             "item"      "item_solar_crest"
             "item"      "item_ultimate_scepter"
         }
@@ -32,7 +31,6 @@
         "#DOTA_Item_Build_Late_Items"
         {
             "item"      "item_greater_guardian_greaves_4"
-            "item"      "item_solar_crest_5"
             "item"      "item_ultimate_scepter_5"
             "item"      "item_desolator_5"
             "item"      "item_assault_5"
@@ -41,18 +39,16 @@
 
         "#DOTA_Item_Build_Luxury"
         {
-            "item"      "item_manta_5"
-            "item"      "item_butterfly_5"
-            "item"      "item_monkey_king_bar_5"
-            "item"      "item_nullifier_5
+            "item"      "item_manta"
+            "item"      "item_butterfly_2"
+            "item"      "item_monkey_king_bar"
+            "item"      "item_nullifier_3"
             "item"      "item_necronomicon_7"
             "item"      "item_helm_of_the_dominator_5"
             "item"      "item_abyssal_blade_5"
-            "item"      "item_diffusal_blade_5"
-            "item"      "item_sange_and_yasha_5"
-            "item"      "item_vladmir_5"
-            "item"      "item_mjollnir_5"
-            "item"      "item_sphere_5"
+            "item"      "item_diffusal_blade"
+            "item"      "item_mjollnir"
+            "item"      "item_sphere"
         }
     }
 }
