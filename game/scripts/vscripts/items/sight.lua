@@ -3,6 +3,10 @@ LinkLuaModifier("modifier_item_far_sight_true_sight", "items/sight.lua", LUA_MOD
 
 item_far_sight = class(ItemBaseClass)
 
+function item_far_sight:GetAOERadius()
+  return self:GetSpecialValueFor("reveal_radius")
+end
+
 function item_far_sight:GetIntrinsicModifierName()
   return "modifier_item_far_sight"
 end
@@ -114,7 +118,11 @@ function modifier_item_far_sight_true_sight:GetAuraSearchTeam()
 end
 
 function modifier_item_far_sight_true_sight:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_ALL
+  return bit.bor(DOTA_UNIT_TARGET_HERO , DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
+end
+
+function modifier_item_far_sight_true_sight:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
 end
 
 function modifier_item_far_sight_true_sight:OnDestroy()
