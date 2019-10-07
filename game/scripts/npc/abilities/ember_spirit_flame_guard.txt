@@ -56,8 +56,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "30 40 50 60 110 160"
+        "damage_per_second"                               "30 40 50 60 110 220"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blind_pct"                                       "50"
       }
     }
   }

@@ -24,7 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_crit_4;item_upgrade_core_4"
-      "01"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      "02"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      "03"                                                "item_nullifier_4;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37075"
+    "ItemCost"                                            "38330"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus 5;crit 5"
@@ -59,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 110 150 210 280"
+        "bonus_damage"                                    "80 100 140 200 280"
       }
       "02"
       {
@@ -69,12 +70,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "235 245 255 265 290"
+        "crit_multiplier"                                 "175 205 235 265 295"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "135 145 160 180 205"
+        "tooltip_crit_damage"                             "75 105 135 165 195"
       }
     }
   }

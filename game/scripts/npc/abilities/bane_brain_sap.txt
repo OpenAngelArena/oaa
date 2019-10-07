@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bane 4
+  // Ability: Bane Brain Sap
   //=================================================================================================================
   "bane_brain_sap"
   {
@@ -14,9 +14,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -26,13 +28,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
-
+    "AbilityCooldown"                                     "14 13 12 11 10 9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 115 140 165 280 400"
-
+    "AbilityManaCost"                                     "90 115 140 165 330 660"
 
     "AbilitySpecial"
     {
@@ -52,6 +52,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "1.5"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "castpoint_scepter"                               "0.2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -10,13 +10,16 @@
     "ID"                                                  "5375"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
     "MaxLevel"                                            "1"
     "RequiredLevel"                                       "1"
+
     "HasScepterUpgrade"                                   "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "6"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,6 +34,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "2"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {

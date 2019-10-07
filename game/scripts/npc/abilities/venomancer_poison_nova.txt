@@ -11,13 +11,13 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -40,7 +40,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "830"
-        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_6"
       }
       "02"
       {
@@ -51,27 +51,31 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "18"
-        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 65 90 220 340"
+        "damage"                                          "40 90 180 270 360" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "40" //OAA
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_scepter"                                "18"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "75 100 125 280 400"
+        "damage_scepter"                                  "75 125 220 315 410" //OAA
+        "RequiresScepter"                                 "1"
       }
       "08"
       {

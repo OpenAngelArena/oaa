@@ -3,7 +3,7 @@
   "item_recipe_sange"
   {
     "ID"              "161"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityTextureName"            "custom/recipe/recipe_1"
+    //"AbilityTextureName"            "custom/recipe/recipe_1"
   }
   //=================================================================================================================
   // Sange
@@ -36,17 +36,17 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_strength"    "16 32"
+        "bonus_strength"    "16"
       }
       "02"
       {
         "var_type"            "FIELD_INTEGER"
-        "status_resistance"       "8 12" //OAA
+        "status_resistance"       "12"
       }
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "8 20"
+        "bonus_damage"      "8"
       }
     }
   }
