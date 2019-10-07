@@ -1,0 +1,102 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="s2r://panorama/styles/hudstyles.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/spark_selection.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
+    <include src="file://{resources}/scripts/custom_game/spark_selection.js" />
+  </scripts>
+  <Panel class="SparkSelectionHolder" hittest='false'>
+    <Button class='PopupButton' id="ChangeSpark" onactivate='OpenSparkSelection()'>
+      <Label id='ChangeSparkCooldown' text='69'/>
+      <Label text='Change Spark'/>
+    </Button>
+    <Panel id='SparkSelection'>
+      <Panel class='TopLabel'>
+        <Label text='#spark_selection_header'/>
+      </Panel>
+      <Panel class='SelectionRow'>
+        <Panel class='SparkMainRow SupportSparks'>
+          <Panel class='TopLabel'>
+            <Label text='#spark_selection_support'/>
+          </Panel>
+          <Panel class='SelectionRow'>
+            <Panel class='SparkPanel' id='gpmPanel' onactivate='SelectSpark("gpm")'>
+              <Panel class='TopLabel'>
+                <Label id='gpmCount' text='--'/>
+              </Panel>
+
+              <Panel class='TopLabel'>
+                <Label text='GPM'/>
+              </Panel>
+              <Panel class='Description'>
+                <Label text='Gain additional gold passively over time'/>
+              </Panel>
+            </Panel>
+            <Panel class='SparkPanel' id='midasPanel' onactivate='SelectSpark("midas")'>
+              <Panel class='TopLabel'>
+                <Label id='midasCount' text='--'/>
+              </Panel>
+
+              <Panel class='TopLabel'>
+                <Label text='Midas'/>
+              </Panel>
+              <Panel class='Description'>
+                <Label text='One-shot creeps for bonus gold on a cooldown.'/>
+              </Panel>
+            </Panel>
+          </Panel>
+        </Panel>
+        <Panel class='SparkMainRow CarrySparks'>
+          <Panel class='TopLabel'>
+            <Label class='FarmingCount' text='#spark_selection_carry'/>
+          </Panel>
+          <Panel class='SelectionRow'>
+            <Panel class='SparkPanel' id='powerPanel' onactivate='SelectSpark("power")'>
+              <Panel class='TopLabel'>
+                <Label id='powerCount' text='--'/>
+              </Panel>
+
+              <Panel class='TopLabel'>
+                <Label text='Power'/>
+              </Panel>
+              <Panel class='Description'>
+                <Label text='Attacks deal additional pure damage to creeps.'/>
+              </Panel>
+              <Panel class='Description'>
+                <Label text='Gains bonus gold on creep kills.'/>
+              </Panel>
+            </Panel>
+            <Panel class='SparkPanel' id='cleavePanel' onactivate='SelectSpark("cleave")'>
+              <Panel class='TopLabel'>
+                <Label id='cleaveCount' text='--'/>
+              </Panel>
+
+              <Panel class='TopLabel'>
+                <Label text='Cleave'/>
+              </Panel>
+              <Panel class='Description'>
+                <Label text='Attacks splinter to nearby creeps.'/>
+              </Panel>
+              <Panel class='Description'>
+                &nbsp;
+              </Panel>
+              <Panel class='Description'>
+                <Label text='Gains bonus gold on creep kills.'/>
+              </Panel>
+            </Panel>
+          </Panel>
+        </Panel>
+      </Panel>
+      <Panel class='SelectionRow ButtonRow'>
+        <Button id='Finished' class='PopupButton' onactivate='SparkFinished()' oncontextmenu='SparkFinished()'>
+          <Label text='#UI_Submit'/>
+          <Label text='' id='SubmitSparkCooldown' />
+        </Button>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
+

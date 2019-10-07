@@ -13,11 +13,14 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -26,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 165 275"
+    "AbilityManaCost"                                     "80 90 100 110 220 330"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-25 -30 -35 -40 -45 -50" //OAA
+        "resist_debuff"                                   "-20 -25 -30 -35 -40 -45" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_skywrath_3"
       }
       "02"
@@ -47,6 +50,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "700"
+        "RequiresScepter"                                 "1"
       }
     }
   }

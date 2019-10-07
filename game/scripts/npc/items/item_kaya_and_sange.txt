@@ -40,32 +40,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 32 32 48 72"
+        "bonus_strength"                                  "16 24 32 48 72"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 32 32 48 72"
+        "bonus_intellect"                                 "16 24 32 48 72"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "8 12 16 18 21" //OAA
+        "status_resistance"                               "16 17 18 19 20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 18 26 34 42" //OAA
+        "manacost_reduction"                              "16 18 22 28 34"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 18 26 34 42" //OAA
+        "spell_amp"                                       "12 18 26 34 42"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "8 20 28 44 68" //OAA
+        "bonus_damage"                                    "12 20 28 44 68"
       }
     }
   }

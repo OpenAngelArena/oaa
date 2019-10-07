@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart;item_upgrade_core"
-      "02"                                                "item_heart;item_upgrade_core_2"
-      "03"                                                "item_heart;item_upgrade_core_3"
-      "04"                                                "item_heart;item_upgrade_core_4"
+      "02"                                                "item_crimson_guard;item_upgrade_core"
     }
   }
 
@@ -49,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6700"
+    "ItemCost"                                            "5200"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot 2;heart of tarrasque 2;heart 2"
