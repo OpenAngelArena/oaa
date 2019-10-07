@@ -17,19 +17,19 @@ function modifier_spark_midas:RemoveOnDeath()
 end
 
 function modifier_spark_midas:GetTexture()
-  return "custom/travel_origin"
+  return "custom/spark_midas"
 end
 
 function modifier_spark_midas:OnCreated()
   if IsServer() then
-    self:StartIntervalThink(1)
+    self:StartIntervalThink(0.5)
     self.stack_count = 0
   end
 
   -- Midas Spark variables
   self.max_charges = 400
   self.charges_needed_for_kill = 100
-  self.bonus_gold = {400, 1500, 2500, 4500, 7500} -- max allowed values: {800, 3000, 5000, 9000, 15000} - which is slightly less than gpm spark
+  self.bonus_gold = {300, 1300, 2300, 4300, 8300} -- max allowed values: {400, 1500, 2600, 4500, 8300} - which is slightly less than gpm spark
   self.bonus_xp = {0, 0, 0, 0, 0}
 end
 
@@ -50,7 +50,12 @@ if IsServer() then
 end
 
 function modifier_spark_midas:GetSparkLevel()
-  local gameTime = HudTimer:GetGameTime()
+  local gameTime
+  if IsServer() then
+    gameTime = HudTimer:GetGameTime()
+  else
+    gameTime = GameRules:GetDOTATime(false, false)
+  end
 
   if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
     return 1

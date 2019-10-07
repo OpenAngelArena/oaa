@@ -21,7 +21,7 @@ function modifier_spark_power:AllowIllusionDuplicate()
 end
 
 function modifier_spark_power:GetTexture()
-  return "custom/power_origin"
+  return "custom/spark_power"
 end
 
 function modifier_spark_power:OnCreated()
@@ -30,6 +30,17 @@ function modifier_spark_power:OnCreated()
   self.creep_damage_ranged = {40, 120, 200, 280, 360}
   self.creep_damage_melee_illusion = {20, 60, 100, 140, 180}
   self.creep_damage_ranged_illusion = {20, 60, 100, 140, 180}
+
+  -- Stack count is for tooltip only
+  if IsServer() then
+    local parent = self:GetParent()
+    local spark_level = self:GetSparkLevel()
+    if parent:IsRangedAttacker() then
+      self:SetStackCount(self.creep_damage_ranged[spark_level])
+    else
+      self:SetStackCount(self.creep_damage_melee[spark_level])
+    end
+  end
 end
 
 function modifier_spark_power:GetSparkLevel()
@@ -124,9 +135,5 @@ function modifier_spark_power:GetModifierProcAttack_BonusDamage_Pure(event)
 end
 
 function modifier_spark_power:OnTooltip()
-  local parent = self:GetParent()
-  if parent:IsRangedAttacker() then
-    return self.creep_damage_ranged[self:GetSparkLevel()]
-  end
-    return self.creep_damage_melee[self:GetSparkLevel()]
+  return self:GetStackCount()
 end
