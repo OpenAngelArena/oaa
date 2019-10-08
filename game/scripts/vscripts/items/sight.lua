@@ -118,7 +118,7 @@ function modifier_item_far_sight_true_sight:GetAuraSearchTeam()
 end
 
 function modifier_item_far_sight_true_sight:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO , DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
+  return bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_item_far_sight_true_sight:GetAuraSearchFlags()
