@@ -10,7 +10,7 @@
     "ID"                                                  "3874"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -21,11 +21,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_blade_mail_4"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_3;item_upgrade_core_3"
-      "02"                                                "item_assault_3;item_upgrade_core_3"
     }
   }
 
