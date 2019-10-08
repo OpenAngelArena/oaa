@@ -18,10 +18,8 @@
     "ItemResult"                                          "item_aeon_disk_4"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodstone_3;item_upgrade_core_3"
-      "02"                                                "item_bloodstone_3;item_upgrade_core_4"
-      "03"                                                "item_bloodstone_3;item_upgrade_core_3"
-      "04"                                                "item_bloodstone_3;item_upgrade_core_4"
+      "01"                                                "item_sphere_3;item_upgrade_core_3"
+      "02"                                                "item_reflection_shard_1;item_upgrade_core_3"
     }
   }
 
@@ -38,7 +36,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "ItemCost"                                            "17900"
+    "ItemCost"                                            "18050"
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"

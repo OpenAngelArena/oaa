@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"weaver_time_lapse"
+  "weaver_time_lapse"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -10,14 +10,15 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "AbilityCastRange"                                    "1000"
-    "MaxLevel"                                            "5"
-
     "FightRecapLevel"                                     "2"
+
+    "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
 
     "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "1000"
+
     "AbilityCooldown"                                     "70 55 40 35 30"
     "AbilityManaCost"                                     "150 75 0 0 0"
 
@@ -28,11 +29,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "16 16 16 14 12"
+        "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_tooltip_scepter"                      "1000"
+        "RequiresScepter"                                 "1"
       }
     }
   }

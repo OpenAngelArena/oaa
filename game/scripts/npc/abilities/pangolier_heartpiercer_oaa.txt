@@ -1,46 +1,48 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Pangolier: Heartpiercer (OAA rework)
-//=================================================================================================================
-"pangolier_heartpiercer_oaa"
-{
+  //=================================================================================================================
+  // Pangolier: Heartpiercer (OAA rework)
+  //=================================================================================================================
+  "pangolier_heartpiercer_oaa"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "127010"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/oaa_heartpiercer.lua"
-    "AbilityTextureName"            "pangolier_heartpiercer"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_YES" // OAA
-    "MaxLevel"                      "6"
-    "RequiredLevel"                 "1"
-    "LevelsBetweenUpgrades"         "2"
+    "ID"                                                  "127010"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_heartpiercer.lua"
+    "AbilityTextureName"                                  "pangolier_heartpiercer"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "chance_pct"            "15"
-        }
-        "02"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "duration"              "2 3 4 5 6 7"
-        }
-        "03"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "slow_pct"              "-35 -40 -45 -50 -60 -70"
-        }
-        "04"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "debuff_delay"          "2.0"
-        }
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "chance_pct"                                      "17"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2 3 4 5 6 7"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "-35 -40 -45 -50 -60 -70"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_delay"                                    "2.0"
+      }
     }
-}
+  }
 }

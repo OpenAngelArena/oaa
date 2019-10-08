@@ -3,7 +3,7 @@
   "item_recipe_yasha"
   {
     "ID"              "169"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityTextureName"            "custom/recipe/recipe_1"
+    //"AbilityTextureName"            "custom/recipe/recipe_1"
   }
   //=================================================================================================================
   // Yasha
@@ -20,7 +20,6 @@
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
 
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                      "2050"
@@ -36,17 +35,17 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_agility"         "16 32"
+        "bonus_agility"         "16"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_attack_speed"    "12 16"
+        "bonus_attack_speed"    "12"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "movement_speed_percent_bonus"  "8 12" //OAA
+        "movement_speed_percent_bonus"  "20"
       }
     }
   }

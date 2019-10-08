@@ -15,7 +15,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "25"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -49,10 +49,12 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
+
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "boost_mana;mana_pool"
+
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "arcane spark;greater arcanes;arcanes;spark"
+    "ItemAliases"                                         "arcane spark;arcanes;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -82,12 +84,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_per_minute"                           "575"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
+        "bonus_gold_per_minute"                           "500"
       }
     }
   }

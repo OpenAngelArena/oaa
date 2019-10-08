@@ -24,6 +24,9 @@ end
 
 function modifier_xpm_thinker:OnIntervalThink()
   if IsServer() then
+    if Duels:IsActive() then
+      return
+    end
     --print( "xpm think" )
     -- iterate through all possible players
     for playerID = 0, DOTA_MAX_PLAYERS do

@@ -13,8 +13,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100.0" //OAA
+    "AbilityCooldown"                                     "80.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "animation_rate"                                  "0.55 0.55 0.55"
+        "animation_rate"                                  "0.55"
       }
       "04"
       {
@@ -62,6 +64,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "regen_rate_tooltip_scepter"                      "10"
+        "RequiresScepter"                                 "1"
       }
     }
   }

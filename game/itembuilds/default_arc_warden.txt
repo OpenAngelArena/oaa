@@ -1,0 +1,54 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_arc_warden"
+	"Title"			"Recommended items for Arc Warden"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_flask"
+			"item"		"item_mango"
+			
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_maelstrom"
+			"item"		"item_mjollnir"
+			"item"		"item_silver_edge"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_bloodthorn"
+			"item"		"item_black_king_bar_1"
+			"item"		"item_dragon_lance"
+		}
+	
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_greater_guardian_greaves"
+			"item"		"item_hurricane_pike_3"
+			
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_blink"
+			"item"		"item_sphere"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_skadi"
+			"item"		"item_trumps_fists"
+			"item"		"item_greater_crit"
+			"item"		"item_ethereal_blade"
+			"item"		"item_dagon_5"
+			"item"		"item_monkey_king_bar"
+
+		}
+	}
+}

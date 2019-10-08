@@ -18,9 +18,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_nullifier;item_upgrade_core"
-      "02"                                                "item_nullifier;item_upgrade_core_2"
-      "03"                                                "item_nullifier;item_upgrade_core_3"
-      "04"                                                "item_nullifier;item_upgrade_core_4"
     }
   }
 
@@ -67,7 +64,7 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "5 8 12 16 20"
+        "bonus_armor"     "5 7 10 14 19"
       }
       "03"
       {

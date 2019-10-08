@@ -14,19 +14,21 @@
     "ScriptFile"                                          "abilities/oaa_force_of_nature.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
+    "MaxLevel"                                            "6"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
-    "AbilityCooldown"                                     "37 37 37 37"
-    "AbilityManaCost"                                     "160 160 160 160"
-    "MaxLevel"                                            "6"
+    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    "AbilityCooldown"                                     "37"
+    "AbilityManaCost"                                     "130 140 150 160 170 180"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      // Number of trees
-      //-------------------------------------------------------------------------------------------------------------
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -38,7 +40,6 @@
         "max_treants"                                     "2 3 4 5 6 7"
         "LinkedSpecialBonus"                              "special_bonus_unique_furion_2"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -48,36 +49,36 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_health_tooltip"                           "550 700 900 1200 1800 2700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_min_dmg_tooltip"                          "34 46 62 82 132 210"
+        "treant_dmg_tooltip"                              "38 54 74 98 152 235"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_max_dmg_tooltip"                          "38 54 74 98 152 234"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "treant_hp_bonus"                                 "550 700 900 1200 1800 2700"
       }
-      "08"
+      "07" // same as treant_dmg_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_damage_bonus"                             "36 50 68 90 142 222"
+        "treant_damage_bonus"                             "38 54 74 98 152 235"
       }
-      "09"
+      "08" // treant_health_tooltip x 3
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_large_hp_bonus"                           "1650 2100 2700 3600 5400 8100"
       }
-      "10"
+      "09" // treant_dmg_tooltip x 3
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_damage_bonus"                       "108 150 204 270 426 666"
+        "treant_large_damage_bonus"                       "114 162 222 294 456 705"
       }
     }
   }
