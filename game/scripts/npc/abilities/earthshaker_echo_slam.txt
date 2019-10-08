@@ -13,7 +13,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -21,10 +23,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "100.0" //OAA
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "160 210 270 530 800"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +36,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "echo_slam_damage_range"                          "800" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
@@ -52,13 +51,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_damage"                           "110 130 150 275 400" //OAA
+        "echo_slam_echo_damage"                           "70 110 210 310 410" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_initial_damage"                        "100"
+        "echo_slam_initial_damage"                        "100 300 500 700 900" //OAA
       }
     }
   }

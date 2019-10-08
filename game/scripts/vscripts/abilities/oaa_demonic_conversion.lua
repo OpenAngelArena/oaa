@@ -39,16 +39,16 @@ function enigma_demonic_conversion:OnSpellStart()
   target:EmitSound("Hero_Enigma.Demonic_Conversion")
 end
 
--- Add the filter to disallow use on big creeps (level >= 5)
+-- Runs on client side first
 function enigma_demonic_conversion:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
-  if defaultFilterResult ~= UF_SUCCESS then
-    return defaultFilterResult
-  elseif target:GetLevel() >= 5 then
+  local lvlRequirement = self:GetSpecialValueFor("creep_level")
+
+  if target:GetLevel() >= lvlRequirement then
     return UF_FAIL_CUSTOM
-  elseif IsServer() then
-    return UF_SUCCESS
   end
+
+  return defaultFilterResult
 end
 
 function enigma_demonic_conversion:GetCustomCastErrorTarget(target)

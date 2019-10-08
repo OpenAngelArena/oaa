@@ -17,7 +17,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
@@ -28,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 50 50"
+    "AbilityManaCost"                                     "50"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -41,12 +45,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700 700 700 700 700"
+        "radius"                                          "700"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 275 400 1000 1650"
+        "damage"                                          "150 400 800 1200 1600" //OAA
       }
       "03"
       {
