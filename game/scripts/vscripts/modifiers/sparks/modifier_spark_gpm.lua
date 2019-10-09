@@ -31,7 +31,7 @@ function modifier_spark_gpm:GetSparkLevel()
 end
 
 function modifier_spark_gpm:GetTexture()
-  return "custom/arcane_origin"
+  return "custom/spark_gpm"
 end
 
 if IsServer() then
@@ -41,7 +41,7 @@ if IsServer() then
       return
     end
     local caster = self:GetParent()
-    local gpmChart = {500, 2000, 3200, 5500, 9000}
+    local gpmChart = {500, 1800, 3200, 5500, 10000}
     local gpm = gpmChart[self:GetSparkLevel()]
     -- Don't give gold on illusions, Tempest Doubles, or Meepo clones, or during duels
     if caster:IsIllusion() or caster:IsTempestDouble() or caster:IsClone() or not Gold:IsGoldGenActive() then
