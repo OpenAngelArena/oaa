@@ -10,7 +10,7 @@ function alpha_wolf_invisibility_oaa:OnSpellStart()
   local fade_time = self:GetSpecialValueFor("fade_time")
 
   -- Sound
-  EmitSoundOn("Hero_BountyHunter.WindWalk", caster)
+  caster:EmitSound("Hero_BountyHunter.WindWalk")
 
   -- Apply a buff after fade time
   Timers:CreateTimer(fade_time, function()
