@@ -48,10 +48,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25"
-    "ItemShopTags"                                        "move_speed;regen_health;armor"
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "move_speed;regen_health"
+
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "tranquil spark;tranquil boots;tranquils;spark"
+    "ItemAliases"                                         "tranquil spark;tranquil;tranquils;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemDisplayCharges"                                  "1"

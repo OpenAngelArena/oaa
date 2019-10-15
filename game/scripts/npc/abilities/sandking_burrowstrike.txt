@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
@@ -63,17 +64,14 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "450 525 600 700 725 750" //OAA
+        "cast_range_scepter"                              "700 900 1100 1300 1400 1500" //OAA
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "700 900 1100 1300 1400 1500" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "burrow_speed_scepter"                            "3000"
+        "RequiresScepter"                                 "1"
       }
     }
   }

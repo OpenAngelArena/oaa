@@ -105,24 +105,6 @@ function modifier_item_greater_power_treads:OnCreated( event )
   self.stat = spell:GetSpecialValueFor( "bonus_stat" )
   self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
   self.all_stats = spell:GetSpecialValueFor( "all_stats" )
-
-  if IsServer() then
-    self.creepDamageMelee = spell:GetSpecialValueFor( "creep_damage_melee" )
-    self.creepDamageRanged = spell:GetSpecialValueFor( "creep_damage_ranged" )
-    self.creepDamageMeleeIllusion = spell:GetSpecialValueFor( "creep_damage_melee_illusion" )
-    self.creepDamageRangedIllusion = spell:GetSpecialValueFor( "creep_damage_ranged_illusion" )
-    -- hopefully we don't do a thing where damage type is
-    -- defined by current stat
-    self.damageType = spell:GetAbilityDamageType()
-
-    -- this is probably a bit weird
-    -- but it's a method that came to me and it's also kinda cool
-    -- so!
-    self.damageTable = {
-      { self.creepDamageMelee, self.creepDamageMeleeIllusion, },
-      { self.creepDamageRanged, self.creepDamageRangedIllusion, },
-    }
-  end
 end
 
 --------------------------------------------------------------------------------
@@ -156,14 +138,6 @@ function modifier_item_greater_power_treads:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
-
-    -- i don't feel like figuring out when this function is called
-    -- so for simplicity
-    -- we'll just have the functions themselves stop themselves
-    -- based on damage type
-    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
-    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
-    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE,
   }
 
   return funcs
@@ -273,85 +247,20 @@ if IsServer() then
 end
 --]]
 
---------------------------------------------------------------------------------
 
-if IsServer() then
-  function modifier_item_greater_power_treads:GetModifierProcAttack_BonusDamage_Func( event )
-    local parent = self:GetParent()
-    local spell = self:GetAbility()
-    local target = event.target
-
-    -- don't damage non-neutrals
-    if not target:IsNeutralCreep( false ) then
-      return 0
-    end
-
-    local attackCap = parent:GetAttackCapability()
-    local illusion = 1
-    if parent:IsIllusion() then
-      illusion = 2
-    end
-
-    local damage = self.damageTable[attackCap][illusion]
-
-    if damage > 0 then
-      -- "OVERHEAD_ALERT_MAGICAL_BLOCK" isn't used by dota anymore, lets steal it
-      SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
-    end
-
-    return damage
-  end
-
---------------------------------------------------------------------------------
-
-  -- not the most elegant solution
-  -- but hey, it baumi proofs this pretty damn well
-
-  function modifier_item_greater_power_treads:GetModifierProcAttack_BonusDamage_Physical( event )
-    if self.damageType == DAMAGE_TYPE_PHYSICAL then
-      return self:GetModifierProcAttack_BonusDamage_Func( event )
-    end
-
-    return 0
-  end
-
-  function modifier_item_greater_power_treads:GetModifierProcAttack_BonusDamage_Magical( event )
-    if self.damageType == DAMAGE_TYPE_MAGICAL then
-      return self:GetModifierProcAttack_BonusDamage_Func( event )
-    end
-
-    return 0
-  end
-
-  function modifier_item_greater_power_treads:GetModifierProcAttack_BonusDamage_Pure( event )
-    if self.damageType == DAMAGE_TYPE_PURE then
-      return self:GetModifierProcAttack_BonusDamage_Func( event )
-    end
-
-    return 0
-  end
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Percentage_Unique( event )
-  local spell = self:GetAbility()
-
+function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Percentage_Unique()
   return self.moveSpd
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant( event )
-  local spell = self:GetAbility()
-
+function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant()
   return self.atkSpd
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierBonusStats_Strength( event )
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
   local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
   local bonus = self.all_stats
 
@@ -364,8 +273,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierBonusStats_Agility( event )
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
   local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
   local bonus = self.all_stats
 
@@ -378,8 +286,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect( event )
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
   local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
   local bonus = self.all_stats
 
@@ -390,10 +297,10 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect( eve
   return bonus
 end
 
-function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage( event )
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
   local spell = self:GetAbility()
 
-  return self.bonus_damage or spell:GetSpecialValueFor( "bonus_damage" )
+  return self.bonus_damage or spell:GetSpecialValueFor("bonus_damage")
 end
 
 --------------------------------------------------------------------------------
@@ -402,4 +309,4 @@ item_greater_power_treads_2 = class(item_greater_power_treads)
 item_greater_power_treads_3 = class(item_greater_power_treads)
 item_greater_power_treads_4 = class(item_greater_power_treads)
 item_greater_power_treads_5 = class(item_greater_power_treads)
-item_power_origin = class(item_greater_power_treads)
+--item_power_origin = class(item_greater_power_treads)

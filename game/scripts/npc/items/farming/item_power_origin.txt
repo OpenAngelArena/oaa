@@ -16,7 +16,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "25"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -41,12 +41,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/power_origin"
-    // Item Info
+
+	// Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "25"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "attack_speed;int;agi;str"
+
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "power spark;power treads;treads;spark"
+    "ItemAliases"                                         "power spark;power;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

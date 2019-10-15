@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseekers Thirst
+  // Ability: Bloodseeker's Thirst
   //=================================================================================================================
   "bloodseeker_thirst"
   {
@@ -10,6 +10,7 @@
     "ID"                                                  "5017"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -37,7 +38,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_bonus_pct"                                   "25"
+        "max_bonus_pct"                                   "35" //OAA
       }
       "05"
       {
@@ -48,6 +49,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "invis_threshold_pct"                             "25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "linger_duration"                                 "4.0"
       }
     }
   }

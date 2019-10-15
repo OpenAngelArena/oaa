@@ -12,6 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -41,11 +42,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed"                             "-55"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "3.75 4.5 5.25 6 7 8"
       }
     }
   }

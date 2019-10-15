@@ -6,7 +6,7 @@ if ProtectionAura == nil then
   Debug.EnabledModules['cave:protection'] = true
 end
 
-local MAX_ROOMS = 6
+local MAX_ROOMS = 0
 
 function ProtectionAura:Init ()
   ProtectionAura.zones = {
@@ -22,14 +22,14 @@ function ProtectionAura:Init ()
   each(partial(addToList, allGoodPlayers), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
   each(partial(addToList, allBadPlayers), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
 
-  -- HudTimer:At(0, function ()
-  --   local function removePlayerFromList (room, id)
-  --     room.removePlayer(id)
-  --   end
-  --   local roomID = 0
-  --   each(partial(removePlayerFromList, ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID]), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
-  --   each(partial(removePlayerFromList, ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID]), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
-  -- end)
+  HudTimer:At(-10, function ()
+    local function removePlayerFromList (room, id)
+      room.removePlayer(id)
+    end
+    local roomID = 0
+    each(partial(removePlayerFromList, ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID]), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
+    each(partial(removePlayerFromList, ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID]), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
+  end)
 
   Duels.onEnd(function (data)
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][0].enable()
@@ -45,8 +45,8 @@ function ProtectionAura:Init ()
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 50,
-      -- players = allGoodPlayers
-      players = {}
+      players = allGoodPlayers
+      -- players = {}
     })
 
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouchGood)
@@ -58,8 +58,8 @@ function ProtectionAura:Init ()
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 0,
-      -- players = allBadPlayers
-      players = {}
+      players = allBadPlayers
+      -- players = {}
     })
 
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouchBad)

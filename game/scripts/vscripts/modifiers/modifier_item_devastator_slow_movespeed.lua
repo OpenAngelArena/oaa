@@ -1,10 +1,17 @@
 modifier_item_devastator_slow_movespeed = class(ModifierBaseClass)
 
 function modifier_item_devastator_slow_movespeed:OnCreated()
-  if self:GetAbility() then
-    self.movespeedBonus = self:GetAbility():GetSpecialValueFor("devastator_movespeed_reduction")
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local move_speed_slow = 0
+
+  if ability then
+    move_speed_slow = ability:GetSpecialValueFor("devastator_movespeed_reduction")
+  end
+  if IsServer() then
+    self.slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
   else
-    self.movespeedBonus = 0
+    self.slow = move_speed_slow
   end
 end
 
@@ -17,7 +24,7 @@ function modifier_item_devastator_slow_movespeed:DeclareFunctions()
 end
 
 function modifier_item_devastator_slow_movespeed:GetModifierMoveSpeedBonus_Percentage()
-  return self.movespeedBonus
+  return self.slow
 end
 
 function modifier_item_devastator_slow_movespeed:GetTexture()

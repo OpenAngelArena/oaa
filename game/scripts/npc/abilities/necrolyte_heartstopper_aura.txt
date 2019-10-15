@@ -10,12 +10,9 @@
     "ID"                                                  "5159"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "MaxLevel"                                            "6"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "MaxLevel"                                            "6"
 
     "AbilitySpecial"
     {
@@ -27,7 +24,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_damage"                                     "0.5 1.1 1.7 2.3 3.5 4.1"
+        "aura_damage"                                     "0.6 1.2 1.8 2.4 3.6 4.2"
         "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_2"
       }
       "03"
