@@ -70,7 +70,7 @@ if IsServer() then
   function modifier_alpha_invisibility_oaa_buff:CheckState()
     local state = {
       [MODIFIER_STATE_INVISIBLE] = true,
-      --[MODIFIER_STATE_NO_UNIT_COLLISION] = true -- add this if you don't want units with this ability to be able to block other units
+      [MODIFIER_STATE_NO_UNIT_COLLISION] = true
     }
     return state
   end

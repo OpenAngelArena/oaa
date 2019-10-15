@@ -24,6 +24,10 @@ function modifier_dragonhide_aura_oaa_applier:IsPurgable()
 end
 
 function modifier_dragonhide_aura_oaa_applier:IsAura()
+  local parent = self:GetParent()
+  if parent:PassivesDisabled() then
+    return false
+  end
   return true
 end
 
@@ -44,7 +48,7 @@ function modifier_dragonhide_aura_oaa_applier:GetAuraSearchType()
 end
 
 function modifier_dragonhide_aura_oaa_applier:GetAuraSearchFlags()
-  return bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
+  return DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS
 end
 
 function modifier_dragonhide_aura_oaa_applier:GetAuraEntityReject(hEntity)
@@ -73,11 +77,17 @@ function modifier_dragonhide_aura_oaa_effect:IsPurgable()
 end
 
 function modifier_dragonhide_aura_oaa_effect:OnCreated()
-  self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
+  local ability = self:GetAbility()
+  if ability then
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+  end
 end
 
 function modifier_dragonhide_aura_oaa_effect:OnRefresh()
-  self.bonus_armor = self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+  local ability = self:GetAbility()
+  if ability then
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+  end
 end
 
 function modifier_dragonhide_aura_oaa_effect:DeclareFunctions()
@@ -88,5 +98,8 @@ function modifier_dragonhide_aura_oaa_effect:DeclareFunctions()
 end
 
 function modifier_dragonhide_aura_oaa_effect:GetModifierPhysicalArmorBonus()
-  return self.bonus_armor
+  if self.bonus_armor then
+    return self.bonus_armor
+  end
+  return 5
 end

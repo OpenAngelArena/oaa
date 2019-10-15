@@ -27,6 +27,7 @@
     "precache"
     {
       "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
     }
 
     // Special
@@ -38,13 +39,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "275"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed"                                    "-50"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"

@@ -11,9 +11,14 @@ function ghost_vortex_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local point = self:GetCursorPosition()
 
-  -- Sound on cast
-  --EmitSoundOnLocationWithCaster(point, "Hero_Ancient_Apparition.IceVortexCast", caster)
+  if not point then
+    return
+  end
 
+  -- Sound on cast
+  EmitSoundOnLocationWithCaster(point, "Hero_Ancient_Apparition.IceVortexCast", caster)
+
+  -- Thinker - aura emitter
   CreateModifierThinker(caster, self, "modifier_vortex_oaa_thinker", {Duration = self:GetSpecialValueFor("duration")}, point, caster:GetTeam(), false)
 
   GridNav:DestroyTreesAroundPoint(point, self:GetSpecialValueFor("radius"), true)
@@ -42,7 +47,7 @@ function modifier_vortex_oaa_thinker:OnCreated()
 
   if IsServer() then
     -- Start the sound loop
-    --EmitSoundOn("Hero_Ancient_Apparition.IceVortex", parent)
+    parent:EmitSound("Hero_Ancient_Apparition.IceVortex")
     -- Particle
     self.nfx = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
     ParticleManager:SetParticleControl(self.nfx, 0, GetGroundPosition(parent:GetAbsOrigin(), parent) + Vector(0,0,100))
@@ -50,10 +55,10 @@ function modifier_vortex_oaa_thinker:OnCreated()
   end
 end
 
-function modifier_vortex_oaa_thinker:OnRemoved()
+function modifier_vortex_oaa_thinker:OnDestroy()
   if IsServer() then
     -- Stop sound loop
-    --StopSoundOn("Hero_Ancient_Apparition.IceVortex", self:GetParent())
+    self:GetParent():StopSound("Hero_Ancient_Apparition.IceVortex")
     -- Remove the particle
     ParticleManager:DestroyParticle(self.nfx, false)
     ParticleManager:ReleaseParticleIndex(self.nfx)
@@ -116,7 +121,10 @@ function modifier_vortex_oaa_debuff:DeclareFunctions()
 end
 
 function modifier_vortex_oaa_debuff:GetModifierAttackSpeedBonus_Constant()
-  return self:GetAbility():GetSpecialValueFor("attack_speed")
+  local ability = self:GetAbility()
+  if ability then
+    return ability:GetSpecialValueFor("attack_speed")
+  end
 end
 
 function modifier_vortex_oaa_debuff:GetEffectName()

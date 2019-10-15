@@ -38,8 +38,9 @@ function modifier_frostburn_oaa_applier:OnAttackLanded(event)
   if IsServer() then
     local attacker = event.attacker
     local target = event.target
-    if attacker == self:GetParent() and not attacker:IsIllusion() and not target:IsMagicImmune() then
-      target:AddNewModifier(attacker, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
+    if attacker == self:GetParent() and not attacker:IsIllusion() and not attacker:PassivesDisabled() and not target:IsMagicImmune() then
+      local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
+      target:AddNewModifier(attacker, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = debuff_duration})
     end
   end
 end
@@ -63,8 +64,12 @@ end
 function modifier_frostburn_oaa_effect:OnCreated()
   if IsServer() then
     local ability = self:GetAbility()
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-    self.duration = ability:GetSpecialValueFor("heal_prevent_duration")
+    if ability then
+      self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
+    else
+      self.heal_prevent_percent = 40
+    end
+    self.duration = self:GetDuration()
     self.health_fraction = 0
   end
 end
@@ -80,7 +85,7 @@ function modifier_frostburn_oaa_effect:OnHealthGained(event)
   if IsServer() then
     -- Check that event is being called for the unit that self is attached to
     local parent = self:GetParent()
-    -- Covfefe debuff has more priority
+    -- Covfefe (Blade of Judecca) debuff has more priority
     if event.unit == parent and event.gain > 0 and not parent:HasModifier("modifier_item_trumps_fists_frostbite") then
       local heal_percent = self.heal_prevent_percent / 100 * (self:GetRemainingTime() / self.duration)
       local desiredHP = parent:GetHealth() + event.gain * heal_percent + self.health_fraction

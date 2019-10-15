@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-	//=================================================================================
+  //=================================================================================
   // Neutral: Easy Camp - Wolf
   //=================================================================================
   "npc_dota_neutral_custom_small_wolf"
-	{
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_worg_small/n_creep_worg_small.vmdl"
@@ -76,5 +76,5 @@
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"
-	}
+  }
 }

@@ -60,7 +60,7 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
       shard:SetControllableByPlayer(playerID, false)
     end
     if caster_is_a_hero then
-      shard:SetOwner(caster)
+      shard:SetOwner(caster_owner)
     end
 
     -- Set the facing of the shards to be the same as the caster

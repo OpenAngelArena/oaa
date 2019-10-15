@@ -19,7 +19,7 @@
     "AbilityCastPoint"                                    "0"
     "AbilityCooldown"                                     "24.0"
 
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
     "precache"
@@ -36,19 +36,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "50"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_damage"                             "20"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "800"
+        "radius"                                          "900"
       }
-
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"

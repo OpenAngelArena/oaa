@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Blue Tomato: Thunder Clap
+  // Blue Tomato: Vanilla Thunder Clap
   //=================================================================================================================
   "polar_furbolg_ursa_warrior_thunder_clap"
   {
@@ -26,7 +26,7 @@
     "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "300" //OAA
+    "AbilityDamage"                                       "250" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,19 +37,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "300"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "movespeed_slow"                                  "-25"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attackspeed_slow"                                "-25"
       }
-
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"

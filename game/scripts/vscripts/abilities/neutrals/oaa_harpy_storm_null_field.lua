@@ -24,6 +24,10 @@ function modifier_harpy_null_field_oaa_applier:IsPurgable()
 end
 
 function modifier_harpy_null_field_oaa_applier:IsAura()
+  local parent = self:GetParent()
+  if parent:PassivesDisabled() then
+    return false
+  end
   return true
 end
 
@@ -64,11 +68,17 @@ function modifier_harpy_null_field_oaa_effect:IsPurgable()
 end
 
 function modifier_harpy_null_field_oaa_effect:OnCreated()
-  self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance")
+  local ability = self:GetAbility()
+  if ability then
+    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+  end
 end
 
 function modifier_harpy_null_field_oaa_effect:OnRefresh()
-  self.magic_resistance = self.magic_resistance or self:GetAbility():GetSpecialValueFor("magic_resistance")
+  local ability = self:GetAbility()
+  if ability then
+    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+  end
 end
 
 function modifier_harpy_null_field_oaa_effect:DeclareFunctions()
@@ -79,5 +89,8 @@ function modifier_harpy_null_field_oaa_effect:DeclareFunctions()
 end
 
 function modifier_harpy_null_field_oaa_effect:GetModifierMagicalResistanceBonus()
-  return self.magic_resistance
+  if self.magic_resistance then
+    return self.magic_resistance
+  end
+  return -20
 end

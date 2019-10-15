@@ -14,14 +14,16 @@ function kobold_foreman_warcry_oaa:OnSpellStart()
     radius,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_ANY_ORDER,
     false
   )
 
   for _,ally in pairs(allies) do
     -- Apply a buff
-    ally:AddNewModifier(caster, self, "modifier_kobold_foreman_warcry_oaa_buff", { duration = duration } )
+    if ally then
+      ally:AddNewModifier(caster, self, "modifier_kobold_foreman_warcry_oaa_buff", { duration = duration } )
+    end
   end
 end
 

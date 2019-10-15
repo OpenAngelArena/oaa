@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Centaur Khan (Big Centaur): War Stomp
+  // Centaur Khan (Big Centaur): Vanilla War Stomp
   //=================================================================================================================
   "centaur_khan_war_stomp"
   {
@@ -26,7 +26,7 @@
     "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "75" //OAA
+    "AbilityDamage"                                       "100" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,13 +37,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "250"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "non_hero_stun_duration"                          "3.0"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"

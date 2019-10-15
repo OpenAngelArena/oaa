@@ -24,6 +24,10 @@ function modifier_alpha_critical_strike_aura_oaa_applier:IsPurgable()
 end
 
 function modifier_alpha_critical_strike_aura_oaa_applier:IsAura()
+  local parent = self:GetParent()
+  if parent:PassivesDisabled() then
+    return false
+  end
   return true
 end
 
@@ -44,7 +48,7 @@ function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraSearchType()
 end
 
 function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraSearchFlags()
-  return bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
 end
 
 --function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraEntityReject(hEntity)
@@ -80,14 +84,18 @@ function modifier_alpha_critical_strike_aura_oaa_effect:DeclareFunctions()
 end
 
 function modifier_alpha_critical_strike_aura_oaa_effect:GetModifierPreAttack_CriticalStrike(params)
-	if IsServer() then
+  if IsServer() then
     local ability = self:GetAbility()
     local parent = self:GetParent()
     local target = params.target
 
      -- Don't crit on allies, towers, or wards
     if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber() ) ~= UF_SUCCESS then
-      return nil
+      return 0
+    end
+
+    if not ability then
+      return 0
     end
 
     local chance = ability:GetSpecialValueFor("crit_chance")/100
@@ -104,7 +112,7 @@ function modifier_alpha_critical_strike_aura_oaa_effect:GetModifierPreAttack_Cri
       -- Increment failure count
       self:SetStackCount( prngMult )
 
-      return nil
+      return 0
     end
   end
 end
