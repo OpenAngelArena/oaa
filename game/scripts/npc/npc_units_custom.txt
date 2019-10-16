@@ -47,7 +47,6 @@
 #base "units/boss/npc_dota_boss_simple_6.txt"
 #base "units/boss/npc_dota_boss_simple_7.txt"
 
-
 #base "units/npc_dota_azazel_summon_fighter.txt"
 //#base "units/npc_dota_azazel_summon_farmer_1.txt"
 //#base "units/npc_dota_azazel_summon_farmer_2.txt"
@@ -62,15 +61,11 @@
 //#base "units/npc_dota_azazel_summon_tank_3.txt"
 //#base "units/npc_dota_azazel_summon_tank_4.txt"
 
-
 #base "units/boss/tier5_bosses/charger/npc_dota_boss_charger_tier5.txt"
 #base "units/boss/tier5_bosses/shielder/npc_dota_boss_shielder_tier5.txt"
 #base "units/boss/tier5_bosses/twin/npc_dota_boss_twin_tier5.txt"
 #base "units/boss/tier5_bosses/twin/npc_dota_boss_twin_dumb_tier5.txt"
 #base "units/boss/tier5_bosses/stopfightingyourself/stopfightingyourself_tier5.txt"
-
-
-
 
 #base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_ogre_tank_boss_tier5.txt"
 #base "units/boss/tier5_bosses/siltbreaker/npc_dota_creature_ogre_seer_tier5.txt"
@@ -149,18 +144,30 @@
 #base "units/npc_dota_necronomicon_warrior_5.txt"
 #base "units/npc_dota_necronomicon_warrior_6.txt"
 #base "units/npc_dota_necronomicon_warrior_7.txt"
-#base "units/npc_dota_neutral_custom_big_horse.txt"
-#base "units/npc_dota_neutral_custom_big_pupper.txt"
-#base "units/npc_dota_neutral_custom_black_dragon.txt"
-#base "units/npc_dota_neutral_custom_cave_big_horse.txt"
-#base "units/npc_dota_neutral_custom_cave_big_pupper.txt"
-#base "units/npc_dota_neutral_custom_cave_black_drake.txt"
-#base "units/npc_dota_neutral_custom_cave_tomato.txt"
-#base "units/npc_dota_neutral_custom_small_horse.txt"
-#base "units/npc_dota_neutral_custom_small_pupper.txt"
-#base "units/npc_dota_neutral_harpy_scout.txt"
-#base "units/npc_dota_neutral_harpy_storm.txt"
-#base "units/npc_dota_neutral_beardude.txt"
+
+#base "units/neutrals/npc_dota_neutral_custom_cave_big_horse.txt"
+#base "units/neutrals/npc_dota_neutral_custom_cave_big_pupper.txt"
+#base "units/neutrals/npc_dota_neutral_custom_cave_black_drake.txt"
+#base "units/neutrals/npc_dota_neutral_custom_cave_tomato.txt"
+#base "units/neutrals/npc_dota_neutral_beardude.txt"
+#base "units/neutrals/npc_dota_mini_roshan.txt"
+
+#base "units/neutrals/npc_dota_neutral_custom_black_dragon.txt"
+#base "units/neutrals/npc_dota_neutral_custom_ghost.txt"
+#base "units/neutrals/npc_dota_neutral_custom_centaur_khan.txt"
+#base "units/neutrals/npc_dota_neutral_custom_small_centaur.txt"
+#base "units/neutrals/npc_dota_neutral_custom_blue_tomato.txt"
+#base "units/neutrals/npc_dota_neutral_custom_blue_potato.txt"
+#base "units/neutrals/npc_dota_neutral_custom_mud_golem.txt"
+#base "units/neutrals/npc_dota_neutral_custom_mud_golem_split.txt"
+#base "units/neutrals/npc_dota_neutral_custom_harpy_storm.txt"
+#base "units/neutrals/npc_dota_neutral_custom_harpy_scout.txt"
+#base "units/neutrals/npc_dota_neutral_custom_kobold.txt"
+#base "units/neutrals/npc_dota_neutral_custom_kobold_soldier.txt"
+#base "units/neutrals/npc_dota_neutral_custom_kobold_foreman.txt"
+#base "units/neutrals/npc_dota_neutral_custom_big_wolf.txt"
+#base "units/neutrals/npc_dota_neutral_custom_small_wolf.txt"
+
 #base "units/npc_dota_pugna_nether_ward_5.txt"
 #base "units/npc_dota_pugna_nether_ward_6.txt"
 #base "units/npc_dota_shadow_shaman_ward_1.txt"
@@ -186,7 +193,6 @@
 #base "units/npc_dota_warlock_golem_4.txt"
 #base "units/npc_dota_warlock_golem_5.txt"
 #base "units/dota_fountain.txt"
-#base "units/npc_dota_mini_roshan.txt"
 #base "units/npc_dota_monkey_clone_oaa.txt"
 
 #base "units/npc_dota_punching_bag.txt"

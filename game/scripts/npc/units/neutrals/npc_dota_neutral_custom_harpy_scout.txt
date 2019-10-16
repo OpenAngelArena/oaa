@@ -1,9 +1,9 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Neutral: Harpy Scout
-//=================================================================================
-  "npc_dota_neutral_harpy_scout"
+  //=================================================================================
+  // Neutral: Harpy Scout
+  //=================================================================================
+  "npc_dota_neutral_custom_harpy_scout"
   {
     // General
     //----------------------------------------------------------------
@@ -13,6 +13,7 @@
     "Level"                                               "2"
     "ModelScale"                                          "0.85"
     "IsNeutralUnitType"                                   "1"
+    "UseNeutralCreepBehavior"                             "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -24,6 +25,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "1"      // Physical protection.
+    "MagicalResistance"                                   "0"     // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -67,9 +69,11 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "HasInventory"                                        "0"
   }
 }
