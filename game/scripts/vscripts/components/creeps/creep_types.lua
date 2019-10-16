@@ -18,19 +18,17 @@ CreepTypes = {
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
       {"npc_dota_neutral_custom_harpy_storm",       560,  500,  24,   1.2,   45,  82}, --expected gold is 75 and XP is 272
-      {"npc_dota_neutral_custom_harpy_storm",       560,  500,  24,   1.2,   45,  82},
-      {"npc_dota_neutral_custom_harpy_storm",       560,  500,  24,   1.2,   45,  82},
       {"npc_dota_neutral_custom_harpy_scout",       440,    0,  40,   0.7,   40,  61},
       {"npc_dota_neutral_custom_harpy_scout",       440,    0,  40,   0.7,   40,  61}
     },
     {
-      {"npc_dota_neutral_custom_mud_golem",         480,    0,  12,    1,    33,  100},
-      {"npc_dota_neutral_custom_mud_golem",         480,    0,  12,    1,    33,  100}
+      {"npc_dota_neutral_custom_mud_golem",         480,    0,  12,    1,    33,  60},
+      {"npc_dota_neutral_custom_mud_golem",         480,    0,  12,    1,    33,  60}
     },
     {
-      {"npc_dota_neutral_custom_blue_potato",       480,    0,  28,   1.3,   50,  75},
-      {"npc_dota_neutral_custom_blue_potato",       480,    0,  28,   1.3,   50,  75},
-      {"npc_dota_neutral_custom_blue_tomato",       800,  500,  28,   1.3,   50,  75}
+      {"npc_dota_neutral_custom_blue_potato",       480,    0,  28,   1.3,   50,  61},
+      {"npc_dota_neutral_custom_blue_potato",       480,    0,  28,   1.3,   50,  61},
+      {"npc_dota_neutral_custom_blue_tomato",       800,  500,  28,   1.3,   50,  82}
     }
   },
     -- 3 "hard camp"
