@@ -65,7 +65,7 @@ end
 modifier_alpha_critical_strike_aura_oaa_effect = class(ModifierBaseClass)
 
 function modifier_alpha_critical_strike_aura_oaa_effect:IsHidden()
-  return true
+  return false
 end
 
 function modifier_alpha_critical_strike_aura_oaa_effect:IsDebuff()

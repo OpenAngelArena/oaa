@@ -17,9 +17,9 @@
     "MaxLevel"                                            "1"
 
     "AbilityCastPoint"                                    "0"
-    "AbilityCooldown"                                     "24.0"
+    "AbilityCooldown"                                     "30.0"
 
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "25"
     "AbilityProcsMagicStick"                              "1"
 
     "precache"
@@ -44,12 +44,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
+        "radius"                                          "1200"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "12.0"
+        "buff_duration"                                   "6.0"
       }
     }
   }
