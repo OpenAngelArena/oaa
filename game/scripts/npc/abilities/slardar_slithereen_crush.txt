@@ -18,6 +18,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
@@ -29,7 +31,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 140 200 260 520 800"
+    "AbilityDamage"                                       "80 140 200 260 500 740"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -68,6 +70,18 @@
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "1"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "puddle_duration"                                 "25"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_radius"                                   "550"
+        "RequiresScepter"                                 "1"
       }
     }
   }

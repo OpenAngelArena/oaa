@@ -17,6 +17,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -29,7 +30,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "6.0"
-    "AbilityCooldown"                                     "120 110 100 100 100"
+    "AbilityCooldown"                                     "100" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,13 +53,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fiend_grip_duration"                             "6.0"
+        "abilitychanneltime"                              ""
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fiend_grip_damage"                               "100 155 215 515 815"
+        "fiend_grip_damage"                               "100 200 300 600 900" //OAA
       }
     }
   }

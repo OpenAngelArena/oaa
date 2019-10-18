@@ -23,9 +23,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_monkey_king_bar;item_upgrade_core"
-      "02"                                                "item_monkey_king_bar;item_upgrade_core_2"
-      "03"                                                "item_monkey_king_bar;item_upgrade_core_3"
-      "04"                                                "item_monkey_king_bar;item_upgrade_core_4"
+      "02"                                                "item_mjollnir;item_upgrade_core"
     }
   }
 
@@ -59,7 +57,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-        "bonus_damage"      "52 95 140 210 285"
+        "bonus_damage"      "52 72 112 172 252"
 			}
 			"02"
 			{
@@ -74,7 +72,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-        "bonus_chance_damage"     "100 130 185 260 370"
+        "bonus_chance_damage"     "100 125 175 250 350"
 			}
     }
   }

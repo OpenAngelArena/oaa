@@ -3,10 +3,10 @@
 //===============================================================================
 "DOTA_Tooltip_Ability_item_greater_travel_boots"                                "Greater Boots of Travel"
 "DOTA_Tooltip_Ability_item_recipe_greater_travel_boots"                         "Greater Boots of Travel Recipe"
-"DOTA_Tooltip_Ability_item_greater_travel_boots_Description"                    "#{item_greater_travel_boots_ability_Description}\n#{fools_gold_penalty_warning}"
+"DOTA_Tooltip_Ability_item_greater_travel_boots_Description"                    "#{item_greater_travel_boots_ability_Description}"
 "DOTA_Tooltip_Ability_item_greater_travel_boots_Lore"                           "The boots of a once renowned legendary merchant."
 "DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_movement_speed"           "%+$move_speed"
-"item_greater_travel_boots_ability_Description"                                 "<h1>Active: Teleport</h1> Teleports you to any allied structure or unit, including heroes. Teleporting to a unit is interrupted if the target unit dies.\n<h1>Passive: Commensalism</h1> Increases the amount of gold gained when an ally kills a creep by %assist_percent%%% of the creep's base bounty."
+"item_greater_travel_boots_ability_Description"                                 "<h1>Active: Teleport</h1> Teleports you to any allied structure or unit, including heroes. Teleporting to a unit is interrupted if the target unit dies."
 
 "DOTA_Tooltip_Ability_item_greater_travel_boots_2"                              "#{DOTA_Tooltip_Ability_item_greater_travel_boots}"
 "DOTA_Tooltip_Ability_item_recipe_greater_travel_boots_2"                       "#{DOTA_Tooltip_Ability_item_recipe_greater_travel_boots}"

@@ -16,7 +16,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
@@ -29,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -54,17 +56,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "maximum_purge_duration"                          "2.5"
-        "LinkedSpecialBonus"  "special_bonus_unique_oracle_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_oracle_2"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "300"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_channel_time_tooltip"                        "2.5"
       }
     }
   }
