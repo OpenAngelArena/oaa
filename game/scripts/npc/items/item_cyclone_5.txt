@@ -83,7 +83,7 @@
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "20 22 28 34 40"
+        "bonus_movement_speed"  "20 25 30 35 40"
       }
       "04"
       {
@@ -93,7 +93,7 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "tooltip_drop_damage"   "50"
+        "tooltip_drop_damage"   "50 100 225 350 475"
       }
     }
   }
