@@ -84,33 +84,52 @@ var hilariousLoadingPhrases = [
   'Remember to poop aggressively',
   'Sneaking loading screen text into the game simply because I can',
   'Forgetting to upgrade boots',
-  'Hope everyone is having a great day'
+  'Hope everyone is having a great day',
+  'Wards cannot be bought individually, instead the Ward Stack item is used to generate both observer and sentry wards passively',
+  'Upgrade cores allow you to upgrade your items',
+  'You can split an upgrade core into 2 of a lower tier',
+  'Heroes are invulnerable for 2 seconds at the start of every duel',
+  'Each capture point is worth more points than the previous',
+  'Each hero on a capture point speeds up the capture time',
+  'Use your glyph hotkey to drop a free ward',
+  'Before -0:10 on the clock, you cannot leave base',
+  'Bosses spawn into the map at 3:00',
+  'The wandering boss spawns at 12:00'
 ];
 
-SetupTopBar();
+init();
 
-$('#MainContent').SetHasClass(currentMap, true);
+function init () {
+  $.GetContextPanel().AddClass(currentMap);
+  if (currentMap === 'unranked') {
+    return;
+  }
 
-CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
-CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
+  SetupTopBar();
 
-// load hero selection
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
-onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+  $('#MainContent').SetHasClass(currentMap, true);
 
-onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
-onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
-onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
-onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
-onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
-UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-changeHilariousLoadingText();
-UpdateBottleList();
+  CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
+  CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
 
-$('#ARDMLoading').style.opacity = 0;
+  // load hero selection
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
+  onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+
+  onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
+  onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
+  onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
+  onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+  ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+  changeHilariousLoadingText();
+  UpdateBottleList();
+
+  $('#ARDMLoading').style.opacity = 0;
+}
 
 function changeHilariousLoadingText () {
   var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];

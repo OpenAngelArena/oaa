@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_refresher;item_upgrade_core"
-      "02"                                                "item_refresher;item_upgrade_core_2"
-      "03"                                                "item_refresher;item_upgrade_core_3"
-      "04"                                                "item_refresher;item_upgrade_core_4"
     }
   }
 
@@ -39,7 +36,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3181"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_refresher"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/refresher_orb_2"
     // Stats
@@ -73,8 +71,13 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "12.0 14.0 17.0 21.0 27.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500 750 1000 1500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "250 500 750 1000 1500"
       }
     }
   }

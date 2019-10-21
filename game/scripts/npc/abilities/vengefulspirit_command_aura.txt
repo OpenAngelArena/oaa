@@ -28,6 +28,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_pct"                                "12 18 24 30 36 42"
         "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
@@ -36,13 +37,15 @@
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "illusion_damage_out_pct"  "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_out_pct"                         "100"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "illusion_damage_in_pct"      "150"
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_in_pct"                          "150"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }
