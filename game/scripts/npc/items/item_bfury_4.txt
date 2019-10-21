@@ -58,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 85 125 180"
+        "bonus_damage"                                    "45 60 120 180 240"
       }
       "02"
       {
@@ -78,12 +78,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "24"
+        "quelling_bonus"                                  "24 30 90 150 210"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "24"	//OAA
+        "quelling_bonus_ranged"                           "24 30 90 150 210"	//OAA
       }
       "07"
       {
