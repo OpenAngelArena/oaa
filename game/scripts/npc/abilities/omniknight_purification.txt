@@ -14,7 +14,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
@@ -22,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
+    "AbilityCooldown"                                     "17 15 13 11 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,8 +44,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_4"
       }
     }
   }
-
 }

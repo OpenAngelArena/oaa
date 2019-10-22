@@ -15,7 +15,9 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 4.0 4.0"
@@ -45,12 +47,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_bonus"                                    "25 50 75 100 175 250"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cleave_damage"                                   "165"
         "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_4"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

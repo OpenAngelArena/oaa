@@ -1,51 +1,53 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Dark Willow: Cursed Crown
-//=================================================================================================================
-"dark_willow_cursed_crown"
-{
+  //=================================================================================================================
+  // Dark Willow: Cursed Crown
+  //=================================================================================================================
+  "dark_willow_cursed_crown"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6342"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                      "6"
+    "ID"                                                  "6342"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "600"
-    "AbilityCastPoint"              "0.2"
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "18 16 14 12 12 12"
+    "AbilityCooldown"                                     "18 16 14 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "80 100 120 140 230 340"
+    "AbilityManaCost"                                     "80 100 120 140 230 340"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "delay"                 "4"
-        }
-        "02"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "stun_duration"         "1.75 2.25 2.75 3.25 4.0 4.5"
-        }
-        "03"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "stun_radius"           "325"
-        }
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.75 2.25 2.75 3.25 4.0 4.5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stun_radius"                                     "325"
+      }
     }
-}
+  }
 }

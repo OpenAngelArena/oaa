@@ -1,0 +1,56 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_phoenix"
+	"Title"			"Recommended items for Phoenix"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_flask"
+			"item"		"item_branches"
+			"item"		"item_branches"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_ward_stack"
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_urn_of_shadows"
+			"item"		"item_mekansm"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_greater_guardian_greaves"
+			"item"		"item_spirit_vessel"
+			"item"		"item_veil_of_discord"
+			"item"		"item_shivas_guard"
+			"item"		"item_octarine_core"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_greater_guardian_greaves_4"
+			"item"		"item_shivas_guard_5"
+
+		}
+		
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_radiance"
+			"item"		"item_rod_of_atos"
+			"item"		"item_force_staff"
+			"item"		"item_heavens_halberd"
+			"item"		"item_ethereal_blade"
+			"item"		"item_kaya_and_sange"
+			"item"		"item_stoneskin"
+			"item"		"item_lotus_orb"
+		}
+	}
+}

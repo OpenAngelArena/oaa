@@ -12,6 +12,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -34,7 +35,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -44,6 +44,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "split_duration"                                  "0.6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_movementspeed"                           "100"
+        "RequiresScepter"                                 "1"
       }
     }
   }

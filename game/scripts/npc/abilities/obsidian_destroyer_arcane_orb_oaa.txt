@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85618"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85618"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_arcane_orb.lua"
     "AbilityTextureName"                                  "obsidian_destroyer_arcane_orb"
@@ -17,12 +17,15 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+
     "AbilityCastRange"                                    "450"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 260 360"
+    "AbilityManaCost"                                     "110 140 170 200 275 350"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -32,25 +35,20 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "6 7 8 9 10 11"
+        "mana_pool_damage_pct"                            "8 9 10 11 12 13" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage"                                 "100 200 300 400 900 1400"
+        "int_steal"                                       "1 2 3 4 5 6"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "int_steal"                                       "1 2 3 4 6 9"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "int_steal_duration"                              "80"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "175"
