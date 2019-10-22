@@ -9,17 +9,19 @@
     //
     "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
     "Model"                                               "models\creeps\item_creeps\i_creep_necro_archer\necro_archer.vmdl"
+    "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_resistance"
     "Ability2"                                            "boss_cliffwalk"
-    "Ability3"          								  "boss_regen"
+    "Ability3"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -32,10 +34,10 @@
     "AttackDamageMin"                                     "6500"    // Damage range min.
     "AttackDamageMax"                                     "6550"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "0.35"      // Speed of attack.
+    "AttackRate"                                          "0.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "350"    // Range within a target can be acquired.
-    "AttackRange"                                         "528"    // Range within a target can be attacked.
+    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackRange"                                         "960"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/items2_fx/necronomicon_archer_projectile.vpcf"
     "ProjectileSpeed"                                     "1000"
 

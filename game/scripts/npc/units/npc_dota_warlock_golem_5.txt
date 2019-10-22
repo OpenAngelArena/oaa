@@ -33,8 +33,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "700"    // Damage range min.
-    "AttackDamageMax"                                     "700"    // Damage range max.
+    "AttackDamageMin"                                     "900"    // Damage range min.
+    "AttackDamageMax"                                     "900"    // Damage range max.
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -60,7 +60,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "10000"    // Base health.
-    "StatusHealthRegen"                                   "325"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "300"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 
@@ -110,8 +110,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "510"    // Damage range min.
-    "AttackDamageMax"                                     "510"    // Damage range max.
+    "AttackDamageMin"                                     "675"    // Damage range min.
+    "AttackDamageMax"                                     "675"    // Damage range max.
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -137,7 +137,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "7500"   // Base health.
-    "StatusHealthRegen"                                   "325"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "300"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 

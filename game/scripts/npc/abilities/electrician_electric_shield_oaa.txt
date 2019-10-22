@@ -1,85 +1,86 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Electrician: Electric Shield
-	//=================================================================================================================
-	"electrician_electric_shield"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						      "ability_lua"
-		"ID"							          "8481"
-		"AbilityBehavior"				    "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				  "SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityTextureName"			  "custom/electrician_electric_shield"
-		"ScriptFile"					      "abilities/electrician/electrician_electric_shield.lua"
-		"MaxLevel"						      "6"
+  //=================================================================================================================
+  // Electrician: Electric Shield
+  //=================================================================================================================
+  "electrician_electric_shield"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "8481"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/electrician_electric_shield"
+    "ScriptFile"                                          "abilities/electrician/electrician_electric_shield.lua"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0"
+    "MaxLevel"                                            "6"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.5"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"5"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_cost"				"20"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shield_per_mana"		"75 95 115 135 155 175"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shield_damage_block"	"10 20 30 40 50 60"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"shield_duration"		"12.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_damage"			"30 40 50 60 140 220"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_interval"			"0.5"
-			}
-		}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "5"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"Precache"
-		{
-			"particle"					"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-			"particle"					"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost"                                       "20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shield_per_mana"                                 "75 95 115 135 155 175"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shield_damage_block"                             "10 20 30 40 50 60"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shield_duration"                                 "12.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_damage"                                     "25 35 45 55 110 220"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_interval"                                   "0.5"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "Precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+      "particle"                                          "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+    }
+  }
 }

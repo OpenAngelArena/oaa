@@ -1,0 +1,314 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Boss: Wanderer
+  //=================================================================================
+  "npc_dota_boss_wanderer_1"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    // "Model"                                               "models/creeps/baby_rosh_halloween/baby_rosh_radiant/baby_rosh_radiant.vmdl"  // Model.
+    "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
+    "vscripts"                                            "units/ai_wanderer.lua"
+    "SoundSet"                                            "Batrider"          // Name of sound set.
+    "ModelScale"                                          "1.2"
+    "Level"                                               "30"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+    "Ability5"                                            "boss_resistance"
+    "Ability6"                                            "boss_regen"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"      // Physical protection.
+    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "4000"    // Damage range min.
+    "AttackDamageMax"                                     "4200"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "1.0"      // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackRange"                                         "128"    // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "3000" // Experience earn.
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "100"    // Speed
+    "MovementTurnRate"                                    "0.8"    // Turning rate.
+    "FollowRange"                                         "175"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "17000"    // Base health
+    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusMana"                                          "2500"    // Base mana.
+    "StatusManaRegen"                                     "5"    // Mana regeneration rate.
+
+    // Creature data
+
+    "Creature"
+    {
+        //Makes it only have 50% remaining of applied crowd control
+        "DisableResistance"                                 "50.0"
+        "AttachWearables" // Default npc_dota_hero_sven
+        {
+            "1" { "ItemDef" "375" } // Batrider's Head
+            "2" { "ItemDef" "376" } // Batrider's Cloak
+            "3" { "ItemDef" "377" } // Batrider's Belt
+            "4" { "ItemDef" "4557" } // Batrider's Mount
+            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+        }
+    }
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+  }
+
+
+
+
+  "npc_dota_boss_wanderer_2"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    // "Model"                                               "models/creeps/baby_rosh_halloween/baby_rosh_radiant/baby_rosh_radiant.vmdl"  // Model.
+    "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
+    "vscripts"                                            "units/ai_wanderer.lua"
+    "SoundSet"                                            "Batrider"          // Name of sound set.
+    "ModelScale"                                          "1.3"
+    "Level"                                               "30"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+    "Ability5"                                            "boss_resistance"
+    "Ability6"                                            "boss_regen"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"      // Physical protection.
+    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "7000"    // Damage range min.
+    "AttackDamageMax"                                     "7200"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "1.0"      // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackRange"                                         "128"    // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "5000" // Experience earn.
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "100"    // Speed
+    "MovementTurnRate"                                    "0.8"    // Turning rate.
+    "FollowRange"                                         "175"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "35000"    // Base health
+    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusMana"                                          "2500"    // Base mana.
+    "StatusManaRegen"                                     "5"    // Mana regeneration rate.
+
+    // Creature data
+
+    "Creature"
+    {
+        //Makes it only have 50% remaining of applied crowd control
+        "DisableResistance"                                 "50.0"
+        "AttachWearables" // Default npc_dota_hero_sven
+        {
+            "1" { "ItemDef" "9376" } // Batrider's Head
+            "2" { "ItemDef" "9388" } // Batrider's Cloak
+            "3" { "ItemDef" "4815" } // Batrider's Belt
+            "4" { "ItemDef" "7494" } // Batrider's Mount
+            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+        }
+    }
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+  }
+
+
+
+
+  "npc_dota_boss_wanderer_3"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    // "Model"                                               "models/creeps/baby_rosh_halloween/baby_rosh_radiant/baby_rosh_radiant.vmdl"  // Model.
+    "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
+    "vscripts"                                            "units/ai_wanderer.lua"
+    "SoundSet"                                            "Batrider"          // Name of sound set.
+    "ModelScale"                                          "1.4"
+    "Level"                                               "30"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+    "Ability5"                                            "boss_resistance"
+    "Ability6"                                            "boss_regen"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"      // Physical protection.
+    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "10000"    // Damage range min.
+    "AttackDamageMax"                                     "11000"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "1.0"      // Speed of attack.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackRange"                                         "128"    // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "6000" // Experience earn.
+    "BountyGoldMin"                                       "0"    // Gold earned min.
+    "BountyGoldMax"                                       "0"    // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "100"    // Speed
+    "MovementTurnRate"                                    "0.8"    // Turning rate.
+    "FollowRange"                                         "175"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "50000"    // Base health
+    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusMana"                                          "2500"    // Base mana.
+    "StatusManaRegen"                                     "5"    // Mana regeneration rate.
+
+    // Creature data
+
+    "Creature"
+    {
+        //Makes it only have 50% remaining of applied crowd control
+        "DisableResistance"                                 "50.0"
+        "AttachWearables" // Default npc_dota_hero_sven
+        {
+            "1" { "ItemDef" "4817" } // Batrider's Head
+            "2" { "ItemDef" "5145" } // Batrider's Cloak
+            "3" { "ItemDef" "7012" } // Batrider's Belt
+            "4" { "ItemDef" "9816" } // Batrider's Mount
+            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+        }
+    }
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+  }
+}

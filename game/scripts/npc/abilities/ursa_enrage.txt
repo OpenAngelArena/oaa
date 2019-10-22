@@ -14,11 +14,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -56,6 +56,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "30 26 22 17 12"  //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

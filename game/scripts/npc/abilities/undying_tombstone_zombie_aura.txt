@@ -14,13 +14,12 @@
 
     "MaxLevel"                                            "6"
 
-
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600 800 1000 1200 1400 1800"
+        "radius"                                          "600 800 1000 1200 1200 1200"
       }
       "02"
       {
@@ -30,7 +29,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "zombie_interval"                                 "3.0"
+        "zombie_interval"                                 "4.0 3.5 3.0 2.5 2.5 2.5" // OAA, Valve has it wrong
       }
     }
   }

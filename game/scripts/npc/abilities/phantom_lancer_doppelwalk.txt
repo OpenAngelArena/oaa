@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 25 20 15 15 15" //OAA
+    "AbilityCooldown"                                     "25 22 20 18 16 15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,21 +32,25 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_1_damage_out_pct"                       "-100"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_1_damage_in_pct"                        "0"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_2_damage_out_pct"                       "-80"
+        "illusion_2_damage_out_pct"                       "-50" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_2_damage_in_pct"                        "500"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
@@ -70,8 +74,8 @@
       }
       "09"
       {
-        "var_type"          "FIELD_FLOAT"
-        "illusion_extended_duration"      "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_extended_duration"                      "1" //OAA
       }
       "10"	//OAA
       {

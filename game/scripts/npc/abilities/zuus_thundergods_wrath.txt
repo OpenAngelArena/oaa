@@ -1,20 +1,21 @@
 "DOTAAbilities"
 {
-"zuus_thundergods_wrath"
+  "zuus_thundergods_wrath"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5113"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5113"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "225 325 450 900 1450"
+    "AbilityManaCost"                                     "250 350 450 900 1350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,32 +32,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "true_sight_radius"                               "900 900 900 900 900"
+        "sight_radius_day"                                "500"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "true_sight_radius_tooltip"                       "500"
+        "sight_radius_night"                              "500"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "sight_radius_day"                                "500"
+        "var_type"                                        "FIELD_FLOAT"
+        "sight_duration"                                  "3.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sight_radius_night"                              "500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "sight_duration"                                  "3.0 3.0 3.0 3.0 3.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "225 325 425 725 1025"
+        "damage"                                          "250 350 450 900 1350" // Static Field increases this
       }
     }
   }
