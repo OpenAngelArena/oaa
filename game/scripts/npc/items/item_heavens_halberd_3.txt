@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heavens_halberd_2;item_upgrade_core_2"
-      "02"                                                "item_heavens_halberd_2;item_upgrade_core_3"
-      "03"                                                "item_heavens_halberd_2;item_upgrade_core_4"
-      "04"                                                "item_echo_sabre_2;item_upgrade_core_2"
-      "05"                                                "item_echo_sabre_2;item_upgrade_core_3"
-      "06"                                                "item_echo_sabre_2;item_upgrade_core_4"
+      "02"                                                "item_echo_sabre_2;item_upgrade_core_2"
     }
   }
 
@@ -98,14 +94,9 @@
         "disarm_melee"                                    "2.0 2.5 3.0 3.5 4.0" //OAA
       }
       "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "disarm_cast_range_tooltip"                       "600"
-      }
-      "07"
 			{
 				"var_type"                                        "FIELD_INTEGER"
-				"status_resistance"                               "14"
+				"status_resistance"                               "14 15 16 17 18"
 			}
     }
   }

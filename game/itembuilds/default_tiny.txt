@@ -1,0 +1,65 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_tiny"
+    "Title"         "Recommended items for Tiny"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_tranquil_origin"
+            "item"      "item_tango"
+            "item"      "item_flask"
+            "item"      "item_branches"
+            "item"      "item_branches"
+            "item"      "item_enchanted_mango"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_tranquil_boots"
+            "item"      "item_greater_crit"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_ultimate_scepter"
+            "item"      "item_assault"
+            "item"      "item_black_king_bar"
+            "item"      "item_echo_sabre_2"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_greater_crit_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_assault_5"
+            "item"      "item_black_king_bar_5"
+            "item"      "item_echo_sabre_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_giant_form_2"
+            "item"      "item_blink_5"
+            "item"      "item_silver_edge_5"
+            "item"      "item_ancient_janggo_5"
+            "item"      "item_desolator_5"
+            "item"      "item_heart_5"
+            "item"      "item_helm_of_the_dominator_5"
+            "item"      "item_vladmir_5"
+            "item"      "item_bloodthorn_5"
+            "item"      "item_blade_mail_5"
+            "item"      "item_lotus_orb_5"
+            "item"      "item_satanic_5"
+            "item"      "item_force_staff_5"
+            "item"      "item_pull_staff_4"
+            "item"      "item_octarine_core_5"
+            "item"      "item_ethereal_blade_5"
+            "item"      "item_dagon_9"
+            "item"      "item_kaya_and_sange_5"
+        }
+    }
+}

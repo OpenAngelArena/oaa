@@ -1,0 +1,115 @@
+.SparkSelectionHolder {
+  horizontal-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+#ChangeSpark {
+  horizontal-align: left;
+  vertical-align: top;
+  margin-left: -5px;
+  margin-top: 170px;
+  min-width: 120px;
+  flow-children: right;
+}
+
+#ChangeSpark Label {
+  font-size: 16px;
+}
+
+#SparkSelection
+{
+  opacity: 0;
+  width: 800px;
+
+  margin-top: 128px;
+  margin-bottom: 200px;
+
+  horizontal-align: center;
+  vertical-align: center;
+
+  background-color: gradient( linear, 0% 0%, 0% 100%, from ( #373737 ), to ( #171717 ) );
+  border-radius: 8px;
+  border: 2px solid #000000;
+
+  transition-property: opacity, transform;
+  transition-duration: 0.2s;
+
+  flow-children: down;
+}
+
+#SparkSelection.show
+{
+  opacity: 1;
+}
+
+#SparkSelection .TopLabel
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  horizontal-align: center;
+}
+
+#SparkSelection .TopLabel Label
+{
+  font-size: 32px;
+}
+
+#SparkSelection .SelectionRow
+{
+  width: 100%;
+  flow-children: right;
+}
+
+#SparkSelection .SparkMainRow
+{
+  flow-children: down;
+  width: 50%;
+  margin: 1px;
+}
+
+#SparkSelection .SupportSparks
+{
+  margin-left: 3px;
+  background-color: gradient( linear, 0% 0%, 0% 100%, from ( #00880055 ), to ( #00000000 ) );
+}
+
+#SparkSelection .CarrySparks
+{
+  margin-right: 3px;
+  background-color: gradient( linear, 0% 0%, 0% 90%, from ( #88000055 ), to ( #00000000 ) );
+}
+
+#SparkSelection .SparkPanel
+{
+  flow-children: down;
+  width: 50%;
+  height: 300px;
+  border: 1px solid #52525233;
+}
+#SparkSelection .SparkPanel:hover
+{
+  border: 1px solid #aaaaaaaa;
+}
+#SparkSelection .SparkPanel.active
+{
+  box-shadow: #ffccccaa 0px 0px 3px 0px;
+}
+
+#SparkSelection .SparkPanel Label
+{
+  text-align: center;
+}
+
+#SparkSelection .ButtonRow
+{
+  flow-children: left;
+}
+
+#SparkSelection .ButtonRow Button
+{
+  flow-children: right;
+  min-width: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

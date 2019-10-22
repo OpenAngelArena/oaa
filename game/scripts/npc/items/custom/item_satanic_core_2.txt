@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_core;item_upgrade_core_3"
-      "02"                                                "item_satanic_core;item_upgrade_core_4"
-      "03"                                                "item_octarine_core_3;item_upgrade_core_3"
-      "04"                                                "item_octarine_core_3;item_upgrade_core_4"
+      "02"                                                "item_octarine_core_3;item_upgrade_core_3"
     }
   }
 
@@ -90,49 +88,27 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "35"
+        "hero_lifesteal"                                  "35"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "165"
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "10 12 14"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_total_tooltip"                  "200"
+        "unholy_hero_spell_lifesteal"                     "100"
       }
       "08"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "4.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_creep_spell_lifesteal"                    "50"
       }
-      // Octarine Core Parameters
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "0"
-      }
-      "10"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "35"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "10 20 30"
-      }
-      // unholy spellsteal
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_spellsteal_unholy"                          "165"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_spellsteal_unholy"                         "190 180 170"
+        "duration"                                        "5.0"
       }
     }
   }

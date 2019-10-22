@@ -7,19 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5391"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5391"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, for picking screen tooltip
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+
     "AbilityCastRange"                                    "450"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 260 360"
+    "AbilityManaCost"                                     "110 140 170 200 275 350"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -29,12 +31,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "6 7 8 9 10 11"
+        "mana_pool_damage_pct"                            "8 9 10 11 12 13" //OAA, for picking screen tooltip
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "int_steal"                                       "1 2 3 4 6 9"
+        "int_steal"                                       "1 2 3 4 5 6"
       }
       "03"
       {

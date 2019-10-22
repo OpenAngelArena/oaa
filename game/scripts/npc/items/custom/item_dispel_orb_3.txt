@@ -49,7 +49,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
-    "AbilityCooldown"                                     "30"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "purge"
     "AbilityCastPoint"                                    "0.0"
 
@@ -58,8 +58,8 @@
     "ItemCost"                                            "37000"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "purge orb;purge crystal"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "Dispel orb 3;purge crystal 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
@@ -70,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "25 32 40"
+        "bonus_armor"                                     "15 19 24"
       }
       "02"
       {
@@ -95,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 5.0 6.0"
+        "duration"                                        "6.0"
       }
     }
   }

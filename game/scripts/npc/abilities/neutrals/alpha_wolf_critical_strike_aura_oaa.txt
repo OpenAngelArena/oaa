@@ -1,0 +1,41 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Alpha Wolf: Pack Leader Aura - Critical Strike Aura
+  //=================================================================================================================
+  "alpha_wolf_critical_strike_aura_oaa"
+  {
+    "ID"                                                  "85309"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_alpha_wolf_critical_strike_aura.lua"
+    "AbilityTextureName"                                  "alpha_wolf_command_aura"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "250"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
+      }
+    }
+  }
+}
