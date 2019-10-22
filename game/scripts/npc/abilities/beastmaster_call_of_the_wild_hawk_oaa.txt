@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 50 40 30 30 20"
+    "AbilityCooldown"                                     "30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,13 +48,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hawk_speed_tooltip"                              "300 340 380 420 480 575"
+        "hawk_speed_tooltip"                              "300 340 380 420 460 500"
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hawk_vision_tooltip"                             "600 700 800 900 2000 3000"
+        "hawk_vision_tooltip"                             "600 700 800 900 1350 1800"
       }
     }
   }
