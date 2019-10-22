@@ -17,10 +17,10 @@
     "IsAncient"                                           "1"
     "IsOther"                                             "1"
     "wearable"                                            "8630"
-    
+
     // Abilities
     //----------------------------------------------------------------
-    
+
     "Ability1"                                            "neutral_spell_immunity"      // Ability 1.
     "Ability2"                                            ""      // Ability 2.
     "Ability3"                                            ""      // Ability 3.
@@ -58,7 +58,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "20"    // Base health.
+    "StatusHealth"                                        "36"    // Base health.
     "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
@@ -69,7 +69,7 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.

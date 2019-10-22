@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -65,7 +66,8 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "500 600 700 800 1100 1300"
+        "abilitycastrange"                                ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_5"
       }
     }
   }

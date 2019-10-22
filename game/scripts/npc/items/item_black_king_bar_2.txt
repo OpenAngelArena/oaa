@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                        "item_black_king_bar_1;item_upgrade_core"
-      "02"                        "item_black_king_bar_1;item_upgrade_core_2"
-      "03"                        "item_black_king_bar_1;item_upgrade_core_3"
-      "04"                        "item_black_king_bar_1;item_upgrade_core_4"
     }
   }
 
@@ -68,7 +65,7 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "10 20 30 40 55"
+        "bonus_strength"        "10 15 25 40 60"
       }
       "02"
       {
@@ -78,7 +75,7 @@
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "duration"              "6.0 6.5 7.0 7.5 8.0"
+        "duration"              "5.5 6.0 6.5 7.0 7.5"
       }
       "05"
       {

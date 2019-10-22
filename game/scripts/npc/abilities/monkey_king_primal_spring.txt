@@ -11,8 +11,11 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -35,7 +38,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "impact_damage"                                   "140 210 280 350 770 1190"
-        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_3"
       }
       "02"
       {

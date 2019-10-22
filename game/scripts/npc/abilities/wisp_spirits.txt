@@ -12,7 +12,13 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -43,55 +49,83 @@
 			}
 			"03"
 			{
-				"var_type"                                        "FIELD_INTEGER"
-				"slow"                                            "20 40 60 80 90 100"
-			}
-			"04"
-			{
-				"var_type"                                        "FIELD_FLOAT"
-				"slow_duration"                                   "0.3"
-			}
-			"05"
-			{
 				"var_type"                                        "FIELD_FLOAT"
 				"revolution_time"                                 "5.0"
 			}
-			"06"
+			"04"
 			{
 				"var_type"                                        "FIELD_INTEGER"
 				"min_range"                                       "200"
 			}
-			"07"
+			"05"
 			{
 				"var_type"                                        "FIELD_INTEGER"
 				"max_range"                                       "700"
 				"LinkedSpecialBonus"                              "special_bonus_unique_wisp_3"
 			}
-			"08"
+			"06"
 			{
 				"var_type"                                        "FIELD_INTEGER"
 				"hero_hit_radius"                                 "110"
 			}
-			"09"
+			"07"
 			{
 				"var_type"                                        "FIELD_INTEGER"
 				"explode_radius"                                  "360"
 			}
-			"10"
+			"08"
 			{
 				"var_type"                                        "FIELD_INTEGER"
 				"hit_radius"                                      "150"
 			}
-			"11"
+			"09"
 			{
 				"var_type"                                        "FIELD_INTEGER"
 				"spirit_movement_rate"                            "250"
 			}
-			"12"
+			"10"
 			{
 				"var_type"                                        "FIELD_FLOAT"
 				"spirit_duration"                                 "19.0"
 			}
     }
   }
+
+  //=================================================================================================================
+	// Wisp: Spirits In
+	//=================================================================================================================
+	"wisp_spirits_in"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                                                  "5490"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"MaxLevel"                                            "6"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                                    "0"
+ 		"AbilityCastAnimation"                                "ACT_INVALID"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"                                     "0"
+	}
+
+	//=================================================================================================================
+	// Wisp: Spirits Out
+	//=================================================================================================================
+	"wisp_spirits_out"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                                                  "5493"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"MaxLevel"                                            "6"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                                    "0"
+ 		"AbilityCastAnimation"                                "ACT_INVALID"
+	}
 }

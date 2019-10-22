@@ -20,32 +20,35 @@ function modifier_item_devastator_desolator:GetModifierPreAttack_BonusDamage()
 end
 
 function modifier_item_devastator_desolator:OnAttackLanded( params )
+  if IsServer() then
+    if params.attacker == self:GetParent() and ( not self:GetParent():IsIllusion() ) then
+      local target = params.target
+      if target ~= nil and target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+        local armor_reduction = self:GetAbility():GetSpecialValueFor( "devastator_armor_reduction" )
+        local corruption_armor = self:GetAbility():GetSpecialValueFor( "corruption_armor" )
 
-    if IsServer() then
-		if params.attacker == self:GetParent() and ( not self:GetParent():IsIllusion() ) then
-			if self:GetParent():PassivesDisabled() then
-				return 0
-			end
+        -- If the target has desolator debuff then do nothing
+        if target:HasModifier("modifier_desolator_buff") then
+          return
+        end
 
-			local target = params.target
-			if target ~= nil and target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
-				-- check the current devastator_armor_reduction and the corruption_armor check the higher
-				local armor_reduction = self:GetAbility():GetSpecialValueFor( "devastator_armor_reduction" )
-				local corruption_armor = self:GetAbility():GetSpecialValueFor( "corruption_armor" )
-				-- if already has applied corruption
-				if target:HasModifier("modifier_item_devastator_reduce_armor") then
-					-- if corruption is higher than armor reduction just exit
-					if armor_reduction < corruption_armor then
-						return false
-					end
-					-- so in this case should remove corruption and applied
-					target:RemoveModifierByName("modifier_item_devastator_reduce_armor");
+        -- If the target has Devastator active debuff
+        if target:HasModifier("modifier_item_devastator_reduce_armor") then
+          -- If devastator_armor_reduction is higher than corruption_armor then do nothing
+          if math.abs(armor_reduction) > math.abs(corruption_armor) then
+            return
+          end
+          -- If devastator_armor_reduction is lower than corruption_armor then remove the Devastator active debuff
+          target:RemoveModifierByName("modifier_item_devastator_reduce_armor")
+        end
 
-				end
-
-				target:AddNewModifier( target, self:GetAbility(), "modifier_item_devastator_corruption_armor", {duration = self:GetAbility():GetSpecialValueFor("corruption_duration")})
-			end
-		end
-	end
-	return 0
+        -- Calculate duration of the debuff
+        local corruption_duration = self:GetAbility():GetSpecialValueFor("corruption_duration")
+        local armor_reduction_duration = target:GetValueChangedByStatusResistance(corruption_duration)
+        -- Apply Devastator passive debuff
+        target:AddNewModifier( target, self:GetAbility(), "modifier_item_devastator_corruption_armor", {duration = armor_reduction_duration})
+      end
+    end
+  end
+  return 0
 end

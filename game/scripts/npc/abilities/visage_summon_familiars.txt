@@ -7,8 +7,10 @@
     "ID"                                                  "5483"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +31,7 @@
       "01"  // level 5 familiar never spawns
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_hp"                                     "400 550 700 1450 2200"
+        "familiar_hp"                                     "500 600 700 1450 2200"
       }
       "02"
       {
@@ -46,6 +48,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "familiar_attack_damage"                          "20 40 60 140 230"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_scepter_total_familiars"                 "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_6"
+        "RequiresScepter"                                 "1"
       }
     }
   }

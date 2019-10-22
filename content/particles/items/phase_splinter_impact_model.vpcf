@@ -1,0 +1,159 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf19:version{aafc65d8-7a5a-4e01-bd8d-3ac118422503} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_flConstantRadius = 1.0
+	m_flConstantLifespan = 0.6
+	m_ConstantColor = [ 80, 34, 189, 198 ]
+	m_nConstantSequenceNumber1 = 21
+	m_nGroupID = 3
+	m_flMaxDrawDistance = 2000.0
+	m_bShouldSort = false
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_nManualFrameField = "18"
+			m_bManualAnimFrame = true
+			m_bIgnoreNormal = true
+			m_nModelCP = 0
+			m_flAnimationRate = 0.0
+			m_bAnimated = true
+			m_bForceDrawInterlevedWithSiblings = true
+			m_nLOD = 1
+			m_bForceLoopingAnimation = true
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.06
+			m_flOpTimeOffsetMax = 1.0
+		},
+		{
+			_class = "C_OP_Decay"
+			m_flOpTimeOffsetMax = 1.0
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.6
+		},
+		{
+			_class = "C_OP_SetControlPointsToModelParticles"
+			m_AttachmentName = "attach_hitloc"
+			m_nFirstControlPoint = 6
+			m_bAttachment = true
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.1
+		},
+		{
+			_class = "C_OP_SequenceFromModel"
+			m_nFieldOutputAnim = "18"
+			m_flOutputMax = 1000.0
+			m_nFieldOutput = "13"
+			m_flInputMax = 1000.0
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.85
+			m_flEndTime = 0.5
+			m_flEndScale = 1.24
+		},
+		{
+			_class = "C_OP_SetControlPointsToModelParticles"
+			m_nFirstControlPoint = 10
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 1
+			m_LocalCoordinateSystemSpeedMax = [ -225.0, 0.0, 0.0 ]
+			m_LocalCoordinateSystemSpeedMin = [ -165.0, 0.0, 0.0 ]
+		},
+		{
+			_class = "C_INIT_RemapInitialCPDirectionToRotation"
+			m_nCP = 10
+		},
+		{
+			_class = "C_INIT_RadiusFromCPObject"
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = "18"
+			m_flMax = 15.0
+		},
+		{
+			_class = "C_INIT_PositionPlaceOnGround"
+			m_flOffset = 1.0
+			m_CollisionGroupName = "DEBRIS"
+		},
+		{
+			_class = "C_INIT_InheritVelocity"
+			m_nControlPointNumber = 10
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/items/phase_splinter_model_slash_a.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/items/phase_splinter_model_particles.vpcf"
+		},
+	]
+	m_nBehaviorVersion = 9
+	m_nFirstMultipleOverride_BackwardCompat = 4
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 6
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 10
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}

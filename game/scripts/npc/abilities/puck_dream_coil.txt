@@ -16,8 +16,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +65,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage"                               "300 400 500 1000 1500"
+        "coil_break_damage"                               "300 500 700 1100 1500" //OAA
       }
       "06"
       {
@@ -74,16 +76,19 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "coil_duration_scepter"                           "8"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage_scepter"                       "400 550 700 1450 2200"
+        "coil_break_damage_scepter"                       "400 700 1000 1600 2200" //OAA
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "coil_stun_duration_scepter"                      "2 3 4.5 4.75 5.5" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

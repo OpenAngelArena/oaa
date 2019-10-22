@@ -16,17 +16,19 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"              // Changes dynamically with scepter
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.45 0.45 0.45 0.45 0.45"
+    "AbilityCastPoint"                                    "0.45"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 60 50 50 50"
+    "AbilityCooldown"                                     "50 45 40 40 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +45,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "450 650 850 1850 3000"
+        "damage"                                          "450 850 1250 2000 2750" //OAA
       }
       "02"
       {
@@ -54,10 +56,9 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0.25"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }
-
-
 
 }

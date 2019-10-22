@@ -1,0 +1,54 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_oracle"
+	"Title"			"Recommended items for Oracle"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_flask"
+			"item"		"item_clarity"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_urn_of_shadows"
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_mekansm"
+			"item"		"item_greater_guardian_greaves"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_spirit_vessel"
+			"item"		"item_aether_lens"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_octarine_core"
+			"item"		"item_black_king_bar_1"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_greater_guardian_greaves_4"
+			"item"		"item_black_king_bar_5"
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_solar_crest"
+			"item"		"item_force_staff"
+			"item"		"item_glimmer_cape"
+			"item"		"item_lotus_orb"
+			"item"		"item_veil_of_discord"
+			"item"		"item_heart"
+			"item"		"item_holy_locket"
+			"item"		"item_ancient_janggo"
+			"item"		"item_lucience"
+
+		}
+	}
+}

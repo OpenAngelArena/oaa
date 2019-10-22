@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                        "item_vladmir;item_upgrade_core"
-      "02"                        "item_vladmir;item_upgrade_core_2"
-      "03"                        "item_vladmir;item_upgrade_core_3"
-      "04"                        "item_vladmir;item_upgrade_core_4"
     }
   }
 
@@ -101,12 +98,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tooltip_range"			"700"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_bounty"			"200"
+				"bounty_gold"			"200"
 			}
     }
   }
