@@ -1,0 +1,67 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_vengefulspirit"
+    "Title"         "Recommended items for Vengeful Spirit"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_tranquil_origin"
+            "item"      "item_tango"
+            "item"      "item_magic_wand"
+            "item"      "item_wind_lace"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_tranquil_boots"
+            "item"      "item_solar_crest"
+            "item"      "item_vladmir"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_ultimate_scepter"
+            "item"      "item_heart"
+            "item"      "item_helm_of_the_dominator_2"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_solar_crest_5"
+            "item"      "item_vladmir_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_heart_transplant_2"
+            "item"      "item_helm_of_the_dominator_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_ward_stack_5"
+            "item"      "item_aether_lens_5"
+            "item"      "item_necronomicon_7"
+            "item"      "item_ancient_janggo_5"
+            "item"      "item_lucience_3"
+            "item"      "item_glimmer_cape_5"
+            "item"      "item_pipe_5"
+            "item"      "item_lotus_orb_5"
+            "item"      "item_heart_5"
+            "item"      "item_regen_crystal_5"
+            "item"      "item_assault_5"
+            "item"      "item_satanic_5"
+            "item"      "item_skadi_5"
+            "item"      "item_desolator_5"
+            "item"      "item_hurricane_pike_5"
+            "item"      "item_butterfly_5"
+            "item"      "item_manta_5"
+            "item"      "item_sange_and_yasha_5"
+            "item"      "item_silver_edge"
+            "item"      "item_mjollnir"
+            "item"      "item_greater_crit"
+            "item"      "item_monkey_king_bar"
+        }
+    }
+}

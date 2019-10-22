@@ -101,9 +101,9 @@ function Duels:Init ()
     end
   end)
 
-  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY
-  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME, function ()
-  -- HudTimer:At(INITIAL_DUEL_DELAY, function ()
+  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY -1
+  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME -1, function ()
+  --HudTimer:At(INITIAL_DUEL_DELAY, function ()
     self:StartDuel({
       players = 0,
       firstDuel = true,
@@ -334,7 +334,7 @@ function Duels:SplitDuelPlayers(options)
     playerSplitOffset = maxPlayers - playerSplitOffset
   end
 
-  if options.isFinalDuel then
+  if options.isFinalDuel or HeroSelection.isCM then
     playerSplitOffset = 0
   end
 
@@ -383,8 +383,8 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
   goodGuy.duelNumber = duelNumber
   badGuy.duelNumber = duelNumber
 
-  SafeTeleportAll(goodHero, spawn1, 150)
-  SafeTeleportAll(badHero, spawn2, 150)
+  SafeTeleportAll(goodHero, spawn1, 250)
+  SafeTeleportAll(badHero, spawn2, 250)
 
   self.zones[arenaIndex].addPlayer(goodGuy.id)
   self.zones[arenaIndex].addPlayer(badGuy.id)
@@ -513,7 +513,7 @@ function Duels:GetNextDuelTime()
 end
 
 function Duels:EndDuel ()
-  if self.currentDuel == nil then
+  if self.currentDuel == nil or type(self.currentDuel) == "number" then
     DebugPrint ('There is no duel running')
     return
   end

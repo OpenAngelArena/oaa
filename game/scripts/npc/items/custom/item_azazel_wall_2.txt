@@ -1,0 +1,72 @@
+"DOTAItems"
+{
+    //=================================================================================================================
+    // Recipe: Wall 2
+    //=================================================================================================================
+    "item_recipe_azazel_wall_2"
+    {
+        "ID"                            "8507"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_datadriven"
+        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "ItemCost"                      "100"
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_azazel_wall_2"
+        "AbilityTextureName"            "custom/recipe/recipe_2"
+        "SecretShop"                    "1"
+        "ItemRequirements"
+        {
+            "01"                        "item_upgrade_core_2"
+        }
+    }
+    //=================================================================================================================
+    // Azazel: Wall 2
+    //=================================================================================================================
+    "item_azazel_wall_2"
+    {
+        "ID"                            "8495"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/azazel_wall.lua"
+        "AbilityTextureName"            "custom/wall_2"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityCastRange"              "600"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "ItemRequiresCharges"           "1"
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "2"
+        "ItemStackable"                 "1"
+        "ItemCost"                      "100"
+        "SecretShop"                    "1"
+        "SecretShopType"                "Buildings"
+        "IsTempestDoubleClonable"       "0"
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "construction_time"         "10"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "health"                    "5000 20000 40000 80000"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "wall_length"               "800"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "sink_height"               "200"
+            }
+        }
+    }
+}

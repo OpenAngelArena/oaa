@@ -7,6 +7,7 @@
   {
     "ID"                                                  "7301"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -19,19 +20,19 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 30 35 40 100 150"
+    "AbilityManaCost"                                     "30 40 50 60 100 150"
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "12 18 24 30 36 42"
+        "movement_speed"                                  "14 20 26 32 38 44"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "30 40 50 60 70 80"
+        "status_resistance"                               "34 46 58 70 75 80"
       }
       "03"
       {

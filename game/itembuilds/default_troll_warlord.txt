@@ -1,0 +1,53 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_troll_warlord"
+	"Title"			"Recommended Items for Troll Warlord"
+	
+	"Items"
+	{
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_wraith_band"
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_blight_stone"
+			"item"		"item_desolator"
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_lesser_crit"
+			
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_greater_crit"
+			"item"		"item_skadi"
+			"item"		"item_satanic"
+			"item"		"item_black_king_bar_1"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_bloodthorn_2"
+			"item"		"item_abyssal_blade_3"
+
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_butterfly_2"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_trumps_fists"	
+			"item"		"item_manta"
+			"item"		"item_mjollnir"
+			"item"		"item_devastator"
+			"item"		"item_sphere"
+			"item"		"item_ultimate_scepter"
+
+		}
+	}
+}

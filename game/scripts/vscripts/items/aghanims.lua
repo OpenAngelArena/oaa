@@ -2,24 +2,25 @@ LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_
 LinkLuaModifier("modifier_item_aghanims_talents", "items/aghanims.lua", LUA_MODIFIER_MOTION_NONE)
 -- Modifiers for problematic talents
 LinkLuaModifier("modifier_special_bonus_sohei_wholeness_allycast", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_special_bonus_unique_monkey_king_armor", "abilities/oaa_wukongs_command.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_special_bonus_unique_monkey_king_ring", "abilities/oaa_wukongs_command.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_ultimate_scepter_1 = class(ItemBaseClass)
+item_aghanims_scepter_2 = class(ItemBaseClass)
 
-function item_ultimate_scepter_1:GetIntrinsicModifierName()
+function item_aghanims_scepter_2:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
 
-function item_ultimate_scepter_1:GetIntrinsicModifierNames()
+function item_aghanims_scepter_2:GetIntrinsicModifierNames()
   return {
     "modifier_item_ultimate_scepter", -- handles normal aghs effect and stats
     "modifier_item_aghanims_talents"
   }
 end
 
-item_ultimate_scepter_2 = item_ultimate_scepter_1
-item_ultimate_scepter_3 = item_ultimate_scepter_1
-item_ultimate_scepter_4 = item_ultimate_scepter_1
-item_ultimate_scepter_5 = item_ultimate_scepter_1
+item_aghanims_scepter_3 = item_aghanims_scepter_2
+item_aghanims_scepter_4 = item_aghanims_scepter_2
+item_aghanims_scepter_5 = item_aghanims_scepter_2
 
 ------------------------------------------------------------------------
 
@@ -39,7 +40,7 @@ function modifier_item_aghanims_talents:OnCreated()
       local item = parent:GetItemInSlot(i)
 
       if item then
-        if string.sub(item:GetName(), 0, 22) == 'item_ultimate_scepter_' then
+        if string.sub(item:GetName(), 0, 22) == 'item_aghanims_scepter_' then
           local level = tonumber(string.sub(item:GetName(), 23))
           if level > self.aghsPower then
             self.aghsPower = level
@@ -134,6 +135,8 @@ function modifier_item_aghanims_talents:SetTalents(tree)
 
     local problematic_talents ={
       {"special_bonus_sohei_wholeness_allycast", "modifier_special_bonus_sohei_wholeness_allycast"},
+      {"special_bonus_unique_monkey_king_4", "modifier_special_bonus_unique_monkey_king_armor"},
+      {"special_bonus_unique_monkey_king_6", "modifier_special_bonus_unique_monkey_king_ring"},
       {"special_bonus_unique_hero_name", "modifier_special_bonus_unique_hero_name"}
     }
 
@@ -224,7 +227,9 @@ function modifier_item_aghanims_talents:GetTalentModifier(name)
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
-    special_bonus_sohei_wholeness_allycast = "modifier_special_bonus_sohei_wholeness_allycast"
+    special_bonus_sohei_wholeness_allycast = "modifier_special_bonus_sohei_wholeness_allycast",
+    special_bonus_unique_monkey_king_4 = "modifier_special_bonus_unique_monkey_king_armor",
+    special_bonus_unique_monkey_king_6 = "modifier_special_bonus_unique_monkey_king_ring"
   }
 
   if exceptionBonuses[name] then
