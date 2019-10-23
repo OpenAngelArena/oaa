@@ -51,14 +51,14 @@ function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
 end
 
---function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraEntityReject(hEntity)
-  --local caster = self:GetCaster()
-  -- Dont provide the aura effect to allies when caster (owner of this aura) cannot be controlled
-  --if hEntity ~= caster and not caster:IsControllableByAnyPlayer() then
-    --return true
-  --end
-  --return false
---end
+function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraEntityReject(hEntity)
+  local caster = self:GetCaster()
+  -- Dont provide the aura effect to hero creeps when caster (owner of this aura) cannot be controlled
+  if hEntity ~= caster and hEntity:IsConsideredHero() and not caster:IsControllableByAnyPlayer() then
+    return true
+  end
+  return false
+end
 
 --------------------------------------------------------------------------------
 
