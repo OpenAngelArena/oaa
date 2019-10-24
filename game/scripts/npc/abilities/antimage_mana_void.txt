@@ -47,19 +47,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_void_damage_per_mana"                       "0.8 0.95 1.1 1.55 1.9"
+        "mana_void_damage_per_mana"                       "0.8 0.95 1.1 1.55 2.3"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "mana_void_ministun"                              "0.3"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_void_aoe_radius"                            "300" //OAA
+        "mana_void_aoe_radius"                            "300 350 400 450 500" //OAA
       }
       "04"
       {
