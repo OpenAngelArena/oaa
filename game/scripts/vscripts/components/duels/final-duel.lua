@@ -20,6 +20,20 @@ function FinalDuel:Init ()
   Duels.onPreparing(partial(FinalDuel.PreparingDuelHandler, FinalDuel))
   Duels.onStart(partial(FinalDuel.StartDuelHandler, FinalDuel))
   PointsManager.onWinner(partial(FinalDuel.Trigger, FinalDuel))
+  PointsManager.onLimitChanged(partial(FinalDuel.CheckCancelDuel, FinalDuel))
+end
+
+function FinalDuel:CheckCancelDuel ()
+  if not self.isCurrentlyFinalDuel then
+    return
+  end
+  local limit = PointsManager:GetLimit()
+  local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+  local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  if goodPoints < limit and badPoints < limit then
+    Duels:CancelDuel()
+    self.isCurrentlyFinalDuel = false
+  end
 end
 
 function FinalDuel:Trigger (team)
