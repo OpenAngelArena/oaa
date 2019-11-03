@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Kobold Foreman: Vanilla Speed Aura - Provides all allies in a radius with bonus % movement speed.
+  //=================================================================================================================
+  "kobold_taskmaster_speed_aura"
+  {
+    "ID"                                                  "5293"
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
+    "AbilityTextureName"                                  "kobold_taskmaster_speed_aura"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "12"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
+      }
+    }
+  }
+}

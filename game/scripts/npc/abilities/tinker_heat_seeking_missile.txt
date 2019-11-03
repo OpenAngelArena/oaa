@@ -12,11 +12,12 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25.0"
+    "AbilityCooldown"                                     "14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,8 +37,8 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "damage"      "125 200 275 350 675 900"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "125 200 275 350 750 1050"
       }
       "02"
       {
@@ -58,6 +59,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "targets_scepter"                                 "4"
+        "RequiresScepter"                                 "1"
       }
     }
   }

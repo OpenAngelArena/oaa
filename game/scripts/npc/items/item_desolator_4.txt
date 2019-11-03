@@ -24,11 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_desolator_3;item_upgrade_core_3"
-      "02"                                                "item_desolator_3;item_upgrade_core_4"
-      "03"                                                "item_bfury_3;item_upgrade_core_3"
-      "04"                                                "item_bfury_3;item_upgrade_core_4"
-      "05"                                                "item_devastator_3;item_upgrade_core_3"
-      "06"                                                "item_devastator_3;item_upgrade_core_4"
+      "02"                                                "item_bfury_3;item_upgrade_core_3"
+      "03"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
@@ -68,7 +65,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-7 -10 -14 -19 -25"
+        "corruption_armor"                                "-6 -9 -13 -18 -24"
       }
       "03"
       {

@@ -10,7 +10,9 @@
     "ID"                                                  "5245"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -37,11 +39,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3 4 5 6 6.5 7"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "625 700 775 850 900 1000"
       }
     }
   }

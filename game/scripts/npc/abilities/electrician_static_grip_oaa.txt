@@ -1,76 +1,78 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Electrician: Static Grip
-	//=================================================================================================================
-	"electrician_static_grip"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ID"							"8475"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilityTextureName"			"custom/electrician_static_grip"
-		"ScriptFile"					"abilities/electrician/electrician_static_grip.lua"
-		"MaxLevel"						"6"
+  //=================================================================================================================
+  // Electrician: Static Grip
+  //=================================================================================================================
+  "electrician_static_grip"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "8475"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityTextureName"                                  "custom/electrician_static_grip"
+    "ScriptFile"                                          "abilities/electrician/electrician_static_grip.lua"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCastRange"				"500 525 550 575 600 625"
+    "MaxLevel"                                            "6"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14.0"
-		"AbilityChannelTime"			"%channel_time"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                                    "400"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 110 120 130 140 150"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14.0"
+    "AbilityChannelTime"                                  "%channel_time"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"channel_time"			"2.5 3.25 4.0 4.75 5.5 6.25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"20 45 60 80 180 280"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pull_speed"			"120"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pull_buffer"			"60"
-			}
-		}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"Precache"
-		{
-			"particle"					"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_time"                                    "2.5 3.25 4.0 4.75 5.5 6.25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "0.25"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "20 45 60 80 180 280"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_speed"                                      "120"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_buffer"                                     "60"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "Precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+    }
+  }
 }

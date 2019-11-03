@@ -16,7 +16,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "25"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -46,17 +46,17 @@
     "AbilityTextureName"                                  "item_custom/travel_origin"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
+    "AbilityCooldown"                                     "90.0"
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "4.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "125"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "bot;boots of travel;travel spark;spark"
+    "ItemAliases"                                         "bot;travel;travel spark;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -83,11 +83,6 @@
         // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
         "var_type"                                        "FIELD_FLOAT"
         "assist_stickiness"                               "0.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
       }
     }
   }
