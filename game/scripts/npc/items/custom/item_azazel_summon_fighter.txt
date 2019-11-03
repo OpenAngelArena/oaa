@@ -1,0 +1,99 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Azazel Fighter
+  //=================================================================================================================
+  "item_recipe_azazel_summon_fighter"
+  {
+    "ID"                            "8558"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "item_datadriven"
+    "Model"                         "models/props_gameplay/recipe.vmdl"
+    "ItemCost"                      "100"
+    "ItemRecipe"                    "1"
+    "ItemResult"                    "item_azazel_summon_fighter"
+    "AbilityTextureName"            "custom/recipe/recipe_4"
+    "SecretShop"                    "1"
+    "ItemRequirements"
+    {
+      "01"                          "item_upgrade_core_4"
+    }
+  }
+  //=================================================================================================================
+  // Azazel: Azazel Fighter
+  //=================================================================================================================
+  "item_azazel_summon_fighter"
+  {
+    "ID"                            "8559"
+    "BaseClass"                     "item_lua"
+    "ScriptFile"                    "items/azazel_summon.lua"
+    "AbilityTextureName"            "custom/azazel_summon_fighter"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    "AbilityCastPoint"              "0.0"
+    "AbilitySharedCooldown"         "azazel_summon"
+    "AbilityCooldown"               "1.0"
+    "AbilityManaCost"               "0"
+
+    "ItemPermanent"                 "0"
+    "ItemInitialCharges"            "1"
+    "ItemRequiresCharges"           "1"
+
+    "ItemStackable"                 "1"
+    "ItemCost"                      "100"
+    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                  "consumable"
+    "ItemQuality"                   "epic"
+    "ItemAliases"                   "summon, fighter, azazel"
+    "SecretShop"                    "1"
+    "SecretShopType"                "Summons"
+    "IsTempestDoubleClonable"       "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial" // these are for a tooltip only, if you want to change them, change npc_dota_azazel_summon_fighter too
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_health"             "40000"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_armor"              "25"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_ms"                 "270"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "summon_bat"                "1.0"
+      }
+      "05"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_damage"             "1000"
+      }
+      "06"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_vision"             "800"
+      }
+      "07" // seconds
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_duration"           "300"
+      }
+      "08" // minutes
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "summon_duration_tooltip"   "5"
+      }
+    }
+  }
+}

@@ -55,6 +55,16 @@ function BossSpawner:Init ()
   for _,bossPit in ipairs(bossPits) do
     bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
   end
+
+  self.hasKilledTiers = {
+    [1] = false,
+    [2] = false,
+    [3] = false,
+    [4] = false,
+    [5] = false,
+    [6] = true,
+    [7] = true,
+  }
 end
 
 function BossSpawner:GetState ()
@@ -65,6 +75,8 @@ function BossSpawner:GetState ()
     state[self:PitID(bossPit)] = bossPit.killCount
   end
 
+  state.hasKilledTiers = self.hasKilledTiers
+
   return state
 end
 
@@ -74,6 +86,8 @@ function BossSpawner:LoadState (state)
   for _,bossPit in ipairs(bossPits) do
     bossPit.killCount = state[self:PitID(bossPit)]
   end
+
+  self.hasKilledTiers = state.hasKilledTiers
 
   BossSpawner:SpawnAllBosses()
 end
@@ -92,7 +106,9 @@ function BossSpawner:SpawnAllBosses ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    BossSpawner:SpawnBossAtPit(bossPit)
+    Timers:CreateTimer(_ / 10, function ()
+      BossSpawner:SpawnBossAtPit(bossPit)
+    end)
   end
 end
 
@@ -112,7 +128,7 @@ function BossSpawner:SpawnBossAtPit (pit)
     -- DebugPrint('There are ' .. #bossName .. 'options for this boss')
     bossName = bossName[RandomInt(1, #bossName)]
   end
-  local isProtected = bossList == 1 and pit.killCount == 1
+  local isProtected = false --bossList == 1 and pit.killCount == 1
 
   DebugPrint('Spawning ' .. bossName .. ' with protection ' .. tostring(isProtected))
   BossSpawner:SpawnBoss(pit, bossName, bossTier, isProtected)
@@ -178,6 +194,10 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
+    if not self.hasKilledTiers[bossTier] then
+      self.hasKilledTiers[bossTier] = true
+      PointsManager:IncreaseLimit(10)
+    end
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)
     end)

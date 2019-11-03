@@ -1,0 +1,48 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_templar_assassin"
+	"Title"			"Recommended items for Templar Assassin"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_wraith_band"
+			"item"		"item_flask"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_blight_stone"
+			"item"		"item_desolator"
+			"item"		"item_greater_phase_boots"
+			"item"		"item_lesser_crit"
+			"item"		"item_greater_crit"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_satanic"
+			"item"		"item_assault"
+			"item"		"item_black_king_bar_1"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_bloodthorn_2"
+			"item"		"item_devastator_3"
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_monkey_king_bar"
+			"item"		"item_blink"
+			"item"		"item_hurricane_pike_3"
+			"item"		"item_butterfly_2"
+			"item"		"item_skadi"
+			"item"		"item_trumps_fists"
+		}
+	}
+}

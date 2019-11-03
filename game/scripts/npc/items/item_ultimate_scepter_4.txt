@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Scepter 4
   //=================================================================================================================
-  "item_recipe_ultimate_scepter_4"
+  "item_recipe_aghanims_scepter_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,18 +20,17 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ultimate_scepter_4"
+    "ItemResult"                                          "item_aghanims_scepter_4"
     "ItemRequirements"
     {
-      "01"                                                "item_ultimate_scepter_3;item_upgrade_core_3"
-      "02"                                                "item_ultimate_scepter_3;item_upgrade_core_4"
+      "01"                                                "item_aghanims_scepter_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
   // Scepter 4
   //=================================================================================================================
-  "item_ultimate_scepter_4"
+  "item_aghanims_scepter_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -39,12 +38,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/aghanims.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "AbilityTextureName"                                  "custom/ultimate_scepter_4"
-    "AbilityCastRange"                                    "600"
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -52,11 +46,12 @@
     "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "ags 4;ultimate 4;aghanim's scepter 4;aghs 4"
-    //"ItemDisassembleRule"                               "DOTA_ITEM_DISASSEMBLE_NEVER"    // heroes for whom this is a problem solve it in their code - ogre magi, meepo
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_ultimate_scepter_4"
+    "UpgradesItems"                                       "item_aghanims_scepter_4;item_aghanims_scepter_5"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
