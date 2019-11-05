@@ -15,7 +15,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "25"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -39,6 +39,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_phase_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/phase_origin"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,10 +47,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
-    "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "damage;armor"
+
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "phase spark;phase boots;phase;spark"
+    "ItemAliases"                                         "phase spark;phase;spark"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -124,20 +126,8 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splinter_count"                                  "3"
+        "splinter_count"                                  "2"
       }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "melee_splinter_speed"                            "1250" // The projectile speed to use for splinters from melee heroes
-      }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
     }
   }
 }

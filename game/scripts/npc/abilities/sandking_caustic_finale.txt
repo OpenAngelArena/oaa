@@ -29,12 +29,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_damage"                           "90 130 170 220 520 820" 
+        "caustic_finale_damage"                           "90 130 170 220 330 550"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_damage_expire"                    "90 130 170 220 520 820" //OAA
+        "caustic_finale_damage_expire"                    "90 130 170 220 330 550" //OAA
       }
       "04"
       {
@@ -50,11 +50,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "caustic_finale_slow_duration"                    "3"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_expire_dmg_pct_tooltip"           "50"
       }
     }
   }

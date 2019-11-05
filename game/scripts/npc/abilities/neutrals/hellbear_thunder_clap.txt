@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Blue Tomato: Vanilla Thunder Clap (Hellbear Smash)
+  //=================================================================================================================
+  "polar_furbolg_ursa_warrior_thunder_clap"
+  {
+    "ID"                                                  "5302"
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_hellbear_thunder_clap.lua"
+    "AbilityTextureName"                                  "polar_furbolg_ursa_warrior_thunder_clap"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "12.0"
+
+    "AbilityManaCost"                                     "50"
+    "AbilityProcsMagicStick"                              "1"
+
+    "AbilityDamage"                                       "250" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed_slow"                                  "-25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackspeed_slow"                                "-25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0"
+      }
+    }
+  }
+}

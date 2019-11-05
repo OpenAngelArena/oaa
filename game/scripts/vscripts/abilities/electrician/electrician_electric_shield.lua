@@ -172,7 +172,7 @@ if IsServer() then
 			self.damageRadius,
 			spell:GetAbilityTargetTeam(),
 			spell:GetAbilityTargetType(),
-			spell:GetAbilityTargetFlags(),
+			DOTA_UNIT_TARGET_FLAG_NONE,
 			FIND_ANY_ORDER,
 			false
 		)

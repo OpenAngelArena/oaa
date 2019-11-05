@@ -1,0 +1,82 @@
+"DOTAItems"
+{
+    //=================================================================================================================
+    // Recipe: Watch Tower 3
+    //=================================================================================================================
+    "item_recipe_azazel_tower_watch_3"
+    {
+        "ID"                            "8504"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_datadriven"
+        "Model"                         "models/props_gameplay/recipe.vmdl"
+        "ItemCost"                      "100"
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_azazel_tower_watch_3"
+        "AbilityTextureName"            "custom/recipe/recipe_3"
+        "SecretShop"                    "1"
+        "ItemRequirements"
+        {
+            "01"                        "item_upgrade_core_3"
+        }
+    }
+    //=================================================================================================================
+    // Azazel: Watch Tower 3
+    //=================================================================================================================
+    "item_azazel_tower_watch_3"
+    {
+        "ID"                            "8492"
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "item_lua"
+        "ScriptFile"                    "items/azazel_tower_watch.lua"
+        "AbilityTextureName"            "custom/watch_3"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityCastRange"              "600"
+        "ItemPermanent"                 "0"
+        "ItemInitialCharges"            "1"
+        "ItemRequiresCharges"           "1"
+        "MaxUpgradeLevel"               "4"
+        "ItemBaseLevel"                 "3"
+        "ItemStackable"                 "1"
+        "ItemCost"                      "100"
+        "SecretShop"                    "1"
+        "SecretShopType"                "Buildings"
+        "IsTempestDoubleClonable"       "0"
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "construction_time"         "10"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "health"                    "1500 6000 12000 24000"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_vision_range"        "500 800 1100 1500"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_vision_range"      "2000 2300 2600 3000"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "sink_height"               "200"
+            }
+        }
+        "precache"
+        {
+           "model"                          "models/props_structures/tower_upgrade/tower_upgrade.vmdl"
+           "particle"                       "particles/world_tower/tower_upgrade/ti7_radiant_tower_lvl1_dest.vpcf"
+        }
+    }
+}

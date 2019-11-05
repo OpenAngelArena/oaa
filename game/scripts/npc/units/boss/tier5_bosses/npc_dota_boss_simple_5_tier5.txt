@@ -9,18 +9,20 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/creeps/creep_bad_melee/creep_bad_melee.vmdl"  // Model.
+    "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "2"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_great_cleave"
     "Ability2"                                            "boss_resistance"
     "Ability3"                                            "boss_cliffwalk"
-    "Ability4"          								  "boss_regen"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------

@@ -14,10 +14,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "1"
     "FightRecapLevel"                                     "1"
-    "IsGrantedByScepter"                                  "1"
 
+    "MaxLevel"                                            "1"
+
+    "IsGrantedByScepter"                                  "1"
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -41,18 +42,19 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3"
+        "RequiresScepter"                                 "1"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage"                                          "300"
+        "RequiresScepter"                                 "1"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "aoe"                                             "300"
+        "RequiresScepter"                                 "1"
       }
     }
   }

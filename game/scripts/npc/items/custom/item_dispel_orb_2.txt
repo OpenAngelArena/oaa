@@ -24,9 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_dispel_orb_1;item_upgrade_core_3"
-      "02"                                                "item_dispel_orb_1;item_upgrade_core_4"
-      "03"                                                "item_lotus_orb_3;item_upgrade_core_3"
-      "04"                                                "item_lotus_orb_3;item_upgrade_core_4"
+      "02"                                                "item_lotus_orb_3;item_upgrade_core_3"
     }
   }
 
@@ -50,7 +48,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
-    "AbilityCooldown"                                     "30"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "purge"
     "AbilityCastPoint"                                    "0.0"
 
@@ -59,8 +57,8 @@
     "ItemCost"                                            "17000"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "purge orb; purge crystal"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "Dispel orb 2; purge crystal 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
@@ -71,7 +69,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "25 32 40"
+        "bonus_armor"                                     "15 19 24"
       }
       "02"
       {
@@ -96,7 +94,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 5.0 6.0"
+        "duration"                                        "6.0"
       }
     }
   }
