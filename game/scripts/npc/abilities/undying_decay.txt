@@ -7,22 +7,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5442"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5442"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "AbilityCastRange"                                    "650"
-    "AbilityCastPoint"                                    "0.45"
     "FightRecapLevel"                                     "1"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.45"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "decay_duration"                                  "45"
-        "LinkedSpecialBonus"      "special_bonus_unique_undying_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_undying_4"
       }
       "04"
       {
@@ -67,6 +67,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "str_steal_scepter"                               "10"
+        "RequiresScepter"                                 "1"
       }
     }
   }

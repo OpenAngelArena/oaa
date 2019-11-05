@@ -17,9 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_manta;item_upgrade_core"
-      "02"                                                "item_manta;item_upgrade_core_2"
-      "03"                                                "item_manta;item_upgrade_core_3"
-      "04"                                                "item_manta;item_upgrade_core_4"
     }
   }
 
@@ -61,22 +58,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 14 19 25 32"
+        "bonus_strength"                                  "10 15 20 30 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 31 38 47 58"
+        "bonus_agility"                                   "26 32 44 62 86"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 14 19 25 32"
+        "bonus_intellect"                                 "10 15 20 30 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 15 20 25 30"
+        "bonus_attack_speed"                              "12 15 18 21 24"
       }
       "05"
       {

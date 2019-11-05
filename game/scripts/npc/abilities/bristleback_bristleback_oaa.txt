@@ -16,13 +16,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7550"
+    "ID"                                                  "85550"
     "BaseClass"                                           "ability_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "bristleback_bristleback"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    "AbilityTextureName"                                  "bristleback_bristleback"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -72,6 +73,7 @@
       {
         "Passive"                                         "1"
         "IsHidden"                                        "1"
+        "IsPurgable"                                      "0"
 
         "OnTakeDamage"
         {

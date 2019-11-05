@@ -17,7 +17,9 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -52,11 +54,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_scepter"                                "16.0"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "20 35 50 125 200"
+        "scepter_radius"                                  "900"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {

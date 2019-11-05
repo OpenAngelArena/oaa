@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseekers Bloodrage
+  // Ability: Bloodseeker's Bloodrage
   //=================================================================================================================
   "bloodseeker_bloodrage"
   {
@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -52,6 +52,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_increase_pct"                             "10 15 20 25 30 45"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {

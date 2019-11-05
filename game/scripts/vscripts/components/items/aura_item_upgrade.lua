@@ -12,6 +12,8 @@ GameEvents:OnItemCombined(function (keys)
     local itemName = keys.itemname
 
     local hero = PlayerResource:GetSelectedHeroEntity(plyID)
-    hero:AddNewModifier(hero, nil, "modifier_aura_item_upgrade", {ItemName = itemName})
+    if hero then
+      hero:AddNewModifier(hero, nil, "modifier_aura_item_upgrade", {ItemName = itemName})
+    end
 end)
 

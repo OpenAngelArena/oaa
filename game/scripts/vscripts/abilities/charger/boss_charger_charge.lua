@@ -63,7 +63,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
     nil,
     50,
     DOTA_UNIT_TARGET_TEAM_BOTH,
-    DOTA_UNIT_TARGET_ALL,
+    bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
     DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
     FIND_CLOSEST,
     false
