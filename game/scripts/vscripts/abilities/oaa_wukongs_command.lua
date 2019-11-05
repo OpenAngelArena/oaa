@@ -284,21 +284,21 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
     -- Outer Ring:
     Timers:CreateTimer(spawn_interval, function()
-      if caster:HasModifier("modifier_wukongs_command_oaa_buff") then
-        self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
-      end
+      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
     end)
     -- Extra Ring with the talent:
     Timers:CreateTimer(2*spawn_interval, function()
-      if caster:HasModifier("modifier_wukongs_command_oaa_buff") then
-        self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
-      end
+      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
     end)
   end
 end
 
 function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius, ringNumber, damage_pct)
   if number == 0 or radius == 0 then
+    return
+  end
+
+  if not caster:HasModifier("modifier_wukongs_command_oaa_buff") and ringNumber ~= 1 then
     return
   end
 
