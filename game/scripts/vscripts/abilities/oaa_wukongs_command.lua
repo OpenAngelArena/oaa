@@ -284,11 +284,15 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
     self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
     -- Outer Ring:
     Timers:CreateTimer(spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
+      if caster:HasModifier("modifier_wukongs_command_oaa_buff") then
+        self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
+      end
     end)
     -- Extra Ring with the talent:
     Timers:CreateTimer(2*spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
+      if caster:HasModifier("modifier_wukongs_command_oaa_buff") then
+        self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
+      end
     end)
   end
 end
@@ -813,7 +817,7 @@ function modifier_special_bonus_unique_monkey_king_armor:RemoveOnDeath()
 end
 
 if modifier_special_bonus_unique_monkey_king_ring == nil then
-  modifier_special_bonus_unique_monkey_king_ring = modifier_special_bonus_unique_monkey_king_armor
+  modifier_special_bonus_unique_monkey_king_ring = class(modifier_special_bonus_unique_monkey_king_armor)
 end
 
 function modifier_special_bonus_unique_monkey_king_ring:IsHidden()
