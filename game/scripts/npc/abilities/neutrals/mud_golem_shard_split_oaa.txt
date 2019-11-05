@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Mud Golem: Shard Split -Split Mud Golem into more smaller ones
+  // Notes: npc_dota_neutral_custom_mud_golem_split are smaller golems. Doomlings: npc_dota_neutral_mud_golem_split_doom
+  //=================================================================================================================
+  "mud_golem_shard_split_oaa"
+  {
+    "ID"                                                  "85667"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_mud_golem_shard_split.lua"
+    "AbilityTextureName"                                  "mud_golem_rock_destroy"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spawn_radius"                                    "250"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_hp_percentage"                             "75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_dmg_percentage"                            "75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_xp_percentage"                             "75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_gold_percentage"                           "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_duration"                                  "60.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "number_of_splits"                                "2"
+      }
+    }
+  }
+}

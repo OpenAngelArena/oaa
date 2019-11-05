@@ -10,11 +10,12 @@
     "ID"                                                  "5248"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Unit Targeting
@@ -26,6 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.5"
+
     "AbilityCooldown"                                     "60"
     "AbilityManaCost"                                     "175 225 275 525 750"
 
@@ -41,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 140 170 340 510"
+        "damage"                                          "110 170 230 370 510" //OAA, for picking screen tooltip
       }
       "03"
       {
@@ -56,17 +58,20 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "135 170 205 410 615"
+        "damage_scepter"                                  "140 230 310 510 680" // OAA, for picking screen tooltip
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_buffer"                                  "4"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "buffer_tooltip_scepter"                          "4"
+        "RequiresScepter"                                 "1"
       }
     }
   }
