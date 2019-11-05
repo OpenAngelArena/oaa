@@ -8,6 +8,10 @@ item_meteor_hammer_3 = item_meteor_hammer_1
 item_meteor_hammer_4 = item_meteor_hammer_1
 item_meteor_hammer_5 = item_meteor_hammer_1
 
+function item_meteor_hammer_1:GetAOERadius()
+  return self:GetSpecialValueFor("impact_radius")
+end
+
 function item_meteor_hammer_1:OnSpellStart()
 
   local caster = self:GetCaster()
