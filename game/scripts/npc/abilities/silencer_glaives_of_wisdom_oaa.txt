@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Silencer: Glaives of Wisdom
+  // Silencer: Glaives of Wisdom (OAA rework)
   //=================================================================================================================
   "silencer_glaives_of_wisdom_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85185"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85185"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_glaives_of_wisdom.lua"
     "AbilityTextureName"                                  "silencer_glaives_of_wisdom"
@@ -16,20 +16,22 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "0.0"
     "AbilityCastRange"                                    "600"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "15 15 15 15 30 60"
+    "AbilityCooldown"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "intellect_damage_pct"                            "25 45 65 85 95 115"
+        "intellect_damage_pct"                            "25 45 65 85 105 125"
         "LinkedSpecialBonus"                              "special_bonus_unique_silencer_3"
       }
       "02"
@@ -55,6 +57,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_damage_multiplier"                       "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

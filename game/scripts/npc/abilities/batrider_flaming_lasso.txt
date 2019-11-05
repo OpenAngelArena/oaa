@@ -12,10 +12,12 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -29,7 +31,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "100"
-    "AbilityCooldown"                                     "60.0" //OAA
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -62,12 +64,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "grab_radius_scepter"                             "400"
+        "grab_radius_scepter"                             "450"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "20 40 60 120 240"
+        "damage"                                          "20 60 120 180 240" //OAA
       }
     }
   }

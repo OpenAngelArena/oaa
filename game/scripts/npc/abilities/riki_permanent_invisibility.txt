@@ -26,6 +26,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "damage_multiplier"                               "0.4 0.6 0.8 1.0 1.2 1.6"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
@@ -40,7 +41,12 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_delay"                                      "7.5 6 4.5 3 2.5 2"
+        "fade_delay"                                      "6 5 4 3 2.5 2"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_regen"                                        "2 3 4 5 10 15"
       }
     }
   }

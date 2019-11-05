@@ -15,11 +15,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -51,8 +51,8 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "700 1150 1600 3200 4800"
-        "LinkedSpecialBonus"  "special_bonus_unique_skywrath_5"
+        "damage"                                          "750 1175 1600 2450 4575"
+        "LinkedSpecialBonus"                              "special_bonus_unique_skywrath_5"
       }
       "04"
       {
@@ -63,6 +63,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "700"
+        "RequiresScepter"                                 "1"
       }
     }
   }

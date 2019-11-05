@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Black Dragon: Fireball - uncomment and change ID number if the ability needs remake
+  //=================================================================================================================
+  "black_dragon_fireball"
+  {
+    "ID"                                                  "5689"
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_black_dragon_fireball.lua"
+    "AbilityTextureName"                                  "black_dragon_fireball"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "10"
+
+    "AbilityManaCost"                                     "100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "300"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "85"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_interval"                                   "0.5"
+      }
+    }
+  }
+}

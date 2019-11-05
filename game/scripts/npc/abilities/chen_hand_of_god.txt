@@ -12,6 +12,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -22,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80" //OAA
+    "AbilityCooldown"                                     "50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,13 +36,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "300 450 600 1550 2550"
+        "heal_amount"                                     "300 600 950 1650 2700" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_chen_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ancient_creeps_scepter"                          "1 2 3 4 5"
+        "RequiresScepter"                                 "1"
       }
     }
   }
