@@ -24,8 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_crimson_guard_2;item_upgrade_core_2"
-      "02"                                                "item_crimson_guard_2;item_upgrade_core_3"
-      "03"                                                "item_crimson_guard_2;item_upgrade_core_4"
     }
   }
 
@@ -57,11 +55,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10200"
+    "ItemCost"                                            "8700"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "half damage reduction orb"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "Reduction orb 1"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
@@ -82,12 +80,12 @@
       "03"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_all_stats"                                   "5 7 10"
+        "bonus_all_stats"                                   "17 32 52"
       }
       "04"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_armor"                                       "9 11 13"
+        "bonus_armor"                                       "7 10 14"
       }
       "05"
       {

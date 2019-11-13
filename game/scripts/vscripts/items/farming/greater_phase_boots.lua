@@ -1,26 +1,20 @@
 item_greater_phase_boots = class(ItemBaseClass)
 
---LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
 function item_greater_phase_boots:GetIntrinsicModifierName()
-	return "modifier_intrinsic_multiplexer"
+	return "modifier_item_phase_boots" -- "modifier_intrinsic_multiplexer"
 end
-
+-- uncomment this if we plan to add more effects to Phase Boots
+--[[
 function item_greater_phase_boots:GetIntrinsicModifierNames()
   return {
-    -- we're not modifying the passive benefits at all
-    -- ( besides the numbers )
-    -- so we can just reuse the normal phase boot modifier
     "modifier_item_phase_boots",
-    "modifier_item_greater_phase_boots_splinter_shot"
   }
 end
-
---------------------------------------------------------------------------------
+]]
 
 function item_greater_phase_boots:OnSpellStart()
 	local caster = self:GetCaster()
@@ -31,6 +25,9 @@ function item_greater_phase_boots:OnSpellStart()
 	-- add the vanilla phase active modifier
 	caster:AddNewModifier( caster, self, "modifier_item_phase_boots_active", { duration = self:GetSpecialValueFor( "phase_duration" ) } )
 end
+
+--[[  Old split attack Greater Phase Boots effect - it procced instant attacks to splintered targets
+LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_greater_phase_boots:OnProjectileHit(target, location)
   if IsValidEntity(target) then
@@ -43,33 +40,6 @@ function item_greater_phase_boots:OnProjectileHit(target, location)
     self.splinterMod.doReduction = false
   end
 end
-
---------------------------------------------------------------------------------
-
-modifier_item_greater_phase_boots_splinter_shot = class(ModifierBaseClass)
-
-function modifier_item_greater_phase_boots_splinter_shot:IsHidden()
-  return true
-end
-
-function modifier_item_greater_phase_boots_splinter_shot:IsPurgable()
-  return false
-end
-
-function modifier_item_greater_phase_boots_splinter_shot:DeclareFunctions()
-  return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
-  }
-end
-
-function modifier_item_greater_phase_boots_splinter_shot:OnCreated()
-  if IsServer() then
-    self:GetAbility().splinterMod = self
-  end
-end
-
-modifier_item_greater_phase_boots_splinter_shot.OnRefresh = modifier_item_greater_phase_boots_splinter_shot.OnCreated
 
 function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   local parent = self:GetParent()
@@ -137,9 +107,12 @@ function modifier_item_greater_phase_boots_splinter_shot:GetModifierDamageOutgoi
 
  return 0
 end
+--]]
 
 --------------------------------------------------------------------------------
 --[[ Old mini-Shukuchi Greater Phase Boots effect
+LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+
 modifier_item_greater_phase_boots_active = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
@@ -309,4 +282,4 @@ item_greater_phase_boots_2 = class(item_greater_phase_boots)
 item_greater_phase_boots_3 = class(item_greater_phase_boots)
 item_greater_phase_boots_4 = class(item_greater_phase_boots)
 item_greater_phase_boots_5 = class(item_greater_phase_boots)
-item_phase_origin = class(item_greater_phase_boots)
+--item_phase_origin = class(item_greater_phase_boots)

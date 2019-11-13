@@ -1,0 +1,75 @@
+"DOTAUnits"
+{
+  "npc_dota_azazel_summon_fighter"
+  {
+    // General
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_big.vmdl"
+    "ModelScale"                                          "0.9"
+    "SoundSet"                                            "n_creep_Ranged"
+
+    "ConsideredHero"                                      "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""          // Ability 1.
+    "Ability2"                                            ""          // Ability 2.
+    "Ability3"                                            ""          // Ability 3.
+    "Ability4"                                            ""          // Ability 4.
+    "Ability5"                                            ""          // Ability 5.
+    "Ability6"                                            ""          // Ability 6 - Extra.
+    "Ability7"                                            ""          // Ability 7 - Extra.
+    "Ability8"                                            ""          // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "25"        // Physical protection.
+    "MagicalResistance"                                   "75"        // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "1000"       // Damage range min.
+    "AttackDamageMax"                                     "1000"       // Damage range max.
+    "AttackRate"                                          "1"
+    "AttackAnimationPoint"                                "0.6"
+    "AttackAcquisitionRange"                              "700"
+    "AttackRange"                                         "700"       // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_tower_good.vpcf"
+    "ProjectileSpeed"                                     "750"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
+    "RingRadius"                                          "120"
+    "HealthBarOffset"                                     "240"
+
+    // Bounty
+		//----------------------------------------------------------------
+    "BountyXP"                                            "1000"
+    "BountyGoldMin"                                       "1000"
+    "BountyGoldMax"                                       "2000"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "270"
+    "MovementTurnRate"                                    "1"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "40000"
+    "StatusHealthRegen"                                   "0.5"
+    "StatusMana"                                          "400"
+    "StatusManaRegen"                                     "1.0"
+
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"      // Range of vision at night time.
+  }
+}
