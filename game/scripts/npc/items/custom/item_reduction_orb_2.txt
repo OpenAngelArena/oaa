@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_reduction_orb_1;item_upgrade_core_3"
-      "02"                                                "item_reduction_orb_1;item_upgrade_core_4"
     }
   }
 
@@ -54,11 +53,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18200"
+    "ItemCost"                                            "16700"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "full damage reduction orb"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "Reduction orb 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
@@ -79,12 +78,12 @@
       "03"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_all_stats"                                   "5 7 10"
+        "bonus_all_stats"                                   "17 32 52"
       }
       "04"
       {
         "var_type"                                          "FIELD_INTEGER"
-        "bonus_armor"                                       "9 11 13"
+        "bonus_armor"                                       "7 10 14"
       }
       "05"
       {

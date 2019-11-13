@@ -10,14 +10,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5396"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 45 40 35 35 35"
+    "AbilityCooldown"                                     "35" //OAA
     "AbilityDuration"                                     "9"
 
     // Cost
@@ -50,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen"                                        "5 10 15 20 35 50"  //OAA
+        "hp_regen"                                        "10 15 20 25 35 65"  //OAA
       }
     }
   }

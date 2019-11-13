@@ -10,15 +10,16 @@
     "ID"                                                  "5507"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4 0.4 0.4 0.4 0.4"
-    "AbilityCastRange"                                    "1000 1000 1000 1000 1000"
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "1000"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 200 200 200 200"
+    "AbilityManaCost"                                     "200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,13 +36,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1000 1000 1000 1000 1000"
+        "radius"                                          "1000"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "3 4 5 6 7" //OAA
-        "LinkedSpecialBonus"    "special_bonus_unique_medusa"
+        "LinkedSpecialBonus"                              "special_bonus_unique_medusa"
       }
       "03"
       {

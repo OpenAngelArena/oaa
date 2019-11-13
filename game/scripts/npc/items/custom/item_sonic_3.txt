@@ -33,7 +33,8 @@
     "AbilitySharedCooldown" "sonic"
     "ScriptFile"            "items/transformation/sonic.lua"
 
-    "AbilityCooldown"       "8.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "2.0"
     "AbilityCastPoint"      "0.0"
 
     "MaxUpgradeLevel"       "3"
@@ -71,17 +72,17 @@
       "05"
       {
         "var_type"                "FIELD_INTEGER"
-        "speed_bonus"             "30 60 90"
+        "speed_bonus"             "25 30 35"
       }
       "06"
       {
         "var_type"                "FIELD_INTEGER"
-        "vision_bonus"            "30 60 90"
+        "vision_bonus"            "50"
       }
       "07"
       {
         "var_type"                "FIELD_INTEGER"
-        "status_resist"           "-20 -30 -40"
+        "status_resist"           "-25"
       }
     }
   }

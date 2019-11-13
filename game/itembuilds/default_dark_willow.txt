@@ -1,0 +1,48 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_dark_willow"
+	"Title"			"Recommended items for Dark Willow"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_wind_lace"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_cyclone"
+			"item"		"item_octarine_core"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_mjollnir"
+			"item"		"item_greater_guardian_greaves"
+			"item"		"item_black_king_bar_1"
+		}
+				
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_sheepstick_4"
+			"item"		"item_greater_guardian_greaves_4"
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_bloodthorn"
+			"item"		"item_sphere"
+			"item"		"item_ethereal_blade"
+			"item"		"item_yasha_and_kaya"
+			"item"		"item_skadi"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_helm_of_the_dominator_2"
+		}
+	}
+}

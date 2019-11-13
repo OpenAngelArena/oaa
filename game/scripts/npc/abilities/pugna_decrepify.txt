@@ -13,13 +13,15 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 700 700 700"
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2"
-    
-    // Time    
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15.0 12.0 9.0 6.0 6.0 6.0"
     "AbilityDuration"                                     "3.5"
@@ -51,11 +53,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed"                            "-30 -40 -50 -60 -65 -70"
-      }      
+      }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "3.5"
+        "abilityduration"                                 ""
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_5"
       }
     }

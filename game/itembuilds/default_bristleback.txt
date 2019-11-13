@@ -1,0 +1,56 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_bristleback"
+	"Title"			"Recommended items for Bristleback"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_stout_shield"
+			"item"		"item_clarity"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_radiance"
+			"item"		"item_mekansm"
+			"item"		"item_greater_guardian_greaves"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_octarine_core"
+			"item"		"item_heart"
+			"item"		"item_crimson_guard"
+			"item"		"item_lotus_orb"
+			
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_regen_crystal_1"
+			"item"		"item_greater_guardian_greaves_5"
+		
+		}
+		
+		
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_blade_mail"
+			"item"		"item_sphere"
+			"item"		"item_shivas_guard"
+			"item"		"item_black_king_bar_1"
+			"item"		"item_assault"
+			"item"		"item_solar_crest"
+			"item"		"item_desolator"
+
+			
+		}
+	}
+}

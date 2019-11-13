@@ -9,11 +9,13 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
+    "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -22,7 +24,7 @@
     "Ability3"                                            "roshan_slam"
     "Ability4"                                            "boss_resistance"
     "Ability5"                                            "boss_cliffwalk"
-    "Ability6"          								  "boss_regen"
+    "Ability6"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
