@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 600 700 800 1100 1300"
+    "AbilityCastRange"                                    "500 600 700 800 1100 1300" //OAA
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -65,8 +65,8 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER" //OAA
-        "abilitycastrange"                                "" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "abilitycastrange"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_5"
       }
     }
