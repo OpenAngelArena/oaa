@@ -351,7 +351,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
         t.fail('Unexpected special value: ' + keyName);
       } else {
         var expectedName = filterExtraKeysFromSpecialValue(Object.keys(parentSpecials[num].values))[0];
-        if (stupidSpecialValueNames.indexOf(expectedName) == -1) {
+        if (stupidSpecialValueNames.indexOf(expectedName) === -1) {
           t.fail('special value in wrong order: ' + keyName + ' should be ' + expectedName);
         }
       }
