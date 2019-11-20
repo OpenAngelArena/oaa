@@ -1,0 +1,66 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_nevermore"
+    "Title"         "Recommended items for Nevermore"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_wraith_band"
+            "item"      "item_flask"
+            "item"      "item_enchanted_mango"
+            "item"      "item_enchanted_mango"
+            "item"      "item_enchanted_mango"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_desolator"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_satanic"
+            "item"      "item_black_king_bar"
+            "item"      "item_greater_crit"
+            "item"      "item_sange_and_yasha"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_desolator_5"
+            "item"      "item_satanic_5"
+            "item"      "item_black_king_bar_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_sange_and_yasha_5"
+        }
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"    "item_monkey_king_bar_5"
+            "item"    "item_butterfly_5"
+            "item"    "item_helm_of_the_dominator_5"
+            "item"    "item_skadi_5"
+            "item"    "item_trumps_fists_2"
+            "item"    "item_hurricane_pike_5"
+            "item"    "item_sphere_5"
+            "item"    "item_silver_edge_5"
+            "item"    "item_nullifier_5"
+            "item"    "item_bloodthorn_5"
+            "item"    "item_manta_5"
+            "item"    "item_enrage_crystal_3"
+            "item"    "item_sheepstick_5"
+            "item"    "item_blink_5"
+            "item"    "item_yasha_and_kaya_5"
+            "item"    "item_ethereal_blade_5"
+            "item"    "item_veil_of_discord_5"
+            "item"    "item_octarine_core_5"
+            "item"    "item_ultimate_scepter_5"
+            "item"    "item_refresher_5"
+        }
+    }
+}

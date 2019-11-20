@@ -1,0 +1,66 @@
+"itembuilds"
+{
+    "author"     "Valve"
+    "hero"   "npc_dota_hero_night_stalker"
+    "Title"  "Recommended items for Night Stalker"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_tranquil_origin"
+            "item"      "item_stout_shield"
+            "item"      "item_flask"
+            "item"      "item_tango"
+            "item"      "item_enchanted_mango"
+            "item"      "item_wind_lace"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_tranquil_boots"
+            "item"      "item_solar_crest"
+            "item"      "item_desolator"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_assault"
+            "item"      "item_black_king_bar"
+            "item"      "item_skadi"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_assault_5"
+            "item"      "item_abyssal_blade_5"
+            "item"      "item_desolator_5"
+            "item"      "item_solar_crest_5"
+            "item"      "item_black_king_bar_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_satanic_5"
+            "item"      "item_heart_5"
+            "item"      "item_monkey_king_bar_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_trumps_fists_2"
+            "item"      "item_helm_of_the_dominator_5"
+            "item"      "item_armlet_5"
+            "item"      "item_heavens_halberd_5"
+            "item"      "item_silver_edge_5"
+            "item"      "item_pipe_5"
+            "item"      "item_vladmir_5"
+            "item"      "item_sange_and_yasha_5"
+            "item"      "item_blade_mail_5"
+            "item"      "item_devastator_5"
+            "item"      "item_mjollnir_5"
+            "item"      "item_nullifier_5"
+            "item"      "item_bloodthorn_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_crimson_guard_5"
+        }
+    }
+}

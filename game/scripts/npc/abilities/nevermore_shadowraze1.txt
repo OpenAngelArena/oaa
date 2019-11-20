@@ -35,34 +35,35 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "shadowraze_damage" "90 160 230 300 650 1000"
-        "LinkedSpecialBonus"  "special_bonus_unique_nevermore_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "shadowraze_damage"                               "90 160 230 300 650 1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_2"
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
-        "shadowraze_radius" "250"
+        "var_type"                                        "FIELD_INTEGER"
+        "shadowraze_radius"                               "250"
       }
       "03"
       {
-        "var_type"      "FIELD_INTEGER"
-        "shadowraze_range"  "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "shadowraze_range"                                "200"
       }
       "04"
       {
-        "var_type"      "FIELD_INTEGER"
-        "shadowraze_cooldown" "3"
+        "var_type"                                        "FIELD_INTEGER"
+        "shadowraze_cooldown"                             "3"
       }
       "05"
       {
-        "var_type"      "FIELD_INTEGER"
-        "stack_bonus_damage" "20 40 60 80 160 240"  //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "stack_bonus_damage"                              "20 40 60 80 160 240"  //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
-        "var_type"      "FIELD_FLOAT"
-        "duration"  "8"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8"
       }
     }
   }

@@ -6,7 +6,7 @@ if ProtectionAura == nil then
   Debug.EnabledModules['cave:protection'] = true
 end
 
-local MAX_ROOMS = 6
+local MAX_ROOMS = 0
 
 function ProtectionAura:Init ()
   ProtectionAura.zones = {
@@ -22,7 +22,7 @@ function ProtectionAura:Init ()
   each(partial(addToList, allGoodPlayers), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
   each(partial(addToList, allBadPlayers), PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
 
-  HudTimer:At(0, function ()
+  HudTimer:At(-10, function ()
     local function removePlayerFromList (room, id)
       room.removePlayer(id)
     end
@@ -46,8 +46,8 @@ function ProtectionAura:Init ()
       margin = 0,
       padding = 50,
       players = allGoodPlayers
+      -- players = {}
     })
-    allGoodPlayers = {}
 
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouchGood)
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouchGood)
@@ -59,8 +59,8 @@ function ProtectionAura:Init ()
       margin = 0,
       padding = 0,
       players = allBadPlayers
+      -- players = {}
     })
-    allBadPlayers = {}
 
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouchBad)
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouchBad)

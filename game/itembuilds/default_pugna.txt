@@ -1,0 +1,54 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_pugna"
+    "Title"         "Recommended items for Pugna"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_enchanted_mango"
+            "item"      "item_flask"
+            "item"      "item_boots"
+            "item"      "item_magic_stick"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_dagon_5"
+            "item"      "item_aether_lens"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_ultimate_scepter"
+            "item"      "item_kaya_and_sange_5"
+            "item"      "item_black_king_bar_5"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_dagon_9"
+            "item"      "item_aether_lens_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_kaya_and_sange_5"
+            "item"      "item_black_king_bar_5"
+
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_rod_of_atos_5"
+            "item"      "item_sheepstick_5"
+            "item"      "item_shivas_guard_5"
+            "item"      "item_veil_of_discord_5"
+            "item"      "item_sphere_5"
+            "item"      "item_heart_5"
+            "item"      "item_regen_crystal_3"
+        }
+    }
+}
