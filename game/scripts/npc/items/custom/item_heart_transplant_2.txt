@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "ItemCost"                                            "38200"
+    "ItemCost"                                            "36700"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -79,7 +79,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_cooldown"                             "7"
+        "transplant_cooldown"                             "14"
       }
       "03"
       {
@@ -89,13 +89,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "135 170"
+        "bonus_strength"                                  "65 70"
       }
       // Heart Parameters
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000 1400"
+        "bonus_health"                                    "1200 1300"
       }
       "06"
       {

@@ -68,7 +68,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 20 29"
+        "bonus_armor"                                     "6 8 11 15 20"
       }
       "03"
       {
@@ -99,11 +99,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "resist_debuff_duration"                          "16.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1000"
       }
     }
   }

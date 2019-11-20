@@ -1,70 +1,71 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Brewmaster: Cinder Brew
-	//=================================================================================================================
-	"brewmaster_cinder_brew"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                    "7310"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"  "SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-    "MaxLevel"              "6"
-    "RequiredLevel"         "1"
-    "LevelsBetweenUpgrades" "2"
-		"AbilitySound"					"Hero_Brewmaster.DrunkenHaze.Cast"
+  // Brewmaster: Cinder Brew
+  //=================================================================================================================
+  "brewmaster_cinder_brew"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7310"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"850"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 18 16 14 13 12"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "850"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 18 16 14 13 12"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"              "FIELD_FLOAT"
-				"duration"              "5"
-			}
-			"02"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"self_attack_chance"    "20 25 30 35 40 45"
-			}
-			"03"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"ignite_dps"            "20 30 40 50 150 300"
-			}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "self_attack_chance"                              "20 25 30 35 40 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ignite_dps"                                      "20 30 40 50 150 300"
+      }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "ignite_threshold"			"80"
+        "var_type"                                        "FIELD_INTEGER"
+        "ignite_threshold"                                "80"
       }
-			"05"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"movement_slow"         "25"
-			}
-			"06"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"radius"                "400"
-			}
-		}
-	}
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "25"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }
+    }
+  }
 }

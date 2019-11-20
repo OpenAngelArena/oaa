@@ -1,0 +1,56 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_tinker"
+    "Title"         "Recommended items for Tinker"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_null_talisman"
+            "item"      "item_flask"
+            "item"      "item_clarity"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_aether_lens"
+            "item"      "item_blink"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_kaya_and_sange"
+            "item"      "item_ethereal_blade"
+            "item"      "item_dagon_5"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_aether_lens_5"
+            "item"      "item_blink_5"
+            "item"      "item_kaya_and_sange_5"
+            "item"      "item_ethereal_blade_5"
+            "item"      "item_dagon_9"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_shivas_guard_5"
+            "item"      "item_sheepstick_5"
+            "item"      "item_cyclone"
+            "item"      "item_force_staff"
+            "item"      "item_blink"
+            "item"      "item_black_king_bar"
+            "item"      "item_glimmer_cape"
+            "item"      "item_lotus_orb"
+            "item"      "item_bloodstone"
+            "item"      "item_rod_of_atos"
+        }
+    }
+}

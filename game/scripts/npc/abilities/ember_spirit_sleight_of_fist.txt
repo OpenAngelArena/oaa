@@ -7,15 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5604"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "ID"                                                  "5604"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 14 10 6 6 6"
@@ -39,13 +41,11 @@
         "bonus_hero_damage"                               "40 80 120 160 270 550"
         "CalculateSpellDamageTooltip"                     "0"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "attack_interval"                                 "0.2"
       }
-
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"

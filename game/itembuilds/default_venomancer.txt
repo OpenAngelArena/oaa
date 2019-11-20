@@ -1,0 +1,52 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_venomancer"
+    "Title"         "Recommended items for Venomancer"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_flask"
+            "item"      "magic_wand"
+            "item"      "item_orb_of_venom"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_veil_of_discord"
+            "item"      "item_ultimate_scepter"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_yasha_and_kaya"
+            "item"      "item_octarine_core"
+            "item"      "item_shivas_guard"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_veil_of_discord_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_yasha_and_kaya_5"
+            "item"      "item_satanic_core_3"
+            "item"      "item_shivas_guard_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_cyclone"
+            "item"      "item_octarine_core_5"
+            "item"      "item_silver_edge_5"
+            "item"      "item_hurricane_pike_5"
+            "item"      "item_spirit_vessel_5"
+            "item"      "item_lotus_orb_5"
+            "item"      "item_ethereal_blade_5"
+        }
+    }
+}
