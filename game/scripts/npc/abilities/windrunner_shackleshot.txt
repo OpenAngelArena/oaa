@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"windrunner_shackleshot"
+  "windrunner_shackleshot"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,6 +11,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -20,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10"
+    "AbilityCooldown"                                     "13" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
