@@ -1,4 +1,4 @@
-/* global CustomNetTables, Game, PlayerTables, GameEvents, Players, Entities, DOTA_GameState */
+/* global CustomNetTables, Game, GameEvents, Players */
 
 var forcedPickSpark = false;
 var currentSpark = null;
