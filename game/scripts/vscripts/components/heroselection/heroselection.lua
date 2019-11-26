@@ -37,8 +37,8 @@ function HeroSelection:Init ()
   self.isCM = GetMapName() == "captains_mode"
   self.isARDM = GetMapName() == "ardm"
   self.is10v10 = GetMapName() == "10v10"
-  self.isRanked = GetMapName() == "ranked"
-  self.isUnranked = GetMapName() == "unranked"
+  self.isRanked = GetMapName() == "5v5"
+  self.isUnranked = false
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}

@@ -11,6 +11,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -45,6 +46,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "abilityduration"                                 ""
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_4"
+        "LinkedSpecialBonusField"                         "value"
       }
       "03"
       {
@@ -61,6 +63,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "ticks"                                           "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_4"
+        "LinkedSpecialBonusField"                         "value2"
       }
     }
   }

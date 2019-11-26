@@ -70,7 +70,13 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buffer_tooltip_scepter"                          "4"
+        "treant_large_hp_bonus_tooltip"                   "1650 2100 2700 3600 5400 8100" //OAA, same as in Nature's Call
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_large_damage_bonus_tooltip"               "114 162 222 294 456 705" //OAA, same as in Nature's Call
         "RequiresScepter"                                 "1"
       }
     }
