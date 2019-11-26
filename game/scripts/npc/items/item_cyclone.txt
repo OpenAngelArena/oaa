@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "10 25 40 60 80"
+        "bonus_intellect"       "10 25 50 95 140"
       }
       "02"
       {
@@ -78,7 +78,7 @@
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "20 22 28 34 40"
+        "bonus_movement_speed"  "20 25 30 35 40"
       }
       "04"
       {
@@ -86,11 +86,6 @@
         "cyclone_duration"      "2.5"
       }
       "05"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "cast_range_tooltip"    "575 675 775 875 975"
-      }
-      "06"
       {
         "var_type"              "FIELD_INTEGER"
         "tooltip_drop_damage"   "50"

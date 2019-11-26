@@ -32,7 +32,7 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
-
+  Debug.EnabledModules['heroselection:*'] = false
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "captains_mode"
   self.isARDM = GetMapName() == "ardm"
@@ -42,6 +42,7 @@ function HeroSelection:Init ()
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
+
 
   local herolistFile = 'scripts/npc/herolist.txt'
 
@@ -64,7 +65,13 @@ function HeroSelection:Init ()
     DebugPrint("Heroes: ".. key)
     if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
       DebugPrint(key .. " is not in vanilla file!")
-      local data = LoadKeyValues('scripts/npc/units/' .. key .. '.txt')
+      local data = {}
+      if key == "npc_dota_hero_electrician" then
+        data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
+      elseif key == "npc_dota_hero_sohei" then
+        data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      end
+
       if data and data[key] then
         allheroes[key] = data[key]
       end
@@ -95,24 +102,15 @@ function HeroSelection:Init ()
     CustomNetTables:SetTableValue( 'hero_selection', 'abilities_' .. attr, data)
   end
 
-
-
-
-  -- lock down the "pick" hero so that they can't do anything
   GameEvents:OnHeroInGame(function (npc)
     local playerId = npc:GetPlayerID()
     DebugPrint('An NPC spawned ' .. npc:GetUnitName())
-    if npc:GetUnitName() == FORCE_PICKED_HERO then
-      npc:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
-      npc:AddNoDraw()
-
-      if self.attemptedSpawnPlayers[playerId] then
-        self:GiveStartingHero(playerId, self.attemptedSpawnPlayers[playerId])
-      end
-    end
+    DebugPrint('Giving player' .. tostring(playerId)  .. ' starting hero ' .. npc:GetUnitName())
+    HeroCosmetics:ApplySelectedArcana(npc, HeroSelection:GetSelectedArcanaForPlayer(playerId)[npc:GetUnitName()])
   end)
 
-  GameEvents:OnPreGame(function (keys)
+  GameEvents:OnHeroSelection(function (keys)
+    Debug:EnableDebugging()
     if self.isARDM and ARDMMode then
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
@@ -124,12 +122,13 @@ function HeroSelection:Init ()
       ARDMMode:OnPrecache(function ()
         DebugPrint('Precache finished! Woohoo!')
         PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-          DebugPrint('Giving starting hero ' .. lockedHeroes[playerID])
+          DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. lockedHeroes[playerID])
           HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
         end)
         LoadFinishEvent.broadcast()
       end)
     else
+      print("START HERO SELECTION")
       HeroSelection:StartSelection()
     end
   end)
@@ -181,9 +180,13 @@ function HeroSelection:StartSelection ()
   elseif self.isBanning then
     HeroSelection:RankedManager(nil)
   else
-    HeroSelection:APTimer(AP_GAME_TIME, "ALL PICK")
+    HeroSelection:APTimer(0, "ALL PICK")
   end
 
+  HeroSelection:BuildBottlePass()
+end
+
+function HeroSelection:BuildBottlePass()
   -- Ideally the bottle info would be moved to the server with {steamId, {List of bottles}}
   local special_bottles = {}
   local special_arcanas = {}
@@ -235,6 +238,8 @@ function HeroSelection:GetSelectedArcanaForPlayer(playerId)
 end
 
 function HeroSelection:RankedManager (event)
+  -- unranked uses regular picking screen
+  if self.isUnranked then return end
   local function save ()
     CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
   end
@@ -600,6 +605,7 @@ end
 
 -- start heropick AP timer
 function HeroSelection:APTimer (time, message)
+  print("APTimer")
   HeroSelection:CheckPause()
   if forcestop == true or time < 0 then
     for key, value in pairs(selectedtable) do
@@ -670,21 +676,20 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if self.hasGivenStartingGold then
     startingGold = STARTING_GOLD
   end
+  PlayerResource:GetPlayer(playerId):SetSelectedHero(heroName)
 
-  PlayerResource:ReplaceHeroWith(playerId, heroName, startingGold, 0)
   local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-
-  if hero and hero:GetUnitName() ~= FORCE_PICKED_HERO then
-    table.insert(self.spawnedHeroes, hero)
-    self.spawnedPlayers[playerId] = true
-    HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero:GetUnitName()])
-  else
-    self.attemptedSpawnPlayers[playerId] = heroName
+  self.spawnedPlayers[playerId] = true
+  if hero == nil then
     Timers:CreateTimer(2, function ()
-      self:GiveStartingHero(playerId, heroName)
+      local loadedHero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if not loadedHero then
+        return 2
+      end
+      HeroCosmetics:ApplySelectedArcana(loadedHero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[loadedHero:GetUnitName()])
     end)
+    return
   end
-
 end
 
 function HeroSelection:IsHeroDisabled (hero)
@@ -765,7 +770,7 @@ function HeroSelection:EndStrategyTime ()
   HeroSelection.shouldBePaused = false
   HeroSelection:CheckPause()
 
-  GameRules:SetTimeOfDay(0.25)
+  -- GameRules:SetTimeOfDay(0.25)
 
   if self.isCM then
     PauseGame(true)
@@ -906,4 +911,13 @@ function HeroSelection:GetSteamAccountID(playerID)
     end
   end
   return tostring(steamid)
+end
+
+function HeroSelection:ForceAssignHeroes()
+	for nPlayerID = 0, ( DOTA_MAX_TEAM_PLAYERS - 1 ) do
+		local hPlayer = PlayerResource:GetPlayer( nPlayerID )
+		if hPlayer and not PlayerResource:HasSelectedHero( nPlayerID ) then
+			hPlayer:MakeRandomHeroSelection()
+		end
+	end
 end

@@ -53,6 +53,7 @@
     "ItemAliases"                                         "crimson guard"
     "ItemAlertable"                                       "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_crimson_guard;item_crimson_guard_2;item_crimson_guard_3;item_crimson_guard_4;item_crimson_guard_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -71,12 +72,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 3 5 7 10"
+        "bonus_all_stats"                                 "2 7 17 32 52"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 9 11 13"
+        "bonus_armor"                                     "5 7 10 14 19"
       }
       "05"
       {
@@ -96,7 +97,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_armor"                                 "2 3 4 5 6"
+        "bonus_aoe_armor"                                 "2 4 6 8 10"
       }
       "09"
       {

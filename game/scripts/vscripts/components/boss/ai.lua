@@ -37,9 +37,9 @@ function BossAI:Create (unit, options)
     deathEvent = Event()
   }
 
-  unit:OnHurt(function (keys)
-    self:HurtHandler(state, keys)
-  end)
+  --unit:OnHurt(function (keys)
+    --self:HurtHandler(state, keys)
+  --end)
   unit:OnDeath(function (keys)
     self:DeathHandler(state, keys)
   end)
@@ -52,6 +52,7 @@ function BossAI:Create (unit, options)
   }
 end
 
+--[[
 function BossAI:HurtHandler (state, keys)
   if state.state == BossAI.IDLE then
     DebugPrint('Checking boss agro...')
@@ -66,6 +67,7 @@ function BossAI:HurtHandler (state, keys)
   elseif state.state == BossAI.AGRO then --luacheck: ignore
   end
 end
+]]
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
   PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
@@ -78,7 +80,14 @@ function BossAI:GiveItemToWholeTeam (item, teamId)
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)
-  state.deathEvent.broadcast(deathEventData)
+  if type(state) == "number" then
+    state = {
+      tier = state
+    }
+    teamId = teamId or deathEventData
+  else
+    state.deathEvent.broadcast(deathEventData)
+  end
   local team = GetShortTeamName(teamId)
   if not IsPlayerTeam(teamId) then
     return
@@ -152,6 +161,7 @@ function BossAI:DeathHandler (state, keys)
   state.handle = nil
 end
 
+--[[
 function BossAI:Agro (state, target)
   if state.customAgro then
     DebugPrint('Running custom agro ai')
@@ -190,7 +200,8 @@ function BossAI:Agro (state, target)
     Queue = 1,
   })
 end
-
+]]
+--[[
 function BossAI:Think (state)
   if state.handle:IsNull() then
     -- this shouldn't happen, but sometimes other bugs can cause it
@@ -213,11 +224,15 @@ function BossAI:Think (state)
 
   return true
 end
-
+]]
+--[[
 function BossAI:Leash (state)
   local difference = state.handle:GetAbsOrigin() - state.origin
   local location = state.origin + (difference / 8)
 
+  if state.state ~= BossAI.LEASHING then
+    state.handle:Stop()
+  end
   state.state = BossAI.LEASHING
 
   state.handle:SetIdleAcquire(false)
@@ -230,11 +245,5 @@ function BossAI:Leash (state)
     Position = location,
     Queue = 0,
   })
-  ExecuteOrderFromTable({
-    UnitIndex = state.handle:entindex(),
-    -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    Position = state.origin,
-    Queue = 1,
-  })
 end
+]]

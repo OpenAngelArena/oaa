@@ -14,21 +14,21 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "55 50 45 42 40"
+    "AbilityCooldown"                                     "55 50 45 40 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 125 125 125 125"
+    "AbilityManaCost"                                     "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,12 +47,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_first"                                    "150 250 350 725 1100"
+        "damage_first"                                    "150 350 600 850 1100" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_second"                                   "100 150 200 450 700"
+        "damage_second"                                   "100 200 300 500 700" //OAA
       }
       "05"
       {
@@ -69,15 +69,20 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "600"
       }
-      "08"
+      "08" //unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "range_scepter"                                   "0"
       }
-      "09"
+      "09" //unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_second_scepter"                           "175 225 275 400 850"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "missile_delay_tooltip"                           "2"
       }
     }
   }

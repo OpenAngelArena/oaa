@@ -1,68 +1,69 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Dark Willow: Bedlam
-//=================================================================================================================
-"dark_willow_bedlam"
-{
+  //=================================================================================================================
+  // Dark Willow: Bedlam
+  //=================================================================================================================
+  "dark_willow_bedlam"
+ {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6340"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                      "3"
-    "FightRecapLevel"               "1"
-    "MaxLevel"                      "5"
+    "ID"                                                  "6340" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "30"
+    "AbilityCooldown"                                     "30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "100 150 200 450 700"
+    "AbilityManaCost"                                     "100 150 200 450 700"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "attack_damage"         "60 120 180 460 700" //OAA
-        }
-        "02"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "attack_interval"       "0.25"
-        }
-        "03"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "attack_radius"         "300"
-        }
-        "04"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "attack_targets"            "1"
-        }
-        "05"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "roaming_radius"            "200"
-        }
-        "06"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "roaming_seconds_per_rotation"              "1.8"
-        }
-        "07"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "roaming_duration"      "5.0"
-        }
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_damage"                                   "60 160 260 360 540" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_interval"                                 "0.25"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_radius"                                   "300"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_targets"                                  "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "roaming_radius"                                  "200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "roaming_seconds_per_rotation"                    "1.8"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "roaming_duration"                                "5.0"
+      }
     }
-}
+  }
 }

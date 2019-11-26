@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,12 +32,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.5 1.5 1.5 1.5 1.5"
+        "base_attack_time"                                "1.5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 6 8 24 36"
+        "bonus_armor"                                     "4 6 8 12 24"
       }
       "03"
       {
