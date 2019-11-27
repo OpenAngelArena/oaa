@@ -3,19 +3,20 @@
   //=================================================================================================================
   // Riki: Cloak and Dagger
   //=================================================================================================================
-  "riki_permanent_invisibility"
+  "riki_backstab"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5144"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +25,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_multiplier"                               "0.4 0.6 0.8 1.0 1.2 1.6"
+        "damage_multiplier"                               "1 1.5 2 3.5 6"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_1"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -36,17 +37,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "0.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_delay"                                      "6 5 4 3 2.5 2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hp_regen"                                        "2 3 4 5 10 15"
+        "fade_delay"                                      "4 3 2.5 2 1.5" //OAA
       }
     }
   }
