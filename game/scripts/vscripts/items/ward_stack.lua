@@ -374,11 +374,11 @@ function modifier_item_ward_stack:IsAura()
 end
 
 -- aura stuff
---function modifier_item_ward_stack:GetAuraStackingType ()
+--function modifier_item_ward_stack:GetAuraStackingType()
   --return AURA_TYPE_NON_STACKING
 --end
 
---function modifier_item_ward_stack:IsAuraActiveOnDeath ()
+--function modifier_item_ward_stack:IsAuraActiveOnDeath()
   --return true
 --end
 
@@ -408,6 +408,7 @@ end
 
 function modifier_item_ward_stack:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
+end
 
 -- passive stats
 function modifier_item_ward_stack:DeclareFunctions ()
@@ -429,9 +430,11 @@ end
 function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
   return self:GetAbility():GetSpecialValueFor('bonus_armor')
 end
+
 function modifier_item_ward_stack:GetModifierHealthBonus()
   return self:GetAbility():GetSpecialValueFor('bonus_health')
 end
+
 --function modifier_item_ward_stack:GetModifierManaBonus()
   --return self:GetAbility():GetSpecialValueFor('bonus_mana')
 --end

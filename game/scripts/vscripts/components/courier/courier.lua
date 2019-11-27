@@ -38,13 +38,13 @@ function Courier.SpawnCourier (hero)
 
     -- Create couriers and then cast them straight away
     local courier = hero:AddItemByName('item_courier')
-    if courier then
+    --if courier then
         --hero:CastAbilityImmediately(courier, hero:GetPlayerID()) -- item_courier doesn't do anything, active doesn't work
-    end
+    --end
     local courierUnit = PlayerResource:GetNthCourierForTeam(0, hero:GetTeamNumber())
-    if courierUnit then
+    --if courierUnit then
       --courierUnit:UpgradeToFlyingCourier() -- UpgradeToFlyingCourier() doesn't exist anymore
-    end
+    --end
 
     if slot1Item then
       Timers:CreateTimer(0.5, function ()
