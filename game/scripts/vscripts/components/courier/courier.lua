@@ -13,7 +13,7 @@ function Courier:Init ()
   Courier.hasCourier[DOTA_TEAM_BADGUYS] = false
   Courier.hasCourier[DOTA_TEAM_GOODGUYS] = false
 
-  GameEvents:OnHeroInGame(Courier.SpawnCourier)
+  --GameEvents:OnHeroInGame(Courier.SpawnCourier)
 end
 
 function Courier.SpawnCourier (hero)
@@ -39,11 +39,11 @@ function Courier.SpawnCourier (hero)
     -- Create couriers and then cast them straight away
     local courier = hero:AddItemByName('item_courier')
     if courier then
-        hero:CastAbilityImmediately(courier, hero:GetPlayerID())
+        --hero:CastAbilityImmediately(courier, hero:GetPlayerID()) -- item_courier doesn't do anything, active doesn't work
     end
     local courierUnit = PlayerResource:GetNthCourierForTeam(0, hero:GetTeamNumber())
     if courierUnit then
-      courierUnit:UpgradeToFlyingCourier()
+      --courierUnit:UpgradeToFlyingCourier() -- UpgradeToFlyingCourier() doesn't exist anymore
     end
 
     if slot1Item then
