@@ -16,7 +16,7 @@
     "ItemResult"                                          "item_bloodstone_1"
     "ItemRequirements"
     {
-      "01"                                                "item_pers;item_soul_booster"
+      "01"                                                "item_kaya;item_soul_booster"
     }
   }
 
@@ -37,7 +37,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "90.0 80.0 70.0 60.0 50.0" //OAA
+    "AbilityCooldown"                                     "90"
     "AbilitySharedCooldown"                               "bloodstone"
     "AbilityTextureName"                                  "custom/bloodstone"
 
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4900"
+    "ItemCost"                                            "5250"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs;bloodstone"
@@ -72,10 +72,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "425 650 1175 1875 2750"
       }
-     "03"
+      "03"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "bonus_intellect"                                  "16 24 36 52 72"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 36 52 72"
       }
       "04"
       {
@@ -85,8 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 12 16 20 24 28"
-      }
+        "spell_amp"                                       "8 11 14 17 20"
       }
       "06"
       {
@@ -101,36 +100,47 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "amp_per_charge"                                  "0.35 0.45 0.55 0.65 0.75"
-      "07"
+        "amp_per_charge"                                  "0.35 0.4 0.45 0.5 0.55"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "death_charges"                                   "3"
       }
-      "08"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "kill_charges"                                    "1"
       }
-      "09"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "charge_range"                                    "1600"
       }
-      "10"
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "initial_charges_tooltip"                         "14"
       }
-      "11"
+      "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_cost_percentage"                            "30"
       }
-      "12"
+      "14"
       {
         "var_type"                                        "FIELD_FLOAT"
         "restore_duration"                                "2.0"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "0"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0"
       }
     }
   }
