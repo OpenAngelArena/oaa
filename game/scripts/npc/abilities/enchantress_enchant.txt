@@ -22,8 +22,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 16 12 8 8 8"
-    "AbilityDuration"                                     "3.75 4.5 5.25 6 7 8"
+    "AbilityCooldown"                                     "20 18 16 14 12 10" //OAA
+    "AbilityDuration"                                     "3.75 4.5 5.25 6 6.75 7.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,13 +35,23 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "dominate_duration"                               "26 44 62 80 120 240"
+        "var_type"                                         "FIELD_FLOAT"
+        "dominate_duration"                                "30 60 90 120 150 180"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed"                             "-55"
+        "var_type"                                         "FIELD_INTEGER"
+        "slow_movement_speed"                              "-55"
+      }
+      "03"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "enchant_health"                                   "200 400 1200 2400 4800 9600" //OAA
+      }
+      "04"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "enchant_damage"                                   "20 40 80 160 320 640" //OAA
       }
     }
   }

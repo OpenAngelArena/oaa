@@ -79,6 +79,24 @@
         "creep_dismember_duration_tooltip"                "6.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
       }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_regen_pct"                               "4"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "order_lock_duration"                             "3"
+        "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "11"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

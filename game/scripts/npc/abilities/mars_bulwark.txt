@@ -38,6 +38,21 @@
         "var_type"                                        "FIELD_INTEGER"
         "side_angle"                                      "240"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_chance"                                 "70"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_range"                                  "800"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_speed_penatly"                          "20"
+      }
     }
   }
 }

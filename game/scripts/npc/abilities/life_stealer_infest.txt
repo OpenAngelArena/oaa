@@ -54,23 +54,40 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "infest_scepter_duration"                         "8"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_increase_pct"                             "50"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_increase_pct"                             "50"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_hero"                       "30 40 50 55 60"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "500"
+        "bonus_movement_speed_creep"                      "15 20 25 30 35"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "25"
+        "bonus_health"                                    "750 1250 1750 2250 2750"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "20"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter"                              "600"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_regen"                                      "3 4 5 6 7"
       }
     }
   }

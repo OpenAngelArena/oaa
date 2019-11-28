@@ -89,6 +89,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_ranged_tooltip"                         "7"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fixed_health_regen"                              "10 15 25 40 60"
+      }
     }
   }
 }

@@ -30,7 +30,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
+    "AbilityCooldown"                                     "120 100 80 60 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_health"                               "0.6 0.75 0.9 1.05 1.2"
+        "damage_per_health"                               "0.7 0.8 0.9 1.1 1.2"
       }
       "02"
       {
@@ -59,12 +59,6 @@
         "stun_duration"                                   "1.5"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "60 50 40 35 30"
-        "RequiresScepter"                                 "1"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "respawn_constant"                                "1" //OAA, This doesn't work in OAA anyway because of the custom respawn times

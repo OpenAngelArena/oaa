@@ -86,14 +86,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "400 600 1000 1400 1800" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "850"
-        "RequiresScepter"                                 "1"
+        "bonus_jump_damage"                               "25 50 75 150 225" //OAA
       }
     }
   }

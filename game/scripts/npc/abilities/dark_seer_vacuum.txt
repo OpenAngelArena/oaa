@@ -17,6 +17,7 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -55,6 +56,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_tree"                                     "275"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "12"
+        "RequiresScepter"                                 "1"
       }
     }
   }

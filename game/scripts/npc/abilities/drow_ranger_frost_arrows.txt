@@ -45,8 +45,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "frost_arrows_creep_duration"                     "7.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "5 10 15 20 40 60"
       }
     }
   }

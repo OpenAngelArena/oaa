@@ -31,7 +31,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "16.0"
     "AbilitySharedCooldown"                               "madness"
 
     // Spicy Parameters
@@ -87,7 +87,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "berserk_duration"                                "8.0"
+        "berserk_duration"                                "6.0"
       }
     }
   }

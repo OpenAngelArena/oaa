@@ -40,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "4 7 10 13 26 50"
+        "movement_speed"                                  "5 10 15 20 35 50"
       }
       "03"
       {
@@ -62,6 +62,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tree_radius"                                     "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_vision"                                    "200 400 600 800"
       }
     }
   }

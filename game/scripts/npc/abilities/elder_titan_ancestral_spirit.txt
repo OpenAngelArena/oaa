@@ -20,6 +20,8 @@
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "17" //OAA
@@ -95,6 +97,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "move_pct_cap"                                    "40"
+      }
+      "13"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "scepter_magic_immune_per_hero"                    "2"
+        "RequiresScepter"                                  "1"
       }
     }
   }

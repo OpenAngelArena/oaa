@@ -68,6 +68,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "600.0"
       }
+      "08"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "cast_range_scepter_bonus"    "400"
+        "RequiresScepter"     "1"
+      }
     }
   }
 }

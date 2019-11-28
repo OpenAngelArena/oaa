@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "drain_length"                                    "8"
+        "drain_length"                                    "5 6 7 8 8 8"
       }
       "02"
       {
@@ -45,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "drain_rate"                                      "7 14 21 28 64 100"
+        "drain_rate"                                      "7 12 17 22 64 100"
         "LinkedSpecialBonus"                              "special_bonus_unique_razor"
       }
       "04"

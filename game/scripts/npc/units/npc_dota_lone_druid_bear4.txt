@@ -17,26 +17,24 @@
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"                  "lone_druid_spirit_bear_return"         // Ability 1
-        "Ability2"                  "lone_druid_spirit_bear_entangle"           // Ability 2
-        "Ability3"                  "lone_druid_savage_roar_bear"           // Ability 3
-        "Ability4"                  "lone_druid_spirit_bear_defender"
-        "Ability5"                  "lone_druid_spirit_bear_demolish"
-        "Ability6"                  "generic_hidden"           // Ability 6
+        "Ability1"                  "lone_druid_spirit_bear_return"        // Ability 1
+        "Ability2"                  "lone_druid_spirit_bear_demolish"     // Ability 2
+        "Ability3"                  "lone_druid_savage_roar_bear"         // Ability 3
+        "Ability4"                  "lone_druid_spirit_bear_entangle"     // Ability 4
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "15"         // Physical protection.
+        "ArmorPhysical"             "9"         // Physical protection.
 
         // Attack
         //----------------------------------------------------------------
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "145"        // Damage range min.
-        "AttackDamageMax"           "150"        // Damage range max.
-        "AttackRate"                "1.35"      // Speed of attack.
+        "AttackDamageMin"           "60"        // Damage range min.
+        "AttackDamageMax"           "60"        // Damage range max.
+        "AttackRate"                "1.4"      // Speed of attack.
         "AttackAnimationPoint"      "0.43"      // Normalized time in animation cycle to attack.
         "AttackAcquisitionRange"    "500"       // Range within a target can be acquired.
-        "AttackRange"               "128"       // Range within a target can be attacked.
+        "AttackRange"               "150"       // Range within a target can be attacked.
         "ProjectileModel"           ""          // Particle system model for projectile.
         "ProjectileSpeed"           "0"         // Speed of projectile.
 
@@ -47,9 +45,9 @@
 
         // Bounty
         //----------------------------------------------------------------
-        "BountyXP"                  "300"       // Experience earn.
-        "BountyGoldMin"             "300"       // Gold earned min.
-        "BountyGoldMax"             "300"       // Gold earned max.
+        "BountyXP"                  "600"       // Experience earn.
+        "BountyGoldMin"             "1200"       // Gold earned min.
+        "BountyGoldMax"             "1200"       // Gold earned max.
 
         // Movement
         //----------------------------------------------------------------
@@ -59,8 +57,8 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"              "4500"      // Base health.
-        "StatusHealthRegen"         "8"         // Health regeneration rate.
+        "StatusHealth"              "3000"      // Base health.
+        "StatusHealthRegen"         "15"         // Health regeneration rate.
         "StatusMana"                "300"       // Base mana.
         "StatusManaRegen"           "0.5"       // Mana regeneration rate.
 

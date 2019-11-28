@@ -59,32 +59,37 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration"                              "1.8 2.4 3.0 3.5 4.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_initial_damage"                             "100 200 400 600 800"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage"                               "300 500 700 1100 1500" //OAA
+        "var_type"                                        "FIELD_FLOAT"
+        "coil_stun_duration"                              "1.8 2.4 3.0 3.5 4.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_radius"                                     "375"
+        "coil_break_damage"                               "300 500 700 1100 1500" //OAA
       }
       "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_radius"                                     "375"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "coil_duration_scepter"                           "8"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "coil_break_damage_scepter"                       "400 700 1000 1600 2200" //OAA
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "coil_stun_duration_scepter"                      "2 3 4.5 4.75 5.5" //OAA

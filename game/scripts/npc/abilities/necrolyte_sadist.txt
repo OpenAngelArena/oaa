@@ -53,6 +53,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "-40"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "10"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }
