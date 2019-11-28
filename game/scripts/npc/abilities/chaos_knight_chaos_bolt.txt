@@ -63,6 +63,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage_max"                                      "180 220 260 300 600 900"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fake_bolt_distance"                              "675"
+      }
     }
   }
 }
