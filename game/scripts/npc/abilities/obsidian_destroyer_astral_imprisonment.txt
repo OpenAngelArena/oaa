@@ -76,6 +76,11 @@
         "scepter_range_bonus"                             "300"
         "RequiresScepter"                                 "1"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "counter_duration"                                "35"
+      }
     }
   }
 }

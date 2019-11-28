@@ -58,14 +58,13 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_damage"                        "-50 -60 -70 -80 -90" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_slow_duration"                           "0.6"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_slow_duration"                           "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_slow_duration_max"                       "2.2"
       }
       "05"
       {
@@ -85,7 +84,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_width_end"                          "425"
+        "requiem_line_width_end"                          "350"
       }
       "09"
       {

@@ -15,7 +15,7 @@
     "MaxLevel"                                            "5"
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                     "100.0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                     "200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,25 +31,26 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10 20 30 40 50" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 6 8 12 24"
+        "bonus_hp"                                        "500 1500 2500 3500 4500" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_7"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp"                                        "600 1200 1800 3000 4800" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_loss"                                      "45"
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.7"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "40"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "transformation_time"                             "1.933"

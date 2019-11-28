@@ -20,8 +20,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "18 22 26 30 35 40"
+        "vampiric_aura"                                   "6 12 18 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "6 12 18 24 30 36" // Buff when WK aghs gets changed
       }
     }
   }
