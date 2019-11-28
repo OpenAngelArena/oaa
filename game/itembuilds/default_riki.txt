@@ -1,0 +1,57 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_riki"
+    "Title"         "Recommended items for Riki"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_tranquil_origin"
+            "item"      "item_orb_of_venom"
+            "item"      "item_stout_shield"
+            "item"      "item_wind_lace"
+            "item"      "item_flask"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_tranquil_boots"
+            "item"      "item_diffusal_blade"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_sange_and_yasha"
+            "item"      "item_desolator"
+            "item"      "item_skadi"
+            "item"      "item_nullifier_2"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_diffusal_blade_5"
+            "item"      "item_sange_and_yasha_5"
+            "item"      "item_desolator_5"
+            "item"      "item_skadi_5"
+            "item"      "item_nullifier_5"
+        }
+
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_butterfly_5"
+            "item"      "item_manta_5"
+            "item"      "item_sphere_5"
+            "item"      "item_abyssal_blade_5"
+            "item"      "item_devastator_5"
+            "item"      "item_monkey_king_bar_5"
+            "item"      "item_mjollnir_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_black_king_bar_5"
+        }
+    }
+}

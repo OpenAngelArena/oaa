@@ -9,7 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5395"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "0"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -39,12 +45,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "wolf_bat"                                        "1.2 1.1 1.0 0.9 0.8 0.7" //OAA, Valve has it wrong
+        "wolf_bat"                                        "1.2 1.1 1.0 0.9 0.8 0.7"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wolf_damage"                                     "26 34 42 50 170 340" //OAA, Valve has it wrong
+        "wolf_damage"                                     "26 34 42 50 170 340"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {

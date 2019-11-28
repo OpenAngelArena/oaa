@@ -13,10 +13,12 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
+    "AbilityCooldown"                                     "90 85 80 70 60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

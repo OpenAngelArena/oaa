@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "32700"
+    "ItemCost"                                            "32225"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater arcane boots 4;greater arcanes 4;arcanes 4"
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "25 30 35 40"
+        "bonus_movement"                                  "15 20 25 30"
       }
       "02"
       {

@@ -101,9 +101,9 @@ function Duels:Init ()
     end
   end)
 
-  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY
-  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME, function ()
-  -- HudTimer:At(INITIAL_DUEL_DELAY, function ()
+  Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY -1
+  Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME -1, function ()
+  --HudTimer:At(INITIAL_DUEL_DELAY, function ()
     self:StartDuel({
       players = 0,
       firstDuel = true,
@@ -226,6 +226,7 @@ function Duels:StartDuel(options)
     DebugPrint ('There is already a duel running')
     return
   end
+  self.wasCanceled = false;
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
@@ -237,17 +238,32 @@ function Duels:StartDuel(options)
   Notifications:TopToAll({text="#duel_imminent_warning", duration=math.min(DUEL_START_WARN_TIME, 5.0), replacement_map={seconds_to_duel = DUEL_START_WARN_TIME}})
   for index = 0,(DUEL_START_COUNTDOWN - 1) do
     Timers:CreateTimer(DUEL_START_WARN_TIME - DUEL_START_COUNTDOWN + index, function ()
+      if self.wasCanceled then
+        return
+      end
       Notifications:TopToAll({text=(DUEL_START_COUNTDOWN - index), duration=1.0})
     end)
   end
 
   Timers:CreateTimer(DUEL_START_WARN_TIME, function ()
+    if self.wasCanceled then
+      return
+    end
     Notifications:TopToAll({text="#duel_start", duration=3.0, style={color="red", ["font-size"]="110px"}})
     for _, zone in ipairs(self.zones) do
       ZoneCleaner:CleanZone(zone)
     end
     self:ActuallyStartDuel(options)
   end)
+end
+
+function Duels:CancelDuel ()
+  if self.currentDuel == DUEL_IS_STARTING and self.wasCanceled == false then
+    self.wasCanceled = true
+    Notifications:TopToAll({text="DUEL CANCELED", duration=3.0, style={color="red", ["font-size"]="110px"}})
+
+    self:CleanUpDuel()
+  end
 end
 
 function Duels:SplitDuelPlayers(options)
@@ -334,7 +350,7 @@ function Duels:SplitDuelPlayers(options)
     playerSplitOffset = maxPlayers - playerSplitOffset
   end
 
-  if options.isFinalDuel then
+  if options.isFinalDuel or HeroSelection.isCM then
     playerSplitOffset = 0
   end
 
@@ -383,8 +399,8 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
   goodGuy.duelNumber = duelNumber
   badGuy.duelNumber = duelNumber
 
-  SafeTeleportAll(goodHero, spawn1, 150)
-  SafeTeleportAll(badHero, spawn2, 150)
+  SafeTeleportAll(goodHero, spawn1, 250)
+  SafeTeleportAll(badHero, spawn2, 250)
 
   self.zones[arenaIndex].addPlayer(goodGuy.id)
   self.zones[arenaIndex].addPlayer(badGuy.id)
@@ -512,7 +528,7 @@ function Duels:GetNextDuelTime()
   return Duels.nextDuelTime
 end
 
-function Duels:EndDuel ()
+function Duels:CleanUpDuel ()
   if self.currentDuel == nil then
     DebugPrint ('There is no duel running')
     return
@@ -536,6 +552,15 @@ function Duels:EndDuel ()
     self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(self.StartDuel, self))
   end)
 
+  self.currentDuel = nil
+end
+
+function Duels:EndDuel ()
+  if self.currentDuel == nil or type(self.currentDuel) == "number" then
+    DebugPrint ('There is no duel running')
+    return
+  end
+
   for playerId = 0,19 do
     for _, zone in ipairs(self.zones) do
       zone.removePlayer(playerId, false)
@@ -543,7 +568,7 @@ function Duels:EndDuel ()
   end
 
   local currentDuel = self.currentDuel
-  self.currentDuel = nil
+  self:CleanUpDuel()
 
   Timers:CreateTimer(0.1, function ()
     DebugPrint('Sending all players back!')

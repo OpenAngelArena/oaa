@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5404"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5404"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -15,8 +15,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "AbilityCastRange"                                    "800 800 800 800 800"
+    "AbilityCastRange"                                    "800"
+
     "MaxLevel"                                            "5"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "5"
@@ -33,17 +35,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "50 100 150 400 650"
+        "damage"                                          "50 150 250 550 1050" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 2.0 2.0 2.0 2.0"
+        "duration"                                        "2.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "800 800 800 800 800"
+        "speed"                                           "800"
       }
     }
   }

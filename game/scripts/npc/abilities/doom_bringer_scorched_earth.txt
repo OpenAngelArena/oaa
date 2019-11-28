@@ -13,7 +13,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -46,6 +50,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed_pct"                        "11 12 13 14 15 16"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_6"
       }
       "04"
       {

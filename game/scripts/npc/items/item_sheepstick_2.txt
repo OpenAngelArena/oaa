@@ -16,9 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_sheepstick;item_upgrade_core"
-      "02"                                                "item_sheepstick;item_upgrade_core_2"
-      "03"                                                "item_sheepstick;item_upgrade_core_3"
-      "04"                                                "item_sheepstick;item_upgrade_core_4"
     }
   }
 
@@ -84,11 +81,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "sheep_movement_speed"                            "140"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
       }
     }
   }

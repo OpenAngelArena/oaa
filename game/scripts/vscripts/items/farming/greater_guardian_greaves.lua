@@ -1,22 +1,9 @@
 LinkLuaModifier( "modifier_item_greater_guardian_greaves", "items/farming/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_guardian_greaves_aura", "items/farming/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
 
-LinkLuaModifier( "modifier_passive_gpm", "items/farming/modifier_passive_gpm.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
-
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_greater_guardian_greaves = class(ItemBaseClass)
-
-  --[[
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "30 50 75 100 150"
-      }
-    }
--item greater_guardian_greaves
-]]
 
 function item_greater_guardian_greaves:OnSpellStart()
   local caster = self:GetCaster()
@@ -93,15 +80,16 @@ function item_greater_guardian_greaves:OnSpellStart()
 end
 
 function item_greater_guardian_greaves:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
+  return "modifier_item_greater_guardian_greaves" -- "modifier_intrinsic_multiplexer"
 end
+-- uncomment this if we plan to add more effects to Guardian Greaves
+--[[
 function item_greater_guardian_greaves:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_guardian_greaves",
-    "modifier_passive_gpm",
-    "modifier_creep_bounty"
   }
 end
+]]
 
 item_greater_guardian_greaves_2 = item_greater_guardian_greaves
 item_greater_guardian_greaves_3 = item_greater_guardian_greaves
@@ -200,7 +188,7 @@ function modifier_item_greater_guardian_greaves:GetAuraRadius()
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierAura()
-  return "modifier_item_guardian_greaves_aura"
+  return "modifier_item_guardian_greaves_aura" -- modifier_item_greater_guardian_greaves_aura ?
 end
 
 ------------------------------------------------------------------------------
