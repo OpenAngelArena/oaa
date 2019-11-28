@@ -17,24 +17,24 @@
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"                  "lone_druid_spirit_bear_return"
-        "Ability2"                  "bear_empty2"
-        "Ability3"                  "lone_druid_savage_roar_bear"
-        "Ability4"                  "lone_druid_spirit_bear_defender"
+        "Ability1"                  "lone_druid_spirit_bear_return"        // Ability 1
+        "Ability2"                  "lone_druid_spirit_bear_demolish"     // Ability 2
+        "Ability3"                  "lone_druid_savage_roar_bear"         // Ability 3
+        "Ability4"                  "lone_druid_spirit_bear_entangle"     // Ability 4
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"             "9"         // Physical protection.
+        "ArmorPhysical"             "5"         // Physical protection.
 
         // Attack
         //----------------------------------------------------------------
         "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"           "90"        // Damage range min.
-        "AttackDamageMax"           "95"        // Damage range max.
-        "AttackRate"                "1.55"      // Speed of attack.
+        "AttackDamageMin"           "40"        // Damage range min.
+        "AttackDamageMax"           "40"        // Damage range max.
+        "AttackRate"                "1.6"      // Speed of attack.
         "AttackAnimationPoint"      "0.43"      // Normalized time in animation cycle to attack.
         "AttackAcquisitionRange"    "500"       // Range within a target can be acquired.
-        "AttackRange"               "128"       // Range within a target can be attacked.
+        "AttackRange"               "150"       // Range within a target can be attacked.
         "ProjectileModel"           ""          // Particle system model for projectile.
         "ProjectileSpeed"           "0"         // Speed of projectile.
 
@@ -45,9 +45,9 @@
 
         // Bounty
         //----------------------------------------------------------------
-        "BountyXP"                  "300"       // Experience earn.
-        "BountyGoldMin"             "300"       // Gold earned min.
-        "BountyGoldMax"             "300"       // Gold earned max.
+        "BountyXP"                  "400"       // Experience earn.
+        "BountyGoldMin"             "600"       // Gold earned min.
+        "BountyGoldMax"             "600"       // Gold earned max.
 
         // Movement
         //----------------------------------------------------------------
@@ -57,8 +57,8 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"              "2500"      // Base health.
-        "StatusHealthRegen"         "6"         // Health regeneration rate.
+        "StatusHealth"              "2000"      // Base health.
+        "StatusHealthRegen"         "9"         // Health regeneration rate.
         "StatusMana"                "300"       // Base mana.
         "StatusManaRegen"           "0.5"       // Mana regeneration rate.
 
