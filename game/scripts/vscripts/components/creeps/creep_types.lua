@@ -4,28 +4,28 @@ CreepTypes = {
   -- 1 "easy camp"
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_custom_big_wolf",          600,  480,  35,   1.5,   40,  40}, -- expected gold is 100 and XP is 90
-      {"npc_dota_neutral_custom_small_wolf",        400,    0,  15,   0.5,   30,  25},
-      {"npc_dota_neutral_custom_small_wolf",        400,    0,  15,   0.5,   30,  25}
+      {"npc_dota_neutral_custom_big_wolf",          600,  480,  35,   1.5,   40,  40}, -- expected gold is 100 and XP is 80
+      {"npc_dota_neutral_custom_small_wolf",        400,    0,  15,   0.5,   30,  20},
+      {"npc_dota_neutral_custom_small_wolf",        400,    0,  15,   0.5,   30,  20}
     },
     {
       {"npc_dota_neutral_custom_kobold_foreman",    560,  480,  16,    1,    40,  35},
-      {"npc_dota_neutral_custom_kobold_soldier",    480,    0,  12,    1,    35,  30},
-      {"npc_dota_neutral_custom_kobold",            280,    0,  10,   0.5,   25,  25}
+      {"npc_dota_neutral_custom_kobold_soldier",    480,    0,  12,    1,    35,  25},
+      {"npc_dota_neutral_custom_kobold",            280,    0,  10,   0.5,   25,  20}
     },
   },
     -- 2 "medium camp"
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_custom_harpy_storm",       560,  400,  35,   1.2,   45,  82}, -- expected gold is 80 and XP is 143
-      {"npc_dota_neutral_custom_harpy_scout",       480,    0,  40,   0.7,   40,  61}
+      {"npc_dota_neutral_custom_harpy_storm",       560,  400,  35,   1.2,   45,  80}, -- expected gold is 80 and XP is 130
+      {"npc_dota_neutral_custom_harpy_scout",       480,    0,  40,   0.7,   40,  50}
     },
     {
-      {"npc_dota_neutral_custom_mud_golem",         800,    0,  35,    1,    35,  57} -- multiply gold value by 2 and xp value by 2.5 because they split
+      {"npc_dota_neutral_custom_mud_golem",         800,    0,  35,    1,    35,  52} -- multiply gold value by 2 and xp value by 2.5 because they split
     },
     {
-      {"npc_dota_neutral_custom_blue_tomato",       800,  400,  35,   1.3,   45,  82},
-      {"npc_dota_neutral_custom_blue_potato",       480,    0,  30,   1.3,   40,  61}
+      {"npc_dota_neutral_custom_blue_tomato",       800,  400,  35,   1.3,   45,  80},
+      {"npc_dota_neutral_custom_blue_potato",       480,    0,  30,   1.3,   40,  50}
     }
   },
     -- 3 "hard camp"
