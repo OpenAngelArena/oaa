@@ -6,11 +6,14 @@
   "item_recipe_abyssal_blade"
   {
     "ID"                                                  "207"    // unique ID
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemCost"                                            "1550"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_abyssal_blade"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemRequirements"
     {
       "01"                                                "item_basher;item_vanguard"
@@ -36,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "140"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
