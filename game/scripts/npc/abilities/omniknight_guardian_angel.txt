@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "160 150 140 130 120"
+    "AbilityCooldown"                                     "120" //OAA
     "AbilityCastPoint"                                    "0.4"
 
     // Cost
@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.5 5.0 5.5 6.0" //OAA
+        "duration"                                        "5.0 5.5 6.0 6.5 7.0" //OAA
       }
       "02"
       {
@@ -46,7 +46,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "5.0 5.5 6.0 6.5 7.0" //OAA
+        "duration_scepter"                                "6.0 6.5 7.0 7.5 8.0" //OAA
         "RequiresScepter"                                 "1"
       }
       "04"
