@@ -298,6 +298,10 @@ function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, cas
     return
   end
 
+  if not caster:HasModifier("modifier_wukongs_command_oaa_buff") and ringNumber ~= 1 then
+    return
+  end
+
   local damage_percent = damage_pct/100
   local top_direction = Vector(0,1,0)
   local top_point = center + top_direction*radius
@@ -813,7 +817,7 @@ function modifier_special_bonus_unique_monkey_king_armor:RemoveOnDeath()
 end
 
 if modifier_special_bonus_unique_monkey_king_ring == nil then
-  modifier_special_bonus_unique_monkey_king_ring = modifier_special_bonus_unique_monkey_king_armor
+  modifier_special_bonus_unique_monkey_king_ring = class(modifier_special_bonus_unique_monkey_king_armor)
 end
 
 function modifier_special_bonus_unique_monkey_king_ring:IsHidden()

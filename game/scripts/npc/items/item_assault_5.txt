@@ -10,6 +10,7 @@
     "ID"                                                  "3845"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -20,11 +21,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_assault_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     "ItemRequirements"
     {
       "01"                                                "item_assault_4;item_upgrade_core_4"
-      "02"                                                "item_blade_mail_4;item_upgrade_core_4"
     }
   }
 
@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "custom/assault_cuirass_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35200"
+    "ItemCost"                                            "38250"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac 5;assault cuirass 5"

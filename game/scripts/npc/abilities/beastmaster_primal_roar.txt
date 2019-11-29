@@ -17,6 +17,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -56,12 +57,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 300 550 800 1050" //OAA
+        "damage"                                          "150 300 450 900 1650" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "side_damage"                                     "150 300 550 800 1050" //OAA
+        "side_damage"                                     "150 300 450 900 1650" //OAA
       }
       "04"
       {
@@ -91,7 +92,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "4 5 6 7 8" //OAA
+        "slow_duration"                                   "3 3.5 4 4.5 5"
       }
       "10"
       {
@@ -101,7 +102,7 @@
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "movement_speed_duration"                         "3.0"
+        "movement_speed_duration"                         "3.0 3.5 4.0 4.5 5.0" //OAA
       }
     }
   }

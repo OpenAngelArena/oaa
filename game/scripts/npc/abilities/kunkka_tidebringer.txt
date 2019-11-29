@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 3.0 2.0"
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
 
@@ -46,7 +46,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "25 50 75 100 175 250"
+        "damage_bonus"                                    "25 50 75 100 350 600"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"

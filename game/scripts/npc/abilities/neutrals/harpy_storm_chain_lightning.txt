@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Harpy Stormcrafter: Vanilla Chain Lightning
+  //=================================================================================================================
+  "harpy_storm_chain_lightning"
+  {
+    "ID"                                                  "5319"
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_harpy_storm_chain_lightning.lua"
+    "AbilityTextureName"                                  "harpy_storm_chain_lightning"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                                     "4.0"
+
+    "AbilityManaCost"                                     "50"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "initial_damage"                                  "125" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_range"                                      "500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_delay"                                      "0.25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_percent_loss"                             "25.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_targets"                                     "4"
+      }
+    }
+  }
+}

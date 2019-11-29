@@ -24,8 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_giant_form;item_upgrade_core_4"
-      "02"                                                "item_dragon_lance_4;item_upgrade_core_4"
-      "03"                                                "item_hurricane_pike_4;item_upgrade_core_4"
+      "02"                                                "item_hurricane_pike_4;item_upgrade_core_4"
     }
   }
 
@@ -45,12 +44,12 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/giant_form_2"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "50"
-    "AbilityCooldown"                                     "4.0 2.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "2.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34900"
+    "ItemCost"                                            "37600"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,12 +64,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 30"
+        "bonus_agility"                                   "35 50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 25"
+        "bonus_strength"                                  "30 45"
       }
       "03"
       {

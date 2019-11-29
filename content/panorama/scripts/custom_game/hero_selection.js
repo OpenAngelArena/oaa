@@ -101,9 +101,6 @@ init();
 
 function init () {
   $.GetContextPanel().AddClass(currentMap);
-  if (currentMap === 'unranked') {
-    return;
-  }
 
   SetupTopBar();
 

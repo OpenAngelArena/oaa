@@ -21,10 +21,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_assault_2"
+
     "ItemRequirements"
     {
       "01"                                                "item_assault;item_upgrade_core"
-      "02"                                                "item_blade_mail;item_upgrade_core"
     }
   }
 
@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "custom/assault_cuirass_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3700"
+    "ItemCost"                                            "6750"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac 2;assault cuirass 2"
