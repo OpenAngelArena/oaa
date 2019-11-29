@@ -66,12 +66,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "1 2 3 4 5 6"
+        "max_charges"                                     "1 2 3 4 4 4"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "36" //OAA
+        "charge_restore_time"                             "30" //OAA
       }
     }
   }
