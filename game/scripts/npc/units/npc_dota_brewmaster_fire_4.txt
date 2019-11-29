@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Brewmaster Fire 4
-//=================================================================================
+  //=================================================================================
+  // Brewmaster Fire 4
+  //=================================================================================
   "npc_dota_brewmaster_fire_4"
   {
     // General
@@ -32,9 +32,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "335"    // Damage range min.
-    "AttackDamageMax"                                     "345"    // Damage range max.
-    "AttackRate"                                          "1.05"    // Speed of attack.
+    "AttackDamageMin"                                     "475"    // Damage range min.
+    "AttackDamageMax"                                     "485"    // Damage range max.
+    "AttackRate"                                          "1.15"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
@@ -42,7 +42,6 @@
     // Bounds
     //----------------------------------------------------------------
     "HealthBarOffset"                                     "175"
-
 
     // Movement
     //----------------------------------------------------------------
@@ -70,5 +69,4 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-
 }

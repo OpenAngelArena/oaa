@@ -33,7 +33,8 @@
     "AbilitySharedCooldown" "sonic"
     "ScriptFile"            "items/transformation/sonic.lua"
 
-    "AbilityCooldown"       "8.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "2.0"
     "AbilityCastPoint"      "0.0"
 
     "MaxUpgradeLevel"       "3"

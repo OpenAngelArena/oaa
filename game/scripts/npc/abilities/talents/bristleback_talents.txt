@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Ability: Special Bonus
+	// Bonus Max Goo Stacks
 	//=================================================================================================================
 	"special_bonus_unique_bristleback"
 	{
@@ -10,7 +10,7 @@
 		"ID"					"6083"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -24,7 +24,7 @@
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Bonus Quill Stack Damage
 	//=================================================================================================================
 	"special_bonus_unique_bristleback_2"
 	{
@@ -33,7 +33,7 @@
 		"ID"					"6360"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -41,13 +41,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"35" //OAA
+				"value"				"50" //OAA
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// Ability: Special Bonus
+	// Bonus Warpath Damage Per Stack
 	//=================================================================================================================
 	"special_bonus_unique_bristleback_3"
 	{
@@ -56,7 +56,7 @@
 		"ID"					"6615"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"30"
+				"value"				"50" //OAA
 			}
 		}
 	}

@@ -8,8 +8,10 @@ end
 
 local WinnerEvent = Event()
 local ScoreChangedEvent = Event()
+local LimitChangedEvent = Event()
 PointsManager.onWinner = WinnerEvent.listen
 PointsManager.onScoreChanged = ScoreChangedEvent.listen
+PointsManager.onLimitChanged = LimitChangedEvent.listen
 
 function PointsManager:Init ()
   DebugPrint ( 'Initializing.' )
@@ -157,6 +159,7 @@ end
 
 function PointsManager:SetLimit(killLimit)
   CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit, name = self:GetGameLength() })
+  LimitChangedEvent.broadcast(true)
 end
 
 function PointsManager:IncreaseLimit(extend_amount)

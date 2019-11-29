@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Harpy Stormcrafter: Chain Lightning
+  // Harpy Stormcrafter: Vanilla Chain Lightning
   //=================================================================================================================
   "harpy_storm_chain_lightning"
   {
@@ -33,7 +33,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "initial_damage"                                  "140"
+        "initial_damage"                                  "125" //OAA
       }
       "02"
       {
