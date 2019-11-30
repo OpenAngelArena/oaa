@@ -10,6 +10,7 @@
     "ID"                                                  "5262"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90"
+    "AbilityCooldown"                                     "90" // cooldown gets refreshed on hero kill
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_gain"                                     "200 300 400 500 1250 2000"
+        "health_gain"                                     "200 300 400 500 700 1300"
         "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_6"
       }
       "03"
@@ -50,7 +51,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "permanent_bonus"                                 "5 6 7 8 12 16" //OAA
+        "permanent_bonus"                                 "5 6 7 8 10 12" //OAA
       }
       "05"
       {
@@ -60,7 +61,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "2 3 4 5 8 11"
+        "armor_reduction"                                 "2 3 4 5 7 10"
       }
       "07"
       {

@@ -47,9 +47,9 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus"                                   "30"
-        "RequiresScepter"                                 "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_speed_duration"                           "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
       }
       "05"
       {
