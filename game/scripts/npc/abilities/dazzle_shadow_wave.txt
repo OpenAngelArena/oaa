@@ -13,9 +13,12 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -49,10 +52,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_targets"                                     "3 4 5 6 7 8"
       }
-      "04"
+      "04" // Scepter adds 3 more targets
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_max_targets_inc_dazzle"                  "4 5 6 7 8 9"
+        "max_targets_scepter"                             "6 7 8 9 10 11"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
