@@ -38,28 +38,28 @@
     {
       "01"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "duration"                                         "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
       }
       "02"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "total_damage"                                     "100 160 220 280 580 980"
+        "var_type"                                        "FIELD_INTEGER"
+        "total_damage"                                    "100 160 220 280 580 980"
       }
       "03"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "movement_slow"                                     "24 28 32 36"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "24 28 32 36 40 44"
       }
       "04"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "radius"                                            "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
       }
       "05"
       {
-        "var_type"                                          "FIELD_FLOAT"
-        "extra_duration"                                    "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "extra_duration"                                  "3"
       }
     }
   }
