@@ -10,13 +10,16 @@
     "ID"                                                  "5022"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityCastRange"                                    "400"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastRange"                                    "400"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,18 +28,19 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance"                                          "20 30 40 50 60"
+        "chance"                                          "20 30 40 45 50"
+        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "70 90 150 210 270" //OAA
+        "bonus_damage"                                    "70 90 110 170 270" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "agility_multiplier"                              "30 35 40 45 50"
+        "agility_multiplier"                              "35 40 45 50 55"
       }
       "04"
       {
@@ -64,8 +68,8 @@
       }
       "08"
       {
-        "var_type"                                       "FIELD_INTEGER"
-        "disable_range"                                  "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "disable_range"                                   "400"
       }
     }
   }
