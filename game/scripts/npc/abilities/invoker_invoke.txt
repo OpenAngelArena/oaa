@@ -30,13 +30,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_invoked_spells"                              "2"
       }
-     "02"
+      "02"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "cooldown_reduction_per_orb"                       "0.3" // will go below 0 second cooldown
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_reduction_per_orb"                      "0.16" // OAA, so it doesn't bug out at OAA levels
       }
     }
   }
-
-
 }
