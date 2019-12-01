@@ -12,6 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
 
@@ -22,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 12 10" //OAA
+    "AbilityCooldown"                                     "20"
     "AbilityDuration"                                     "3.75 4.5 5.25 6 6.75 7.5"
 
     // Cost
@@ -46,12 +47,12 @@
       "03"
       {
         "var_type"                                         "FIELD_INTEGER"
-        "enchant_health"                                   "200 400 1200 2400 4800 9600" //OAA
+        "enchant_health"                                   "1000 1400 2100 2800 5000 10000" //OAA
       }
       "04"
       {
         "var_type"                                         "FIELD_INTEGER"
-        "enchant_damage"                                   "20 40 80 160 320 640" //OAA
+        "enchant_damage"                                   "10 30 50 70 110 230" //OAA
       }
     }
   }
