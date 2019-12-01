@@ -44,10 +44,10 @@
         "var_type"                                         "FIELD_INTEGER"
         "slow_movement_speed"                              "-55"
       }
-      "03"
+      "03" // this is bonus hp, not minimum hp
       {
         "var_type"                                         "FIELD_INTEGER"
-        "enchant_health"                                   "1000 1400 2100 2800 5000 10000" //OAA
+        "enchant_health"                                   "200 800 1400 2000 3200 6800" //OAA
       }
       "04"
       {
