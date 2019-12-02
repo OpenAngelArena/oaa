@@ -1,6 +1,7 @@
 faceless_void_time_lock_oaa = class( AbilityBaseClass )
 
-LinkLuaModifier( "modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_time_lock_time_frozen", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 

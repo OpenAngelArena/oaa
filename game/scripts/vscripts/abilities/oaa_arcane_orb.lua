@@ -4,6 +4,8 @@ LinkLuaModifier("modifier_oaa_arcane_orb_buff_counter", "abilities/oaa_arcane_or
 LinkLuaModifier("modifier_oaa_arcane_orb_buff", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_arcane_orb_debuff_counter", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_arcane_orb_debuff", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_arcane_orb_mana_buff_counter", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_arcane_orb_mana_buff", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
 obsidian_destroyer_arcane_orb_oaa = class(AbilityBaseClass)
 
