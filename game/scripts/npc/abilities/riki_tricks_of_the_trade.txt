@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5145"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "ID"                                                  "5145"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -38,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "450"
+        "radius"                                          "450"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_4"
       }
       "02"
