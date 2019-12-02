@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Land Mines
+  // Techies: Proximity Mines
   //=================================================================================================================
   "techies_land_mines"
   {
@@ -15,6 +15,8 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "200 400 600 800 2000 3500"
+        "damage"                                          "200 400 600 800 1200 2400"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
@@ -72,15 +74,15 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "15"
+        "charge_restore_time"                             "20" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_techies_3"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter_bonus"                        "400"
+        "cast_range_scepter_bonus"                        "300"
         "RequiresScepter"                                 "1"
       }
     }
   }
-
 }

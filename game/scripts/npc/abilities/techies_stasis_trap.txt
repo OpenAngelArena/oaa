@@ -16,6 +16,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
@@ -70,9 +72,9 @@
       }
       "08"
       {
-        "var_type"          "FIELD_INTEGER"
-        "cast_range_scepter_bonus"    "400"
-        "RequiresScepter"     "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter_bonus"                        "300"
+        "RequiresScepter"                                 "1"
       }
     }
   }
