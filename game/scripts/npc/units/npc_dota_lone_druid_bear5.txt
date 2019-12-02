@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Lone Druid Spirit Bear 5
-//=================================================================================
+  //=================================================================================
+  // Lone Druid Spirit Bear 5
+  //=================================================================================
   "npc_dota_lone_druid_bear5"
   {
     // General
@@ -10,7 +10,7 @@
     "Model"                                               "models/heroes/lone_druid/spirit_bear.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_lone_druid_bear"
     "SoundSet"                                            "LoneDruid_SpiritBear"
-    "Level"                                               "7"
+    "Level"                                               "1"
     "ModelScale"                                          ".91"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "spirit_bear"
@@ -22,17 +22,16 @@
     "Ability3"                  "lone_druid_savage_roar_bear"         // Ability 3
     "Ability4"                  "lone_druid_spirit_bear_entangle"     // Ability 4
 
-
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "15"      // Physical protection.
+    "ArmorPhysical"                                       "11"      // Physical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "120"    // Damage range min.
     "AttackDamageMax"                                     "120"    // Damage range max.
-    "AttackRate"                                          "1.3"    // Speed of attack.
+    "AttackRate"                                          "1.35"    // Speed of attack.
     "AttackAnimationPoint"                                "0.43"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
@@ -58,9 +57,9 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "5500"    // Base health.
+    "StatusHealth"                                        "3600"    // Base health.
     "StatusHealthRegen"                                   "30"      // Health regeneration rate.
-    "StatusMana"                                          "300"    // Base mana.
+    "StatusMana"                                          "600"    // Base mana.
     "StatusManaRegen"                                     "0.5"    // Mana regeneration rate.
 
     // Vision
@@ -71,8 +70,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     //Inventory
