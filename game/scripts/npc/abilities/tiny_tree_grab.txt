@@ -74,21 +74,21 @@
         "var_type"                                        "FIELD_INTEGER"
         "splash_pct"                                      "100" //OAA
       }
-	  "07"
-	  {
-		"var_type"                                        "FIELD_INTEGER"
-		"throw_splash_pct"                                "150"
-	  }
-	  "08"
-	  {
-		"var_type"                                        "FIELD_FLOAT"
-		"bat_increase"                                    "0.0"
-	  }
-	  "09"
-	  {
-		"var_type"                                        "FIELD_INTEGER"
-		"speed_reduction"                                 "25"
-	  }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "throw_splash_pct"                                "150"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bat_increase"                                    "0.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_reduction"                                 "25"
+      }
     }
   }
 
