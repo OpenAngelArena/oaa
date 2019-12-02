@@ -43,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "empower_duration"                                "38.0 42.0 46.0 50.0 54.0 58.0"
+        "empower_duration"                                "38 42 46 50 54 58"
       }
       "02"
       {
@@ -54,7 +54,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "15 25 35 45 55 65" //OAA
+        "cleave_damage_pct"                               "15 25 35 45 55 65"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "04"

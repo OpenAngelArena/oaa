@@ -14,11 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +66,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "skewer_damage"                                   "70 140 210 280 640 1000"
+        "skewer_damage"                                   "70 140 210 280 420 840"
       }
       "07"
       {
