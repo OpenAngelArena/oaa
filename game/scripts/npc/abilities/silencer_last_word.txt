@@ -20,6 +20,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -34,38 +36,36 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.3"  // Applies multiple modifiers
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                                "FIELD_INTEGER"
-        "damage"                                  "80 120 160 200 400 600"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "80 120 160 200 400 600"
       }
       "02"
       {
-        "var_type"                                "FIELD_FLOAT"
-        "int_multiplier"                          "1.5 2 2.5 3 3.5 4.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "int_multiplier"                                  "1.5 2 2.5 3 3.5 4.0"
       }
       "03"
       {
-        "var_type"                                "FIELD_FLOAT"
-        "debuff_duration"                         "4"
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "4"
       }
       "04"
       {
-        "var_type"                                "FIELD_INTEGER"
-        "duration"                                "3 4 5 6 7 8"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "3 4 5 6 7 8"
       }
       "05"
       {
-        "var_type"                                "FIELD_INTEGER"
-        "scepter_radius"                          "600"
-        "RequiresScepter"                         "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "600"
+        "RequiresScepter"                                 "1"
       }
     }
   }
-
 }
