@@ -18,6 +18,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0 16.0 12.0 8.0 8.0 8.0"
@@ -70,14 +72,14 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "20 16 12 8"
+        "charge_restore_time"                             "20 16 12 8 8 8"
         "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "pounce_distance_scepter"                         "1400"
-        "RequiresScepter" "1"
+        "RequiresScepter"                                 "1"
       }
     }
   }
