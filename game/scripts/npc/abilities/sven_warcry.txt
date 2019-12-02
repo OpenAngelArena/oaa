@@ -33,30 +33,29 @@
     {
       "01"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "movespeed"                     "6 10 14 18 22 26"
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed"                                       "6 10 14 18 22 26"
       }
       "02"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "bonus_armor"                   "6 9 12 15 23 31"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6 9 12 15 21 30"
       }
       "03"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "bonus_damage"                  "12 16 20 24 72 120"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "12 16 20 24 48 96"
       }
       "04"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "radius"                        "700"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "700"
       }
       "05"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "duration"                      "8"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "8"
       }
     }
   }
-
 }
