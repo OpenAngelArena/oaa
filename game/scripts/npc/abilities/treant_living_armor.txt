@@ -34,21 +34,20 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "total_heal"    "60 120 180 240 480 720"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_8"
+        "var_type"                                        "FIELD_INTEGER"
+        "total_heal"                                      "60 120 180 240 480 960"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_8"
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
-        "bonus_armor"   "7 10 13 16 24 32"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "7 10 13 16 22 40"
       }
       "03"
       {
-        "var_type"      "FIELD_FLOAT"
-        "duration"      "8.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8.0"
       }
     }
   }
-
 }

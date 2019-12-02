@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "16 15 14 13 12 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -60,15 +60,14 @@
       }
       "06"
       {
-        "var_type"                                         "FIELD_FLOAT"
-        "duration"                                         "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0"
       }
       "07"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "projectile_speed"                                  "550"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "550"
       }
     }
   }
-
 }
