@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=================================================================================================================
   // Luna: Lunar Blessing
   //=================================================================================================================
@@ -26,20 +25,19 @@
       }
       "02"
       {
-        "var_type"                                       "FIELD_INTEGER"
-        "damage_pct"                                     "10 15 20 25 30 35"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_pct"                                      "10 15 20 25 30 35" // old Vengeance Aura had 42%
       }
       "03"
       {
-        "var_type"                                       "FIELD_INTEGER"
-        "armor_pct"                                      "10 15 20 25 30 35"
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_pct"                                       "10 15 20 25 30 35"
       }
       "04"
       {
-        "var_type"                                       "FIELD_INTEGER"
-        "bonus_night_vision"                             "200 400 600 800 1000 1200"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_night_vision"                              "200 400 600 800 1000 1200"
       }
     }
   }
-
 }
