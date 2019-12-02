@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5084"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
 
     // Special
@@ -18,12 +19,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "4 6 8 10 12 14"
+        "movement_speed_pct"                              "3 5 7 9 11 13"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed_pct"                         "8 12 16 20 24 28"
+        "self_movement_speed_pct"                         "6 10 14 18 22 26"
       }
       "03"
       {

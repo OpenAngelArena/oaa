@@ -47,7 +47,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_area_damage"                             "60 140 220 300 380" //OAA
+        "passive_area_damage"                             "60 140 220 460 860" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_razor_4"
       }
       "03"
@@ -74,7 +74,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 70 140 210 280" //OAA
+        "damage"                                          "40 70 100 190 340" //OAA
       }
     }
   }
