@@ -180,6 +180,15 @@ function HeroProgression:ProcessAbilityPointGain(hero, level)
   if not self:ShouldGetAnAbilityPoint(hero, level) then
     DebugPrint('...taken it away! (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
+  else
+
+    if level == 31 then
+      hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
+    end
+
+    if hero:GetName() == "npc_dota_hero_invoker" and level == 30 then
+      hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
+    end
   end
 end
 
