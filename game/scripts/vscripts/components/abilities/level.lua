@@ -47,47 +47,49 @@ function AbilityLevels:CheckAbilityLevels (keys)
   if ability_name then
     if string.find(ability_name, "special_bonus") then
       if hero.learned_talents_table == nil then
-	     hero.learned_talents_table = {}
-	  end
-	  local n = #hero.learned_talents_table
-	  -- Max number of learned talents is 4
-	  if n<4 then
-	    -- Store which talents are learned on the hero itself
-	    hero.learned_talents_table[n+1] = ability_name
-		print("Storing talent "..ability_name.." to the hero.")
-	  end
+        hero.learned_talents_table = {}
+      end
+      local n = #hero.learned_talents_table
+      -- Max number of learned talents is 4
+      if n<4 then
+        -- Store which talents are learned on the hero itself
+        hero.learned_talents_table[n+1] = ability_name
+        print("Storing talent "..ability_name.." to the hero.")
+      end
     end
   end
-  
+
+  -- Talents are auto-leveled at level 30, we revert that
   if level == 30 then
     Timers:CreateTimer(0.1, function()
       -- Find all talents on the hero
-	  for i = 0, hero:GetAbilityCount() - 1 do
+      for i = 0, hero:GetAbilityCount() - 1 do
         local ability = hero:GetAbilityByIndex(i)
         if ability and ability:IsAttributeBonus() then
           if ability:GetLevel() ~= 0 then
-			local ability_name = ability:GetAbilityName()
-			local original_talent_flag = false
-			if hero.learned_talents_table then
-			  local n = #hero.learned_talents_table
-			  for j = 1, n do
-			    if ability_name == hero.learned_talents_table[j] then
-				  print(ability_name)
-				  print("This ability was learned on the hero before level 30 and not with aghs.")
-				  original_talent_flag = true
-				end
-			  end
-			end
-			if not original_talent_flag then
-			  -- TO DO: Check Aghs level
-			  ability:SetLevel(0)
-			  print(ability_name)
-			  print("This ability was auto-leveled at level 30 and not with aghs.")
-			end
-		  else
-		    print(ability:GetAbilityName())
-			print("Talent is on the hero but its level is not 1")
-		  end
+            local ability_name = ability:GetAbilityName()
+            local original_talent_flag = false
+            if hero.learned_talents_table then
+              local n = #hero.learned_talents_table
+              for j = 1, n do
+                if ability_name == hero.learned_talents_table[j] then
+                  print(ability_name)
+                  print("This ability was learned on the hero before level 30 and not with aghs.")
+                  original_talent_flag = true
+                end
+              end
+            end
+            if not original_talent_flag then
+              -- TO DO: Check Aghs level
+              ability:SetLevel(0)
+              print(ability_name)
+              print("This ability was auto-leveled at level 30 and not with aghs.")
+              -- Inform the custom talents hud part about talent removal
+            end
+          else
+            print(ability:GetAbilityName())
+            print("Talent is on the hero but its level is not 1")
+          end
         end
       end
     end)
