@@ -1,117 +1,117 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_legion_commander"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6218"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Additional Duel Damage Bonus
+  //=================================================================================================================
+  "special_bonus_unique_legion_commander"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6218"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"40"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"40"
+      }
+    }
+  }
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_legion_commander_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6449"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Decreases Press The Attack Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_legion_commander_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6449"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"10"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"10"
+      }
+    }
+  }
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_legion_commander_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6526"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Bonus Moment of Courage Proc Chance
+  //=================================================================================================================
+  "special_bonus_unique_legion_commander_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6526"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"15" //OAA
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"15" //OAA
+      }
+    }
+  }
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_legion_commander_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6671"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Bonus Overwhelming Odds Hero Damage
+  //=================================================================================================================
+  "special_bonus_unique_legion_commander_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6671"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"100" //OAA
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"150" //OAA
+      }
+    }
+  }
 
-	//=================================================================================================================
-	// Ability: Special Bonus
-	//=================================================================================================================
-	"special_bonus_unique_legion_commander_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"7395"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // AoE Press The Attack
+  //=================================================================================================================
+  "special_bonus_unique_legion_commander_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7395"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"350"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"350"
+      }
+    }
+  }
 }

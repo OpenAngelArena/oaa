@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16025"
+    "ItemCost"                                            "15900"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight 4;pipe 4"
@@ -72,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "30 32 34 37 40"
+        "magic_resistance"                                "30 32 34 36 38"
       }
       "03"
       {
@@ -92,7 +92,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance_aura"                           "10 13 16 20 24"
+        "magic_resistance_aura"                           "10 13 16 19 22"
       }
       "07"
       {
@@ -117,7 +117,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 5 10 15 20"
+        "bonus_all_stats"                                 "3 10 25 40 55"
       }
       "12"
       {

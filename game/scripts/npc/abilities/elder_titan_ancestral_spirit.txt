@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, 7.22g
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -20,9 +20,11 @@
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17" //OAA
+    "AbilityCooldown"                                     "23 21 19 17 17 17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -95,6 +97,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "move_pct_cap"                                    "40"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_magic_immune_per_hero"                   "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

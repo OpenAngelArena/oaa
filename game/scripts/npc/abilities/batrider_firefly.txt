@@ -12,6 +12,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -40,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "4 7 10 13 26 50"
+        "movement_speed"                                  "5 10 15 20 30 40"
       }
       "03"
       {
@@ -50,7 +51,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15.0"
+        "duration"                                        "15"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_1"
       }
       "05"
@@ -62,6 +63,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tree_radius"                                     "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_vision"                                    "200 400 600 800 900 900"
       }
     }
   }
