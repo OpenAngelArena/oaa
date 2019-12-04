@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1800"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,6 +22,7 @@
     "ItemRequirements" // OAA
     {
       "01"                                                "item_aghanims_scepter_5;item_upgrade_core_4"
+      "02"                                                "item_ultimate_scepter;item_upgrade_core_4;item_upgrade_core_4;item_upgrade_core_4"
     }
   }
 
