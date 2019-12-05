@@ -51,12 +51,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12"
+        "duration"                                        "10 11 12 13 14"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_damage_pct"                             "30 60 90 150 210" //OAA
+        "movement_damage_pct"                             "60 120 180 240 300" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"

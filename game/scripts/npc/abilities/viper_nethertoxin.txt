@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"viper_nethertoxin"
+  "viper_nethertoxin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,11 +8,22 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "900"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10" //OAA
+    "AbilityCooldown"                                     "14.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70 80 90 100 150 200"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,28 +31,33 @@
     {
       "01"
       {
-        "var_type"          "FIELD_FLOAT"
-        "damage"            "30 45 60 75 150 175"
+        "var_type"                                        "FIELD_INTEGER"
+        "min_damage"                                      "15 20 25 30 60 90"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "radius"            "380"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage"                                      "60 80 100 120 240 360"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "magic_resistance"  "-10 -15 -20 -25 -30 -35"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_duration"                                    "4"
       }
       "04"
       {
-        "var_type"          "FIELD_FLOAT"
-        "duration"          "8"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "projectile_speed"  "2000"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "2000"
       }
     }
   }

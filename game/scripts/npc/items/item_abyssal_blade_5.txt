@@ -31,7 +31,7 @@
     "ID"                                                  "3115"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_abyssal_blade"
     "AbilityTextureName"                                  "custom/abyssal_blade_5"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -41,7 +41,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "140"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters

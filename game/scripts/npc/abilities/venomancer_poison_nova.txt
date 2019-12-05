@@ -8,7 +8,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
 
@@ -56,12 +56,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 90 180 270 360" //OAA
+        "damage"                                          "40 90 140 280 420" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "40" //OAA
+        "cooldown_scepter"                                "60" //OAA
         "RequiresScepter"                                 "1"
       }
       "06"
@@ -74,7 +74,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "75 125 220 315 410" //OAA
+        "damage_scepter"                                  "75 125 175 325 475" //OAA
         "RequiresScepter"                                 "1"
       }
       "08"

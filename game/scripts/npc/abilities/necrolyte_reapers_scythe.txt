@@ -12,8 +12,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS" // OAA, not ancient flag to disable casting on bosses
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS" // OAA, not ancient flag to disable casting on bosses
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
@@ -22,7 +22,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,11 +30,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
+    "AbilityCooldown"                                     "120 100 80 60 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 350 500 1200 2000"
+    "AbilityManaCost"                                     "200 350 500 800 1700"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_health"                               "0.6 0.75 0.9 1.05 1.2"
+        "damage_per_health"                               "0.7 0.8 0.9 1.1 1.5"
       }
       "02"
       {
@@ -59,12 +59,6 @@
         "stun_duration"                                   "1.5"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "60 50 40 35 30"
-        "RequiresScepter"                                 "1"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "respawn_constant"                                "1" //OAA, This doesn't work in OAA anyway because of the custom respawn times
