@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 100 150 300 400"
+    "AbilityManaCost"                                     "50 100 150 300 450"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.2 1.1 1.0 1.0 0.9"
+        "base_attack_time"                                "1.2 1.1 1.0 0.9 0.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_3"
       }
       "04"
@@ -71,6 +71,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movespeed"                                 "40 50 60 70 80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_6"
       }
       "08"
       {

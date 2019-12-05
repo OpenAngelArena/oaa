@@ -34,7 +34,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "armor_reduction"                                 "2 2.5 3.0 3.5 4.0" //OAA
+        "armor_reduction"                                 "2 2.5 3 3.5 4" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_4"
       }
       "03"
@@ -46,6 +46,18 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "1200"
+      }
+      "05" // unused
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "1000"
+        "RequiresScepter"                                 "1"
+      }
+      "06" // unused
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_count"                                   "8"
+        "RequiresScepter"                                 "1"
       }
     }
   }

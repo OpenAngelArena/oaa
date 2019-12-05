@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Obsidian Destroyer: Equilibrium
+  // Obsidian Destroyer: Equilibrium (Essense Flux)
   //=================================================================================================================
   "obsidian_destroyer_equilibrium"
   {
@@ -14,7 +14,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCooldown"                                     "18"
+    "AbilityCooldown"                                     "25"
 
     "AbilityManaCost"                                     "50"
 
@@ -24,29 +24,29 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_steal"                                      "11 18 25 32 46 60"
+        "var_type"                                  "FIELD_INTEGER"
+        "proc_chance"                               "25"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_steal_active"                               "33 54 75 96 138 180"
+        "var_type"                                  "FIELD_INTEGER"
+        "mana_restore"                              "20 30 40 50 55 60"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "12 22 32 42 52 62"
-        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_2"
+        "var_type"                                  "FIELD_INTEGER"
+        "movement_slow"                             "11 22 33 44 55 66"
+        "LinkedSpecialBonus"                        "special_bonus_unique_outworld_devourer_2"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1.75"
+        "var_type"                                  "FIELD_FLOAT"
+        "slow_duration"                             "1.75"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7"
+        "var_type"                                  "FIELD_FLOAT"
+        "duration"                                  "6"
       }
     }
   }

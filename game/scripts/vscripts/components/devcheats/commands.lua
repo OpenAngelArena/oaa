@@ -23,6 +23,7 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkDevCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
   ChatCommand:LinkDevCommand("-lazer", Dynamic_Wrap(DevCheats, "AddDevAttack"), self)
+  ChatCommand:LinkDevCommand("-lvlup", Dynamic_Wrap(DevCheats, "LevelUp"), self)
 end
 
 -- Print all modifiers on player's hero to console
@@ -276,4 +277,32 @@ function DevCheats:SwitchHero(keys)
   else
     GameRules:SendCustomMessage("Usage is -switchhero X, where X is the name of the hero to switch to", 0, 0)
   end
+end
+
+function DevCheats:LevelUp(keys)
+  local text = string.lower(keys.text)
+  local splitted = split(text, " ")
+  local number = false
+  if #splitted > 0 then
+    number = tonumber(splitted[1])
+  end
+
+  if not number then
+    number = 1
+  end
+
+  local playerID = keys.playerid
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+
+  local desiredLevel = math.min(50, hero:GetLevel() + number)
+
+  Timers:CreateTimer(function()
+    while hero:GetLevel() < desiredLevel do
+      if XP_PER_LEVEL_TABLE[hero:GetLevel() + 1] < hero:GetCurrentXP() then
+        print('Level was totally wrong ' .. tostring(hero:GetCurrentXP()) .. ' > ' .. tostring(XP_PER_LEVEL_TABLE[hero:GetLevel() + 1]))
+        return
+      end
+      hero:AddExperience(XP_PER_LEVEL_TABLE[hero:GetLevel() + 1] - hero:GetCurrentXP(), DOTA_ModifyXP_Unspecified, false, false)
+    end
+  end)
 end

@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 275 350"
+    "AbilityManaCost"                                     "110 140 170 200 260 400"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -31,23 +31,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "8 9 10 11 12 13" //OAA, for picking screen tooltip
+        "mana_pool_damage_pct"                            "6.25 8.75 11.25 13.75 15 16" //OAA, for picking screen tooltip
+        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "int_steal"                                       "1 2 3 4 5 6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "int_steal_duration"                              "80"
-        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "175"
+        "counter_duration"                                "35"
       }
     }
   }

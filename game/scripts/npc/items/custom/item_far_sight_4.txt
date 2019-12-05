@@ -47,7 +47,7 @@
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "1000"
+    "AoERadius"                                           "900"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "33625"
+    "ItemCost"                                            "33575"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -82,7 +82,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 18"
+        "bonus_armor"                                     "2 5 9 14"
       }
       "03"
       {
@@ -102,7 +102,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "1000"
+        "reveal_radius"                                   "900"
       }
       "07"
       {

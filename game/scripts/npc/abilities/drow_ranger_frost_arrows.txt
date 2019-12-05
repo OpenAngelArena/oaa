@@ -43,10 +43,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "frost_arrows_movement_speed"                     "-16 -32 -48 -64 -70 -75"
       }
-      "02"
+      "02" // Searing Arrows: 20 30 40 50 70 130
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "frost_arrows_creep_duration"                     "7.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "5 10 15 20 40 60"
       }
     }
   }

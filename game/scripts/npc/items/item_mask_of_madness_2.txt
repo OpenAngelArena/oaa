@@ -33,7 +33,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "16.0"
     "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_2"
 
@@ -60,12 +60,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 50 75 120"
+        "bonus_damage"                                    "10 30 60 100 150"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "10 20 30 40 50"
       }
       "03"
       {
@@ -75,7 +75,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "110 135 160 185 210"
+        "berserk_bonus_attack_speed"                      "110 130 150 170 190"
       }
       "05"
       {
@@ -90,7 +90,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "berserk_duration"                                "8.0"
+        "berserk_duration"                                "6.0"
       }
     }
   }
