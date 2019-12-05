@@ -224,6 +224,6 @@ function modifier_item_greater_guardian_greaves_aura:GetModifierPhysicalArmorBon
   if hpPercent < self:GetAbility():GetSpecialValueFor("aura_bonus_threshold") then
     return self:GetAbility():GetSpecialValueFor("aura_armor_bonus")
   else
-    return self:GetAbility():GetSpecialValueFor("aura_armor")
+    return 0
   end
 end

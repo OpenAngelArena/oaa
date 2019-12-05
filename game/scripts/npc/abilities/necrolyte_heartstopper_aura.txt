@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700"
+        "aura_radius"                                     "800"
       }
       "02"
       {
@@ -46,6 +46,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hero_multiplier"                                 "6"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_multiplier"                              "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

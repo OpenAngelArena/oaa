@@ -4,6 +4,8 @@ LinkLuaModifier("modifier_oaa_arcane_orb_buff_counter", "abilities/oaa_arcane_or
 LinkLuaModifier("modifier_oaa_arcane_orb_buff", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_arcane_orb_debuff_counter", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_arcane_orb_debuff", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_arcane_orb_mana_buff_counter", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_arcane_orb_mana_buff", "abilities/oaa_arcane_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
 obsidian_destroyer_arcane_orb_oaa = class(AbilityBaseClass)
 
@@ -201,7 +203,14 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       return
     end
 
-    local bonusDamage = attacker:GetMana() * ability:GetSpecialValueFor("mana_pool_damage_pct") / 100
+    local mana_pool_damage_pct = ability:GetSpecialValueFor("mana_pool_damage_pct")
+
+    -- Talent that increases mana pool damage percent
+    if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
+      mana_pool_damage_pct = mana_pool_damage_pct + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+    end
+
+    local bonusDamage = attacker:GetMana() * mana_pool_damage_pct/100
     local player = attacker:GetPlayerOwner()
     local point = target:GetAbsOrigin()
 
@@ -217,32 +226,44 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
     SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
     target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
 
-    -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
+    -- Intelligence steal or mana increase if the target is a real hero (and not a meepo clone or arc warden tempest double)
     if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) then
       local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
       local intStealAmount = ability:GetSpecialValueFor("int_steal")
+      local manaIncreaseAmount = ability:GetSpecialValueFor("max_mana_increase")
+      local manaIncreaseDuration = ability:GetSpecialValueFor("bonus_mana_duration")
 
-      if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
-        intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+      if intStealAmount ~= 0 and intStealDuration ~= 0 then
+        -- Talent that increases int steal duration
+        if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
+          intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+        end
+
+        target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff_counter", {duration = intStealDuration})
+        target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff", {duration = intStealDuration})
+        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
+        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff", {duration = intStealDuration})
       end
 
-      target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff_counter", {duration = intStealDuration})
-      target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff", {duration = intStealDuration})
-      attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
-      attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff", {duration = intStealDuration})
+      if manaIncreaseAmount ~= 0 and manaIncreaseDuration ~= 0 then
+        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff_counter", {duration = manaIncreaseDuration})
+        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff", {duration = manaIncreaseDuration})
+      end
     end
 
     local radius = ability:GetSpecialValueFor("radius")
-    local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
-    local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
-    local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
+    if radius ~= 0 then
+      local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+      local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
+      local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
 
-    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
-    for _, enemy in ipairs(enemies) do
-      if enemy ~= target then
-        damage_table.victim = enemy
-        ApplyDamage(damage_table)
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, bonusDamage, player)
+      local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
+      for _, enemy in ipairs(enemies) do
+        if enemy ~= target then
+          damage_table.victim = enemy
+          ApplyDamage(damage_table)
+          SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, bonusDamage, player)
+        end
       end
     end
 
@@ -396,4 +417,67 @@ end
 
 function modifier_oaa_arcane_orb_debuff:GetModifierBonusStats_Intellect()
   return -self.intStealAmount
+end
+
+-------------------------------------------------------------------------------------------------------------
+
+modifier_oaa_arcane_orb_mana_buff_counter = class(ModifierBaseClass)
+
+function modifier_oaa_arcane_orb_mana_buff_counter:IsPurgable()
+  return false
+end
+
+function modifier_oaa_arcane_orb_mana_buff_counter:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOOLTIP
+  }
+end
+
+function modifier_oaa_arcane_orb_mana_buff_counter:OnTooltip()
+  local mana_increase = self:GetAbility():GetSpecialValueFor("max_mana_increase")
+  return mana_increase * self:GetStackCount()
+end
+
+--------------------------------------------------------------------------------
+
+modifier_oaa_arcane_orb_mana_buff = class(ModifierBaseClass)
+
+function modifier_oaa_arcane_orb_mana_buff:IsPurgable()
+  return false
+end
+
+function modifier_oaa_arcane_orb_mana_buff:IsHidden()
+  return true
+end
+
+function modifier_oaa_arcane_orb_mana_buff:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_oaa_arcane_orb_mana_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MANA_BONUS
+  }
+end
+
+function modifier_oaa_arcane_orb_mana_buff:OnCreated()
+  if IsServer() then
+    local counterMod = self:GetParent():FindModifierByName("modifier_oaa_arcane_orb_mana_buff_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() + 1)
+    end
+  end
+end
+
+if IsServer() then
+  function modifier_oaa_arcane_orb_mana_buff:OnDestroy()
+    local counterMod = self:GetParent():FindModifierByName("modifier_oaa_arcane_orb_mana_buff_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() - 1)
+    end
+  end
+end
+
+function modifier_oaa_arcane_orb_mana_buff:GetModifierManaBonus()
+  return self:GetAbility():GetSpecialValueFor("max_mana_increase")
 end
