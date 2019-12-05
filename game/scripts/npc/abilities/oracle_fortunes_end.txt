@@ -19,6 +19,8 @@
 
     "MaxLevel"                                            "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
@@ -62,6 +64,24 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_range"                             "800"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_radius"                            "150"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_stun_percentage"                         "50"
+        "RequiresScepter"                                 "1"
       }
     }
   }

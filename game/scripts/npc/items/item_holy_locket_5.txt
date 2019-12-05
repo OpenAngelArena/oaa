@@ -36,15 +36,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                          "8556"
     "BaseClass"                   "item_holy_locket"
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"          "custom/holy_locket_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "35700"
+    "ItemCost"                    "35900"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemAliases"                 "holy locket 5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13.0"
+    "AbilitySharedCooldown"                               "magicwand"
+    "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "5"
@@ -53,30 +59,45 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+       "01"
       {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_health"            "200 400 650 1150 2000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 400 650 1150 2000"
       }
       "02"
       {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_mana"              "325 800 1350 1900 2550"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "325 650 975 1300 1625"
       }
       "03"
       {
-        "var_type"                "FIELD_FLOAT"
-        "health_regen"            "4 10 16 23 30"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "4 10 16 23 30"
       }
       "04"
       {
-        "var_type"                "FIELD_INTEGER"
-        "magic_resist"            "15 17 19 22 25"
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_increase"                                   "35 40 45 50 55"
       }
       "05"
       {
-        "var_type"                "FIELD_INTEGER"
-        "heal_increase"           "25 30 35 45 50"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_radius"                                   "1200"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "3 10 25 40 55"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "restore_per_charge"                              "15 20 30 45 65"
       }
     }
   }

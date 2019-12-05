@@ -1,6 +1,7 @@
 faceless_void_time_lock_oaa = class( AbilityBaseClass )
 
-LinkLuaModifier( "modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_time_lock_time_frozen", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -182,6 +183,11 @@ if IsServer() then
       -- Apply built-in stun modifier
       target:AddNewModifier(parent, ability, "modifier_faceless_void_timelock_freeze", {duration = duration})
 
+      -- Custom Scepter debuff
+      if parent:HasScepter() then
+        target:AddNewModifier(parent, ability, "modifier_time_lock_time_frozen", {duration = duration})
+      end
+
       -- Sound of Time Lock stun
       target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
 
@@ -220,7 +226,11 @@ if IsServer() then
       Timers:CreateTimer(delay, function()
         if target:IsAlive() then
           -- Perform the second attack (can trigger attack modifiers)
-          parent:PerformAttack(target, false, true, true, false, false, false, false)
+          if parent:HasScepter() then
+            parent:PerformAttack(target, false, true, true, false, false, false, true)
+          else
+            parent:PerformAttack(target, false, true, true, false, false, false, false)
+          end
           -- Emit sound again
           target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
         end
@@ -230,4 +240,69 @@ if IsServer() then
       self:SetStackCount(prngMult)
     end
   end
+end
+
+--------------------------------------------------------------------------------
+
+modifier_time_lock_time_frozen = class(ModifierBaseClass)
+
+function modifier_time_lock_time_frozen:IsHidden()
+	return true
+end
+
+function modifier_time_lock_time_frozen:IsDebuff()
+	return true
+end
+
+function modifier_time_lock_time_frozen:IsStunDebuff()
+  return true
+end
+
+function modifier_time_lock_time_frozen:IsPurgable()
+	return true
+end
+
+function modifier_time_lock_time_frozen:CheckState()
+	local state = {
+		[MODIFIER_STATE_EVADE_DISABLED] = true,
+	}
+
+	return state
+end
+
+function modifier_time_lock_time_frozen:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_DISABLE_HEALING,
+  }
+  return funcs
+end
+
+function modifier_time_lock_time_frozen:GetDisableHealing()
+  return 1
+end
+
+if IsServer() then
+  function modifier_time_lock_time_frozen:OnCreated()
+    local parent = self:GetParent()
+    self:CooldownFreeze(parent)
+    self:StartIntervalThink(0.1)
+  end
+
+  function modifier_time_lock_time_frozen:OnIntervalThink()
+    local parent = self:GetParent()
+    self:CooldownFreeze(parent)
+  end
+end
+
+function modifier_time_lock_time_frozen:CooldownFreeze(target)
+	-- Adds 0.1 second to the current cooldown to every spell off cooldown
+	for i = 0, target:GetAbilityCount()-1 do
+		local target_ability = target:GetAbilityByIndex(i)
+		if target_ability then
+			local cd = target_ability:GetCooldownTimeRemaining()
+			if cd > 0 then
+				target_ability:StartCooldown(cd + 0.1)
+			end
+		end
+	end
 end
