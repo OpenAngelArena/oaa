@@ -19,7 +19,7 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -62,18 +62,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_rate"                                       "1.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "1.0"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "castpoint_scepter"                               "0.1"
-        "RequiresScepter"                                 "1"
       }
     }
   }

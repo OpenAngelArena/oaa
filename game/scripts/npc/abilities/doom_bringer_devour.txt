@@ -38,20 +38,15 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "75 125 250 375 750 1500" //OAA
+        "bonus_gold"                                      "50 100 150 200 600 1000" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devour_time"                                     "50" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "regen"                                           "10 20 30 40 70 100" //OAA
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "creep_level"                                     "6" //OAA

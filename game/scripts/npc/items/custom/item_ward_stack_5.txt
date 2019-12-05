@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33625"
+    "ItemCost"                                            "33575"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -76,17 +76,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 6 9 13 18"
+        "bonus_armor"                                     "0 2 5 9 14"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "80 400 1200 2000 2800"
+        "bonus_health"                                    "0 200 700 1200 1700"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "90 450 800 1200 1500"
+        "bonus_all_stats"                                 "4 10 25 40 55"
       }
       "05"
       {
@@ -96,7 +96,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "2.0 3.0 4.0 5.0 6.0"
+        "aura_mana_regen"                                 "1.25 2.0 3.0 4.0 5.0"
       }
       "07"
       {

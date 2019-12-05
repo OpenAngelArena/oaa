@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5074"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
 
     // Special
@@ -18,12 +19,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_regen"                                    "10 16 22 28 40 56" //OAA
+        "health_regen"                                    "10 15 20 25 35 65" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "flesh_heap_strength_buff_amount"                 "1.0 1.5 2 2.5 3.0 5.0"
+        "flesh_heap_strength_buff_amount"                 "1.0 1.5 2 2.5 3.0 3.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_1"
       }
       "03"
