@@ -68,12 +68,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "16 17 18 19 20"
-			}
+        "status_resistance"                               "20 21 22 23 24"
+      }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16 18 20 26 34"
+        "bonus_attack_speed"                              "16 26 36 46 56"
       }
       "05"
       {
@@ -83,7 +83,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 28 44 68"
+        "hp_regen_amp"                                    "30 32 34 36 38"
       }
     }
   }

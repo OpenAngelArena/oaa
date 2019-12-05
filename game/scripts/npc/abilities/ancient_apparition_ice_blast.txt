@@ -19,8 +19,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.01"
@@ -65,7 +63,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "frostbite_duration"                              "8 9 10 11 12" //OAA
+        "frostbite_duration"                              "10 11 12 13 14"
       }
       "06"
       {
@@ -87,12 +85,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "target_sight_radius"                             "500"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "frostbite_duration_scepter"                      "13 14 15 16 17" //OAA
-        "RequiresScepter"                                 "1"
       }
     }
   }

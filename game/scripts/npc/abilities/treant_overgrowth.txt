@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.5 4.25 5.0 5.5 6.0"
+        "duration"                                        "3.0 4.0 5.0 5.5 6.0"
       }
       "02"
       {
@@ -55,10 +55,9 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_damage_tooltip"                          "175"
-        "RequiresScepter"                                 "1"
+        "damage"                                          "100 150 200 350 600" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_11"
       }
     }
   }
-
 }

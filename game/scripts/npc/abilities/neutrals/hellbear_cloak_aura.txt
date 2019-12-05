@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Blue Tomato: Cloak Aura - magic resistance aura, this aura stacks with itself
+  // Blue Tomato: Cloak Aura - magic resistance aura
   //=================================================================================================================
   "mudgolem_cloak_aura"
   {
@@ -28,7 +28,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor_creeps"                      "5" //OAA
+        "bonus_magical_armor_creeps"                      "20"
       }
       "03"
       {
