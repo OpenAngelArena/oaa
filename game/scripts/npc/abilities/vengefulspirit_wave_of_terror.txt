@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10"
+    "AbilityCooldown"                                     "16 14 12 10 8 6"
     "AbilityDuration"                                     "8"
 
     // Damage.
@@ -63,7 +63,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.0"
+        "vision_duration"                                 "4"
       }
     }
   }

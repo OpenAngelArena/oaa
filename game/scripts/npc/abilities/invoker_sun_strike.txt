@@ -52,8 +52,21 @@
         "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "4.0"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cataclysm_cooldown"                              "90"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cataclysm_min_range"                             "160"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cataclysm_max_range"                             "200"
+      }
     }
   }
-
-
 }

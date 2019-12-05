@@ -19,8 +19,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
@@ -44,7 +42,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "shock_speed"                                     "900"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -70,7 +67,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "2"
-        "RequiresScepter"                                 "1"
       }
       "07"
       {
@@ -82,13 +78,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_speed"                                   "1500"
-        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pull_distance"                                   "100"
-        "RequiresScepter"                                 "1"
+        "pull_distance"                                   "150"
       }
       "10"
       {

@@ -30,7 +30,6 @@ function modifier_item_aghanims_talents:OnCreated()
   if IsServer () then
     local parent = self:GetParent()
     local noDropHeroes = {
-      npc_dota_hero_undying = true
     }
     self.isRunning = true
 
@@ -103,6 +102,14 @@ function modifier_item_aghanims_talents:SetTalents(tree)
   -- input is { [10] = true, [15] = true, ... }
   local talentOverrides = {}
   local parent = self:GetParent()
+  if parent:GetLevel() >= 50 then
+    tree = {
+      [10] = true,
+      [15] = true,
+      [20] = true,
+      [25] = true,
+    }
+  end
   local function setTalentLevel (level, leftAbility, rightAbility, claim)
     if not leftAbility or not rightAbility then
       -- print('No ability for index ' .. leftIndex .. ', ' .. rightIndex)
@@ -178,12 +185,12 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       if parent['talentChoice' .. level] == 'left' then
         if rightLevel ~= 0 then
           rightAbility:SetLevel(0)
-          parent:RemoveModifierByName(self:GetTalentModifier(rightAbility:GetName()))
+          parent:RemoveModifierByName(AbilityLevels:GetTalentModifier(rightAbility:GetName()))
         end
       else
         if leftLevel ~= 0 then
           leftAbility:SetLevel(0)
-          parent:RemoveModifierByName(self:GetTalentModifier(leftAbility:GetName()))
+          parent:RemoveModifierByName(AbilityLevels:GetTalentModifier(leftAbility:GetName()))
         end
       end
     end
@@ -214,34 +221,4 @@ function modifier_item_aghanims_talents:SetTalents(tree)
   setTalentLevel("15", abilityTable[4], abilityTable[3], tree[15])
   setTalentLevel("20", abilityTable[6], abilityTable[5], tree[20])
   setTalentLevel("25", abilityTable[8], abilityTable[7], tree[25])
-end
-
-function modifier_item_aghanims_talents:GetTalentModifier(name)
-  -- Map of special_bonus names to modifier names for Talents that don't follow the pattern
-  local exceptionBonuses = {
-    special_bonus_spell_immunity = "modifier_special_bonus_spell_immunity",
-    special_bonus_haste = "modifier_special_bonus_haste",
-    special_bonus_truestrike = "modifier_special_bonus_truestrike",
-    special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
-    special_bonus_unique_treant_3 = "modifier_special_bonus_unique_treant_3",
-    special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
-    special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
-    special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
-    special_bonus_sohei_wholeness_allycast = "modifier_special_bonus_sohei_wholeness_allycast",
-    special_bonus_unique_monkey_king_4 = "modifier_special_bonus_unique_monkey_king_armor",
-    special_bonus_unique_monkey_king_6 = "modifier_special_bonus_unique_monkey_king_ring"
-  }
-
-  if exceptionBonuses[name] then
-    return exceptionBonuses[name]
-  end
-  -- Handle crit specially as it has a unique pattern
-  if string.find(name, "_crit_") then
-    return "modifier_special_bonus_crit"
-  end
-
-  -- Cut out the last underscore and everything following it
-  local chopBonusName = string.match(name, "(.*)_")
-
-  return "modifier_" .. chopBonusName
 end

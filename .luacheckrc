@@ -2831,6 +2831,7 @@ read_globals = { -- these globals can only be accessed.
 "FindAllBuildingsInRadius",
 "PreventGettingStuck",
 "MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE",
+"MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING",
 "MODIFIER_STATE_UNSLOWABLE",
 "AddAnimationTranslate",
 "BOSS_WANDERER_SPAWN_START",

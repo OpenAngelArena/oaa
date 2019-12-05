@@ -72,7 +72,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_spell_amp"                           "75 100"
+        "sangromancy_spell_amp"                           "50 75"
       }
       "02"
       {
@@ -82,27 +82,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "15 30"
+        "bonus_health_regen"                              "25 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "11 15"
+        "bonus_all_stats"                                 "25 40"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "15 30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "30 45"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "4.0 5.0"
       }
     }
   }

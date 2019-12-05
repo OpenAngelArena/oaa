@@ -16,7 +16,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_bfury_2;item_upgrade_core_2"
-      "02"                                                "item_desolator_2;item_upgrade_core_2"
+      "02"                                                "item_desolator_oaa_2;item_upgrade_core_2"
     }
   }
 
@@ -47,17 +47,17 @@
     "ItemCost"                                            "8500"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bf 3;battle fury 3"
+    "ItemAliases"                                         "cleaver 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+     "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 85 125 180"
+        "bonus_damage"                                    "54 74 104 144 194"
       }
       "02"
       {
@@ -72,7 +72,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "40 50 60 70 80"	//OAA
+        "cleave_damage_percent"                           "50 60 70 80 90"	//OAA
       }
       "05"
       {

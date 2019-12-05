@@ -19,8 +19,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550 700 850 1000 1150 1450"
@@ -42,12 +40,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "700" //OAA
-        "RequiresScepter"                                 "1"
       }
     }
   }

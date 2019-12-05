@@ -34,17 +34,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "5 10 15 20 25 30"
+        "movespeed"                                       "6 10 14 18 22 26"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_shield"                                       "80 110 140 170 230 320"  //OAA
+        "bonus_armor"                                     "6 9 12 15 21 30"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "strength_multiplier"                             "1 1.5 2 2.5 2.6 2.7"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "12 16 20 24 48 96"
       }
       "04"
       {
@@ -54,9 +54,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "10"
+        "duration"                                        "8"
       }
     }
   }
-
 }

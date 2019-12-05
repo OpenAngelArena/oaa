@@ -43,7 +43,7 @@
     "AbilityTextureName"                                  "custom/linkens_sphere_2"
 
     "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "13.0 12.0 11.0 10.0 9.0"
+    "AbilityCooldown"                                     "12.0 11.0 10.0 9.0 8.0"
     "AbilitySharedCooldown"                               "linkens"
 
     // Item Info
@@ -66,12 +66,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "13 25 35 45 55"
+        "bonus_all_stats"                                 "14 25 40 55 70"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.5 10.0 13.0 16.0 19.0"
+        "bonus_health_regen"                              "7 11.0 14.0 19.0 25.0"
       }
       "03"
       {
@@ -81,7 +81,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "block_cooldown"                                  "13.0 11.0 9.0 8.0 7.0"
+        "block_cooldown"                                  "12.0 11.0 10.0 9.0 8.0"
       }
     }
   }
