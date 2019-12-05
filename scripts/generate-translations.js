@@ -123,7 +123,8 @@ function getUnchangedStrings (languageName, cb) {
     languageName = 'schinese';
   }
   request.get({
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_' + languageName + '.txt'
+    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_' + languageName + '.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_' + languageName + '.txt'
   }, function (err, result) {
     if (err) {
       console.error(languageName);
