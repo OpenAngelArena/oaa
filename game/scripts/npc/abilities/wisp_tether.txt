@@ -68,6 +68,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "self_bonus"                                      "0"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "8 16 24 32 40 48"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.2"
+      }
     }
   }
 }

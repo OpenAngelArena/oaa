@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0" //OAA
+    "AbilityCooldown"                                     "50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,36 +33,41 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bear_hp"                                         "1500 2500 3500 4500 7000 10000" //OAA
+        "var_type"                                            "FIELD_INTEGER"
+        "bear_hp"                                             "1100 1600 2100 2600 3600 6600" //OAA
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bear_regen_tooltip"                              "5 6 7 8 11 15" //OAA
+        "var_type"                                            "FIELD_INTEGER"
+        "bear_regen_tooltip"                                  "5 10 15 20 30 60" //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bear_bat"                                        "1.65 1.55 1.45 1.35 1.3 1.25" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_10"
+        "var_type"                                            "FIELD_FLOAT"
+        "bear_bat"                                            "1.75 1.65 1.55 1.45 1.35 1.25"
+        "LinkedSpecialBonus"                                  "special_bonus_unique_lone_druid_10"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bear_armor"                                      "6 9 12 15 24 32"   //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_2"
+        "var_type"                                            "FIELD_INTEGER"
+        "bear_armor"                                          "3 5 7 9 11 13" //OAA
+        "LinkedSpecialBonus"                                  "special_bonus_unique_lone_druid_2"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "backlash_damage"                                 "30.0" //OAA
+        "var_type"                                            "FIELD_FLOAT"
+        "backlash_damage"                                     "20.0" //OAA
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "45.0" //OAA
-        "RequiresScepter"                                 "1"
+        "var_type"                                            "FIELD_FLOAT"
+        "cooldown_scepter"                                    "50" //OAA
+        "RequiresScepter"                                     "1"
+      }
+      "07"
+      {
+        "var_type"                                            "FIELD_INTEGER"
+        "movespeed_tooltip"                                   "340 360 380 400 420 440"
       }
     }
   }

@@ -80,7 +80,12 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_leap_duration"                           "0.75"
+        "scepter_leap_duration"                           "1.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range"                              "75"
       }
     }
   }

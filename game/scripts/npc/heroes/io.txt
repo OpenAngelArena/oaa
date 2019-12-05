@@ -5,16 +5,17 @@
   //=================================================================================================================
   "npc_dota_hero_wisp"
   {
-    "Ability10"                                           "special_bonus_hp_100"       // replaces special_bonus_gold_income_90
-    "Ability11"                                           "special_bonus_attack_damage_45"
-
-    "Ability12"                                           "special_bonus_unique_wisp_7"
-    "Ability13"                                           "special_bonus_hp_regen_8"
-
-    "Ability14"                                           "special_bonus_unique_wisp"
-    "Ability15"                                           "special_bonus_armor_15"
+    "Ability12"                                           "special_bonus_unique_wisp_5" // replaces special_bonus_gold_income_120
+    "Ability13"                                           "special_bonus_spell_lifesteal_13"
 
     "Ability16"                                           "special_bonus_unique_wisp_6"
-    "Ability17"                                           "special_bonus_unique_wisp_5"    // replaces special_bonus_unique_wisp_4
+    "Ability17"                                           "special_bonus_unique_wisp_7" // replaces special_bonus_unique_wisp_4
+
+    // special_bonus_unique_wisp_2 - Tether Stuns
+    // special_bonus_unique_wisp_3 - Bonus Spirits Max Range
+    // special_bonus_unique_wisp_4 - Attack Tethered Ally's Target
+    // special_bonus_unique_wisp_5 - Tether Scepter Bonus
+    // special_bonus_unique_wisp_6 - Relocate cooldown
+    // special_bonus_unique_wisp_7 - Spirits Apply Slow
   }
 }

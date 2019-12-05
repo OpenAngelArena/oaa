@@ -14,18 +14,19 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "475 550 625 700 800 1000"
+    "AbilityCastRange"                                    "475 550 625 700 775 850"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5" //OAA
+    "AbilityCooldown"                                     "15 12 9 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,27 +39,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "475 550 625 700 800 1000"
+        "cast_range"                                      "475 550 625 700 775 850"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pull_distance"                                   "250 300 350 400 600 900"
+        "pull_distance"                                   "250 300 350 400 450 500"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "10 20 30 40 50 60"
+        "armor_reduction"                                 "2 3 4 5 7 10"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_slow"                                     "30 50 70 90 120 150"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6"
       }
     }
   }
