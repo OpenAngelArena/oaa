@@ -44,7 +44,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "65"
+    "AbilityCooldown"               "70"
     "AbilitySharedCooldown"                               "avatar"
     "AbilityTextureName"            "custom/black_king_bar_5"
     "MaxUpgradeLevel"               "5"
@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "10 20 30 40 55"
+        "bonus_strength"        "10 15 25 40 60"
       }
       "02"
       {

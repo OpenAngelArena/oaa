@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_charge_bkb;item_upgrade_core_2"
-      "02"                                                "item_charge_bkb;item_upgrade_core_3"
-      "03"                                                "item_charge_bkb;item_upgrade_core_4"
-      "04"                                                "item_black_king_bar_2;item_upgrade_core_2"
-      "05"                                                "item_black_king_bar_2;item_upgrade_core_3"
-      "06"                                                "item_black_king_bar_2;item_upgrade_core_4"
+      "02"                                                "item_black_king_bar_2;item_upgrade_core_2"
     }
   }
 
@@ -60,7 +56,7 @@
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

@@ -43,7 +43,7 @@
             "02"
             {
                 "var_type"          "FIELD_INTEGER"
-                "burn_damage"       "1000"
+                "burn_damage"       "400"
             }
 
             "03"
@@ -65,7 +65,7 @@
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
-                "area_duration"         "5.0" // magi's: 2.0
+                "area_duration"         "8.0" // magi's: 2.0
             }
         }
     }

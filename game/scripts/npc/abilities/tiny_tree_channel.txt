@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Tiny Tree Channel (Scepter)
+  //=================================================================================================================
+  "tiny_tree_channel"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7850"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "1"
+
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByScepter"                                  "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"                                  "2.4"
+    "AbilityCastRange"                                    "1300"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityChannelAnimation"                             "ACT_DOTA_CAST_ABILITY_4"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+		{
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1000.0"
+        "RequiresScepter"                                 "1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "1300"
+        "RequiresScepter"                                 "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_radius"                                   "400"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_grab_radius"                                "525"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "interval"                                        "0.4"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "0"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER" //"FIELD_FLOAT"
+        "abilitychanneltime"                              ""
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

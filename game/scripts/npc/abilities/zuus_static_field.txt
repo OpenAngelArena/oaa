@@ -19,9 +19,10 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_health_pct"                               "5 7 9 11 12 13"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_health_pct"                               "6 8 10 12 14 16"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

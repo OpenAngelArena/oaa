@@ -11,13 +11,14 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "10.0 10.0 10.0 10.0 10.0"
+    "AbilityDuration"                                     "10.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -26,8 +27,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "18 24 30 60 90"
-        "LinkedSpecialBonus"  "special_bonus_unique_bristleback_3"
+        "damage_per_stack"                                "22 28 34 64 104" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_3"
       }
       "02"
       {
@@ -42,7 +43,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "5 7 9 11 13"
+        "max_stacks"                                      "5 7 9 9 9"
       }
     }
   }

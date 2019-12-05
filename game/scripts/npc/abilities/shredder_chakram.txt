@@ -14,11 +14,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pass_damage"                                     "100 140 180 380 580"
+        "pass_damage"                                     "100 180 260 420 740" //OAA
       }
       "04"
       {
@@ -81,6 +82,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "pass_slow_duration"                              "0.5"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_health_percentage"                          "5"
       }
     }
   }

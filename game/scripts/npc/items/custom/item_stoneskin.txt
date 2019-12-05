@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: stoneskin (Based on Armlet)
+  // Recipe: stoneskin
   //=================================================================================================================
   "item_recipe_stoneskin"
   {
@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
-      "02"                                                "item_shivas_guard_3;item_upgrade_core_4"
     }
   }
 
@@ -47,7 +46,8 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySharedCooldown"                               "stoneskin"
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "2.0"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_stoneskin"

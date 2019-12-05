@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Bonus duration for Arcane Orb Int Steal
+	// Bonus Arcane Orb mana pool to damage percent
 	//=================================================================================================================
 	"special_bonus_unique_outworld_devourer"
 	{
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
+				"value"				"2"
 			}
 		}
 	}
@@ -86,8 +86,8 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"2"
+				"var_type"					"FIELD_FLOAT"
+				"value"				"0.1"
 			}
 		}
 	}
