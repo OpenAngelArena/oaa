@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_diffusal_blade_4;item_upgrade_core_4"
-      "02"                                                "item_butterfly_4;item_upgrade_core_4"
     }
   }
 
@@ -75,7 +74,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "10 20 30 40 50"
       }
       "03"
       {

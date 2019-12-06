@@ -56,17 +56,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 33 41 50 60"
+        "bonus_damage"                                    "25 30 55 90 135"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20 25 30 35 35" //OAA
+        "bonus_evasion"                                   "35 40 45 50 55"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "20 25 35 45 55"	//OAA
+        "bonus_attack_speed"                              "25 30 35 40 45"
       }
     }
   }
