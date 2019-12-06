@@ -46,7 +46,7 @@ function HeroSelection:Init ()
 
   local herolistFile = 'scripts/npc/herolist.txt'
 
-  if self.isCM or self.isRanked then
+  if self.isCM then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
   if self.isARDM then

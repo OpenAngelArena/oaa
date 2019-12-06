@@ -13,6 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17.0"
+    "AbilityCooldown"                                     "18 17 16 15 14 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,54 +42,59 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "25 35 45 55 95 135" //OAA
+        "damage_impact"                                   "50 75 100 125 175 325"
       }
       "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "20 25 30 35 45 75" //OAA
+      }
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_duration"                                 "4 5 6 7 8 9"
         "CalculateSpellDamageTooltip"                     "0"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_3"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_total_tooltip"                            "100 175 270 385 760 1215"  //OAA
-      }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "explosion_radius"                                "375"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_total_tooltip"                            "130 200 280 370 535 1000"  //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "collision_radius"                                "100"
+        "explosion_radius"                                "500"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "collision_radius"                                "100"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "0.5"
       }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
       "08"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_max_distance"                          "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1200"
       }
       "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_distance"                              "300"
+      }
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "knockback_height"                                "100"
       }
-      "10"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.25"
+        "knockback_duration"                              "0.35"
       }
     }
   }

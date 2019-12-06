@@ -18,7 +18,7 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "0" // OAA, causes lag
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "525 600 675 750 750 750"
+    "AbilityCastRange"                                    "525 600 675 750 825 900"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lance_damage"                                    "100 150 200 250 475 700"
+        "lance_damage"                                    "100 150 200 250 500 700"
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_2"
       }
       "02"
@@ -94,24 +94,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "fake_lance_distance"                             "675"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "400"
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_jumps"                                   "1" //OAA, to prevent lag
-        "RequiresScepter"                                 "1"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lance_speed_bounces"                             "700"
-        "RequiresScepter"                                 "1"
       }
     }
   }
