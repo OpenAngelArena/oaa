@@ -1,0 +1,53 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_shredder"
+	"Title"			"Recommended items for Timbersaw"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_flask"
+			"item"		"item_mango"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_kaya"
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_blink"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_kaya_and_sange"
+			"item"		"item_mekansm"
+			"item"		"item_greater_guardian_greaves"	
+			"item"		"item_shivas_guard"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_black_king_bar_1"	
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_greater_guardian_greaves_4"
+			"item"		"item_ultimate_scepter_5"
+		}
+		
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_bloodstone"	
+			"item"		"item_lotus_orb"	
+			"item"		"item_pipe"
+			"item"		"item_cyclone"
+			"item"		"item_sheepstick_4"
+			"item"		"item_sphere"
+			
+
+		}
+	}
+}

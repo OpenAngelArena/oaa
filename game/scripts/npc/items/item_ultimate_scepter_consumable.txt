@@ -1,0 +1,45 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Aghanim's Blessing
+  //=================================================================================================================
+  "item_recipe_ultimate_scepter_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "270"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "20000" // OAA
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_ultimate_scepter_2"
+    "ItemRequirements" // OAA
+    {
+      "01"                                                "item_ultimate_scepter;item_upgrade_core_4;item_upgrade_core_4;item_upgrade_core_4"
+      "02"                                                "item_aghanims_scepter_5;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Aghanim's Blessing
+  //=================================================================================================================
+  "item_ultimate_scepter_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "271"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/aghanim_scepter.vmdl"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "ItemCost"                                            "24200" //OAA
+    "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "ags;ultimate;aghanim's scepter;aghs"
+  }
+}

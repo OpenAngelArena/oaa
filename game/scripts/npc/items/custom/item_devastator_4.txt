@@ -25,11 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_devastator_3;item_upgrade_core_3"
-      "02"                                                "item_devastator_3;item_upgrade_core_4"
-      "03"                                                "item_desolator_3;item_upgrade_core_3"
-      "04"                                                "item_desolator_3;item_upgrade_core_4"
-      "05"                                                "item_bfury_3;item_upgrade_core_3"
-      "06"                                                "item_bfury_3;item_upgrade_core_4"
+      "02"                                                "item_desolator_3;item_upgrade_core_3"
+      "03"                                                "item_bfury_3;item_upgrade_core_3"
     }
   }
 
@@ -54,9 +51,9 @@
     "AbilityTextureName"                                  "custom/devastator_4"
 
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastPoint"                                    "0"
     "AbilityCooldown"                                     "10"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "75"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -79,13 +76,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 130 180"
+        "bonus_damage"                                    "20 40 70 110 160"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-4 -7 -10 -13 -16"
+        "corruption_armor"                                "-3 -5 -8 -12 -17"
       }
       "03"
       {
@@ -118,6 +115,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_damage"                               "100 200 300 400 500"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {
@@ -132,7 +130,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_armor_reduction"                      "-8 -11 -14 -17 -20"
+        "devastator_armor_reduction"                      "-7 -10 -14 -19 -25"
       }
       "12"
       {

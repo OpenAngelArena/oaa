@@ -16,8 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_silver_edge_2;item_upgrade_core_2"
-      "02"                                                "item_silver_edge_2;item_upgrade_core_3"
-      "03"                                                "item_silver_edge_2;item_upgrade_core_4"
     }
   }
 
@@ -61,7 +59,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 40 50 60 70"
+        "bonus_damage"                                    "36 50 70 95 125"
       }
       "02"
       {

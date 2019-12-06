@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Morphling: Replicate
+  // Morphling: Replicate (Morph)
   //=================================================================================================================
   "morphling_replicate"
   {
@@ -13,19 +13,25 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "700 850 1000 1150 1300"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "160 100 40 20 10"
+    "AbilityCooldown"                                     "120 80 40 20 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 150 250"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,6 +42,18 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_morphling_8"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_manacost_reduction"                      "50"
+        "RequiresScepter"                                 "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cast_range_bonus"                        "600"
+        "RequiresScepter"                                 "1"
       }
     }
   }

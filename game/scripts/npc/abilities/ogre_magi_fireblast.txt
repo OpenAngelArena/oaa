@@ -15,7 +15,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 85 95 105 135 175"
+    "AbilityManaCost"                                     "75 85 95 105 210 315"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_delay"                                 "0.5"
+        "multicast_delay"                                 "0.6"
       }
       "03"
       {

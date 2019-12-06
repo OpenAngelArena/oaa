@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
+  //=================================================================================================================
   // Lycan Summon Wolves: Permanent Invisibility
   //=================================================================================================================
   "lycan_summon_wolves_invisibility"
@@ -10,7 +10,9 @@
     "ID"                                                  "5500"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "5"
+
+    "MaxLevel"                                            "6"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -18,7 +20,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "0.0 0.0 0.0 0.0 0.0"
+        "fade_time"                                       "0.0"
       }
       "02"
       {
