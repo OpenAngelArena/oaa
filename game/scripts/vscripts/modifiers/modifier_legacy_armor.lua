@@ -31,7 +31,7 @@ if IsServer() then
       return 0
     else
       self.checkArmor = true
-      self.armor = self:GetParent():GetPhysicalArmorValue()
+      self.armor = self:GetParent():GetPhysicalArmorValue(false)
       self.checkArmor = false
       return 45 * self.armor / (52 + 0.2 * math.abs(self.armor)) - self.armor
     end

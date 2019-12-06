@@ -23,12 +23,9 @@
     "ItemResult"                                          "item_enrage_crystal_2"
     "ItemRequirements"
     {
-      "01"                        "item_enrage_crystal_1;item_upgrade_core_3"
-      "02"                        "item_enrage_crystal_1;item_upgrade_core_4"
-      "03"                        "item_black_king_bar_3;item_upgrade_core_3"
-      "04"                        "item_black_king_bar_3;item_upgrade_core_4"
-      "05"                        "item_charge_bkb_2;item_upgrade_core_3"
-      "06"                        "item_charge_bkb_2;item_upgrade_core_4"
+      "01"                                                "item_enrage_crystal_1;item_upgrade_core_3"
+      "02"                                                "item_black_king_bar_3;item_upgrade_core_3"
+      "03"                                                "item_charge_bkb_2;item_upgrade_core_3"
     }
   }
 
@@ -58,8 +55,8 @@
     "ItemCost"                                            "16975"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "hard enrage crystal"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "enrage crystal 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

@@ -1,4 +1,4 @@
-/* global GameEvents, Entities, FindDotaHudElement */
+/* global GameEvents, Entities, FindDotaHudElement, $, Players */
 'use strict';
 (function () {
   var statsTooltipRegion = FindDotaHudElement('stats_tooltip_region');

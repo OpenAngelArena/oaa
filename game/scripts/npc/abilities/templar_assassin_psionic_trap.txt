@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5197"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5197"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -16,6 +16,8 @@
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -47,29 +49,29 @@
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "movement_speed_min"      "30"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_min"                              "30"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "movement_speed_max"      "60"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_max"                              "60"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "trap_duration_tooltip"     "5"
+        "var_type"                                        "FIELD_INTEGER"
+        "trap_duration_tooltip"                           "5"
       }
       "06"
       {
-        "var_type"          "FIELD_INTEGER"
-        "trap_bonus_damage"     "250 300 350 700 1050"
-        "LinkedSpecialBonus"  "special_bonus_unique_templar_assassin_3"
+        "var_type"                                        "FIELD_INTEGER"
+        "trap_bonus_damage"                               "250 350 450 750 1050" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin_3"
       }
       "07"
       {
-        "var_type"          "FIELD_FLOAT"
-        "trap_max_charge_duration"      "4"
+        "var_type"                                        "FIELD_FLOAT"
+        "trap_max_charge_duration"                        "4"
       }
     }
   }

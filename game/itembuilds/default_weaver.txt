@@ -1,0 +1,61 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_weaver"
+    "Title"         "Recommended items for Weaver"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_tranquil_origin"
+            "item"      "item_flask"
+            "item"      "item_wraith_band"
+            "item"      "item_enchanted_mango"
+            "item"      "item_magic_stick"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_tranquil_boots"
+            "item"      "item_desolator"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_bloodthorn"
+            "item"      "item_satanic"
+            "item"      "item_greater_crit"
+            "item"      "item_black_king_bar"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_devastator_5"
+            "item"      "item_bloodthorn_5"
+            "item"      "item_satanic_5"
+            "item"      "item_nullifier_5"
+            "item"      "item_black_king_bar_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_solar_crest_5"
+            "item"      "item_monkey_king_bar_5"
+            "item"      "item_butterfly_5"
+            "item"      "item_diffusal_blade_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_octarine_core_5"
+            "item"      "item_heart_5"
+            "item"      "item_hurricane_pike_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_desolator_5"
+            "item"      "item_diffusal_blade_5"
+            "item"      "item_lotus_orb_5"
+            "item"      "item_skadi"
+            "item"      "item_mjollnir"
+            "item"      "item_manta"
+        }
+    }
+}

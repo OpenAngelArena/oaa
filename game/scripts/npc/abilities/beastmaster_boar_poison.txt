@@ -12,7 +12,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -20,12 +22,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "-10 -20 -30 -40 -100 -160"
+        "attack_speed"                                    "-10 -20 -30 -40 -80 -160"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "-10 -20 -30 -40 -100 -160"
+        "movement_speed"                                  "-10 -20 -30 -40 -60 -80"
       }
       "03"
       {

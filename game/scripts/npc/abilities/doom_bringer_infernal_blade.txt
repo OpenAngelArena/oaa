@@ -14,7 +14,13 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 12 8 4 4 4"
@@ -29,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "25"
+        "burn_damage"                                     "16 20 24 28 32 36"
       }
       "02"
       {
@@ -46,6 +52,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "ministun_duration"                               "0.6"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ministun_duration_scepter"                       "1.75"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_duration_scepter"                           "6.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }

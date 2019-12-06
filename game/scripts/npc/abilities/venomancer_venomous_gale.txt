@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"venomancer_venomous_gale"
+  "venomancer_venomous_gale"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -10,12 +10,13 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -32,27 +33,27 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15.0 15.0 15.0 15.0"
+        "duration"                                        "15.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "strike_damage"                                   "25 50 75 100 225 350"
+        "strike_damage"                                   "25 50 75 100 250 350"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tick_damage"                                     "30 60 90 120 250 400" //OAA
+        "tick_damage"                                     "30 60 90 120 240 420" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "3.0 3.0 3.0 3.0"
+        "tick_interval"                                   "3.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-50 -50 -50 -50"
+        "movement_slow"                                   "-50"
       }
       "06"
       {
@@ -62,7 +63,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1200 1200 1200 1200"
+        "speed"                                           "1200"
       }
     }
   }
