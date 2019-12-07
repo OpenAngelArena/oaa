@@ -14,7 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastRange"                                    "700"
+    //"AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.4"
     "FightRecapLevel"                                     "1"
 
@@ -35,18 +35,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_heal"                                      "60 120 180 240 480 960"
+        "total_heal"                                      "60 100 140 180 480 960"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_8"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 13 16 22 40"
+        "bonus_armor"                                     "4 6 8 10 20 30"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0"
+        "duration"                                        "12.0"
       }
     }
   }
