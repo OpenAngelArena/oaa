@@ -1,12 +1,13 @@
 "DOTAAbilities"
 {
-"witch_doctor_voodoo_restoration"
+  "witch_doctor_voodoo_restoration"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5139"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
 
     // Time
@@ -35,7 +36,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "heal"                                            "16 24 32 40 80 120"
-        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_2"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_2"
       }
       "04"
       {

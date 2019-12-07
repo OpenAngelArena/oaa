@@ -1,14 +1,11 @@
 "AddonInfo"
 {
 	"TeamCount" 	      "3"
-	"maps"	            "unranked ranked captains_mode 10v10 ardm"
+	"maps"	            "oaa captains_mode 10v10 ardm"
 	"IsPlayable"	      "1"
   "PenaltiesEnabled"  "0"
-  "ranked"
-  {
-    "MaxPlayers"      "10"
-  }
-  "unranked"
+  "EnablePickRules"   "1"
+  "oaa"
   {
     "MaxPlayers"      "10"
   }

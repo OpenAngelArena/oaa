@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5357"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -21,16 +21,16 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5"
+    "AbilityCooldown"                                     "9 8 7 6 6 6"
     "AbilityDuration"                                     "4.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "90 140 190 240 490 740" //OAA
+    "AbilityDamage"                                       "75 125 175 225 450 900"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,14 +42,29 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shock_radius"                                    "385"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_5"
+        "var_type"                                         "FIELD_INTEGER"
+        "shock_radius"                                     "385"
+        "LinkedSpecialBonus"                               "special_bonus_unique_ursa_5"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-25 -35 -45 -55 -65 -75"
+        "var_type"                                         "FIELD_INTEGER"
+        "movement_slow"                                    "-10 -25 -40 -55 -65 -75"
+      }
+      "03"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "hop_distance"                                     "250"
+      }
+      "04"
+      {
+        "var_type"                                         "FIELD_FLOAT"
+        "hop_duration"                                     "0.25"
+      }
+      "05"
+      {
+        "var_type"                                         "FIELD_INTEGER"
+        "hop_height"                                       "83"
       }
     }
   }

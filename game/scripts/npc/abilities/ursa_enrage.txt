@@ -14,11 +14,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 30 30"
+    "AbilityCooldown"                                     "70 50 30 30 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,8 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "30 26 22 17 12"  //OAA
+        "cooldown_scepter"                                "26 24 22 20 18"  //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

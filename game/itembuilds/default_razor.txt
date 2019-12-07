@@ -1,0 +1,59 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_razor"
+    "Title"         "Recommended items for Razor"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_flask"
+            "item"      "item_enchanted_mango"
+            "item"      "item_branches"
+            "item"      "item_magic_wand"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_desolator"
+            "item"      "item_greater_crit"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_assault"
+            "item"      "item_satanic"
+            "item"      "item_black_king_bar"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_desolator_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_assault_5"
+            "item"      "item_satanic_5"
+            "item"      "item_black_king_bar_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_butterfly_5"
+            "item"      "item_monkey_king_bar_5"
+            "item"      "item_skadi_5"
+            "item"      "item_trumps_fists_2"
+            "item"      "item_sphere_5"
+            "item"      "item_silver_edge_5"
+            "item"      "item_manta_5"
+            "item"      "item_mjollnir_5"
+            "item"      "item_helm_of_the_dominator_5"
+            "item"      "item_hurricane_pike_5"
+            "item"      "item_sange_and_yasha_5"
+
+        }
+    }
+}

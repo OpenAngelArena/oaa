@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Beastmaster Hawk 6
-//=================================================================================
+  //=================================================================================
+  // Beastmaster Hawk 6
+  //=================================================================================
   "npc_dota_beastmaster_hawk_6"
   {
     // General
@@ -38,13 +38,13 @@
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "77"    // Experience earn.
-    "BountyGoldMin"                                       "60"    // Gold earned min.
-    "BountyGoldMax"                                       "60"    // Gold earned max.
+    "BountyGoldMin"                                       "80"    // Gold earned min.
+    "BountyGoldMax"                                       "80"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"
-    "MovementSpeed"                                       "575"    // Speed.
+    "MovementSpeed"                                       "500"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
@@ -54,8 +54,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "3000"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "3000"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1800"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------

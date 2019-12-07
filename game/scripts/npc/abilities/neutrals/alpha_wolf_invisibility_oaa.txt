@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Alpha Wold: Invisibility - removed on attack or when spell cast
+  //=================================================================================================================
+  "alpha_wolf_invisibility_oaa"
+  {
+    "ID"                                                  "85308"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_alpha_wolf_invisibility.lua"
+    "AbilityTextureName"                                  "lycan_summon_wolves_invisibility"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastPoint"                                    "0"
+
+    "AbilityCooldown"                                     "20.0"
+
+    "AbilityManaCost"                                     "75"
+    "AbilityProcsMagicStick"                              "1"
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "20.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_time"                                       "0.7"
+      }
+    }
+  }
+}

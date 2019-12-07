@@ -4,6 +4,7 @@ if HeroProgression == nil then
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
+  Debug:EnableDebugging()
   local player = EntIndexToHScript(keys.player)
   local playerLevel = PlayerResource:GetLevel(player:GetPlayerID())
   local level = keys.level
@@ -166,8 +167,13 @@ end
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
   if pattern == nil then
-    -- After level 25 most heros get an additional skill point every 3 levels
-    return level < 25 or math.fmod(level, 3) == 1
+    -- normal leveling up until 25
+    if level < 25 then
+      return true
+    end
+    -- level points between 25 and 30 are spent automatically on the talents at 30
+    -- get 1 point every 3rd level from now on
+    return math.fmod(level, 3) == 1
   else
     -- Hero levelling up has a custom levelling pattern
     -- (e.g. Invoker who gets all the skillpoints every level)
@@ -176,10 +182,14 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
 end
 
 function HeroProgression:ProcessAbilityPointGain(hero, level)
-  DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level)
+  DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
   if not self:ShouldGetAnAbilityPoint(hero, level) then
     DebugPrint('...taken it away! (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
+  end
+
+  if level == 30 then
+    hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
   end
 end
 
