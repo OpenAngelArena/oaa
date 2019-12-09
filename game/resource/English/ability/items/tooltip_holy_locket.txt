@@ -1,11 +1,11 @@
 
-"DOTA_Tooltip_Ability_item_holy_locket"                                     "Holy Locket"
-"DOTA_Tooltip_Ability_item_recipe_holy_locket"                              "Holy Locket Recipe"
-"DOTA_Tooltip_ability_item_holy_locket_Description"                         "<h1>Passive: Holy Blessing</h1>Amplifies heals and regeneration you provide by %heal_increase%%%."
-"DOTA_Tooltip_ability_item_holy_locket_bonus_health"                        "+$health"
-"DOTA_Tooltip_ability_item_holy_locket_bonus_mana"                          "+$mana"
-"DOTA_Tooltip_ability_item_holy_locket_health_regen"                        "+$hp_regen"
-"DOTA_Tooltip_ability_item_holy_locket_magic_resist"                        "%+$spell_resist"
+//"DOTA_Tooltip_Ability_item_holy_locket"                                     "Holy Locket"
+//"DOTA_Tooltip_Ability_item_recipe_holy_locket"                              "Holy Locket Recipe"
+//"DOTA_Tooltip_ability_item_holy_locket_Description"                         "<h1>Active: Energy Charge</h1>Instantly restores %restore_per_charge% health and mana per charge stored. <br><br>Max %max_charges% charges. Gains a charge whenever a visible enemy within %charge_radius% range uses an ability.  \n\n <h1>Passive: Holy Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
+//"DOTA_Tooltip_ability_item_holy_locket_bonus_health"                        "+$health"
+//"DOTA_Tooltip_ability_item_holy_locket_bonus_mana"                          "+$mana"
+//"DOTA_Tooltip_ability_item_holy_locket_health_regen"                        "+$hp_regen"
+//"DOTA_Tooltip_ability_item_holy_locket_bonus_all_stats"                     "+$all"
 
 "DOTA_Tooltip_Ability_item_holy_locket_2"                                   "#{DOTA_Tooltip_Ability_item_holy_locket}"
 "DOTA_Tooltip_Ability_item_recipe_holy_locket_2"                            "#{DOTA_Tooltip_Ability_item_recipe_holy_locket}"
@@ -13,7 +13,7 @@
 "DOTA_Tooltip_ability_item_holy_locket_2_bonus_health"                      "#{DOTA_Tooltip_ability_item_holy_locket_bonus_health}"
 "DOTA_Tooltip_ability_item_holy_locket_2_health_regen"                      "#{DOTA_Tooltip_ability_item_holy_locket_health_regen}"
 "DOTA_Tooltip_ability_item_holy_locket_2_bonus_mana"                        "#{DOTA_Tooltip_ability_item_holy_locket_bonus_mana}"
-"DOTA_Tooltip_ability_item_holy_locket_2_magic_resist"                      "#{DOTA_Tooltip_ability_item_holy_locket_magic_resist}"
+"DOTA_Tooltip_ability_item_holy_locket_2_bonus_all_stats"                   "#{DOTA_Tooltip_ability_item_holy_locket_bonus_all_stats}"
 
 "DOTA_Tooltip_Ability_item_holy_locket_3"                                   "#{DOTA_Tooltip_Ability_item_holy_locket}"
 "DOTA_Tooltip_Ability_item_recipe_holy_locket_3"                            "#{DOTA_Tooltip_Ability_item_recipe_holy_locket}"
@@ -21,7 +21,7 @@
 "DOTA_Tooltip_ability_item_holy_locket_3_bonus_health"                      "#{DOTA_Tooltip_ability_item_holy_locket_bonus_health}"
 "DOTA_Tooltip_ability_item_holy_locket_3_health_regen"                      "#{DOTA_Tooltip_ability_item_holy_locket_health_regen}"
 "DOTA_Tooltip_ability_item_holy_locket_3_bonus_mana"                        "#{DOTA_Tooltip_ability_item_holy_locket_bonus_mana}"
-"DOTA_Tooltip_ability_item_holy_locket_3_magic_resist"                      "#{DOTA_Tooltip_ability_item_holy_locket_magic_resist}"
+"DOTA_Tooltip_ability_item_holy_locket_3_bonus_all_stats"                   "#{DOTA_Tooltip_ability_item_holy_locket_bonus_all_stats}"
 
 "DOTA_Tooltip_Ability_item_holy_locket_4"                                   "#{DOTA_Tooltip_Ability_item_holy_locket}"
 "DOTA_Tooltip_Ability_item_recipe_holy_locket_4"                            "#{DOTA_Tooltip_Ability_item_recipe_holy_locket}"
@@ -29,7 +29,7 @@
 "DOTA_Tooltip_ability_item_holy_locket_4_bonus_health"                      "#{DOTA_Tooltip_ability_item_holy_locket_bonus_health}"
 "DOTA_Tooltip_ability_item_holy_locket_4_health_regen"                      "#{DOTA_Tooltip_ability_item_holy_locket_health_regen}"
 "DOTA_Tooltip_ability_item_holy_locket_4_bonus_mana"                        "#{DOTA_Tooltip_ability_item_holy_locket_bonus_mana}"
-"DOTA_Tooltip_ability_item_holy_locket_4_magic_resist"                      "#{DOTA_Tooltip_ability_item_holy_locket_magic_resist}"
+"DOTA_Tooltip_ability_item_holy_locket_4_bonus_all_stats"                   "#{DOTA_Tooltip_ability_item_holy_locket_bonus_all_stats}"
 
 "DOTA_Tooltip_Ability_item_holy_locket_5"                                   "#{DOTA_Tooltip_Ability_item_holy_locket}"
 "DOTA_Tooltip_Ability_item_recipe_holy_locket_5"                            "#{DOTA_Tooltip_Ability_item_recipe_holy_locket}"
@@ -37,4 +37,4 @@
 "DOTA_Tooltip_ability_item_holy_locket_5_bonus_health"                      "#{DOTA_Tooltip_ability_item_holy_locket_bonus_health}"
 "DOTA_Tooltip_ability_item_holy_locket_5_health_regen"                      "#{DOTA_Tooltip_ability_item_holy_locket_health_regen}"
 "DOTA_Tooltip_ability_item_holy_locket_5_bonus_mana"                        "#{DOTA_Tooltip_ability_item_holy_locket_bonus_mana}"
-"DOTA_Tooltip_ability_item_holy_locket_5_magic_resist"                      "#{DOTA_Tooltip_ability_item_holy_locket_magic_resist}"
+"DOTA_Tooltip_ability_item_holy_locket_5_bonus_all_stats"                   "#{DOTA_Tooltip_ability_item_holy_locket_bonus_all_stats}"
