@@ -281,14 +281,12 @@ function modifier_item_bloodstone_non_stacking_stats:IsPurgable()
   return false
 end
 
-if IsServer() then
-  function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
-    return {
-      MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
-      MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
-      MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING -- GetModifierPercentageManacostStacking
-    }
-  end
+function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING -- GetModifierPercentageManacostStacking
+  }
 end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
