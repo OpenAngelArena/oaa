@@ -52,14 +52,14 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "120 180 240 300 600 900"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_per_target"                         "16 24 32 40 80 160"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
       "06"
       {

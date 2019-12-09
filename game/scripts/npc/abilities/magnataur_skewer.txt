@@ -81,7 +81,13 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "skewer_cooldown"                                 "4"
+        "skewer_cooldown"                                 "6"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_manacost"                                 "40"
         "RequiresScepter"                                 "1"
       }
     }

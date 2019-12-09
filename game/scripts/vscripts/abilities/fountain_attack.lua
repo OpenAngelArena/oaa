@@ -92,6 +92,10 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     local targetMaxMana = target:GetMaxMana()
     local manaReductionAmount = targetMaxMana / killTicks
 
+    if target:IsCourier() then
+      return
+    end
+
     target:MakeVisibleDueToAttack(teamID, 0)
     target:Purge(true, false, false, false, true)
     target:ReduceMana(manaReductionAmount)
