@@ -50,7 +50,7 @@
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "damage"                "70 130 190 250 550 950"
+        "damage"                "70 120 170 220 440 880"
         "LinkedSpecialBonus"    "special_bonus_unique_void_spirit_4"
       }
       "04"
@@ -61,12 +61,12 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "base_absorb_amount"    "50 100 150 200 500 800"
+        "base_absorb_amount"    "40 80 120 160 320 640"
       }
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "absorb_per_hero_hit"   "30 45 60 75 150 225"
+        "absorb_per_hero_hit"   "30 45 60 75 150 300"
       }
       "07"
       {
