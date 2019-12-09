@@ -40,7 +40,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "4 5 6 8 12"
+    "AbilityDuration"                                     "3 4 5 6 7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -49,54 +49,43 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_cost_percent"                             "0.32 0.38 0.44 0.47 0.5"
+        "health_cost_percent"                             "0.32 0.38 0.44 0.5 0.56"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_damage"                                   "0.32 0.38 0.44 0.47 0.5"
+        "health_damage"                                   "0.32 0.38 0.44 0.5 0.56"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_damage_scepter"                           "0.65 0.65 0.65 0.70 0.75"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "charge_speed"                                    "1200"
       }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_health_damage"                           "32 38 44 50 56"
+      }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_damage"                           "32 38 44 47 50"
+        "tooltip_health_cost_percent"                     "32 38 44 50 56"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_cost_percent"                     "32 38 44 47 50"
-        "CalculateSpellDamageTooltip"                     "1"
+        "movespeed"                                       "-60"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "-60"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_durtion_tooltip"                            "3 4 5 6 7"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_durtion_tooltip"                            "4 5 6 8 12"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_damage_scepter"                   "65 65 65 70 75"
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "4"
+        "taunt_duration"                                  "2.5"
         "RequiresScepter"                                 "1"
       }
     }

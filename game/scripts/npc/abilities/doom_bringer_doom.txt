@@ -20,8 +20,6 @@
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
@@ -51,18 +49,6 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_5"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "16.0"
-        "RequiresScepter"                                 "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "900"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "deniable_pct"                                    "25"

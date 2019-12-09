@@ -15,6 +15,7 @@
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"           "1"
+
     "MaxLevel"                  "6"
     "RequiredLevel"             "1"
     "LevelsBetweenUpgrades"     "2"
@@ -31,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"           "110 120 130 140 210 260"
+    "AbilityManaCost"           "110 120 130 140 240 340"
 
     "AbilityModifierSupportValue" "0.5"
 
@@ -93,7 +94,7 @@
       "11"
       {
         "var_type"          "FIELD_INTEGER"
-        "pop_damage"        "75 150 225 300 750 1150"
+        "pop_damage"        "80 170 260 350 700 1070"
       }
       "12"
       {

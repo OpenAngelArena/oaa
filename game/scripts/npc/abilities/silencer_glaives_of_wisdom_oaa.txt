@@ -21,7 +21,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "15 15 15 15 30 60"
+    "AbilityManaCost"                                     "15"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -48,7 +48,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "steal_range"                                     "925"
       }
-      "03"
+      "03" // passive INT steal when enemy dies
       {
         "var_type"                                        "FIELD_INTEGER"
         "steal_amount"                                    "2"
@@ -58,6 +58,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "scepter_damage_multiplier"                       "2"
         "RequiresScepter"                                 "1"
+      }
+      "05" // INT steal on enemy hit
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "int_steal"                                       "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "int_steal_duration"                              "10 20 30 40 50 60"
       }
     }
   }

@@ -10,10 +10,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5597"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.8" //OAA
+    "AbilityCooldown"                                     "0.3" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,5 +39,4 @@
       }
     }
   }
-
 }

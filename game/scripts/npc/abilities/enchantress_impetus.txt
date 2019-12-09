@@ -8,16 +8,16 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5270"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "6"
 
     "HasScepterUpgrade"                                   "1"
 
@@ -28,12 +28,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                     "6 4 2 0 0 0"
     "AbilityDuration"                                     "1.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 55 70 100 190"
+    "AbilityManaCost"                                     "40 45 50 55 85 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,19 +42,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance_damage_pct"                             "14 24 34 54 74" //OAA
+        "distance_damage_pct"                             "8 12 16 20 28 52"
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "distance_cap"                                    "1750"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range_scepter"                      "190"
-        "RequiresScepter"                                 "1"
       }
     }
   }

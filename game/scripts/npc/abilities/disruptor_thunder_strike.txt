@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -60,6 +61,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "strike_damage"                                   "45 70 95 120 240 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_amount"                                     "100"
       }
     }
   }

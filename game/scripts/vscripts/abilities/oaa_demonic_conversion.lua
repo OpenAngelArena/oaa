@@ -10,12 +10,14 @@ function enigma_demonic_conversion:OnSpellStart()
   local spawnCount = self:GetSpecialValueFor("spawn_count")
   local splitAttackCount = self:GetSpecialValueFor("split_attack_count")
   -- Lookup table for Eidolon unit names for each level
-  local unitNames = {"npc_dota_lesser_eidolon",
-                      "npc_dota_eidolon",
-                      "npc_dota_greater_eidolon",
-                      "npc_dota_dire_eidolon",
-                      "npc_dota_giant_eidolon",
-                      "npc_dota_colossal_eidolon"}
+  local unitNames = {
+    "npc_dota_lesser_eidolon",
+    "npc_dota_eidolon",
+    "npc_dota_greater_eidolon",
+    "npc_dota_dire_eidolon",
+    "npc_dota_giant_eidolon",
+    "npc_dota_colossal_eidolon"
+  }
 
   -- Check whether the caster has learnt the extra eidolons talent
   local casterHasExtraEidolons = caster:HasLearnedAbility("special_bonus_unique_enigma")
@@ -32,7 +34,7 @@ function enigma_demonic_conversion:OnSpellStart()
     eidolon:SetControllableByPlayer(playerID, false)
     eidolon:SetOwner(caster)
 
-    -- Use built-in modifier to handle summon duration and splitting
+    -- Use built-in modifier to handle summon duration and splitting and eidolon talents hopefully
     eidolon:AddNewModifier(caster, self, "modifier_demonic_conversion", {duration = duration, allowsplit = splitAttackCount})
   end
 

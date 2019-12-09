@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "custom/assault_cuirass_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6750"
+    "ItemCost"                                            "6700"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac 2;assault cuirass 2"
@@ -61,7 +61,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 65 80"
+        "bonus_attack_speed"                              "30 35 40 45 50"
       }
       "02"
       {
@@ -71,19 +71,24 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "bonus_all_stats"                                 "5 10 15 20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "25 30 35 45 60"
+        "aura_radius"                                     "1200"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 7 9 11 13"
+        "aura_attack_speed"                               "25 35 45 55 65"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_positive_armor"                             "5 7 9 11 13"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_negative_armor"                             "-5 -7 -9 -11 -13"
