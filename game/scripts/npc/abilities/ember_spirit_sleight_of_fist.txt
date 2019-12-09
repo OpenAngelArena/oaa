@@ -38,8 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hero_damage"                               "40 80 120 160 270 550"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_6"
+        "bonus_hero_damage"                               "40 80 120 160 480 800"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
@@ -50,7 +49,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_penalty"                            "50 45 40 35 0 0" //OAA
+        "creep_damage_penalty"                            "45 30 15 0 0 0" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
