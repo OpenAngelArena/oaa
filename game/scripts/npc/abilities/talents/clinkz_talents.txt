@@ -24,7 +24,7 @@
 	}
 
 	//=================================================================================================================
-	// Bonus Strafe Duration - not used in OAA
+	// Bonus Skeleton Walk attack speed Duration
 	//=================================================================================================================
 	"special_bonus_unique_clinkz_2"
 	{
@@ -70,7 +70,7 @@
 	}
 
   //=================================================================================================================
-  // Clinkz right level 25 talent: Modify cooldown of Strafe
+  // Custom Clinkz talent: Modifies cooldown of Strafe - unused
   //=================================================================================================================
   "special_bonus_clinkz_strafe_cooldown"
   {
@@ -88,31 +88,31 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "value"         "5"
+        "value"           "5"
       }
     }
   }
 
-    //=================================================================================================================
-	// Burning Army Cooldown
-	//=================================================================================================================
-	"special_bonus_unique_clinkz_5"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"7895"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"30"
-			}
-		}
-	}
+  //=================================================================================================================
+  // Burning Army Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_clinkz_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7895"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"30"
+      }
+    }
+  }
 }
