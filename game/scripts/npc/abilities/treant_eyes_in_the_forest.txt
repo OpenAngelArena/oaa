@@ -49,6 +49,12 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
         "RequiresScepter"                                 "1"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_respawn_seconds"                            "10"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }
