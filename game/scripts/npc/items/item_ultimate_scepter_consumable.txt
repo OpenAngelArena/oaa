@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1800"
+    "ItemCost"                                            "20000" // OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,8 @@
     "ItemResult"                                          "item_ultimate_scepter_2"
     "ItemRequirements" // OAA
     {
-      "01"                                                "item_aghanims_scepter_5;item_upgrade_core_4"
+      "01"                                                "item_ultimate_scepter;item_upgrade_core_4;item_upgrade_core_4;item_upgrade_core_4"
+      "02"                                                "item_aghanims_scepter_5;item_upgrade_core_4"
     }
   }
 
@@ -36,7 +37,7 @@
     "Model"                                               "models/props_gameplay/aghanim_scepter.vmdl"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                                            "39000" //OAA
+    "ItemCost"                                            "24200" //OAA
     "ItemShopTags"                                        "int;str;agi;mana_pool;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "ags;ultimate;aghanim's scepter;aghs"

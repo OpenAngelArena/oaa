@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 15 13 11 10 9"
+    "AbilityCooldown"                                     "20 17 14 11 10 9"
     "AbilityDuration"                                     "6"
 
     // Cost
@@ -37,27 +37,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
+        "radius"                                          "280 310 340 370 400 430"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "10 30 50 70 80 90"
+        "duration"                                        "6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_reduction"                        "8 12 16 20 30 35"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "turn_reduction"                                  "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6"
+        "miss_rate"                                       "25 35 45 55 65 75"
       }
     }
   }

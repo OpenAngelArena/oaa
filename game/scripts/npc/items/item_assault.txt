@@ -22,7 +22,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_platemail;item_hyperstone;item_chainmail"
+      "01"                                                "item_platemail;item_hyperstone;item_buckler"
     }
   }
 
@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5250"
+    "ItemCost"                                            "5200"
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac;assault cuirass"
@@ -59,7 +59,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 40 50 65 80"
+        "bonus_attack_speed"                              "30 35 40 45 50"
       }
       "02"
       {
@@ -69,19 +69,24 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "bonus_all_stats"                                 "5 10 15 20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "25 30 35 45 60"
+        "aura_radius"                                     "1200"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_positive_armor"                             "5 7 9 11 13"
+        "aura_attack_speed"                               "25 35 45 55 65"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_positive_armor"                             "5 7 9 11 13"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_negative_armor"                             "-5 -7 -9 -11 -13"

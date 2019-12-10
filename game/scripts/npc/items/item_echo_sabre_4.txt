@@ -43,13 +43,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 2.4 2.1 1.8 1.5"
+    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.5"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "16450"
+    "ItemCost"                                            "15575"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre 4"
@@ -65,12 +65,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 20 40 60 80"
+        "bonus_strength"                                  "12 17 27 42 62"
       }
       "03"
       {
@@ -80,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 40 60 80"
+        "bonus_damage"                                    "15 35 65 105 155"
       }
       "05"
       {

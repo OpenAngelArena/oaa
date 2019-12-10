@@ -5,8 +5,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5087"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "6"
 
@@ -20,8 +21,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "18 22 26 30 35 40"
+        "vampiric_aura"                                   "6 12 18 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "6 12 18 24 36 72"
       }
     }
   }

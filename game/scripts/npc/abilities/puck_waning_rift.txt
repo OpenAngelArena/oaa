@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5071"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -19,6 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                    "350"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -40,12 +41,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "2.0 2.5 3.0 3.5 4.0 4.75"
+        "silence_duration"                                "2.0 2.5 3.0 3.5 4.0 4.5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 160 220 280 590 900"
+        "damage"                                          "70 140 210 280 580 760"
         "LinkedSpecialBonus"                              "special_bonus_unique_puck_4"
       }
     }

@@ -28,17 +28,27 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_per_hit"                                    "28 40 52 64 88 160"
+        "mana_per_hit"                                    "28 40 52 64 88 112"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "silence_chance"                                  "15"
+        "mana_per_hit_pct"                                "1 2 3 4 5 6"
       }
       "04"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "silence_chance"                                  "15"
+      }
+      "05"
+      {
         "var_type"                                        "FIELD_FLOAT"
         "silence_duration"                                "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_percentage"                             "50"
       }
     }
   }

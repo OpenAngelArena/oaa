@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "6582"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,12 +31,27 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "physical_damage_reduction_side"                  "12 17 21 25 40 50" //OAA
+        "physical_damage_reduction_side"                  "20 25 30 35 40 45"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "side_angle"                                      "240"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_chance"                                 "70"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_range"                                  "800"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_speed_penatly"                          "20"
       }
     }
   }

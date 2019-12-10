@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36700"
+    "ItemCost"                                            "36800"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard 5"
@@ -71,18 +71,18 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 10 15 20 30"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "10.5 15 20 30 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 7 17 32 52"
+        "bonus_armor"                                     "6 8 11 15 20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 10 14 19"
+        "bonus_all_stats"                                 "3 10 25 40 55"
       }
       "05"
       {
@@ -102,34 +102,29 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_armor"                                 "2 4 6 8 10"
+        "duration"                                        "12"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "12"
+        "bonus_aoe_radius"                                "1200"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "1200"
+        "block_damage_melee_active"                       "60 90 140 180 275"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_ranged_active"                      "60 90 140 180 275"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "block_chance_active"                             "100"
       }
-      "14"
+      "13"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_reapply_time"                            "46"

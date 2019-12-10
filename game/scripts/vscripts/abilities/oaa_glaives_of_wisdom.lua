@@ -7,6 +7,7 @@ function silencer_glaives_of_wisdom_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_glaives_of_wisdom"
 end
 
+--[[
 function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
   local caster = self:GetCaster()
@@ -16,6 +17,7 @@ function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
     return defaultResult
   end
 end
+]]
 
 function silencer_glaives_of_wisdom_oaa:GetCastRange(location, target)
   return self:GetCaster():GetAttackRange()
@@ -147,7 +149,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttack(event)
       ability:UseResources(true, false, true)
 
       -- Changing projectile back is too early during OnAttack,
-      -- Changing projectile back is done by modifier_oaa_glaives_of_wisdom_fx from the parent
+      -- Changing projectile back is done by removing modifier_oaa_glaives_of_wisdom_fx from the parent
       -- it should be done during OnAttackFinished;
     end
   end
@@ -197,9 +199,9 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
       bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
     end
 
-    if parent:HasScepter() and target:IsSilenced() then
-      bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
-    end
+    --if parent:HasScepter() and target:IsSilenced() then
+      --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
+    --end
 
     local bonusDamage = parent:GetIntellect() * bonusDamagePct
 
@@ -210,10 +212,10 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
     damageTable.damage_type = ability:GetAbilityDamageType()
     damageTable.ability = ability
 
-    if parent:HasScepter() and target:IsMagicImmune() then
-      damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
-      damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
-    end
+    --if parent:HasScepter() and target:IsMagicImmune() then
+      --damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
+      --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+    --end
 
     ApplyDamage(damageTable)
     SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)

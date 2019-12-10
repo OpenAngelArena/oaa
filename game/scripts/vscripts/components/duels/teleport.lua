@@ -84,7 +84,7 @@ local function SafeTeleportAll(mainUnit, location, maxDistance)
                                             false)
   playerAdditionalUnits = playerAdditionalUnits or {} -- assign empty table instead of nil so iter can be called without errors
   playerAdditionalUnits = iter(playerAdditionalUnits):filter(function (unit)
-    return unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID()
+    return unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID() and (not unit:IsCourier())
   end)
   -- end
 

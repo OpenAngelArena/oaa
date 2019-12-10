@@ -13,7 +13,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
@@ -49,7 +53,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1.75 2.5 3.25 4.0 4.75 5.5"
+        "slow_duration"                                   "1 2 3 4 5 6"
       }
       "04"
       {
@@ -63,9 +67,9 @@
       }
       "06"
       {
-        "var_type"          "FIELD_INTEGER"
-        "torrent_damage"      "75 150 225 300 650 1000"
-        "LinkedSpecialBonus"    "special_bonus_unique_kunkka_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "torrent_damage"                                  "75 150 225 300 650 1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_2"
       }
     }
   }

@@ -1,7 +1,5 @@
 "DOTAItems"
 {
-  // not buildable
-
   "item_recipe_kaya_and_sange"
   {
     "ID"              "272"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
@@ -16,7 +14,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "273"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +47,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "16 17 18 19 20"
+        "status_resistance"                               "20 21 22 23 24"
       }
       "04"
       {
@@ -65,7 +62,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 20 28 44 68"
+        "hp_regen_amp"                                    "30 32 34 36 38"
       }
     }
   }

@@ -36,14 +36,20 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "175"
+        "speed"                                           "225"
+        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_2"
       }
       "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "175"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "fade_time"                                       "0.25"
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"

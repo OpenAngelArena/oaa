@@ -21,7 +21,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "12 24 36 48 108 168"
+        "damage_reduction"                                "12 24 36 48 100 160"
         "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_4"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -39,5 +39,4 @@
       }
     }
   }
-
 }
