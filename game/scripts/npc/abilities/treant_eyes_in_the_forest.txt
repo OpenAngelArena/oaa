@@ -11,8 +11,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "1"
     "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "1"
+
     "IsGrantedByScepter"                                  "1"
     "HasScepterUpgrade"                                   "1"
 
@@ -37,18 +39,21 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "vision_aoe"                                      "800"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
+        "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "overgrowth_aoe"                                  "800"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "175"
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_respawn_seconds"                            "10"
+        "RequiresScepter"                                 "1"
       }
     }
   }

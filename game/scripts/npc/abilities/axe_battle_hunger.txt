@@ -15,9 +15,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75" //OAA
+    "AbilityManaCost"                                     "100" //OAA
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +49,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12.0"
+        "duration"                                        "9 10 11 12 14 16" //OAA
       }
       "02"
       {
@@ -68,6 +71,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_reduction_scepter"                        "30"
+        "CalculateSpellDamageTooltip"                     "0"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range"                                   "400"
+        "RequiresScepter"                                 "1"
       }
     }
   }

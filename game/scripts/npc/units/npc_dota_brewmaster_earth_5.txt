@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Brewmaster Earth 5
-//=================================================================================
+  //=================================================================================
+  // Brewmaster Earth 5
+  //=================================================================================
   "npc_dota_brewmaster_earth_5"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/brewmaster/brewmaster_earthspirit.vmdl"  // Model.
@@ -12,7 +12,7 @@
     "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"    // custom facial animation idle
     "SoundSet"                                            "Brewmaster_Earth"      // Name of sound set.
     "Level"                                               "8"
-    "ModelScale"                                          "1.05"
+    "ModelScale"                                          "1.1"
     "IsSummoned"                                          "0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -24,7 +24,9 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"    // Ability 1
     "Ability2"                                            "brewmaster_earth_spell_immunity"  // Ability 2
     "Ability3"                                            "brewmaster_earth_pulverize"    // Ability 3
-    "Ability4"                                            "brewmaster_thunder_clap"    // Ability 4  
+    "Ability4"                                            "brewmaster_thunder_clap"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "generic_hidden"            // Ability 6
 
     // Armor
     //----------------------------------------------------------------
@@ -33,16 +35,16 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "585"    // Damage range min.
-    "AttackDamageMax"                                     "595"    // Damage range max.  
-    "AttackRate"                                          "1.35"    // Speed of attack.
+    "AttackDamageMin"                                     "625"    // Damage range min.
+    "AttackDamageMax"                                     "635"    // Damage range max.
+    "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounds
     //----------------------------------------------------------------
-    "HealthBarOffset"                                     "175"
+    "HealthBarOffset"                                     "185"
 
     // Movement
     //----------------------------------------------------------------
@@ -55,9 +57,9 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "15000"    // Base health.
     "StatusHealthRegen"                                   "20"    // Health regeneration rate.
-    "StatusMana"                                          "1400"    // Base mana.
+    "StatusMana"                                          "1800"    // Base mana.
     "StatusManaRegen"                                     "2"      // Mana regeneration rate.
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
@@ -70,5 +72,4 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-
 }

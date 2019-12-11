@@ -47,7 +47,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "8 10 12 14 18 22"
+        "illusion_duration"                               "8 10 12 14 16 18"
       }
       "03"
       {
@@ -68,6 +68,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_total_illusion_incoming_damage"          "300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {

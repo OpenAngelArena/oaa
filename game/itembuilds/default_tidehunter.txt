@@ -1,0 +1,63 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_tidehunter"
+    "Title"         "Recommended items for Tidehunter"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_flask"
+            "item"      "item_enchanted_mango"
+            "item"      "item_branches"
+            "item"      "item_branches"
+            "item"      "item_magic_wand"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_desolator"
+            "item"      "item_solar_crest"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_greater_crit"
+            "item"      "item_assault"
+            "item"      "item_satanic"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_desolator_5"
+            "item"      "item_solar_crest_5"
+            "item"      "item_greater_crit_5"
+            "item"      "item_assault_5"
+            "item"      "item_satanic_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_blink_5"
+            "item"      "item_ward_stack_5"
+            "item"      "item_heart_5"
+            "item"      "item_heart_transplant_2"
+            "item"      "item_shivas_guard_5"
+            "item"      "item_pipe_5"
+            "item"      "item_refresher_5"
+            "item"      "item_ancient_janggo_5"
+            "item"      "item_guardian_greaves_5"
+            "item"      "item_glimmer_cape_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_octarine_core_5"
+            "item"      "item_lotus_orb_5"
+            "item"      "item_vladmir_5"
+            "item"      "item_helm_of_the_dominator_5"
+            "item"      "item_devastator_5"
+        }
+    }
+}

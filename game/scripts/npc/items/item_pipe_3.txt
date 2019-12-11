@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_pipe_2;item_upgrade_core_2"
-      "02"                                                "item_pipe_2;item_upgrade_core_3"
-      "03"                                                "item_pipe_2;item_upgrade_core_4"
-      "04"                                                "item_glimmer_cape_2;item_upgrade_core_2"
-      "05"                                                "item_glimmer_cape_2;item_upgrade_core_3"
-      "06"                                                "item_glimmer_cape_2;item_upgrade_core_4"
+      "02"                                                "item_glimmer_cape_2;item_upgrade_core_2"
     }
   }
 
@@ -57,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8025"
+    "ItemCost"                                            "7900"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight 3;pipe 3"
@@ -76,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "30 32 34 37 40"
+        "magic_resistance"                                "30 32 34 36 38"
       }
       "03"
       {
@@ -91,12 +87,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "3 4 6 8 11"
+        "aura_health_regen"                               "2 4 6 8 11"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance_aura"                           "10 13 16 20 24"
+        "magic_resistance_aura"                           "10 13 16 19 22"
       }
       "07"
       {
@@ -121,7 +117,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 5 10 15 20"
+        "bonus_all_stats"                                 "3 10 25 40 55"
       }
       "12"
       {
