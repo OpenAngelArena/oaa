@@ -7,22 +7,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5261"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5261"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time    
+    "HasScepterUpgrade"                                   "1"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20 19 18 17 17 17"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
-    
+    "AbilityCastPoint"                                    "0.0"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 75 75 75 75 75"
-    
+    "AbilityManaCost"                                     "75"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -35,12 +38,41 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "0.6 0.6 0.6 0.6 0.6 0.6"
+        "fade_time"                                       "0.6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "move_speed_bonus_pct"                            "15 25 35 45 55 65"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_speed_duration"                           "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_bonus_pct"                          "70 100 130 160 190 210"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus"                                   "30"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_skeleton_count"                          "2"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_tooltip"                           "45 55 65 75 85 95"
+        "RequiresScepter"                                 "1"
       }
     }
   }

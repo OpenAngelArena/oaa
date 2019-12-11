@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Blue Tomato: Cloak Aura - magic resistance aura
+  //=================================================================================================================
+  "mudgolem_cloak_aura"
+  {
+    "ID"                                                  "5688"
+    //"BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_hellbear_cloak_aura.lua"
+    "AbilityTextureName"                                  "mudgolem_cloak_aura"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "10" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor_creeps"                      "20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
+      }
+    }
+  }
+}

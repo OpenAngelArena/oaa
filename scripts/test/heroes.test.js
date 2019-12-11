@@ -21,10 +21,10 @@ test('test', function (t) {
   Object.keys(heroes).forEach(function (file) {
     const data = heroes[file];
     t.test(file, function (t) {
-      Object.keys(data.DOTAHeroes)
+      Object.keys(data.DOTAHeroes || data.DOTAUnits)
         .filter(a => a !== 'values')
         .forEach(function (heroName) {
-          const hero = data.DOTAHeroes[heroName];
+          const hero = (data.DOTAHeroes || data.DOTAUnits)[heroName];
           var abilityMap = {};
           if (dotaHeroes[heroName]) {
             Object.keys(dotaHeroes[heroName].values)

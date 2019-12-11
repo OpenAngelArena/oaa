@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,12 +22,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8" //OAA
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "nova_damage"                                     "130 200 270 340 740 1140" //OAA
+        "nova_damage"                                     "130 170 210 260 660 1060"
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_2"
       }
     }

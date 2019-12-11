@@ -16,9 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_desolator;item_upgrade_core"
-      "02"                                                "item_desolator;item_upgrade_core_2"
-      "03"                                                "item_desolator;item_upgrade_core_3"
-      "04"                                                "item_desolator;item_upgrade_core_4"
     }
   }
 
@@ -49,7 +46,7 @@
     "ItemCost"                                            "5000"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bf 2;battle fury 2"
+    "ItemAliases"                                         "cleaver 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -59,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 85 125 180"
+        "bonus_damage"                                    "54 74 104 144 194"
       }
       "02"
       {
@@ -74,7 +71,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "35 45 55 65 75"	//OAA
+        "cleave_damage_percent"                           "50 60 70 80 90"	//OAA
       }
       "05"
       {
@@ -102,11 +99,6 @@
         "cleave_distance"                                 "650"
       }
       "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "350"
-      }
-      "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_ward"                                 "450"

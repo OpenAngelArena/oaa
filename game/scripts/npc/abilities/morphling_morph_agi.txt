@@ -9,7 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5055"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
@@ -20,23 +22,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "points_per_tick"   "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "points_per_tick"                                 "1"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "morph_cooldown"    "1.0 0.25 0.1 0.04 0.02 0.01"
+        "var_type"                                        "FIELD_FLOAT"
+        "morph_cooldown"                                  "1.0 0.25 0.1 0.04 0.02 0.01"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_attributes"    "4 5 6 7 10 16"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attributes"                                "3 5 7 9 13 25"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "morph_rate_tooltip"  "1 4 10 25 50 100"
+        "var_type"                                        "FIELD_INTEGER"
+        "morph_rate_tooltip"                              "1 4 10 25 50 100"
       }
     }
   }

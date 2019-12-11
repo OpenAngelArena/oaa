@@ -11,17 +11,19 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "6"
-    "AbilityCastRange"                                    "500 500 500 500 500"
 
-    // Time    
+    "MaxLevel"                                            "5"
+
+    "AbilityCastRange"                                    "500"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "4"
     "AbilityCastPoint"                                    "0.4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 75 75 75 75"    
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "1000"
+        "damage"                                          "1000 2000 3000 6000 9000" //OAA
       }
       "02"
       {

@@ -1,0 +1,81 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Neutral: Easy Camp - Alpha Wolf
+  //=================================================================================
+  "npc_dota_neutral_custom_big_wolf"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_worg_large/n_creep_worg_large.vmdl"
+    "BaseClass"                                           "npc_dota_creature"
+    "SoundSet"                                            "n_creep_Melee"
+    "Level"                                               "6"
+    "ModelScale"                                          "0.90"
+    "IsAncient"                                           "0"
+    "IsNeutralUnitType"                                   "1"
+    "CanBeDominated"                                      "1"       // Helm of Dominator interaction
+    "UseNeutralCreepBehavior"                             "1"       // If you want to use a custom behavior (AI), set to 0
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "alpha_wolf_invisibility_oaa"
+    "Ability2"                                            "alpha_wolf_critical_strike_aura_oaa"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "3"       // Physical protection.
+    "MagicalResistance"                                   "25"      // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "30"      // Damage range min.
+    "AttackDamageMax"                                     "33"      // Damage range max.
+    "AttackRate"                                          "1.35"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"     // Range within a target can be acquired.
+    "AttackRange"                                         "100"     // Range within a target can be attacked.
+    "ProjectileModel"                                     ""        // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"       // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "160"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "70"      // Experience earn.
+    "BountyGoldMin"                                       "30"      // Gold earned min.
+    "BountyGoldMax"                                       "36"      // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "350"     // Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "600"     // Base health.
+    "StatusHealthRegen"                                   "0.5"     // Health regeneration rate.
+    "StatusMana"                                          "150"     // Base mana.
+    "StatusManaRegen"                                     "1.0"     // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"     // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"     // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "HasInventory"                                        "0"
+  }
+}

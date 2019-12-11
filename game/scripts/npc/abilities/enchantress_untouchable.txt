@@ -9,9 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5267"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +24,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed"                               "-20 -70 -120 -170 -220 -270"
+        "slow_attack_speed"                               "-100 -150 -200 -250 -300" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_3"
       }
       "02"

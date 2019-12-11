@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -37,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "475"
+        "area_of_effect"                                  "525"
       }
       "02"
       {

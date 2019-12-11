@@ -13,10 +13,12 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -48,12 +50,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "1.5 2.0 2.5 3.0 3.25 3.5"
-        "LinkedSpecialBonus"    "special_bonus_unique_keeper_of_the_light_3"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "400 500 600 700 700 700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_3"
       }
     }
   }

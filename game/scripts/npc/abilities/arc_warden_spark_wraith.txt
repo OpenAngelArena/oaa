@@ -12,6 +12,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -54,7 +55,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spark_damage"                                    "150 225 300 375 775 1175" //OAA
+        "spark_damage"                                    "100 170 240 310 450 870"
         "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden"
       }
       "06"
@@ -76,6 +77,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "ministun_duration"                               "0.4 0.5 0.6 0.7 1.2 1.7"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "100"
       }
     }
   }
