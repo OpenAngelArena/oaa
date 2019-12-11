@@ -2,13 +2,13 @@
 {
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_necrolyte"
-	"Title"			"Recommended items for Necrolyte"
+	"Title"			"Recommended items for Necrophos"
 
 	"Items"
 	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
-      "item"		"item_arcane_origin"
+      "item"		""
       "item"		"item_flask"
       "item"    "item_enchanted_mango"
       "item"    "item_magic_wand"
@@ -16,43 +16,39 @@
 
 		"#DOTA_Item_Build_Early_Game"
 		{
-			"item"		"item_greater_arcane_boots"
-      "item"		"item_mekansm"
+      "item"		"item_lotus_orb"
       "item"		"item_radiance"
 		}
 
 		"#DOTA_Item_Build_Mid_Items"
 		{
-			"item"    "item_greater_guardian_greaves"
-      "item"    "item_ultimate_scepter"
-      "item"    "item_shivas_guard"
-      "item"    "item_octarine_core"
+      "item"    ""
+      "item"    ""
       "item"    "item_heart"
 		}
 
 		"#DOTA_Item_Build_Late_Items"
 		{
-			"item"    "item_greater_guardian_greaves_4"
-      "item"    "item_radiance_5"
-      "item"    "item_ultimate_scepter_5"
-      "item"    "item_shivas_guard_5"
-      "item"    "item_octarine_core_5"
-			"item"		"item_heart_5"
+			"item"    "item_radiance_2"
+      "item"    "item_octarine_core"
+      "item"    "item_kaya_and_sange"
+			"item"		"item_dispel_orb_1"
 		}
 
 		"#DOTA_Item_Build_Luxury"
 		{
-      "item"    "item_sheepstick_5"
-      "item"    "item_pipe_5"
-      "item"    "item_blink_5"
-      "item"    "item_lotus_orb_5"
-      "item"    "item_aeon_disk_5"
-      "item"    "item_kaya_and_sange_5"
-      "item"    "item_dagon_9"
-      "item"    "item_ethereal_blade_5"
-      "item"    "item_veil_of_discord_5"
-      "item"    "item_satanic_core_3"
-      "item"    "item_lucience_3"
+      "item"    "item_ultimate_scepter"
+      "item"    "item_sheepstick_4"
+      "item"    "item_pipe"
+      "item"    "item_veil_of_discord"
+      "item"    "item_shivas_guard"
+      "item"    "item_aeon_disk_4"
+      "item"    ""
+      "item"    ""
+      "item"    "item_ethereal_blade"
+      "item"    ""
+      "item"    "item_satanic_core"
+      "item"    "item_lucience"
 		}
 	}
 }

@@ -8,7 +8,7 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      "item_arcane_origin"
+            "item"      ""
             "item"      "item_flask"
             "item"      "item_clarity"
             "item"      "item_null_talisman"
@@ -16,9 +16,9 @@
 
         "#DOTA_Item_Build_Early_Game"
         {
-            "item"      "item_greater_arcane_boots"
             "item"      "item_yasha_and_kaya"
-            "item"      "item_bloodstone"
+            "item"      "item_bloodstone_1"
+            "item"      "item_cyclone"
         }
 
         "#DOTA_Item_Build_Mid_Items"
@@ -30,22 +30,20 @@
 
         "#DOTA_Item_Build_Late_Items"
         {
-            "item"      "item_greater_guardian_greaves_4"
             "item"      "item_yasha_and_kaya_5"
             "item"      "item_bloodstone_5"
             "item"      "item_bloodthorn_5"
             "item"      "item_shivas_guard_5"
             "item"      "item_sphere_5"
+            "item"      "item_sheepstick_4"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
-            "item"      "item_ultimate_scepter_5"
-            "item"      "item_sheepstick_5"
-            "item"      "item_black_king_bar_5"
-            "item"      "item_enrage_crystal_3"
-            "item"      "item_cyclone"
-            "item"      "item_lotus_orb_5"
+            "item"      "item_ultimate_scepter"
+            "item"      "item_black_king_bar_1"
+            "item"      "item_enrage_crystal_1"
+            "item"      "item_lotus_orb"
         }
     }
 }
