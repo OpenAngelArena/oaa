@@ -33,10 +33,8 @@
   //=================================================================================================================
   "item_far_sight_3"
   {
-
     // General
     //-------------------------------------------------------------------------------------------------------------
-
     "ID"                                                      "127006"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_lua"
     "ScriptFile"                                          "items/sight.lua"
@@ -45,11 +43,11 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0 50.0 40.0 30.0"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "750 800 850 900"
+    "AoERadius"                                           "900"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "13625"
+    "ItemCost"                                            "13575"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -79,32 +77,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "10 20 30 40"
+        "bonus_health_regen"                              "15 30 45 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 18"
+        "bonus_armor"                                     "2 5 9 14"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "10 20 30 40"
+        "bonus_agi"                                       "15 30 45 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "20 30 40 50"
+        "bonus_str"                                       "15 30 45 60"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "10 20 30 40"
+        "bonus_int"                                       "15 30 45 60"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "750 800 850 900"
+        "reveal_radius"                                   "900"
       }
       "07"
       {

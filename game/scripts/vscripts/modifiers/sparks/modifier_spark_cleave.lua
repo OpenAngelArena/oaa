@@ -17,7 +17,7 @@ function modifier_spark_cleave:RemoveOnDeath()
 end
 
 function modifier_spark_cleave:GetTexture()
-  return "custom/phase_origin"
+  return "custom/spark_cleave"
 end
 
 function modifier_spark_cleave:DeclareFunctions()

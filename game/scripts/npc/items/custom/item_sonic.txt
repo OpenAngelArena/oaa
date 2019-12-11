@@ -31,14 +31,15 @@
     "AbilitySharedCooldown" "sonic"
     "ScriptFile"            "items/transformation/sonic.lua"
 
-    "AbilityCooldown"       "8.0"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "2.0"
     "AbilityCastPoint"      "0.0"
 
     "MaxUpgradeLevel"       "3"
     "ItemBaseLevel"         "1"
     "UpgradesItems"         "item_sonic_2;item_sonic_3"
 
-    "ItemCost"              "6625"
+    "ItemCost"              "6900"
     "ItemShopTags"          "sonic"
     "ItemQuality"           ""
     "ItemAliases"           "sonic"

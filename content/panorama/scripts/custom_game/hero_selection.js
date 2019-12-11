@@ -101,9 +101,6 @@ init();
 
 function init () {
   $.GetContextPanel().AddClass(currentMap);
-  if (currentMap === 'unranked') {
-    return;
-  }
 
   SetupTopBar();
 
@@ -842,6 +839,10 @@ function SelectArcana () {
 function UpdateBottleList () {
   var playerID = Game.GetLocalPlayerID();
   var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
+  if (!specialBottles) {
+    $.Schedule(0.2, UpdateBottleList);
+    return;
+  }
   var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
   if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {

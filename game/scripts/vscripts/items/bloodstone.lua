@@ -168,6 +168,7 @@ if IsServer() then
       MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
       MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
       MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+      MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     }
   end
 end
@@ -191,6 +192,10 @@ end
 function modifier_item_bloodstone_stacking_stats:GetModifierConstantManaRegen()
   local ability = self:GetAbility()
   return ability:GetSpecialValueFor("bonus_mana_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
+end
+
+function modifier_item_bloodstone_stacking_stats:GetModifierBonusStats_Intellect()
+  return self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
 --------------------------------------------------------------------------
@@ -276,16 +281,25 @@ function modifier_item_bloodstone_non_stacking_stats:IsPurgable()
   return false
 end
 
-if IsServer() then
-  function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
-    return {
-      MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE -- GetModifierMPRegenAmplify_Percentage
-    }
-  end
+function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING -- GetModifierPercentageManacostStacking
+  }
 end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
   return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")-100
+end
+
+function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  local ability = self:GetAbility()
+  return ability:GetSpecialValueFor("spell_amp") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("amp_per_charge"))
+end
+
+function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
+  return self:GetAbility():GetSpecialValueFor("manacost_reduction")
 end
 
 --------------------------------------------------------------------------

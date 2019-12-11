@@ -9,27 +9,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5262"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5 0.5"
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85"
+    "AbilityCooldown"                                     "90" // cooldown gets refreshed on hero kill
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 100 100 100 100"
+    "AbilityManaCost"                                     "60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,17 +35,38 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "65"
+        "duration"                                        "55"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_gain_pct"                                 "40 60 80 100 120"
+        "health_gain"                                     "250 350 450 550 750 1350"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_6"
       }
       "03"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_gain"                                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "permanent_bonus"                                 "5 6 7 8 10 12" //OAA
+      }
+      "05"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_gain_pct"                                 "4 6 8 10 14"
+        "debuff_duration"                                 "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_reduction"                                 "2 3 4 5 7 10"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "neutral_level"                                   "6" //OAA
       }
     }
   }

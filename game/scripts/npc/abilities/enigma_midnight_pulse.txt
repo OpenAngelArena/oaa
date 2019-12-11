@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5148"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
     "MaxLevel"                                            "6"
@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 80 110 140 200 280"
+    "AbilityManaCost"                                     "50 80 110 140 240 340"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +38,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_percent"                                  "3 3.5 4.0 4.5 4.75 5" // OAA
+        "damage_percent"                                  "4.5 5.0 5.5 6.0 6.5 7.0" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "9 10 11 12 13 15"
+        "duration"                                        "9 10 11 12 13 14"
       }
     }
   }

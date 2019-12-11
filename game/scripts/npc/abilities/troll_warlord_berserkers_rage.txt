@@ -30,7 +30,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "10 20 30 40 45 50"
+        "bonus_move_speed"                                "10 20 30 40 50 60"
       }
       "03"
       {
@@ -50,15 +50,13 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ensnare_chance"                                  "10 12 14 16 16 16"
+        "ensnare_chance"                                  "14 16 18 20 22 24"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ensnare_duration"                                "0.8 0.95 1.1 1.25 1.6 2.0" //OAA
+        "ensnare_duration"                                "0.8 1.2 1.6 2.0 2.1 2.2"
       }
     }
   }
-
-
 }

@@ -37,8 +37,8 @@ function HeroSelection:Init ()
   self.isCM = GetMapName() == "captains_mode"
   self.isARDM = GetMapName() == "ardm"
   self.is10v10 = GetMapName() == "10v10"
-  self.isRanked = GetMapName() == "ranked"
-  self.isUnranked = GetMapName() == "unranked"
+  self.isRanked = GetMapName() == "oaa"
+  self.isUnranked = false
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -46,7 +46,7 @@ function HeroSelection:Init ()
 
   local herolistFile = 'scripts/npc/herolist.txt'
 
-  if self.isCM or self.isRanked then
+  if self.isCM then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
   if self.isARDM then

@@ -56,7 +56,7 @@ CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used t
 
 RANKED_PREGAME_TIME = 0
 RANKED_BAN_TIME = 30
-RANKED_PICK_TIME = 60
+RANKED_PICK_TIME = 30
 
 -- Game timings
 PREGAME_TIME = 35
@@ -127,14 +127,14 @@ LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly to
 -- XP gain and rubberband on hero kills
 USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
 
--- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
+-- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
 -- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
-HERO_XP_BOUNTY_BASE = 20            -- 40 in normal dota
-HERO_XP_BOUNTY_STREAK_BASE = 60     -- 200 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
-HERO_XP_BOUNTY_STREAK_INCREASE = 50 -- 150 in normal dota
-HERO_XP_BOUNTY_STREAK_MAX = 420     -- 1250 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
-HERO_XP_BONUS_FACTOR = 0.07         -- 0.14 in normal dota
-HERO_KILL_XP_RADIUS = 1500          -- 1500 in normal dota
+HERO_XP_BOUNTY_BASE = 20             -- 40 in normal dota
+HERO_XP_BOUNTY_STREAK_BASE = 50      -- 400 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
+HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- 200 in normal dota
+HERO_XP_BOUNTY_STREAK_MAX = 850      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
+HERO_XP_BONUS_FACTOR = 0.07          -- 0.14 in normal dota
+HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
 
 -- Bounty runes
 FIRST_BOUNTY_RUNE_SPAWN_TIME = 120        -- After what delay in seconds will the first bounty rune spawn?

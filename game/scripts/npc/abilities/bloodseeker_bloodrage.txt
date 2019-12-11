@@ -11,10 +11,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -26,10 +26,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "9 8 7 6 6 6"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -51,25 +47,31 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_increase_pct"                             "10 15 20 25 30 45"
+        "damage_increase_outgoing_pct"                    "12 18 24 30 36 42"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_pct"                                "16 19 22 25 35 70"
+        "damage_increase_incoming_pct"                    "10 14 18 22 26 30"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_creep_pct"                          "16 19 22 25 35 70"
+        "health_bonus_pct"                                "13 17 21 25 35 45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_aoe"                                "300"
+        "health_bonus_creep_pct"                          "13 17 21 25 35 45"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_bonus_aoe"                                "300"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "health_bonus_share_percent"                      "50"

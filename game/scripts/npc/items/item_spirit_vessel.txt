@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2975"
+    "ItemCost"            "2965"
     "ItemAliases"         "sv;spirit vessel"
 
     // Special
@@ -64,7 +64,7 @@
       "02"
       {
         "var_type"                    "FIELD_INTEGER"
-        "bonus_movement_speed"        "20 22 28 34 40"
+        "bonus_movement_speed"        "20 25 30 35 40"
       }
       "03"
       {
@@ -104,7 +104,7 @@
       "10"
       {
         "var_type"                    "FIELD_INTEGER"
-        "soul_damage_amount"          "25 40 80 160 320"
+        "soul_damage_amount"          "25 40 65 100 145"
       }
       "11"
       {

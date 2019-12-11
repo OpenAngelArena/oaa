@@ -48,6 +48,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"            "2.5"
@@ -58,7 +59,6 @@
     "AbilitySharedCooldown"         "meteor"
     "AbilityCooldown"               "28"
     "AbilityManaCost"               "125"
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -94,12 +94,12 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps_boss"    "180 360 540 720 900"
+        "burn_dps_boss"         "180 360 540 720 900"
       }
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "burn_dps"        "90 180 270 360 450"
+        "burn_dps"              "90 180 270 360 450"
       }
       "07"
       {
@@ -119,7 +119,7 @@
       "10"
       {
         "var_type"              "FIELD_FLOAT"
-        "land_time"             ".5"
+        "land_time"             "0.5"
       }
       "11"
       {
@@ -134,20 +134,20 @@
       "13"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage_boss"   "150 300 450 600 750"
+        "impact_damage_boss"    "150 300 450 600 750"
       }
       "14"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage"   "150 300 450 600 750"
+        "impact_damage"         "150 300 450 600 750"
       }
     }
     "precache"
     {
-    "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
     }
   }
 }

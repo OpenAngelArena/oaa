@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20 30 40 50 100 150"
+        "damage_per_second"                               "20 35 50 65 165 265"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"
@@ -49,13 +49,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "11 12 13 14 15 16"
+        "bonus_movement_speed_pct"                        "12 13 14 15 16 17"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_6"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0 12.0 14.0 16.0 18.0 20.0"
+        "duration"                                        "16.0"
       }
     }
   }

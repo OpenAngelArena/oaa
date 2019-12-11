@@ -4,7 +4,12 @@ Sparks = Components:Register('Sparks', COMPONENT_STRATEGY)
 function Sparks:Init()
   Debug:EnableDebugging()
   DebugPrint("Sparks:Init running!")
-  Sparks.linkedModifiers = {}
+
+  LinkLuaModifier("modifier_spark_cleave", "modifiers/sparks/modifier_spark_cleave.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_spark_gpm", "modifiers/sparks/modifier_spark_gpm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_spark_midas", "modifiers/sparks/modifier_spark_midas.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_spark_power", "modifiers/sparks/modifier_spark_power.lua", LUA_MODIFIER_MOTION_NONE)
+
   Sparks.data = {
     [DOTA_TEAM_GOODGUYS] = {
       gpm = 0,
@@ -124,11 +129,6 @@ function Sparks:CheckSparkOnHero (playerId)
     hero:RemoveModifierByName(self:ModifierName("cleave"))
   end
   local modifierName = self:ModifierName(spark)
-
-  if not Sparks.linkedModifiers[modifierName] then
-    LinkLuaModifier(modifierName, "modifiers/sparks/" .. modifierName .. ".lua", LUA_MODIFIER_MOTION_NONE)
-    Sparks.linkedModifiers[modifierName] = true
-  end
 
   hero:AddNewModifier(hero, nil, modifierName, {})
 end

@@ -40,16 +40,21 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_multiplier"                                 "1.25 1.50 1.75 2.0 2.5 3.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pugna_3"
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "50 75 100 125 175 325" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "-0.3 -0.6 -0.9 -1.2 -2.5 -4"
+        "mana_multiplier"                                 "1.0 1.5 2.0 2.5 3.5 6.5" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_pugna_3"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen"                                      "-0.3 -1.0 -1.7 -2.4 -3.8 -5.2" //OAA
+      }
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attacks_to_destroy_tooltip"                      "4"

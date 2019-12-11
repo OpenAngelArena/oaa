@@ -44,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 500 700 1300 2300" //OAA
+        "damage"                                          "300 600 900 1800 3300" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
@@ -65,7 +65,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "450 650 850 1650 2650" //OAA
+        "damage_scepter"                                  "450 750 1050 1950 3450" //OAA
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -78,7 +78,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "700"
+        "cast_range_scepter_bonus"                        "300"
         "RequiresScepter"                                 "1"
       }
       "09"

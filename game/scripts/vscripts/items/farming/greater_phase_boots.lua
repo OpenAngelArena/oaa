@@ -41,6 +41,10 @@ function item_greater_phase_boots:OnProjectileHit(target, location)
   end
 end
 
+function modifier_item_greater_phase_boots_splinter_shot:IsHidden()
+	return true
+end
+
 function modifier_item_greater_phase_boots_splinter_shot:OnAttackLanded(keys)
   local parent = self:GetParent()
   if keys.attacker == parent and keys.process_procs and not self.doReduction then
@@ -107,9 +111,9 @@ function modifier_item_greater_phase_boots_splinter_shot:GetModifierDamageOutgoi
 
  return 0
 end
---]]
+]]
 
---------------------------------------------------------------------------------
+
 --[[ Old mini-Shukuchi Greater Phase Boots effect
 LinkLuaModifier( "modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -275,11 +279,9 @@ function modifier_item_greater_phase_boots_active:GetModifierDamageOutgoing_Perc
 
 	return 0
 end
-]]--
---------------------------------------------------------------------------------
+]]
 
 item_greater_phase_boots_2 = class(item_greater_phase_boots)
 item_greater_phase_boots_3 = class(item_greater_phase_boots)
 item_greater_phase_boots_4 = class(item_greater_phase_boots)
 item_greater_phase_boots_5 = class(item_greater_phase_boots)
---item_phase_origin = class(item_greater_phase_boots)

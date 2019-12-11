@@ -28,11 +28,10 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "120 110 100 90 80"
-    "AbilityDuration"                                     "5.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 120 160 400 640"
+    "AbilityDamage"                                       "80 160 240 480 720" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,18 +53,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_ms"                            "-25 -25 -25 -30 -40" //OAA
+        "requiem_reduction_ms"                            "-25 -30 -35 -40 -45" //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_damage"                        "-50 -60 -70 -80 -90" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_slow_duration"                           "0.8"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_slow_duration"                           "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_slow_duration_max"                       "2.4"
       }
       "05"
       {
@@ -85,7 +83,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_width_end"                          "425"
+        "requiem_line_width_end"                          "350"
       }
       "09"
       {

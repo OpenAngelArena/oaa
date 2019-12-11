@@ -7,29 +7,28 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5145"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "5145"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityChannelTime"                                  "3 4 5 5.5 6" //OAA
+    "AbilityChannelTime"                                  "2.0"
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 45 40 40 40"
-    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "21 18 15 12 12 12"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,24 +37,35 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "450"
+        "radius"                                          "450"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_rate"                                     "0.6 0.55 0.5 0.45 0.4"
+        "attack_count"                                    "4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus"                                   "2" //OAA
-        "RequiresScepter"                                 "1"
+        "damage_pct"                                      "70 80 90 100 115 130"
       }
       "04"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_duration"                                "3"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_scepter_cast_range"                      "1000"
+        "scepter_attacks"                                 "6"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cast_range"                              "1000"
         "RequiresScepter"                                 "1"
       }
     }

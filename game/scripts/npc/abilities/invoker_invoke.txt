@@ -18,7 +18,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6"
+    "AbilityCooldown"                                     "7"
     "AbilityManaCost"                                     "0"
 
     // Special
@@ -33,16 +33,8 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "2"
-        "RequiresScepter"                                 "1"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "0"
+        "cooldown_reduction_per_orb"                      "0.16" // OAA, so it doesn't bug out at OAA levels
       }
     }
   }
-
-
 }

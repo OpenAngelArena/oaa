@@ -36,7 +36,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "160.0 140.0 120.0 100.0 80.0" //OAA
+    "AbilityCooldown"                                     "90"
     "AbilitySharedCooldown"                               "bloodstone"
     "AbilityTextureName"                                  "custom/bloodstone_3"
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9900"
+    "ItemCost"                                            "10250"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs 3;bloodstone 3"
@@ -64,62 +64,82 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "475 1000 1800 2600 3200"
+        "bonus_health"                                    "425 650 1175 1875 2750"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 900 1600 2400 3000"
+        "bonus_mana"                                      "425 650 1175 1875 2750"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6 8.5 13 17 21"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 32 48 72"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3 3.5 4.25 5 6"
+        "var_type"                                        "FIELD_INTEGER"
+        "manacost_reduction"                              "12 15 18 21 24"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "200 250 350 500 750"
+        "spell_amp"                                       "8 11 14 17 20"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "regen_per_charge"                                "0.3"
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_regen_multiplier"                           "200 225 250 275 300"
       }
       "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "regen_per_charge"                                "0.2 0.25 0.3 0.35 0.4"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "amp_per_charge"                                  "0.35 0.4 0.45 0.5 0.55"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "death_charges"                                   "3"
       }
-      "08"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "kill_charges"                                    "1"
       }
-      "09"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "charge_range"                                    "1600"
       }
-      "10"
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "initial_charges_tooltip"                         "14"
       }
-      "11"
+      "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_cost_percentage"                            "30"
       }
-      "12"
+      "14"
       {
         "var_type"                                        "FIELD_FLOAT"
         "restore_duration"                                "2.0"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "0"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0"
       }
     }
   }

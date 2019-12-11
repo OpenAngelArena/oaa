@@ -1,9 +1,12 @@
-/* global CustomNetTables, Game, PlayerTables, GameEvents, Players, Entities, DOTA_GameState */
+/* global CustomNetTables, Game, GameEvents, Players */
 
 var forcedPickSpark = false;
 var currentSpark = null;
 
 (function () {
+  if (Game.GetLocalPlayerID() === -1) {
+    return;
+  }
   CustomNetTables.SubscribeNetTableListener('hero_selection', SparkSelection);
   ResetSparkDisplay();
 })();
@@ -76,6 +79,10 @@ function SparkSelection (table, key, args) {
 
 function SelectSpark (spark) {
   $.Msg(spark);
+
+  if (Game.GetLocalPlayerID() === -1) {
+    return;
+  }
 
   if (currentSpark) {
     $('#' + currentSpark + 'Panel').RemoveClass('active');

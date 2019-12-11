@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "525"
+    "ItemCost"            "450"
     "ItemShopTags"          ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"          "item_vladmir"
     "ItemRequirements"
     {
-      "01"            "item_ring_of_basilius;item_lifesteal"
+      "01"            "item_ring_of_basilius;item_buckler;item_lifesteal"
     }
   }
 
@@ -43,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "1925"
+    "ItemCost"            "2300"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering;vlads"
@@ -55,33 +55,28 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "mana_regen_aura" "1.5 2.5 4.0 6.0 7.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen_aura"                                 "1.5 2.5 4.0 6.0 7.5"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "armor_aura"      "4 6 9 13 18"
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_aura"                                      "3 5 8 12 17"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "damage_aura"     "15 22 30 39 50"
+        "var_type"                                        "FIELD_INTEGER"
+        "vampiric_aura"                                   "20 25 30 35 40" //OAA
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "vampiric_aura"     "15 18 21 25 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "vampiric_aura_ranged"  "10 12 14 17 20"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "aura_radius"         "1200"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "6 15 30 45 60"
       }
     }
   }
