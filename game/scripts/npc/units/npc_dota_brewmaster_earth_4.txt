@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Brewmaster Earth 4
-//=================================================================================
+  //=================================================================================
+  // Brewmaster Earth 4
+  //=================================================================================
   "npc_dota_brewmaster_earth_4"
   {
     // General
@@ -24,7 +24,9 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"    // Ability 1
     "Ability2"                                            "brewmaster_earth_spell_immunity"  // Ability 2
     "Ability3"                                            "brewmaster_earth_pulverize"    // Ability 3
-    "Ability4"                                            "brewmaster_thunder_clap"    // Ability 4
+    "Ability4"                                            "brewmaster_thunder_clap"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "generic_hidden"            // Ability 6
 
     // Armor
     //----------------------------------------------------------------
@@ -33,9 +35,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "245"    // Damage range min.
-    "AttackDamageMax"                                     "255"    // Damage range max.
-    "AttackRate"                                          "1.35"    // Speed of attack.
+    "AttackDamageMin"                                     "325"    // Damage range min.
+    "AttackDamageMax"                                     "335"    // Damage range max.
+    "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
@@ -55,7 +57,7 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "8000"    // Base health.
     "StatusHealthRegen"                                   "4"    // Health regeneration rate.
-    "StatusMana"                                          "800"    // Base mana.
+    "StatusMana"                                          "1500"    // Base mana.
     "StatusManaRegen"                                     "2"      // Mana regeneration rate.
 
     // Vision
@@ -70,5 +72,4 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-
 }

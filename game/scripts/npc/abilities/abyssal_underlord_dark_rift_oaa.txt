@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Dark Rift
+  // Abyssal Underlord: Highway to Hell
   //=================================================================================================================
   "abyssal_underlord_dark_rift_oaa"
   {
@@ -15,14 +15,17 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "abyssal_underlord_dark_rift"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "AbilityCastRange"                                    "3000 3600 4200 4800 5400"
+    "AbilityCastRange"                                    "5000"
     "AbilityCastPoint"                                    "0.6"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +41,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cast_range_tooltip"                              "3000 3600 4200 4800 5400"
+        "cast_range_tooltip"                              "5000"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250"
+        "radius"                                          "250 300 350 400 450"
       }
       "03"
       {
@@ -70,6 +73,6 @@
     "Precache"
     {
       "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
-	}
+    }
   }
 }

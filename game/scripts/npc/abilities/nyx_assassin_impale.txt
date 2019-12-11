@@ -15,7 +15,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -56,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_upgrade"                                "11" //OAA, I hope this is setting the cd to this value and not decreasing by this value
+        "cooldown_upgrade"                                "11" //OAA, setting the cd to this value
       }
       "06"
       {

@@ -22,10 +22,14 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_leech_percent"                                "1.0 1.75 2.5 3.25 3.75 4.25" //OAA
+        "hp_leech_percent"                                "1.5 2 2.5 3 3.5 4.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_3"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_bonus"                              "15 30 45 60 75 90"
       }
     }
   }
-
 }

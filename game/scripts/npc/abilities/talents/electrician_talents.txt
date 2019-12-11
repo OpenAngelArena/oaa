@@ -7,9 +7,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"special_bonus_undefined"
-		"ID"					"8476"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"			"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"BaseClass"				  "special_bonus_undefined"
+		"ID"					      "8476"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"			  "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Special
@@ -19,7 +19,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"value"				"2.0"
+				"value"				  "2.0"
 			}
 		}
 	}
@@ -30,9 +30,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"special_bonus_undefined"
-		"ID"					"8477"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"			"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"BaseClass"				  "special_bonus_undefined"
+		"ID"					      "8477"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"			  "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Special
@@ -42,7 +42,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"value"				"1"
+				"value"				  "1"
 			}
 		}
 	}
@@ -53,9 +53,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"special_bonus_hp_100"
-		"ID"					"8478"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"			"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"BaseClass"				  "special_bonus_hp_100"
+		"ID"					      "8478"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"			  "DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Special
@@ -65,7 +65,30 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"value"				"1000"
+				"value"				  "1000"
+			}
+		}
+	}
+  //=================================================================================================================
+	// Electrician: Cleansing Shock Pierce Spell immunity
+	//=================================================================================================================
+	"special_bonus_electrician_shock_spell_immunity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				  "special_bonus_undefined"
+		"ID"					      "9909"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"			  "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"value"				  "1"
 			}
 		}
 	}

@@ -14,7 +14,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
@@ -25,7 +27,7 @@
     "AbilityCooldown"                                     "24 20 16 12 11 10"
 
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "8 8 8 8 8 8"
+    "AbilityDuration"                                     "8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +35,6 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    // WTF IS SLOW STEPS
     "AbilitySpecial"
     {
       "01"
@@ -44,8 +45,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "50"
-        "LinkedSpecialBonus"  "special_bonus_unique_lifestealer_2"
+        "heal_percent"                                    "35"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_2"
       }
       "03"
       {
@@ -56,11 +57,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "8"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "200 300 400 500 550 600"
       }
     }
   }

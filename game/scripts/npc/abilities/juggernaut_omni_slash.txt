@@ -16,7 +16,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -26,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80.0" //OAA
+    "AbilityCooldown"                                     "80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,6 +51,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "30 40 50 100 220"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
@@ -66,11 +69,13 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration_scepter"                                "4 4.25 4.5 5.25 5.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_2"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "50" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -14,6 +14,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -46,13 +47,13 @@
 			"03"
 			{
 				"var_type"                                        "FIELD_INTEGER"
-				"bonus_attack_speed"                              "30 40 50 60 100 140"
+				"bonus_attack_speed"                              "30 40 50 60 70 80"
 				"LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi"
 			}
 			"04"
 			{
 				"var_type"                                        "FIELD_INTEGER"
-				"self_bonus"                                      "50 70 90 110 150 190" //OAA
+				"self_bonus"                                      "50 70 90 110 130 180" //OAA
 				"LinkedSpecialBonus"	                            "special_bonus_unique_ogre_magi"
 			}
 			"05"
@@ -60,6 +61,11 @@
 				"var_type"			                                  "FIELD_FLOAT"
 				"duration"			                                  "30"
 			}
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "multicast_bloodlust_aoe"                         "700"
+      }
     }
   }
 }

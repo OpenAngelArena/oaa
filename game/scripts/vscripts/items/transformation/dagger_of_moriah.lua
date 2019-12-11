@@ -114,7 +114,7 @@ function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
       attacker = event.attacker,
       damage = event.original_damage * (self.selfDamage / 100),
       damage_type = event.damage_type,
-      damage_flags = bit.bor(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION),
+      damage_flags = bit.bor(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
       ability = self:GetAbility(),
     }
 
