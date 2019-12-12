@@ -76,13 +76,13 @@ DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- Sparks
 SPARK_LEVEL_1_TIME = 0                  -- just a placeholder so the other names make more sense
-SPARK_LEVEL_2_TIME = 240                -- 4 minute
+SPARK_LEVEL_2_TIME = 240                -- 4 minutes
 SPARK_LEVEL_3_TIME = 900                -- 15 minutes
 SPARK_LEVEL_4_TIME = 1500               -- 25 minutes
-SPARK_LEVEL_5_TIME = 2100               -- 30 minutes
+SPARK_LEVEL_5_TIME = 2100               -- 35 minutes
 
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 900       -- how long after the clock hits 0 should the initial Capture Point start counting down
+INITIAL_CAPTURE_POINT_DELAY = 600       -- how long after the clock hits 0 should the initial Capture Point start counting down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)

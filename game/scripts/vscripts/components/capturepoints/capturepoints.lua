@@ -215,10 +215,12 @@ function CapturePoints:Reward(teamId)
   PointsManager:AddPoints(teamId, NumCaptures)
 
   if NumCaptures == 1 then
-    self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+    self:GiveItemToWholeTeam("item_upgrade_core", teamId)
   elseif NumCaptures == 2 then
+    self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
+  elseif NumCaptures == 3 then
     self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
-  elseif NumCaptures >= 3 then
+  elseif NumCaptures >= 4 then
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 
