@@ -99,7 +99,12 @@ globals = { -- these globals can be set and accessed.
 "GOLD_TICK_TIME",
 "Components",
 "CREEP_BOUNTY_BONUS_PERCENT_CLEAVE",
-"CREEP_BOUNTY_BONUS_PERCENT_POWER"
+"CREEP_BOUNTY_BONUS_PERCENT_POWER",
+"SPARK_LEVEL_1_TIME",
+"SPARK_LEVEL_2_TIME",
+"SPARK_LEVEL_3_TIME",
+"SPARK_LEVEL_4_TIME",
+"SPARK_LEVEL_5_TIME"
 }
 
 read_globals = { -- these globals can only be accessed.
