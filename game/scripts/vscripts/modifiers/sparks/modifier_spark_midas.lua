@@ -52,9 +52,9 @@ end
 function modifier_spark_midas:GetSparkLevel()
   local gameTime
   if IsServer() then
-    gameTime = HudTimer:GetGameTime()
+    gameTime = HudTimer:GetGameTime() - (self.stack_count / 2)
   else
-    gameTime = GameRules:GetDOTATime(false, false)
+    gameTime = GameRules:GetDOTATime(false, false) - (self.GetStackCount() / 2)
   end
 
   if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
