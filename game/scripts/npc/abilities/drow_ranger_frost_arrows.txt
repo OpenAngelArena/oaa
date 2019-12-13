@@ -13,24 +13,26 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0 0.0"
-    "AbilityDuration"                                     "1.5 1.5 1.5 1.5 1.5 1.5"
+    "AbilityCooldown"                                     "0.0"
+    "AbilityDuration"                                     "1.5"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0 0 0 0 0 0"
+    "AbilityDamage"                                       "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "12 12 12 12 12 12"
+    "AbilityManaCost"                                     "12"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,15 +43,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "frost_arrows_movement_speed"                     "-16 -32 -48 -64 -70 -75"
       }
-      "02"
+      "02" // Searing Arrows: 20 30 40 50 70 130
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "frost_arrows_hero_duration_tooltip"              "1.5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "frost_arrows_creep_duration"                     "7.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "5 10 15 20 40 60"
       }
     }
   }

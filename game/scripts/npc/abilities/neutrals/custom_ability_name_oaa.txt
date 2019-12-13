@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Unit Name: Ability Name - what it does
+  // Notes: Template for future abilities
+  //=================================================================================================================
+  "custom_ability_name_oaa"
+  {
+    "ID"                                                  "89999"  // 80000 + original ID number
+    "BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/neutrals/oaa_custom_ability_name.lua"
+    "AbilityTextureName"                                  "rubick_empty1"                 // icon for the ability
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NONE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"          // if the ability does damage
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"    // SPELL_IMMUNITY_ENEMIES_NO
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"          // Is some part of this spell dispellable? SPELL_DISPELLABLE_YES; SPELL_DISPELLABLE_YES_STRONG;
+
+    "MaxLevel"                                            "1"       // Neutral units don't need abilities with more levels unless some special logic is used
+
+    "AbilityCastRange"                                    "0"       // Default is 0; not needed for NO TARGET and PASSIVE abilities
+    "AbilityCastPoint"                                    "0.0"     // not needed for PASSIVE abilities
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"     // not needed for PASSIVE abilities
+
+    "AbilityCooldown"                                     "10.0"
+
+    "AbilityManaCost"                                     "100"
+    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "special_value_name"                              "9000"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "900"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.5"
+      }
+    }
+  }
+}

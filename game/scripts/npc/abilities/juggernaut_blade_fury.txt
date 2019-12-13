@@ -13,7 +13,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
@@ -22,7 +24,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30 26 22 18 18 18" //OAA
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,6 +37,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "blade_fury_damage_tick"                          "0.2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
@@ -45,7 +47,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blade_fury_damage"                               "90 115 140 160 270 380"
+        "blade_fury_damage"                               "85 110 135 160 270 380"
         "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_3"
       }
       "04"

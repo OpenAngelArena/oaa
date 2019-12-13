@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_echo_sabre_2;item_upgrade_core_2"
-      "02"                                                "item_echo_sabre_2;item_upgrade_core_3"
-      "03"                                                "item_echo_sabre_2;item_upgrade_core_4"
-      "04"                                                "item_heavens_halberd_2;item_upgrade_core_2"
-      "05"                                                "item_heavens_halberd_2;item_upgrade_core_3"
-      "06"                                                "item_heavens_halberd_2;item_upgrade_core_4"
+      "02"                                                "item_heavens_halberd_2;item_upgrade_core_2"
     }
   }
 
@@ -47,13 +43,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 3.6 3.0 2.4 1.8"
+    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.5"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "8450"
+    "ItemCost"                                            "7575"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre 3"
@@ -69,12 +65,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 18 30 42 60"
+        "bonus_strength"                                  "12 17 27 42 62"
       }
       "03"
       {
@@ -84,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 18 30 42 60"
+        "bonus_damage"                                    "15 35 65 105 155"
       }
       "05"
       {
@@ -109,7 +105,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8 0.9 1.0 1.1 1.2"
+        "slow_duration"                                   "0.5" //OAA
       }
     }
   }

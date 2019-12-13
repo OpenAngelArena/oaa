@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5471"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5471"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -17,6 +17,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1800"
@@ -25,7 +27,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "11"
-    "AbilityChannelTime"                                  "2.0 3.0 4.0 5.0 6.0 7.0"
+    "AbilityChannelTime"                                  "2.0 3.0 4.0 5.0 5.0 5.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +40,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "100.0 100.0 100.0 100.0 200.0 300.0"
+        "damage_per_second"                               "100.0 100.0 100.0 100.0 250.0 400.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_channel_time"                                "2.0 3.0 4.0 5.0 6.0 7.0"
+        "max_channel_time"                                "2.0 3.0 4.0 5.0 5.0 5.0"
       }
       "03"
       {
@@ -93,7 +95,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "200 300 400 500 1200 2100"
+        "total_damage"                                    "200 300 400 500 1250 2000"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
     }

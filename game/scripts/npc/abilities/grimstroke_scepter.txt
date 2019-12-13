@@ -1,0 +1,83 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+	// Grimstroke: Dark Portrait (Scepter Upgrade)
+	//=================================================================================================================
+	"grimstroke_scepter"
+	{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7852"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "1"
+
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200"
+
+    "AbilityModifierSupportValue"                         "0.5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_duration"                               "15"
+        "RequiresScepter"                                 "1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_do_damage_percent"                        "50"
+        "RequiresScepter"                                 "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_do_damage_percent_tooltip"                "150"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_take_damage_percent"                      "250"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_take_damage_percent_tooltip"              "350"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "images_movespeed_bonus"                          "30"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

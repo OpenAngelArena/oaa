@@ -10,10 +10,12 @@
     "ID"                                                  "5176"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
-    "MaxLevel"                                            "5"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
+
+    "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -56,17 +58,19 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "340 430 520 950 1400"
+        "damage"                                          "340 520 700 1060 1420" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "40"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "390 500 610 1170 1700"
+        "damage_scepter"                                  "390 610 830 1270 1710" //OAA
+        "RequiresScepter"                                 "1"
       }
       "08"
       {

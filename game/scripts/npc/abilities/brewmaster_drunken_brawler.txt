@@ -7,8 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5402"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5402"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -34,7 +36,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "140 180 220 260 300 340"
+        "crit_multiplier"                                 "140 180 220 260 280 300"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_4"
       }
       "04"

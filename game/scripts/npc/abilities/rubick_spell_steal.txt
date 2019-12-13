@@ -8,21 +8,20 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5452"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "1"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -58,11 +57,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "1400"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "2 2 2 1 0"
+        "RequiresScepter"                                 "1"
       }
     }
   }
