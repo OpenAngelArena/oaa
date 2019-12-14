@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Carapace Boss: Headbutt - Carapace damages and slows enemies in a rectangle in front of him
+  // Carapace Boss: Headbutt - Carapace damages, slows and knocks back enemies that are in a rectangle in front of him
   //=================================================================================================================
   "boss_carapace_headbutt"
   {
@@ -18,6 +18,7 @@
     "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
     "AnimationIgnoresModelScale"    "1"
+    "MaxLevel"                      "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
