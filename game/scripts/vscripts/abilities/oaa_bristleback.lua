@@ -37,6 +37,10 @@ function bristleback_takedamage(params)
     params.unit.quill_threshold_counter = 0.0
   end
 
+  if params.unit:PassivesDisabled() then
+    return nil
+  end
+
   local ability = params.ability
   local back_reduction_percentage = ability:GetLevelSpecialValueFor("back_damage_reduction", ability:GetLevel() - 1) / 100
   local side_reduction_percentage = ability:GetLevelSpecialValueFor("side_damage_reduction", ability:GetLevel() - 1) / 100

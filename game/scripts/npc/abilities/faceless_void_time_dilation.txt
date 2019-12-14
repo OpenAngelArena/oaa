@@ -31,12 +31,17 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6 8 10 12 15 20"
+        "duration"                                        "8 10 12 14 16 18"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "14"
+        "slow"                                            "10"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_percentage"                             "75"
       }
     }
   }

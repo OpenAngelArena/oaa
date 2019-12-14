@@ -14,8 +14,11 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
-    "HasScepterUpgrade"                                   "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
@@ -39,7 +42,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "shock_speed"                                     "900"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -69,17 +71,18 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_distance"                                "1725"
+        "scepter_distance"                                "2000"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_speed"                                   "1200"
+        "scepter_speed"                                   "1500"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pull_distance"                                   "100"
+        "pull_distance"                                   "150"
       }
       "10"
       {

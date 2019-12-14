@@ -13,6 +13,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -62,18 +63,13 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "1000"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "gold_steal"                                      "0.3 0.4 0.5 0.6 0.7"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed_pct"                            "16 18 20 25 30"
+        "bonus_move_speed_pct"                            "16 20 24 28 32"
       }
     }
   }

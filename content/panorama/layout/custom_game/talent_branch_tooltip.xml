@@ -1,0 +1,136 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/tooltips/tooltip_base.vcss_c" />
+		<include src="s2r://panorama/styles/tooltips/tooltip_stat_branch.vcss_c" />
+		<include src="s2r://panorama/styles/ui_stat_branch.vcss_c" />
+    <include src="s2r://panorama/styles/hud/dota_hud_stat_branch.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/talent_tooltip.css" />
+    <include src="file://{resources}/styles/custom_game/bottlepass_rewards.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
+    <include src="file://{resources}/scripts/custom_game/vanila_hero_selection.js"/>
+  </scripts>
+  <snippets>
+    <snippet name="BottleRadio">
+      <RadioButton class="BottleOption" group="BottleOption" onactivate="SelectBottle()" hittest="true">
+        <Panel class="Bottle"/>
+      </RadioButton>
+    </snippet>
+    <snippet name="ArcanaRadio">
+      <RadioButton class="ArcanaOption" group="ArcanaOption" onactivate="SelectArcana()" hittest="true">
+        <Panel class="Arcana"/>
+      </RadioButton>
+    </snippet>
+  </snippets>
+  <Panel class='Holder' hittest="false">
+    <Panel class='DOTATooltipStatBranch ' hittest="false">
+      <Panel id='DOTAHUDStatBranchTooltipAlt' class='TooltipContainer TopArrowVisible' hittest='false' hittestchildren='false'>
+        <Panel id='TopArrow' hittest='false'/>
+        <Panel id='TooltipRow' hittest='false'>
+          <Panel id='LeftArrow' hittest='false'/>
+          <TooltipContents id='Contents' hittest='false'>
+            <Panel id='StatBranchAlt' >
+              <Label id='BranchTitle' text='#DOTA_StatBranch_TooltipTitle'/>
+              <Panel id='MainBranchContainerAlt' >
+
+                <Panel id='UpgradeOption4Alt' class='BranchPair' >
+                  <Panel  class='BranchChoiceContainer LeftBranch' >
+                    <Button  id='Upgrade8' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_8}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='BranchChoiceContainer RightBranch' >
+                    <Button  id='Upgrade7' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_7}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='Center' >
+                    <Panel class='ChoiceArrow Left'/>
+                    <Panel class='LevelBG'>
+                      <Label class='ReqLabel' text='25' />
+                    </Panel>
+                    <Panel class='ChoiceArrow Right'/>
+                  </Panel>
+                </Panel>
+
+                <Panel id='UpgradeOption3Alt' class='BranchPair' >
+                  <Panel  class='BranchChoiceContainer LeftBranch' >
+                    <Button  id='Upgrade6' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_6}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='BranchChoiceContainer RightBranch' >
+                    <Button  id='Upgrade5' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_5}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='Center' >
+                    <Panel class='ChoiceArrow Left'/>
+                    <Panel class='LevelBG'>
+                      <Label class='ReqLabel' text='20' />
+                    </Panel>
+                    <Panel class='ChoiceArrow Right'/>
+                  </Panel>
+                </Panel>
+
+                <Panel id='UpgradeOption2Alt' class='BranchPair' >
+                  <Panel  class='BranchChoiceContainer LeftBranch' >
+                    <Button  id='Upgrade4' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_4}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='BranchChoiceContainer RightBranch' >
+                    <Button  id='Upgrade3' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_3}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='Center' >
+                    <Panel class='ChoiceArrow Left'/>
+                    <Panel class='LevelBG'>
+                      <Label class='ReqLabel' text='15' />
+                    </Panel>
+                    <Panel class='ChoiceArrow Right'/>
+                  </Panel>
+                </Panel>
+
+                <Panel id='UpgradeOption1Alt' class='BranchPair' >
+                  <Panel  class='BranchChoiceContainer LeftBranch' >
+                    <Button  id='Upgrade2' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_2}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='BranchChoiceContainer RightBranch' >
+                    <Button  id='Upgrade1' class='BranchChoice'>
+                      <Label class='StatBonusLabel' text='{s:name_1}' />
+                    </Button>
+                  </Panel>
+                  <Panel  class='Center' >
+                    <Panel class='ChoiceArrow Left'/>
+                    <Panel class='LevelBG'>
+                      <Label class='ReqLabel' text='10' />
+                    </Panel>
+                    <Panel class='ChoiceArrow Right'/>
+                  </Panel>
+                </Panel>
+              </Panel>
+            </Panel>
+          </TooltipContents>
+          <Panel id='RightArrow' hittest='false'/>
+        </Panel>
+        <Panel id='BottomArrow' hittest='false'/>
+      </Panel>
+    </Panel>
+    <Panel class="BottlePassSelection" hittest="true" hittestchildren="true" >
+      <Label id="BottlePassSelectionTitle" text="#BottlePassSelection"/>
+      <Label id="BottleSelectionTitle" text="#BottleSelection"/>
+      <Panel id="BottleSelection" hittest="true" hittestchildren="true" >
+      </Panel>
+      <Panel class="ArcanaPanel" id="ArcanaPanel">
+        <Label id="ArcanaSelectionTitle" text="#ArcanaSelection"/>
+        <Panel id="ArcanaSelection" hittest="true" hittestchildren="true" >
+        </Panel>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

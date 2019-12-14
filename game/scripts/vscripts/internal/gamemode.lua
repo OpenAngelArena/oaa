@@ -10,7 +10,9 @@ function GameMode:_InitGameMode()
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
   GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
-  GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME )
+  -- SetHeroSelectionTime is ignored because "EnablePickRules"   "1" on addoninfo
+  GameRules:SetHeroSelectionTime( RANKED_PICK_TIME )
+  GameRules:SetHeroSelectPenaltyTime( 10 )
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
   if USE_CUSTOM_HERO_LEVELS then
@@ -33,6 +35,7 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
 
+  GameRules:SetStrategyTime( 0 )
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
@@ -159,6 +162,13 @@ function GameMode:_CaptureGameMode()
   if mode == nil then
     -- Set GameMode parameters
     mode = GameRules:GetGameModeEntity()
+    if GetMapName() ~= "unranked" then
+      mode:SetDraftingBanningTimeOverride(0)
+      mode:SetDraftingHeroPickSelectTimeOverride(99999)
+    else
+      mode:SetDraftingBanningTimeOverride(RANKED_BAN_TIME)
+      mode:SetDraftingHeroPickSelectTimeOverride(RANKED_PICK_TIME)
+    end
     mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
     mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
     mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
@@ -179,7 +189,7 @@ function GameMode:_CaptureGameMode()
     mode:SetAlwaysShowPlayerInventory( SHOW_ONLY_PLAYER_INVENTORY )
     mode:SetAnnouncerDisabled( DISABLE_ANNOUNCER )
     if FORCE_PICKED_HERO ~= nil then
-      mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
+      --mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
     end
     mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME )
     mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
@@ -200,6 +210,7 @@ function GameMode:_CaptureGameMode()
       end
       mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
       mode:SetPowerRuneSpawnInterval(POWER_RUNE_SPAWN_INTERVAL)
+      GameRules:SetRuneSpawnTime(0)
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )

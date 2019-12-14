@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Spirit Bear 6
-//=================================================================================
+  //=================================================================================
+  // Spirit Bear 6
+  //=================================================================================
   "npc_dota_lone_druid_bear6"
   {
     // General
@@ -10,32 +10,31 @@
     "Model"                                               "models/heroes/lone_druid/spirit_bear.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_lone_druid_bear"
     "SoundSet"                                            "LoneDruid_SpiritBear"
-    "Level"                                               "7"
+    "Level"                                               "1"
     "ModelScale"                                          ".98"
     "ConsideredHero"                                      "1"
     "UnitLabel"                                           "spirit_bear"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "lone_druid_spirit_bear_return"      // Ability 1
-    "Ability2"                                            "lone_druid_spirit_bear_entangle"      // Ability 2
-    "Ability3"                                            "lone_druid_savage_roar_bear"      // Ability 3
-    "Ability4"                                            "lone_druid_spirit_bear_defender"
-    "Ability5"                                            "lone_druid_spirit_bear_demolish"
+    "Ability1"                  "lone_druid_spirit_bear_return"        // Ability 1
+    "Ability2"                  "lone_druid_spirit_bear_demolish"     // Ability 2
+    "Ability3"                  "lone_druid_savage_roar_bear"         // Ability 3
+    "Ability4"                  "lone_druid_spirit_bear_entangle"     // Ability 4
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "32"      // Physical protection.
+    "ArmorPhysical"                                       "13"      // Physical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "290"    // Damage range min.
-    "AttackDamageMax"                                     "300"    // Damage range max.
+    "AttackDamageMin"                                     "180"    // Damage range min.
+    "AttackDamageMax"                                     "180"    // Damage range max.
     "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.43"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
-    "AttackRange"                                         "128"    // Range within a target can be attacked.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
@@ -46,21 +45,21 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "300"    // Experience earn.
-    "BountyGoldMin"                                       "300"    // Gold earned min.
-    "BountyGoldMax"                                       "300"    // Gold earned max.
+    "BountyXP"                                            "1200"    // Experience earn.
+    "BountyGoldMin"                                       "3600"    // Gold earned min.
+    "BountyGoldMax"                                       "3600"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "415"    // Speed.
+    "MovementSpeed"                                       "440"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"    // Base health.
-    "StatusHealthRegen"                                   "15"      // Health regeneration rate.
-    "StatusMana"                                          "300"    // Base mana.
+    "StatusHealth"                                        "6600"    // Base health.
+    "StatusHealthRegen"                                   "60"      // Health regeneration rate.
+    "StatusMana"                                          "900"    // Base mana.
     "StatusManaRegen"                                     "0.5"    // Mana regeneration rate.
 
     // Vision
@@ -71,8 +70,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     //Inventory

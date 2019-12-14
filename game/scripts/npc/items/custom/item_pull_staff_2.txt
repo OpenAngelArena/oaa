@@ -24,11 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_pull_staff;item_upgrade_core_2"
-      "02"                                                "item_pull_staff;item_upgrade_core_3"
-      "03"                                                "item_pull_staff;item_upgrade_core_4"
-      "04"                                                "item_force_staff_2;item_upgrade_core_2"
-      "05"                                                "item_force_staff_2;item_upgrade_core_3"
-      "06"                                                "item_force_staff_2;item_upgrade_core_4"
+      "02"                                                "item_force_staff_2;item_upgrade_core_2"
     }
   }
 
@@ -65,7 +61,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "pull"
 
     // Item Info
@@ -105,24 +101,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 23 34 50"
+        "bonus_intellect"                                 "15 30 45 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "10 20 30 40"
+        "bonus_strength"                                  "15 30 45 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1500"
+        "bonus_health_regen"                              "10 20 30 40"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
+        "bonus_armor"                                     "2 4 6 8"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_range"                                   "800"
+      }
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "distance"                                        "500 600 700 800"
