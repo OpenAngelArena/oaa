@@ -10,7 +10,9 @@
     "ID"                                                  "5506"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
@@ -27,10 +29,8 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "absorption_tooltip"                              "70"
+        "absorption_pct"                                  "70"
       }
-
     }
   }
-
 }

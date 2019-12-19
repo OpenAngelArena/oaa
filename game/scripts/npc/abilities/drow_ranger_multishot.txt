@@ -8,12 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "343"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"				"1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -42,10 +42,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "arrow_count"                                     "12"
       }
-      "02"
+      "02" // this is based on Drow's base damage
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_damage_pct"                                "95 125 155 185 215 245"
+        "arrow_damage_pct"                                "90 115 140 165 215 365"
         "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_1"
       }
       "03"

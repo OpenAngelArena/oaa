@@ -133,7 +133,7 @@ HERO_XP_BOUNTY_BASE = 20             -- 40 in normal dota
 HERO_XP_BOUNTY_STREAK_BASE = 50      -- 400 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
 HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- 200 in normal dota
 HERO_XP_BOUNTY_STREAK_MAX = 850      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
-HERO_XP_BONUS_FACTOR = 0.07          -- 0.14 in normal dota
+HERO_XP_BONUS_FACTOR = 0.07          -- 0.13 in normal dota
 HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
 
 -- Bounty runes

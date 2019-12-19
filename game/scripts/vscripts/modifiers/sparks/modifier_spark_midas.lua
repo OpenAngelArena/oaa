@@ -21,28 +21,16 @@ function modifier_spark_midas:GetTexture()
 end
 
 function modifier_spark_midas:OnCreated()
-  local parent = self:GetParent()
-
   if IsServer() then
     self:StartIntervalThink(0.5)
     self.stack_count = 0
   end
 
-  -- We count kills made by midas spark and store them on the parent (hero that has a spark),
-  -- because he can change the spark at any time
-  if parent.midas_spark_kill_counter == nil then
-    parent.midas_spark_kill_counter = 0
-  end
-
   -- Midas Spark variables
   self.max_charges = 400
   self.charges_needed_for_kill = 100
+  self.bonus_gold = {300, 1300, 2300, 4300, 8300} -- max allowed values: {400, 1500, 2600, 4500, 8300} - which is slightly less than gpm spark
   self.bonus_xp = {0, 0, 0, 0, 0}
-  self.init_gold = 250
-  self.gold_increment = 100
-  -- Bonus gold on 6th usage: 750 (approx. at 5 minutes)
-  -- Bonus gold on 18th usage: 1950 (approx. at 15 minutes)
-  -- After using Midas Spark 17 times, 18th usage will give 1950 gold (250+100*17=1950).
 end
 
 if IsServer() then
@@ -64,9 +52,9 @@ end
 function modifier_spark_midas:GetSparkLevel()
   local gameTime
   if IsServer() then
-    gameTime = HudTimer:GetGameTime()
+    gameTime = HudTimer:GetGameTime() - (self.stack_count / 2)
   else
-    gameTime = GameRules:GetDOTATime(false, false)
+    gameTime = GameRules:GetDOTATime(false, false) - (self.GetStackCount() / 2)
   end
 
   if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
@@ -141,12 +129,7 @@ if IsServer() then
 
       local spark_level = self:GetSparkLevel()
 
-      -- Gold variables
-      local bonus_gold_on_first_kill = self.init_gold
-      local counter = parent.midas_spark_kill_counter
-      local gold_increment_per_kill = self.gold_increment
-
-      local bonus_gold = bonus_gold_on_first_kill + counter*gold_increment_per_kill
+      local bonus_gold = self.bonus_gold[spark_level]
       local bonus_xp = self.bonus_xp[spark_level]
 
       -- bonus gold
@@ -167,20 +150,10 @@ if IsServer() then
 
       -- kill the target
       target:Kill(nil, parent)
-
-      -- Increment kill counter
-      parent.midas_spark_kill_counter = parent.midas_spark_kill_counter + 1
     end
 	end
 end
 
 function modifier_spark_midas:OnTooltip()
-  local parent = self:GetParent()
-  local counter = parent.midas_spark_kill_counter -- its not increasing on the client ...
-
-  if not counter then
-    counter = 0
-  end
-
-  return self.init_gold + counter*self.gold_increment
+  return self.bonus_gold[self:GetSparkLevel()]
 end
