@@ -13,7 +13,6 @@
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "FightRecapLevel"               "1"
-        //"AnimationPlaybackRate"           "1.0" // 1.0 corresponds to cast point of 0.4
 
         "MaxLevel"                                            "5"
         "RequiredLevel"                                       "6"
@@ -29,7 +28,7 @@
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "80 90 100 120 140"
+        "AbilityManaCost"               "100"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +48,7 @@
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "charge_restore_time"   "25 20 15 15 15"
+                "charge_restore_time"   "30 25 20 15 15"
                 "LinkedSpecialBonus"    "special_bonus_unique_void_spirit_1"
             }
             "04"
@@ -70,7 +69,7 @@
             "07"
             {
                 "var_type"              "FIELD_INTEGER"
-                "pop_damage"            "150 250 450 650 850" //OAA
+                "pop_damage"            "150 250 350 650 950" //OAA
             }
             "08"
             {

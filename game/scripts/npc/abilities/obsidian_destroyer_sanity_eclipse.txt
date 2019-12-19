@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "150 225 300 525 900"
+        "base_damage"                                     "150 300 450 600 900" //OAA
       }
       "02"
       {
@@ -54,7 +54,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_multiplier"                               "0.5 0.6 0.7 0.8 0.9"
+        "damage_multiplier"                               "0.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_4"
       }
       "06"
