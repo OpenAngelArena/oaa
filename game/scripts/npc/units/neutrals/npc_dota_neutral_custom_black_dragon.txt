@@ -1,0 +1,80 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Neutral: Corner Camp - Black Ancient Dragon
+  //=================================================================================
+  "npc_dota_neutral_custom_black_dragon"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_drake/n_creep_black_drake.vmdl"
+    "BaseClass"                                           "npc_dota_creature"
+    "SoundSet"                                            "n_creep_Ranged"
+    "Level"                                               "6"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "0.7"
+    "IsNeutralUnitType"                                   "1"
+    "UseNeutralCreepBehavior"                             "1"     // If you want to use a custom behavior (AI), set to 0
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "black_dragon_fireball"
+    "Ability2"                                            "black_dragon_dragonhide_aura_oaa"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "3"       // Physical protection.
+    "MagicalResistance"                                   "25"      // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "48"      // Damage range min.
+    "AttackDamageMax"                                     "81"      // Damage range max.
+    "AttackRate"                                          "1.5"     // Speed of attack.
+    "AttackAnimationPoint"                                "0.94"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "300"     // Range within a target can be acquired.
+    "AttackRange"                                         "300"     // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/neutral_fx/black_drake_attack.vpcf"
+    "ProjectileSpeed"                                     "900"    // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "300"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "155"     // Experience earn.
+    "BountyGoldMin"                                       "150"     // Gold earned min.
+    "BountyGoldMax"                                       "190"     // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "350"     // Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "2000"    // Base health.
+    "StatusHealthRegen"                                   "1"       // Health regeneration rate.
+    "StatusMana"                                          "500"     // Base mana.
+    "StatusManaRegen"                                     "1"       // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"     // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"     // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "HasInventory"                                        "0"
+  }
+}

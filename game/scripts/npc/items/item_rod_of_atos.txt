@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 150 250 350 450"
+    "AbilityManaCost"                                     "50 75 150 225 300"
     "ItemCost"                                            "2750"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
@@ -65,27 +65,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 30 45 70 105"
+        "bonus_intellect"                                 "20 40 60 80 105"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 22 32 42 52"
+        "bonus_strength"                                  "10 25 35 45 55"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 22 32 42 52"
+        "bonus_agility"                                   "10 25 35 45 55"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0 2.5 3.0 3.5 4.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1150"
       }
     }
   }

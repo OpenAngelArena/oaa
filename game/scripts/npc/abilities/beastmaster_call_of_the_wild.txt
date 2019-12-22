@@ -36,7 +36,7 @@
 			"02"
 			{
 				"var_type"                 "FIELD_INTEGER"
-				"boar_hp_tooltip"          "300 450 600 750 2500 5000"
+				"boar_hp_tooltip"          "450 600 750 900 2500 5000" //OAA, for picking screen tooltip
 			}
 			"03"
 			{
@@ -47,7 +47,7 @@
 			"04"
 			{
 				"var_type"                 "FIELD_INTEGER"
-				"boar_moveslow_tooltip"    "10 20 30 40 100 160"
+				"boar_moveslow_tooltip"    "10 20 30 40 60 80"
 			}
 			"05"
 			{
@@ -76,7 +76,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 50 40 30 30 20"
+		"AbilityCooldown"				"30" //OAA, for picking screen tooltip
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -99,13 +99,13 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hawk_speed_tooltip"		"300 340 380 420 480 575"
+				"hawk_speed_tooltip"		"300 340 380 420 460 500"
 				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster_2"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hawk_vision_tooltip"		"600 700 800 900 2000 3000"
+				"hawk_vision_tooltip"		"600 700 800 900 1350 1800"
 			}
 		}
 	}

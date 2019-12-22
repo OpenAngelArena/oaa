@@ -1,5 +1,9 @@
 shadow_shaman_mass_serpent_ward = class(AbilityBaseClass)
 
+function shadow_shaman_mass_serpent_ward:GetAOERadius()
+	return self:GetSpecialValueFor("spawn_radius")
+end
+
 function shadow_shaman_mass_serpent_ward:OnSpellStart()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()

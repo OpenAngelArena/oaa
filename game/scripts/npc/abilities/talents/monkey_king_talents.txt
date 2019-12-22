@@ -1,0 +1,140 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Boundless Strike Crit
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king"
+  {
+    "ID"					"6303"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"50"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Jingu Mastery Damage
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king_2"
+  {
+    "ID"					"6421"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"100"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Primal Spring Damage
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king_3"
+  {
+    "ID"					"6696"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"400"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Armor Wukong's Command
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king_4"
+  {
+    "ID"					"6697"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"100"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Tree Dance Vision AoE
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king_5"
+  {
+    "ID"					"7024"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"400"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // +1 Wukong's Command Ring
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king_6"
+  {
+    "ID"					"7025"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1000" //OAA
+      }
+      "02"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value2"				"7" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Tree Dance Cast Range
+  //=================================================================================================================
+  "special_bonus_unique_monkey_king_7"
+  {
+    "ID"					"7038"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"600"
+      }
+    }
+  }
+}

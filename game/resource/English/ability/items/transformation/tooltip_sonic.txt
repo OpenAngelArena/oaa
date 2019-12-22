@@ -3,12 +3,13 @@
 //=============================================================================
 "DOTA_Tooltip_Ability_item_sonic"                     "Sonic"
 "DOTA_Tooltip_Ability_item_recipe_sonic"              "Sonic Recipe"
-"DOTA_Tooltip_Ability_item_sonic_Description"         "<h1>Transformation: #{dota_tooltip_modifier_sonic_fly}</h1> When active, Sonic grants it's user %speed_bonus% bonus speed, %vision_bonus%%% bonus vision and flying movement, but reduces %status_resist%%% status resistance."
+"DOTA_Tooltip_Ability_item_sonic_Description"         "<h1>Transformation: #{dota_tooltip_modifier_sonic_fly}</h1> When active, Sonic grants it's user %speed_bonus%%% bonus movement speed, %vision_bonus%%% bonus vision and flying movement, but reduces %status_resist%%% status resistance."
 "DOTA_Tooltip_Ability_item_sonic_bonus_int"           "+$int"
 "DOTA_Tooltip_Ability_item_sonic_bonus_str"           "+$str"
 "DOTA_Tooltip_Ability_item_sonic_bonus_agi"           "+$agi"
 "DOTA_Tooltip_Ability_item_sonic_bonus_mana_regen"    "+$mana_regen"
 "DOTA_Tooltip_Ability_item_sonic_Note0"               "#{transformation_note0}"
+"DOTA_Tooltip_Ability_item_sonic_Note1"               "During Sonic Flight you cannot be slowed."
 "dota_tooltip_modifier_sonic_fly"                     "Sonic Flight"
 "dota_tooltip_modifier_sonic_fly_Description"         "Unit begins to fly and gains bonus movement speed and vision range."
 
@@ -23,6 +24,7 @@
 "DOTA_Tooltip_Ability_item_sonic_2_bonus_agi"         "+$agi"
 "DOTA_Tooltip_Ability_item_sonic_2_bonus_mana_regen"  "+$mana_regen"
 "DOTA_Tooltip_Ability_item_sonic_2_Note0"             "#{transformation_note0}"
+"DOTA_Tooltip_Ability_item_sonic_2_Note1"             "#{DOTA_Tooltip_Ability_item_sonic_Note1}"
 
 //=============================================================================
 // Sonic 3
@@ -35,3 +37,4 @@
 "DOTA_Tooltip_Ability_item_sonic_3_bonus_agi"         "+$agi"
 "DOTA_Tooltip_Ability_item_sonic_3_bonus_mana_regen"  "+$mana_regen"
 "DOTA_Tooltip_Ability_item_sonic_3_Note0"             "#{transformation_note0}"
+"DOTA_Tooltip_Ability_item_sonic_3_Note1"             "#{DOTA_Tooltip_Ability_item_sonic_Note1}"

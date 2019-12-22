@@ -11,8 +11,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "MaxLevel"                                            "6"
     "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "1.2"
+    "AbilityCooldown"                                     "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -92,7 +93,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "impact_damage_tooltip"                           "140 210 280 350 770 1190"
-        "LinkedSpecialBonus"    "special_bonus_unique_monkey_king_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_3"
       }
       "13"
       {
