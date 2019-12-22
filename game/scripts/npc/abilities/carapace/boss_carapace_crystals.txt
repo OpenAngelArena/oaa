@@ -67,10 +67,10 @@
         "var_type"                  "FIELD_INTEGER"
         "bonus_armor"               "25"
       }
-      "10" // Value of this should be 30 minus base_magic_resistance_value;
+      "10"
       {
         "var_type"                  "FIELD_INTEGER"
-        "bonus_magic_resistance"    "80"
+        "bonus_magic_resistance"    "50"
       }
     }
 
