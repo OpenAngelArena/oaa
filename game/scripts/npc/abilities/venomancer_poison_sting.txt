@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"venomancer_poison_sting"
+  "venomancer_poison_sting"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -10,6 +10,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Special
@@ -19,18 +20,23 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15.0" //OAA
+        "duration"                                        "6.0 9.0 12.0 15.0 15.0 15.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "10 20 30 40 70 110" //OAA
+        "damage"                                          "10 20 30 40 60 120" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "-11 -13 -15 -17 -20 -25"
+        "movement_speed"                                  "-11 -13 -15 -17 -19 -21"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_reduction"                              "15 20 25 30 35 40"
       }
     }
   }

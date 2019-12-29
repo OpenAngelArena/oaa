@@ -1,0 +1,75 @@
+"DOTAUnits"
+{
+  "npc_dota_brewmaster_storm_2"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/brewmaster/brewmaster_windspirit.vmdl"
+    "BaseClass"                                           "npc_dota_brewmaster_storm"
+    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"
+    "SoundSet"                                            "Brewmaster_Storm"
+    "IdleSoundLoop"                                       "Brewmaster_Storm.Move_Loop"
+    "Level"                                               "8"
+    "ModelScale"                                          "0.9"
+    "IsSummoned"                                          "0"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+    "IgnoreAddSummonedToSelection"                        "1"
+    "UnitLabel"                                           "brewmaster_storm"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "brewmaster_storm_dispel_magic"
+    "Ability2"                                            "brewmaster_storm_cyclone"
+    "Ability3"                                            "brewmaster_storm_wind_walk"
+    "Ability4"                                            "brewmaster_cinder_brew"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "generic_hidden"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "4" //OAA
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "55" //OAA
+    "AttackDamageMax"                                     "65" //OAA
+    "AttackRate"                                          "1.5"
+    "AttackAnimationPoint"                                "0.4"
+    "AttackAcquisitionRange"                              "600"
+    "AttackRange"                                         "600"
+    "ProjectileModel"                                     "particles/units/heroes/hero_brewmaster/brewmaster_storm_attack.vpcf"
+    "ProjectileSpeed"                                     "1200"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "HealthBarOffset"                                     "165"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "350"
+
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1900" //OAA
+    "StatusHealthRegen"                                   "2"
+    "StatusMana"                                          "750"
+    "StatusManaRegen"                                     "1.5"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1800"
+    "VisionNighttimeRange"                                "800"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }
+}

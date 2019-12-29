@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Elder Dragon Form
+  // Dragon Knight: Elder Dragon Form (OAA rework)
   //=================================================================================================================
   "dragon_knight_elder_dragon_form_oaa"
   {
@@ -12,15 +12,19 @@
     "ScriptFile"                                          "abilities/oaa_elder_dragon_form.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "dragon_knight_elder_dragon_form"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70.0"
+    "AbilityCooldown"                                     "70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "350"
+        "bonus_attack_range"                              "350 350 350 450 550 600"
       }
       "04"
       {
@@ -57,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20"
+        "corrosive_breath_damage"                         "20 40 60 120 180 240"
       }
       "06"
       {
@@ -72,17 +76,17 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "75"
+        "splash_damage_percent"                           "75 75 75 115 200 250"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_movement_speed"                      "-40"
+        "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -70 -80"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-40"
+        "frost_bonus_attack_speed"                        "-40 -40 -40 -60 -70 -100"
       }
       "11"
       {
@@ -97,9 +101,19 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "rage_chance"                                     "40"
+        "magic_resistance"                                "0 0 0 40 40 50"
       }
       "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale"                                     "0 0 0 30 35 40"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rage_chance"                                     "40"
+      }
+      "16"
       {
         "var_type"                                        "FIELD_FLOAT"
         "rage_duration"                                   "2.0"

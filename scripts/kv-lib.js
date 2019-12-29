@@ -34,7 +34,8 @@ module.exports = {
 
 function dotaAbilities (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/scripts/npc/npc_abilities.txt'
+    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/scripts/npc/npc_abilities.txt'
+    url: 'https://raw.githubusercontent.com/DarkoniusXNG/oaa_changelogs_github/master/npc_abilities.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);

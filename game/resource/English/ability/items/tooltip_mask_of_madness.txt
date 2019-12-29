@@ -1,17 +1,17 @@
 //==================================================================================
 // Mask of Madness
 //==================================================================================
+"DOTA_Tooltip_ability_item_mask_of_madness_Description"                         "<h1>Active: Berserk</h1>Gives %berserk_bonus_attack_speed% attack speed and %berserk_bonus_movement_speed% movement speed, but reduces your armor by %berserk_armor_reduction% and silences you.  Lasts %berserk_duration% seconds.\n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt."
+"DOTA_Tooltip_ability_item_mask_of_madness_Lore"                                "Once this mask is worn, its bearer becomes an uncontrollable aggressive force."
+"DOTA_Tooltip_ability_item_mask_of_madness_bonus_damage"                        "+$damage"
+"DOTA_Tooltip_ability_item_mask_of_madness_bonus_attack_speed"                  "+$attack"
+
 "DOTA_Tooltip_Ability_item_mask_of_madness_2"                                   "#{DOTA_Tooltip_Ability_item_mask_of_madness}"
 "DOTA_Tooltip_Ability_item_recipe_mask_of_madness_2"                            "#{DOTA_Tooltip_Ability_item_recipe_mask_of_madness}"
 "DOTA_Tooltip_Ability_item_mask_of_madness_2_Description"                       "#{DOTA_Tooltip_ability_item_mask_of_madness_Description}"
 "DOTA_Tooltip_Ability_item_mask_of_madness_2_Lore"                              "#{DOTA_Tooltip_ability_item_mask_of_madness_Lore}"
 "DOTA_Tooltip_Ability_item_mask_of_madness_2_bonus_damage"                      "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_damage}"
 "DOTA_Tooltip_ability_item_mask_of_madness_2_bonus_attack_speed"                "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_attack_speed}"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_2_lifesteal_percent"                 "%LIFESTEAL:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_2_berserk_bonus_attack_speed"        "BERSERK ATTACK SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_2_berserk_bonus_movement_speed"      "%BERSERK MOVE SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_2_berserk_armor_reduction"           "BERSERK ARMOR REDUCTION:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_2_berserk_duration"                  "BERSERK DURATION:"
 
 "DOTA_Tooltip_Ability_item_mask_of_madness_3"                                   "#{DOTA_Tooltip_Ability_item_mask_of_madness}"
 "DOTA_Tooltip_Ability_item_recipe_mask_of_madness_3"                            "#{DOTA_Tooltip_Ability_item_recipe_mask_of_madness}"
@@ -19,11 +19,6 @@
 "DOTA_Tooltip_Ability_item_mask_of_madness_3_Lore"                              "#{DOTA_Tooltip_ability_item_mask_of_madness_Lore}"
 "DOTA_Tooltip_Ability_item_mask_of_madness_3_bonus_damage"                      "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_damage}"
 "DOTA_Tooltip_ability_item_mask_of_madness_3_bonus_attack_speed"                "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_attack_speed}"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_3_lifesteal_percent"                 "%LIFESTEAL:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_3_berserk_bonus_attack_speed"        "BERSERK ATTACK SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_3_berserk_bonus_movement_speed"      "%BERSERK MOVE SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_3_berserk_armor_reduction"           "BERSERK ARMOR REDUCTION:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_3_berserk_duration"                  "BERSERK DURATION:"
 
 "DOTA_Tooltip_Ability_item_mask_of_madness_4"                                   "#{DOTA_Tooltip_Ability_item_mask_of_madness}"
 "DOTA_Tooltip_Ability_item_recipe_mask_of_madness_4"                            "#{DOTA_Tooltip_Ability_item_recipe_mask_of_madness}"
@@ -31,11 +26,6 @@
 "DOTA_Tooltip_Ability_item_mask_of_madness_4_Lore"                              "#{DOTA_Tooltip_ability_item_mask_of_madness_Lore}"
 "DOTA_Tooltip_Ability_item_mask_of_madness_4_bonus_damage"                      "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_damage}"
 "DOTA_Tooltip_ability_item_mask_of_madness_4_bonus_attack_speed"                "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_attack_speed}"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_4_lifesteal_percent"                 "%LIFESTEAL:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_4_berserk_bonus_attack_speed"        "BERSERK ATTACK SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_4_berserk_bonus_movement_speed"      "%BERSERK MOVE SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_4_berserk_armor_reduction"           "BERSERK ARMOR REDUCTION:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_4_berserk_duration"                  "BERSERK DURATION:"
 
 "DOTA_Tooltip_Ability_item_mask_of_madness_5"                                   "#{DOTA_Tooltip_Ability_item_mask_of_madness}"
 "DOTA_Tooltip_Ability_item_recipe_mask_of_madness_5"                            "#{DOTA_Tooltip_Ability_item_recipe_mask_of_madness}"
@@ -43,8 +33,5 @@
 "DOTA_Tooltip_Ability_item_mask_of_madness_5_Lore"                              "#{DOTA_Tooltip_ability_item_mask_of_madness_Lore}"
 "DOTA_Tooltip_Ability_item_mask_of_madness_5_bonus_damage"                      "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_damage}"
 "DOTA_Tooltip_ability_item_mask_of_madness_5_bonus_attack_speed"                "#{DOTA_Tooltip_ability_item_mask_of_madness_bonus_attack_speed}"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_5_lifesteal_percent"                 "%LIFESTEAL:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_5_berserk_bonus_attack_speed"        "BERSERK ATTACK SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_5_berserk_bonus_movement_speed"      "%BERSERK MOVE SPEED:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_5_berserk_armor_reduction"           "BERSERK ARMOR REDUCTION:"
-//"DOTA_Tooltip_Ability_item_mask_of_madness_5_berserk_duration"                  "BERSERK DURATION:"
+
+"DOTA_Tooltip_modifier_item_mask_of_madness_berserk_Description"                "Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% and movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE% but reduces armor by 8 and silences you."

@@ -9,9 +9,9 @@ if StartingItems == nil then
 end
 
 function StartingItems:Init ()
-  StartingItems.itemList = {"item_farming_core"}
+  --StartingItems.itemList = {"item_farming_core"}
 
-  GameEvents:OnHeroInGame(StartingItems.GiveStartingItems)
+  --GameEvents:OnHeroInGame(StartingItems.GiveStartingItems)
 end
 
 function StartingItems.GiveStartingItems (hero)

@@ -1,0 +1,31 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Courier
+  //=================================================================================================================
+  "item_courier"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "45"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1" //OAA
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "consumable"
+    "ItemAliases"                                         "donkey;chicken;animal courier"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemStockMax"                                        "1"
+    "ItemStockTime"                                       "36000.0"
+    "ItemSupport"                                         "1"
+    "ItemKillable"                                        "0"
+    "ItemSellable"                                        "0"
+    "IsTempestDoubleClonable"                             "0"
+    "ShouldBeInitiallySuggested"                          "0"
+    "ItemPurchasable"                                     "0"
+    "ItemStockInitial"                                    "0" //OAA
+  }
+}

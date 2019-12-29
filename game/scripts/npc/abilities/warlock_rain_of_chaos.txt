@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"warlock_rain_of_chaos"
+  "warlock_rain_of_chaos"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -41,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "golem_duration"                                  "60 60 60 60 60"
+        "golem_duration"                                  "60"
       }
       "02"
       {
@@ -56,48 +58,55 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 2000 3000 5000 10000"
+        "golem_hp_tooltip"                                "1000 3000 5000 7500 10000" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip"                               "100 150 200 400 700"
+        "golem_dmg_tooltip"                               "100 200 300 600 900" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_armor_tooltip"                             "6 9 15 25 50" //OAA
+        "golem_armor_tooltip"                             "10 20 30 40 50" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_warlock_2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_regen_tooltip"                             "25 50 75 200 325"
+        "golem_regen_tooltip"                             "30 60 90 150 300" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "number_of_golems_scepter"                        "2"
+        "RequiresScepter"                                 "1"
       }
-      "09"
+      "09" // 75% of golem_hp_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "750 1500 2250 3750 7500"
+        "golem_hp_tooltip_scepter"                        "750 2250 3750 5625 7500" //OAA
+        "RequiresScepter"                                 "1"
       }
-      "10"
+        "10" // at least 75% of golem_dmg_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_dmg_tooltip_scepter"                       "75 110 150 320 510"
+        "golem_dmg_tooltip_scepter"                       "75 150 225 450 675" //OAA
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "hp_dmg_reduction_scepter"                        "25"
+        "RequiresScepter"                                 "1"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bounty_reduction_scepter"                        "50"
+        "RequiresScepter"                                 "1"
       }
     }
   }
