@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Beastmaster Hawk 5
-//=================================================================================
+  //=================================================================================
+  // Beastmaster Hawk 5
+  //=================================================================================
   "npc_dota_beastmaster_hawk_5"
   {
     // General
@@ -38,13 +38,13 @@
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "77"    // Experience earn.
-    "BountyGoldMin"                                       "60"    // Gold earned min.
-    "BountyGoldMax"                                       "60"    // Gold earned max.
+    "BountyGoldMin"                                       "70"    // Gold earned min.
+    "BountyGoldMax"                                       "70"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"
-    "MovementSpeed"                                       "480"    // Speed.
+    "MovementSpeed"                                       "460"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
@@ -54,8 +54,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "2000"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "2000"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1350"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1350"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------
@@ -66,5 +66,4 @@
 
     "WakesNeutrals"                                       "0"
   }
-
 }

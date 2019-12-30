@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"40"
+				"value"				"50"
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"8"
+				"value"				"9"
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"0.6"
+				"value"				"0.4" //OAA
 			}
 		}
 	}
@@ -87,8 +87,31 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"             "300"  //OAA
+				"value"             "420"  //OAA
 			}
 		}
 	}
+
+  //=================================================================================================================
+  // Phase Shift Attack
+  //=================================================================================================================
+  "special_bonus_unique_puck_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"348"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
 }

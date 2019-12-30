@@ -14,7 +14,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -28,10 +28,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "22 19 16 13 13 13"
     "AbilityDuration"                                     "4.0 5.0 6.0 7.0 8.0 9.0"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -59,11 +55,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "animation_rate"                                  "0.2"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "425 500 575 650 800 950"
       }
     }
   }

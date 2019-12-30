@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core"
-      "02"                                                "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core_2"
-      "03"                                                "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core_3"
-      "04"                                                "item_urn_of_shadows;item_mekansm;item_magic_wand;item_upgrade_core_4"
 
     }
   }
@@ -51,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5100"
+    "ItemCost"                                            "4765"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "urn of sorcery;melon"
