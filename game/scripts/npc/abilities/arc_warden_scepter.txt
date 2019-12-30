@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Arc Warden: Rune Forge (Scepter Ability)
+  //=================================================================================================================
+  "arc_warden_scepter"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7854"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "1"
+
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.15"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_scepter_cooldown"                        "60"
+        "RequiresScepter"                                 "1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_scepter_manacost"                        "100"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

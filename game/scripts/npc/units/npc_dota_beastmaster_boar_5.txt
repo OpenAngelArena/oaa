@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Beastmaster Boar 5
-//=================================================================================
+  //=================================================================================
+  // Beastmaster Boar 5
+  //=================================================================================
   "npc_dota_beastmaster_boar_5"
   {
     // General
@@ -44,7 +44,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "90"    // Experience earn.
+    "BountyXP"                                            "110"    // Experience earn.
     "BountyGoldMin"                                       "26"    // Gold earned min.
     "BountyGoldMax"                                       "38"    // Gold earned max.
 
@@ -71,5 +71,4 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-
 }

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5619"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -24,6 +24,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "700"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,6 +48,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "illusion_outgoing_tooltip"                       "40 60 80 100 120 140"
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_4"
       }
       "04"
       {
@@ -56,9 +58,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "900"
+        "range"                                           "475"
       }
     }
   }
-
 }

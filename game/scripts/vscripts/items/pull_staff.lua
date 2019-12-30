@@ -36,7 +36,10 @@ function item_pull_staff:OnSpellStart()
   end
   vVelocity = vVelocity:Normalized() * speed
 
-  target:Stop()
+  -- To prevent griefing allies that are channeling abilities
+  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    target:Stop()
+  end
 
   local info = {
     Ability = self,

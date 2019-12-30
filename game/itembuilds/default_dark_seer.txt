@@ -1,0 +1,53 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_dark_seer"
+	"Title"			"Recommended items for Dark Seer"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{
+			"item"		"item_arcane_origin"
+			"item"		"item_boots"
+			"item"		"item_stout_shield"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+			"item"		"item_mekansm"
+			"item"		"item_greater_arcane_boots"
+			"item"		"item_greater_guardian_greaves"
+			"item"		"item_vladmir"
+		}
+		
+		"#DOTA_Item_Build_Mid_Items"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_octarine_core"
+			"item"		"item_lotus_orb"
+			"item"		"item_heart"
+		}
+		
+		"#DOTA_Item_Build_Late_Items"
+		{
+			"item"		"item_helm_of_the_dominator_2"
+			"item"		"item_regen_crystal"
+			"item"		"item_refresher_4"
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+			"item"		"item_radiance"
+			"item"		"item_shivas_guard"
+			"item"		"item_crimson_guard"
+			"item"		"item_aether_lens"
+			"item"		"item_sphere"
+			"item"		"item_black_king_bar_1"
+			"item"		"item_ethereal_blade"
+			"item"		"item_assault"
+			"item"		"item_vladmir_5"
+			"item"		"item_aeon_disk_4"
+		}
+	}
+}

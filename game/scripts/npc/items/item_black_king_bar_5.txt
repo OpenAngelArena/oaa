@@ -25,7 +25,6 @@
     {
       "01"                                                "item_black_king_bar_4;item_upgrade_core_4"
       "02"                                                "item_enrage_crystal_2;item_upgrade_core_4"
-      "03"                                                "item_charge_bkb_3;item_upgrade_core_4"
     }
   }
 
@@ -44,7 +43,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "65"
+    "AbilityCooldown"               "70"
     "AbilitySharedCooldown"                               "avatar"
     "AbilityTextureName"            "custom/black_king_bar_5"
     "MaxUpgradeLevel"               "5"
@@ -66,7 +65,7 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "10 20 30 40 55"
+        "bonus_strength"        "10 15 25 40 60"
       }
       "02"
       {
