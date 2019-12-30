@@ -58,8 +58,8 @@
     "ItemCost"                                            "37000"
     "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bubble orb"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "bubble orb 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Modifiers
@@ -70,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "32 40"
+        "bonus_armor"                                     "19 24"
       }
       "02"
       {
@@ -90,7 +90,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0"
+        "duration"                                        "6.0 7.0"
       }
       "06"
       {

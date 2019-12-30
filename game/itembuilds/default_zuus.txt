@@ -1,0 +1,57 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_zuus"
+    "Title"         "Recommended items for Zuus"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_arcane_origin"
+            "item"      "item_flask"
+            "item"      "item_clarity"
+            "item"      "item_clarity"
+            "item"      "item_null_talisman"
+            "item"      "item_branches"
+            "item"      "item_branches"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_greater_arcane_boots"
+            "item"      "item_veil_of_discord"
+            "item"      "item_ultimate_scepter"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_yasha_and_kaya"
+            "item"      "item_octarine_core"
+            "item"      "item_aether_lens"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_greater_guardian_greaves_4"
+            "item"      "item_veil_of_discord_5"
+            "item"      "item_ultimate_scepter_5"
+            "item"      "item_yasha_and_kaya_5"
+            "item"      "item_octarine_core_5"
+            "item"      "item_aether_lens_5"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_refresher_5"
+            "item"      "item_black_king_bar_5"
+            "item"      "item_dagger_of_moriah_2"
+            "item"      "item_cyclone"
+            "item"      "item_blink_5"
+            "item"      "item_force_staff_5"
+            "item"      "item_aeon_disk_5"
+            "item"      "item_sheepstick_5"
+            "item"      "item_ethereal_blade_5"
+        }
+    }
+}

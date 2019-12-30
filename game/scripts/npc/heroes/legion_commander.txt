@@ -7,6 +7,13 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability11"   "special_bonus_attack_damage_20" // replaces special_bonus_exp_boost_25
+    "Ability10"   "special_bonus_strength_15" // replaces special_bonus_strength_8
+    "Ability11"   "special_bonus_cooldown_reduction_15" // replaces special_bonus_mp_regen_2
+
+    "Ability12"   "special_bonus_attack_speed_50" // replaces special_bonus_attack_speed_30
+
+    //Attributes
+    //-------------------------------------------------------------------------------------------------------------
+    "AttributeAgilityGain"		"2.8" // 1.7
   }
 }

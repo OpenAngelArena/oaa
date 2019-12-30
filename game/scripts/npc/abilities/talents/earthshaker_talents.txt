@@ -1,0 +1,71 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Decreases Enchant Totem Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_earthshaker"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6035"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Echo Damage
+  //=================================================================================================================
+  "special_bonus_unique_earthshaker_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6425"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"150" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Fissure Range
+  //=================================================================================================================
+  "special_bonus_unique_earthshaker_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6511"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"400"
+      }
+    }
+  }
+}

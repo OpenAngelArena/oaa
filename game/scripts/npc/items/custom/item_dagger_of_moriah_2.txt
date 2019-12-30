@@ -25,7 +25,6 @@
     {
       "01"                                                "item_dagger_of_moriah;item_upgrade_core_4"
       "02"                                                "item_veil_of_discord_4;item_upgrade_core_4"
-      "03"                                                "item_far_sight_3;item_upgrade_core_4"
     }
   }
 
@@ -47,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "2.0"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -74,22 +73,22 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "100 100"
+        "sangromancy_self_damage"                         "100"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "50 75"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "25 40"
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "26"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "25 40"
       }
       "05"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_health_regen"    "15 25"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "4.0 5.0"
       }
     }
   }

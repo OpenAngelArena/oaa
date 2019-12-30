@@ -15,11 +15,14 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170"
+    "AbilityManaCost"                                     "140 150 160 170 180 190"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,12 +62,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "eidolon_dmg_tooltip"                             "20 28 38 47 94 198"
-        "LinkedSpecialBonus"  "special_bonus_unique_enigma_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_3"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "35.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_level"                                     "7"
       }
     }
   }

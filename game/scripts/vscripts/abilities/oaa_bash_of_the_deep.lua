@@ -100,6 +100,7 @@ if IsServer() then
       end
 
       -- apply the stun modifier
+      duration = target:GetValueChangedByStatusResistance( duration )
       target:AddNewModifier( parent, spell, "modifier_bashed", { duration = duration } )
       target:EmitSound( "Hero_Slardar.Bash" )
 

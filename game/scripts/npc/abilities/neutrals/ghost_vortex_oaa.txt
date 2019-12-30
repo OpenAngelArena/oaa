@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ghost: Vortex - slows attack speed in its range (AoE).
+  //=================================================================================================================
+  "ghost_vortex_oaa"
+  {
+    "ID"                                                  "85346"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_ghost_vortex.lua"
+    "AbilityTextureName"                                  "ancient_apparition_ice_vortex"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastRange"                                    "1500"
+    "AbilityCastPoint"                                    "0.1"
+
+    "AbilityCooldown"                                     "10.0"
+    "AbilityManaCost"                                     "110"
+    "AbilityProcsMagicStick"                              "1"       // Should it proc Magic Stick and Charge BKB?
+
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_ice_vortex.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "275"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "-50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8.0"
+      }
+    }
+  }
+}

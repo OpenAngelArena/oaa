@@ -86,6 +86,9 @@ end
 function CreepItemDrop:RandomDropItemName(campLocationString)
   local CampPRDCounters = CreepCamps.CampPRDCounters
 
+  if CampPRDCounters[campLocationString] == nil then
+    CampPRDCounters[campLocationString] = 0
+  end
   --first we need to check against the drop percentage.
   if RandomFloat(0, 1) > math.min(1, PrdCFinder:GetCForP(DROP_CHANCE) * CampPRDCounters[campLocationString]) then
     -- Increment PRD counter if nothing was dropped

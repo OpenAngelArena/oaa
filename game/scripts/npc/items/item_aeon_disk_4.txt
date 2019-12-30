@@ -18,10 +18,8 @@
     "ItemResult"                                          "item_aeon_disk_4"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodstone_3;item_upgrade_core_3"
-      "02"                                                "item_bloodstone_3;item_upgrade_core_4"
-      "03"                                                "item_bloodstone_3;item_upgrade_core_3"
-      "04"                                                "item_bloodstone_3;item_upgrade_core_4"
+      "01"                                                "item_sphere_3;item_upgrade_core_3"
+      "02"                                                "item_reflection_shard_1;item_upgrade_core_3"
     }
   }
 
@@ -38,7 +36,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "ItemCost"                                            "17900"
+    "ItemCost"                                            "18050"
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"
@@ -51,28 +49,28 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health"      "300 1000 2000 3000 4000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "300 700 1200 2000 2700"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_mana"      "300 500 1000 2400 3000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "300 600 900 1200 1500"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "health_threshold_pct"      "70"
+        "var_type"                                        "FIELD_INTEGER"
+        "health_threshold_pct"                            "70"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "status_resistance"   "75"
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "75"
       }
       "05"
       {
-        "var_type"        "FIELD_FLOAT"
-        "buff_duration"   "2.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "2.5"
       }
     }
   }
