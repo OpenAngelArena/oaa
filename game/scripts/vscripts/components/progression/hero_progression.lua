@@ -171,7 +171,6 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
     if level < 25 then
       return true
     end
-    -- level points between 25 and 30 are spent automatically on the talents at 30
     -- get 1 point every 3rd level from now on
     return math.fmod(level, 3) == 1
   else
@@ -183,13 +182,20 @@ end
 
 function HeroProgression:ProcessAbilityPointGain(hero, level)
   DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
+  --[[
   if not self:ShouldGetAnAbilityPoint(hero, level) then
     DebugPrint('...taken it away! (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
   end
-
+  ]]
+  --[[ -- ability points are not spent automatically on the talents at 30
   if level == 30 then
     hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
+  end
+  ]]
+  if self:ShouldGetAnAbilityPoint(hero, level) and level > 25 then
+    DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
+    hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
   end
 end
 
