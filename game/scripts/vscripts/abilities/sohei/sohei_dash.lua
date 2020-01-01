@@ -12,147 +12,167 @@ end
 
 --------------------------------------------------------------------------------
 
-if IsServer() then
-	function sohei_dash:OnUpgrade()
-		local caster = self:GetCaster()
-		local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
-		local chargesMax = self:GetSpecialValueFor( "max_charges" )
+function sohei_dash:IsVectorTargeting()
+  return true
+end
 
-		if not modifier_charges then
-			modifier_charges = caster:AddNewModifier( self:GetCaster(), self, "modifier_sohei_dash_charges", {} )
-			modifier_charges:SetStackCount( chargesMax )
-    elseif modifier_charges:GetStackCount() < chargesMax then
-      -- Reset the cooldown on the modifier
-			modifier_charges:SetDuration( self:GetChargeRefreshTime(), true )
-      modifier_charges:StartIntervalThink( 0.1 )
-      if modifier_charges:GetStackCount() < 1 then
-        self:StartCooldown( modifier_charges:GetRemainingTime() )
-      end
-		end
-	end
+function sohei_dash:GetVectorTargetRange()
+  return self:GetSpecialValueFor("dash_distance")
+end
 
---------------------------------------------------------------------------------
+function sohei_dash:GetVectorTargetStartRadius()
+  return self:GetSpecialValueFor("effect_radius")
+end
 
-	function sohei_dash:GetChargeRefreshTime()
-		-- Reduce the charge recovery time if the appropriate talent is learned
-		local refreshTime = self:GetSpecialValueFor( "charge_restore_time" )
-		local talent = self:GetCaster():FindAbilityByName( "special_bonus_sohei_dash_recharge" )
+function sohei_dash:GetVectorTargetEndRadius()
+  return self:GetSpecialValueFor("effect_radius")
+end
 
-		if talent and talent:GetLevel() > 0 then
-			refreshTime = math.max( refreshTime - talent:GetSpecialValueFor( "value" ), 1 )
-		end
+function sohei_dash:OnUpgrade()
+  local caster = self:GetCaster()
+  local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
+  local chargesMax = self:GetSpecialValueFor( "max_charges" )
 
-		-- put the unit cdr stuff here if we ever get it
-
-		return refreshTime
-	end
-
---------------------------------------------------------------------------------
-
-	function sohei_dash:PerformDash()
-		local caster = self:GetCaster()
-		local distance = self:GetSpecialValueFor( "dash_distance" )
-		local speed = self:GetSpecialValueFor( "dash_speed" )
-		local treeRadius = self:GetSpecialValueFor( "tree_radius" )
-		local duration = distance / speed
-
-		caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
-		caster:EmitSound( "Sohei.Dash" )
-		caster:StartGesture( ACT_DOTA_RUN )
-		caster:AddNewModifier( nil, nil, "modifier_sohei_dash_movement", {
-			duration = duration,
-			distance = distance,
-			tree_radius = treeRadius,
-			speed = speed
-		} )
-	end
-
---------------------------------------------------------------------------------
-
-	function sohei_dash:OnSpellStart()
-		local caster = self:GetCaster()
-		local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
-		local dashDistance = self:GetSpecialValueFor( "dash_distance" )
-		local dashSpeed = self:GetSpecialValueFor( "dash_speed" )
-
-		-- since changing stack count deals with cooldown anyway
-		-- let's remove the default one
-		self:EndCooldown()
-
-		if modifier_charges and not modifier_charges:IsNull() then
-      -- Perform the dash if there is at least one charge remaining
-      local currentStackCount = modifier_charges:GetStackCount()
-			if currentStackCount >= 1 then
-        if currentStackCount > 1 then
-          -- enable short cooldown if has enough charges for the next dash
-          local shortCD = dashDistance / dashSpeed
-          if self:GetCooldownTimeRemaining() < shortCD then
-            self:EndCooldown()
-            self:StartCooldown( dashDistance / dashSpeed )
-          end
-        else
-          -- if does not have charges for the next dash, set the cd to the remain time of the modifier
-          self:StartCooldown( modifier_charges:GetRemainingTime() )
-        end
-        modifier_charges:SetStackCount( currentStackCount - 1 )
-      else
-        -- should not enter here, but if it does :
-        -- set the cd to the remain time of the modifier
-        self:StartCooldown( modifier_charges:GetRemainingTime() )
-        -- and return without performing the spell action (this will still consume resources)
-        return
-      end
-		else
-			caster:AddNewModifier( caster, self, "modifier_sohei_dash_charges", {
-				duration = self:GetChargeRefreshTime()
-			} )
-
-			self:EndCooldown()
-			self:StartCooldown( self:GetChargeRefreshTime() )
-		end
-
-		-- i commented on this in guard but
-		-- faking not casting is really just not a great solution
-		-- especially if something breaks due to dev fault and suddenly a bread and butter ability isn't
-		-- usable
-		-- so let's instead give the player some let in this regard and let 'em dash anyway
-
-		self:PerformDash()
-
-		-- cd refund for momentum
-		local cdRefund = self:GetSpecialValueFor( "momentum_cd_refund" )
-
-		if cdRefund > 0 then
-			local momentum = caster:FindAbilityByName( "sohei_momentum" )
-
-			if momentum and not momentum:IsCooldownReady() then
-				local momentumCooldown = momentum:GetCooldownTimeRemaining()
-				local refundCooldown = momentumCooldown * ( cdRefund / 100.0 )
-
-				momentum:EndCooldown()
-				momentum:StartCooldown( momentumCooldown - refundCooldown )
-			end
-		end
-	end
-
---------------------------------------------------------------------------------
-
-	function sohei_dash:RefreshCharges()
-		local modifier_charges = self:GetCaster():FindModifierByName( "modifier_sohei_dash_charges" )
-
-		if modifier_charges and not modifier_charges:IsNull() then
-			modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
-		end
-	end
-
-  function sohei_dash:OnUnStolen()
-    local caster = self:GetCaster()
-    local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
-    if modifier_charges then
-      caster:RemoveModifierByName("modifier_sohei_dash_charges")
+  if not modifier_charges then
+    modifier_charges = caster:AddNewModifier( self:GetCaster(), self, "modifier_sohei_dash_charges", {} )
+    modifier_charges:SetStackCount( chargesMax )
+  elseif modifier_charges:GetStackCount() < chargesMax then
+    -- Reset the cooldown on the modifier
+    modifier_charges:SetDuration( self:GetChargeRefreshTime(), true )
+    modifier_charges:StartIntervalThink( 0.1 )
+    if modifier_charges:GetStackCount() < 1 then
+      self:StartCooldown( modifier_charges:GetRemainingTime() )
     end
   end
 end
+
+--------------------------------------------------------------------------------
+
+function sohei_dash:GetChargeRefreshTime()
+  -- Reduce the charge recovery time if the appropriate talent is learned
+  local refreshTime = self:GetSpecialValueFor( "charge_restore_time" )
+  local talent = self:GetCaster():FindAbilityByName( "special_bonus_sohei_dash_recharge" )
+
+  if talent and talent:GetLevel() > 0 then
+    refreshTime = math.max( refreshTime - talent:GetSpecialValueFor( "value" ), 1 )
+  end
+
+  -- cdr stuff
+  local cdr = self:GetCaster():GetCooldownReduction()
+  refreshTime = cdr*refreshTime
+
+  return refreshTime
+end
+
+--------------------------------------------------------------------------------
+
+function sohei_dash:PerformDash()
+  local caster = self:GetCaster()
+  local distance = self:GetVectorTargetRange()
+  local speed = self:GetSpecialValueFor( "dash_speed" )
+  local treeRadius = self:GetSpecialValueFor( "tree_radius" )
+  local direction = self:GetVectorDirection()
+  local duration = distance / speed
+
+  caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
+  caster:EmitSound( "Sohei.Dash" )
+  caster:StartGesture( ACT_DOTA_RUN )
+  caster:SetAbsOrigin(self:GetVectorPosition())
+  caster:AddNewModifier( nil, nil, "modifier_sohei_dash_movement", {
+    duration = duration,
+    distance = distance,
+    tree_radius = treeRadius,
+    speed = speed,
+    direction = direction
+  } )
+end
+
+--------------------------------------------------------------------------------
+
+function sohei_dash:OnVectorCastStart(vStartLocation, vDirection) -- OnSpellStart()
+  local caster = self:GetCaster()
+  local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
+  local dashDistance = self:GetVectorTargetRange()
+  local dashSpeed = self:GetSpecialValueFor( "dash_speed" )
+
+  -- since changing stack count deals with cooldown anyway
+  -- let's remove the default one
+  self:EndCooldown()
+
+  if modifier_charges and not modifier_charges:IsNull() then
+    -- Perform the dash if there is at least one charge remaining
+    local currentStackCount = modifier_charges:GetStackCount()
+    if currentStackCount >= 1 then
+      if currentStackCount > 1 then
+        -- enable short cooldown if has enough charges for the next dash
+        local shortCD = dashDistance / dashSpeed
+        if self:GetCooldownTimeRemaining() < shortCD then
+          self:EndCooldown()
+          self:StartCooldown( dashDistance / dashSpeed )
+        end
+      else
+        -- if does not have charges for the next dash, set the cd to the remain time of the modifier
+        self:StartCooldown( modifier_charges:GetRemainingTime() )
+      end
+      modifier_charges:SetStackCount( currentStackCount - 1 )
+    else
+      -- should not enter here, but if it does :
+      -- set the cd to the remain time of the modifier
+      self:StartCooldown( modifier_charges:GetRemainingTime() )
+      -- and return without performing the spell action (this will still consume resources)
+      return
+    end
+  else
+    caster:AddNewModifier( caster, self, "modifier_sohei_dash_charges", { duration = self:GetChargeRefreshTime() } )
+
+    self:EndCooldown()
+    self:StartCooldown( self:GetChargeRefreshTime() )
+  end
+
+  -- i commented on this in guard but
+  -- faking not casting is really just not a great solution
+  -- especially if something breaks due to dev fault and suddenly a bread and butter ability isn't
+  -- usable
+  -- so let's instead give the player some let in this regard and let 'em dash anyway
+
+  self:PerformDash()
+
+  -- cd refund for momentum
+  --[[
+  local cdRefund = self:GetSpecialValueFor( "momentum_cd_refund" )
+
+  if cdRefund > 0 then
+    local momentum = caster:FindAbilityByName( "sohei_momentum" )
+
+    if momentum and not momentum:IsCooldownReady() then
+      local momentumCooldown = momentum:GetCooldownTimeRemaining()
+      local refundCooldown = momentumCooldown * ( cdRefund / 100.0 )
+
+      momentum:EndCooldown()
+      momentum:StartCooldown( momentumCooldown - refundCooldown )
+    end
+  end
+  ]]
+end
+
+--------------------------------------------------------------------------------
+
+function sohei_dash:RefreshCharges()
+  local modifier_charges = self:GetCaster():FindModifierByName( "modifier_sohei_dash_charges" )
+
+  if modifier_charges and not modifier_charges:IsNull() then
+    modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
+  end
+end
+
+function sohei_dash:OnUnStolen()
+  local caster = self:GetCaster()
+  local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
+  if modifier_charges then
+    caster:RemoveModifierByName("modifier_sohei_dash_charges")
+  end
+end
+
 
 --------------------------------------------------------------------------------
 
@@ -350,7 +370,7 @@ if IsServer() then
 	function modifier_sohei_dash_movement:OnCreated( event )
 		-- Movement parameters
 		local parent = self:GetParent()
-		self.direction = parent:GetForwardVector()
+		self.direction = event.direction
 		self.distance = event.distance + 1
 		self.speed = event.speed
 		self.tree_radius = event.tree_radius
