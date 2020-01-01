@@ -1,5 +1,6 @@
 "DOTAItems"
-{    //=================================================================================================================
+{
+  //=================================================================================================================
   // Recipe: Meteor Hammer 5
   //=================================================================================================================
   "item_recipe_meteor_hammer_5"
@@ -61,7 +62,6 @@
     "AbilityCooldown"               "28"
     "AbilityManaCost"               "125"
 
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                      "35750"
@@ -121,7 +121,7 @@
       "10"
       {
         "var_type"              "FIELD_FLOAT"
-        "land_time"             ".5"
+        "land_time"             "0.5"
       }
       "11"
       {
@@ -146,10 +146,10 @@
     }
     "precache"
     {
-    "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
     }
   }
 }

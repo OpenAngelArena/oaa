@@ -1,0 +1,78 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Snapfire Lil Shredder
+  //=================================================================================================================
+  "snapfire_lil_shredder"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6488"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+    "FightRecapLevel"               "1"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.0"
+    "AbilityCastRange"              "800"
+    "AbilityCastAnimation"          "ACT_DOTA_OVERRIDE_ABILITY_3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "24 20 16 12 8 4"
+    "AbilityDuration"               "8"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "90"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "damage"                    "35 50 65 80 180 280"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "buffed_attacks"            "6"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "attack_speed_bonus"        "300"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "attack_range_bonus"        "75 150 225 300 375 450"
+      }
+      "05"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "buff_duration_tooltip"     "8"
+      }
+      "06"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "base_attack_time"          "1.0"
+      }
+      "07"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "attack_speed_slow_per_stack"   "15 20 25 30 45 70"
+      }
+      "08"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "slow_duration"             "3.0"
+      }
+    }
+  }
+}

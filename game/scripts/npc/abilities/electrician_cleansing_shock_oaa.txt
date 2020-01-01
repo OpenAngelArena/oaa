@@ -1,83 +1,87 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Electrician: Static Grip
-	//=================================================================================================================
-	"electrician_cleansing_shock"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ID"							"8480"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityTextureName"			"custom/electrician_cleansing_shock"
-		"ScriptFile"					"abilities/electrician/electrician_cleansing_shock.lua"
-		"MaxLevel"						"5"
-		"HasScepterUpgrade"				"1"
+  //=================================================================================================================
+  // Electrician: Cleansing Shock
+  //=================================================================================================================
+  "electrician_cleansing_shock"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "8480"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/electrician_cleansing_shock"
+    "ScriptFile"                                          "abilities/electrician/electrician_cleansing_shock.lua"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.1"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastRange"				"600"
+    "MaxLevel"                                            "5"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12.0 8.0 4.0 4.0 3.0"
+    "HasScepterUpgrade"                                   "1"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastRange"                                    "600"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"move_speed_bonus"		"40 50 60 70 80"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow"					"40 60 80 100 120"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed_update_interval"	"0.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bounces_scepter"		"2"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bounce_range_scepter"	"500"
-			}
-		}
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12.0 8.0 6.0 5.0 4.0"
 
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"Precache"
-		{
-			"particle"					"particles/units/heroes/hero_tinker/tinker_laser.vpcf"
-			"particle"					"particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
-		}
-	}
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25 35 45 55 65"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_bonus"                                "30 40 50 60 70"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "40 60 80 80 80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "speed_update_interval"                           "0.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounces_scepter"                                 "2"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_range_scepter"                            "500"
+        "RequiresScepter"                                 "1"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "Precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
+      "particle"                                          "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+    }
+  }
 }

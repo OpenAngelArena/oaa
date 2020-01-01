@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6346"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_YES" // OAA
+    "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                      "6"
     "RequiredLevel"                 "1"
     "LevelsBetweenUpgrades"         "2"

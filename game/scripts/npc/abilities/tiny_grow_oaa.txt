@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tiny: Grow OAA
+  // Tiny: Grow (OAA rework)
   //=================================================================================================================
   "tiny_grow_oaa"
   {
@@ -11,12 +11,13 @@
     "AbilityTextureName"                                  "tiny_grow"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "HasScepterUpgrade"                                   "0"
     "AbilitySound"                                        "Tiny.Grow"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,19 +26,15 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "10 20 30 40 50"
+        "bonus_armor"                                     "10 18 26 36 46"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 15 25 35 55"
+        "bonus_damage"                                    "30 60 90 150 270"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 60 90 150 270"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed_reduction"                          "20 35 50 60 70"

@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Wild Axes Damage talent
+  //=================================================================================================================
+  "special_bonus_unique_beastmaster"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6103"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"75"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Boar Damage talent
+  //=================================================================================================================
+  "special_bonus_unique_beastmaster_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6517"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"70" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreased Hawks Cooldown - unused in OAA
+  //=================================================================================================================
+  "special_bonus_unique_beastmaster_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6611"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"20"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Inner Beast Attack Speed talent
+  //=================================================================================================================
+  "special_bonus_unique_beastmaster_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6612"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"50" //OAA
+      }
+    }
+  }
+}

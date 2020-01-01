@@ -13,19 +13,21 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
-    "AbilityCastPoint"                                    "0.01 0.01 0.01 0.01"
+    "AbilityCastAnimation"                                "ACT_INVALID"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0 0 0 0"
+    "AbilityCooldown"                                     "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0 0 0 0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +46,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_speed"                                    "900 900 900 900"
+        "spirit_speed"                                    "900"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "175 175 175 175"
+        "radius"                                          "175"
       }
       "05"
       {

@@ -10,6 +10,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -20,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0" //OAA
+    "AbilityCooldown"                                     "18.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +29,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "20 45 70 95 215 350"
+    //"AbilityDamage"                                       "20 45 70 95 215 350"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +53,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "interval"                                        "0.7"
-        "LinkedSpecialBonus"    "special_bonus_unique_clockwerk"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "20 45 70 95 215 350"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk_3"
       }
     }
   }

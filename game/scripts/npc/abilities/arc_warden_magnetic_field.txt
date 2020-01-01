@@ -9,8 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5678"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -48,7 +49,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus"                              "50 60 70 80 90 100"
+        "attack_speed_bonus"                              "50 60 70 80 100 120"
       }
       "04"
       {
