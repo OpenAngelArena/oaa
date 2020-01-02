@@ -3,11 +3,12 @@ sohei_dash = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_sohei_dash_free_turning", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
 LinkLuaModifier( "modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
 function sohei_dash:GetIntrinsicModifierName()
-	return "modifier_sohei_dash_free_turning"
+  return "modifier_sohei_dash_free_turning"
 end
 
 --------------------------------------------------------------------------------
@@ -71,19 +72,18 @@ function sohei_dash:PerformDash()
   local distance = self:GetVectorTargetRange()
   local speed = self:GetSpecialValueFor( "dash_speed" )
   local treeRadius = self:GetSpecialValueFor( "tree_radius" )
-  local direction = self:GetVectorDirection()
+
   local duration = distance / speed
 
   caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
   caster:EmitSound( "Sohei.Dash" )
   caster:StartGesture( ACT_DOTA_RUN )
   caster:SetAbsOrigin(self:GetVectorPosition())
-  caster:AddNewModifier( nil, nil, "modifier_sohei_dash_movement", {
+  caster:AddNewModifier(caster, self, "modifier_sohei_dash_movement", {
     duration = duration,
     distance = distance,
     tree_radius = treeRadius,
     speed = speed,
-    direction = direction
   } )
 end
 
@@ -172,7 +172,6 @@ function sohei_dash:OnUnStolen()
     caster:RemoveModifierByName("modifier_sohei_dash_charges")
   end
 end
-
 
 --------------------------------------------------------------------------------
 
@@ -361,24 +360,27 @@ function modifier_sohei_dash_movement:CheckState()
     [MODIFIER_STATE_NO_HEALTH_BAR] = true
   }
 
-	return state
+  return state
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_sohei_dash_movement:OnCreated( event )
-		-- Movement parameters
-		local parent = self:GetParent()
-		self.direction = event.direction
-		self.distance = event.distance + 1
-		self.speed = event.speed
-		self.tree_radius = event.tree_radius
+  function modifier_sohei_dash_movement:OnCreated( event )
+    -- Movement parameters
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    self.direction = ability:GetVectorDirection() -- You cant send vectors when applying a modifier
+    self.distance = event.distance + 1
+    self.speed = event.speed
+    self.tree_radius = event.tree_radius
+    self.start_pos = parent:GetAbsOrigin()
+    self.width = ability:GetVectorTargetStartRadius()
 
-		if self:ApplyHorizontalMotionController() == false then
-			self:Destroy()
-			return
-		end
+    if self:ApplyHorizontalMotionController() == false then
+      self:Destroy()
+      return
+    end
 
     local particleName = "particles/hero/sohei/sohei_trail.vpcf"
 
@@ -388,42 +390,95 @@ if IsServer() then
       particleName = "particles/hero/sohei/arcana/pepsi/sohei_trail_pepsi.vpcf"
     end
 
-		-- Trail particle
-		local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
-		ParticleManager:SetParticleControl( trail_pfx, 0, parent:GetAbsOrigin() )
-		ParticleManager:SetParticleControl( trail_pfx, 1, parent:GetAbsOrigin() + parent:GetForwardVector() * self.distance )
-		ParticleManager:ReleaseParticleIndex( trail_pfx )
-	end
+    local end_pos = self.start_pos + self.direction * self.distance
+
+    -- Trail particle
+    local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
+    ParticleManager:SetParticleControl( trail_pfx, 0, self.start_pos )
+    ParticleManager:SetParticleControl( trail_pfx, 1, end_pos )
+    ParticleManager:ReleaseParticleIndex( trail_pfx )
+  end
 
 --------------------------------------------------------------------------------
 
-	function modifier_sohei_dash_movement:OnDestroy()
-		local parent = self:GetParent()
+  function modifier_sohei_dash_movement:OnDestroy()
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local parent_origin = parent:GetAbsOrigin()
 
-		parent:FadeGesture( ACT_DOTA_RUN )
-		parent:RemoveHorizontalMotionController( self )
-		ResolveNPCPositions( parent:GetAbsOrigin(), 128 )
-	end
+    parent:FadeGesture( ACT_DOTA_RUN )
+    parent:RemoveHorizontalMotionController( self )
+    ResolveNPCPositions(parent_origin, 128)
+    parent:FaceTowards(parent_origin + 128*self.direction)
+
+    local units = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+    local damage_table = {}
+    damage_table.attacker = parent
+    damage_table.damage_type = ability:GetAbilityDamageType()
+    damage_table.ability = ability
+    damage_table.damage = ability:GetSpecialValueFor("damage")
+
+    for _,unit in pairs(units) do
+      if unit and not unit:IsNull() then
+        unit:AddNewModifier(parent, ability, "modifier_sohei_dash_slow", { duration = ability:GetSpecialValueFor("slow_duration") })
+        damage_table.victim = unit
+        ApplyDamage(damage_table)
+      end
+    end
+  end
 
 --------------------------------------------------------------------------------
 
-	function modifier_sohei_dash_movement:UpdateHorizontalMotion( parent, deltaTime )
-		local parentOrigin = parent:GetAbsOrigin()
+  function modifier_sohei_dash_movement:UpdateHorizontalMotion( parent, deltaTime )
+    local parentOrigin = parent:GetAbsOrigin()
 
-		local tickSpeed = self.speed * deltaTime
-		tickSpeed = math.min( tickSpeed, self.distance )
-		local tickOrigin = parentOrigin + ( tickSpeed * self.direction )
+    local tickSpeed = self.speed * deltaTime
+    tickSpeed = math.min( tickSpeed, self.distance )
+    local tickOrigin = parentOrigin + ( tickSpeed * self.direction )
 
-		parent:SetAbsOrigin( tickOrigin )
+    parent:SetAbsOrigin( tickOrigin )
 
-		self.distance = self.distance - tickSpeed
+    self.distance = self.distance - tickSpeed
 
-		GridNav:DestroyTreesAroundPoint( tickOrigin, self.tree_radius, false )
-	end
+    GridNav:DestroyTreesAroundPoint( tickOrigin, self.tree_radius, false )
+  end
 
 --------------------------------------------------------------------------------
 
-	function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
-		self:Destroy()
-	end
+  function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
+    self:Destroy()
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+-- Dash slow modifier
+
+modifier_sohei_dash_slow = class(ModifierBaseClass)
+
+function modifier_sohei_dash_slow:IsDebuff()
+  return true
+end
+
+function modifier_sohei_dash_slow:IsHidden()
+  return false
+end
+
+function modifier_sohei_dash_slow:IsPurgable()
+  return true
+end
+
+function modifier_sohei_dash_slow:IsStunDebuff()
+  return false
+end
+
+function modifier_sohei_dash_slow:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+
+  return funcs
+end
+
+function modifier_sohei_dash_slow:GetModifierMoveSpeedBonus_Percentage()
+  return self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
 end

@@ -11,10 +11,11 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/sohei/sohei_dash.lua"
     //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityTextureName"                                  "custom/ronin_dash"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // this is for UI tooltip
 
     "MaxLevel"                                            "6"
@@ -23,11 +24,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastRange"                                    "500" // old: like dash_distance
+    "AbilityCastRange"                                    "400" // old: like dash_distance
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 16 12 8 7 6"
+    "AbilityCooldown"                                     "20 16 12 8 7 7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +69,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "12 11 10 9 8 7"
+        "charge_restore_time"                             "20 16 12 8 7 7"
         "LinkedSpecialBonus"                              "special_bonus_sohei_dash_recharge"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
@@ -81,6 +82,21 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "effect_radius"                                   "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50 75 100 125 250 375"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "-50"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.0 1.25 1.5 1.75 2.0 2.25"
       }
     }
   }

@@ -240,6 +240,7 @@ function GameMode:InitGameMode()
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
+  InitModule(VectorTarget)
 
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
