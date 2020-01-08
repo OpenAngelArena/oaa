@@ -25,6 +25,10 @@ function obsidian_destroyer_arcane_orb_oaa:ShouldUseResources()
 	return true
 end
 
+function obsidian_destroyer_arcane_orb_oaa:OnSpellStart()
+
+end
+
 --------------------------------------------------------------------------------
 
 modifier_oaa_arcane_orb = class(ModifierBaseClass)
@@ -268,7 +272,8 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
     end
 
     -- Use mana and trigger cd while respecting reductions
-    ability:UseResources(true, false, true)
+    --ability:UseResources(true, false, true)
+    ability:CastAbility()
 
     self.manual_cast = nil
   end
