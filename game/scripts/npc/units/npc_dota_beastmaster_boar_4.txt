@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Beastmaster Boar 4
-//=================================================================================
+  //=================================================================================
+  // Beastmaster Boar 4
+  //=================================================================================
   "npc_dota_beastmaster_boar_4"
   {
     // General
@@ -56,7 +56,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "750"    // Base health.
+    "StatusHealth"                                        "900"    // Base health.
     "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
 
     // Vision
@@ -71,5 +71,4 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-
 }

@@ -24,8 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_allied_cyclone;item_upgrade_core_2"
-      "02"                                                "item_allied_cyclone;item_upgrade_core_3"
-      "03"                                                "item_allied_cyclone;item_upgrade_core_4"
     }
   }
 
@@ -72,17 +70,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 45 55"
+        "bonus_intellect"                                 "25 50 95 140"
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "6.0 7.5 9.25 11.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "6.0 7.5 9.25 11.5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "12 18 24 30"
+        "bonus_movement_speed"                            "25 30 35 40"
       }
       "04"
       {
@@ -92,7 +90,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "575"
+        "tooltip_drop_damage"                             "50"
       }
     }
     "OnSpellStart"

@@ -32,13 +32,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "overload_aoe"                                    "300"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "overload_move_slow"                              "-80"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -46,13 +44,8 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "0.6"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "overload_damage"                                 "50 70 90 110 220 330" //OAA
+        "overload_damage"                                 "50 75 100 125 250 375" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_6"
       }
     }

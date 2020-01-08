@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -20,13 +20,15 @@
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17.0"
+    "AbilityCooldown"                                     "23 21 19 17 17 17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 150 310"
+    "AbilityManaCost"                                     "80 90 100 110 220 330"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -77,7 +79,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_heroes"                                   "15 30 60 80 100 140"
+        "damage_heroes"                                   "20 40 60 80 100 140"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -95,6 +97,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "move_pct_cap"                                    "40"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_magic_immune_per_hero"                   "1" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }
