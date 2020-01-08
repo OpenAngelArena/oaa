@@ -1,0 +1,164 @@
+"DOTAAbilities"
+
+{
+  //=================================================================================================================
+  // Bonus Magic Missile Damage
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6310"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"200"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Vengeance Aura Attributes
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6237"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"10"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Magic Missile Pierces Spell Immunity
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6057"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"0"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Wave of Terror Armor reduction
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6977"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"-1"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Magic Missile Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6978"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"3.5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Wave of Terror Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7018"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"6"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Vengeance Aura Illusion Casts Spells
+  //=================================================================================================================
+  "special_bonus_unique_vengeful_spirit_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"323"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
+}

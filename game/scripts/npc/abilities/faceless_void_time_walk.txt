@@ -9,14 +9,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5182"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "6"  
+
+    "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "0"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "24 18 12 6 6 6"
 
@@ -51,7 +54,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
+        "radius_scepter"                                  "0" //OAA, we have different Aghs effect
+        "RequiresScepter"                                 "1"
       }
     }
   }

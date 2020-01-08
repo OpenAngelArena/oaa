@@ -24,11 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_meteor_hammer_3;item_upgrade_core_3"
-      "02"                                                "item_meteor_hammer_3;item_upgrade_core_4"
-      "03"                                                "item_rod_of_atos_3;item_upgrade_core_3"
-      "04"                                                "item_rod_of_atos_3;item_upgrade_core_4"
-      "05"                                                "item_cyclone_3;item_upgrade_core_3"
-      "06"                                                "item_cyclone_3;item_upgrade_core_4"
+      "02"                                                "item_rod_of_atos_3;item_upgrade_core_3"
+      "03"                                                "item_cyclone_3;item_upgrade_core_3"
     }
   }
 
@@ -52,6 +49,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"            "2.5"
@@ -62,7 +60,6 @@
     "AbilitySharedCooldown"         "meteor"
     "AbilityCooldown"               "28"
     "AbilityManaCost"               "125"
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -123,7 +120,7 @@
       "10"
       {
         "var_type"              "FIELD_FLOAT"
-        "land_time"             ".5"
+        "land_time"             "0.5"
       }
       "11"
       {
@@ -148,10 +145,10 @@
     }
     "precache"
     {
-    "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
     }
   }
 }

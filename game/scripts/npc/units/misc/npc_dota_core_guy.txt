@@ -1,0 +1,56 @@
+"DOTAUnits"
+{
+  "npc_dota_core_guy"
+  {
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/items/wards/knightstatue_ward/knightstatue_ward.vmdl"   // Model.
+    "SoundSet"                                            "Greevil"                   // Name of sound set.
+    "ModelScale"                                          "1"
+    "vscripts"                                            "units/ai_core_guy.lua"
+    "ConsideredHero"                                      "1.2"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+
+    "VisionDaytimeRange"          "0"
+    "VisionNighttimeRange"        "0"
+
+    "Ability1"                                            "core_guy_consume"
+    "Ability2"                                            "core_guy_score_limit"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "322"     // Base health
+    "StatusHealthRegen"                                   "322"        // Health regeneration rate.
+    "StatusMana"                                          "500"     // Base mana.
+    "StatusManaRegen"                                     "0"     // Mana regeneration rate.
+
+    "HasInventory"                                        "1"
+
+  }
+
+  "npc_dota_core_guy_2"
+  {
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/items/shadowshaman/serpent_ward/fiery_ward_of_eki_bukaw/fiery_ward_of_eki_bukaw.vmdl"   // Model.
+    "SoundSet"                                            "Greevil"                   // Name of sound set.
+    "ModelScale"                                          "1"
+    "vscripts"                                            "units/ai_core_guy.lua"
+    "ConsideredHero"                                      "1"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+
+    "VisionDaytimeRange"          "0"
+    "VisionNighttimeRange"        "0"
+
+    "Ability1"                                            "core_guy_consume"
+    "Ability2"                                            "core_guy_points"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "322"     // Base health
+    "StatusHealthRegen"                                   "322"        // Health regeneration rate.
+    "StatusMana"                                          "500"     // Base mana.
+    "StatusManaRegen"                                     "0"     // Mana regeneration rate.
+
+    "HasInventory"                                        "1"
+
+  }
+}

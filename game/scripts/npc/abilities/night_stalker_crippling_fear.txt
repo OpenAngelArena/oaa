@@ -10,7 +10,9 @@
     "ID"                                                  "5276"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -22,7 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "375"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "30 25 20 15 12 12"
+    "AbilityCooldown"                                     "15" //OAA
     "AbilityManaCost"                                     "50"
 
     // Special
@@ -37,7 +39,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_night"                                  "5.0 6.0 7.0 8.0 9.0 10.0"
+        "duration_night"                                  "4.0 5.0 6.0 7.0 8.0 9.0"
       }
       "03"
       {

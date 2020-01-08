@@ -8,6 +8,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -17,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 46 42 38 34 30"
+    "AbilityCooldown"                                     "30" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------

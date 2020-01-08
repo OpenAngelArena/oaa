@@ -12,7 +12,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
@@ -21,7 +23,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "5"
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage"                                    "100 175 250 325 700 1075"
+        "blast_damage"                                    "100 175 250 325 725 1125"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_2"
       }
     }

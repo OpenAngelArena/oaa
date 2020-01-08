@@ -16,8 +16,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "0"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
@@ -59,16 +62,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_rate"                                       "1.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "1.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "castpoint_scepter"                               "0.1"
       }
     }
   }

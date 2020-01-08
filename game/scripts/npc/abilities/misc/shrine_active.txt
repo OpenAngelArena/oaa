@@ -1,0 +1,71 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Filler buildings ability (Shrines)
+  //=================================================================================================================
+  "filler_ability"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                               "6226"
+    "AbilityBehavior"                  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                         "1"
+
+    "AbilityCastAnimation"             "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                  "180" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "hp_heal"                      "90"
+      }
+      "02"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "mp_heal"                      "50"
+      }
+      "03"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "hp_heal_growth"               "0"
+      }
+      "04"
+      {
+        "var_type"                     "FIELD_FLOAT"
+        "mp_heal_growth"               "0"
+      }
+      "05"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "hp_heal_pct"                  "2"
+      }
+      "06"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "mp_heal_pct"                  "2"
+      }
+      "07"
+      {
+        "var_type"                     "FIELD_FLOAT"
+        "duration"                     "5"
+      }
+      "08"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "radius"                       "500"
+      }
+      "09"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "initial_cooldown"             "180" //OAA
+      }
+    }
+  }
+}
