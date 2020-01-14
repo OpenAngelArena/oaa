@@ -46,26 +46,26 @@
     "AttributeBaseAgility"      "18"
     "AttributeAgilityGain"      "1.5"
     "AttributeBaseIntelligence" "15"
-    "AttributeIntelligenceGain" "1.5"
+    "AttributeIntelligenceGain" "1.4"
 
     "Ability1"                  "sohei_dash"
     "Ability2"                  "sohei_wholeness_of_body"
-    "Ability3"                  "sohei_momentum"
+    "Ability3"                  "sohei_momentum_strike"
     "Ability4"                  "sohei_palm_of_life"
     "Ability5"                  "generic_hidden"
     "Ability6"                  "sohei_flurry_of_blows"
 
-    "Ability10"                 "special_bonus_sohei_stun"                    // Momentum inflicts a brief stun if the target collides with an obstacle
-    "Ability11"                 "special_bonus_sohei_wholeness_allycast"      // Allow casting on allies
+    "Ability10"                 "special_bonus_strength_20"
+    "Ability11"                 "special_bonus_movement_speed_20"
 
-    "Ability12"                 "special_bonus_strength_20"
-    "Ability13"                 "special_bonus_sohei_wholeness_knockback"     // Knockbacks enemies until they are 300 units away
+    "Ability12"                 "w_aoe_knockback_from_e"
+    "Ability13"                 "q_projectile_dodge_and_invulnerable"
 
     "Ability14"                 "special_bonus_cleave_40"
-    "Ability15"                 "special_bonus_movement_speed_50"
+    "Ability15"                 "special_bonus_sohei_stun"
 
-    "Ability16"                 "special_bonus_sohei_dash_recharge"           // Dash charges cool down all at once
-    "Ability17"                 "special_bonus_sohei_fob_radius"              // Increases Flurry of Blows' AOE radius
+    "Ability16"                 ""
+    "Ability17"                 "special_bonus_sohei_fob_radius"
 
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"

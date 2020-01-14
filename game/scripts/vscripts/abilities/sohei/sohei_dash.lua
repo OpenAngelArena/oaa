@@ -1,15 +1,15 @@
 sohei_dash = class( AbilityBaseClass )
 
-LinkLuaModifier( "modifier_sohei_dash_free_turning", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_sohei_dash_free_turning", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
 LinkLuaModifier( "modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
-function sohei_dash:GetIntrinsicModifierName()
-  return "modifier_sohei_dash_free_turning"
-end
+--function sohei_dash:GetIntrinsicModifierName()
+  --return "modifier_sohei_dash_free_turning"
+--end
 
 --------------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ function sohei_dash:OnUpgrade()
   local chargesMax = self:GetSpecialValueFor( "max_charges" )
 
   if not modifier_charges then
-    modifier_charges = caster:AddNewModifier( self:GetCaster(), self, "modifier_sohei_dash_charges", {} )
+    modifier_charges = caster:AddNewModifier( caster, self, "modifier_sohei_dash_charges", {} )
     modifier_charges:SetStackCount( chargesMax )
   elseif modifier_charges:GetStackCount() < chargesMax then
     -- Reset the cooldown on the modifier
@@ -176,6 +176,7 @@ end
 --------------------------------------------------------------------------------
 
 -- Dash free turning modifier
+--[[
 modifier_sohei_dash_free_turning = class( ModifierBaseClass )
 
 --------------------------------------------------------------------------------
@@ -211,7 +212,7 @@ end
 function modifier_sohei_dash_free_turning:GetModifierIgnoreCastAngle()
 	return 1
 end
-
+]]
 --------------------------------------------------------------------------------
 
 -- Dash charges modifier
