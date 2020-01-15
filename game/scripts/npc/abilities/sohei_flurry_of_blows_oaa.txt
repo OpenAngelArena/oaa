@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin: Flurry of Blows
+  // Sohei: Flurry of Blows
   //=================================================================================================================
   "sohei_flurry_of_blows"
   {
@@ -12,9 +12,9 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" // DOTA_ABILITY_BEHAVIOR_CHANNELLED
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
     "AbilityTextureName"                                  "custom/ronin_flurry_of_blows"
     "ScriptFile"                                          "abilities/sohei/sohei_flurry_of_blows.lua"
     "MaxLevel"                                            "5"
@@ -38,9 +38,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/sohei/flurry_of_blows_ground.vpcf"
-      "particle"          "particles/status_fx/status_effect_omnislash.vpcf"
-      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+      "particle"                                          "particles/hero/sohei/flurry_of_blows_ground.vpcf"
+      "particle"                                          "particles/status_fx/status_effect_omnislash.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
     }
 
     // Special
@@ -53,17 +53,17 @@
         "flurry_radius"                                   "450"
         "LinkedSpecialBonus"                              "special_bonus_sohei_fob_radius"
       }
-      "02" // unused
+      "02" // unused KV
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_attacks"                                     "6 10 12 14 18"
       }
-      "03" // unused
+      "03" // unused KV
       {
         "var_type"                                        "FIELD_FLOAT"
         "max_duration"                                    "3.0 4.0 5.0 5.5 6.0"
       }
-      "04" // unused
+      "04" // unused KV
       {
         "var_type"                                        "FIELD_FLOAT"
         "attack_interval"                                 "0.4"

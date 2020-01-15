@@ -1,15 +1,19 @@
 sohei_momentum_strike = class( AbilityBaseClass )
 
---LinkLuaModifier("modifier_sohei_momentum_strike_passive", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_momentum_strike_passive", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_momentum_strike_knockback", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_sohei_momentum_strike_slow", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_NONE)
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+function sohei_momentum_strike:GetIntrinsicModifierName()
+	return "modifier_sohei_momentum_strike_passive"
+end
 
 function sohei_momentum_strike:OnSpellStart()
   local caster = self:GetCaster()
   local point = self:GetCursorPosition()
-  
+
   -- Projectile parameters
   local projectile_name = "particles/hero/sohei/momentum_strike_projectile.vpcf"
   local projectile_distance = self:GetSpecialValueFor("max_travel_distance")
@@ -37,18 +41,18 @@ function sohei_momentum_strike:OnSpellStart()
     iUnitTargetType = self:GetAbilityTargetType(),
     iUnitTargetFlags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE), --self:GetAbilityTargetFlags(),
     --bDeleteOnHit = true, -- DOESN'T WORK
-    vVelocity = direction * projectile_speed,
+    vVelocity = direction*projectile_speed,
     bProvidesVision = true,
     iVisionRadius = projectile_vision,
     iVisionTeamNumber = caster:GetTeamNumber(),
   }
 
   ProjectileManager:CreateLinearProjectile(info)
-  
+
   -- Play sound
   caster:EmitSound("Sohei.Momentum")
 
-  -- Removed Arcana Glow particle
+  -- Remove Arcana Glow particle
   local dbzArcana = caster:FindModifierByName('modifier_arcana_dbz')
   local pepsiArcana = caster:FindModifierByName('modifier_arcana_pepsi')
   if dbzArcana then
@@ -59,12 +63,10 @@ function sohei_momentum_strike:OnSpellStart()
 end
 
 function sohei_momentum_strike:OnProjectileHitHandle(target, location, projectile_id)
-  if not target or target:IsNull() then
+  if not target or target:IsNull() or not projectile_id then
     return true
   end
-  if not projectile_id then
-    return true
-  end
+
   local caster = self:GetCaster()
   local projectile_velocity = ProjectileManager:GetLinearProjectileVelocity(projectile_id)
   local projectile_speed = self:GetSpecialValueFor("projectile_speed")
@@ -76,7 +78,7 @@ function sohei_momentum_strike:OnProjectileHitHandle(target, location, projectil
   local collision_radius = self:GetSpecialValueFor("collision_radius")
   local direction = projectile_velocity/projectile_speed
 
-  -- Apply Knock back to the target
+  -- Apply Momentum Strike Knockback to the target
   target:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
   target:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_knockback", {
     duration = duration,
@@ -101,30 +103,26 @@ function sohei_momentum_strike:OnProjectileHitHandle(target, location, projectil
   ParticleManager:ReleaseParticleIndex(momentum_pfx)
 
   -- Hit the unit with normal attack that cant miss
-  caster:PerformAttack(target, true, true, true, false, false, false, true)
+  if not caster:IsDisarmed() and not target:IsAttackImmune() then
+    caster:PerformAttack(target, true, true, true, false, false, false, true)
+    -- Crit is done with the passive modifier
+  end
 
-  return true -- this destroys the projectile
+  return true -- destroys the projectile
 end
 
----------------------------------------------------------------------------------
+function sohei_momentum_strike:OnUnStolen()
+  local caster = self:GetCaster()
+  local modifier = caster:FindModifierByName("modifier_sohei_momentum_strike_passive")
+  if modifier then
+    caster:RemoveModifierByName("modifier_sohei_momentum_strike_passive")
+  end
+end
 
+---------------------------------------------------------------------------------------------------
 
--- if self:IsMomentumReady() then
---   local dbzArcana = caster:FindModifierByName( 'modifier_arcana_dbz' )
---   local pepsiArcana = caster:FindModifierByName( 'modifier_arcana_pepsi' )
-
---   if dbzArcana then
---     ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
---   elseif pepsiArcana then
---     ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
---   end
--- end
---------------------------------------------------------------------------------
-
--- Momentum's knockback modifier
+-- Momentum Strike knockback modifier
 modifier_sohei_momentum_strike_knockback = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_strike_knockback:IsDebuff()
   return true
@@ -146,8 +144,6 @@ function modifier_sohei_momentum_strike_knockback:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_strike_knockback:GetEffectName()
   if self:GetCaster():HasModifier('modifier_arcana_dbz') then
     return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
@@ -155,13 +151,9 @@ function modifier_sohei_momentum_strike_knockback:GetEffectName()
   return "particles/hero/sohei/knockback.vpcf"
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_strike_knockback:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_strike_knockback:CheckState()
   local state = {
@@ -170,8 +162,6 @@ function modifier_sohei_momentum_strike_knockback:CheckState()
 
   return state
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_strike_knockback:DeclareFunctions()
   local funcs = {
@@ -182,13 +172,9 @@ function modifier_sohei_momentum_strike_knockback:DeclareFunctions()
   return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_strike_knockback:GetOverrideAnimation( event )
   return ACT_DOTA_FLAIL
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_sohei_momentum_strike_knockback:OnCreated( event )
@@ -204,8 +190,6 @@ if IsServer() then
     end
   end
 
---------------------------------------------------------------------------------
-
   function modifier_sohei_momentum_strike_knockback:OnDestroy()
     local parent = self:GetParent()
 
@@ -213,15 +197,13 @@ if IsServer() then
     ResolveNPCPositions( parent:GetAbsOrigin(), 128 )
   end
 
---------------------------------------------------------------------------------
-
   function modifier_sohei_momentum_strike_knockback:UpdateHorizontalMotion( parent, deltaTime )
     local caster = self:GetCaster()
-	if not parent or parent:IsNull() or not parent:IsAlive() then 
+    if not parent or parent:IsNull() or not parent:IsAlive() then
       return
     end
     local parentOrigin = parent:GetOrigin()
-	local ability = self:GetAbility()
+    local ability = self:GetAbility()
 
     local tickSpeed = self.speed * deltaTime
     tickSpeed = math.min( tickSpeed, self.distance )
@@ -229,22 +211,21 @@ if IsServer() then
 
     self.distance = self.distance - tickSpeed
 
-	-- Check for Mars Arena and similar stuff first
-	--npc_dota_thinker - modifier_mars_arena_of_blood_thinker - duration: 9.60, createtime: 197.31
-	--npc_dota_thinker - modifier_mars_arena_of_blood - duration: 9.00, createtime: 197.91
-	--npc_dota_thinker - modifier_disruptor_kinetic_field_thinker - duration: 3.80, createtime: 367.17
-	-- Check for phantom (thinker) blockers:
-	-- It detects Fissure (modifier_earthshaker_fissure) and Ice Shards (modifier_tusk_ice_shard)
+    -- Mars Arena: npc_dota_thinker - modifier_mars_arena_of_blood_thinker - duration: 9.60, createtime: 197.31
+    -- Mars Arena: npc_dota_thinker - modifier_mars_arena_of_blood - duration: 9.00, createtime: 197.91
+    -- Disruptor Field: npc_dota_thinker - modifier_disruptor_kinetic_field_thinker - duration: 3.80
+
+    -- Check for phantom (thinkers) blockers (Fissure (modifier_earthshaker_fissure), Ice Shards (modifier_tusk_ice_shard) etc.)
     local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, self.collision_radius)
     for _, thinker in pairs(thinkers) do
-      if thinker:IsPhantomBlocker() then
+      if thinker and thinker:IsPhantomBlocker() then
         self:SlowAndStun(parent, caster, ability)
-		self:Destroy()
+        self:Destroy()
         return
       end
     end
 
-	-- Check for high ground
+    -- Check for high ground
     local previous_loc = GetGroundPosition(parentOrigin, parent)
     local new_loc = GetGroundPosition(tickOrigin, parent)
     if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
@@ -253,22 +234,22 @@ if IsServer() then
       return
     end
 
-    -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't seem good;
+    -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
     if GridNav:IsNearbyTree(tickOrigin, self.collision_radius, false) then
       self:SlowAndStun(parent, caster, ability)
-	  GridNav:DestroyTreesAroundPoint(tickOrigin, self.collision_radius, false)
+      GridNav:DestroyTreesAroundPoint(tickOrigin, self.collision_radius, false)
       self:Destroy()
       return
-	end
+    end
 
-	-- Check for buildings (requires buildings library)
+    -- Check for buildings (requires buildings lua library, otherwise it will return an error)
     if #FindAllBuildingsInRadius(tickOrigin, self.collision_radius) > 0 or #FindCustomBuildingsInRadius(tickOrigin, self.collision_radius) > 0 then
       self:SlowAndStun(parent, caster, ability)
       self:Destroy()
       return
     end
 
-    -- Check if a hero is on a hero's path, if yes apply debuffs to both heroes
+    -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs to both heroes
     if parent:IsRealHero() then
       local heroes = FindUnitsInRadius(
         caster:GetTeamNumber(),
@@ -289,15 +270,14 @@ if IsServer() then
         self:SlowAndStun(parent, caster, ability)
         self:SlowAndStun(hero_to_impact, caster, ability)
         self:Destroy()
-		return
+        return
       end
     end
 
-    -- Move the unit to the new location if nothing above was detected; Unstucking is happening OnDestroy;
+    -- Move the unit to the new location if nothing above was detected;
+    -- Unstucking (ResolveNPCPositions) is happening OnDestroy;
     parent:SetOrigin(tickOrigin)
   end
-
---------------------------------------------------------------------------------
 
   function modifier_sohei_momentum_strike_knockback:SlowAndStun( unit, caster, ability )
     -- Apply slow debuff
@@ -310,20 +290,21 @@ if IsServer() then
       stun_duration = stun_duration + talent:GetSpecialValueFor("value")
     end
 
-	-- Status Resistance
+    -- Duration is reduced with Status Resistance
     stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
 
     -- Apply stun debuff
     unit:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+
+    -- Collision Impact Sound
+    unit:EmitSound("Sohei.Momentum.Collision")
   end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
--- Momentum's knockback modifier
+-- Momentum Strike slow modifier
 modifier_sohei_momentum_strike_slow = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_strike_slow:IsDebuff()
   return true
@@ -334,40 +315,35 @@ function modifier_sohei_momentum_strike_slow:IsHidden()
 end
 
 function modifier_sohei_momentum_strike_slow:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_sohei_momentum_strike_slow:IsStunDebuff()
   return false
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_strike_slow:OnCreated( event )
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
   if IsServer() then
+    -- Slow is reduced with Status Resistance
     self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
   else
     self.slow = movement_slow
   end
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_strike_slow:OnRefresh( event )
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
   if IsServer() then
+    -- Slow is reduced with Status Resistance
     self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
   else
     self.slow = movement_slow
   end
 end
 
---------------------------------------------------------------------------------
-
--- slows don't show correctly if they're in an IsServer() block govs
 function modifier_sohei_momentum_strike_slow:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
@@ -376,8 +352,88 @@ function modifier_sohei_momentum_strike_slow:DeclareFunctions()
   return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_strike_slow:GetModifierMoveSpeedBonus_Percentage()
   return self.slow
+end
+
+---------------------------------------------------------------------------------------------------
+
+-- Momentum Strike passive modifier
+modifier_sohei_momentum_strike_passive = class( ModifierBaseClass )
+
+function modifier_sohei_momentum_strike_passive:IsHidden()
+  return true
+end
+
+function modifier_sohei_momentum_strike_passive:IsPurgable()
+  return false
+end
+
+function modifier_sohei_momentum_strike_passive:IsDebuff()
+  return false
+end
+
+function modifier_sohei_momentum_strike_passive:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
+  }
+
+  return funcs
+end
+
+function modifier_sohei_momentum_strike_passive:GetModifierPreAttack_CriticalStrike(event)
+  local parent = self:GetParent()
+
+  if parent ~= event.attacker then
+    return 0
+  end
+
+  if not IsServer() then
+    return 0
+  end
+
+  local ability = self:GetAbility()
+  local ufResult = UnitFilter(
+    event.target,
+    ability:GetAbilityTargetTeam(),
+    ability:GetAbilityTargetType(),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE),
+    parent:GetTeamNumber()
+  )
+
+  if ufResult ~= UF_SUCCESS then
+    return 0
+  end
+
+  -- Crit only if the target is affected by Momentum Strike from the parent
+  if event.target:FindModifierByNameAndCaster("modifier_sohei_momentum_strike_knockback", parent) then
+    return ability:GetSpecialValueFor("crit_damage")
+  end
+
+  return 0
+end
+
+function modifier_sohei_momentum_strike_passive:OnCreated()
+  self:StartIntervalThink(0.1)
+end
+
+function modifier_sohei_momentum_strike_passive:OnIntervalThink()
+  local ability = self:GetAbility()
+  local parent = self:GetParent()
+
+  if not IsServer() then
+    return
+  end
+
+  -- If Momentum Strike is not on cooldown, make arcana particles glow
+  if ability and ability:IsCooldownReady() then
+    local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
+    local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
+
+    if dbzArcana then
+      ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
+    elseif pepsiArcana then
+      ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
+    end
+  end
 end

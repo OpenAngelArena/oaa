@@ -5,13 +5,11 @@ LinkLuaModifier( "modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua
 LinkLuaModifier( "modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 --function sohei_dash:GetIntrinsicModifierName()
   --return "modifier_sohei_dash_free_turning"
 --end
-
---------------------------------------------------------------------------------
 
 function sohei_dash:IsVectorTargeting()
   return true
@@ -34,6 +32,10 @@ function sohei_dash:OnUpgrade()
   local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
   local chargesMax = self:GetSpecialValueFor( "max_charges" )
 
+  if caster:HasScepter() then
+    chargesMax = self:GetSpecialValueFor( "scepter_max_charges" )
+  end
+
   if not modifier_charges then
     modifier_charges = caster:AddNewModifier( caster, self, "modifier_sohei_dash_charges", {} )
     modifier_charges:SetStackCount( chargesMax )
@@ -47,25 +49,22 @@ function sohei_dash:OnUpgrade()
   end
 end
 
---------------------------------------------------------------------------------
-
 function sohei_dash:GetChargeRefreshTime()
   -- Reduce the charge recovery time if the appropriate talent is learned
+  local caster = self:GetCaster()
   local refreshTime = self:GetSpecialValueFor( "charge_restore_time" )
-  local talent = self:GetCaster():FindAbilityByName( "special_bonus_sohei_dash_recharge" )
+  local talent = caster:FindAbilityByName( "special_bonus_sohei_dash_recharge" )
 
   if talent and talent:GetLevel() > 0 then
     refreshTime = math.max( refreshTime - talent:GetSpecialValueFor( "value" ), 1 )
   end
 
   -- cdr stuff
-  local cdr = self:GetCaster():GetCooldownReduction()
+  local cdr = caster:GetCooldownReduction()
   refreshTime = cdr*refreshTime
 
   return refreshTime
 end
-
---------------------------------------------------------------------------------
 
 function sohei_dash:PerformDash()
   local caster = self:GetCaster()
@@ -85,11 +84,15 @@ function sohei_dash:PerformDash()
     tree_radius = treeRadius,
     speed = speed,
   } )
+
+  local talent = caster:FindAbilityByName("special_bonus_sohei_dash_invulnerable")
+
+  if talent and talent:GetLevel() > 0 then
+    ProjectileManager:ProjectileDodge(caster)
+  end
 end
 
---------------------------------------------------------------------------------
-
-function sohei_dash:OnVectorCastStart(vStartLocation, vDirection) -- OnSpellStart()
+function sohei_dash:OnVectorCastStart(vStartLocation, vDirection) -- replaces OnSpellStart()
   local caster = self:GetCaster()
   local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
   local dashDistance = self:GetVectorTargetRange()
@@ -111,7 +114,7 @@ function sohei_dash:OnVectorCastStart(vStartLocation, vDirection) -- OnSpellStar
           self:StartCooldown( dashDistance / dashSpeed )
         end
       else
-        -- if does not have charges for the next dash, set the cd to the remain time of the modifier
+        -- if does not have charges for the next dash, set the cd to the remaining time of the modifier
         self:StartCooldown( modifier_charges:GetRemainingTime() )
       end
       modifier_charges:SetStackCount( currentStackCount - 1 )
@@ -155,13 +158,16 @@ function sohei_dash:OnVectorCastStart(vStartLocation, vDirection) -- OnSpellStar
   ]]
 end
 
---------------------------------------------------------------------------------
-
 function sohei_dash:RefreshCharges()
-  local modifier_charges = self:GetCaster():FindModifierByName( "modifier_sohei_dash_charges" )
+  local caster = self:GetCaster()
+  local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
 
   if modifier_charges and not modifier_charges:IsNull() then
-    modifier_charges:SetStackCount( self:GetSpecialValueFor( "max_charges" ) )
+    local max_charges = self:GetSpecialValueFor( "max_charges" )
+    if caster:HasScepter() then
+      max_charges = self:GetSpecialValueFor( "scepter_max_charges" )
+    end
+    modifier_charges:SetStackCount( max_charges )
   end
 end
 
@@ -173,13 +179,12 @@ function sohei_dash:OnUnStolen()
   end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
--- Dash free turning modifier
+-- Dash free turning (ignoring cast angle) modifier - problem with it is that it applies to every ability and item, we don't want that
 --[[
 modifier_sohei_dash_free_turning = class( ModifierBaseClass )
 
---------------------------------------------------------------------------------
 
 function modifier_sohei_dash_free_turning:IsDebuff()
 	return false
@@ -197,8 +202,6 @@ function modifier_sohei_dash_free_turning:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_dash_free_turning:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_IGNORE_CAST_ANGLE
@@ -207,171 +210,161 @@ function modifier_sohei_dash_free_turning:DeclareFunctions()
 	return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_dash_free_turning:GetModifierIgnoreCastAngle()
 	return 1
 end
 ]]
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 -- Dash charges modifier
 modifier_sohei_dash_charges = class( ModifierBaseClass )
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_dash_charges:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_charges:IsHidden()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_charges:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_charges:RemoveOnDeath()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_charges:DestroyOnExpire()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_charges:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT
+  return MODIFIER_ATTRIBUTE_PERMANENT
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_sohei_dash_charges:OnCreated()
-		self:StartIntervalThink( 0.1 )
-	end
+  function modifier_sohei_dash_charges:OnCreated()
+    self:StartIntervalThink( 0.1 )
+  end
 
---------------------------------------------------------------------------------
+  function modifier_sohei_dash_charges:OnRefresh()
+    self:StartIntervalThink( 0.1 )
+  end
 
-	function modifier_sohei_dash_charges:OnRefresh()
-		self:StartIntervalThink( 0.1 )
-	end
+  function modifier_sohei_dash_charges:OnIntervalThink()
+    if self:GetRemainingTime() <= 0 then
+      self:OnExpire()
+    end
+  end
 
---------------------------------------------------------------------------------
+  function modifier_sohei_dash_charges:OnExpire()
+    -- used to handle all charge-gaining logic here
+    -- but that doesn't work with RefreshCharges also adding
+    -- charges, so sayonara old chap
+    self:SetDuration( -1, true )
+    self:SetStackCount( self:GetStackCount() + 1 )
+  end
 
-	function modifier_sohei_dash_charges:OnIntervalThink()
-		if self:GetRemainingTime() <= 0 then
-			self:OnExpire()
-		end
-	end
+  function modifier_sohei_dash_charges:OnStackCountChanged( oldCount )
+    local spell = self:GetAbility()
+    local newCount = self:GetStackCount()
+    local maxCount = spell:GetSpecialValueFor( "max_charges" )
 
---------------------------------------------------------------------------------
+    if caster:HasScepter() then
+      maxCount = spell:GetSpecialValueFor( "scepter_max_charges" )
+    end
 
-	function modifier_sohei_dash_charges:OnExpire()
-		local spell = self:GetAbility()
+    if newCount >= maxCount then
+      -- we want to make sure that the thinking stops at max
+      -- charges, and not just in OnExpire as charges can be added
+      -- through Refresher items and such
+      self:SetDuration( -1, true )
+      self:StartIntervalThink( -1 )
+    else
+      -- we're just starting the thinking again
+      -- so we don't bother doing anything if that's already happening
+      -- ( otherwise, we'll end up restarting the recharge time )
+      if self:GetDuration() <= 0 and newCount < maxCount then
+        local duration = spell:GetChargeRefreshTime()
 
-		-- used to handle all charge-gaining logic here
-		-- but that doesn't work with RefreshCharges also adding
-		-- charges, so sayonara old chap
-		self:SetDuration( -1, true )
-		self:SetStackCount( self:GetStackCount() + 1 )
-	end
+        self:SetDuration( duration, true )
+        self:StartIntervalThink( 0.1 )
+        -- we can probably now tell StartIntervalThink to only think every duration
+        -- seconds now, but I'd rather not go about extensively testing that for now
+      end
 
---------------------------------------------------------------------------------
+      -- also do cooldown if the count is dead
+      -- rip Dracula
+      if newCount <= 0 then
+        local remainingTime = self:GetRemainingTime()
 
-	function modifier_sohei_dash_charges:OnStackCountChanged( oldCount )
-		local spell = self:GetAbility()
-		local newCount = self:GetStackCount()
-		local maxCount = spell:GetSpecialValueFor( "max_charges" )
+        if remainingTime > spell:GetCooldownTimeRemaining() then
+          spell:EndCooldown()
+          spell:StartCooldown( remainingTime )
+        end
 
-		if newCount >= maxCount then
-			-- we want to make sure that the thinking stops at max
-			-- charges, and not just in OnExpire as charges can be added
-			-- through Refresher items and such
-			self:SetDuration( -1, true )
-			self:StartIntervalThink( -1 )
-		else
-			-- we're just starting the thinking again
-			-- so we don't bother doing anything if that's already happening
-			-- ( otherwise, we'll end up restarting the recharge time )
-			if self:GetDuration() <= 0 and newCount < maxCount then
-				local duration = self:GetAbility():GetChargeRefreshTime()
+        -- Palm of Life sharing cooldown with Dash
+        --[[
+        local spellPalm = self:GetParent():FindAbilityByName( "sohei_palm_of_life" )
 
-				self:SetDuration( duration, true )
-				self:StartIntervalThink( 0.1 )
-				-- we can probably now tell StartIntervalThink to only think every duration
-				-- seconds now, but I'd rather not go about extensively testing that for now
-			end
-
-			-- also do cooldown if the count is dead
-			-- rip dracula
-			if newCount <= 0 then
-				local remainingTime = self:GetRemainingTime()
-
-				if remainingTime > spell:GetCooldownTimeRemaining() then
-					spell:EndCooldown()
-					spell:StartCooldown( remainingTime )
-				end
-
-				local spellPalm = self:GetParent():FindAbilityByName( "sohei_palm_of_life" )
-
-				if spellPalm and not spellPalm:IsStolen() and remainingTime > spellPalm:GetCooldownTimeRemaining() then
-					spellPalm:EndCooldown()
-					spellPalm:StartCooldown( remainingTime )
-				end
-			end
-		end
-	end
+        if spellPalm and not spellPalm:IsStolen() and remainingTime > spellPalm:GetCooldownTimeRemaining() then
+          spellPalm:EndCooldown()
+          spellPalm:StartCooldown( remainingTime )
+        end
+        ]]
+      end
+    end
+  end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 -- Dash movement modifier
 modifier_sohei_dash_movement = class( ModifierBaseClass )
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_dash_movement:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_movement:IsHidden()
-	return true
+  return true
 end
 
 function modifier_sohei_dash_movement:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_movement:IsStunDebuff()
-	return false
+  return false
 end
 
 function modifier_sohei_dash_movement:GetPriority()
-	return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
+  return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_dash_movement:CheckState()
   local state = {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    --[MODIFIER_STATE_INVULNERABLE] = true,
-    --[MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true
   }
 
+  local talent = caster:FindAbilityByName("special_bonus_sohei_dash_invulnerable")
+
+  if talent and talent:GetLevel() > 0 then
+    state[MODIFIER_STATE_INVULNERABLE] = true
+    state[MODIFIER_STATE_MAGIC_IMMUNE] = true
+  end
+
   return state
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_sohei_dash_movement:OnCreated( event )
     -- Movement parameters
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    self.direction = ability:GetVectorDirection() -- You cant send vectors when applying a modifier
+    self.direction = ability:GetVectorDirection()
     self.distance = event.distance + 1
     self.speed = event.speed
     self.tree_radius = event.tree_radius
@@ -400,35 +393,54 @@ if IsServer() then
     ParticleManager:ReleaseParticleIndex( trail_pfx )
   end
 
---------------------------------------------------------------------------------
-
   function modifier_sohei_dash_movement:OnDestroy()
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local parent_origin = parent:GetAbsOrigin()
 
-    parent:FadeGesture( ACT_DOTA_RUN )
-    parent:RemoveHorizontalMotionController( self )
+    parent:FadeGesture(ACT_DOTA_RUN)
+    parent:RemoveHorizontalMotionController(self)
     ResolveNPCPositions(parent_origin, 128)
     parent:FaceTowards(parent_origin + 128*self.direction)
 
-    local units = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+    local enemies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
     local damage_table = {}
     damage_table.attacker = parent
     damage_table.damage_type = ability:GetAbilityDamageType()
     damage_table.ability = ability
     damage_table.damage = ability:GetSpecialValueFor("damage")
 
-    for _,unit in pairs(units) do
+    for _,unit in pairs(enemies) do
       if unit and not unit:IsNull() then
         unit:AddNewModifier(parent, ability, "modifier_sohei_dash_slow", { duration = ability:GetSpecialValueFor("slow_duration") })
         damage_table.victim = unit
         ApplyDamage(damage_table)
       end
     end
-  end
 
---------------------------------------------------------------------------------
+    -- Dash with Scepter heals allies
+    if parent:HasScepter() then
+      local allies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+      for _,ally in pairs(allies) do
+        if ally and not ally:IsNull() and ally ~= parent then
+          local base_heal_amount = ability:GetSpecialValueFor("scepter_base_heal")
+          local hp_as_heal = ability:GetSpecialValueFor("scepter_hp_as_heal")
+          local heal_amount_based_on_hp = parent:GetHealth() * hp_as_heal/100
+
+          ally:Heal(base_heal_amount+heal_amount_based_on_hp, parent)
+
+          --ally:EmitSound("Sohei.PalmOfLife.Heal")
+
+          local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
+          ParticleManager:SetParticleControl(part, 0, ally:GetAbsOrigin())
+          ParticleManager:SetParticleControl(part, 1, Vector(ally:GetModelRadius(), 1, 1 ))
+          ParticleManager:ReleaseParticleIndex(part)
+
+          SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, base_heal_amount+heal_amount_based_on_hp, nil)
+        end
+      end
+    end
+  end
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion( parent, deltaTime )
     local parentOrigin = parent:GetAbsOrigin()
@@ -444,16 +456,14 @@ if IsServer() then
     GridNav:DestroyTreesAroundPoint( tickOrigin, self.tree_radius, false )
   end
 
---------------------------------------------------------------------------------
-
   function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
     self:Destroy()
   end
 end
 
 ---------------------------------------------------------------------------------------------------
--- Dash slow modifier
 
+-- Dash slow debuff
 modifier_sohei_dash_slow = class(ModifierBaseClass)
 
 function modifier_sohei_dash_slow:IsDebuff()
@@ -472,6 +482,28 @@ function modifier_sohei_dash_slow:IsStunDebuff()
   return false
 end
 
+function modifier_sohei_dash_slow:OnCreated(event)
+  local parent = self:GetParent()
+  local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+  if IsServer() then
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
+  else
+    self.slow = movement_slow
+  end
+end
+
+function modifier_sohei_dash_slow:OnRefresh(event)
+  local parent = self:GetParent()
+  local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+  if IsServer() then
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
+  else
+    self.slow = movement_slow
+  end
+end
+
 function modifier_sohei_dash_slow:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
@@ -481,5 +513,5 @@ function modifier_sohei_dash_slow:DeclareFunctions()
 end
 
 function modifier_sohei_dash_slow:GetModifierMoveSpeedBonus_Percentage()
-  return self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+  return self.slow
 end

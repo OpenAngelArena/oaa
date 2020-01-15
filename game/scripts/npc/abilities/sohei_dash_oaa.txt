@@ -20,6 +20,8 @@
 
     "MaxLevel"                                            "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -39,6 +41,7 @@
     "precache"
     {
       "particle"                                          "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
       "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
@@ -97,6 +100,24 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "1.0 1.25 1.5 1.75 2.0 2.25"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_base_heal"                               "300"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_hp_as_heal"                              "10"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_max_charges"                             "6"
+        "RequiresScepter"                                 "1"
       }
     }
   }

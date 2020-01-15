@@ -42,29 +42,29 @@
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
     "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.5"
+    "AttributeStrengthGain"     "4.3"
     "AttributeBaseAgility"      "18"
     "AttributeAgilityGain"      "1.5"
-    "AttributeBaseIntelligence" "15"
-    "AttributeIntelligenceGain" "1.4"
+    "AttributeBaseIntelligence" "17"
+    "AttributeIntelligenceGain" "1.5"
 
     "Ability1"                  "sohei_dash"
     "Ability2"                  "sohei_wholeness_of_body"
     "Ability3"                  "sohei_momentum_strike"
-    "Ability4"                  "sohei_palm_of_life"
+    "Ability4"                  "generic_hidden"
     "Ability5"                  "generic_hidden"
     "Ability6"                  "sohei_flurry_of_blows"
 
     "Ability10"                 "special_bonus_strength_20"
-    "Ability11"                 "special_bonus_movement_speed_20"
+    "Ability11"                 "special_bonus_attack_speed_30"
 
-    "Ability12"                 "w_aoe_knockback_from_e"
-    "Ability13"                 "q_projectile_dodge_and_invulnerable"
+    "Ability12"                 "special_bonus_sohei_wholeness_knockback"
+    "Ability13"                 "special_bonus_sohei_dash_invulnerable"
 
     "Ability14"                 "special_bonus_cleave_40"
     "Ability15"                 "special_bonus_sohei_stun"
 
-    "Ability16"                 ""
+    "Ability16"                 "special_bonus_sohei_dash_recharge"
     "Ability17"                 "special_bonus_sohei_fob_radius"
 
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"

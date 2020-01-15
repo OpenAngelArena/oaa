@@ -2,41 +2,41 @@
 
 LinkLuaModifier( "modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
--- function sohei_flurry_of_blows:OnAbilityPhaseStart()
-  -- if IsServer() then
-    -- self:GetCaster():EmitSound( "Hero_EmberSpirit.FireRemnant.Stop" )
-    -- return true
-  -- end
--- end
+-- old Flurry of Blows, channeling, uses Momentum
+--[[
+function sohei_flurry_of_blows:OnAbilityPhaseStart()
+  if IsServer() then
+    self:GetCaster():EmitSound( "Hero_EmberSpirit.FireRemnant.Stop" )
+    return true
+  end
+end
 
---------------------------------------------------------------------------------
+function sohei_flurry_of_blows:OnAbilityPhaseInterrupted()
+  if IsServer() then
+    self:GetCaster():StopSound( "Hero_EmberSpirit.FireRemnant.Stop" )
+  end
+end
 
--- function sohei_flurry_of_blows:OnAbilityPhaseInterrupted()
-  -- if IsServer() then
-    -- self:GetCaster():StopSound( "Hero_EmberSpirit.FireRemnant.Stop" )
-  -- end
--- end
+function sohei_flurry_of_blows:GetAssociatedSecondaryAbilities()
+  return "sohei_momentum"
+end
 
---------------------------------------------------------------------------------
+function sohei_flurry_of_blows:GetChannelTime()
 
--- function sohei_flurry_of_blows:GetAssociatedSecondaryAbilities()
-  -- return "sohei_momentum"
--- end
+  if self:GetCaster():HasScepter() then
+    return 300
+  end
 
---------------------------------------------------------------------------------
+  return self:GetSpecialValueFor( "max_duration" )
+end
 
---function sohei_flurry_of_blows:GetChannelTime()
-  
-  --if self:GetCaster():HasScepter() then
-    --return 300
-  --end
-
-  --return self:GetSpecialValueFor( "max_duration" )
---end
-
---------------------------------------------------------------------------------
+function sohei_flurry_of_blows:OnChannelFinish(bInterrupted)
+  local caster = self:GetCaster()
+  caster:RemoveModifierByName( "modifier_sohei_flurry_self" )
+end
+]]
 
 if IsServer() then
   function sohei_flurry_of_blows:OnSpellStart()
@@ -79,16 +79,7 @@ if IsServer() then
     -- Give vision over the area
     AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, attack_interval, false)
   end
-
---------------------------------------------------------------------------------
-
-  --function sohei_flurry_of_blows:OnChannelFinish(bInterrupted)
-    --local caster = self:GetCaster()
-    --caster:RemoveModifierByName( "modifier_sohei_flurry_self" )
-  --end
 end
-
---------------------------------------------------------------------------------
 
 function sohei_flurry_of_blows:GetAOERadius()
   local caster = self:GetCaster()
@@ -96,12 +87,10 @@ function sohei_flurry_of_blows:GetAOERadius()
   return self:GetSpecialValueFor( "flurry_radius" ) + caster:FindTalentValue( "special_bonus_sohei_fob_radius" )
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 -- Flurry of Blows' self buff
 modifier_sohei_flurry_self = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_flurry_self:IsDebuff()
   return false
@@ -119,8 +108,6 @@ function modifier_sohei_flurry_self:IsStunDebuff()
   return false
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_flurry_self:StatusEffectPriority()
   return 20
 end
@@ -128,8 +115,6 @@ end
 function modifier_sohei_flurry_self:GetStatusEffectName()
   return "particles/status_fx/status_effect_omnislash.vpcf"
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_flurry_self:CheckState()
   local state = {
@@ -142,8 +127,6 @@ function modifier_sohei_flurry_self:CheckState()
 
   return state
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_flurry_self:OnDestroy()
   local caster = self:GetCaster()
@@ -167,12 +150,12 @@ function modifier_sohei_flurry_self:OnDestroy()
       end
     end
 
-	ParticleManager:DestroyParticle( caster.flurry_ground_pfx, false )
+    ParticleManager:DestroyParticle( caster.flurry_ground_pfx, false )
     ParticleManager:ReleaseParticleIndex( caster.flurry_ground_pfx )
     caster.flurry_ground_pfx = nil
 
     caster:Interrupt()
-    caster:RemoveNoDraw()
+    --caster:RemoveNoDraw()
   end
 end
 
@@ -188,107 +171,102 @@ function modifier_sohei_flurry_self:GetModifierBaseAttack_BonusDamage()
   return self.bonus_damage
 end
 
---------------------------------------------------------------------------------
 
---if IsServer() then
 function modifier_sohei_flurry_self:OnCreated( event )
   self.bonus_damage = event.damage
 	-- self.remaining_attacks = event.max_attacks
   self.radius = event.flurry_radius
-    -- self.attack_interval = event.attack_interval
-    -- self.position = self:GetCaster():GetAbsOrigin()
-    -- self.positionGround = self.position - Vector( 0, 0, 200 )
+  -- self.attack_interval = event.attack_interval
+  -- self.position = self:GetCaster():GetAbsOrigin()
+  -- self.positionGround = self.position - Vector( 0, 0, 200 )
 
-    -- self:StartIntervalThink( self.attack_interval )
+  -- self:StartIntervalThink( self.attack_interval )
 
-    -- if self:PerformFlurryBlow() then
-      -- self.remaining_attacks = self.remaining_attacks - 1
-    -- end
+  -- if self:PerformFlurryBlow() then
+    -- self.remaining_attacks = self.remaining_attacks - 1
+  -- end
 end
 
---------------------------------------------------------------------------------
+--[[
+  function modifier_sohei_flurry_self:OnIntervalThink()
+    -- Give vision
+    local parent = self:GetParent()
+    AddFOWViewer(parent:GetTeam(), parent:GetOrigin(), self.radius, self.attack_interval, false)
 
-  -- function modifier_sohei_flurry_self:OnIntervalThink()
-    -- -- Give vision
-    -- local parent = self:GetParent()
-    -- AddFOWViewer(parent:GetTeam(), parent:GetOrigin(), self.radius, self.attack_interval, false)
+    -- Attempt a strike
+    if self:PerformFlurryBlow() then
+      self.remaining_attacks = self.remaining_attacks - 1
 
-    -- -- Attempt a strike
-    -- if self:PerformFlurryBlow() then
-      -- self.remaining_attacks = self.remaining_attacks - 1
 
-      
-      -- if self:GetParent():HasScepter() then
-        -- self:SetDuration( self:GetRemainingTime() + self.attack_interval, true )
-      -- end
-      
-    -- end
+      if self:GetParent():HasScepter() then
+        self:SetDuration( self:GetRemainingTime() + self.attack_interval, true )
+      end
 
-    -- -- If there are no strikes left, end
-    -- if self.remaining_attacks <= 0 then
-      -- self:Destroy()
-    -- end
-  -- end
+    end
 
---------------------------------------------------------------------------------
+    -- If there are no strikes left, end
+    if self.remaining_attacks <= 0 then
+      self:Destroy()
+    end
+  end
 
-  -- function modifier_sohei_flurry_self:PerformFlurryBlow()
-    -- local parent = self:GetParent()
+  function modifier_sohei_flurry_self:PerformFlurryBlow()
+    local parent = self:GetParent()
 
-    ---- If there is at least one target to attack, hit it
-    -- local targets = FindUnitsInRadius(
-      -- parent:GetTeamNumber(),
-      -- self.positionGround,
-      -- nil,
-      -- self.radius,
-      -- DOTA_UNIT_TARGET_TEAM_ENEMY,
-      -- DOTA_UNIT_TARGET_HERO,
-      -- bit.bor( DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE ),
-      -- FIND_ANY_ORDER,
-      -- false
-    -- )
+    -- If there is at least one target to attack, hit it
+    local targets = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      self.positionGround,
+      nil,
+      self.radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO,
+      bit.bor( DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE ),
+      FIND_ANY_ORDER,
+      false
+    )
 
-    -- if targets[1] then
-      -- local target = targets[1]
-      -- local targetOrigin = target:GetAbsOrigin()
-      -- local abilityDash = parent:FindAbilityByName( "sohei_dash" )
-      -- local abilityMomentum = parent:FindAbilityByName( "sohei_momentum" )
-      -- local distance = 50
+    if targets[1] then
+      local target = targets[1]
+      local targetOrigin = target:GetAbsOrigin()
+      local abilityDash = parent:FindAbilityByName( "sohei_dash" )
+      local abilityMomentum = parent:FindAbilityByName( "sohei_momentum" )
+      local distance = 50
 
-      -- parent:RemoveNoDraw(  )
+      parent:RemoveNoDraw(  )
 
-      -- if abilityDash then
-        -- distance = abilityDash:GetSpecialValueFor( "dash_distance" ) + 50
-      -- end
+      if abilityDash then
+        distance = abilityDash:GetSpecialValueFor( "dash_distance" ) + 50
+      end
 
-      -- local targetOffset = ( targetOrigin - self.positionGround ):Normalized() * distance
-      -- local tickOrigin = targetOrigin + targetOffset
+      local targetOffset = ( targetOrigin - self.positionGround ):Normalized() * distance
+      local tickOrigin = targetOrigin + targetOffset
 
-      -- parent:SetAbsOrigin( tickOrigin )
-      -- parent:SetForwardVector( ( ( self.positionGround ) - tickOrigin ):Normalized() )
-      -- parent:FaceTowards( targetOrigin )
+      parent:SetAbsOrigin( tickOrigin )
+      parent:SetForwardVector( ( ( self.positionGround ) - tickOrigin ):Normalized() )
+      parent:FaceTowards( targetOrigin )
 
-      -- -- this stuff should probably be removed if we get actual animations
-      -- -- just let the animations handle the movement
-      -- if abilityDash and abilityDash:GetLevel() > 0 then
-        -- abilityDash:PerformDash()
-      -- end
+      -- this stuff should probably be removed if we get actual animations
+      -- just let the animations handle the movement
+      if abilityDash and abilityDash:GetLevel() > 0 then
+        abilityDash:PerformDash()
+      end
 
-      -- if abilityMomentum and abilityMomentum:GetLevel() > 0 then
-        -- if not abilityMomentum:GetToggleState() then
-          -- abilityMomentum:ToggleAbility()
-        -- end
-      -- end
-      -- parent:PerformAttack( target, true, true, true, false, false, false, false)
+      if abilityMomentum and abilityMomentum:GetLevel() > 0 then
+        if not abilityMomentum:GetToggleState() then
+          abilityMomentum:ToggleAbility()
+        end
+      end
+      parent:PerformAttack( target, true, true, true, false, false, false, false)
 
-      -- return true
+      return true
 
-    -- -- Else, return false and keep meditating
-    -- else
-      -- parent:AddNoDraw(  )
-      -- parent:SetAbsOrigin( self.position )
+    -- Else, return false and keep meditating
+    else
+      parent:AddNoDraw(  )
+      parent:SetAbsOrigin( self.position )
 
-      -- return false
-    -- end
-  -- end
---end
+      return false
+    end
+  end
+]]
