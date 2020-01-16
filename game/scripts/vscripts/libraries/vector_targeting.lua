@@ -9,14 +9,12 @@ function VectorTarget:Init()
 end
 
 function VectorTarget:StartVectorCast(event)
-  local caster = PlayerResource:GetSelectedHeroEntity(event.playerID)
   local unit = EntIndexToHScript(event.unit)
   local position = Vector(event.PosX, event.PosY, event.PosZ)
   local position2 = Vector(event.Pos2X, event.Pos2Y, event.Pos2Z)
-  --local abilityName = event.abilityName
 
   local ability = EntIndexToHScript(event.abilityIndex)
-  local direction = -(position - position2):Normalized()
+  local direction = (position2 - position):Normalized()
 
   if position == position2 then
     direction = -(unit:GetAbsOrigin() - position):Normalized()
@@ -70,10 +68,13 @@ function VectorTarget:OrderFilter(event)
     if order == DOTA_UNIT_ORDER_CAST_POSITION and ability_index > 0 then
       local ability = EntIndexToHScript(ability_index)
       if ability then
-        -- Check If ability has IsVectorTargeting method
         -- Check if unit is already casting something with Vector targetting
-        -- aka Checking for valid Vector targetting cast
-        if ability.IsVectorTargeting and ability:IsVectorTargeting() and not unit.inVectorCast then
+        if unit.inVectorCast then
+          CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {bCanceled = true})
+          unit.inVectorCast = nil
+        end
+        -- Check If ability has IsVectorTargeting method
+        if ability.IsVectorTargeting and ability:IsVectorTargeting() then
           local table_for_vector_cast = {
             ability = ability_index,
             startWidth = ability:GetVectorTargetStartRadius(),
@@ -81,15 +82,12 @@ function VectorTarget:OrderFilter(event)
             castLength = ability:GetVectorTargetRange(),
           }
           CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_start", table_for_vector_cast)
-          unit.inVectorCast = ability_index
+          unit.inVectorCast = true
           return false
-        else -- fire the spell or cancel the order depending on what ability is being cast
-          CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {cast = false})
-          unit.inVectorCast = nil
         end
       end
     elseif unit.inVectorCast and CANCEL_EVENT[order] then
-      CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {cast = false})
+      CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {bCanceled = true})
       unit.inVectorCast = nil
     end
   end
