@@ -150,11 +150,7 @@ function modifier_sohei_flurry_self:OnIntervalThink()
       end
     end
 
-    ParticleManager:DestroyParticle( caster.flurry_ground_pfx, false )
-    ParticleManager:ReleaseParticleIndex( caster.flurry_ground_pfx )
-    caster.flurry_ground_pfx = nil
-
-    caster:Interrupt()
+    --caster:Interrupt()
     --caster:RemoveNoDraw()
     self:Destroy()
   end
@@ -186,6 +182,15 @@ function modifier_sohei_flurry_self:OnCreated( event )
   -- if self:PerformFlurryBlow() then
     -- self.remaining_attacks = self.remaining_attacks - 1
   -- end
+end
+
+function modifier_sohei_flurry_self:OnDestroy()
+  if IsServer() then
+    local caster = self:GetCaster()
+    ParticleManager:DestroyParticle( caster.flurry_ground_pfx, false )
+    ParticleManager:ReleaseParticleIndex( caster.flurry_ground_pfx )
+    caster.flurry_ground_pfx = nil
+  end
 end
 
 --[[

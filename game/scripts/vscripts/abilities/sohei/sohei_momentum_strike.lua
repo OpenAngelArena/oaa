@@ -141,7 +141,7 @@ function modifier_sohei_momentum_strike_knockback:IsStunDebuff()
 end
 
 function modifier_sohei_momentum_strike_knockback:GetPriority()
-  return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
+  return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST--DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end
 
 function modifier_sohei_momentum_strike_knockback:GetEffectName()
