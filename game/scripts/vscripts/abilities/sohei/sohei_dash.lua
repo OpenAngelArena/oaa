@@ -267,11 +267,12 @@ if IsServer() then
   end
 
   function modifier_sohei_dash_charges:OnStackCountChanged( oldCount )
+    local parent = self:GetParent()
     local spell = self:GetAbility()
     local newCount = self:GetStackCount()
     local maxCount = spell:GetSpecialValueFor( "max_charges" )
 
-    if caster:HasScepter() then
+    if parent:HasScepter() then
       maxCount = spell:GetSpecialValueFor( "scepter_max_charges" )
     end
 
@@ -349,6 +350,7 @@ function modifier_sohei_dash_movement:CheckState()
     [MODIFIER_STATE_NO_HEALTH_BAR] = true
   }
 
+  local caster = self:GetParent()
   local talent = caster:FindAbilityByName("special_bonus_sohei_dash_invulnerable")
 
   if talent and talent:GetLevel() > 0 then

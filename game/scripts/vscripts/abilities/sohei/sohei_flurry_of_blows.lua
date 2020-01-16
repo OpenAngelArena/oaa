@@ -69,11 +69,11 @@ if IsServer() then
 
     -- Add a modifier that does actual spell effect
     caster:AddNewModifier( caster, self, "modifier_sohei_flurry_self", {
-      duration = attack_interval, --max_duration
+      duration = attack_interval + 0.1, --max_duration
       damage = bonus_damage,
       --max_attacks = max_attacks,
       flurry_radius = flurry_radius,
-      --attack_interval = attack_interval
+      attack_interval = attack_interval,
     } )
 
     -- Give vision over the area
@@ -128,7 +128,7 @@ function modifier_sohei_flurry_self:CheckState()
   return state
 end
 
-function modifier_sohei_flurry_self:OnDestroy()
+function modifier_sohei_flurry_self:OnIntervalThink()
   local caster = self:GetCaster()
   if IsServer() then
     -- Flurry of Blows actual spell effect - Hit everyone in a radius once at the same time
@@ -156,6 +156,7 @@ function modifier_sohei_flurry_self:OnDestroy()
 
     caster:Interrupt()
     --caster:RemoveNoDraw()
+    self:Destroy()
   end
 end
 
@@ -180,7 +181,7 @@ function modifier_sohei_flurry_self:OnCreated( event )
   -- self.position = self:GetCaster():GetAbsOrigin()
   -- self.positionGround = self.position - Vector( 0, 0, 200 )
 
-  -- self:StartIntervalThink( self.attack_interval )
+  self:StartIntervalThink( event.attack_interval )
 
   -- if self:PerformFlurryBlow() then
     -- self.remaining_attacks = self.remaining_attacks - 1
