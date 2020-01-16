@@ -10,12 +10,14 @@ var vectorRange = 800;
 var clickStart = false;
 var resetSchedule;
 var isQuickCast = false;
+var vectorTargetUnit;
 
 // Start the vector targeting
 function OnVectorTargetingStart (fStartWidth, fEndWidth, fCastLength) {
   // var iPlayerID = Players.GetLocalPlayer();
   // var selectedEntities = Players.GetSelectedEntities(iPlayerID);
   var mainSelected = Players.GetLocalPlayerPortraitUnit();
+  vectorTargetUnit = mainSelected;
   // var mainSelectedName = Entities.GetUnitName(mainSelected);
   var cursor = GameUI.GetCursorPosition();
   var worldPosition = GameUI.GetScreenWorldPosition(cursor);
@@ -65,12 +67,13 @@ function SendPosition () {
   var pID = Players.GetLocalPlayer();
   var unit = Players.GetLocalPlayerPortraitUnit();
   GameEvents.SendCustomGameEventToServer('send_vector_position', {'playerID': pID, 'unit': unit, 'abilityIndex': activeAbility, 'PosX': cPos[0], 'PosY': cPos[1], 'PosZ': cPos[2], 'Pos2X': ePos[0], 'Pos2Y': ePos[1], 'Pos2Z': ePos[2]});
+
+  $.Schedule(1 / 144, function () {GameUI.SelectUnit(vectorTargetUnit, false);} );
 }
 
 // Updates the particle effect and detects when the ability is actually casted
 function ShowVectorTargetingParticle () {
   if (vectorTargetParticle !== undefined) {
-    // var mainSelected = Players.GetLocalPlayerPortraitUnit();
     var cursor = GameUI.GetCursorPosition();
     var worldPosition = GameUI.GetScreenWorldPosition(cursor);
 
