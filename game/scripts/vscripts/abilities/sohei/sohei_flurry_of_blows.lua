@@ -76,7 +76,7 @@ if IsServer() then
     } )
 
     -- Give vision over the area
-    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, attack_interval, false)
+    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, attack_interval + 0.1, false)
   end
 end
 
@@ -179,7 +179,7 @@ function modifier_sohei_flurry_self:OnCreated( event )
 
   if IsServer() then
     local attack_interval = 1/parent:GetAttacksPerSecond()
-	self:StartIntervalThink( attack_interval )
+    self:StartIntervalThink( attack_interval )
   end
 
   -- if self:PerformFlurryBlow() then

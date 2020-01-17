@@ -268,7 +268,7 @@ if IsServer() then
 
   function modifier_sohei_dash_charges:OnStackCountChanged( oldCount )
     local parent = self:GetParent()
-	local spell = self:GetAbility()
+    local spell = self:GetAbility()
     local newCount = self:GetStackCount()
     local maxCount = spell:GetSpecialValueFor( "max_charges" )
 

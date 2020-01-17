@@ -1,15 +1,36 @@
+--[[
+  Custom Vector Targeting library
+  Original Vector Targeting created by Nibuja05 (https://github.com/Nibuja05/dota_vector_targeting)
+  Modified by DarkoniusXNG
+
+  For now works only if ability behavior has DOTA_ABILITY_BEHAVIOR_POINT.
+
+  Extends CDOTABaseAbility:
+
+  * bool IsVectorTargeting(); return true to make this ability a vector targeting ability
+
+  * float GetVectorTargetRange(); return a float value to set vector display length of this ability (default value: 800)
+
+  * Vector GetVectorPosition(); returns the current/last start point of the vector cast
+
+  * Vector GetVectorDirection(); returns the current/last direction of the vector cast
+
+  * float GetVectorTargetStartRadius(); return a float value to set vector display start width of this ability (default value: 125)
+
+  * float GetVectorTargetEndRadius(); return a float value to set vector display end width of this ability (default value: start_radius)
+]]
+
 if not VectorTarget then
   VectorTarget = class({})
 end
 
 function VectorTarget:Init()
-  DebugPrint("Initializing Vector Targetting library...")
+  DebugPrint("Initializing Vector Targeting library...")
   CustomGameEventManager:RegisterListener("send_vector_position", Dynamic_Wrap(VectorTarget, "StartVectorCast"))
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(VectorTarget, "OrderFilter"))
 end
 
 function VectorTarget:StartVectorCast(event)
-  --print("Received vector parameters")
   local unit = EntIndexToHScript(event.unit)
   local position = Vector(event.PosX, event.PosY, event.PosZ)
   local position2 = Vector(event.Pos2X, event.Pos2Y, event.Pos2Z)
@@ -26,16 +47,12 @@ function VectorTarget:StartVectorCast(event)
   if ability then
     unit.inVectorCast = nil
     unit:CastAbilityOnPosition(position, ability, event.playerID)
-    --local function OverrideSpellStart(self, position, direction)
-      --self:OnVectorCastStart(position, direction)
-    --end
     ability.vectorTargetPosition = position
     ability.vectorTargetDirection = direction
-    --ability.OnSpellStart = function(self) return OverrideSpellStart(self, position, direction) end
   end
 end
 
--- Orders that can cancel vector targetting
+-- Orders that can cancel vector targeting
 CANCEL_EVENT = {
   [DOTA_UNIT_ORDER_MOVE_TO_POSITION] = true,
   [DOTA_UNIT_ORDER_MOVE_TO_TARGET] = true,
@@ -69,20 +86,19 @@ function VectorTarget:OrderFilter(event)
     if order == DOTA_UNIT_ORDER_CAST_POSITION and ability_index > 0 then
       local ability = EntIndexToHScript(ability_index)
       if ability then
-        -- Check if unit is already casting something with Vector targetting
+        -- Check if unit is already casting something with Vector targeting
         if unit.inVectorCast then
           --print("Cancel vector cast because we are already vector casting and ability index is not the same as the cast ability")
-		  local table_for_vector_stop = {
-	        caster = units["0"],
-		    stop = unit.inVectorCast ~= ability_index,
+          local table_for_vector_stop = {
+            caster = units["0"],
+            stop = unit.inVectorCast ~= ability_index,
 	      }
-		  CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", table_for_vector_stop)
+          CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", table_for_vector_stop)
           unit.inVectorCast = nil
         end
         -- Check If ability has IsVectorTargeting method
         if ability.IsVectorTargeting and ability:IsVectorTargeting() and not unit.inVectorCast then
-          --print("Ability is vector target and we cast it now")
-		  local table_for_vector_cast = {
+          local table_for_vector_cast = {
             ability = ability_index,
             startWidth = ability:GetVectorTargetStartRadius(),
             endWidth = ability:GetVectorTargetEndRadius(),
@@ -94,11 +110,11 @@ function VectorTarget:OrderFilter(event)
         end
       end
     elseif unit.inVectorCast and CANCEL_EVENT[order] then
-	  local table_for_vector_stop = {
-	    caster = units["0"],
-		stop = true,
-	  }
-	  CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", table_for_vector_stop)
+      local table_for_vector_stop = {
+        caster = units["0"],
+        stop = true,
+      }
+      CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", table_for_vector_stop)
       unit.inVectorCast = nil
     end
   end
@@ -130,10 +146,6 @@ function CDOTABaseAbility:GetVectorDirection()
   return self.vectorTargetDirection
 end
 
---function CDOTABaseAbility:OnVectorCastStart(vStartLocation, vDirection)
-  --print("Vector Cast")
---end
-
 ---------------------------------------------------------------------------------------------------
 --[[
 function CDOTA_Ability_Lua:IsVectorTargeting()
@@ -158,9 +170,5 @@ end
 
 function CDOTA_Ability_Lua:GetVectorDirection()
   return self.vectorTargetDirection
-end
-
-function CDOTA_Ability_Lua:OnVectorCastStart(vStartLocation, vDirection)
-  print("Vector Cast")
 end
 ]]
