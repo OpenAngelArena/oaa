@@ -112,7 +112,12 @@ end
 
 function modifier_sohei_wholeness_of_body_buff:OnDestroy()
   if IsServer() then
-    self:GetParent():Heal(self.endHeal + self:GetAbility():GetTalentSpecialValueFor("post_heal"), self:GetAbility())
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local heal_amount = self.endHeal + ability:GetTalentSpecialValueFor("post_heal")
+
+    parent:Heal(heal_amount, ability)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, heal_amount, nil)
   end
 end
 

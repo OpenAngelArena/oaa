@@ -422,16 +422,16 @@ if IsServer() then
 
     -- Dash with Scepter heals allies
     if parent:HasScepter() then
+      local do_sound = false
       local allies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
       for _,ally in pairs(allies) do
         if ally and not ally:IsNull() and ally ~= parent then
+          do_sound = true
           local base_heal_amount = ability:GetSpecialValueFor("scepter_base_heal")
           local hp_as_heal = ability:GetSpecialValueFor("scepter_hp_as_heal")
           local heal_amount_based_on_hp = parent:GetHealth() * hp_as_heal/100
 
-          ally:Heal(base_heal_amount+heal_amount_based_on_hp, parent)
-
-          --ally:EmitSound("Sohei.PalmOfLife.Heal")
+          ally:Heal(base_heal_amount+heal_amount_based_on_hp, ability)
 
           local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
           ParticleManager:SetParticleControl(part, 0, ally:GetAbsOrigin())
@@ -440,6 +440,9 @@ if IsServer() then
 
           SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, base_heal_amount+heal_amount_based_on_hp, nil)
         end
+      end
+      if do_sound then
+        parent:EmitSound("Sohei.PalmOfLife.Heal")
       end
     end
   end

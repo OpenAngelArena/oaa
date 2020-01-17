@@ -67,6 +67,11 @@ function sohei_momentum_strike:OnProjectileHitHandle(target, location, projectil
     return true
   end
 
+  -- Ignore couriers
+  if target:IsCourier() then
+    return false
+  end
+
   local caster = self:GetCaster()
   local projectile_velocity = ProjectileManager:GetLinearProjectileVelocity(projectile_id)
   local projectile_speed = self:GetSpecialValueFor("projectile_speed")
