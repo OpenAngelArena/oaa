@@ -92,7 +92,7 @@ function sohei_dash:PerformDash()
   end
 end
 
-function sohei_dash:OnVectorCastStart(vStartLocation, vDirection) -- replaces OnSpellStart()
+function sohei_dash:OnSpellStart()
   local caster = self:GetCaster()
   local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
   local dashDistance = self:GetVectorTargetRange()
@@ -268,7 +268,7 @@ if IsServer() then
 
   function modifier_sohei_dash_charges:OnStackCountChanged( oldCount )
     local parent = self:GetParent()
-    local spell = self:GetAbility()
+	local spell = self:GetAbility()
     local newCount = self:GetStackCount()
     local maxCount = spell:GetSpecialValueFor( "max_charges" )
 

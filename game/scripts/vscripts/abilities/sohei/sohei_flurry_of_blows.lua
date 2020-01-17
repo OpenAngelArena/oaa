@@ -69,11 +69,10 @@ if IsServer() then
 
     -- Add a modifier that does actual spell effect
     caster:AddNewModifier( caster, self, "modifier_sohei_flurry_self", {
-      duration = attack_interval + 0.1, --max_duration
+      duration = attack_interval + 0.1,
       damage = bonus_damage,
-      --max_attacks = max_attacks,
       flurry_radius = flurry_radius,
-      attack_interval = attack_interval,
+      --attack_interval = attack_interval,
     } )
 
     -- Give vision over the area
@@ -170,6 +169,7 @@ end
 
 
 function modifier_sohei_flurry_self:OnCreated( event )
+  local parent = self:GetParent()
   self.bonus_damage = event.damage
 	-- self.remaining_attacks = event.max_attacks
   self.radius = event.flurry_radius
@@ -177,7 +177,10 @@ function modifier_sohei_flurry_self:OnCreated( event )
   -- self.position = self:GetCaster():GetAbsOrigin()
   -- self.positionGround = self.position - Vector( 0, 0, 200 )
 
-  self:StartIntervalThink( event.attack_interval )
+  if IsServer() then
+    local attack_interval = 1/parent:GetAttacksPerSecond()
+	self:StartIntervalThink( attack_interval )
+  end
 
   -- if self:PerformFlurryBlow() then
     -- self.remaining_attacks = self.remaining_attacks - 1

@@ -5,12 +5,15 @@ var CONTINUE_PROCESSING_EVENT = false;
 // Constants
 var defaultVectorWidth = 125;
 var defaultVectorRange = 800;
+var isQuickCast = false;
+var particle_instances = {};
+var ability_instances = {};
 
 // Start the vector targeting
 function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
   // Get caster
   var caster = Abilities.GetCaster(ability);
-
+  
   // Get start (cursor) position of the vector cast
   var cursor = GameUI.GetCursorPosition();
   var worldPosition = GameUI.GetScreenWorldPosition(cursor);
@@ -36,19 +39,22 @@ function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
   direction = VectorNormalize(direction);
   var newPosition = VectorAdd(worldPosition, VectorMult(direction, thisVectorRange));
   Particles.SetParticleControl(vectorTargetParticle, 2, newPosition);
+  
+  particle_instances[caster] = vectorTargetParticle;
+  ability_instances[caster] = ability;
 
   // Start position updates (loop)
   $.Schedule(0.01, function () {
     ShowVectorTargetingParticle(vectorTargetParticle, ability, worldPosition, thisVectorRange);
   });
-
-  // return CONTINUE_PROCESSING_EVENT;
 }
 
 // Updates the particle effect and detects when the ability is actually casted
 function ShowVectorTargetingParticle (particle, ability, startPosition, length) {
+  // $.Msg("Show vector particle:");
   if (particle !== undefined) {
-    var cursor = GameUI.GetCursorPosition();
+    var caster = Abilities.GetCaster(ability);
+	var cursor = GameUI.GetCursorPosition();
     var endPosition = GameUI.GetScreenWorldPosition(cursor);
     if (!endPosition) {
       $.Schedule(0.01, function () {
@@ -63,29 +69,23 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
     var distance = Game.Length2D(endPosition, startPosition);
 
     if (distance < 0.05) {
-      var caster = Abilities.GetCaster(ability);
       newDirection = VectorSub(startPosition, Entities.GetAbsOrigin(caster));
       newDirection = VectorFlatten(newDirection);
       newDirection = VectorNormalize(newDirection);
     }
 
-    if (distance < length) {
+    if (distance !== length) {
       endPosition = VectorAdd(startPosition, VectorMult(newDirection, length));
     }
 
     Particles.SetParticleControl(particle, 2, endPosition);
 
-    var currentAbility = Abilities.GetLocalPlayerActiveAbility();
-    var isQuickCast = false;
-    var data = {};
-    data.particle = particle;
+	var data = {};
+	data.unit = caster;
     data.startPosition = startPosition;
     data.endPosition = endPosition;
-    // data.direction = newDirection;
-    data.bSend = true;
     var mouseHold = GameUI.IsMouseDown(0);
-    if (currentAbility === ability) {
-      data.ability = ability;
+
       if (isQuickCast) {
         if (mouseHold) {
           FinishVectorCast(data);
@@ -106,37 +106,46 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
           FinishVectorCast(data);
         }
       }
-    } else {
-      data.bCanceled = true;
-      FinishVectorCast(data);
-    }
+  }
+}
+
+function StopVectorCast (table) {
+  var unit = table.caster;
+  var stop = table.stop;
+  
+  // it has to be 1
+  if (stop === 1) {
+    RemoveParticle(particle_instances[unit]);
+	particle_instances[unit] = undefined;
+	ability_instances[unit] = undefined;
   }
 }
 
 function FinishVectorCast (table) {
-  if (table.bCanceled === true || !(table.ability)) {
-    // Vector cast is canceled
-    table.bSend = false;
-  }
-  if (table.particle) {
-    // End the particle effect
-    Particles.DestroyParticleEffect(table.particle, true);
-    Particles.ReleaseParticleIndex(table.particle);
-    table.particle = undefined;
-  }
-  if (table.bSend) {
-    // Send Vector parameters to the server
+  var unit = table.unit;
+  var notInterrupted = ability_instances[unit];
+
+  if (notInterrupted) {
+    RemoveParticle(particle_instances[unit]);
+	table.ability = notInterrupted;
     SendPosition(table);
   }
 }
-// OnVectorTargetingEnd(table.cast === 1);
+
+function RemoveParticle (particle) {
+  if (particle) {
+    // End the particle effect
+    Particles.DestroyParticleEffect(particle, true);
+    Particles.ReleaseParticleIndex(particle);
+  }
+}
 
 // Send the final data to the server
 function SendPosition (table) {
   var ability = table.ability;
   var ePos = table.endPosition;
   var cPos = table.startPosition;
-  var unit = Abilities.GetCaster(ability);
+  var unit = table.unit;
   var pID = Entities.GetPlayerOwnerID(unit);
   GameEvents.SendCustomGameEventToServer('send_vector_position', {'playerID': pID, 'unit': unit, 'abilityIndex': ability, 'PosX': cPos[0], 'PosY': cPos[1], 'PosZ': cPos[2], 'Pos2X': ePos[0], 'Pos2Y': ePos[1], 'Pos2Z': ePos[2]});
 
@@ -148,7 +157,14 @@ GameUI.SetMouseCallback(function (eventName, arg) {
   var clickBehavior = GameUI.GetClickBehaviors();
 
   // If its not an ability cast ignore
-  if (clickBehavior !== CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_CAST) return CONTINUE_PROCESSING_EVENT;
+  if (clickBehavior !== CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_CAST) {
+    if (clickBehavior === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
+      // Maybe Quick Cast	
+      //isQuickCast = true;
+	} else {
+      //isQuickCast = false
+	};
+  };
 
   // If it has arguments ignore
   if (arg !== 0) return CONTINUE_PROCESSING_EVENT;
@@ -158,9 +174,9 @@ GameUI.SetMouseCallback(function (eventName, arg) {
 
 // Start to cast the vector ability
 function StartVectorCast (table) {
-  var isQuickCast = false;
   if (GameUI.IsMouseDown(0) || isQuickCast) {
-    OnVectorTargetingStart(table.ability, table.startWidth, table.endWidth, table.castLength);
+    // $.Msg('Start Vector Cast');
+	OnVectorTargetingStart(table.ability, table.startWidth, table.endWidth, table.castLength);
   }
 }
 
@@ -197,7 +213,7 @@ function VectorRaiseZ (vec, inc) {
 // Register function to cast vector targeting abilities
 (function () {
   GameEvents.Subscribe('vector_target_cast_start', StartVectorCast);
-  GameEvents.Subscribe('vector_target_cast_stop', FinishVectorCast);
+  GameEvents.Subscribe('vector_target_cast_stop', StopVectorCast);
 })();
 
 // StartTrack();
