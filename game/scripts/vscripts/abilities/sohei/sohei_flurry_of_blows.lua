@@ -129,6 +129,7 @@ end
 
 function modifier_sohei_flurry_self:OnIntervalThink()
   local caster = self:GetCaster()
+  local ability = self:GetAbility()
   if IsServer() then
     -- Flurry of Blows actual spell effect - Hit everyone in a radius once at the same time
     local units = FindUnitsInRadius(
@@ -143,9 +144,14 @@ function modifier_sohei_flurry_self:OnIntervalThink()
       false
     )
 
+    local bUseProjectile = false
+    if ability and ability:IsStolen() then
+      bUseProjectile = true
+    end
+
     for _,unit in pairs(units) do
       if unit and not unit:IsNull() and not caster:IsDisarmed() then
-        caster:PerformAttack(unit, true, true, true, false, true, false, false)
+        caster:PerformAttack(unit, true, true, true, false, bUseProjectile, false, false)
       end
     end
 

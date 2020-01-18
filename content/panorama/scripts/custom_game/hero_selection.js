@@ -199,9 +199,9 @@ function onPlayerStatChange (table, key, data) {
       newheroimage.AddClass('HeroCard');
       newheroimage.heroname = heroName;
       var tempHeroName = newheroimage.heroname;
-      if (tempHeroName == 'sohei' || tempHeroName == 'electrician') {
+      if (tempHeroName === 'sohei' || tempHeroName === 'electrician') {
         newheroimage.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + tempHeroName + '.png")';
-        newheroimage.style.backgroundSize = "100% 100%";
+        newheroimage.style.backgroundSize = '100% 100%';
       }
     });
   } else if (key === 'preview_table' && data != null) {

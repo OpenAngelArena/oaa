@@ -1,4 +1,4 @@
-/* global GameEvents, Entities, Abilities, $, Players, Particles, ParticleAttachment_t, Game, CLICK_BEHAVIORS */
+/* global GameEvents, Entities, Abilities, $, Particles, ParticleAttachment_t, Game, CLICK_BEHAVIORS */
 // var CONSUME_EVENT = true;
 var CONTINUE_PROCESSING_EVENT = false;
 
