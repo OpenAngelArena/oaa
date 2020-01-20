@@ -13,10 +13,10 @@ g_ItemPrecache = {
   "item_dispel_orb_1",
   "item_reflection_shard_1",
   "item_heart_transplant",
-  "item_manta_1",
 }
 
 g_UnitPrecache = {
+  "npc_dota_monkey_clone_oaa",
   "npc_dota_visage_familiar",
   "npc_dota_hero_sohei",
   "npc_dota_hero_electrician",
@@ -50,7 +50,10 @@ g_UnitPrecache = {
   "npc_dota_creature_small_lycosidae",
   "npc_dota_creature_spider_boss",
   "npc_dota_boss_spiders",
-  "npc_dota_boss_swiper"
+  "npc_dota_boss_swiper",
+  "npc_dota_boss_wanderer_1",
+  "npc_dota_boss_wanderer_2",
+  "npc_dota_boss_wanderer_3",
 }
 
 g_ModelPrecache = {
@@ -65,11 +68,22 @@ g_ParticlePrecache = {
   "particles/items/upgrade_2.vpcf",
   "particles/items/upgrade_3.vpcf",
   "particles/items/upgrade_4.vpcf",
+  "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
+  "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
+  -- Carapace Boss
+  "particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_smoke.vpcf",
+  "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf",
+  "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf",
+  "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf",
+  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf",
+  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
+  "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
 }
 
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
-  "particles/econ/items", -- Precache all hero cosmetics
+  --"particles/econ/items", -- Precache all hero cosmetics
   "particles/items",
   "particles/items/dispel_orb",
   "particles/items/dagger_of_moriah",
@@ -83,6 +97,7 @@ g_ParticleFolderPrecache = {
 
 g_SoundPrecache = {
   "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", -- For Ogre Boss kill sound
+  "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds
   -- Ambient sounds
   "soundevents/ambient/doors.vsndevts",
   "soundevents/music/music.vsndevts",

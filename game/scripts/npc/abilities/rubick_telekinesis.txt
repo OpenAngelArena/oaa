@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "34 30 26 22 22 22"
+    "AbilityCooldown"                                     "28 26 24 22 22 22" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550 575 600 625 625 625"
+    "AbilityCastRange"                                    "550 575 600 625 650 675"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -56,20 +56,14 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_land_distance"                               "375 375 375 375 375 375"
+        "max_land_distance"                               "375"
         "LinkedSpecialBonus"                              "special_bonus_unique_rubick"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fall_duration"                                   "0.3 0.3 0.3 0.3 0.3 0.3"  // the portion of the lift that is falling
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "550 575 600 625 625 625"
+        "fall_duration"                                   "0.3"  // the portion of the lift that is falling
       }
     }
   }
-
 }

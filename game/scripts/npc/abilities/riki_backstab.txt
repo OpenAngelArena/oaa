@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Riki: Cloak and Dagger
+  //=================================================================================================================
+  "riki_backstab"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5144"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_multiplier"                               "1.4 1.8 2.2 3.0 5.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_riki_1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "backstab_angle"                                  "105"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "4 3 2.5 2 1.5" //OAA
+      }
+    }
+  }
+}

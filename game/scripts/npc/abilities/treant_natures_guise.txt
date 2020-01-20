@@ -1,19 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Treant Protector: Nature's Guise
+  // Treant Protector: Nature's Guise - Innate ability
   //=================================================================================================================
   "treant_natures_guise"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5434"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "ID"                                                  "5434"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,41 +18,29 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "4 3.5 3 2.5 1.5 0.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "150"
       }
       "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "265 265 265 265 275 300"
-      }
-      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "grace_time"                                      "0.75"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_time"                                   "3"
+      }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "14 18 22 26 36 46"
+        "regen_amp"                                       "25"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "0.4 1.0 1.6 2.2 2.2 2.2"
-        "LinkedSpecialBonus"    "special_bonus_unique_treant_4"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "total_damage"                                      "30 90 150 210 330 450"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "tick_count"                                      "3"
+        "movement_bonus"                                  "15"
       }
     }
   }
-
 }

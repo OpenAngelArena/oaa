@@ -95,7 +95,16 @@ globals = { -- these globals can be set and accessed.
 "HERO_XP_BOUNTY_STREAK_MAX",
 "HERO_XP_BONUS_FACTOR",
 "HERO_KILL_XP_RADIUS",
-"Components"
+"GOLD_PER_TICK",
+"GOLD_TICK_TIME",
+"Components",
+"CREEP_BOUNTY_BONUS_PERCENT_CLEAVE",
+"CREEP_BOUNTY_BONUS_PERCENT_POWER",
+"SPARK_LEVEL_1_TIME",
+"SPARK_LEVEL_2_TIME",
+"SPARK_LEVEL_3_TIME",
+"SPARK_LEVEL_4_TIME",
+"SPARK_LEVEL_5_TIME"
 }
 
 read_globals = { -- these globals can only be accessed.
@@ -2826,7 +2835,13 @@ read_globals = { -- these globals can only be accessed.
 "FindCustomBuildingsInRadius",
 "FindAllBuildingsInRadius",
 "PreventGettingStuck",
-"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE"
+"MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE",
+"MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING",
+"MODIFIER_STATE_UNSLOWABLE",
+"AddAnimationTranslate",
+"BOSS_WANDERER_SPAWN_START",
+"BOSS_WANDERER_RESPAWN",
+"AbilityKV"
 }
 
 ignore = {

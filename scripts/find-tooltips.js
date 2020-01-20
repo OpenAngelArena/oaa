@@ -23,7 +23,8 @@ if (require.main === module) {
 
 function findMissingTooltips (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt'
   }, function (err, dotaEnglish) {
     var done = after(3, function (err) {
       cb(err, result);
