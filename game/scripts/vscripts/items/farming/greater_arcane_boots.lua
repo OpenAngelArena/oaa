@@ -1,4 +1,3 @@
-LinkLuaModifier( "modifier_passive_gpm", "items/farming/modifier_passive_gpm.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_arcane_boots", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_creep_bounty", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
@@ -59,8 +58,8 @@ end
 function item_greater_arcane_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_arcane_boots",
-    "modifier_passive_gpm",
-    "modifier_creep_bounty"
+    --"modifier_passive_gpm",
+    --"modifier_creep_bounty"
   }
 end
 
@@ -68,21 +67,3 @@ item_greater_arcane_boots_2 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_3 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_4 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_5 = class(item_greater_arcane_boots)
-item_arcane_origin = class(item_greater_arcane_boots)
-
-function item_arcane_origin:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_arcane_boots",
-    "modifier_passive_gpm",
-    --"modifier_creep_bounty"
-  }
-end
-
-item_farming_core = class(item_arcane_origin)
-
-function item_farming_core:GetIntrinsicModifierNames()
-  return {
-    "modifier_passive_gpm",
-    --"modifier_creep_bounty"
-  }
-end

@@ -24,8 +24,7 @@
     "ItemRequirements"
     {
       "01"                        "item_black_king_bar_3;item_upgrade_core_3"
-      "02"                        "item_charge_bkb_2;item_upgrade_core_3"
-      "03"                        "item_enrage_crystal_1;item_upgrade_core_3"
+      "02"                        "item_enrage_crystal_1;item_upgrade_core_3"
     }
   }
 
@@ -44,7 +43,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "65"
+    "AbilityCooldown"               "70"
     "AbilitySharedCooldown"                               "avatar"
     "AbilityTextureName"            "custom/black_king_bar_4"
     "MaxUpgradeLevel"               "5"
@@ -77,7 +76,7 @@
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "duration"              "5.5 6.0 6.5 7.0 7.5"
+        "duration"              "6.0 6.5 7.0 7.5 8.0"
       }
       "05"
       {

@@ -54,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snake_damage"                                    "80 120 160 200 280 600"
+        "snake_damage"                                    "80 120 160 200 400 600"
       }
       "05"
       {
@@ -88,6 +88,21 @@
         "var_type"                                        "FIELD_FLOAT"
         "stone_form_scepter_increment"                    "0.3"
         "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "30"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turn_slow"                                       "50"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "3"
       }
     }
   }

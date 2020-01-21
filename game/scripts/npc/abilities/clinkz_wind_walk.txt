@@ -47,17 +47,28 @@
       }
       "04"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_speed_duration"                           "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_bonus_pct"                          "70 100 130 160 190 210"
+      }
+      "06"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus"                                   "30"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_skeleton_count"                          "2"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus_tooltip"                           "45 55 65 75 85 95"

@@ -24,7 +24,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 850 1000 1300 1600"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -50,11 +50,16 @@
       }
       "03"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "700"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time_scepter"                     "10"
+        "scepter_duration"                                "2"
         "RequiresScepter"                                 "1"
       }
     }
   }
-
 }

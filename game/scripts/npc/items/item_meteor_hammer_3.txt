@@ -45,11 +45,11 @@
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"               "1"
 
-
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"            "2.5"
@@ -60,7 +60,6 @@
     "AbilitySharedCooldown"         "meteor"
     "AbilityCooldown"               "28"
     "AbilityManaCost"               "125"
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -121,7 +120,7 @@
       "10"
       {
         "var_type"              "FIELD_FLOAT"
-        "land_time"             ".5"
+        "land_time"             "0.5"
       }
       "11"
       {
@@ -136,7 +135,7 @@
       "13"
       {
         "var_type"              "FIELD_INTEGER"
-        "impact_damage_boss"   "150 300 450 600 750"
+        "impact_damage_boss"    "150 300 450 600 750"
       }
       "14"
       {
@@ -146,10 +145,10 @@
     }
     "precache"
     {
-    "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-    "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+      "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
     }
   }
 }

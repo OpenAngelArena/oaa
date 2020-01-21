@@ -61,6 +61,11 @@
         "var_type"                     "FIELD_INTEGER"
         "radius"                       "500"
       }
+      "09"
+      {
+        "var_type"                     "FIELD_INTEGER"
+        "initial_cooldown"             "180" //OAA
+      }
     }
   }
 }

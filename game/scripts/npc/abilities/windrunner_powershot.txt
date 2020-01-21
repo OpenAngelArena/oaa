@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 11 10 9 9 9"
+    "AbilityCooldown"                                     "12 11 10 9 8 7"
     "AbilityChannelTime"                                  "1.0"
 
     // Cost
@@ -33,7 +33,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "powershot_damage"                                "150 250 350 450 920 1420"
+        "powershot_damage"                                "150 250 350 450 950 1450"
         "LinkedSpecialBonus"                              "special_bonus_unique_windranger_3"
       }
       "02"

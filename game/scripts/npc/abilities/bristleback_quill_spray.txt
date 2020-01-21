@@ -13,6 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -42,12 +43,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "quill_base_damage"                               "20.0 40.0 60.0 80.0 120.0 160.0"
+        "quill_base_damage"                               "20.0 40.0 60.0 80.0 120.0 240.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "quill_stack_damage"                              "30.0 32.0 34.0 36.0 46.0 56.0"
+        "quill_stack_damage"                              "30.0 32.0 34.0 36.0 40.0 52.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_2"
       }
       "04"

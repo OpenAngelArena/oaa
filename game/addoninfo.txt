@@ -1,15 +1,11 @@
 "AddonInfo"
 {
 	"TeamCount" 	      "3"
-	"maps"	            "unranked ranked captains_mode 10v10 ardm"
+	"maps"	            "oaa oaa_winter captains_mode 10v10 ardm"
 	"IsPlayable"	      "1"
   "PenaltiesEnabled"  "0"
   "EnablePickRules"   "1"
-  "ranked"
-  {
-    "MaxPlayers"      "10"
-  }
-  "unranked"
+  "oaa"
   {
     "MaxPlayers"      "10"
   }
@@ -24,5 +20,9 @@
   "10v10"
   {
     "MaxPlayers"      "20"
+  }
+  "oaa_winter"
+  {
+    "MaxPlayers"      "10"
   }
 }

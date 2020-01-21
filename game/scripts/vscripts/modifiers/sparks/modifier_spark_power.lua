@@ -46,21 +46,17 @@ end
 function modifier_spark_power:GetSparkLevel()
   local gameTime = HudTimer:GetGameTime()
 
-  if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
+  if not SPARK_LEVEL_1_TIME then
     return 1
   end
 
-  if gameTime > INITIAL_CAPTURE_POINT_DELAY + 3*CAPTURE_INTERVAL then
-    -- after 4th cap
+  if gameTime > SPARK_LEVEL_5_TIME then
     return 5
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + 2*CAPTURE_INTERVAL then
-    -- after third cap
+  elseif gameTime > SPARK_LEVEL_4_TIME then
     return 4
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL then
-    -- after second cap
+  elseif gameTime > SPARK_LEVEL_3_TIME then
     return 3
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY then
-    -- after first cap
+  elseif gameTime > SPARK_LEVEL_2_TIME then
     return 2
   end
 

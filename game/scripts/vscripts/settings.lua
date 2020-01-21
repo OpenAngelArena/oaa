@@ -56,14 +56,14 @@ CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used t
 
 RANKED_PREGAME_TIME = 0
 RANKED_BAN_TIME = 30
-RANKED_PICK_TIME = 60
+RANKED_PICK_TIME = 30
 
 -- Game timings
 PREGAME_TIME = 35
 AP_GAME_TIME = 90
 
 -- Duels
-INITIAL_DUEL_DELAY = 35                 -- how long after the clock hits 0 should the initial duel start countind down
+INITIAL_DUEL_DELAY = 35                 -- how long after the clock hits 0 should the initial duel start counting down
 DUEL_START_WARN_TIME = 10               -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
@@ -74,8 +74,15 @@ DUEL_RUNE_TIMER = 30                    -- how long until the highground object 
 DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
+-- Sparks
+SPARK_LEVEL_1_TIME = 0                  -- just a placeholder so the other names make more sense
+SPARK_LEVEL_2_TIME = 240                -- 4 minutes
+SPARK_LEVEL_3_TIME = 900                -- 15 minutes
+SPARK_LEVEL_4_TIME = 1500               -- 25 minutes
+SPARK_LEVEL_5_TIME = 2100               -- 35 minutes
+
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 300       -- how long after the clock hits 0 should the CapturePoint duel start countind down
+INITIAL_CAPTURE_POINT_DELAY = 600       -- how long after the clock hits 0 should the initial Capture Point start counting down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
@@ -133,7 +140,7 @@ HERO_XP_BOUNTY_BASE = 20             -- 40 in normal dota
 HERO_XP_BOUNTY_STREAK_BASE = 50      -- 400 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
 HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- 200 in normal dota
 HERO_XP_BOUNTY_STREAK_MAX = 850      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
-HERO_XP_BONUS_FACTOR = 0.07          -- 0.14 in normal dota
+HERO_XP_BONUS_FACTOR = 0.07          -- 0.13 in normal dota
 HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
 
 -- Bounty runes

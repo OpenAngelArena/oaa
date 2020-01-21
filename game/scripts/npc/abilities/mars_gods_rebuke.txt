@@ -65,21 +65,31 @@
       }
       "06"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_slow"                                  "40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_slow_duration"                         "1.5"
+      }
+      "08"
+      {
         "var_type"                                        "FIELD_FLOAT"
         "activity_duration"                               "2"
       }
-      "07"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_vs_heroes"                          "25"
       }
-      "08"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration"                                "2"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown"                                "1.4"
