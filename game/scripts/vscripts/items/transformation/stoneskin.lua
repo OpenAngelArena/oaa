@@ -13,8 +13,6 @@ function item_stoneskin:GetTransformationModifierName()
   return "modifier_item_stoneskin_stone_armor"
 end
 
--- caster:EmitSound("Hero_EarthSpirit.RollingBoulder.Loop")
-
 item_stoneskin_2 = item_stoneskin
 ------------------------------------------------------------------------
 --modifier_item_stoneskin = class(ModifierBaseClass)
