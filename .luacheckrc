@@ -2841,7 +2841,8 @@ read_globals = { -- these globals can only be accessed.
 "AddAnimationTranslate",
 "BOSS_WANDERER_SPAWN_START",
 "BOSS_WANDERER_RESPAWN",
-"AbilityKV"
+"AbilityKV",
+"VectorTarget"
 }
 
 ignore = {
