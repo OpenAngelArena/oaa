@@ -15,7 +15,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
@@ -27,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 245 355"
+    "AbilityManaCost"                                     "100 120 140 160 260 360"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +52,8 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 50 70 90 190 290"
+        "damage"                                          "30 55 80 105 205 305"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_5"
       }
       "04"
       {
