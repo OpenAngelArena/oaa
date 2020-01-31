@@ -19,8 +19,6 @@ end
 
 modifier_item_giant_form_grow = class(ModifierBaseClass)
 
---------------------------------------------------------------------------------
-
 function modifier_item_giant_form_grow:IsHidden()
   return false
 end
@@ -30,16 +28,12 @@ function modifier_item_giant_form_grow:IsDebuff()
 end
 
 function modifier_item_giant_form_grow:IsPurgable()
-  return false
+  return true
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_giant_form_grow:GetEffectName()
   return "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_giant_form_grow:OnCreated( event )
   local spell = self:GetAbility()
@@ -54,22 +48,19 @@ function modifier_item_giant_form_grow:OnCreated( event )
   self.splashRadius = spell:GetSpecialValueFor( "giant_aoe" )
   self.splashDmg = spell:GetSpecialValueFor( "giant_splash" )
 end
+
 modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
 
---------------------------------------------------------------------------------
-
-if IsServer() then
-  function modifier_item_giant_form_grow:CheckState()
-    if self:GetParent() and self:GetParent():IsRangedAttacker() then
-      return {
-        [MODIFIER_STATE_ROOTED] = true,
-      }
-    end
-    return {}
-  end
-end
-
---------------------------------------------------------------------------------
+-- if IsServer() then
+  -- function modifier_item_giant_form_grow:CheckState()
+    -- if self:GetParent() and self:GetParent():IsRangedAttacker() then
+      -- return {
+        -- [MODIFIER_STATE_ROOTED] = true,
+      -- }
+    -- end
+    -- return {}
+  -- end
+-- end
 
 function modifier_item_giant_form_grow:DeclareFunctions()
   local funcs = {
@@ -85,23 +76,17 @@ function modifier_item_giant_form_grow:DeclareFunctions()
   return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_item_giant_form_grow:GetModifierPreAttack_BonusDamage( event )
   local spell = self:GetAbility()
 
   return self.atkDmg or spell:GetSpecialValueFor( "giant_damage_bonus" )
 end
 
---------------------------------------------------------------------------------
-
 function modifier_item_giant_form_grow:GetModifierFixedAttackRate( event )
   local spell = self:GetAbility()
 
   return spell:GetSpecialValueFor( "giant_attack_rate" )
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_giant_form_grow:GetModifierAttackRangeBonus( event )
   local spell = self:GetAbility()
@@ -117,15 +102,11 @@ function modifier_item_giant_form_grow:GetModifierAttackRangeBonus( event )
   return spell:GetSpecialValueFor( "giant_attack_range" )
 end
 
---------------------------------------------------------------------------------
-
 function modifier_item_giant_form_grow:GetModifierCastRangeBonus( event )
   local spell = self:GetAbility()
 
   return self.castRange or spell:GetSpecialValueFor( "giant_cast_range" )
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_giant_form_grow:GetPriority()
   return MODIFIER_PRIORITY_SUPER_ULTRA
@@ -141,16 +122,12 @@ function modifier_item_giant_form_grow:GetModifierMoveSpeed_Absolute()
     return
   end
 
-  return spell:GetSpecialValueFor("melee_move_speed")
+  return spell:GetSpecialValueFor("giant_move_speed")
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_giant_form_grow:GetModifierModelScale()
   return self:GetAbility():GetSpecialValueFor("giant_scale")
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_item_giant_form_grow:OnAttackLanded( event )

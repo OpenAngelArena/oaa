@@ -26,6 +26,8 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "3"
+    "AbilityChargeRestoreTime"                            "40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -74,13 +76,8 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "3"
+        "AbilityCharges"                                  ""
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_2"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "40"
       }
     }
   }
