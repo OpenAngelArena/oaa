@@ -11,19 +11,11 @@ LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", L
   --return "modifier_sohei_dash_free_turning"
 --end
 
-function sohei_dash:IsVectorTargeting()
-  return true
-end
-
 function sohei_dash:GetVectorTargetRange()
   return self:GetSpecialValueFor("dash_distance")
 end
 
 function sohei_dash:GetVectorTargetStartRadius()
-  return self:GetSpecialValueFor("effect_radius")
-end
-
-function sohei_dash:GetVectorTargetEndRadius()
   return self:GetSpecialValueFor("effect_radius")
 end
 
@@ -73,11 +65,12 @@ function sohei_dash:PerformDash()
   local treeRadius = self:GetSpecialValueFor( "tree_radius" )
 
   local duration = distance / speed
+  local start_loc = self:GetVectorPosition() or caster:GetAbsOrigin()
 
   caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
   caster:EmitSound( "Sohei.Dash" )
   caster:StartGesture( ACT_DOTA_RUN )
-  caster:SetAbsOrigin(self:GetVectorPosition())
+  caster:SetAbsOrigin(start_loc)
   caster:AddNewModifier(caster, self, "modifier_sohei_dash_movement", {
     duration = duration,
     distance = distance,
@@ -110,8 +103,8 @@ function sohei_dash:OnSpellStart()
         -- enable short cooldown if has enough charges for the next dash
         local shortCD = dashDistance / dashSpeed
         if self:GetCooldownTimeRemaining() < shortCD then
-          self:EndCooldown()
-          self:StartCooldown( dashDistance / dashSpeed )
+          --self:EndCooldown()
+          self:StartCooldown(shortCD)
         end
       else
         -- if does not have charges for the next dash, set the cd to the remaining time of the modifier
@@ -128,7 +121,7 @@ function sohei_dash:OnSpellStart()
   else
     caster:AddNewModifier( caster, self, "modifier_sohei_dash_charges", { duration = self:GetChargeRefreshTime() } )
 
-    self:EndCooldown()
+    --self:EndCooldown()
     self:StartCooldown( self:GetChargeRefreshTime() )
   end
 
@@ -366,11 +359,11 @@ if IsServer() then
     -- Movement parameters
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    self.direction = ability:GetVectorDirection()
+    self.direction = ability:GetVectorDirection() or parent:GetForwardVector()
     self.distance = event.distance + 1
     self.speed = event.speed
     self.tree_radius = event.tree_radius
-    self.start_pos = parent:GetAbsOrigin()
+    self.start_pos = ability:GetVectorPosition() or parent:GetAbsOrigin()
     self.width = ability:GetVectorTargetStartRadius()
 
     if self:ApplyHorizontalMotionController() == false then
@@ -445,6 +438,10 @@ if IsServer() then
         parent:EmitSound("Sohei.PalmOfLife.Heal")
       end
     end
+
+    -- Reset vector target direction and position just in case
+    ability.vectorTargetDirection = nil
+    ability.vectorTargetPosition = nil
   end
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion( parent, deltaTime )
