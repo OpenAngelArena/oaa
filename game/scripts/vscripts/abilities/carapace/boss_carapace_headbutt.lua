@@ -43,7 +43,7 @@ if IsServer() then
 			self:GetSpecialValueFor("width"),
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_NONE)
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 
 		return enemies
 	end
@@ -68,7 +68,7 @@ if IsServer() then
 		for k,victim in pairs(enemies) do
 			DebugDrawSphere(victim:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 5.3)
 
-			victim:EmitSound("hero_ursa.attack")
+			victim:EmitSound("Hero_Ursa.Attack")
 
 			local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, victim)
 			ParticleManager:ReleaseParticleIndex(impact)
@@ -84,10 +84,10 @@ if IsServer() then
 
 			local knockbackModifierTable = {
 				should_stun = 0,
-				knockback_duration = 1.0,
+				knockback_duration = 0.5,
 				duration = 0.5,
-				knockback_distance = 64,
-				knockback_height = 16,
+				knockback_distance = range,
+				knockback_height = 50,
 				center_x = target.x,
 				center_y = target.y,
 				center_z = target.z
@@ -113,12 +113,17 @@ function modifier_boss_carapace_headbutt_slow:IsDebuff()
 	return true
 end
 
+function modifier_boss_carapace_headbutt_slow:IsPurgable()
+  return true
+end
+
 ------------------------------------------------------------------------------------
 
 function modifier_boss_carapace_headbutt_slow:DeclareFunctions()
 	local funcs =
 	{
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
 	}
 
 	return funcs
@@ -127,5 +132,9 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_carapace_headbutt_slow:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetAbility():GetSpecialValueFor("slow_value")
+  return self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+end
+
+function modifier_boss_carapace_headbutt_slow:GetModifierAttackSpeedBonus_Constant()
+  return self:GetAbility():GetSpecialValueFor("attack_speed_slow")
 end

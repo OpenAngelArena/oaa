@@ -24,11 +24,13 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 850 1000 1300 1600"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "90 80 70 50 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,20 +43,10 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "90 80 70 50 30"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "700"
         "RequiresScepter"                                 "1"
       }
-      "04"
+      "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration"                                "2"

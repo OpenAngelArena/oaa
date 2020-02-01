@@ -67,7 +67,6 @@ function SetupSohei (portrait) {
   var talents = abilities.GetChild(0);
   talents.SetPanelEvent('onmouseover', function () {
     altTooltip.SetHasClass('visible', true);
-    SetTalentsSohei();
   });
   talents.SetPanelEvent('onmouseout', function () {
     altTooltip.SetHasClass('visible', false);
@@ -75,17 +74,6 @@ function SetupSohei (portrait) {
   abilities.MoveChildAfter(talents, lastAbility);
 
   UpdateBottlePassArcana('npc_dota_hero_sohei');
-}
-
-function SetTalentsSohei () {
-  altTooltip.SetDialogVariable('name_1', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_stun'));
-  altTooltip.SetDialogVariable('name_2', $.Localize('#Dota_tooltip_ability_special_bonus_cleave_25'));
-  altTooltip.SetDialogVariable('name_3', $.Localize('#Dota_tooltip_ability_special_bonus_strength_20'));
-  altTooltip.SetDialogVariable('name_4', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_wholeness_knockback'));
-  altTooltip.SetDialogVariable('name_5', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_wholeness_allycast'));
-  altTooltip.SetDialogVariable('name_6', $.Localize('#Dota_tooltip_ability_special_bonus_movement_speed_60'));
-  altTooltip.SetDialogVariable('name_7', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_dash_recharge').replace('%value%', '3'));
-  altTooltip.SetDialogVariable('name_8', $.Localize('#Dota_tooltip_ability_special_bonus_sohei_fob_radius').replace('%value%', '200'));
 }
 
 function SetTalentsElectrician () {

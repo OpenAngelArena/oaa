@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin: wholeness_of_body
+  // Sohei: Wholeness of Body
   //=================================================================================================================
   "sohei_wholeness_of_body"
   {
@@ -9,9 +9,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ID"                                                  "9511"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/ronin_guard"
@@ -21,16 +22,17 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastRange"                                    "500"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17"
+    "AbilityCooldown"                                     "20 18 16 14 13 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "85"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -48,17 +50,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "90"
+        "bonus_magic_resistance"                          "90"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sr_duration"                                     "8"
+        "duration"                                        "5 6 7 8 9 10"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "post_heal"                                       "90 160 230 300 650 1000"
+        "post_heal"                                       "90 160 230 300 600 900"
       }
       "04"
       {

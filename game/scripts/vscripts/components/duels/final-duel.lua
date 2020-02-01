@@ -33,6 +33,7 @@ function FinalDuel:CheckCancelDuel ()
   if goodPoints < limit and badPoints < limit then
     Duels:CancelDuel()
     self.isCurrentlyFinalDuel = false
+    self.needsFinalDuel = false
   end
 end
 

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6344"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
 
@@ -75,17 +75,6 @@
       {
         "var_type"              "FIELD_INTEGER"
         "strikes"               "4"
-      }
-      "09"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "max_charges"           "2"
-      }
-      "10"
-      {
-        "var_type"               "FIELD_INTEGER"
-        "charge_restore_time"    "20 16 12 8"
-        "LinkedSpecialBonus"     "special_bonus_unique_pangolier_4"
       }
     }
   }
