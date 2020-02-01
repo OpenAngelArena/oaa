@@ -42,17 +42,17 @@
       "02"
       {
         "var_type"                                         "FIELD_INTEGER"
-        "slow_movement_speed"                              "-55"
+        "enchant_health"                                   "200 800 1400 2000 3200 6800" //OAA, this is bonus hp, not minimum hp
       }
-      "03" // this is bonus hp, not minimum hp
+      "03"
       {
         "var_type"                                         "FIELD_INTEGER"
-        "enchant_health"                                   "200 800 1400 2000 3200 6800" //OAA
+        "enchant_damage"                                   "10 30 50 70 110 230"
       }
       "04"
       {
         "var_type"                                         "FIELD_INTEGER"
-        "enchant_damage"                                   "10 30 50 70 110 230" //OAA
+        "slow_movement_speed"                              "-55"
       }
     }
   }

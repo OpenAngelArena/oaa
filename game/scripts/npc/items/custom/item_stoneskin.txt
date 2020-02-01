@@ -41,12 +41,12 @@
     "AbilityTextureName"                                  "custom/stoneskin"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySharedCooldown"                               "stoneskin"
-    "AbilityCooldown"                                     "2.0"
+    "AbilityCooldown"                                     "16"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
@@ -73,42 +73,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_armor"                                     "20 25"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "0"
+        "bonus_intellect"                                 "100 150"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20 25"
+        "stone_move_speed"                                "250"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "0"
+        "stone_armor"                                     "60 75"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "75 80"
+        "stone_resist"                                    "10 15"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stone_move_speed"                                "100"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stone_armor"                                     "60 80"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stone_resist"                                    "10 15"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
     }
   }
