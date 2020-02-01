@@ -43,7 +43,7 @@ function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
   particleInstances[caster] = vectorTargetParticle;
 
   // Start particle updates (loop)
-  $.Schedule(1/10000, function () {
+  $.Schedule(1 / 10000, function () {
     ShowVectorTargetingParticle(vectorTargetParticle, ability, worldPosition, vectorRange);
   });
 }
@@ -55,7 +55,7 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
     var cursor = GameUI.GetCursorPosition();
     var endPosition = GameUI.GetScreenWorldPosition(cursor);
     if (!endPosition) {
-      $.Schedule(1/10000, function () {
+      $.Schedule(1 / 10000, function () {
         ShowVectorTargetingParticle(particle, ability, startPosition, length);
       });
       return;
@@ -86,7 +86,7 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
     var mouseHold = GameUI.IsMouseDown(0); // 0 is left click button
     if (mouseHold) {
       // Holding Click
-      $.Schedule(1/10000, function () {
+      $.Schedule(1 / 10000, function () {
         ShowVectorTargetingParticle(particle, ability, startPosition, length);
       });
       return;
@@ -135,10 +135,10 @@ GameUI.SetMouseCallback(function (eventName, arg) {
     var unit = Abilities.GetCaster(ability);
     var isVectorTargetingAbility = Abilities.GetSpecialValueFor(ability, 'vector_targeting');
 
-	// If there is no vector targeting instance on this unit then ...
-	if (abilityInstances[unit] === undefined) {
-	  // If mouse click is not left click then return false
-	  if (arg !== 0) return CONTINUE_PROCESSING_EVENT;
+  // If there is no vector targeting instance on this unit then ...
+    if (abilityInstances[unit] === undefined) {
+      // If mouse click is not left click then return false
+      if (arg !== 0) return CONTINUE_PROCESSING_EVENT;
       // If ability is not vector targeting then return false
       if (isVectorTargetingAbility !== 1) return CONTINUE_PROCESSING_EVENT;
 
@@ -150,7 +150,7 @@ GameUI.SetMouseCallback(function (eventName, arg) {
       }
     } else { // there is a vector targeting instance on this unit
       // If ability is not vector targeted or player pressed some other mouse click (not left click) then
-	  if (isVectorTargetingAbility !== 1 || (arg !==0 && eventName === 'pressed')) {
+      if (isVectorTargetingAbility !== 1 || (arg !== 0 && eventName === 'pressed')) {
         // $.Msg('[Vector Targeting] Player canceled current vector targeting instance.')
         StopVectorCast(unit);
         return CONTINUE_PROCESSING_EVENT;
@@ -159,7 +159,7 @@ GameUI.SetMouseCallback(function (eventName, arg) {
         // $.Msg('[Vector Targeting] Player released button click during a vector targeting instance')
         // Fake cast so the client shows errors when spell is on cooldown, when not enough mana etc.
         Abilities.ExecuteAbility(ability, unit, true);
-	  }
+      }
     }
   }
 
