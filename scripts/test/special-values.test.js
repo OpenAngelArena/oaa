@@ -320,7 +320,9 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
     'abilitycastrange',
     'abilitycastpoint',
     'abilitychanneltime',
-    'abilityduration'
+    'abilityduration',
+    'AbilityCharges',
+    'AbilityChargeRestoreTime'
   ];
 
   if (parentSpecials) {
