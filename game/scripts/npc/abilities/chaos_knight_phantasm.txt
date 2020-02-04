@@ -47,6 +47,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "illusion_duration"                               "30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_4"
       }
       "03"
       {
@@ -62,12 +63,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "250"
+        "incoming_damage"                                 "225"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage_tooltip"                         "350"
+        "incoming_damage_tooltip"                         "325"
       }
       "07"
       {
