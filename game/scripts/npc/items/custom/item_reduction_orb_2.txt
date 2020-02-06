@@ -67,38 +67,33 @@
     {
       "01"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "bonus_health"                                      "750 1000 1500"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "2000 2500 3000"
       }
       "02"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "bonus_health_regen"                                "20 30 40"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "30 50 90"
       }
       "03"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "bonus_all_stats"                                   "25 40 55"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "7 9 12"
       }
       "04"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "bonus_armor"                                       "8 11 15"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "100"
       }
       "05"
       {
-        "var_type"                                          "FIELD_INTEGER"
-        "damage_reduction"                                  "50 100 100"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0 3.0 4.0"
       }
       "06"
       {
-        "var_type"                                          "FIELD_FLOAT"
-        "duration"                                          "2.0 3.0 4.0"
-      }
-      "07"
-      {
-        "var_type"                                          "FIELD_INTEGER"
-        "damage_as_healing"                                 "0 25 50"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_as_healing"                               "0 25 50"
       }
     }
   }
