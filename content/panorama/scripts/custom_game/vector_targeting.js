@@ -1,11 +1,10 @@
 /* global GameEvents, Entities, Abilities, $, Particles, ParticleAttachment_t, Game, CLICK_BEHAVIORS */
-// var CONSUME_EVENT = true;
+var CONSUME_EVENT = true;
 var CONTINUE_PROCESSING_EVENT = false;
 
 // Constants
 var defaultVectorWidth = 125;
 var defaultVectorRange = 800;
-var isQuickCast = false;
 var particleInstances = {};
 var abilityInstances = {};
 
@@ -40,12 +39,11 @@ function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
   var newPosition = VectorAdd(worldPosition, VectorMult(direction, vectorRange));
   Particles.SetParticleControl(vectorTargetParticle, 2, newPosition);
 
-  // Store particle instance and ability instance, 1 per unit
+  // Store particle instance
   particleInstances[caster] = vectorTargetParticle;
-  abilityInstances[caster] = ability;
 
   // Start particle updates (loop)
-  $.Schedule(0.01, function () {
+  $.Schedule(1 / 10000, function () {
     ShowVectorTargetingParticle(vectorTargetParticle, ability, worldPosition, vectorRange);
   });
 }
@@ -57,7 +55,7 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
     var cursor = GameUI.GetCursorPosition();
     var endPosition = GameUI.GetScreenWorldPosition(cursor);
     if (!endPosition) {
-      $.Schedule(0.01, function () {
+      $.Schedule(1 / 10000, function () {
         ShowVectorTargetingParticle(particle, ability, startPosition, length);
       });
       return;
@@ -86,38 +84,15 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
     data.startPosition = startPosition;
     data.endPosition = endPosition;
     var mouseHold = GameUI.IsMouseDown(0); // 0 is left click button
-    if (isQuickCast) {
-      if (mouseHold) {
-        FinishVectorCast(data);
-      } else {
-        $.Schedule(0.01, function () {
-          ShowVectorTargetingParticle(particle, ability, startPosition, length);
-        });
-        return;
-      }
+    if (mouseHold) {
+      // Holding Click
+      $.Schedule(1 / 10000, function () {
+        ShowVectorTargetingParticle(particle, ability, startPosition, length);
+      });
+      return;
     } else {
-      if (mouseHold) {
-        // Holding Click
-        $.Schedule(0.01, function () {
-          ShowVectorTargetingParticle(particle, ability, startPosition, length);
-        });
-        return;
-      } else {
-        FinishVectorCast(data);
-      }
+      FinishVectorCast(data);
     }
-  }
-}
-
-function StopVectorCast (table) {
-  var unit = table.caster;
-  var stop = table.stop;
-
-  // it has to be 1
-  if (stop === 1) {
-    RemoveParticle(particleInstances[unit]);
-    particleInstances[unit] = undefined;
-    abilityInstances[unit] = undefined;
   }
 }
 
@@ -126,7 +101,7 @@ function FinishVectorCast (table) {
   var notInterrupted = abilityInstances[unit];
 
   if (notInterrupted) {
-    RemoveParticle(particleInstances[unit]);
+    StopVectorCast(unit);
     table.ability = notInterrupted;
     SendPosition(table);
   }
@@ -140,7 +115,7 @@ function RemoveParticle (particle) {
   }
 }
 
-// Send the final data to the server
+// Send the final data to the server; It doesnt send data during quickcast
 function SendPosition (table) {
   var ability = table.ability;
   var ePos = table.endPosition;
@@ -150,31 +125,62 @@ function SendPosition (table) {
   GameEvents.SendCustomGameEventToServer('send_vector_position', {'playerID': pID, 'unit': unit, 'abilityIndex': ability, 'PosX': cPos[0], 'PosY': cPos[1], 'PosZ': cPos[2], 'Pos2X': ePos[0], 'Pos2Y': ePos[1], 'Pos2Z': ePos[2]});
 }
 
-// Mouse Callback to detect quickcast (work in progress)
+// Mouse Callback to detect custom vector targeting on the client; quickcast doesnt use mouse clicks;
 GameUI.SetMouseCallback(function (eventName, arg) {
   var clickBehavior = GameUI.GetClickBehaviors();
 
   // Check click behavior
-  if (clickBehavior === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
-    // Maybe Quick Cast
-    // isQuickCast = true;
-  } else if (clickBehavior === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_CAST) {
-    // isQuickCast = false;
-  } else {
-    return CONTINUE_PROCESSING_EVENT;
-  }
+  if (clickBehavior === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_CAST) {
+    var ability = Abilities.GetLocalPlayerActiveAbility();
+    var unit = Abilities.GetCaster(ability);
+    var isVectorTargetingAbility = Abilities.GetSpecialValueFor(ability, 'vector_targeting');
 
-  // If it has arguments ignore
-  if (arg !== 0) return CONTINUE_PROCESSING_EVENT;
+  // If there is no vector targeting instance on this unit then ...
+    if (abilityInstances[unit] === undefined) {
+      // If mouse click is not left click then return false
+      if (arg !== 0) return CONTINUE_PROCESSING_EVENT;
+      // If ability is not vector targeting then return false
+      if (isVectorTargetingAbility !== 1) return CONTINUE_PROCESSING_EVENT;
+
+      if (eventName === 'pressed') {
+        // $.Msg('[Vector Targeting] Player started a vector targeting instance.')
+        abilityInstances[unit] = ability;
+        StartVectorCast(ability);
+        return CONSUME_EVENT;
+      }
+    } else { // there is a vector targeting instance on this unit
+      // If ability is not vector targeted or player pressed some other mouse click (not left click) then
+      if (isVectorTargetingAbility !== 1 || (arg !== 0 && eventName === 'pressed')) {
+        // $.Msg('[Vector Targeting] Player canceled current vector targeting instance.')
+        StopVectorCast(unit);
+        return CONTINUE_PROCESSING_EVENT;
+      }
+      if (eventName === 'released' && abilityInstances[unit] === ability) {
+        // $.Msg('[Vector Targeting] Player released button click during a vector targeting instance')
+        // Fake cast so the client shows errors when spell is on cooldown, when not enough mana etc.
+        Abilities.ExecuteAbility(ability, unit, true);
+      }
+    }
+  }
 
   return CONTINUE_PROCESSING_EVENT;
 });
 
-// Start to cast the vector ability
-function StartVectorCast (table) {
-  if (GameUI.IsMouseDown(0) || isQuickCast) {
-    OnVectorTargetingStart(table.ability, table.startWidth, table.endWidth, table.castLength);
+// Start vector targeting ability
+function StartVectorCast (ability) {
+  if (GameUI.IsMouseDown(0)) {
+    var startWidth = Abilities.GetSpecialValueFor(ability, 'vector_start_width');
+    var endWidth = Abilities.GetSpecialValueFor(ability, 'vector_end_width');
+    var castLength = Abilities.GetSpecialValueFor(ability, 'vector_length');
+    OnVectorTargetingStart(ability, startWidth, endWidth, castLength);
   }
+}
+
+// Cancel/Interrupt vector targeting ability on the unit; Only 1 instance allowed per unit
+function StopVectorCast (unit) {
+  RemoveParticle(particleInstances[unit]);
+  particleInstances[unit] = undefined;
+  abilityInstances[unit] = undefined;
 }
 
 // Some Vector Functions here:
@@ -209,8 +215,6 @@ function VectorRaiseZ (vec, inc) {
 
 // Register function to cast vector targeting abilities
 (function () {
-  GameEvents.Subscribe('vector_target_cast_start', StartVectorCast);
-  GameEvents.Subscribe('vector_target_cast_stop', StopVectorCast);
+  // GameEvents.Subscribe('vector_target_cast_start', StartVectorCast);
+  // GameEvents.Subscribe('vector_target_cast_stop', StopVectorCast);
 })();
-
-// StartTrack();
