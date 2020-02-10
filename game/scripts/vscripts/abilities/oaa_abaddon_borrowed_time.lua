@@ -20,14 +20,16 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
     -- Strong Dispel
     caster:Purge(false, true, false, true, true)
 
+    -- Add the Borrowed Time modifier to the caster
     caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
 
+    -- Caster responses (not really important)
     --local responses = {"abaddon_abad_borrowedtime_02","abaddon_abad_borrowedtime_03","abaddon_abad_borrowedtime_04","abaddon_abad_borrowedtime_05","abaddon_abad_borrowedtime_06","abaddon_abad_borrowedtime_07","abaddon_abad_borrowedtime_08","abaddon_abad_borrowedtime_09","abaddon_abad_borrowedtime_10","abaddon_abad_borrowedtime_11"}
     --if not caster:EmitCasterSound("npc_dota_hero_abaddon", responses, 50, DOTA_CAST_SOUND_FLAG_BOTH_TEAMS, nil, nil) then
       --caster:EmitCasterSound("npc_dota_hero_abaddon", {"abaddon_abad_borrowedtime_01"}, 1, DOTA_CAST_SOUND_FLAG_BOTH_TEAMS, nil, nil)
     --end
 
-    -- Sound
+    -- Play Sound
     caster:EmitSound("Hero_Abaddon.BorrowedTime")
   end
 end
@@ -69,7 +71,7 @@ function modifier_oaa_borrowed_time_passive:OnCreated()
     self.hp_threshold = self:GetAbility():GetSpecialValueFor("hp_threshold")
     -- Check if we need to auto cast immediately
     self:CheckHealthToTrigger()
-	end
+  end
 end
 
 function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
@@ -77,11 +79,12 @@ function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
   local ability = self:GetAbility()
 
 	-- Check for ability state, if parent has break debuff
-  if not ability:IsHidden() and ability:IsCooldownReady() and not parent:PassivesDisabled() and parent:IsAlive() and not parent:IsIllusion() then
+  if not ability:IsHidden() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and not parent:PassivesDisabled() and parent:IsAlive() and not parent:IsIllusion() then
     local hp_threshold = self.hp_threshold
     local current_hp = parent:GetHealth()
-    if current_hp <= hp_threshold then
+    if current_hp <= hp_threshold and not parent:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
       parent:CastAbilityImmediately(ability, parent:GetPlayerID())
+	  -- ^ this is not good because it cancels channeling but its not gamebreaking either
     end
   end
 end
@@ -98,14 +101,23 @@ function modifier_oaa_borrowed_time_passive:OnTakeDamage(event)
   if IsServer() then
     local parent = self:GetParent()
 
-    -- Do nothing if damage has HP removal flag
-    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+    if parent ~= event.unit then
       return
     end
 
-    if parent == event.unit then
-      self:CheckHealthToTrigger()
+    -- Do nothing if damage has HP removal flag 
+    -- Necro Hearstopper Aura doesn't trigger OnTakeDamage event for Valve reasons
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+	  return
     end
+
+    -- Do nothing if damaged by non-player or neutral creep
+    -- Boss damage can still proc
+    if event.attacker:IsNeutralCreep(false) then
+      return
+    end
+
+    self:CheckHealthToTrigger()
   end
 end
 
@@ -170,7 +182,7 @@ function modifier_oaa_borrowed_time_buff_caster:GetAuraRadius()
 end
 
 function modifier_oaa_borrowed_time_buff_caster:GetAuraEntityReject(hEntity)
-  -- Do not apply aura to target
+  -- Do not apply aura to the owner of the aura
   if hEntity == self:GetParent() or hEntity:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
     return true
   end
@@ -180,7 +192,7 @@ end
 
 function modifier_oaa_borrowed_time_buff_caster:GetModifierIncomingDamage_Percentage(kv)
   if IsServer() then
-    local parent 	= self:GetParent()
+    local parent = self:GetParent()
 
     -- Show borrowed time heal particle
     local heal_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
@@ -248,16 +260,6 @@ function modifier_oaa_borrowed_time_buff_ally:GetModifierIncomingDamage_Percenta
     local parent = self:GetParent()
     local ability = self:GetAbility()
 
-    -- Don't redirect damage with hp removal flag
-    if bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-      return 0
-    end
-
-    -- Don't redirect damage if damaged unit is not the parent
-    if kv.unit ~= parent then
-      return 0
-    end
-
     local redirect_pct = ability:GetSpecialValueFor("damage_redirect_scepter")
     local redirect_damage =	kv.damage * (redirect_pct/100)
 
@@ -275,5 +277,5 @@ function modifier_oaa_borrowed_time_buff_ally:GetModifierIncomingDamage_Percenta
 
     --Block the amount of damage required.
     return -(redirect_pct)
-	end
+  end
 end
