@@ -47,6 +47,7 @@ if not BossProtectionFilter then
     beastmaster_primal_roar = true,
     rattletrap_power_cogs = true,
     dark_seer_vacuum = true,
+    doom_bringer_infernal_blade = true,
     earth_spirit_petrify = true,
     earthshaker_fissure = true,
     elder_titan_echo_stomp = true,
@@ -146,8 +147,3 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
 
   return true
 end
-
-
-
-
-
