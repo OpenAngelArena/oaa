@@ -84,7 +84,7 @@ function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
     local current_hp = parent:GetHealth()
     if current_hp <= hp_threshold and not parent:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
       parent:CastAbilityImmediately(ability, parent:GetPlayerID())
-	  -- ^ this is not good because it cancels channeling but its not gamebreaking either
+      -- ^ this is not good because it cancels channeling but its not gamebreaking either
     end
   end
 end
@@ -105,15 +105,15 @@ function modifier_oaa_borrowed_time_passive:OnTakeDamage(event)
       return
     end
 
-    -- Do nothing if damage has HP removal flag 
+    -- Do nothing if damage has HP removal flag
     -- Necro Hearstopper Aura (modifier_necrolyte_heartstopper_aura_effect) doesn't trigger OnTakeDamage event
     -- maybe its intentional
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-	  return
+      return
     end
 
-    -- Do nothing if damaged by non-player or neutral creep
-    -- Boss damage can still proc
+    -- Do nothing if damaged by non-player controlled creep or neutral creep
+    -- Boss damage can still proc Borrowed Time
     if event.attacker:IsNeutralCreep(false) then
       return
     end
@@ -126,7 +126,7 @@ end
 
 modifier_oaa_borrowed_time_buff_caster = class(ModifierBaseClass)
 
-function modifier_oaa_borrowed_time_buff_caster:IsHidden() -- needs tooltip
+function modifier_oaa_borrowed_time_buff_caster:IsHidden()
   return false
 end
 
@@ -157,8 +157,8 @@ end
 function modifier_oaa_borrowed_time_buff_caster:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK -- using this instead of MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
-    -- because Necrophos Aura (modifier_necrolyte_heartstopper_aura_effect) ignores damage reduction but it doesn't
-    -- ignore damage block
+    -- because Necrophos Aura (modifier_necrolyte_heartstopper_aura_effect) ignores damage reduction but it doesn't ...
+    -- ... ignore damage block
   }
 
   return funcs
@@ -216,7 +216,7 @@ end
 
 modifier_oaa_borrowed_time_buff_ally = class(ModifierBaseClass)
 
-function modifier_oaa_borrowed_time_buff_ally:IsHidden() -- needs tooltip
+function modifier_oaa_borrowed_time_buff_ally:IsHidden()
   return false
 end
 
