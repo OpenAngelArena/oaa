@@ -106,7 +106,8 @@ function modifier_oaa_borrowed_time_passive:OnTakeDamage(event)
     end
 
     -- Do nothing if damage has HP removal flag 
-    -- Necro Hearstopper Aura doesn't trigger OnTakeDamage event for Valve reasons
+    -- Necro Hearstopper Aura (modifier_necrolyte_heartstopper_aura_effect) doesn't trigger OnTakeDamage event
+    -- maybe its intentional
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
 	  return
     end
@@ -155,10 +156,31 @@ end
 
 function modifier_oaa_borrowed_time_buff_caster:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK -- using this instead of MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    -- because Necrophos Aura (modifier_necrolyte_heartstopper_aura_effect) ignores damage reduction but it doesn't
+    -- ignore damage block
   }
 
   return funcs
+end
+
+function modifier_oaa_borrowed_time_buff_caster:GetModifierTotal_ConstantBlock(kv)
+  if IsServer() then
+    local parent = self:GetParent()
+
+    -- Show borrowed time heal particle
+    local heal_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    local target_vector = parent:GetAbsOrigin()
+    ParticleManager:SetParticleControl(heal_particle, 0, target_vector)
+    ParticleManager:SetParticleControl(heal_particle, 1, target_vector)
+    ParticleManager:ReleaseParticleIndex(heal_particle)
+
+    -- Heal amount is equal to the damage amount (damage after reductions, not original damage)
+    parent:Heal(kv.damage, parent)
+
+    -- Block the damage
+    return kv.damage
+  end
 end
 
 function modifier_oaa_borrowed_time_buff_caster:IsAura()
@@ -190,24 +212,6 @@ function modifier_oaa_borrowed_time_buff_caster:GetAuraEntityReject(hEntity)
   return false
 end
 
-function modifier_oaa_borrowed_time_buff_caster:GetModifierIncomingDamage_Percentage(kv)
-  if IsServer() then
-    local parent = self:GetParent()
-
-    -- Show borrowed time heal particle
-    local heal_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    local target_vector = parent:GetAbsOrigin()
-    ParticleManager:SetParticleControl(heal_particle, 0, target_vector)
-    ParticleManager:SetParticleControl(heal_particle, 1, target_vector)
-    ParticleManager:ReleaseParticleIndex(heal_particle)
-
-    --  Heal instead of damage (damage after reductions, not original damage)
-    parent:Heal(kv.damage, parent)
-
-    return -9999999
-  end
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_oaa_borrowed_time_buff_ally = class(ModifierBaseClass)
@@ -232,50 +236,39 @@ function modifier_oaa_borrowed_time_buff_ally:DeclareFunctions()
   return funcs
 end
 
---[[
-function modifier_oaa_borrowed_time_buff_ally:OnCreated()
-  if IsServer() then
-    local caster = self:GetCaster()
-    local parent = self:GetParent()
-
-    local parent_origin = parent:GetAbsOrigin()
-    local particle_name = "particles/econ/courier/courier_hyeonmu_ambient/courier_hyeonmu_ambient_trail_steam.vpcf"
-
-    -- Body steam particle
-    local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, parent)
-    ParticleManager:SetParticleControlEnt(particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent_origin, true)
-    self:AddParticle(particle, false, false, -1, false, false)
-
-    -- Weapon particle
-    particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN, parent)
-    ParticleManager:SetParticleControlEnt(particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_attack1", parent_origin, true)
-    self:AddParticle(particle, false, false, -1, false, false)
-  end
-end
-]]
-
 function modifier_oaa_borrowed_time_buff_ally:GetModifierIncomingDamage_Percentage(kv)
   if IsServer() then
     local caster = self:GetCaster()
-    local parent = self:GetParent()
     local ability = self:GetAbility()
-
-    local redirect_pct = ability:GetSpecialValueFor("damage_redirect_scepter")
-    local redirect_damage =	kv.damage * (redirect_pct/100)
 
     local damage_table = {}
     damage_table.attacker = kv.attacker
     damage_table.damage_type = kv.damage_type or DAMAGE_TYPE_PURE
-    damage_table.ability = ability
+
+    local redirect_pct = 40
+    if ability then
+      redirect_pct = ability:GetSpecialValueFor("damage_redirect_scepter")
+      damage_table.ability = ability
+    end
+
+    local redirect_damage = kv.damage * (redirect_pct/100)
     damage_table.damage = redirect_damage
     damage_table.victim = caster
 
-    -- Redirect the damage to Abaddon (caster)
+    -- Redirect the damage to Abaddon (caster) if Borrowed Time is still active and if damage is not negative
     if caster:HasModifier("modifier_oaa_borrowed_time_buff_caster") and redirect_damage > 0 then
       ApplyDamage(damage_table)
     end
 
-    --Block the amount of damage required.
+    -- Block the amount of damage on the ally
     return -(redirect_pct)
   end
+end
+
+function modifier_oaa_borrowed_time_buff_ally:GetEffectName()
+  return "particles/units/heroes/hero_abaddon/abaddon_borrowed_time_h.vpcf"
+end
+
+function modifier_oaa_borrowed_time_buff_ally:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
 end
