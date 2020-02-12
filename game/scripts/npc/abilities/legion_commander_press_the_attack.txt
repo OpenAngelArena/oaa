@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=================================================================================================================
   // Legion Commander: Press the Attack
   //=================================================================================================================
@@ -15,7 +14,9 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -33,7 +34,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -46,12 +46,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "65 90 115 140 180 240"
+        "attack_speed"                                    "65 90 115 140 165 190"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen"                                        "30 50 70 90 180 270" //OAA
+        "hp_regen"                                        "30 50 70 90 130 250" //OAA
       }
     }
   }
