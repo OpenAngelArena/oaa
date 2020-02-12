@@ -14,7 +14,7 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCooldown"                                     "35" //OAA
+    "AbilityCooldown"                                     "12" //OAA
 
     "AbilityCastPoint"                                    "0.4"
 
@@ -48,7 +48,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "7" //OAA
+        "scepter_cooldown"                                "6" //OAA
         "RequiresScepter"                                 "1"
       }
     }
