@@ -22,8 +22,7 @@ if not BossProtectionFilter then
     silencer_global_silence = true,
     silencer_last_word = true,
     skywrath_mage_ancient_seal = true,
-    techies_suicide = true,
-    viper_nethertoxin = true
+    techies_suicide = true
   }
 
   BossProtectionFilter.SilenceItems = {
@@ -47,7 +46,6 @@ if not BossProtectionFilter then
     beastmaster_primal_roar = true,
     rattletrap_power_cogs = true,
     dark_seer_vacuum = true,
-    doom_bringer_infernal_blade = true,
     earth_spirit_petrify = true,
     earthshaker_fissure = true,
     elder_titan_echo_stomp = true,
@@ -99,6 +97,13 @@ if not BossProtectionFilter then
     shadow_shaman_voodoo = true
   }
 
+  BossProtectionFilter.ProblematicSpells = {
+    death_prophet_spirit_siphon = true,
+    doom_bringer_infernal_blade = true,
+    huskar_life_break = true,
+    winter_wyvern_arctic_burn = true
+  }
+
 end
 
 function BossProtectionFilter:Init()
@@ -118,6 +123,10 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
   keys.parentName = parent:GetName()
   keys.casterName = caster:GetName()
   keys.abilityName = ability:GetName()
+
+  if parent:IsOAABoss() and BossProtectionFilter.ProblematicSpells[keys.abilityName] then
+    return false
+  end
 
   local parentHasProtection = parent:HasModifier("modifier_siltbreaker_boss_protection_bash_and_silence")
   if not parentHasProtection then
