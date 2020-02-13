@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Charges of Cold Feet
+  // Bonus Walrus Punch Crit
   //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_1"
+  "special_bonus_unique_tusk"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6214"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6194"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,19 +18,19 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"4"
+        "value"				"100"
       }
     }
   }
 
   //=================================================================================================================
-  // Bonus Chilling Touch Damage
+  // Bonus Snowball Damage
   //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_2"
+  "special_bonus_unique_tusk_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6291"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6411"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -41,19 +41,111 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"80"
+        "value"				"150"
       }
     }
   }
 
   //=================================================================================================================
-  // Decreases Ice Vortex Cooldown
+  // Bonus Snowball Speed - unused
   //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_3"
+  "special_bonus_unique_tusk_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6352"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6961"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"300"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Passive Chance to Walrus Punch
+  //=================================================================================================================
+  "special_bonus_unique_tusk_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "6962"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "12" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Ice Shards Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_tusk_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6963"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"8"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Snowball Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_tusk_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7891"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"7"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Walrus Punch Stun Duration
+  //=================================================================================================================
+  "special_bonus_unique_tusk_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"414"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -64,99 +156,7 @@
       "01"
       {
         "var_type"					"FIELD_FLOAT"
-        "value"				"2.5"
-      }
-    }
-  }
-
-  //=================================================================================================================
-  // Bonus Ice Vortex Slow/Resistance
-  //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6534"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"-8"
-      }
-    }
-  }
-
-  //=================================================================================================================
-  // Increases Ice Blast Kill Threshold
-  //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6810"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"5"
-      }
-    }
-  }
-
-  //=================================================================================================================
-  // AoE Cold Feet talent
-  //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_6"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "7106"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "450" //OAA
-      }
-    }
-  }
-
-  //=================================================================================================================
-  // Bonus Chilling Touch Attack Range
-  //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_7"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "7652"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "120" //OAA
+        "value"				"0.5"
       }
     }
   }

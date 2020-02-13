@@ -25,8 +25,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16" // OAA
-    "AbilityDuration"                                     "3 4 5 6 6 6"
+    "AbilityCooldown"                                     "16" //OAA
+    "AbilityDuration"                                     "3 4 5 6 6.5 7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 4 5 6 6 6"
+        "duration"                                        "3 4 5 6 6.5 7"
       }
       "06"
       {
@@ -75,7 +75,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "16" // OAA
+        "charge_restore_time"                             "16" //OAA
         "RequiresScepter"                                 "1"
       }
       "08"

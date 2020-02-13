@@ -44,4 +44,8 @@ if CDOTA_BaseNPC then
 
     return ( UnitFilter( self, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, targetFlags, DOTA_TEAM_NEUTRALS ) == UF_SUCCESS and not self:IsControllableByAnyPlayer() )
   end
+
+  function CDOTA_BaseNPC:IsOAABoss()
+    return self:HasModifier("modifier_boss_resistance")
+  end
 end
