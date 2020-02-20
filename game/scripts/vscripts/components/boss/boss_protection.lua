@@ -66,7 +66,7 @@ if not BossProtectionFilter then
     nyx_assassin_spiked_carapace = true,
     nyx_assassin_impale = true,
     obsidian_destroyer_astral_imprisonment = true,
-    pangolier_gyroshell = true,
+    --pangolier_gyroshell = true,
     pudge_meat_hook = true,
     pudge_dismember = true,
     sandking_burrowstrike = true,

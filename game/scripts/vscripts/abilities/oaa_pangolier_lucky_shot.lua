@@ -36,7 +36,7 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
   local target = event.target
 
   -- Don't proc on units that dont have this modifier, don't proc on illusion or if broken
-  if parent ~= event.attacker or parent::IsIllusion() or parent:PassivesDisabled() then
+  if parent ~= event.attacker or parent:IsIllusion() or parent:PassivesDisabled() then
     return
   end
 
