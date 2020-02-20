@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_pangolier_lucky_shot_oaa", "abilities/oaa_pangolier_lucky_shot.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pangolier_lucky_shot_oaa_slow_debuff", "abilities/oaa_pangolier_lucky_shot.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", "abilities/oaa_pangolier_lucky_shot.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pangolier_lucky_shot_oaa_armor_debuff", "abilities/oaa_pangolier_lucky_shot.lua", LUA_MODIFIER_MOTION_NONE)
 
 pangolier_lucky_shot_oaa = class(AbilityBaseClass)
 
@@ -48,6 +49,10 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
   if target:IsNull() then
     return
   end
+  
+  if not IsServer() then
+    return 
+  end
 
   -- Can't proc on allies, towers, or wards
   if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber()) ~= UF_SUCCESS then
@@ -73,8 +78,12 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
     -- Apply slow debuff
     target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
 
-    -- Apply armor reduction and disarm debuff
-    target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
+    -- Apply armor reduction and disarm debuff (don't apply disarm to bosses)
+    if not target:IsOAABoss() then
+      target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
+    else
+      target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_debuff", {duration = duration})
+    end
 
     -- Play proc sound
     if target:IsConsideredHero() then
@@ -185,3 +194,31 @@ end
 function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:GetModifierPhysicalArmorBonus()
   return self:GetAbility():GetSpecialValueFor("armor")
 end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_pangolier_lucky_shot_oaa_armor_debuff = class(ModifierBaseClass)
+
+function modifier_pangolier_lucky_shot_oaa_armor_debuff:IsHidden()
+  return false
+end
+
+function modifier_pangolier_lucky_shot_oaa_armor_debuff:IsDebuff()
+  return true
+end
+
+function modifier_pangolier_lucky_shot_oaa_armor_debuff:IsPurgable()
+  return true
+end
+
+function modifier_pangolier_lucky_shot_oaa_armor_debuff:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+  }
+  return funcs
+end
+
+function modifier_pangolier_lucky_shot_oaa_armor_debuff:GetModifierPhysicalArmorBonus()
+  return self:GetAbility():GetSpecialValueFor("armor")
+end
+
