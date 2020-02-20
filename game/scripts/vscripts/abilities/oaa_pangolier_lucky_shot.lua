@@ -49,9 +49,9 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
   if target:IsNull() then
     return
   end
-  
+
   if not IsServer() then
-    return 
+    return
   end
 
   -- Can't proc on allies, towers, or wards
