@@ -1,6 +1,6 @@
-LinkLuaModifier( "modifier_transformation_item_watcher", "items/transformation/baseclass.lua", LUA_MODIFIER_MOTION_NONE )
-
 TransformationBaseClass = class(ItemBaseClass)
+
+LinkLuaModifier( "modifier_transformation_item_watcher", "items/transformation/baseclass.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -16,42 +16,40 @@ function TransformationBaseClass:GetAbilityTextureName()
   return baseName .. activeName
 end
 
-function TransformationBaseClass:OnDestroy()
-end
+--function TransformationBaseClass:OnDestroy()
+--end
 
 function TransformationBaseClass:OnSpellStart()
-  self.isTransformation = true
+  --self.isTransformation = true
   local caster = self:GetCaster()
   local modifierName = self:GetTransformationModifierName()
 
   -- if we have the modifier while this thing is "toggled"
   -- ( which we should, but 'should' isn't a concept in programming )
   -- remove it
-  local mod = caster:FindModifierByName(modifierName)
+  -- local mod = caster:FindModifierByName(modifierName)
 
-  if mod then
-    if not mod:IsNull() then
-      mod:Destroy()
-    end
-    self.mod = nil
-    if self.watcher and not self.watcher:IsNull() then
-      self.watcher:Destroy()
-    end
+  -- if mod then
+    -- if not mod:IsNull() then
+      -- mod:Destroy()
+    -- end
+    -- self.mod = nil
+    -- if self.watcher and not self.watcher:IsNull() then
+      -- self.watcher:Destroy()
+    -- end
 
-    -- caster:EmitSound( "OAA_Item.SiegeMode.Deactivate" )
-  else
-    -- if it isn't toggled, add the modifier and keep track of it
-    self:EndOthers()
+  -- else
+    -- -- if it isn't toggled, add the modifier and keep track of it
+    -- self:EndOthers()
 
-    self.mod = caster:AddNewModifier( caster, self, modifierName, {} )
+    self.mod = caster:AddNewModifier( caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")} )
 
-    if self.watcher and not self.watcher:IsNull() then
-      self.watcher:Destroy()
-    end
-    self.watcher = caster:AddNewModifier(caster, self, "modifier_transformation_item_watcher", {})
+    -- if self.watcher and not self.watcher:IsNull() then
+      -- self.watcher:Destroy()
+    -- end
+    -- self.watcher = caster:AddNewModifier(caster, self, "modifier_transformation_item_watcher", {})
 
-    -- caster:EmitSound( "OAA_Item.SiegeMode.Activate" )
-  end
+  --end
 end
 
 if IsServer() then
