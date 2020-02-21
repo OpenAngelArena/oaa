@@ -46,12 +46,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "30"
+        "bonus_movement_speed"                            "25"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "350 350 350 450 550 600"
+        "bonus_attack_range"                              "350 350 350 450 550"
       }
       "04"
       {
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20 40 60 120 180 240"
+        "corrosive_breath_damage"                         "20 40 60 120 180"
       }
       "06"
       {
@@ -76,17 +76,17 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "75 75 75 115 200 250"
+        "splash_damage_percent"                           "75 75 75 115 200"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -70 -80"
+        "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -70"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-40 -40 -40 -60 -70 -100"
+        "frost_bonus_attack_speed"                        "-40 -40 -40 -60 -70"
       }
       "11"
       {
@@ -101,12 +101,12 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "0 0 0 40 40 50"
+        "magic_resistance"                                "0 0 0 40 40"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 0 0 30 35 40"
+        "model_scale"                                     "0 0 0 30 35"
       }
       "15"
       {

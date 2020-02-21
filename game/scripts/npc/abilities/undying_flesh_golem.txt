@@ -38,12 +38,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "15 45 75 135 215" //OAA
+        "damage"                                          "25 45 65 125 225" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "5"
+        "slow_duration"                                   "6"
       }
       "04"
       {
@@ -53,7 +53,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30"
+        "duration"                                        "40"
       }
       "06"
       {
@@ -64,6 +64,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "zombie_radius"                                   "400"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_bonus"                                  "30"
       }
     }
   }
