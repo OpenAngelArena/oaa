@@ -25,6 +25,10 @@ function obsidian_destroyer_arcane_orb_oaa:ShouldUseResources()
 	return true
 end
 
+function obsidian_destroyer_arcane_orb_oaa:OnSpellStart()
+
+end
+
 --------------------------------------------------------------------------------
 
 modifier_oaa_arcane_orb = class(ModifierBaseClass)
@@ -226,12 +230,10 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
     SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
     target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
 
-    -- Intelligence steal or mana increase if the target is a real hero (and not a meepo clone or arc warden tempest double)
+    -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
     if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) then
       local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
       local intStealAmount = ability:GetSpecialValueFor("int_steal")
-      local manaIncreaseAmount = ability:GetSpecialValueFor("max_mana_increase")
-      local manaIncreaseDuration = ability:GetSpecialValueFor("bonus_mana_duration")
 
       if intStealAmount ~= 0 and intStealDuration ~= 0 then
         -- Talent that increases int steal duration
@@ -244,6 +246,12 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
         attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
         attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff", {duration = intStealDuration})
       end
+    end
+
+    -- Mana increase if the target is a hero, an illusion or tempest double
+    if target:IsRealHero() or target:IsIllusion() then
+      local manaIncreaseAmount = ability:GetSpecialValueFor("max_mana_increase")
+      local manaIncreaseDuration = ability:GetSpecialValueFor("bonus_mana_duration")
 
       if manaIncreaseAmount ~= 0 and manaIncreaseDuration ~= 0 then
         attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff_counter", {duration = manaIncreaseDuration})
@@ -251,6 +259,7 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       end
     end
 
+    -- Splash damage around the target
     local radius = ability:GetSpecialValueFor("radius")
     if radius ~= 0 then
       local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
@@ -268,7 +277,8 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
     end
 
     -- Use mana and trigger cd while respecting reductions
-    ability:UseResources(true, false, true)
+    --ability:UseResources(true, false, true)
+    ability:CastAbility()
 
     self.manual_cast = nil
   end

@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Abaddon: Borrowed Time (OAA rework)
+  //=================================================================================================================
+  "abaddon_borrowed_time_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85588"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_abaddon_borrowed_time.lua"
+    "AbilityTextureName"                                  "abaddon_borrowed_time"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastGestureSlot"                              "ABSOLUTE"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "60 55 50 45 40"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_threshold"                                    "400"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0 5.0 6.0 7.0 8.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_scepter"                                "4.0 5.0 6.0 7.0 8.0"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_redirect_scepter"                         "40"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "redirect_range_scepter"                          "900"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}
