@@ -5,7 +5,7 @@
   Primarily for checking if talents have been learned.
 --]]
 
--- This file is also loaded on client (currently just for GetAttackRange)
+-- This file is also loaded on client
 -- but client doesn't have FindAbilityByName
 if IsServer() then
   function CDOTA_BaseNPC:HasLearnedAbility(abilityName)
@@ -20,12 +20,9 @@ if IsServer() then
     if self and value then
       local reduction = self:GetStatusResistance()
 
-      -- Min and Max cases
+      -- Capping max status resistance
       if reduction >= 1 then
-        return value*0.99
-      end
-      if reduction <= 0 then
-        return value
+        return value*0.01
       end
 
       return value*(1-reduction)
@@ -46,5 +43,9 @@ if CDOTA_BaseNPC then
     end
 
     return ( UnitFilter( self, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, targetFlags, DOTA_TEAM_NEUTRALS ) == UF_SUCCESS and not self:IsControllableByAnyPlayer() )
+  end
+
+  function CDOTA_BaseNPC:IsOAABoss()
+    return self:HasModifier("modifier_boss_resistance")
   end
 end

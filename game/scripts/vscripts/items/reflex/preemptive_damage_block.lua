@@ -59,7 +59,8 @@ end
 
 function modifier_item_preemptive_damage_reduction:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_MODEL_SCALE
   }
 end
 
@@ -96,4 +97,8 @@ function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Per
   spell.damageTaken = spell.damageTaken + event.damage
 
   return spell:GetSpecialValueFor( "damage_reduction" ) * -1
+end
+
+function modifier_item_preemptive_damage_reduction:GetModifierModelScale()
+  return -30
 end

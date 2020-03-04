@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 50 70 90 140 270"
+    "AbilityManaCost"                                     "30 50 70 90 180 360"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "50 90 130 170 315 600"
+        "damage"                                          "50 90 130 170 300 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_2"
       }
       "02"
@@ -51,7 +51,8 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_range_bonus"                              "60 120 180 240 300 360"
+        "attack_range_bonus"                              "60 120 180 240 260 280"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_7"
       }
     }
   }

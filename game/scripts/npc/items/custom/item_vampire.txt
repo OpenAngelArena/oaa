@@ -46,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "2.0"
+    "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "vampire"
 
     "MaxUpgradeLevel"                                     "2"
@@ -69,32 +69,47 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "75 100"
+        "bonus_strength"                                  "70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "150 225"
+        "bonus_damage"                                    "75 100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resistance"                         "20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "40 45"
+        "bonus_attack_speed"                              "30 40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "175 250"
+        "lifesteal_percent"                               "35 40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second_pct"                           "8"
+        "active_lifesteal_percent"                        "215 225"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second_pct"                           "8"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "ticks_per_second"                                "4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
     }
     "precache"

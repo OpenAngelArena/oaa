@@ -68,7 +68,8 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "17 15 13 11 10 10" // OAA, same as AbilityCooldown
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_2"
       }
     }
   }
