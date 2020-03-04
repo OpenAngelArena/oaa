@@ -1,44 +1,47 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin: Momentum
+  // Sohei: Momentum Strike
   //=================================================================================================================
-  "sohei_momentum"
+  "sohei_momentum_strike"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                 "ability_lua"
-    "ID"                        "9503"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE" //"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityTextureName"        "custom/ronin_momentum"
-    "ScriptFile"                "abilities/sohei/sohei_momentum.lua"
-    "MaxLevel"                  "6"
+    "BaseClass"                                           "ability_lua"
+    "ID"                                                  "9503"
+    //"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE" //"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/ronin_momentum"
+    "ScriptFile"                                          "abilities/sohei/sohei_momentum_strike.lua"
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCastRange"        "300"
+    "AbilityCastPoint"                                    "0.15"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "0.0"
+    "AbilityCooldown"                                     "14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "0"
+    "AbilityManaCost"                                     "100"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/hero/sohei/momentum.vpcf"
-      "particle"          "particles/hero/sohei/knockback.vpcf"
-      "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
+      "particle"                                          "particles/hero/sohei/momentum.vpcf"
+      "particle"                                          "particles/hero/sohei/knockback.vpcf"
+      "particle"                                          "particles/hero/sohei/momentum_strike_projectile.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
     // Special
@@ -48,7 +51,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "trigger_distance"                                "300"
+        "max_travel_distance"                             "700 800 900 1000 1100 1200"
       }
       "02"
       {
@@ -60,26 +63,42 @@
         "var_type"                                        "FIELD_INTEGER"
         "knockback_speed"                                 "1200"
       }
-      "04"
+      "04" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
       {
         "var_type"                                        "FIELD_INTEGER"
-        "collision_radius"                                "100"
+        "collision_radius"                                "125"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_damage"                                     "130 140 150 160 170 185"
+        "crit_damage"                                     "150 180 210 240 270 300"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-15 -20 -25 -30 -35 -45"
+        "movement_slow"                                   "-20 -25 -30 -35 -40 -45"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.1"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
+      }
+      "09" // projectile vision
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_radius"                                   "300"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1200"
       }
     }
   }
