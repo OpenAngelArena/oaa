@@ -15,20 +15,39 @@ function AbilityLevels:Init ()
   GameEvents:OnPlayerLearnedAbility(partial(self.CheckAbilityLevels, self))
   CustomGameEventManager:RegisterListener("check_level_up_selection", function(_, keys)
     -- Change the player ID to an entity index
-    keys.player = PlayerResource:GetPlayer(keys.PlayerID):entindex()
     self:CheckAbilityLevels(keys)
   end)
 end
 
 function AbilityLevels:CheckAbilityLevels (keys)
-  local player = EntIndexToHScript(keys.player)
-  local level = keys.level
+  -- dota_player_gained_level:
+  --"player_id"
+  --"level"
+  --"hero_entindex"
+
+  -- dota_player_learned_ability:
+  --"PlayerID"
+  --"player"
+  --"abilityname"
+
+  local playerID = keys.player_id or keys.PlayerID
+  local player
+  if keys.player then
+    player = EntIndexToHScript(keys.player)
+  else
+    player = PlayerResource:GetPlayer(playerID)
+  end
+
   local hero
   if keys.selectedEntity then
     hero = EntIndexToHScript(keys.selectedEntity)
+  elseif keys.hero_entindex then
+    hero = EntIndexToHScript(keys.hero_entindex)
   else
     hero = player:GetAssignedHero()
   end
+
+  local level = keys.level
   if not level then
     level = hero:GetLevel()
   end
