@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // sohei talent 1: Momentum inflicts a brief stun if the target collides with an obstacle
+  // Momentum Strike talent: bonus stun duration if the target collides with an obstacle
   //=================================================================================================================
   "special_bonus_sohei_stun"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9504"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "9504"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,22 +18,22 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "value"         "0.2"     // Stun duration
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "2.0"
       }
     }
   }
   //=================================================================================================================
-  // sohei talent 3: Momentum hits reduce the cooldown on Guard
+  // Dash talent: Sohei becomes invulnerable during Dash
   //=================================================================================================================
-  "special_bonus_sohei_momentum_guard_cooldown"
+  "special_bonus_sohei_dash_invulnerable"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9506"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "9506"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,23 +41,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "value"         "1.0"     // Cooldown reduction in seconds
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1"
       }
     }
   }
 
   //=================================================================================================================
-  // sohei talent 4: Dash charges cooldown reduced
+  // Dash talent: Reduces Dash charges cooldown
   //=================================================================================================================
   "special_bonus_sohei_dash_recharge"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9507"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "9507"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,23 +65,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "value"         "2.0"     // Cooldown reduction in seconds
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "3.0"
       }
     }
   }
 
   //=================================================================================================================
-  // sohei talent 5: Increases Flurry of Blows' AOE radius
+  // Flurry of Blows talent: Increases radius
   //=================================================================================================================
   "special_bonus_sohei_fob_radius"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9508"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "9508"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -89,23 +89,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "value"         "200"     // Radius increase
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "200"
       }
     }
   }
 
   //=================================================================================================================
-  // sohei talent 6: Guard can be cast on allies, this isn't ready don't use this
+  // Momentum Strike talent: bonus crit damage - unused
   //=================================================================================================================
-  "special_bonus_sohei_wholeness_allycast"
+  "special_bonus_sohei_momentum_strike_crit"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9509"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "9509"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -113,22 +113,22 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "value"         "1"     // nothing
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "100"
       }
     }
   }
   //=================================================================================================================
-  // sohei talent 2: Guard also knockbacks enemies until they are 300 units away
+  // Wholeness of Body talent: Applies Momentum Strike knockback (if Momentum Strike is learned) to enemies around the target
   //=================================================================================================================
   "special_bonus_sohei_wholeness_knockback"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ID"                  "9505"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "9505"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -136,13 +136,13 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "500"     // Knockback max distance
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "400"     // Knockback max distance
       }
-	  "02"
+      "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "0.2"     // Knockback max distance
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "0.2"     // Knockback max duration
       }
     }
   }

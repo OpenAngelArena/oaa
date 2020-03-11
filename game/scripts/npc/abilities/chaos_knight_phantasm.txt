@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
+    "AbilityCooldown"                                     "120" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,27 +47,28 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "illusion_duration"                               "30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "-60 -30 0 30 60"
+        "outgoing_damage"                                 "-60 0 60 120 180" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "40 70 100 130 160"
+        "outgoing_damage_tooltip"                         "40 100 160 220 280" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "250"
+        "incoming_damage"                                 "200" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage_tooltip"                         "350"
+        "incoming_damage_tooltip"                         "300" //OAA
       }
       "07"
       {

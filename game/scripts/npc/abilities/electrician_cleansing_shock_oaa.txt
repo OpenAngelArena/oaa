@@ -64,13 +64,23 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces_scepter"                                 "2"
-        "RequiresScepter"                                 "1"
+        "bounces"                                         "0 1 2 3 3"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounce_range_scepter"                            "500"
+        "bounce_range"                                    "500"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounces_scepter"                                 "1 2 3 4 5"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_illusion_damage_scepter"                  "1000"
         "RequiresScepter"                                 "1"
       }
     }
