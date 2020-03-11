@@ -28,13 +28,15 @@
 "DOTA_Tooltip_Ability_electrician_energy_absorption_move_speed_duration"        "MOVE SPEED DURATION:"
 
 "DOTA_Tooltip_Ability_electrician_cleansing_shock"                              "Cleansing Shock"
-"DOTA_Tooltip_Ability_electrician_cleansing_shock_Description"                  "Strikes a unit with a purging bolt that removes most debuffs from an ally and grants them bonus movement speed, or removes most buffs from an enemy and slows them. Both movement speed effects decay over their duration. Destroys summoned units.\n\nDISPEL TYPE: Basic Dispel"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_Description"                  "Strikes a unit with a purging bolt that removes most debuffs from an ally and grants them bonus movement speed, or removes most buffs from an enemy and slows them. Both movement speed effects decay over their duration. Bolt bounces prioritizing heroes.\n\nDISPEL TYPE: Basic Dispel"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_duration"                     "DURATION:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_move_speed_bonus"             "%ALLY MOVE SPEED BONUS:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_slow"                         "%ENEMY SLOW:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_bounces"                      "BOUNCES:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_bounces_scepter"              "SCEPTER BOUNCES:"
-"DOTA_Tooltip_Ability_electrician_cleansing_shock_bounce_range_scepter"         "SCEPTER BOUNCE RANGE:"
-"DOTA_Tooltip_Ability_electrician_cleansing_shock_aghanim_description"          "Causes the bolt to bounce to the nearest target, prioritizing heroes."
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_bounce_range"                 "BOUNCE RANGE:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_summon_illusion_damage_scepter" "SUMMON DAMAGE:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_aghanim_description"          "Increases number of bounces and deals damage to summoned units and illusions."
 
 // modifiers
 "DOTA_Tooltip_modifier_electrician_static_grip"                                 "Static Grip"
@@ -53,7 +55,7 @@
 
 
 // talents
-"DOTA_Tooltip_Ability_special_bonus_electrician_absorption_hero_mana_restore"   "x%value% Energy Absorption Mana Restore per Hero"
+"DOTA_Tooltip_Ability_special_bonus_electrician_absorption_hero_mana_restore"   "x{s:value} Energy Absorption Mana Restore per Hero"
 "DOTA_Tooltip_Ability_special_bonus_electrician_shock_autoself"                 "Cleansing Shock Always Affects Self"
 "DOTA_Tooltip_Ability_special_bonus_electrician_shock_autoself_Description"     "Casting Cleansing Shock on another unit will still apply its effects to you."
 "DOTA_Tooltip_Ability_special_bonus_hp_1000"                                    "+1000 Health"
