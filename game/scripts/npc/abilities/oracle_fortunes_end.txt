@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "120 150 180 210 350 500"
+        "damage"                                          "120 150 180 210 420 630"
       }
       "02"
       {
@@ -80,7 +80,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_stun_percentage"                         "50"
+        "scepter_stun_percentage"                         "80" //OAA
         "RequiresScepter"                                 "1"
       }
     }
