@@ -3,25 +3,25 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_tusk"
 	"Title"			"Recommended items for Tusk"
-	
+
 	"Items"
 	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
-			"item"		"item_arcane_origin"
 			"item"		"item_boots"
 			"item"		"item_orb_of_venom"
-
+      "item"    "item_flask"
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
 		{
-			"item"		"item_medallion_of_courage"
+			"item"    "item_magic_wand"
+      "item"		"item_medallion_of_courage"
 			"item"		"item_greater_arcane_boots"
-            "item"		"item_solar_crest"
-            "item"		"item_blink"
+      "item"		"item_solar_crest"
+      "item"		"item_blink"
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_mekansm"
@@ -30,13 +30,13 @@
 			"item"		"item_vladmir"
 			"item"		"item_black_king_bar_1"
 		}
-		
+
 		"#DOTA_Item_Build_Late_Items"
 		{
 			"item"		"item_helm_of_the_dominator_2"
 			"item"		"item_greater_guardian_greaves_5"
 		}
-		
+
 		"#DOTA_Item_Build_Luxury"
 		{
 			"item"		"item_ancient_janggo"
@@ -46,7 +46,7 @@
 			"item"		"item_lotus_orb"
 			"item"		"item_assault"
 			"item"		"item_desolator"
-			"item"		"item_devastator"	
+			"item"		"item_devastator"
 
 		}
 	}

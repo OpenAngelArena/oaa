@@ -8,14 +8,15 @@
 	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
-			"item" ""
-			"item" ""
+			"item" "item_flask"
+			"item" "item_quelling_blade"
 			"item" "item_wraith_band"
 		}
 
 		"#DOTA_Item_Build_Early_Game"
 		{
-			"item" "item_ancient_janggo"
+			"item" "item_magic_wand"
+      "item" "item_ancient_janggo"
 			"item" ""
 			"item"	"item_greater_crit"
 		}

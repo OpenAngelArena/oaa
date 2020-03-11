@@ -3,34 +3,34 @@
     "author"        "Valve"
     "hero"          "npc_dota_hero_witch_doctor"
     "Title"         "Recommended items for Witch Doctor"
-    
+
     "Items"
-    {       
+    {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      "item_tranquil_origin"
             "item"      "item_enchanted_mango"
             "item"      "item_enchanted_mango"
             "item"      "item_enchanted_mango"
             "item"      "item_wind_lace"
             "item"      "item_magic_wand"
+            "item"      "item_flask"
         }
-        
+
         "#DOTA_Item_Build_Early_Game"
-        {   
+        {
             "item"      "item_greater_tranquil_boots"
             "item"      "item_hand_of_midas_2"
             "item"      "item_ward_stack"
             "item"      "item_solar_crest"
         }
-        
+
         "#DOTA_Item_Build_Mid_Items"
         {
             "item"      "item_ultimate_scepter"
             "item"      "item_black_king_bar"
             "item"      "item_heart"
         }
-        
+
         "#DOTA_Item_Build_Late_Items"
         {
             "item"      "item_greater_guardian_greaves_4"
@@ -40,7 +40,7 @@
             "item"      "item_black_king_bar_5"
             "item"      "item_heart_transplant_2"
         }
-        
+
         "#DOTA_Item_Build_Other_Items"
         {
             "item"      "item_sheepstick"
