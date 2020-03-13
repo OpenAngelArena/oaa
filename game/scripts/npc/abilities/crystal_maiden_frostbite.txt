@@ -16,6 +16,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -61,6 +62,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "creep_duration"                                  "10.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.7"
       }
     }
   }

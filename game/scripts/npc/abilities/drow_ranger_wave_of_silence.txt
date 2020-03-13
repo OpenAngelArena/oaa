@@ -12,13 +12,15 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"    
+
+    "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.25"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 15 14 13 13 13"
 
@@ -38,32 +40,26 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wave_range_tooltip"                              "900"
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_2"
+        "wave_width"                                      "250"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_width"                                      "250"
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "3 3.5 4 4.5 5 5.5" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "3 3.5 4 4.5 5 5.5" //OAA
-        "LinkedSpecialBonus"  "special_bonus_unique_drow_ranger_4"
+        "knockback_distance_max"                          "450"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_2"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_distance_max"                          "350"
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
         "knockback_duration"                              "0.6 0.7 0.8 0.9 1.0 1.1"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "knockback_height"                                "0"

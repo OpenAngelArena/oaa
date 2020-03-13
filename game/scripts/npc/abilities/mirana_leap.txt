@@ -15,6 +15,8 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "3"
+    "AbilityChargeRestoreTime"                            "20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -26,18 +28,18 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "leap_distance"     "550"
+        "var_type"                                        "FIELD_INTEGER"
+        "leap_distance"                                   "550"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "leap_speed"      "1300.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "leap_speed"                                      "1300.0"
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "leap_acceleration"   "6000.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "leap_acceleration"                               "6000.0"
       }
       "04"
       {
@@ -47,23 +49,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leap_speedbonus_as"                              "60 80 100 120 170 250"
+        "leap_speedbonus_as"                              "25 50 75 100 150 300"
         "LinkedSpecialBonus"                              "special_bonus_unique_mirana_1"
       }
       "06"
       {
-        "var_type"        "FIELD_FLOAT"
-        "leap_bonus_duration" "2.5"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "max_charges"     "3"
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "charge_restore_time" "20" //OAA
+        "var_type"                                        "FIELD_FLOAT"
+        "leap_bonus_duration"                             "2.5"
       }
     }
   }

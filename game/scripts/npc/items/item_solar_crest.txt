@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "300"
+    "ItemCost"                                            "400"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3875"
+    "ItemCost"                                            "3900"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12 15 20 25 30"
+        "bonus_armor"                                     "5 8 12 17 23" //OAA
       }
       "02"
       {
@@ -89,17 +89,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_attack_speed"                             "50 70 90 110 130" //OAA
+        "target_attack_speed"                             "50 60 70 80 90" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "7"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "valor_cast_range_tooltip"                        "1000"
       }
     }
   }

@@ -7,10 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5441"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5441"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,37 +22,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times"                               "0.7 0.7 0.7 0.7 0.7"
+        "multicast_2_times"                               "75"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times"                               "0 0.3 0.3 0.3 0.3"
+        "multicast_3_times"                               "0 30 30 30 30"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times"                               "0 0 0.15 0.25 0.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bloodlust_aoe"                                   "575"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times_tooltip"                       "70 70 70 70 70"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times_tooltip"                       "0 30 30 30 30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times_tooltip"                       "0 0 15 25 50"
+        "multicast_4_times"                               "0 0 15 25 35"
       }
     }
   }

@@ -18,9 +18,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_necronomicon_3;item_upgrade_core"
-      "02"                                                "item_necronomicon_3;item_upgrade_core_2"
-      "03"                                                "item_necronomicon_3;item_upgrade_core_3"
-      "04"                                                "item_necronomicon_3;item_upgrade_core_4"
     }
   }
 
@@ -45,7 +42,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "6500"
+    "ItemCost"                                            "6350"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 4;necro 4"
@@ -66,7 +63,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2 2.5 3.0 4.0 5.5 7.5 10.0"
+        "bonus_mana_regen"                                "3 3.5 4.0 4.5 5.5 7.5 10.0"
       }
       "03"
       {

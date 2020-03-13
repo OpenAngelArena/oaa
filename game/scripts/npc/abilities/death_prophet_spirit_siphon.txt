@@ -15,9 +15,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -27,6 +30,8 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "1 2 3 4 5 6"
+    "AbilityChargeRestoreTime"                            "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,8 +49,8 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_pct"                                      "1.0 2.5 4.0 5.5 7 8.5"
-        "LinkedSpecialBonus"  "special_bonus_unique_death_prophet_3"
+        "damage_pct"                                      "1.0 2.0 3.0 4.0 6.0 8.0" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet_3"
       }
       "03"
       {
@@ -55,22 +60,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_steal"                                  "4 6 8 10 15 20"
+        "movement_steal"                                  "4 6 8 10 12 14"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "siphon_buffer"                                   "250"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "1 2 3 4 5 6"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "30" //OAA
       }
     }
   }

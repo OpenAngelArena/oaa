@@ -14,11 +14,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 150 150 275 400"
+    "AbilityManaCost"                                     "175 175 175 350 525"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +63,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "frostbite_duration"                              "9 10 11 12 13" //OAA
+        "frostbite_duration"                              "10 11 12 13 14"
       }
       "06"
       {
@@ -79,18 +78,13 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "kill_pct"                                        "8 9 10 11 12"	//OAA
+        "kill_pct"                                        "9 10 11 12 13" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_5"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "target_sight_radius"                             "500"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "frostbite_duration_scepter"                      "17"
       }
     }
   }

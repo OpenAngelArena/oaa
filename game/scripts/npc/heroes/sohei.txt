@@ -1,0 +1,78 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Sohei
+  //=================================================================================================================
+  "npc_dota_hero_sohei"
+  {
+    "BaseClass"                 "npc_dota_hero_juggernaut"
+    "HeroID"                    "125"
+    "Model"                     "models/heroes/sohei/sohei.vmdl"
+    "SoundSet"                  "Sohei"
+    "GameSoundsFile"            "soundevents/units/game_sounds_sohei.vsndevts"
+    "particle_folder"           "particles/hero/sohei"
+
+    "BotImplemented"            "0"
+
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementTurnRate"          "1.5"
+    "MovementSpeed"             "320"
+
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "31"
+    "AttackDamageMax"           "33"
+    "AttackRange"               "150"
+    "AttackRate"                "1.7"
+    "BaseAttackSpeed"           "100"
+    "AttackAnimationPoint"      "0.33"
+    "AttackSpeedActivityModifiers"
+    {
+    "fast"    "170"
+    "faster"  "275"
+    "fastest" "350"
+    }
+
+    "ArmorPhysical"             "5"
+    "MagicalResistance"         "25"
+
+    "StatusHealthRegen"         "3.25"
+    "StatusHealth"              "200"
+    "StatusManaRegen"           "0.0"
+    "StatusMana"                "75"
+
+    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+    "AttributeBaseStrength"     "23"
+    "AttributeStrengthGain"     "4.3"
+    "AttributeBaseAgility"      "18"
+    "AttributeAgilityGain"      "1.5"
+    "AttributeBaseIntelligence" "17"
+    "AttributeIntelligenceGain" "1.5"
+
+    "Ability1"                  "sohei_dash"
+    "Ability2"                  "sohei_wholeness_of_body"
+    "Ability3"                  "sohei_momentum_strike"
+    "Ability4"                  "generic_hidden"
+    "Ability5"                  "generic_hidden"
+    "Ability6"                  "sohei_flurry_of_blows"
+
+    "Ability10"                 "special_bonus_strength_20"
+    "Ability11"                 "special_bonus_attack_speed_30"
+
+    "Ability12"                 "special_bonus_sohei_wholeness_knockback"
+    "Ability13"                 "special_bonus_sohei_dash_invulnerable"
+
+    "Ability14"                 "special_bonus_cleave_40"
+    "Ability15"                 "special_bonus_sohei_stun"
+
+    "Ability16"                 "special_bonus_sohei_dash_recharge"
+    "Ability17"                 "special_bonus_sohei_fob_radius"
+
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+    "HasInventory"              "1"
+
+    "VisionDaytimeRange"        "1800"                            // Range of vision during day light.
+    "VisionNighttimeRange"      "1200"                            // Range of vision at night time.
+  }
+}

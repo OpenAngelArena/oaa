@@ -47,7 +47,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "8 10 12 14 18 22"
+        "illusion_duration"                               "8 10 12 14 16 18"
       }
       "03"
       {
@@ -68,11 +68,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_total_illusion_incoming_damage"          "300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "27.0 24.0 21.0 18.0 18.0 18.0"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_7"
       }
     }
   }

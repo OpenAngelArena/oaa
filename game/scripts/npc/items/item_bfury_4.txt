@@ -16,11 +16,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_bfury_3;item_upgrade_core_3"
-      "02"                                                "item_bfury_3;item_upgrade_core_4"
-      "03"                                                "item_desolator_3;item_upgrade_core_3"
-      "04"                                                "item_desolator_3;item_upgrade_core_4"
-      "05"                                                "item_devastator_3;item_upgrade_core_3"
-      "06"                                                "item_devastator_3;item_upgrade_core_4"
+      "02"                                                "item_desolator_3;item_upgrade_core_3"
+      "03"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
@@ -51,7 +48,7 @@
     "ItemCost"                                            "16500"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bf 4;battle fury 4"
+    "ItemAliases"                                         "cleaver 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -61,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 85 125 180"
+        "bonus_damage"                                    "60 80 110 150 200"
       }
       "02"
       {
@@ -73,47 +70,41 @@
         "var_type"                                        "FIELD_FLOAT"
         "bonus_mana_regen"                                "3.75 4.5 6.25 8.0 10.5"
       }
-      "04"
+      "04" // Cleave against heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "35 45 55 65 75"	//OAA
+        "cleave_damage_percent"                           "50 70 90 110 130" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "24"
+        "cleave_damage_percent_creep"                     "30 50 70 90 110" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "24"	//OAA
+        "quelling_bonus"                                  "18"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_starting_width"                           "150"
+        "quelling_bonus_ranged"                           "18" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "360"
+        "cleave_starting_width"                           "150"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "650"
+        "cleave_ending_width"                             "360"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "350"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_ward"                                 "450"
+        "cleave_distance"                                 "650"
       }
     }
   }
 }
-

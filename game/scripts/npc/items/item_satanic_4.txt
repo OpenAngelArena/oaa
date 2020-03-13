@@ -17,9 +17,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_3;item_upgrade_core_3"
-      "02"                                                "item_satanic_3;item_upgrade_core_4"
-      "03"                                                "item_mask_of_madness_3;item_upgrade_core_3"
-      "04"                                                "item_mask_of_madness_3;item_upgrade_core_4"
+      "02"                                                "item_mask_of_madness_3;item_upgrade_core_3"
     }
   }
 
@@ -62,12 +60,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 38 55 75 100"
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 50 75 100 150"
+        "bonus_damage"                                    "25 50 75 100 125"
       }
       "04"
       {

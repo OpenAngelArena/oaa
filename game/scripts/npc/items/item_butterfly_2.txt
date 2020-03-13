@@ -17,10 +17,7 @@
     "ItemCost"                                            "1500"
     "ItemRequirements"
     {
-      "01"                                                "item_diffusal_blade;item_upgrade_core"
-      "02"                                                "item_diffusal_blade;item_upgrade_core_2"
-      "03"                                                "item_diffusal_blade;item_upgrade_core_3"
-      "04"                                                "item_diffusal_blade;item_upgrade_core_4"
+      "01"                                                "item_butterfly;item_upgrade_core"
     }
   }
 
@@ -45,7 +42,7 @@
     "AbilityTextureName"                                  "custom/butterfly_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4650"
+    "ItemCost"                                            "6975"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly 2;butterfly 2"
@@ -58,22 +55,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "35 40 45 50 75"
+        "bonus_agility"                                   "25 35 50 70 95" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 34 43 52 61"
+        "bonus_damage"                                    "10 30 60 100 150" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "35"
+        "bonus_evasion"                                   "15 20 25 30 35" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45 50"
+        "bonus_attack_speed"                              "10 15 20 25 30" //OAA
       }
     }
   }

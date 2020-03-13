@@ -7,27 +7,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5442"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5442"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "AbilityCastRange"                                    "650"
-    "AbilityCastPoint"                                    "0.45"
     "FightRecapLevel"                                     "1"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.45"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10.0 8.0 6.0 4.0 4.0 4.0"
-    "AbilityDuration"                                     "21.0 24.0 27.0 30.0 33.0 36.0"
+    "AbilityDuration"                                     "45" //OAA, same as decay_duration, Valve has it wrong
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,13 +45,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "str_steal"                                       "4"
+        "str_steal"                                       "3 4 5 6 8 10" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "decay_duration"                                  "45"
-        "LinkedSpecialBonus"      "special_bonus_unique_undying_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_undying_4"
       }
       "04"
       {
@@ -66,9 +66,9 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "str_steal_scepter"                               "10"
+        "str_steal_scepter"                               "9 10 11 12 14 16" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }
-
 }

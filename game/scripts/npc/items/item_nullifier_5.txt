@@ -18,8 +18,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_nullifier_4;item_upgrade_core_4"
-      "02"                                                "item_echo_sabre_4;item_upgrade_core_4"
-      "03"                                                "item_heavens_halberd_4;item_upgrade_core_4"
+      "02"                                                "item_greater_crit_4;item_upgrade_core_4"
+      "03"                                                "item_bloodthorn_4;item_upgrade_core_4"
     }
   }
 
@@ -41,7 +41,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "36450"
+    "ItemCost"            "38330"
     "ItemAliases"         "nlf 5;nullifier 5"
 
     "AbilitySharedCooldown"         "nullify"
@@ -61,12 +61,12 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "65 95 130 170 215"
+        "bonus_damage"      "65 95 135 185 245"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "5 8 12 16 20"
+        "bonus_armor"     "5 6 8 11 15"
       }
       "03"
       {

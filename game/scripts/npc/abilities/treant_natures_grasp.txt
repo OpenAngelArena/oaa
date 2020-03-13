@@ -1,0 +1,80 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Treant Protector: Nature's Grasp
+  //=================================================================================================================
+  "treant_natures_grasp"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "338"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1500"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 19 18 17 16 15"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 80 85 90 110 170"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "30 40 50 60 160 260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_9"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "25 30 35 40 45 50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vines_duration"                                  "12"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creation_interval"                               "0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "initial_latch_delay"                             "0.3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vine_spawn_interval"                             "175"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_range"                                     "135"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latch_vision"                                    "150"
+      }
+    }
+  }
+}

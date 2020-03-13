@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_ethereal_blade_3;item_upgrade_core_3"
-      "02"                                                "item_ethereal_blade_3;item_upgrade_core_4"
     }
   }
 
@@ -73,7 +72,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "40 45 50 60 70"
+        "bonus_agility"                                   "40 45 50 55 60"
       }
       "02"
       {
@@ -119,11 +118,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "projectile_speed"                                "1275"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
       }
     }
   }

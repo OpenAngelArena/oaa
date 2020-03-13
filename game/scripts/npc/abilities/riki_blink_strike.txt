@@ -20,12 +20,14 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 600 700 800 900 1000"
+    "AbilityCastRange"                                    "600 700 800 900 1000 1100"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10 8 6 4 4 4"
+    "AbilityCooldown"                                     "0.1"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "25 20 15 10 9 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,15 +40,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "500 600 700 800 900 1000"
+        "abilitycastrange"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "75 90 105 120 200 250"
+        "bonus_damage"                                    "25 50 75 100 250 400"
       }
     }
   }
-
 }

@@ -1,0 +1,106 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Void Spirit: Aether Remnant
+  //=================================================================================================================
+  "void_spirit_aether_remnant"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "ID"                            "7701"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+      "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+      "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+      "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+      "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+      "FightRecapLevel"               "1"
+
+      "MaxLevel"                                            "6"
+      "RequiredLevel"                                       "1"
+      "LevelsBetweenUpgrades"                               "2"
+
+      // Casting
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityCastPoint"              "0.0"
+      "AbilityCastRange"              "1000"
+
+      // Time
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityCooldown"               "17.0 15.0 13.0 11.0 11.0 11.0"
+
+      // Cost
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilityManaCost"               "85 90 95 100 200 300"
+
+      // Special
+      //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+          "01"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "start_radius"                              "90"
+          }
+          "02"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "end_radius"                                "90"
+          }
+          "03"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "radius"                                    "300"
+          }
+          "04"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "projectile_speed"                          "900"
+          }
+          "05"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "remnant_watch_distance"                    "450"
+          }
+          "06"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "remnant_watch_radius"                      "130"
+          }
+          "07"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "watch_path_vision_radius"                  "200"
+          }
+          "08"
+          {
+              "var_type"                                  "FIELD_FLOAT"
+              "activation_delay"                          "0.4"
+          }
+          "09"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "impact_damage"                             "80 130 180 230 460 920"
+          }
+          "10"
+          {
+              "var_type"                                  "FIELD_FLOAT"
+              "pull_duration"                             "1.2 1.4 1.6 1.8 2.0 2.2"
+          }
+          "11"
+          {
+              "var_type"                                  "FIELD_INTEGER"
+              "pull_destination"                          "44 50 56 62 68 74"
+          }
+          "12"
+          {
+              "var_type"                                  "FIELD_FLOAT"
+              "duration"                                  "20.0"
+          }
+          "13"
+          {
+              "var_type"                                  "FIELD_FLOAT"
+              "think_interval"                            "0.1"
+          }
+      }
+  }
+}

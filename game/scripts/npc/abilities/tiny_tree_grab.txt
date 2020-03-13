@@ -1,0 +1,148 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tiny: Tree Grab
+  //=================================================================================================================
+  "tiny_tree_grab"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5108"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilitySound"                                        "Hero_Tiny.CraggyExterior.Stun"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "165"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25 20 15 10 5 5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus"                         "35"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10 20 30 40 80 140"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_buildings"                          "20 50 80 110 200 380" // should be boss damage some day...
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range"                                    "350"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_width"                                    "200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_range"                                    "400"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_pct"                                      "100" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "throw_splash_pct"                                "150"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bat_increase"                                    "0.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_reduction"                                 "30"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ability: Tiny Toss Tree
+  //=================================================================================================================
+  "tiny_toss_tree"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6937"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1300"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_INVALID"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "speed"                                           "900.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "1300"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "10 20 30 40 80 140"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_radius"                                   "275"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_pct"                                      "150"
+      }
+    }
+  }
+}

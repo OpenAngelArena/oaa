@@ -17,8 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_2;item_upgrade_core_2"
-      "02"                                                "item_satanic_2;item_upgrade_core_3"
-      "03"                                                "item_satanic_2;item_upgrade_core_4"
     }
   }
 
@@ -61,12 +59,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 38 55 75 100"
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 50 75 100 150"
+        "bonus_damage"                                    "25 50 75 100 125"
       }
       "04"
       {

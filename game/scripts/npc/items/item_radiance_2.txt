@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_radiance;item_upgrade_core"
-      "02"                                                "item_radiance;item_upgrade_core_2"
-      "03"                                                "item_radiance;item_upgrade_core_3"
-      "04"                                                "item_radiance;item_upgrade_core_4"
     }
   }
 
@@ -61,12 +58,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "65 80 100 125 160"
+        "bonus_damage"                                    "60 80 110 150 200"
       }
-      "03" //has to be wrong in this case else dota will get confused
+      "03" // 02
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_damage"                                     "60 90 150 240 360" 
+        "aura_damage"                                     "60 90 150 240 360"
       }
       "04"
       {

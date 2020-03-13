@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -22,11 +23,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.05 0.05 0.05 0.05 0.05"
+    "AbilityCastPoint"                                    "0.05"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70" //OAA
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +35,7 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800 800 800 800 800"
+    "AbilityCastRange"                                    "800"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "radius"                                          "500"
       }
       "02"
       {
@@ -53,22 +54,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "200 250 300 550 800"
+        "damage_max"                                      "200 350 500 950 1400" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "7.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pulses_scepter"                                  "28"
       }
     }
   }

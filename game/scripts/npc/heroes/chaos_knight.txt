@@ -7,6 +7,16 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability14"   "special_bonus_attack_speed_40" // replaces special_bonus_gold_income_25
+    "Ability10"      "special_bonus_attack_speed_30" // replaces special_bonus_all_stats_5
+    "Ability11"      "special_bonus_movement_speed_20"
+
+    "Ability12"      "special_bonus_strength_20" // replaces special_bonus_strength_15
+    "Ability13"      "special_bonus_cooldown_reduction_15"
+
+    "Ability14"      "special_bonus_unique_chaos_knight_4" // special_bonus_truestrike
+    "Ability15"      "special_bonus_unique_chaos_knight"
+
+    "Ability16"      "special_bonus_unique_chaos_knight_2"
+    "Ability17"      "special_bonus_unique_chaos_knight_3"
   }
 }

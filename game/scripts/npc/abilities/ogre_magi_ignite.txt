@@ -37,17 +37,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5 6 7 8 10 15"
+        "duration"                                        "5 6 7 8 9 10"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "26 34 42 50 90 130"
+        "burn_damage"                                     "26 34 42 50 100 150"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-30 -32 -34 -36 -40 -45" //OAA
+        "slow_movement_speed_pct"                         "-30 -32 -34 -36 -38 -40" //OAA
       }
       "04"
       {
@@ -57,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_delay"                                 "0.5"
+        "multicast_delay"                                 "0.6"
       }
     }
   }

@@ -56,6 +56,15 @@ SPECIAL_BOTTLES = {
   [142072268] = {2}, -- Niko
   [144780201] = {2}, -- CyberPank
 
+  -- Nevermore, 2nd anniversary tournament
+  [79347944] = {2}, -- PSmist
+  [145308330] = {2}, -- Dolls
+  -- two time winners from nevermore
+  -- [56639681] = {2}, -- mr.random
+  -- [142072268] = {2}, -- Niko
+  -- [157285451] = {2}, -- larenall
+
+
   -- special people
   [110318967] = {7}, -- timo
   [34314091] = {8}, -- frej

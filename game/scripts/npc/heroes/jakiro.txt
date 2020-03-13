@@ -5,16 +5,8 @@
   //=================================================================================================================
   "npc_dota_hero_jakiro"
   {
-    // Attributes
-    //-------------------------------------------------------------------------------------------------------------
-    "ArmorPhysical"		        "10"
-    "AttributeAgilityGain"		"2.600000"
-    "StatusHealthRegen"		    "4.7500000"
-
-    // Abilities
-    //-------------------------------------------------------------------------------------------------------------
-    "Ability12"               "special_bonus_hp_350"  // replaces special_bonus_exp_boost_40
-    "Ability15"               "special_bonus_armor_10" // replaces special_bonus_gold_income_25
+    "ArmorPhysical"		        "8"
+    "StatusHealthRegen"		    "5.0"
   }
 }
 

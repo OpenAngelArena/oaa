@@ -15,6 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -49,7 +50,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "break_distance"                                  "740"
+        "break_distance"                                  "715"
       }
       "03"
       {
@@ -59,12 +60,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700 800 900 1000 1000 1000"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "10 9 8 7 7 7"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_1"
       }
     }
   }

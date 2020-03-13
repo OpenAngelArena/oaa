@@ -12,12 +12,14 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 650 1100"
+    "AbilityManaCost"                                     "100 150 200 600 900"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -53,37 +55,45 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.5" //OAA
+        "stun_duration"                                   "0.5"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_initial_damage"                             "100 200 300 600 1100" //OAA
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "coil_stun_duration"                              "1.8 2.4 3.0 3.5 4.0"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage"                               "300 400 500 1000 1500"
+        "coil_break_damage"                               "300 500 700 1300 2300" //OAA
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "coil_radius"                                     "375"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "coil_duration_scepter"                           "8"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage_scepter"                       "400 550 700 1450 2200"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "coil_break_damage_scepter"                       "400 700 1000 1700 2800" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration_scepter"                      "2 3 4.5 4.75 5.5" //OAA
+        "coil_stun_duration_scepter"                      "1.8 3.0 4.5 4.75 5.0" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -47,9 +47,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "12.0"
+    "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "vampire"
-    "AbilityTextureName"                                  "custom/bloodstone"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_vampire_2"
@@ -60,9 +60,6 @@
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -73,32 +70,47 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "75 100"
+        "bonus_strength"                                  "70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "150 225"
+        "bonus_damage"                                    "75 100"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resistance"                         "20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "20 25"
+        "bonus_attack_speed"                              "30 40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "300 400"
+        "lifesteal_percent"                               "35 40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second_pct"                           "15"
+        "active_lifesteal_percent"                        "215 225"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second_pct"                           "8"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "ticks_per_second"                                "4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
     }
     "precache"

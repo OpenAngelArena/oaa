@@ -5,6 +5,21 @@ LinkLuaModifier( "modifier_electrician_cleansing_shock_enemy", "abilities/electr
 
 --------------------------------------------------------------------------------
 
+-- CastFilterResultTarget runs on client side first
+function electrician_cleansing_shock:CastFilterResultTarget(target)
+  local default_result = self.BaseClass.CastFilterResultTarget(self, target)
+
+  if default_result == UF_FAIL_MAGIC_IMMUNE_ENEMY then
+    local caster = self:GetCaster()
+    -- Talent that allows to target Spell Immune units
+    if caster:HasTalent("special_bonus_electrician_shock_spell_immunity") then
+      return UF_SUCCESS
+    end
+  end
+
+  return default_result
+end
+
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
@@ -30,12 +45,12 @@ function electrician_cleansing_shock:OnSpellStart()
 	-- trigger and get blocked by linkens
 	if not target:TriggerSpellAbsorb( self ) then
 		-- set up abilityspecial
-		local targets = 1
-		local bounceRange = self:GetSpecialValueFor( "bounce_range_scepter" )
+		local targets = self:GetSpecialValueFor( "bounces" ) + 1
+		local bounceRange = self:GetSpecialValueFor( "bounce_range" )
 
-		-- if caster has scepter, add number of bounces to hit count
+		-- if caster has scepter, check number of bounces
 		if caster:HasScepter() then
-			targets = targets + self:GetSpecialValueFor( "bounces_scepter" )
+			targets = self:GetSpecialValueFor( "bounces_scepter" ) + 1
 		end
 
 		-- until we run out of bounces ...
@@ -74,30 +89,37 @@ end
 
 -- helper function for applying the purge and move speed change
 function electrician_cleansing_shock:ApplyEffect( target )
-	local caster = self:GetCaster()
-	local duration = self:GetSpecialValueFor( "duration" )
+  local caster = self:GetCaster()
+  local duration = self:GetSpecialValueFor( "duration" )
 
-	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-		target:Purge( true, false, false, false, false )
-		target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", {
-			duration = duration,
-		} )
-	else
-		target:Purge( false, true, false, false, false )
-		target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", {
-			duration = duration,
-		} )
-	end
+  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    target:Purge( true, false, false, false, false )
+    target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
+    -- Deal damage to summons, illusions and dominated units if caster has aghanim scepter
+    if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) and not target:IsMagicImmune() then
+      local summon_damage = self:GetSpecialValueFor( "summon_illusion_damage_scepter" )
+      local damage_table = {}
+      damage_table.attacker = caster
+      damage_table.victim = target
+      damage_table.damage_type = DAMAGE_TYPE_PURE
+      damage_table.ability = self
+      damage_table.damage = summon_damage
+      ApplyDamage(damage_table)
+    end
+  else
+    target:Purge( false, true, false, false, false )
+    target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", { duration = duration } )
+  end
 
-	-- particle
-	local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
-	ParticleManager:ReleaseParticleIndex( part )
+  -- particle
+  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+  ParticleManager:ReleaseParticleIndex( part )
 
-	-- sound
-	target:EmitSound( "Hero_Tinker.LaserImpact" )
+  -- sound
+  target:EmitSound( "Hero_Tinker.LaserImpact" )
 
-	-- add unit to hitlist
-	table.insert( self.hitTargets, target )
+  -- add unit to hitlist
+  table.insert( self.hitTargets, target )
 end
 
 --------------------------------------------------------------------------------
@@ -237,10 +259,17 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_cleansing_shock_enemy:OnCreated( event )
-	local spell = self:GetAbility()
-	local interval = spell:GetSpecialValueFor( "speed_update_interval" )
-	self.moveSpeed = spell:GetSpecialValueFor( "move_speed_bonus" )
-	self.intervalChange = self.moveSpeed / ( self:GetDuration() / interval )
+  local parent = self:GetParent()
+  local spell = self:GetAbility()
+  local interval = spell:GetSpecialValueFor( "speed_update_interval" )
+  local slow = spell:GetSpecialValueFor( "slow" )
+  if IsServer() then
+    self.moveSpeed = parent:GetValueChangedByStatusResistance( slow )
+    self.intervalChange = self.moveSpeed / ( self:GetDuration() / interval )
+  else
+    self.moveSpeed = slow
+    self.intervalChange = slow / ( self:GetDuration() / interval )
+  end
 
 	self:StartIntervalThink( interval )
 end
@@ -248,10 +277,17 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_cleansing_shock_enemy:OnRefresh( event )
-	local spell = self:GetAbility()
-	local interval = spell:GetSpecialValueFor( "speed_update_interval" )
-	self.moveSpeed = spell:GetSpecialValueFor( "slow" )
-	self.intervalChange = self.moveSpeed / ( self:GetDuration() / interval )
+  local parent = self:GetParent()
+  local spell = self:GetAbility()
+  local interval = spell:GetSpecialValueFor( "speed_update_interval" )
+  local slow = spell:GetSpecialValueFor( "slow" )
+  if IsServer() then
+    self.moveSpeed = parent:GetValueChangedByStatusResistance( slow )
+    self.intervalChange = self.moveSpeed / ( self:GetDuration() / interval )
+  else
+    self.moveSpeed = slow
+    self.intervalChange = slow / ( self:GetDuration() / interval )
+  end
 
 	self:StartIntervalThink( interval )
 end

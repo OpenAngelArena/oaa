@@ -12,7 +12,8 @@ if Gold == nil then
 end
 
 local GOLD_CAP = 50000
-local GPM_TICK_INTERVAL = 5
+local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in settings.lua
+local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in settings.lua
 
 function Gold:Init()
   -- a table for every player
@@ -20,9 +21,14 @@ function Gold:Init()
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
 
-    -- start think timer
+  -- start think timer
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
-  Timers:CreateTimer(GPM_TICK_INTERVAL, Dynamic_Wrap(Gold, 'PassiveGPM'))
+  --Timers:CreateTimer(GPM_TICK_INTERVAL, Dynamic_Wrap(Gold, 'PassiveGPM'))
+
+  -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (it was tied to couriers in 7.23 but not anymore)
+  LinkLuaModifier("modifier_oaa_passive_gpm", "components/gold/gold.lua", LUA_MODIFIER_MOTION_NONE)
+  Gold.hasPassiveGPM = {}
+  GameEvents:OnHeroInGame(Gold.HeroSpawn)
 end
 
 function Gold:GetState ()
@@ -122,6 +128,7 @@ function Gold:SetGold(unitvar, gold)
   Gold:UpdatePlayerGold(playerID, newGold)
 end
 
+-- bReliable and iReason don't do anything
 function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
   if gold > 0 then
     Gold:AddGold(unitvar, gold)
@@ -165,20 +172,75 @@ function Gold:GetGold(unitvar)
   return math.floor(currentGold or 0)
 end
 
--- exponential gpm increase
-function Gold:PassiveGPM()
-  local time = HudTimer:GetGameTime()
-  if time and time > 0 then
-    local goldTick =  math.floor(time/GPM_TICK_INTERVAL);
-    GameRules:SetGoldPerTick((goldTick*goldTick - 28*goldTick + 7688)*15/13800)
-  else
-    GameRules:SetGoldPerTick(0)
+function Gold.HeroSpawn(hero)
+  if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
+  if Gold.hasPassiveGPM[hero] then
+    return
+  end
+  if hero:IsTempestDouble() or hero:IsClone() then
+    return
   end
 
-  return GPM_TICK_INTERVAL
+  Timers:CreateTimer(1.2, function ()
+    hero:AddNewModifier(hero, nil, "modifier_oaa_passive_gpm", {})
+    Gold.hasPassiveGPM[hero] = true
+  end)
+end
+-- exponential gpm increase
+function Gold:PassiveGPM(hero)
+  local time = HudTimer:GetGameTime()
+  if time and self:IsGoldGenActive() then
+    local tick =  math.floor(time/GPM_TICK_INTERVAL)
+    local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
+     -- GameRules:SetGoldPerTick doesn't work since 7.23
+    self:ModifyGold(hero, gold_per_tick, false, DOTA_ModifyGold_GameTick)
+  end
 end
 
 -- used to determine whether or not gold generation from farming boots should occur
 function Gold:IsGoldGenActive()
   return (not Duels:IsActive()) and HudTimer:GetGameTime() > 0
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_passive_gpm = class({})
+
+function modifier_oaa_passive_gpm:IsPermanent()
+  return true
+end
+
+function modifier_oaa_passive_gpm:IsHidden()
+  return true
+end
+
+function modifier_oaa_passive_gpm:IsPurgable()
+  return false
+end
+
+function modifier_oaa_passive_gpm:RemoveOnDeath()
+  return false
+end
+
+function modifier_oaa_passive_gpm:OnCreated()
+  if not IsServer() then
+    return
+  end
+  if GOLD_PER_INTERVAL <= 0 or GPM_TICK_INTERVAL <= 0 then
+    self:Destroy()
+  end
+  self:StartIntervalThink(GPM_TICK_INTERVAL)
+end
+
+function modifier_oaa_passive_gpm:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
+    return
+  end
+  Gold:PassiveGPM(parent)
 end

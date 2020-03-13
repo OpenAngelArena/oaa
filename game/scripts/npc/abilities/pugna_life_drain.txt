@@ -17,8 +17,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -44,30 +47,21 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "150 225 300 500 750"
+        "health_drain"                                    "175 400 625 1300 2425" //OAA
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "700"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "0.0"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "10"
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_rate"                                       "0.25"
       }
       "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0.0 0.0 0.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "0.25 0.25 0.25"
-      }
-      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "drain_buffer"                                    "200"

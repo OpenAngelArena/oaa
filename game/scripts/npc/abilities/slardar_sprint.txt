@@ -15,10 +15,16 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +45,30 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "river_speed"                                     "700"
+        "river_speed"                                     "5 20 35 50 65 80"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_regen"                                    "35"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_armor"                                    "12"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "puddle_status_resistance"                        "40"
+        "RequiresScepter"                                 "1"
+      }
+      "07" // bonus_speed + river_speed
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "river_speed_tooltip"                             "25 48 71 94 125 170" // OAA, Valve is bad at math
       }
     }
   }

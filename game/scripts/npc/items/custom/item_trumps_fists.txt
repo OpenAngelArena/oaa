@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: trumps_fists
+  // Recipe: Blade of Judecca 1
   //=================================================================================================================
   "item_recipe_trumps_fists"
   {
@@ -24,14 +24,12 @@
     "ItemRequirements"
     {
       "01"                                                "item_skadi_3;item_upgrade_core_3"
-      "02"                                                "item_skadi_3;item_upgrade_core_4"
-      "03"                                                "item_abyssal_blade_3;item_upgrade_core_3"
-      "04"                                                "item_abyssal_blade_3;item_upgrade_core_4"
+      "02"                                                "item_abyssal_blade_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // trumps_fists (Based on Desolator)
+  // Blade of Judecca 1 (Covfefe 1)
   //=================================================================================================================
   "item_trumps_fists"
   {
@@ -50,12 +48,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16450"
+    "ItemCost"                                            "18500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "trumps fists;covfefe"
+    "ItemAliases"                                         "trumps fists;covfefe;blade of judecca"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_trumps_fists"
+    "UpgradesItems"                                       "item_trumps_fists;item_trumps_fists_2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -69,17 +67,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "45 55"
+        "bonus_all_stats"                                 "55 75"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "750 1250"
+        "bonus_health"                                    "900 1125"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "800 1000"
+        "bonus_mana"                                      "1000 1250"
       }
       "05"
       {
@@ -89,7 +87,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_duration"                           "2 2"
+        "heal_prevent_duration"                           "3"
       }
     }
 

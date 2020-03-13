@@ -20,11 +20,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "125"
+    "AbilityCooldown"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100 125 150 200 250"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -32,33 +32,43 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow"                                            "24 32 40 56 72"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "40 45 50 55 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "7"
+        "damage"                                          "25 45 65 125 225" //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "6"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_bonus"                                    "400 1000 1600 3200 4800"
+        "str_percentage"                                  "40 50 60 70 80"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "30"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "40"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "0.5"
+        "spawn_rate"                                      "3 2.5 2 2 2"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "zombie_radius"                                   "400"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_bonus"                                  "30"
       }
     }
   }

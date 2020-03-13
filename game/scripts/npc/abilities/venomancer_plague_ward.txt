@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"venomancer_plague_ward"
+  "venomancer_plague_ward"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,6 +8,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -31,6 +32,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "40.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_7"
       }
       "02"
       {
@@ -45,6 +47,7 @@
         "ward_damage_tooltip"                             "13 22 31 40 140 240"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04" // For special bonus at level 25
       {

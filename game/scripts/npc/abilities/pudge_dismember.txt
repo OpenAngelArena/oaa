@@ -17,11 +17,15 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "160"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -30,24 +34,31 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 130 170 290 420"
+    "AbilityManaCost"                                     "100 130 170 290 490"
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dismember_damage"                                "60 90 120 270 420"
+        "dismember_damage"                                "60 120 180 360 540" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
+        "LinkedSpecialBonusField"                         "value"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "strength_damage"                                 "0.3 0.6 0.9 1.0 1.2"
+        "strength_damage"                                 "0.3 0.6 0.9 1.0 1.1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
+        "LinkedSpecialBonusField"                         "value2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ticks"                                           "3"
+        "ticks"                                           "6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_6"
+        "LinkedSpecialBonusField"                         "value2"
       }
       "04"
       {
@@ -63,6 +74,35 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "animation_rate"                                  "1.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "abilitychanneltime"                              ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_6"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_dismember_duration_tooltip"                "6.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_regen_pct"                               "4"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "order_lock_duration"                             "3"
+        "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "11"
+        "RequiresScepter"                                 "1"
       }
     }
   }

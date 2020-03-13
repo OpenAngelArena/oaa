@@ -1,0 +1,117 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Spark Wraith Damage
+  //=================================================================================================================
+  "special_bonus_unique_arc_warden"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6287"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"500" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Flux Duration - unused
+  //=================================================================================================================
+  "special_bonus_unique_arc_warden_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6354"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"3"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Spark Wraith Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_arc_warden_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7104"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Global Flux - unused
+  //=================================================================================================================
+  "special_bonus_unique_arc_warden_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7105"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"0"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Flux Cast Range
+  //=================================================================================================================
+  "special_bonus_unique_arc_warden_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7120"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"400"
+      }
+    }
+  }
+}

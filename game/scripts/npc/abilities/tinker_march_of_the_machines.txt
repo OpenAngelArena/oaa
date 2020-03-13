@@ -27,11 +27,11 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "16 24 32 40 70 100"
+    "AbilityDamage"                                       "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "145 150 165 190 265 340"
+    "AbilityManaCost"                                     "130 150 170 190 260 340"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -56,6 +56,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker_5"
       }
       "05"
       {
@@ -76,6 +77,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "distance_scepter"                                "1800"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "20 30 40 50 75 100" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker_2"
       }
     }
   }
