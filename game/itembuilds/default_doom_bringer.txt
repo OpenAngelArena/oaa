@@ -1,60 +1,58 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_doom_bringer"
-	"Title"			"Recommended items for Doom"
+  "author"		"Valve"
+  "hero"			"npc_dota_hero_doom_bringer"
+  "Title"			"Recommended items for Doom"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_flask"
-			"item"		""
-			"item"		"item_branches"
-			"item"		"item_branches"
-			"item"		"item_clarity"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"		"item_flask"
+      "item"		"item_branches"
+      "item"		"item_clarity"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		""
-			"item"		"item_magic_wand"
-		}
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"		""
+      "item"		"item_magic_wand"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		""
-			"item"		""
-			"item"		"item_ancient_janggo"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"		""
+      "item"		""
+      "item"		"item_ancient_janggo"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_blink"
-			"item"		"item_shivas_guard"
-			"item"		"item_assault"
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_ethereal_blade"
+      "item"    "item_kaya_and_sange"
+      "item"		"item_shivas_guard"
+      "item"		"item_assault"
+      "item"    "item_refresher_4"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_ultimate_scepter"
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		"item_silver_edge"
-			"item"		"item_heart"
-			"item"		""
-			"item"		"item_abyssal_blade"
-			"item"		""
-			"item"		"item_heavens_halberd"
-			"item"		"item_radiance"
-			"item"		"item_echo_sabre"
-			"item"		"item_lotus_orb"
-			"item"		"item_pipe"
-			"item"		""
-			"item"		""
-
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_blink"
+      "item"    "item_ultimate_scepter"
+      "item"		""
+      "item"		""
+      "item"		""
+      "item"		""
+      "item"		"item_silver_edge"
+      "item"		"item_heart"
+      "item"		""
+      "item"		"item_abyssal_blade_3"
+      "item"		""
+      "item"		"item_heavens_halberd"
+      "item"		"item_radiance"
+      "item"		"item_echo_sabre"
+      "item"		"item_lotus_orb"
+      "item"		"item_pipe"
+    }
+  }
 }
