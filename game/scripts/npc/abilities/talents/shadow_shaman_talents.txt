@@ -1,36 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Flame Guard Absorption
+  // Bonus hits to destroy (max hp) for Serpent Wards
   //=================================================================================================================
-  "special_bonus_unique_ember_spirit_1"
+  "special_bonus_unique_shadow_shaman_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6172"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"500" //OAA
-      }
-    }
-  }
-
-  //=================================================================================================================
-  // Bonus Searing Chains duration
-  //=================================================================================================================
-  "special_bonus_unique_ember_spirit_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6176"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6052"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -47,13 +24,13 @@
   }
 
   //=================================================================================================================
-  // Bonus Flame Guard DPS
+  // Bonus Shackles duration
   //=================================================================================================================
-  "special_bonus_unique_ember_spirit_3"
+  "special_bonus_unique_shadow_shaman_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6647"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6295"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -63,20 +40,20 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"60"
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2.5"
       }
     }
   }
 
   //=================================================================================================================
-  // Sleight of Fist Charges
+  // Bonus Ether Shock damage
   //=================================================================================================================
-  "special_bonus_unique_ember_spirit_4"
+  "special_bonus_unique_shadow_shaman_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"7050"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6502"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -87,19 +64,19 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"2"
+        "value"				"400"
       }
     }
   }
 
   //=================================================================================================================
-  // Decreases Fire Remnant Charge Restore Time
+  // Bonus attack damage for serpent wards
   //=================================================================================================================
-  "special_bonus_unique_ember_spirit_5"
+  "special_bonus_unique_shadow_shaman_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"7051"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6521"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -110,19 +87,19 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"10" //OAA
+        "value"				"100" //OAA
       }
     }
   }
 
   //=================================================================================================================
-  // Bonus Sleight of Fist Hero Damage
+  // Decreases Hex cooldown
   //=================================================================================================================
-  "special_bonus_unique_ember_spirit_6"
+  "special_bonus_unique_shadow_shaman_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"353"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6877"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -133,7 +110,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"120" //OAA
+        "value"				"5"
       }
     }
   }
