@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_diffusal_blade_4;item_upgrade_core_4"
-      "02"                                                "item_butterfly_4;item_upgrade_core_4"
     }
   }
 
@@ -70,17 +69,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 40 60 80 105"
+        "bonus_agility"                                   "20 30 45 65 90"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "50 60 90 120 150"
+        "feedback_mana_burn"                              "40 60 90 120 150"
       }
       "04"
       {

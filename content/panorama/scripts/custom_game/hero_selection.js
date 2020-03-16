@@ -198,6 +198,11 @@ function onPlayerStatChange (table, key, data) {
       newheroimage.hittest = false;
       newheroimage.AddClass('HeroCard');
       newheroimage.heroname = heroName;
+      var tempHeroName = newheroimage.heroname;
+      if (tempHeroName === 'sohei' || tempHeroName === 'electrician') {
+        newheroimage.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + tempHeroName + '.png")';
+        newheroimage.style.backgroundSize = '100% 100%';
+      }
     });
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
@@ -557,6 +562,7 @@ function ReturnChatWindow () {
     vanillaChat.SetParent(vanillaChatParent);
     vanillaChat.style.y = '-240px';
     vanillaChat.hittest = false;
+    vanillaChat.style.visibility = 'visible';
     vanillaChat.SetHasClass('ChatExpanded', false);
     vanillaChat.SetHasClass('Active', false);
   }

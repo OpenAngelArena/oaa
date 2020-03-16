@@ -70,7 +70,17 @@ function Wanderer:SpawnWanderer ()
         local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
         if hero then
-          hero:AddNewModifier(hero, nil, "modifier_wanderer_team_buff", {})
+          if hero:IsAlive() then
+            hero:AddNewModifier(hero, nil, "modifier_wanderer_team_buff", {})
+          else
+            Timers:CreateTimer(0.1, function()
+              if hero:IsAlive() then
+                hero:AddNewModifier(hero, nil, "modifier_wanderer_team_buff", {})
+              else
+                return 0.1
+              end
+            end)
+          end
         end
       end)
 
