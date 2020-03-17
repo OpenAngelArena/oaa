@@ -15,6 +15,8 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "3"
+    "AbilityChargeRestoreTime"                            "20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,16 +56,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "leap_bonus_duration"                             "2.5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "3"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "20" //OAA
       }
     }
   }

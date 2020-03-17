@@ -417,7 +417,7 @@ function modifier_item_ward_stack:DeclareFunctions ()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS
     --MODIFIER_PROPERTY_MANA_BONUS
   }
@@ -427,9 +427,9 @@ function modifier_item_ward_stack:GetModifierConstantHealthRegen()
   return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
 
-function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor('bonus_armor')
-end
+--function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
+  --return self:GetAbility():GetSpecialValueFor('bonus_armor')
+--end
 
 function modifier_item_ward_stack:GetModifierHealthBonus()
   return self:GetAbility():GetSpecialValueFor('bonus_health')

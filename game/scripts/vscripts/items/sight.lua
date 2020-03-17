@@ -51,7 +51,6 @@ function modifier_item_far_sight:DeclareFunctions()
   local funcs  = {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
   }
@@ -64,9 +63,6 @@ end
 
 function modifier_item_far_sight:GetModifierBonusStats_Strength()
   return self:GetAbility():GetSpecialValueFor("bonus_str")
-end
-function modifier_item_far_sight:GetModifierBonusStats_Agility()
-  return self:GetAbility():GetSpecialValueFor("bonus_agi")
 end
 
 function modifier_item_far_sight:GetModifierBonusStats_Intellect()

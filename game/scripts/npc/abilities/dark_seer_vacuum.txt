@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "450 500 550 600 600 600"
+    "AbilityCastRange"                                    "450 500 550 600 650 650"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400 450 500 550 550 550"
+        "radius"                                          "400 450 500 550 600 650"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_2"
       }
       "02"
