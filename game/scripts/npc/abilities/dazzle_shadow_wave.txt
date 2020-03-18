@@ -18,8 +18,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
@@ -52,23 +50,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_targets"                                     "3 4 5 6 7 8"
       }
-      "04" // Scepter adds 3 more targets
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_targets_scepter"                             "6 7 8 9 10 11"
-        "RequiresScepter"                                 "1"
+        "tooltip_max_targets_inc_dazzle"                  "4 5 6 7 8 9"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "80 120 160 200 400 600" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bounce_radius_scepter"                           "675"
-        "RequiresScepter"                                 "1"
       }
     }
   }
