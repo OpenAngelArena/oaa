@@ -22,7 +22,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60" //OAA
+    "AbilityCooldown"                                     "60 50 40 30 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,24 +51,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "fade_time"                                       "1.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "950"
-        "RequiresScepter"                                 "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_radius_scepter"                             "350"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "20.0"
-        "RequiresScepter"                                 "1"
       }
     }
   }

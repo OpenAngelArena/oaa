@@ -19,6 +19,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.47"
@@ -65,6 +67,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "0.94"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "6"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_speed"                                   "100"
+        "RequiresScepter"                                 "1"
       }
     }
   }
