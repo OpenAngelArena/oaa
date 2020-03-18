@@ -16,16 +16,17 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0"
-    "AbilityCooldown"                                     "1.0 1.0 1.0 1.0 1.0"
+    "AbilityCastPoint"                                    "0"
+    "AbilityCooldown"                                     "1.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 90 110 200 300"
+    "AbilityManaCost"                                     "70 90 110 220 330" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,9 +35,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_per_second"                            "20 40 60 120 200"
+        "mana_cost_per_second"                            "20 40 60 120 240"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -45,14 +45,14 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 140 180 360 580"
-        "LinkedSpecialBonus"  "special_bonus_unique_leshrac_3"
+        "damage"                                          "100 180 260 500 740" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_3"
       }
-      "04"
+      "04" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "160 190 220 450 680"
-        "LinkedSpecialBonus"  "special_bonus_unique_leshrac_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_3"
       }
     }
   }
