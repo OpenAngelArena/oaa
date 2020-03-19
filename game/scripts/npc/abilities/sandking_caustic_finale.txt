@@ -39,7 +39,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "caustic_finale_duration"                         "4" //OAA
+        "caustic_finale_duration"                         "6"
       }
       "05"
       {
@@ -48,8 +48,13 @@
       }
       "06"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "caustic_finale_slow_as"                          "-15 -20 -25 -30 -60 -120"
+      }
+      "07"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "caustic_finale_slow_duration"                    "3"
+        "caustic_finale_slow_duration"                    "3 3.5 4 4.5 5 5.5"
       }
     }
   }

@@ -13,18 +13,20 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "275"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityChannelTime"                                  "4.5" //OAA
+    "AbilityChannelTime"                                  "4.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "160.0 155.0 150.0 140.0 130.0" //OAA
+    "AbilityCooldown"                                     "160 155 150 140 130" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "far_damage"                                      "50 100 150 400 650"
+        "far_damage"                                      "100 150 200 400 650"
       }
       "02"
       {
@@ -62,7 +64,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "near_damage"                                     "50 100 150 400 650"
+        "near_damage"                                     "100 150 200 400 650" //OAA, same as far_damage
       }
       "07"
       {
@@ -72,7 +74,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.5" //OAA
+        "duration"                                        "4.0"
       }
       "09"
       {
