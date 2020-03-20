@@ -9,7 +9,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "1000"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "broadsword"
@@ -22,7 +22,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "18"
+        "bonus_damage"                                    "16"
       }
     }
   }
