@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5050"
+    "ItemCost"                                            "5000"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;linken's sphere;linkens"
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "14 25 40 55 70"
+        "bonus_all_stats"                                 "14 19 29 44 64"
       }
       "02"
       {

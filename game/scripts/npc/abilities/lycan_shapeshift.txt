@@ -23,16 +23,16 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100" //OAA, Valve's unlisted change
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // if Bite is overpowered set duration to 10 and decrease cooldown to 50
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18"
+        "duration"                                        "22"
         "LinkedSpecialBonus"                              "special_bonus_unique_lycan_1"
       }
       "02"
@@ -48,7 +48,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transformation_time"                             "1.5"
+        "transformation_time"                             "1.25"
       }
       "05"
       {

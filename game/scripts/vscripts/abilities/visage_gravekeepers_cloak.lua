@@ -52,12 +52,17 @@ if IsServer() then
     local ability = self:GetAbility()
     local caster = self:GetCaster()
     local stackCount = self:GetStackCount()
-    local damageReduction = math.min(100, self:GetAbility():GetSpecialValueFor("damage_reduction") * stackCount)
-    local damageThreshold = self:GetAbility():GetSpecialValueFor("minimum_damage")
+    local damageReduction = math.min(100, ability:GetSpecialValueFor("damage_reduction") * stackCount)
+    local damageThreshold = ability:GetSpecialValueFor("minimum_damage")
+    local recovery_time = ability:GetSpecialValueFor("recovery_time")
+    -- Talent that decreases recovery time
+    if caster:HasLearnedAbility("special_bonus_unique_visage_oaa_5") then
+      recovery_time = recovery_time - caster:FindAbilityByName("special_bonus_unique_visage_oaa_5"):GetSpecialValueFor("value")
+    end
     if keys.attacker:GetTeam() ~= caster:GetTeam() and (keys.attacker:GetTeam() == DOTA_TEAM_GOODGUYS or keys.attacker:GetTeam() == DOTA_TEAM_BADGUYS) then
       if keys.damage > damageThreshold then
         self:DecreaseStacks()
-        Timers:CreateTimer(ability:GetSpecialValueFor("recovery_time"), function()
+        Timers:CreateTimer(recovery_time, function()
           self:IncreaseStacks()
         end)
       end

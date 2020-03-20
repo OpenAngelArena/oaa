@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "7200"
+    "ItemCost"                                            "7000"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 3;blade mail 3;blademail 3"
@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 45 75 115 165"
+        "bonus_damage"                                    "28 45 75 115 165"
       }
       "02"
       {

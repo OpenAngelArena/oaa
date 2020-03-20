@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"            "15300"
+    "ItemCost"            "15100"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd 4;helm of the dominator 4;helm 4;dominator 4"
@@ -69,7 +69,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stats"                                     "7 10 25 40 55"
+        "bonus_stats"                                     "7 10 15 20 25"
       }
       "02"
       {

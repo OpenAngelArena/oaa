@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3900"
+    "ItemCost"                                            "3875"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 14 19 25" //OAA
+        "bonus_armor"                                     "5 8 12 17 23" //OAA
       }
       "02"
       {
@@ -79,7 +79,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen_pct"                            "1.5 2.5 3.5 4.5 5.5"
+        "bonus_mana_regen_pct"                            "1.75 2.75 3.75 4.75 5.75"
       }
       "05"
       {
@@ -89,7 +89,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_attack_speed"                             "50 70 90 110 130" //OAA
+        "target_attack_speed"                             "50 60 70 80 90" //OAA
       }
       "07"
       {

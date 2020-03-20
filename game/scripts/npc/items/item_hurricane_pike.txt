@@ -42,7 +42,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "23.0"
     "AbilitySharedCooldown"                               "force"
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "4600"
+    "ItemCost"                                            "4575"
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "fs;force staff;hurricane pike;pike"
@@ -116,7 +116,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "100 110 130 160 200"
+        "bonus_attack_speed"                              "100 110 120 130 140"
       }
     }
   }

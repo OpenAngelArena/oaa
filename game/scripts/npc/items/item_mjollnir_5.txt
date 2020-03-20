@@ -70,12 +70,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 36 60 96 144"
+        "bonus_damage"                                    "24 44 74 114 164"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "75 85 95 105 115"
+        "bonus_attack_speed"                              "65 75 85 95 105"
       }
       "03"
       {
@@ -135,7 +135,7 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_radius"                                    "900"
+        "chain_radius"                                    "650 750 850 950 1050"
       }
       "15"
       {

@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "475 550 625 700 775 850"
+    "AbilityCastRange"                                    "550 600 650 700 750 800" //OAA
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -39,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "475 550 625 700 775 850"
+        "cast_range"                                      "550 600 650 700 750 800" //OAA
       }
       "02"
       {
@@ -49,7 +49,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "2 3 4 5 7 10"
+        "armor_reduction"                                 "3 4 5 6 8 10"
       }
       "04"
       {

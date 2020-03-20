@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
-    "AbilityChannelTime"                                  "2.0"
+    "AbilityChannelTime"                                  "1.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -73,7 +73,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_channel_time"                            "2"
+        "tooltip_channel_time"                            "1"
         "RequiresScepter"                                 "1"
       }
       "08"
