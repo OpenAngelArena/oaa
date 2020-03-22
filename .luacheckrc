@@ -2843,7 +2843,8 @@ read_globals = { -- these globals can only be accessed.
 "BOSS_WANDERER_SPAWN_START",
 "BOSS_WANDERER_RESPAWN",
 "AbilityKV",
-"VectorTarget"
+"VectorTarget",
+"KILL_LIMIT_INCREASE"
 }
 
 ignore = {
