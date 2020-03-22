@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Enfeeble Attack Speed Reduction - unused
+  //=================================================================================================================
+  "special_bonus_unique_bane_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6068"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"125"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Brain Sap Damage/Heal
+  //=================================================================================================================
+  "special_bonus_unique_bane_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6069"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"500" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Fiend's Grip Duration
+  //=================================================================================================================
+  "special_bonus_unique_bane_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6609"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"7"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Enfeeble Steals Attack Speed - unused
+  //=================================================================================================================
+  "special_bonus_unique_bane_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6826"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
+}
