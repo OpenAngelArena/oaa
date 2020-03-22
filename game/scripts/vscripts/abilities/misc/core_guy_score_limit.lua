@@ -14,7 +14,7 @@ function core_guy_score_limit:OnSpellStart()
 
   if IsServer() then
     print("Trying to increase score limit!")
-    PointsManager:IncreaseLimit(10)
+    PointsManager:IncreaseLimit(KILL_LIMIT_INCREASE)
   end
 end
 

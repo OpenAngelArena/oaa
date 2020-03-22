@@ -20,6 +20,7 @@ function CoreGuyThink ()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
     thisEntity.ability = thisEntity:FindAbilityByName("core_guy_score_limit") or thisEntity:FindAbilityByName("core_guy_points")
+    thisEntity.ability:StartCooldown(thisEntity.ability:GetCooldownTime())
     thisEntity.corePoints = 0
   end
 
