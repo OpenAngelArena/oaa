@@ -54,11 +54,15 @@ function modifier_spark_midas:GetSparkLevel()
   if IsServer() then
     gameTime = HudTimer:GetGameTime() - (self.stack_count / 2)
   else
-    gameTime = GameRules:GetDOTATime(false, false) - (self.GetStackCount() / 2)
+    gameTime = GameRules:GetDOTATime(false, false) - (self:GetStackCount() / 2)
   end
 
   if not SPARK_LEVEL_1_TIME then
-    return 1
+    SPARK_LEVEL_1_TIME = 0
+    SPARK_LEVEL_2_TIME = 240
+    SPARK_LEVEL_3_TIME = 900
+    SPARK_LEVEL_4_TIME = 1500
+    SPARK_LEVEL_5_TIME = 2100
   end
 
   if gameTime > SPARK_LEVEL_5_TIME then
