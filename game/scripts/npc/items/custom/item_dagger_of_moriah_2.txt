@@ -45,16 +45,17 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "2.0"
+    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_dagger_of_moriah_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35050"
+    "ItemCost"                                            "34975"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -88,7 +89,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.0 5.0"
+        "bonus_mana_regen"                                "6.0 7.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
     }
   }

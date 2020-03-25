@@ -112,7 +112,7 @@ function modifier_core_shrine:OnOrder( params )
       return
     end
 
-    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() then
+    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
       return
     end
 

@@ -1,0 +1,117 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus hits to destroy (max hp) for Serpent Wards
+  //=================================================================================================================
+  "special_bonus_unique_shadow_shaman_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6052"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Shackles duration
+  //=================================================================================================================
+  "special_bonus_unique_shadow_shaman_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6295"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2.5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Ether Shock damage
+  //=================================================================================================================
+  "special_bonus_unique_shadow_shaman_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6502"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"400"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus attack damage for serpent wards
+  //=================================================================================================================
+  "special_bonus_unique_shadow_shaman_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6521"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"100" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Hex cooldown
+  //=================================================================================================================
+  "special_bonus_unique_shadow_shaman_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6877"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"5"
+      }
+    }
+  }
+}

@@ -221,13 +221,16 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
           static_field_damage = static_field_damage + static_field_talent:GetSpecialValueFor("value")
         end
       end
-      damage_table.attacker = caster
-      damage_table.damage = (target:GetHealth()/100)*static_field_damage
-      damage_table.ability = static_field_ability
-      damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
 
-      -- Apply Static Field damage (before lightning bolt damage)
-      ApplyDamage(damage_table)
+      if not target:IsOAABoss() then
+        damage_table.attacker = caster
+        damage_table.damage = (target:GetHealth()/100)*static_field_damage
+        damage_table.ability = static_field_ability
+        damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+
+        -- Apply Static Field damage (before lightning bolt damage)
+        ApplyDamage(damage_table)
+      end
 
       -- Lightning bolt damage table values
       damage_table.attacker = parent

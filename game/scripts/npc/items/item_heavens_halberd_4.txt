@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "15575"
+    "ItemCost"                                            "15550"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -91,12 +91,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "20 21 22 23 24"
+        "status_resistance"                               "16 17 18 19 20" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "30 32 34 36 38"
+        "hp_regen_amp"                                    "24 26 28 30 32" //OAA
       }
     }
   }

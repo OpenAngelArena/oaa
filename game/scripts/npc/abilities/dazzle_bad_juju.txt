@@ -18,6 +18,8 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
@@ -47,13 +49,13 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "1200"
       }
-      "05" // unused
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "1000"
+        "scepter_radius"                                  "800"
         "RequiresScepter"                                 "1"
       }
-      "06" // unused
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_count"                                   "8"

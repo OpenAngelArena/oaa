@@ -45,7 +45,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "750"
+    "AbilityCastRange"              "550"
     "AbilityCastPoint"        "0.0"
     "AbilityCooldown"       "23.0 20.0 17.0 15.0 12.0"
     "AbilitySharedCooldown"     "force"
@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "7250"
+    "ItemCost"            "7225"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "rare"
     "ItemAliases"         "fs 3;force staff 3;force 3"
@@ -67,18 +67,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 25 40 55 70"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "10 25 40 55 70"
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "bonus_health_regen"  "2.5 10 20 30 40"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "2.5 10 20 30 40"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "push_length"     "600"
+        "var_type"                                        "FIELD_INTEGER"
+        "push_length"                                     "600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_cast_range"                                "850"
       }
     }
   }

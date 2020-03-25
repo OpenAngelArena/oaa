@@ -58,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "5575"
+    "ItemCost"                                            "5500"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -82,29 +82,24 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 5 9 14"
+        "bonus_armor"                                     "2 3 5 8"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "15 30 45 60"
+        "bonus_str"                                       "15 30 45 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "15 30 45 60"
+        "bonus_int"                                       "15 30 45 60"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "15 30 45 60"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "reveal_radius"                                   "900"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "reveal_duration"                                 "10.0"

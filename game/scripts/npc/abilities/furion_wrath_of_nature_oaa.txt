@@ -32,7 +32,7 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "85"
     "AbilityManaCost"                                     "175 225 275 525 750"
 
     // Special
@@ -47,7 +47,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 170 230 370 510"
+        "damage"                                          "110 170 230 410 710"
       }
       "03"
       {
@@ -62,7 +62,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "140 230 310 510 680"
+        "damage_scepter"                                  "135 230 325 610 895"
         "RequiresScepter"                                 "1"
       }
       "06"
@@ -70,6 +70,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "scepter_buffer"                                  "4"
         "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "kill_damage"                                     "4 5 6 7 8"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "kill_damage_duration"                            "50"
       }
     }
   }

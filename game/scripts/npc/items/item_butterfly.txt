@@ -38,7 +38,7 @@
     "AbilityTextureName"                                  "custom/butterfly"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5475"
+    "ItemCost"                                            "5275"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly;butterfly"
@@ -51,22 +51,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "35 40 50 65 85"
+        "bonus_agility"                                   "25 35 50 70 95" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 33 41 50 60"
+        "bonus_damage"                                    "10 30 60 100 150" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20 25 30 35 35" //OAA
+        "bonus_evasion"                                   "15 20 25 30 35" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "20 25 35 45 55"	//OAA
+        "bonus_attack_speed"                              "10 15 20 25 30" //OAA
       }
     }
   }
