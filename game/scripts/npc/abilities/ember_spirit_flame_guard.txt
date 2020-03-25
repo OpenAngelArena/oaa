@@ -12,7 +12,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
@@ -24,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 220 350"
+    "AbilityManaCost"                                     "80 90 100 110 220 330"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,13 +37,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "20.0" //OAA
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "400"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "30 40 50 60 110 220"
+        "damage_per_second"                               "30 40 50 60 120 240"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
       }
       "06"
