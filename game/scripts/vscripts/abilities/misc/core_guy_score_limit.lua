@@ -19,5 +19,5 @@ function core_guy_score_limit:OnSpellStart()
 end
 
 function core_guy_score_limit:GetCooldown()
-  return (self.timesUsed or 1) * 100 * 10
+  return (self.timesUsed or 1) * 60 * 10 -- first usage at 10 minutes
 end
