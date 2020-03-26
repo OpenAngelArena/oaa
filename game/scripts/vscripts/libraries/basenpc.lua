@@ -30,6 +30,7 @@ if IsServer() then
   end
 end
 
+-- On Server:
 if CDOTA_BaseNPC then
   function CDOTA_BaseNPC:GetAttackRange()
     return self:Script_GetAttackRange()
@@ -46,6 +47,27 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:IsOAABoss()
+    return self:HasModifier("modifier_boss_resistance")
+  end
+end
+
+-- On Client:
+if C_DOTA_BaseNPC then
+  function C_DOTA_BaseNPC:GetAttackRange()
+    return self:Script_GetAttackRange()
+  end
+
+  function C_DOTA_BaseNPC:IsNeutralCreep( notAncient )
+    local targetFlags = bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO )
+
+    if notAncient then
+      targetFlags = bit.bor( targetFlags, DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS )
+    end
+
+    return ( UnitFilter( self, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, targetFlags, DOTA_TEAM_NEUTRALS ) == UF_SUCCESS and not self:IsControllableByAnyPlayer() )
+  end
+
+  function C_DOTA_BaseNPC:IsOAABoss()
     return self:HasModifier("modifier_boss_resistance")
   end
 end
