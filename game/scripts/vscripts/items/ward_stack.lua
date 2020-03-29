@@ -134,6 +134,22 @@ if not IsServer() then
       return "item_branches"
     end
   end
+
+  function item_ward_stack:GetAOERadius()
+    local wardType = self.lastType or WARD_TYPE_OBSERVER
+    if self.mod and not self.mod:IsNull() then
+      wardType = self.mod:GetStackCount()
+    end
+    if wardType == WARD_TYPE_OBSERVER or wardType == WARD_TYPE_OBSERVER_ONLY then
+      -- observer radius
+      return self:GetSpecialValueFor("observer_radius")
+    elseif wardType == WARD_TYPE_SENTRY or wardType == WARD_TYPE_SENTRY_ONLY then
+      -- sentry radius
+      return self:GetSpecialValueFor("sentry_reveal_radius")
+    else
+      return 0
+    end
+  end
 end
 
 function item_ward_stack:CastFilterResultTarget (unit)
