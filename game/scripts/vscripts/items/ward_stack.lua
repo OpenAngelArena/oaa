@@ -74,6 +74,9 @@ if IsServer() then
       duration = self:GetSpecialValueFor(wardType .. '_duration')
     })
 
+    ward:SetDayTimeVisionRange(self:GetSpecialValueFor(wardType .. '_radius'))
+    ward:SetNightTimeVisionRange(self:GetSpecialValueFor(wardType .. '_radius'))
+
     caster[wardType .. 'Count'] = caster[wardType .. 'Count'] - 1
     if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
