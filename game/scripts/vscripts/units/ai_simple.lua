@@ -43,7 +43,6 @@ function SimpleBossThink()
         end
       end
     end
-
     nearby_enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity.spawn_position, nil, 3*SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     if #nearby_enemies ~= 0 then
       for i = 1, #nearby_enemies do
@@ -55,10 +54,9 @@ function SimpleBossThink()
         end
       end
     end
-
     return nil
   end
-  
+
   local function AttackNearestTarget(thisEntity)
     local nearest_enemy = FindNearestAttackableUnit(thisEntity)
     if nearest_enemy then
@@ -71,7 +69,7 @@ function SimpleBossThink()
     end
     thisEntity.aggro_target = nearest_enemy
   end
-  
+
   local function StartLeashing(thisEntity)
     thisEntity.aggro_target = nil
     thisEntity.state = SIMPLE_AI_STATE_LEASH
@@ -82,11 +80,8 @@ function SimpleBossThink()
     local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
     local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
     if current_hp_pct < aggro_hp_pct then
-      --thisEntity:SetIdleAcquire(true)     -- It seems this is not helping
-      --thisEntity:SetAcquisitionRange(128) -- It seems this is not helping
-
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
-      -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be 
+      -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
       -- the same as true aggro target (unit that is boss actually attacking at the moment)
       AttackNearestTarget(thisEntity)
       thisEntity.state = SIMPLE_AI_STATE_AGGRO
@@ -121,23 +116,23 @@ function SimpleBossThink()
     -- Check if aggro_target exists
     if thisEntity.aggro_target then
       --print(thisEntity.aggro_target:GetUnitName())
-	  -- Check if aggro_target is getting deleted soon from c++
+      -- Check if aggro_target is getting deleted soon from c++
       if thisEntity.aggro_target:IsNull() then
         thisEntity.aggro_target = nil
       end
       -- Check if state of aggro_target changed (died, became attack immune (ethereal), became invulnerable or banished)
-	  local aggro_target = thisEntity.aggro_target
+      local aggro_target = thisEntity.aggro_target
       if not aggro_target:IsAlive() or aggro_target:IsAttackImmune() or aggro_target:IsInvulnerable() or aggro_target:IsOutOfGame() then
-	    thisEntity.aggro_target = nil
-	  end
+        thisEntity.aggro_target = nil
+      end
       -- Check if aggro_target is out of aggro/leash range
       if (aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > 2*SIMPLE_BOSS_LEASH_SIZE then
         thisEntity.aggro_target = nil
       elseif (aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > SIMPLE_BOSS_LEASH_SIZE then
         -- Check aggro_target attack range, if its less than leash/aggro range
-		if aggro_target:GetAttackRange() <= SIMPLE_BOSS_LEASH_SIZE then
+        if aggro_target:GetAttackRange() <= SIMPLE_BOSS_LEASH_SIZE then
           thisEntity.aggro_target = nil
-		end
+        end
       end
       -- Check HP of the boss
       local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
@@ -159,7 +154,7 @@ function SimpleBossThink()
         AttackNearestTarget(thisEntity)
       end
 
-	  if not thisEntity.aggro_target then
+      if not thisEntity.aggro_target then
         thisEntity.state = SIMPLE_AI_STATE_LEASH
       end
     end
