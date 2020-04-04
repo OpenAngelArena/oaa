@@ -409,10 +409,14 @@ function modifier_sohei_momentum_strike_passive:GetModifierPreAttack_CriticalStr
   if ufResult ~= UF_SUCCESS then
     return 0
   end
-
+  local crit_damage = ability:GetSpecialValueFor("crit_damage")
+  local talent = parent:FindAbilityByName("special_bonus_sohei_momentum_strike_crit")
+  if talent and talent:GetLevel() > 0 then
+    crit_damage = crit_damage + talent:GetSpecialValueFor("value")
+  end
   -- Crit only if the target is affected by Momentum Strike from the parent
   if event.target:FindModifierByNameAndCaster("modifier_sohei_momentum_strike_knockback", parent) then
-    return ability:GetSpecialValueFor("crit_damage")
+    return crit_damage
   end
 
   return 0
