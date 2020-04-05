@@ -72,12 +72,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
+        "bonus_armor"                                     "0 4 8 12"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "20 30 45 65"
+        "bonus_health_regen"                              "20 40 60 80"
       }
       "04"
       {
@@ -97,7 +97,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "break_time"                                      "13"
+        "break_time"                                      "13 11 9 7"  
       }
       "08"
       {
