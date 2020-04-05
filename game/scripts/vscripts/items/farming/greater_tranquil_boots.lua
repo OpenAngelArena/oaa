@@ -2,6 +2,7 @@ item_greater_tranquil_boots = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -39,12 +40,29 @@ function item_greater_tranquil_boots:ShouldUseResources()
   return true
 end
 
+function item_greater_tranquil_boots:OnSpellStart()
+  local caster = self:GetCaster()
+  local target = self:GetCursorTarget()
+
+  -- Don't do anything if target has Linken's effect
+  if target:TriggerSpellAbsorb(self) then
+    return
+  end
+
+  local duration = self:GetSpecialValueFor("tranquilize_duration")
+  -- Apply status resistance only if its a ranged hero
+  if target:IsRangedAttacker() then
+    duration = target:GetValueChangedByStatusResistance(duration)
+  end
+  target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_debuff", {duration = duration})
+end
+
 --------------------------------------------------------------------------------
 
 -- used for various checks to accomodate for origin
 -- ( or any future changes that make them unbreakable or something )
 function item_greater_tranquil_boots:IsBreakable()
-	return self:GetCooldown( self:GetLevel() ) > 0
+	return self:GetSpecialValueFor("break_time") > 0
 end
 
 --------------------------------------------------------------------------------
@@ -76,8 +94,6 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 
 	spell.tranqMod = self
 
-	--self.interval = spell:GetSpecialValueFor( "check_interval" )
-
 	if IsServer() then
 		if spell:IsBreakable() then
 			local cdRemaining = spell:GetCooldownTimeRemaining()
@@ -87,24 +103,12 @@ function modifier_item_greater_tranquil_boots:OnCreated( event )
 				self:SetDuration( cdRemaining, true )
 			end
 		end
-
-		--self:StartIntervalThink( self.interval ) -- Old checking distance traveled and modifying charges accordingly (part of Naturalize)
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
 	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
 	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
-
-	--self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
-	--self.distMax = spell:GetSpecialValueFor( "max_dist" )
-	--self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
-	--self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
-	--self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
-
-	-- this stuff prob shouldn't get refreshed
-	--self.originOld = self:GetParent():GetAbsOrigin()
-	--self.fracCharge = 0
 end
 
 --------------------------------------------------------------------------------
@@ -114,8 +118,6 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 
 	spell.tranqMod = self
 
-	--self.interval = spell:GetSpecialValueFor( "check_interval" )
-
 	if IsServer() then
 		if spell:IsBreakable() then
 			local cdRemaining = spell:GetCooldownTimeRemaining()
@@ -125,20 +127,12 @@ function modifier_item_greater_tranquil_boots:OnRefresh( event )
 				self:SetDuration( cdRemaining, true )
 			end
 		end
-
-		--self:StartIntervalThink( self.interval )
 	end
 
 	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
 	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
 	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
 	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
-
-	--self.distPer = spell:GetSpecialValueFor( "distance_per_charge" )
-	--self.distMax = spell:GetSpecialValueFor( "max_dist" )
-	--self.bonusGold = spell:GetSpecialValueFor( "bonus_gold" )
-	--self.bonusXP = spell:GetSpecialValueFor( "bonus_xp" )
-	--self.maxCharges = spell:GetSpecialValueFor( "max_charges" )
 end
 
 --------------------------------------------------------------------------------
@@ -228,40 +222,6 @@ if IsServer() then
         end
       end
     end
-
-    -- Tranquils instant kill should work only on neutrals (not bosses) and never in duels
-    --[[ old Naturalize effect
-    if attacker == parent and attacked_unit:IsNeutralCreep( true ) and Gold:IsGoldGenActive() then
-      local currentCharges = spell:GetCurrentCharges()
-
-      -- If number of charges is equal or above 100 and the parent is not muted or an illusion trigger naturalize eating
-      if currentCharges >= 100 and not spell:IsMuted() and not parent:IsIllusion() then
-        local player = parent:GetPlayerOwner()
-
-        -- remove 100 charges
-        spell:SetCurrentCharges( currentCharges - 100 )
-
-        -- bonus gold
-        PlayerResource:ModifyGold( player:GetPlayerID(), self.bonusGold, false, DOTA_ModifyGold_CreepKill )
-        SendOverheadEventMessage( player, OVERHEAD_ALERT_GOLD, parent, self.bonusGold, player )
-
-        -- bonus exp
-        if self.bonusXP > 0 then
-          parent:AddExperience( self.bonusXP, DOTA_ModifyXP_CreepKill, false, true )
-        end
-
-        -- particle
-        local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", PATTACH_POINT_FOLLOW, event.target )
-        ParticleManager:ReleaseParticleIndex( part )
-
-        -- sound
-        parent:EmitSound( "Hero_Treant.LeechSeed.Cast" )
-
-        -- kill the target
-        attacked_unit:Kill( spell, parent )
-      end
-    end
-    ]]
 	end
 end
 
@@ -356,6 +316,56 @@ if IsServer() then
 	end
 end
 ]]
+
+---------------------------------------------------------------------------------------------------
+
+modifier_greater_tranquils_tranquilize_debuff = class(ModifierBaseClass)
+
+function modifier_greater_tranquils_tranquilize_debuff:IsHidden()
+  return false
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:IsDebuff()
+  return true
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:IsPurgable()
+  return true
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:OnCreated()
+  local parent = self:GetParent()
+  local attack_slow = self:GetAbility():GetSpecialValueFor("melee_attack_speed_slow")
+  if parent:IsRangedAttacker() or parent:IsOAABoss() then
+    attack_slow = 0
+  end
+  if IsServer() then
+    -- Attack Speed Slow is reduced with Status Resistance
+    self.attack_slow = parent:GetValueChangedByStatusResistance(attack_slow)
+  else
+    self.attack_slow = attack_slow
+  end
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+  }
+  return funcs
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBonus_Constant()
+  return self.attack_slow
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackRangeBonus()
+  local ability = self:GetAbility()
+  if ability and self:GetParent():IsRangedAttacker() then
+    return ability:GetSpecialValueFor("ranged_bonus_attack_range")
+  end
+  return 0
+end
 
 item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)
 item_greater_tranquil_boots_3 = class(item_greater_tranquil_boots)
