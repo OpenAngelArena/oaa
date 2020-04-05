@@ -46,8 +46,8 @@ if IsServer() then
     --local max_attacks = self:GetSpecialValueFor("max_attacks")
     --local max_duration = self:GetSpecialValueFor( "max_duration" )
     --local attack_interval = self:GetSpecialValueFor("attack_interval")
-    local attack_interval = 1/caster:GetAttacksPerSecond()
-    local bonus_damage = self:GetSpecialValueFor( "bonus_damage" )
+    local delay = self:GetSpecialValueFor("delay")
+    local bonus_damage = self:GetSpecialValueFor("bonus_damage")
 
     -- Emit sound
     caster:EmitSound( "Hero_EmberSpirit.FireRemnant.Cast" )
@@ -69,14 +69,14 @@ if IsServer() then
 
     -- Add a modifier that does actual spell effect
     caster:AddNewModifier( caster, self, "modifier_sohei_flurry_self", {
-      duration = attack_interval + 0.1,
+      duration = delay + 0.1,
       damage = bonus_damage,
       flurry_radius = flurry_radius,
       --attack_interval = attack_interval,
     } )
 
     -- Give vision over the area
-    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, attack_interval + 0.1, false)
+    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, delay + 0.1, false)
   end
 end
 
@@ -184,8 +184,8 @@ function modifier_sohei_flurry_self:OnCreated( event )
   -- self.positionGround = self.position - Vector( 0, 0, 200 )
 
   if IsServer() then
-    local attack_interval = 1/parent:GetAttacksPerSecond()
-    self:StartIntervalThink( attack_interval )
+    local delay = event.duration - 0.1
+    self:StartIntervalThink(delay)
   end
 
   -- if self:PerformFlurryBlow() then

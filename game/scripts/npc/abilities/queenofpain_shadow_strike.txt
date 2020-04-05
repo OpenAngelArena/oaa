@@ -39,17 +39,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "strike_damage"                                   "50 75 100 125 250 375"
+        "strike_damage"                                   "75 100 125 150 300 600" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration_damage"                                 "30 50 70 90 150 375"
+        "duration_damage"                                 "30 50 70 90 180 360"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-35 -40 -45 -50 -55 -60" //OAA
+        "movement_slow"                                   "-35 -45 -55 -65 -70 -75" //OAA
       }
       "04"
       {

@@ -196,7 +196,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     pit.killCount = pit.killCount + 1
     if not self.hasKilledTiers[bossTier] then
       self.hasKilledTiers[bossTier] = true
-      PointsManager:IncreaseLimit(10)
+      PointsManager:IncreaseLimit(KILL_LIMIT_INCREASE)
     end
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)

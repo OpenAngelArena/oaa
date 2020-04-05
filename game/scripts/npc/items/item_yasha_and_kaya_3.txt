@@ -77,17 +77,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 18 22 28 34"
+        "manacost_reduction"                              "16 18 22 28 36"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
+        "movement_speed_percent_bonus"                    "20 25 30 35 40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "12 16 20 24 28"
+        "spell_amp"                                       "14 18 22 26 30"
       }
     }
   }

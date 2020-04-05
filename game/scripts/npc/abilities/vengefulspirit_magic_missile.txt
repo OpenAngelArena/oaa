@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -50,7 +50,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_missile_damage"                            "100 175 250 325 700 1075"
+        "magic_missile_damage"                            "90 180 270 360 720 1440"
         "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_1"
       }
     }

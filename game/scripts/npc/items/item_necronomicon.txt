@@ -7,7 +7,7 @@
   {
     "ID"                                                  "105"    // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "1300"
+    "ItemCost"                                            "1250"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_necronomicon"
@@ -37,8 +37,8 @@
     "AbilityTextureName"                                  "item_necronomicon"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "2250"
+    "AbilityManaCost"                                     "150"
+    "ItemCost"                                            "2150"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 1;necro 1"
