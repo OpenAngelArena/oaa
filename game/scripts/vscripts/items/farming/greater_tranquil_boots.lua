@@ -322,15 +322,15 @@ end
 modifier_greater_tranquils_tranquilize_debuff = class(ModifierBaseClass)
 
 function modifier_greater_tranquils_tranquilize_debuff:IsHidden()
-	return false
+  return false
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:IsDebuff()
-	return true
+  return true
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:IsPurgable()
-	return true
+  return true
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:OnCreated()
