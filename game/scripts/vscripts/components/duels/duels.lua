@@ -397,7 +397,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
   local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.GoodPlayerIndex)
   local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.BadPlayerIndex)
 
-  function spawnHeroForGuy(guy, spawn)
+  local function spawnHeroForGuy(guy, spawn)
     local player = PlayerResource:GetPlayer(guy.id)
     local hero = player:GetAssignedHero()
     guy.duelNumber = duelNumber
