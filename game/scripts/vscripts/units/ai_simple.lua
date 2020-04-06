@@ -18,8 +18,7 @@ function SimpleBossThink()
   end
 
   if Duels:IsActive() then
-    thisEntity:Stop()
-    return 1
+    thisEntity.aggro_target = nil
   end
 
   if not thisEntity.initialized then
