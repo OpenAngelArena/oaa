@@ -22,12 +22,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9"
+    "AbilityCooldown"                                     "12 11 10 9 9 9"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "magic_missile_stun"                              "1.5 1.6 1.7 1.8 2.0 2.2"
+        "magic_missile_stun"                              "1.4 1.5 1.6 1.7 1.9 2.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_missile_damage"                            "100 175 250 325 700 1075"
+        "magic_missile_damage"                            "90 180 270 360 720 1440"
         "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_1"
       }
     }

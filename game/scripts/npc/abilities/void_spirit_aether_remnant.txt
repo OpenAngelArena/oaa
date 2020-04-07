@@ -8,7 +8,7 @@
       // General
       //-------------------------------------------------------------------------------------------------------------
       "ID"                            "7701"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-      "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+      "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
       "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
       "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
       "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -30,7 +30,7 @@
 
       // Cost
       //-------------------------------------------------------------------------------------------------------------
-      "AbilityManaCost"               "85 90 95 100 125 150"
+      "AbilityManaCost"               "85 90 95 100 200 300"
 
       // Special
       //-------------------------------------------------------------------------------------------------------------

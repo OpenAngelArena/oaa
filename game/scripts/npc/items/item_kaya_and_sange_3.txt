@@ -71,22 +71,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "20 21 22 23 24"
+        "status_resistance"                               "16 17 18 19 20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 18 22 28 34"
+        "manacost_reduction"                              "16 18 22 28 36"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "12 18 26 34 42"
+        "spell_amp"                                       "14 18 22 26 30"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "30 32 34 36 38"
+        "hp_regen_amp"                                    "24 26 28 30 32"
       }
     }
   }

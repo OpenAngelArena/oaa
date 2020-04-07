@@ -64,19 +64,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "omni_slash_radius"                               "425"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "4 4.25 4.5 5.25 5.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_2"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "50" //OAA
-        "RequiresScepter"                                 "1"
-      }
     }
   }
 }

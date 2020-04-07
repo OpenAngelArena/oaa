@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 50 30 30 30"
+    "AbilityCooldown"                                     "50 40 30 30 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,18 +38,18 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "enrage_multiplier"                               "1.4 1.7 2.0 2.25 2.75"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "80"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "80"
+        "status_resistance"                               "50"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
+        "duration"                                        "4 4.5 5 5.25 5.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa_3"
       }
       "04"

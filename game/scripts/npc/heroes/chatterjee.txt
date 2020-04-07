@@ -29,13 +29,13 @@
     "Ability10"           "special_bonus_mp_regen_6"
     "Ability11"           "special_bonus_hp_regen_10"
 
-    "Ability12"           "special_bonus_strength_15"
+    "Ability12"           "special_bonus_attack_damage_90"
     "Ability13"           "special_bonus_cast_range_125"
 
     "Ability14"           "special_bonus_electrician_absorption_hero_mana_restore"
-    "Ability15"           "special_bonus_mp_800"
+    "Ability15"           "special_bonus_electrician_shock_autoself"
 
-    "Ability16"           "special_bonus_electrician_shock_autoself"
+    "Ability16"           "special_bonus_mp_1000"
     "Ability17"           "special_bonus_electrician_shock_spell_immunity"
 
     // Armor
@@ -49,7 +49,7 @@
     "AttackDamageMin"           "48"
     "AttackDamageMax"           "55"
     "AttackRate"                "1.7"
-    "BaseAttackSpeed"           "90"
+    "BaseAttackSpeed"           "100"
     "AttackAnimationPoint"      "0.3"
     "AttackAcquisitionRange"    "600"
     "AttackRange"               "150"
@@ -68,7 +68,7 @@
     // Movement
     //-------------------------------------------------------------------------------------------------------------
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"             "290"
+    "MovementSpeed"             "295"
     "MovementTurnRate"          "0.5"
     "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
 

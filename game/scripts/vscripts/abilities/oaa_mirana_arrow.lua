@@ -183,7 +183,7 @@ if IsServer() then
       arrow_damage_type = self:GetAbilityDamageType(),
       arrow_vision = self:GetSpecialValueFor( "arrow_vision" ), -- Arrow vision radius
       arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ), -- Vision duration after hit
-      arrow_pierce_count = self:GetTalentSpecialValueFor("arrow_pierce_count") -- Pierce targets count
+      arrow_pierce_count = self:GetSpecialValueFor("arrow_pierce_count") -- Pierce targets count
     }
 
     -- Send arrow

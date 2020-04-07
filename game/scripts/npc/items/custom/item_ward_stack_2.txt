@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2075"
+    "ItemCost"                                            "2000"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -68,79 +68,74 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "2 10 16 23 30"
+        "bonus_health_regen"                              "2 10 20 30 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0 2 5 9 14"
+        "bonus_health"                                    "50 200 700 1200 1700"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "0 200 700 1200 1700"
+        "bonus_all_stats"                                 "4 10 15 20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "4 10 25 40 55"
+        "aura_radius"                                     "1200"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_mana_regen"                                 "1.4 2.0 3.0 4.0 5.0"
       }
       "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "1.25 2.0 3.0 4.0 5.0"
-      }
-      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "observer_duration"                               "180"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sentry_duration"                                 "240"
+      }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_duration"                                 "180"
+        "observer_radius"                                 "1400"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_radius"                                 "1600"
+        "sentry_radius"                                   "150"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_vision_radius"                            "150"
+        "sentry_reveal_radius"                            "1000"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_reveal_radius"                            "1000"
+        "observer_recharge"                               "135 120 100 80 60"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_recharge"                               "135 120 100 80 60"
+        "observer_max"                                    "2 3 4 5 6"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_max"                                    "2 3 4 5 6"
+        "sentry_recharge"                                 "90 65 50 40 30"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_recharge"                                 "80 60 50 40 30"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "sentry_max"                                      "4"
       }
-      "16"
+      "15"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_range"                                   "500"

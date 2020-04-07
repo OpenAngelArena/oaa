@@ -29,7 +29,7 @@
     "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "8"
-    "AbilityManaCost"                                     "135"
+    "AbilityManaCost"                                     "120 125 130 135 145 155"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -62,14 +62,14 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_ministun"                                "0.75"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cast_range"                              "650"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cast_range"                              "800"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "6"
         "RequiresScepter"                                 "1"
       }
     }

@@ -35,7 +35,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "40 120 200 280 680 1080"
+    "AbilityDamage"                                       "60 150 240 330 660 990"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_bonus_damage"                              "200 250 300 350 450 750"
+        "arrow_bonus_damage"                              "180 190 200 210 310 410"
       }
       "08" // Radius around the arrow while flying
       {
@@ -110,7 +110,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_pierce_count"                              "0"
+        "arrow_pierce_count"                              "0 1 1 2 3 4"
         "LinkedSpecialBonus"                              "special_bonus_mirana_arrow_pierce"
       }
     }

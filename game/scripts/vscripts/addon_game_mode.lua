@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "7.0.0"
+GAME_VERSION = "7.8.2"
 
 -- Setup the main logger
 require('internal/logging')

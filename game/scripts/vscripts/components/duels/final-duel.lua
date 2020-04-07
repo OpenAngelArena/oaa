@@ -33,6 +33,7 @@ function FinalDuel:CheckCancelDuel ()
   if goodPoints < limit and badPoints < limit then
     Duels:CancelDuel()
     self.isCurrentlyFinalDuel = false
+    self.needsFinalDuel = false
   end
 end
 
@@ -41,6 +42,7 @@ function FinalDuel:Trigger (team)
   local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
   local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
   if goodPoints < limit and badPoints < limit then
+    self.needsFinalDuel = false
     return
   end
   self.needsFinalDuel = true
@@ -53,7 +55,8 @@ function FinalDuel:Trigger (team)
   Duels:StartDuel({
     players = 0,
     timeout = FINAL_DUEL_TIMEOUT,
-    isFinalDuel = true
+    isFinalDuel = true,
+    forceAllPlayers = true
   })
 end
 

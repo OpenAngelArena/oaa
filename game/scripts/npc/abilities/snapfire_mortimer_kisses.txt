@@ -29,12 +29,12 @@
 
         // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "90"
+        "AbilityCooldown"               "110"
         "AbilityDuration"               "6.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "125 150 175 200 225"
+        "AbilityManaCost"               "125 150 175 250 350"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@
             "05"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage_per_impact"     "200 400 700 1000 1300" //OAA
+                "damage_per_impact"     "160 320 480 960 1280" //OAA
             }
             "06"
             {
@@ -89,12 +89,12 @@
             "10"
             {
                 "var_type"              "FIELD_INTEGER"
-                "burn_damage"           "50 100 200 300 400" //OAA
+                "burn_damage"           "50 100 150 300 450" //OAA
             }
             "11"
             {
                 "var_type"              "FIELD_INTEGER"
-                "move_slow_pct"         "25"
+                "move_slow_pct"         "15 20 25 30 30"
                 "LinkedSpecialBonus"    "special_bonus_unique_snapfire_4"
             }
             "12"

@@ -44,7 +44,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "23.0"
     "AbilitySharedCooldown"                               "force"
@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "17600"
+    "ItemCost"                                            "17575"
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 4;pike 4"
@@ -118,7 +118,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "100 110 130 160 200"
+        "bonus_attack_speed"                              "100 110 120 130 140"
       }
     }
   }

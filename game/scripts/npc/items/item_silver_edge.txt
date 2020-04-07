@@ -56,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40 50 70 100 140"
+        "bonus_damage"                                    "45 55 75 105 145"
       }
       "02"
       {
@@ -98,6 +98,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "backstab_duration"                               "4"
       }
+	  "10"
+	  {
+		"var_type"                                        "FIELD_INTEGER"
+		"heal_reduction"                                  "50"
+	  }
     }
   }
 }

@@ -40,16 +40,21 @@
     "ID"                                                  "3047"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_tranquil_boots.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "custom/greater_tranquils_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13.0"
+    "AbilityCooldown"                                     "18"
     "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "greater_tranquils"
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14000"
+    "ItemCost"                                            "13975"
     "ItemShopTags"                                        "move_speed;regen_health;armor"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater tranquil boots 3;tranquil boots 3;tranquils 3"
@@ -72,47 +77,37 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
+        "bonus_armor"                                     "0 4 8 12"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "20 30 45 65"
+        "bonus_health_regen"                              "20 40 60 80"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_duration"                                   "20.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "break_time"                                      "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "250"
+        "broken_movement_speed"                           "18 23 28 33"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_interval"                                   "0.334"
+        "var_type"                                        "FIELD_INTEGER"
+        "melee_attack_speed_slow"                         "-700"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "break_time"                                      "13"
+        "ranged_bonus_attack_range"                       "-500"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_count"                                     "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_threshold"                                 "20"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "broken_movement_speed"                           "18 23 28 33"
+        "var_type"                                        "FIELD_FLOAT"
+        "tranquilize_duration"                            "5.0"
       }
     }
   }

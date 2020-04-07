@@ -22,6 +22,7 @@ function PointsManager:Init ()
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
   end
+  scoreLimit = scoreLimit * PlayerResource:GetTeamPlayerCount() + KILL_LIMIT_INCREASE
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', {

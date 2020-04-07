@@ -24,7 +24,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_damage"                                     "0.6 1.2 1.8 2.4 3.6 4.2"
+        "aura_damage"                                     "0.6 1.2 1.8 2.4 3.0 3.6"
         "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_2"
       }
       "03"
@@ -50,7 +50,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_multiplier"                              "2"
+        "scepter_multiplier"                              "1.5" //OAA
         "RequiresScepter"                                 "1"
       }
     }

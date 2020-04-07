@@ -51,12 +51,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16 26 36 46 56"
+        "bonus_attack_speed"                              "16 21 26 31 36"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 18 22 28 34"
+        "manacost_reduction"                              "16 18 22 28 36" //OAA
       }
       "05"
       {
@@ -66,7 +66,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "12 18 26 34 42"
+        "spell_amp"                                       "14 18 22 26 30"
       }
     }
   }

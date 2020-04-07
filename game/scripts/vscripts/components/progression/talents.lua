@@ -5,9 +5,9 @@ end
 
 GameEvents:OnPlayerLearnedAbility(function(keys)
   -- OnPlayerLearnedAbility event doesn't happen for abilities that are leveled up in Lua with: ability:SetLevel(level)
-  local player = EntIndexToHScript(keys.player)
+  local playerID = keys.PlayerID or keys.player_id -- just in case Valve randomly changes it again
   local abilityname = keys.abilityname
-  local playerID = keys.PlayerID
+
   if playerID and string.find(abilityname, "special_bonus") then
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
     local talentData = CustomNetTables:GetTableValue("talents", tostring(hero:entindex())) or {}

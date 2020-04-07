@@ -105,6 +105,8 @@ function modifier_item_greater_power_treads:OnCreated( event )
   self.stat = spell:GetSpecialValueFor( "bonus_stat" )
   self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
   self.all_stats = spell:GetSpecialValueFor( "all_stats" )
+  self.magic_resistance = spell:GetSpecialValueFor( "bonus_magic_resistance" )
+  self.spell_amp = spell:GetSpecialValueFor( "bonus_spell_amp" )
 end
 
 --------------------------------------------------------------------------------
@@ -137,6 +139,8 @@ function modifier_item_greater_power_treads:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 
@@ -297,10 +301,29 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
   return bonus
 end
 
-function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.magic_resistance
+  end
+  return 0
+end
 
-  return self.bonus_damage or spell:GetSpecialValueFor("bonus_damage")
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.bonus_damage
+  end
+  return 0
+end
+
+function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.spell_amp
+  end
+  return 0
 end
 
 --------------------------------------------------------------------------------

@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 100 90 80 70"
+    "AbilityCooldown"                                     "60" //OAA
     "AbilityDuration"                                     "10.0"
 
     // Cost
@@ -96,7 +96,7 @@
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_delay"                                   "2.5"
+        "scepter_delay"                                   "2"
         "RequiresScepter"                                 "1"
       }
     }
