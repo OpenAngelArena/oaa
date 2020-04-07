@@ -26,12 +26,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "10 15 20 25 30 35" // old Vengeance Aura had 42%
+        "damage_pct"                                      "15 20 25 30 35 40" // old Vengeance Aura had 42%
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_pct"                                       "10 15 20 25 30 35"
+        "armor_pct"                                       "10 15 20 25 30 35" //OAA, its % of base armor
       }
       "04"
       {

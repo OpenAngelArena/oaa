@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 260 400"
+    "AbilityManaCost"                                     "100 145 190 235 500 750"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "6.25 8.75 11.25 13.75 15 16" // 1.25x dota values
+        "mana_pool_damage_pct"                            "6 8 10 12 13 14"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
       "02"

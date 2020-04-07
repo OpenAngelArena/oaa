@@ -1,12 +1,18 @@
 furion_wrath_of_nature_oaa = class(AbilityBaseClass)
+
 LinkLuaModifier("modifier_furion_wrath_of_nature_thinker_oaa", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_treant_bonus_oaa", "modifiers/modifier_treant_bonus_oaa", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_debuff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_furion_wrath_of_nature_hit_debuff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_counter", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_buff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function furion_wrath_of_nature_oaa:OnAbilityPhaseStart()
-  local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_wrath_of_nature_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
-  ParticleManager:SetParticleControlEnt(nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetOrigin(), false)
+  local caster = self:GetCaster()
+  local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_wrath_of_nature_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControlEnt(nFXIndex, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), false)
   ParticleManager:ReleaseParticleIndex(nFXIndex)
+
   return true
 end
 
@@ -17,9 +23,9 @@ function furion_wrath_of_nature_oaa:OnSpellStart()
 
   if target then
     -- If target doesn't have Spell Block then
-	if not target:TriggerSpellAbsorb(self) then
-	  CreateModifierThinker(caster, self, "modifier_furion_wrath_of_nature_thinker_oaa", {}, target:GetAbsOrigin(), caster:GetTeamNumber(), false)
-	end
+    if not target:TriggerSpellAbsorb(self) then
+      CreateModifierThinker(caster, self, "modifier_furion_wrath_of_nature_thinker_oaa", {}, target:GetAbsOrigin(), caster:GetTeamNumber(), false)
+    end
   elseif cursor_position then
     CreateModifierThinker(caster, self, "modifier_furion_wrath_of_nature_thinker_oaa", {}, cursor_position, caster:GetTeamNumber(), false)
   else
@@ -34,18 +40,21 @@ function furion_wrath_of_nature_oaa:GetAssociatedSecondaryAbilities()
   return "furion_force_of_nature"
 end
 
+-- This would be needed if furion_force_of_nature was a vanilla ability
+-- OAA has a custom furion_force_of_nature with the same ability name so we can deal with spell steal mechanics there
+--[[
 function furion_wrath_of_nature_oaa:OnStolen(hSourceAbility)
   local caster = self:GetCaster()
   local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
 
-  -- This would work if furion_force_of_nature was a vanilla ability
-  --if force_of_nature_ability and not caster:FindAbilityByName("morphling_replicate") then
-    --force_of_nature_ability:SetHidden(true)
-    --force_of_nature_ability:SetStolen(true)
-  --end
+  if force_of_nature_ability and not caster:FindAbilityByName("morphling_replicate") then
+    force_of_nature_ability:SetHidden(true)
+    force_of_nature_ability:SetStolen(true)
+  end
 end
+]]
 
--------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_furion_wrath_of_nature_thinker_oaa = class(ModifierBaseClass)
 
@@ -75,8 +84,8 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated()
 
   if IsServer() then
     -- Create a table for storing already hit units
-	self.targets_hit = {}
-	local target = ability:GetCursorTarget()
+    self.targets_hit = {}
+    local target = ability:GetCursorTarget()
 
     if not target then
       local vPos = self:GetParent():GetAbsOrigin()
@@ -95,7 +104,6 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated()
 
     -- This is important for bounce particle for some reason
 	  self.target = target
-
     -- Bounce Particle
 	  self:CreateBounceFX(target)
 	  -- Damage and scepter effect
@@ -203,6 +211,9 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
     end
   end
 
+  -- Apply a modifier to the unit that will trigger on unit death and give dmg to the caster
+  hTarget:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_hit_debuff", {duration = 0.3})
+
   -- Calculate damage
   local nTargetsHit = 0
   if self.targets_hit then
@@ -271,7 +282,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:CreateBounceFX(hTarget)
   ParticleManager:ReleaseParticleIndex( nFXIndexHit );
 end
 
--------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_furion_wrath_of_nature_scepter_debuff = class(ModifierBaseClass)
 
@@ -335,4 +346,120 @@ function modifier_furion_wrath_of_nature_scepter_debuff:OnDeath(event)
       end
     end
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_furion_wrath_of_nature_hit_debuff = class(ModifierBaseClass)
+
+function modifier_furion_wrath_of_nature_hit_debuff:IsHidden()
+  return true
+end
+
+function modifier_furion_wrath_of_nature_hit_debuff:IsDebuff()
+  return true
+end
+
+function modifier_furion_wrath_of_nature_hit_debuff:IsPurgable()
+  return false
+end
+
+function modifier_furion_wrath_of_nature_hit_debuff:DeclareFunctions()
+  local funcs = {
+    MODIFIER_EVENT_ON_DEATH,
+  }
+  return funcs
+end
+
+function modifier_furion_wrath_of_nature_hit_debuff:OnDeath(event)
+  if IsServer() then
+    local parent = self:GetParent()
+    if event.unit == parent then
+      local caster = self:GetCaster()
+      if not caster then
+        return
+      end
+      local ability = self:GetAbility() or caster:FindAbilityByName("furion_wrath_of_nature_oaa")
+      if not ability or ability:IsNull() then
+        return
+      end
+
+      local kill_damage_duration = ability:GetSpecialValueFor("kill_damage_duration")
+      if kill_damage_duration ~= 0 then
+        caster:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_kill_damage_counter", {duration = kill_damage_duration})
+        caster:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_kill_damage_buff", {duration = kill_damage_duration})
+      end
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_furion_wrath_of_nature_kill_damage_counter = class(ModifierBaseClass)
+
+function modifier_furion_wrath_of_nature_kill_damage_counter:IsHidden() -- needs tooltip
+  return false
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_counter:IsDebuff()
+  return false
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_counter:IsPurgable()
+  return false
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_counter:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOOLTIP
+  }
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_counter:OnTooltip()
+  local dmg_increase = self:GetAbility():GetSpecialValueFor("kill_damage")
+  return dmg_increase * self:GetStackCount()
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_furion_wrath_of_nature_kill_damage_buff = class(ModifierBaseClass)
+
+function modifier_furion_wrath_of_nature_kill_damage_buff:IsPurgable()
+  return false
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_buff:IsHidden()
+  return true
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_buff:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+  }
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_buff:OnCreated()
+  if IsServer() then
+    local counterMod = self:GetParent():FindModifierByName("modifier_furion_wrath_of_nature_kill_damage_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() + 1)
+    end
+  end
+end
+
+if IsServer() then
+  function modifier_furion_wrath_of_nature_kill_damage_buff:OnDestroy()
+    local counterMod = self:GetParent():FindModifierByName("modifier_furion_wrath_of_nature_kill_damage_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() - 1)
+    end
+  end
+end
+
+function modifier_furion_wrath_of_nature_kill_damage_buff:GetModifierPreAttack_BonusDamage()
+  return self:GetAbility():GetSpecialValueFor("kill_damage")
 end

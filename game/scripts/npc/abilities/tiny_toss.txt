@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
+    "AbilityCastRange"                                    "850 1000 1150 1300 1450 1600"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -68,7 +68,8 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "17 15 13 11 10 10" // OAA, Valve has it wrong
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_2"
       }
     }
   }

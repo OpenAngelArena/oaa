@@ -17,8 +17,9 @@
     "ItemCost"                                            "3500"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_crit_2;item_upgrade_core_2"
-      "02"                                                "item_bloodthorn_2;item_upgrade_core_2"
+      "01"                                                "item_nullifier_2;item_upgrade_core_2"
+      "02"                                                "item_greater_crit_2;item_upgrade_core_2"
+      "03"                                                "item_bloodthorn_2;item_upgrade_core_2"
     }
   }
 
@@ -40,12 +41,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "10330"
+    "ItemCost"            "9725"
     "ItemAliases"         "nlf 3;nullifier 3"
 
     "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "13.0"
-    "AbilityCastRange"      "600"
+    "AbilityCooldown"       "11.0"
+    "AbilityCastRange"      "900"
     "AbilityManaCost"       "75"
 
     // Spicy Parameters
@@ -59,38 +60,38 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "65 95 130 170 215"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "80 105 140 185 240"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"     "5 7 10 14 19"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "8 9 11 14 18"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_regen"     "6 8 12 18 26"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_regen"                                     "6 8 12 18 26"
       }
       "04"
       {
-        "var_type"        "FIELD_FLOAT"
-        "mute_duration"     "6.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "mute_duration"                                   "5.0"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "projectile_speed"    "750"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "750"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "slow_pct"        "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "80"
       }
       "07"
       {
-        "var_type"        "FIELD_FLOAT"
-        "slow_interval_duration"  "0.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_interval_duration"                          "0.5"
       }
     }
   }

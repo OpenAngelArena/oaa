@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "4465"
+    "ItemCost"                        "4440"
     "ItemAliases"                     "sv 2;spirit vessel 2"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"                    "FIELD_INTEGER"
-        "bonus_health"                "250 500 750 1250 2000"
+        "bonus_health"                "250 500 1000 1500 2500"
       }
       "02"
       {
@@ -79,12 +79,12 @@
       "04"
       {
         "var_type"                    "FIELD_INTEGER"
-        "bonus_all_stats"             "2 15 30 45 60"
+        "bonus_all_stats"             "2 10 15 20 25"
       }
       "05"
       {
         "var_type"                    "FIELD_FLOAT"
-        "bonus_armor"                 "2 4 7 11 16"
+        "bonus_armor"                 "2 3 5 8 12"
       }
       "06"
       {

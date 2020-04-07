@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 200 250"
+    "AbilityManaCost"                                     "135 140 145 150 200 250"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -55,17 +55,17 @@
         "jump_damage_reduction_pct"                       "8"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03"
+      "03" // this is not precentage based attack damage reduction
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_attack_damage_reduction"                    "20 25 30 35 60 85"
-        "LinkedSpecialBonus"    "special_bonus_unique_rubick_2"
+        "hero_attack_damage_reduction"                    "20 25 30 35 70 140"
+        "LinkedSpecialBonus"                              "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_attack_damage_reduction"                   "10 13 15 17 300 600"
+        "creep_attack_damage_reduction"                   "10 20 30 40 300 600" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"

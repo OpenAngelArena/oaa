@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5495"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
@@ -72,13 +71,13 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "20 16 12 8 8 8"
+        "charge_restore_time"                             "10"
         "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pounce_distance_scepter"                         "1400"
+        "pounce_distance_scepter"                         "1100"
         "RequiresScepter"                                 "1"
       }
     }

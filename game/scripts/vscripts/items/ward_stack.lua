@@ -74,6 +74,9 @@ if IsServer() then
       duration = self:GetSpecialValueFor(wardType .. '_duration')
     })
 
+    ward:SetDayTimeVisionRange(self:GetSpecialValueFor(wardType .. '_radius'))
+    ward:SetNightTimeVisionRange(self:GetSpecialValueFor(wardType .. '_radius'))
+
     caster[wardType .. 'Count'] = caster[wardType .. 'Count'] - 1
     if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
@@ -132,6 +135,22 @@ if not IsServer() then
       return "item_ward_observer"
     else
       return "item_branches"
+    end
+  end
+
+  function item_ward_stack:GetAOERadius()
+    local wardType = self.lastType or WARD_TYPE_OBSERVER
+    if self.mod and not self.mod:IsNull() then
+      wardType = self.mod:GetStackCount()
+    end
+    if wardType == WARD_TYPE_OBSERVER or wardType == WARD_TYPE_OBSERVER_ONLY then
+      -- observer radius
+      return self:GetSpecialValueFor("observer_radius")
+    elseif wardType == WARD_TYPE_SENTRY or wardType == WARD_TYPE_SENTRY_ONLY then
+      -- sentry radius
+      return self:GetSpecialValueFor("sentry_reveal_radius")
+    else
+      return 0
     end
   end
 end
@@ -417,7 +436,7 @@ function modifier_item_ward_stack:DeclareFunctions ()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS
     --MODIFIER_PROPERTY_MANA_BONUS
   }
@@ -427,9 +446,9 @@ function modifier_item_ward_stack:GetModifierConstantHealthRegen()
   return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
 
-function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor('bonus_armor')
-end
+--function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
+  --return self:GetAbility():GetSpecialValueFor('bonus_armor')
+--end
 
 function modifier_item_ward_stack:GetModifierHealthBonus()
   return self:GetAbility():GetSpecialValueFor('bonus_health')

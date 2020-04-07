@@ -54,24 +54,24 @@ function modifier_spark_midas:GetSparkLevel()
   if IsServer() then
     gameTime = HudTimer:GetGameTime() - (self.stack_count / 2)
   else
-    gameTime = GameRules:GetDOTATime(false, false) - (self.GetStackCount() / 2)
+    gameTime = GameRules:GetDOTATime(false, false) - (self:GetStackCount() / 2)
   end
 
-  if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
-    return 1
+  if not SPARK_LEVEL_1_TIME then
+    SPARK_LEVEL_1_TIME = 0
+    SPARK_LEVEL_2_TIME = 240
+    SPARK_LEVEL_3_TIME = 900
+    SPARK_LEVEL_4_TIME = 1500
+    SPARK_LEVEL_5_TIME = 2100
   end
 
-  if gameTime > INITIAL_CAPTURE_POINT_DELAY + 3*CAPTURE_INTERVAL then
-    -- after 4th cap
+  if gameTime > SPARK_LEVEL_5_TIME then
     return 5
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + 2*CAPTURE_INTERVAL then
-    -- after third cap
+  elseif gameTime > SPARK_LEVEL_4_TIME then
     return 4
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL then
-    -- after second cap
+  elseif gameTime > SPARK_LEVEL_3_TIME then
     return 3
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY then
-    -- after first cap
+  elseif gameTime > SPARK_LEVEL_2_TIME then
     return 2
   end
 

@@ -6,12 +6,10 @@ boss_carapace_crystals = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
-if IsServer() then
-	function boss_carapace_crystals:GetIntrinsicModifierName()
-		if self:GetLevel() > 0 then
-			return "modifier_boss_carapace_crystals_passive"
-		end
-	end
+function boss_carapace_crystals:GetIntrinsicModifierName()
+  if self:GetLevel() > 0 then
+    return "modifier_boss_carapace_crystals_passive"
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -128,13 +126,22 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_carapace_crystals_passive:DeclareFunctions()
-	local funcs =
-	{
-		MODIFIER_EVENT_ON_TAKEDAMAGE,
-		MODIFIER_EVENT_ON_DEATH
-	}
+  local funcs =
+  {
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+  }
+  return funcs
+end
 
-	return funcs
+function modifier_boss_carapace_crystals_passive:GetModifierPhysicalArmorBonus()
+  return self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_boss_carapace_crystals_passive:GetModifierMagicalResistanceBonus()
+  return self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 end
 
 ------------------------------------------------------------------------------------
@@ -193,7 +200,7 @@ if IsServer() then
 	function modifier_boss_carapace_crystals_passive:OnTakeDamage(keys)
 		local caster = self:GetParent()
 		local attacker = keys.attacker
-		local damage = keys.damage
+		local damage_taken = keys.damage
 		local ability = self:GetAbility()
 
 		local initial = ability:GetSpecialValueFor("initial")
@@ -202,6 +209,16 @@ if IsServer() then
 		if keys.unit:entindex() ~= caster:entindex() then
 			return
 		end
+
+    -- Do nothing on self damage (ignore bleeding damage for example)
+    if attacker == caster then
+      return
+    end
+
+    -- Do nothing for damage that has no spell amp flag (this also prevents damage looping)
+    if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) == DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION then
+      return
+    end
 
 		if self.count - initial < additional - math.ceil((caster:GetHealth() / caster:GetMaxHealth()) * additional) then
 			local function CheckCrystal(k)
@@ -227,16 +244,17 @@ if IsServer() then
 			local max = angle + (self.angle / 2)
 
 			if not crystal.full and crystal.particle and IsAngleBetween(result_angle, min, max) then
-				self.crystals[id].taken = self.crystals[id].taken + keys.damage
+				self.crystals[id].taken = self.crystals[id].taken + damage_taken
 
 				self.skip = true
-				local damageTable = {
-					victim = caster,
-					attacker = attacker,
-					damage = damage * ((ability:GetSpecialValueFor("damage_amplification") / 100) + 1),
-					damage_type = DAMAGE_TYPE_PURE,
-					ability = ability
-				}
+        local damageTable = {
+          victim = caster,
+          attacker = attacker,
+          damage = damage_taken * ((ability:GetSpecialValueFor("damage_amplification") / 100) + 1),
+          damage_type = DAMAGE_TYPE_PURE,
+          damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+          ability = ability
+        }
 				ApplyDamage(damageTable)
 
 				local impact = ParticleManager:CreateParticle("particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_explosion_flash_c.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -293,7 +311,7 @@ if IsServer() then
 							fDistance = range,
 							Source = caster,
 							iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-							iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+							iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
 						}
 
 						ProjectileManager:CreateLinearProjectile( info )
@@ -303,8 +321,8 @@ if IsServer() then
 							caster:GetAbsOrigin(),
 							caster:GetAbsOrigin() + (direction * range),
 							caster, width/2, DOTA_UNIT_TARGET_TEAM_ENEMY,
-							DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-							DOTA_UNIT_TARGET_FLAG_NONE)
+							bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 
 						for _,victim in pairs(units) do
 							explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, victim)

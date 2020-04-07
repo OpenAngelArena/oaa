@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 65 70 75 100 125"
+    "AbilityManaCost"                                     "60 70 80 90 130 180"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20 35 50 65 165 265"
+        "damage_per_second"                               "15 30 45 60 160 260"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"
@@ -49,7 +49,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "12 13 14 15 16 17"
+        "bonus_movement_speed_pct"                        "9 11 13 15 16 17"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_6"
       }
       "04"

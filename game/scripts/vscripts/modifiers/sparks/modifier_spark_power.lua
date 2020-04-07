@@ -25,7 +25,38 @@ function modifier_spark_power:GetTexture()
 end
 
 function modifier_spark_power:OnCreated()
-  -- Power Spark variables
+  local parent = self:GetParent()
+  if IsServer() then
+    -- Current damage values
+    local base_damage_max = parent:GetBaseDamageMax()
+    local base_damage_min = parent:GetBaseDamageMin()
+    local current_primary_stat_value = parent:GetBonusDamageFromPrimaryStat()
+    local current_average_base_damage = (base_damage_max + base_damage_min)/2
+
+    -- Find primary attribute value at level 1 (starting_primary_stat_value)
+    local primary_attribute = parent:GetPrimaryAttribute()
+    local starting_primary_stat_value
+    if primary_attribute == 0 then
+      starting_primary_stat_value = parent:GetBaseStrength() - (parent:GetLevel() - 1) * parent:GetStrengthGain()
+    elseif primary_attribute == 1 then
+      starting_primary_stat_value = parent:GetBaseAgility() - (parent:GetLevel() - 1) * parent:GetAgilityGain()
+    elseif primary_attribute == 2 then
+      starting_primary_stat_value = parent:GetBaseIntellect() - (parent:GetLevel() - 1) * parent:GetIntellectGain()
+    end
+
+    -- Damage values at level 1 (starting base damage values)
+    local base_damage_level_1_max = base_damage_max - current_primary_stat_value + starting_primary_stat_value
+    local base_damage_level_1_min = base_damage_min - current_primary_stat_value + starting_primary_stat_value
+    local starting_average_base_damage = (base_damage_level_1_max + base_damage_level_1_min)/2
+
+    -- Bonus damage formula
+    self.bonus_damage = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
+    self:SetStackCount(self.bonus_damage)
+    self:StartIntervalThink(1)
+  end
+
+  --[[
+  -- Power Spark constants
   self.creep_damage_melee = {40, 120, 200, 280, 360}
   self.creep_damage_ranged = {40, 120, 200, 280, 360}
   self.creep_damage_melee_illusion = {20, 60, 100, 140, 180}
@@ -33,7 +64,6 @@ function modifier_spark_power:OnCreated()
 
   -- Stack count is for tooltip only
   if IsServer() then
-    local parent = self:GetParent()
     local spark_level = self:GetSparkLevel()
     if parent:IsRangedAttacker() then
       self:SetStackCount(self.creep_damage_ranged[spark_level])
@@ -41,31 +71,64 @@ function modifier_spark_power:OnCreated()
       self:SetStackCount(self.creep_damage_melee[spark_level])
     end
   end
+  ]]
 end
 
+function modifier_spark_power:OnIntervalThink()
+  local parent = self:GetParent()
+
+  if parent:IsIllusion() then
+    return
+  end
+
+  if IsServer() then
+    -- Current damage values
+    local base_damage_max = parent:GetBaseDamageMax()
+    local base_damage_min = parent:GetBaseDamageMin()
+    local current_primary_stat_value = parent:GetBonusDamageFromPrimaryStat()
+    local current_average_base_damage = (base_damage_max + base_damage_min)/2
+
+    -- Find primary attribute value at level 1 (starting_primary_stat_value)
+    local primary_attribute = parent:GetPrimaryAttribute()
+    local starting_primary_stat_value
+    if primary_attribute == 0 then
+      starting_primary_stat_value = parent:GetBaseStrength() - (parent:GetLevel() - 1) * parent:GetStrengthGain()
+    elseif primary_attribute == 1 then
+      starting_primary_stat_value = parent:GetBaseAgility() - (parent:GetLevel() - 1) * parent:GetAgilityGain()
+    elseif primary_attribute == 2 then
+      starting_primary_stat_value = parent:GetBaseIntellect() - (parent:GetLevel() - 1) * parent:GetIntellectGain()
+    end
+
+    -- Damage values at level 1 (starting base damage values)
+    local base_damage_level_1_max = base_damage_max - current_primary_stat_value + starting_primary_stat_value
+    local base_damage_level_1_min = base_damage_min - current_primary_stat_value + starting_primary_stat_value
+    local starting_average_base_damage = (base_damage_level_1_max + base_damage_level_1_min)/2
+
+    self.bonus_damage = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
+    self:SetStackCount(self.bonus_damage)
+  end
+end
+--[[
 function modifier_spark_power:GetSparkLevel()
   local gameTime = HudTimer:GetGameTime()
 
-  if not INITIAL_CAPTURE_POINT_DELAY or not CAPTURE_INTERVAL then
+  if not SPARK_LEVEL_1_TIME then
     return 1
   end
 
-  if gameTime > INITIAL_CAPTURE_POINT_DELAY + 3*CAPTURE_INTERVAL then
-    -- after 4th cap
+  if gameTime > SPARK_LEVEL_5_TIME then
     return 5
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + 2*CAPTURE_INTERVAL then
-    -- after third cap
+  elseif gameTime > SPARK_LEVEL_4_TIME then
     return 4
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY + CAPTURE_INTERVAL then
-    -- after second cap
+  elseif gameTime > SPARK_LEVEL_3_TIME then
     return 3
-  elseif gameTime > INITIAL_CAPTURE_POINT_DELAY then
-    -- after first cap
+  elseif gameTime > SPARK_LEVEL_2_TIME then
     return 2
   end
 
   return 1
 end
+]]
 
 function modifier_spark_power:DeclareFunctions()
   return {
@@ -108,6 +171,7 @@ function modifier_spark_power:GetModifierProcAttack_BonusDamage_Pure(event)
   end
 
   -- Power Spark variables
+  --[[
   local creep_damage_melee = self.creep_damage_melee
   local creep_damage_ranged = self.creep_damage_ranged
   local creep_damage_melee_illusion = self.creep_damage_melee_illusion
@@ -126,7 +190,11 @@ function modifier_spark_power:GetModifierProcAttack_BonusDamage_Pure(event)
       damage = creep_damage_ranged_illusion[spark_level]
     end
   end
-
+  ]]
+  local damage = self.bonus_damage
+  if parent:IsIllusion() then
+    damage = damage/10
+  end
   if damage > 0 then
     SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
   end

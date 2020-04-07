@@ -25,6 +25,7 @@
     {
       "01"                                                "item_greater_crit_2;item_upgrade_core_2"
       "02"                                                "item_bloodthorn_2;item_upgrade_core_2"
+      "03"                                                "item_nullifier_2;item_upgrade_core_2"
     }
   }
 
@@ -46,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10330"
+    "ItemCost"                                            "9725"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus 3;crit 3"
@@ -60,7 +61,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 100 140 200 280"
+        "bonus_damage"                                    "88 100 140 200 280"
       }
       "02"
       {

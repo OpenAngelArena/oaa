@@ -256,7 +256,7 @@ function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
 
     iter(playerAdditionalUnits)
       :filter(function (unit)
-        return unit:GetPlayerOwnerID() == hero:GetPlayerOwnerID() and unit:HasMovementCapability()
+        return unit:GetPlayerOwnerID() == hero:GetPlayerOwnerID() and unit:HasMovementCapability() and (not unit:IsCourier())
       end)
       :foreach(function (unit)
         ZoneControl:EnforceRulesOnEntity(state, playerId, unit)

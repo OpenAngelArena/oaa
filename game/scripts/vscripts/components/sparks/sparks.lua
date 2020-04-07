@@ -130,7 +130,17 @@ function Sparks:CheckSparkOnHero (playerId)
   end
   local modifierName = self:ModifierName(spark)
 
-  hero:AddNewModifier(hero, nil, modifierName, {})
+  if hero:IsAlive() then
+    hero:AddNewModifier(hero, nil, modifierName, {})
+  else
+    Timers:CreateTimer(0.1, function()
+      if hero:IsAlive() then
+        hero:AddNewModifier(hero, nil, modifierName, {})
+      else
+        return 0.1
+      end
+    end)
+  end
 end
 
 function Sparks:ModifierName (spark)

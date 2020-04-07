@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"           "32 28 24 20 20 20"
+    "AbilityCooldown"           "20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,74 +42,74 @@
     {
       "01"
       {
-        "var_type"          "FIELD_FLOAT"
-        "spawn_time"        "0.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "spawn_time"                                      "0.0"
       }
       "02"
       {
-        "var_type"          "FIELD_FLOAT"
-        "speed"             "750"
+        "var_type"                                        "FIELD_FLOAT"
+        "speed"                                           "750"
       }
       "03"
       {
-        "var_type"          "FIELD_FLOAT"
-        "latch_duration"    "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "latch_duration"                                  "5"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "destroy_attacks"     "6 6 9 9 12 15"
-        "LinkedSpecialBonus"    "special_bonus_unique_grimstroke_4"
+        "var_type"                                        "FIELD_INTEGER"
+        "destroy_attacks"                                 "6 6 9 9 12 15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_4"
       }
       "05"
       {
-        "var_type"          "FIELD_INTEGER"
-        "hero_attack_multiplier"  "3"
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_attack_multiplier"                          "3"
       }
       "06"
       {
-        "var_type"          "FIELD_INTEGER"
-        "damage_per_tick"     "3 7 11 15 30 45"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_tick"                                 "3 7 11 15 30 45"
       }
       "07"
       {
-        "var_type"          "FIELD_INTEGER"
-        "dps_tooltip"       "6 14 22 30 60 90"
+        "var_type"                                        "FIELD_INTEGER"
+        "dps_tooltip"                                     "6 14 22 30 60 90"
       }
       "08"
       {
-        "var_type"          "FIELD_INTEGER"
-        "enemy_vision_time"     "4"
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_vision_time"                               "4"
       }
       "09"
       {
-        "var_type"          "FIELD_FLOAT"
-        "tick_interval"       "0.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.5"
       }
       "10"
       {
-        "var_type"          "FIELD_INTEGER"
-        "infection_search_radius" "1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "infection_search_radius"                         "1000"
       }
       "11"
       {
-        "var_type"          "FIELD_INTEGER"
-        "pop_damage"        "80 170 260 350 700 1070"
+        "var_type"                                        "FIELD_INTEGER"
+        "pop_damage"                                      "120 200 280 360 720 1440"
       }
       "12"
       {
-        "var_type"          "FIELD_INTEGER"
-        "return_projectile_speed" "750"
+        "var_type"                                        "FIELD_INTEGER"
+        "return_projectile_speed"                         "750"
       }
       "13"
       {
-        "var_type"          "FIELD_INTEGER"
-        "latched_unit_offset"   "130"
+        "var_type"                                        "FIELD_INTEGER"
+        "latched_unit_offset"                             "130"
       }
       "14"
       {
-        "var_type"          "FIELD_INTEGER"
-        "latched_unit_offset_short" "95"
+        "var_type"                                        "FIELD_INTEGER"
+        "latched_unit_offset_short"                       "95"
       }
     }
   }

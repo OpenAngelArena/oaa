@@ -28,7 +28,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.5"
 
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "85"
     "AbilityManaCost"                                     "175 225 275 525 750"
 
     // Special
@@ -43,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 170 230 370 510" //OAA, for picking screen tooltip
+        "damage"                                          "110 170 230 410 710" //OAA, for picking screen tooltip
       }
       "03"
       {
@@ -58,22 +58,32 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "140 230 310 510 680" // OAA, for picking screen tooltip
-        "RequiresScepter"                                 "1"
+        "kill_damage"                                     "4 5 6 7 8"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "kill_damage_duration"                            "50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_scepter"                                  "135 230 325 610 895" // OAA, for picking screen tooltip
+        "RequiresScepter"                                 "1"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_buffer"                                  "4"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_large_hp_bonus_tooltip"                   "1650 2100 2700 3600 5400 8100" //OAA, same as in Nature's Call
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_large_damage_bonus_tooltip"               "114 162 222 294 456 705" //OAA, same as in Nature's Call

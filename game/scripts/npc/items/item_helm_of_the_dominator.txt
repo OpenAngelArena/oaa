@@ -48,7 +48,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"            "2400"
+    "ItemCost"            "2125"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd;helm of the dominator;helm;dominator"
@@ -62,12 +62,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stats"                                     "7 15 30 45 60"
+        "bonus_stats"                                     "7 10 15 20 25"
       }
-      "02"
+      "02" // summoned units bonus dmg: 15/30/45/60/75%
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_damage_aura"                              "15 20 30 40 50" //OAA
+        "attack_damage_aura"                              "10 20 30 40 50" //OAA
       }
       "03"
       {

@@ -70,6 +70,17 @@ g_ParticlePrecache = {
   "particles/items/upgrade_4.vpcf",
   "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
   "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
+  -- Carapace Boss
+  "particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_smoke.vpcf",
+  "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf",
+  "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf",
+  "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf",
+  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf",
+  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
+  "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
+  -- Vector targetting
+  "particles/ui_mouseactions/range_finder_cone.vpcf",
 }
 
 g_ParticleFolderPrecache = {

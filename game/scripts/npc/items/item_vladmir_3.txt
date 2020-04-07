@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "7300"
+    "ItemCost"            "7100"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering 3;vlads 3"
@@ -64,7 +64,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_aura"                                      "3 5 8 12 17"
+        "armor_aura"                                      "3 4 6 9 13"
       }
       "03"
       {
@@ -79,7 +79,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "6 15 30 45 60"
+        "bonus_all_stats"                                 "5 10 15 20 25"
       }
     }
   }

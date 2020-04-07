@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2900"
+    "ItemCost"                                            "2775"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen"                                    "8.0 10.0 13.0 16.0 18.0"
+        "health_regen"                                    "8.5 10.0 13.0 16.0 18.0"
       }
       "02"
       {
@@ -84,8 +84,8 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen"                               "2 4 6 8 11"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_health_regen"                               "2.5 5 7.5 10 12.5"
       }
       "06"
       {
@@ -115,12 +115,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3 10 25 40 55"
+        "bonus_all_stats"                                 "0"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block_creep"                             "400"
+        "barrier_block_creep"                             "400 500 700 1000 1400"
       }
     }
   }

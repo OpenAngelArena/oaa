@@ -57,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "175"
-    "ItemCost"                                            "15750"
+    "ItemCost"                                            "15725"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "allied cyclone 3;allied euls 3"
@@ -74,8 +74,8 @@
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "6.0 7.5 9.25 11.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "6.0 7.5 9.25 11.5"
       }
       "03"
       {
@@ -90,7 +90,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "575"
+        "tooltip_drop_damage"                             "50"
       }
     }
     "OnSpellStart"
