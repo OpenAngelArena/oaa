@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800"
+    "ItemCost"                                            "1000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2775"
+    "ItemCost"                                            "2975"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"
@@ -85,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "2.5 5 7.5 10 12.5"
+        "aura_health_regen"                               "2 4 6 9 12"
       }
       "06"
       {

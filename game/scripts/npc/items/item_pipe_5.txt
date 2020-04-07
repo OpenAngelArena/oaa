@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35775"
+    "ItemCost"                                            "35975"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight 5;pipe 5"
@@ -86,7 +86,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "2.5 5 7.5 10 12.5"
+        "aura_health_regen"                               "2 4 6 9 12"
       }
       "06"
       {
