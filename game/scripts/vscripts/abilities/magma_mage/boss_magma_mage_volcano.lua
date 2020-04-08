@@ -50,12 +50,11 @@ function boss_magma_mage_volcano:KillAllVolcanos() --kill all volcanos created b
     local volcanos = Entities:FindAllByName(self.zVolcanoName)
     local zModName = "modifier_boss_magma_mage_volcano_thinker"
     for _,volcano in pairs(volcanos) do
-      if volcano:HasModifier( zModName ) and (volcano:FindModifierByName(zModName):GetCaster() == self:GetCaster()) then
+      if volcano:HasModifier(zModName) and (volcano:FindModifierByName(zModName):GetCaster() == self:GetCaster()) then
         volcano:ForceKill(false)
       end
     end
   end
-  return
 end
 
 function boss_magma_mage_volcano:FindClosestMagmaPool() --returns the location (Vector) of the closest magma (edge of a magma pool)

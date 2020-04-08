@@ -1,5 +1,5 @@
 
-function Spawn( entityKeyValues )
+function Spawn(entityKeyValues)
 	if thisEntity == nil then
 		return
 	end
@@ -7,9 +7,9 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.hVolcanoAbility = thisEntity:FindAbilityByName( "boss_magma_mage_volcano" )
+	thisEntity.hVolcanoAbility = thisEntity:FindAbilityByName("boss_magma_mage_volcano")
 
-	thisEntity:SetContextThink( "MagmaMageBossThink", MagmaMageBossThink, 1 )
+	thisEntity:SetContextThink("MagmaMageBossThink", MagmaMageBossThink, 1)
 end
 
 function MagmaMageBossThink()
@@ -21,7 +21,7 @@ function MagmaMageBossThink()
 		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
     thisEntity.bHasAgro = false
-    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
 	end
@@ -37,8 +37,8 @@ function MagmaMageBossThink()
     FIND_CLOSEST,
     false )
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
-  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
+  local fDistanceToOrigin = (thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos):Length2D()
 
 	--Agro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #hEnemies == 0) then
