@@ -78,6 +78,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "arrow_vision"                                    "500"
       }
+      "09" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_pierce_count"                              "0 1 1 2 3 4"
+        "LinkedSpecialBonus"                              "special_bonus_mirana_arrow_pierce"
+      }
     }
   }
 }
