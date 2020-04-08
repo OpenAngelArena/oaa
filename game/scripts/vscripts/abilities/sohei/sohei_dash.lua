@@ -2,7 +2,7 @@ sohei_dash = class( AbilityBaseClass )
 
 --LinkLuaModifier( "modifier_sohei_dash_free_turning", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
-LinkLuaModifier( "modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
 
 ---------------------------------------------------------------------------------------------------
@@ -11,14 +11,8 @@ LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", L
   --return "modifier_sohei_dash_free_turning"
 --end
 
-function sohei_dash:GetVectorTargetRange()
-  return self:GetSpecialValueFor("dash_distance")
-end
-
-function sohei_dash:GetVectorTargetStartRadius()
-  return self:GetSpecialValueFor("effect_radius")
-end
-
+-- Custom charge system, uses Dash charges modifier
+--[[
 function sohei_dash:OnUpgrade()
   local caster = self:GetCaster()
   local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
@@ -58,24 +52,57 @@ function sohei_dash:GetChargeRefreshTime()
   return refreshTime
 end
 
-function sohei_dash:PerformDash()
+function sohei_dash:RefreshCharges()
   local caster = self:GetCaster()
-  local distance = self:GetVectorTargetRange()
-  local speed = self:GetSpecialValueFor( "dash_speed" )
-  local treeRadius = self:GetSpecialValueFor( "tree_radius" )
+  local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
 
+  if modifier_charges and not modifier_charges:IsNull() then
+    local max_charges = self:GetSpecialValueFor( "max_charges" )
+    if caster:HasScepter() then
+      max_charges = self:GetSpecialValueFor( "scepter_max_charges" )
+    end
+    modifier_charges:SetStackCount( max_charges )
+  end
+end
+
+function sohei_dash:OnUnStolen()
+  local caster = self:GetCaster()
+  local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
+  if modifier_charges then
+    caster:RemoveModifierByName("modifier_sohei_dash_charges")
+  end
+end
+]]
+
+function sohei_dash:OnSpellStart()
+  local caster = self:GetCaster()
+  local caster_loc = caster:GetAbsOrigin()
+  local target_loc = self:GetCursorPosition()
+  local speed = self:GetSpecialValueFor("dash_speed")
+  local width = self:GetSpecialValueFor("dash_width")
+
+  -- Calculate direction
+  local direction = target_loc - caster_loc
+  direction.z = 0.0
+  direction = direction:Normalized()
+
+  -- Calculate distance
+  local distance = (target_loc - caster_loc):Length2D()
+
+  -- Calculate duration
   local duration = distance / speed
-  local start_loc = self:GetVectorPosition() or caster:GetAbsOrigin()
 
   caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
   caster:EmitSound( "Sohei.Dash" )
   caster:StartGesture( ACT_DOTA_RUN )
-  caster:SetAbsOrigin(start_loc)
+
   caster:AddNewModifier(caster, self, "modifier_sohei_dash_movement", {
     duration = duration,
     distance = distance,
-    tree_radius = treeRadius,
     speed = speed,
+    direction_x = direction.x,
+    direction_y = direction.y,
+    width = width,
   } )
 
   local talent = caster:FindAbilityByName("special_bonus_sohei_dash_invulnerable")
@@ -84,7 +111,7 @@ function sohei_dash:PerformDash()
     ProjectileManager:ProjectileDodge(caster)
   end
 end
-
+--[[
 function sohei_dash:OnSpellStart()
   local caster = self:GetCaster()
   local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
@@ -134,7 +161,6 @@ function sohei_dash:OnSpellStart()
   self:PerformDash()
 
   -- cd refund for momentum
-  --[[
   local cdRefund = self:GetSpecialValueFor( "momentum_cd_refund" )
 
   if cdRefund > 0 then
@@ -148,29 +174,8 @@ function sohei_dash:OnSpellStart()
       momentum:StartCooldown( momentumCooldown - refundCooldown )
     end
   end
-  ]]
 end
-
-function sohei_dash:RefreshCharges()
-  local caster = self:GetCaster()
-  local modifier_charges = caster:FindModifierByName( "modifier_sohei_dash_charges" )
-
-  if modifier_charges and not modifier_charges:IsNull() then
-    local max_charges = self:GetSpecialValueFor( "max_charges" )
-    if caster:HasScepter() then
-      max_charges = self:GetSpecialValueFor( "scepter_max_charges" )
-    end
-    modifier_charges:SetStackCount( max_charges )
-  end
-end
-
-function sohei_dash:OnUnStolen()
-  local caster = self:GetCaster()
-  local modifier_charges = caster:FindModifierByName("modifier_sohei_dash_charges")
-  if modifier_charges then
-    caster:RemoveModifierByName("modifier_sohei_dash_charges")
-  end
-end
+]]
 
 ---------------------------------------------------------------------------------------------------
 
@@ -210,6 +215,7 @@ end
 ---------------------------------------------------------------------------------------------------
 
 -- Dash charges modifier
+--[[
 modifier_sohei_dash_charges = class( ModifierBaseClass )
 
 function modifier_sohei_dash_charges:IsDebuff()
@@ -299,19 +305,16 @@ if IsServer() then
         end
 
         -- Palm of Life sharing cooldown with Dash
-        --[[
         local spellPalm = self:GetParent():FindAbilityByName( "sohei_palm_of_life" )
-
         if spellPalm and not spellPalm:IsStolen() and remainingTime > spellPalm:GetCooldownTimeRemaining() then
           spellPalm:EndCooldown()
           spellPalm:StartCooldown( remainingTime )
         end
-        ]]
       end
     end
   end
 end
-
+]]
 ---------------------------------------------------------------------------------------------------
 
 -- Dash movement modifier
@@ -358,13 +361,12 @@ if IsServer() then
   function modifier_sohei_dash_movement:OnCreated( event )
     -- Movement parameters
     local parent = self:GetParent()
-    local ability = self:GetAbility()
-    self.direction = ability:GetVectorDirection() or parent:GetForwardVector()
+    self.start_pos = parent:GetAbsOrigin()
+    -- Data sent with AddNewModifier
+    self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1
     self.speed = event.speed
-    self.tree_radius = event.tree_radius
-    self.start_pos = ability:GetVectorPosition() or parent:GetAbsOrigin()
-    self.width = ability:GetVectorTargetStartRadius()
+    self.width = event.width
 
     if self:ApplyHorizontalMotionController() == false then
       self:Destroy()
@@ -438,10 +440,6 @@ if IsServer() then
         parent:EmitSound("Sohei.PalmOfLife.Heal")
       end
     end
-
-    -- Reset vector target direction and position just in case
-    ability.vectorTargetDirection = nil
-    ability.vectorTargetPosition = nil
   end
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion( parent, deltaTime )
@@ -455,7 +453,7 @@ if IsServer() then
 
     self.distance = self.distance - tickSpeed
 
-    GridNav:DestroyTreesAroundPoint( tickOrigin, self.tree_radius, false )
+    GridNav:DestroyTreesAroundPoint( tickOrigin, self.width, false )
   end
 
   function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
@@ -487,6 +485,9 @@ end
 function modifier_sohei_dash_slow:OnCreated(event)
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+  if self:GetCaster():HasScepter() then
+    movement_slow = self:GetAbility():GetSpecialValueFor("scepter_move_speed_slow_pct")
+  end
   if IsServer() then
     -- Slow is reduced with Status Resistance
     self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
@@ -498,6 +499,9 @@ end
 function modifier_sohei_dash_slow:OnRefresh(event)
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+  if self:GetCaster():HasScepter() then
+    movement_slow = self:GetAbility():GetSpecialValueFor("scepter_move_speed_slow_pct")
+  end
   if IsServer() then
     -- Slow is reduced with Status Resistance
     self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
