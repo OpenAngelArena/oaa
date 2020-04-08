@@ -3,17 +3,14 @@ function Spawn( entityKeyValues )
 	if thisEntity == nil then
 		return
 	end
-
 	if IsServer() == false then
 		return
 	end
-
 
 	thisEntity.hVolcanoAbility = thisEntity:FindAbilityByName( "boss_magma_mage_volcano" )
 
 	thisEntity:SetContextThink( "MagmaMageBossThink", MagmaMageBossThink, 1 )
 end
-
 
 function MagmaMageBossThink()
 	if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
@@ -44,16 +41,16 @@ function MagmaMageBossThink()
 
 	--Agro
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #hEnemies == 0) then
-    DebugPrint("MagmaMage Boss Deaggro")
+    --DebugPrint("MagmaMage Boss Deaggro")
     thisEntity.bHasAgro = false
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.hVolcanoAbility:KillAllVolcanos()
-    thisEntity.hVolcanoAbility:SetLevel(1) --back to phase 1
+    thisEntity.hVolcanoAbility:SetLevel(1) -- back to phase 1
     return 2
   elseif (hasDamageThreshold and #hEnemies > 0) then
     if not thisEntity.bHasAgro then
-      DebugPrint("MagmaMage Boss Aggro")
+      --DebugPrint("MagmaMage Boss Aggro")
       thisEntity.bHasAgro = true
       thisEntity:SetIdleAcquire(true)
       thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
@@ -61,7 +58,7 @@ function MagmaMageBossThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #hEnemies==0 or fDistanceToOrigin > 2000 then
+  if not thisEntity.bHasAgro or #hEnemies == 0 or fDistanceToOrigin > 2000 then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
@@ -74,9 +71,9 @@ function MagmaMageBossThink()
 		thisEntity.hVolcanoAbility:SetLevel(2)
 	end
 
-	print("MAGMA_MAGE phase ", thisEntity.hVolcanoAbility:GetLevel())
+	--print("MAGMA_MAGE phase ", thisEntity.hVolcanoAbility:GetLevel())
 
-	if thisEntity.hVolcanoAbility ~= nil and thisEntity.hVolcanoAbility:IsFullyCastable() and (thisEntity.hVolcanoAbility:GetNumVolcanos() <= 10) then
+	if thisEntity.hVolcanoAbility and thisEntity.hVolcanoAbility:IsFullyCastable() and (thisEntity.hVolcanoAbility:GetNumVolcanos() <= 10) then
 		return CastVolcano()
 	end
 
@@ -96,7 +93,6 @@ function MagmaMageBossThink()
 	end
 end
 
-
 function RetreatHome()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
@@ -106,7 +102,7 @@ function RetreatHome()
   return 6
 end
 
-function HoldPosition() --not really hold, attack move onto current position. hold stops auto attacks for some reason
+function HoldPosition() -- not really hold, attack move onto current position. hold stops auto attacks for some reason
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
@@ -124,7 +120,6 @@ function AttackRandomEnemy( hEnemies )
   return 1.5
 end
 
-
 function GoToMagma()
 	local vPosition = thisEntity.hVolcanoAbility:FindClosestMagmaPool()
 	if vPosition == nil then
@@ -133,11 +128,10 @@ function GoToMagma()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.hVolcanoAbility:FindClosestMagmaPool()
+		Position = vPosition,
   })
   return 2
 end
-
 
 function CastVolcano()
 	ExecuteOrderFromTable({
