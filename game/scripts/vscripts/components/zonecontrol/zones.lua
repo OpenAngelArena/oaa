@@ -152,6 +152,7 @@ function ZoneControl.EnableZone (state)
   state.handle:Enable()
 
   ZoneControl:EnforceRules(state)
+  state.disabled = false
 end
 
 function ZoneControl.DisableZone (state)
@@ -159,6 +160,7 @@ function ZoneControl.DisableZone (state)
     return
   end
   state.handle:Disable()
+  state.disabled = true
 end
 
 function ZoneControl:SetMode (state, mode)
@@ -220,22 +222,54 @@ function ZoneControl:EnforceRules (state)
   -- this method is meant to be called with a single zone since it's the actual rules enforcement
   ZoneControl:AssertIsSingleState(state)
 
+  if state.disabled then
+    return
+  end
+
   for playerId = 0,19 do
     ZoneControl:EnforceRulesOnPlayerId(state, playerId)
   end
 end
 
 function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
+  if state.disabled then
+    return
+  end
   local player = PlayerResource:GetPlayer(playerId)
 
   if player and player:GetAssignedHero() then
-    ZoneControl:EnforceRulesOnEntity(state, playerId, player:GetAssignedHero())
+    local hero = player:GetAssignedHero()
+    ZoneControl:EnforceRulesOnEntity(state, playerId, hero)
+
+
+    local playerAdditionalUnits = FindUnitsInRadius(
+        hero:GetTeam(),
+        hero:GetAbsOrigin(),
+        nil,
+        FIND_UNITS_EVERYWHERE,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
+        FIND_ANY_ORDER,
+        false)
+    playerAdditionalUnits = playerAdditionalUnits or {} -- assign empty table instead of nil so iter can be called without errors
+
+    iter(playerAdditionalUnits)
+      :filter(function (unit)
+        return unit:GetPlayerOwnerID() == hero:GetPlayerOwnerID() and unit:HasMovementCapability() and (not unit:IsCourier())
+      end)
+      :foreach(function (unit)
+        ZoneControl:EnforceRulesOnEntity(state, playerId, unit)
+      end)
   end
 end
 
 function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   -- this method is meant to be called with a single zone since it's the actual rules enforcement
   ZoneControl:AssertIsSingleState(state)
+  if state.disabled then
+    return
+  end
 
   local isTouching = state.handle:IsTouching(entity)
   local initialOrigin = entity:GetAbsOrigin()

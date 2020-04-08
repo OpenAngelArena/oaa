@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dazzle: Bad Juju
+  //=================================================================================================================
+  "dazzle_bad_juju"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7304" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "2"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_reduction"                              "26 38 50 50 50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_reduction"                                 "2 2.5 3 3.5 4" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_4"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "800"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_count"                                   "8"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_mjollnir_3;item_upgrade_core_3"
-      "02"                                                "item_mjollnir_3;item_upgrade_core_4"
+      "02"                                                "item_monkey_king_bar_3;item_upgrade_core_3"
     }
   }
 
@@ -57,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "18600"
+    "ItemCost"                                            "17175"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -71,12 +71,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 36 54 81 108"
+        "bonus_damage"                                    "24 44 74 114 164"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "75 85 95 105 115"
+        "bonus_attack_speed"                              "65 75 85 95 105"
       }
       "03"
       {
@@ -96,7 +96,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "static_damage"                                   "200 250 300 400 500"
+        "static_damage"                                   "200 300 400 500 600"
       }
       "07"
       {
@@ -121,12 +121,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_chance"                                    "25"
+        "chain_chance"                                    "25 26 27 28 30"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "170 200 250 350 450"
+        "chain_damage"                                    "170 210 290 410 570"
       }
       "13"
       {
@@ -136,7 +136,7 @@
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_radius"                                    "900"
+        "chain_radius"                                    "650 750 850 950 1050"
       }
       "15"
       {
@@ -147,11 +147,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "chain_cooldown"                                  "0.2"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
       }
     }
   }

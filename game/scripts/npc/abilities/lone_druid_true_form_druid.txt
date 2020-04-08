@@ -11,17 +11,18 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0 0.0 0.0 0.0 0.0"
+    "AbilityCooldown"                                     "0.0"
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 25 25 25 25"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +31,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transformation_time"                             "0.8"
+        "transformation_time"                             "1.933"
       }
     }
   }

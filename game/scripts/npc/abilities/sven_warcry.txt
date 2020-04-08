@@ -21,12 +21,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35 30 25 20 19 18"
-    "AbilityDuration"                                     "8.0"
+    "AbilityCooldown"                                     "32 28 24 20 16 16"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                     "60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,24 +34,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warcry_armor"                                    "5 10 15 20 35 50"
+        "movespeed"                                       "10 14 18 22 26 30"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warcry_movespeed"                                "12"
+        "bonus_armor"                                     "6 9 12 15 21 27"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warcry_radius"                                   "900"
+        "bonus_damage"                                    "12 16 20 24 32 56"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "8"
+        "radius"                                          "700"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "8"
       }
     }
   }
-
 }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Techies: Suicide Squad, Attack!
+  // Techies: Blast Off
   //=================================================================================================================
   "techies_suicide"
   {
@@ -12,6 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -43,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 400 500 600 1300 2000"
+        "damage"                                          "300 400 500 600 1300 2400"
         "LinkedSpecialBonus"                              "special_bonus_unique_techies"
       }
       "03"

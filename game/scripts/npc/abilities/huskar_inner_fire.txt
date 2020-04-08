@@ -1,0 +1,69 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Huskar: Inner Fire
+  //=================================================================================================================
+  "huskar_inner_fire"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7300"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, Valve forgot about this
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14 13 12 11 10 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 100 125 150 255 310"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+			"01"
+			{
+				"var_type"                                        "FIELD_INTEGER"
+				"damage"                                          "100 170 240 310 520 870"
+			}
+			"02"
+			{
+				"var_type"                                        "FIELD_INTEGER"
+				"radius"                                          "500"
+			}
+			"03"
+			{
+				"var_type"                                        "FIELD_FLOAT"
+				"disarm_duration"                                 "1.75 2.5 3.25 4 4.75 5.5"
+			}
+			"04"
+			{
+				"var_type"                                        "FIELD_INTEGER"
+				"knockback_distance"                              "550"
+			}
+			"05"
+			{
+				"var_type"                                        "FIELD_FLOAT"
+				"knockback_duration"                              "0.6"
+			}
+    }
+  }
+}

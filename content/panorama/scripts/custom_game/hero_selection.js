@@ -79,33 +79,54 @@ var hilariousLoadingPhrases = [
   'Nerfing Tinker more',
   'Replacing all heroes with Oracle',
   'Losing self in the music the moment I owned it',
-  'Practicing invincible ledgedash'
+  'Practicing invincible ledgedash',
+  'Actually playing Auto Chess instead',
+  'Remember to poop aggressively',
+  'Sneaking loading screen text into the game simply because I can',
+  'Forgetting to upgrade boots',
+  'Hope everyone is having a great day',
+  'Wards cannot be bought individually, instead the Ward Stack item is used to generate both observer and sentry wards passively',
+  'Upgrade cores allow you to upgrade your items',
+  'You can split an upgrade core into 2 of a lower tier',
+  'Heroes are invulnerable for 2 seconds at the start of every duel',
+  'Each capture point is worth more points than the previous',
+  'Each hero on a capture point speeds up the capture time',
+  'Use your glyph hotkey to drop a free ward',
+  'Before -0:10 on the clock, you cannot leave base',
+  'Bosses spawn into the map at 3:00',
+  'The wandering boss spawns at 12:00'
 ];
 
-SetupTopBar();
+init();
 
-$('#MainContent').SetHasClass(currentMap, true);
+function init () {
+  $.GetContextPanel().AddClass(currentMap);
 
-CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
-CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
+  SetupTopBar();
 
-// load hero selection
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
-onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
-onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+  $('#MainContent').SetHasClass(currentMap, true);
 
-onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
-onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
-onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
-onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
-onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
-UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
-changeHilariousLoadingText();
-UpdateBottleList();
+  CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
+  CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
 
-$('#ARDMLoading').style.opacity = 0;
+  // load hero selection
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
+  onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
+
+  onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
+  onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
+  onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
+  onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+  ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+  changeHilariousLoadingText();
+  UpdateBottleList();
+
+  $('#ARDMLoading').style.opacity = 0;
+}
 
 function changeHilariousLoadingText () {
   var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
@@ -177,6 +198,11 @@ function onPlayerStatChange (table, key, data) {
       newheroimage.hittest = false;
       newheroimage.AddClass('HeroCard');
       newheroimage.heroname = heroName;
+      var tempHeroName = newheroimage.heroname;
+      if (tempHeroName === 'sohei' || tempHeroName === 'electrician') {
+        newheroimage.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + tempHeroName + '.png")';
+        newheroimage.style.backgroundSize = '100% 100%';
+      }
     });
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
@@ -536,6 +562,7 @@ function ReturnChatWindow () {
     vanillaChat.SetParent(vanillaChatParent);
     vanillaChat.style.y = '-240px';
     vanillaChat.hittest = false;
+    vanillaChat.style.visibility = 'visible';
     vanillaChat.SetHasClass('ChatExpanded', false);
     vanillaChat.SetHasClass('Active', false);
   }
@@ -594,47 +621,49 @@ function ReloadCMStatus (data) {
   }
   var currentPickData = data['order'][currentPick];
 
-  FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
-  Object.keys(data['order']).forEach(function (nkey) {
-    var obj = data['order'][nkey];
-    // FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-    if (obj.hero !== 'empty') {
-      DisableHero(obj.hero);
-    }
+  if (data['currentstage'] === data['totalstages']) {
+    ReturnChatWindow();
+    FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
+    Object.keys(data['order']).forEach(function (nkey) {
+      var obj = data['order'][nkey];
+      // FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+      if (obj.hero !== 'empty') {
+        DisableHero(obj.hero);
+      }
 
-    // the "select your hero at the end" thing
-    if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
-      ReturnChatWindow();
-      $('#MainContent').SetHasClass('CMHeroChoices', true);
+      // the "select your hero at the end" thing
+      if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
+        $('#MainContent').SetHasClass('CMHeroChoices', true);
 
-      var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
-      newbutton.group = 'CMHeroChoises';
-      newbutton.AddClass('CMHeroPreviewItem');
-      newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
-      newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
+        var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
+        newbutton.group = 'CMHeroChoises';
+        newbutton.AddClass('CMHeroPreviewItem');
+        newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
+        newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
 
-      CreateHeroPanel(newbutton, obj.hero);
-      var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
-      newlabel.style.visibility = 'collapse';
-      newlabel.steamid = null;
-    }
+        CreateHeroPanel(newbutton, obj.hero);
+        var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
+        newlabel.style.visibility = 'collapse';
+        newlabel.steamid = null;
+      }
 
-    // the CM picking order phase thingy
-    if (obj.hero && obj.hero !== 'empty') {
-      FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
-      FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
+      // the CM picking order phase thingy
+      if (obj.hero && obj.hero !== 'empty') {
+        FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+        FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
 
-      FindDotaHudElement('CMRadiant').RemoveClass('Pick');
-      FindDotaHudElement('CMRadiant').RemoveClass('Ban');
-      FindDotaHudElement('CMDire').RemoveClass('Pick');
-      FindDotaHudElement('CMDire').RemoveClass('Ban');
-    }
+        FindDotaHudElement('CMRadiant').RemoveClass('Pick');
+        FindDotaHudElement('CMRadiant').RemoveClass('Ban');
+        FindDotaHudElement('CMDire').RemoveClass('Pick');
+        FindDotaHudElement('CMDire').RemoveClass('Ban');
+      }
 
-    if (currentPick >= nkey) {
-      stepsCompleted[obj.side]++;
-      lastPickIndex = nkey;
-    }
-  });
+      if (currentPick >= nkey) {
+        stepsCompleted[obj.side]++;
+        lastPickIndex = nkey;
+      }
+    });
+  }
   $.Msg(stepsCompleted);
   FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data['totalstages'] / 2) * 100) + '%';
   FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data['totalstages'] / 2) * 100) + '%';
@@ -748,18 +777,19 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      // Disabled
-      // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
-      // radio.BLoadLayoutSnippet('ArcanaRadio');
-      // radio.hero = heroName;
-      // radio.setName = 'PepsiSohei';
-
       for (var index in arcanas) {
         if (arcanas[index] === 'DBZSohei') {
           radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DBZSoheiSet');
           radio.BLoadLayoutSnippet('ArcanaRadio');
           radio.hero = heroName;
           radio.setName = 'DBZSohei';
+          radio.checked = selectedArcana === radio.setName;
+        }
+        if (arcanas[index] === 'PepsiSohei') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'PepsiSoheiSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'PepsiSohei';
           radio.checked = selectedArcana === radio.setName;
         }
       }
@@ -770,13 +800,15 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      // Disabled
-
-      // radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
-      // radio.BLoadLayoutSnippet('ArcanaRadio');
-      // radio.hero = heroName;
-      // radio.setName = 'RockElectrician';
-      // radio.checked = selectedArcana === radio.setName;
+      for (var index2 in arcanas) {
+        if (arcanas[index2] === 'RockElectrician') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'RockElectrician';
+          radio.checked = selectedArcana === radio.setName;
+        }
+      }
     }
     SelectArcana();
   });
@@ -802,11 +834,10 @@ function SelectArcana () {
 
     var data = {
       Hero: selectedArcana.hero,
-      Arcana: selectedArcana.setName,
-      PlayerId: Game.GetLocalPlayerID()
+      Arcana: selectedArcana.setName
     };
 
-    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + data.PlayerId + ' for hero ' + data.Hero);
+    $.Msg('Selecting Arcana ' + data.Arcana + ' for Player #' + Game.GetLocalPlayerID() + ' for hero ' + data.Hero);
     GameEvents.SendCustomGameEventToServer('arcana_selected', data);
   }
 }
@@ -814,7 +845,11 @@ function SelectArcana () {
 function UpdateBottleList () {
   var playerID = Game.GetLocalPlayerID();
   var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
-  var bottles = specialBottles[playerID.toString()].Bottles;
+  if (!specialBottles) {
+    $.Schedule(0.2, UpdateBottleList);
+    return;
+  }
+  var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
   if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
     // ignore repaint if radio is already filled
@@ -856,10 +891,9 @@ function SelectBottle () {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
   var data = {
-    BottleId: bottleId,
-    PlayerId: Game.GetLocalPlayerID()
+    BottleId: bottleId
   };
-  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + data.PlayerId);
+  $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
 
@@ -893,7 +927,6 @@ function SelectHero (hero) {
     } else {
       $.Msg('Selecting ' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
-        PlayerID: Game.GetLocalPlayerID(),
         hero: newhero
       });
     }

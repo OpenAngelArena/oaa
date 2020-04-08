@@ -9,9 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5084"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Special
@@ -20,36 +18,18 @@
     {
       "01"
       {
-        "var_type"                                      "FIELD_INTEGER"
-        "movement_speed_pct"                            "10 15 20 25 30 40" //OAA
-        "LinkedSpecialBonus"                            "special_bonus_unique_razor_3"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_pct"                              "3 5 7 9 11 13"
       }
       "02"
       {
-        "var_type"                                      "FIELD_FLOAT"
-        "hit_interval"                                  "5"
-        "LinkedSpecialBonus"                            "special_bonus_unique_razor_4"
-        "LinkedSpecialBonusOperation"                   "SPECIAL_BONUS_SUBTRACT"
+        "var_type"                                        "FIELD_INTEGER"
+        "self_movement_speed_pct"                         "6 10 14 18 22 26"
       }
       "03"
       {
-        "var_type"                                      "FIELD_FLOAT"
-        "slow_duration"                                 "0.5 1.0 1.5 2.0 2.5 3.0"
-      }
-      "04"
-      {
-        "var_type"                                      "FIELD_INTEGER"
-        "slow_amount"                                   "-40"
-      }
-      "05"
-      {
-        "var_type"                                      "FIELD_INTEGER"
-        "damage"                                        "60 100 140 180 380 580"
-      }
-      "06"
-      {
-        "var_type"                                      "FIELD_INTEGER"
-        "radius"                                        "350"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
       }
     }
   }

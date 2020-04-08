@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
-"visage_gravekeepers_cloak"
+  "visage_gravekeepers_cloak"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5482"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "6"
 
+    "MaxLevel"                                            "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,6 +17,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_layers"                                      "4 4 4 4 6 10"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
       }
       "02"
       {
@@ -27,7 +28,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "recovery_time"                                   "6 5 4 3 3 3"
-        "LinkedSpecialBonus"  "special_bonus_unique_visage_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
       }
       "04"
       {
@@ -37,7 +38,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
+        "radius"                                          "1200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage_reduction"                            "80"
       }
     }
   }

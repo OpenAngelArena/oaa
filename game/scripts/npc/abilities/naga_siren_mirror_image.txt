@@ -16,11 +16,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "45 40 35 30 30 25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 150 200"
+    "AbilityManaCost"                                     "70 85 100 115 150 250"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,34 +29,34 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "30.0 30.0 30.0 30.0 30.0 30.0"
+        "illusion_duration"                               "26"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "-75 -70 -65 -60 -50 -20"
+        "outgoing_damage"                                 "-75 -70 -65 -60 -30 -20"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "25 30 35 40 50 80"
+        "outgoing_damage_tooltip"                         "25 30 35 40 70 80"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "450 400 350 300 200 100"
+        "incoming_damage"                                 "250"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_incoming_damage_total_pct"               "550 500 450 400 300 200"
+        "tooltip_incoming_damage_total_pct"               "350"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "3 3 3 3 3 3"
+        "images_count"                                    "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren"
       }
       "07"

@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"viper_viper_strike"
+  "viper_viper_strike"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -14,6 +14,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
@@ -43,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 100 145 370 595"
+        "damage"                                          "80 160 240 480 720" //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_2"
       }
       "03"
@@ -60,16 +61,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_cost_scepter"                               "125"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "10"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cast_range_scepter"                              "900"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {

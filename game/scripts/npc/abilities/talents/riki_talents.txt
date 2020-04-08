@@ -1,0 +1,164 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Backstab Multiplier
+  //=================================================================================================================
+  "special_bonus_unique_riki_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6330"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"0.5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Upgrades Smoke Screen - decreases cooldown
+  //=================================================================================================================
+  "special_bonus_unique_riki_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "6193"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Upgrades Blink Strike - increases cast range
+  //=================================================================================================================
+  "special_bonus_unique_riki_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "6865"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "500" // OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Tricks of the Trade AoE - unused
+  //=================================================================================================================
+  "special_bonus_unique_riki_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6866"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"300"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Cloak and Dagger Doesn't Reveal - unused
+  //=================================================================================================================
+  "special_bonus_unique_riki_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6867"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Tricks of the Trade Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_riki_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"347"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"7"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Custom Lvl 25 Talent - bonus 70 AGI
+  //=================================================================================================================
+  "special_bonus_unique_riki_bonus_agility_70"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "86430"
+    "BaseClass"           "special_bonus_agility_40"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				      "70"
+      }
+    }
+  }
+}

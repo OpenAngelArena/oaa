@@ -11,21 +11,22 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "4.5"
+    "AbilityCooldown"                                     "5.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,19 +45,19 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_damage"                                   "100 150 200 250 500 750"
+        "target_damage"                                   "120 165 210 255 510 765"
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "100 150 200 250 500 750"
+        "heal_amount"                                     "120 165 210 255 510 765"
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "missile_speed"                                   "1600"
+        "missile_speed"                                   "1300"
       }
     }
   }

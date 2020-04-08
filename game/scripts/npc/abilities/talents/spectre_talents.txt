@@ -1,0 +1,117 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+	// Decreases Spectral Dagger Cooldown
+	//=================================================================================================================
+	"special_bonus_unique_spectre"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6148"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"10"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Bonus Desolate Damage
+	//=================================================================================================================
+	"special_bonus_unique_spectre_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6900"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"40" //OAA
+			}
+		}
+	}
+
+  //=================================================================================================================
+  // Upgrades Spectral Dagger - increases slow/bonus
+  //=================================================================================================================
+  "special_bonus_unique_spectre_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                  "6901"
+		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"value"           "10"  // OAA
+			}
+		}
+	}
+
+  //=================================================================================================================
+	// Bonus Haunt Illusion Damage
+	//=================================================================================================================
+	"special_bonus_unique_spectre_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6902"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"40"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Bonus Dispersion percent
+	//=================================================================================================================
+	"special_bonus_unique_spectre_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6903"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"6"
+			}
+		}
+	}
+}

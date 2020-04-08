@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Spear of Mars
+  //=================================================================================================================
+  "mars_spear"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6583"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.25"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 175 250 325 650 975"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_spear_bonus_damage"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spear_speed"                                     "1400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_width"                                     "125"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_vision"                                    "300"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_range"                                     "900 1000 1100 1200 1300 1400"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "activity_duration"                               "1.7"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.6 2.0 2.4 2.8 2.8 2.8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_spear_stun_duration"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.25"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_distance"                              "75"
+      }
+    }
+  }
+}

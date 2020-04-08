@@ -10,9 +10,6 @@
     "ID"                                                  "5285"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "FightRecapLevel"                                     "1"
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,18 +18,22 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "10"
-    "AbilityManaCost"                                     "150"
+    "AbilityCooldown"                                     "8"
+    "AbilityManaCost"                                     "120 125 130 135 145 155"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.1"  // just a mini stun
-
-    "HasScepterUpgrade"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -61,8 +62,15 @@
       }
       "05"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cast_range"                              "650"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_ministun"                                "0.75"
+        "scepter_cooldown"                                "6"
+        "RequiresScepter"                                 "1"
       }
     }
   }

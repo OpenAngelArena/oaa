@@ -11,19 +11,20 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "300"
+    "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.01"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 90 80 80 80"
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,12 +37,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_radius"                                     "300"
+        "cast_radius"                                     "350"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "50 100 150 350 550" //OAA
+        "damage_per_second"                               "50 150 250 450 650" //OAA
       }
       "03"
       {

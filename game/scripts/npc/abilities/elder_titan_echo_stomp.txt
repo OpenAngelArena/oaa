@@ -13,14 +13,19 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
-    "AbilityChannelTime"                                  "1.3"
-    "AbilityManaCost"                                     "100"
     "AbilityCastRange"                                    "500"
+    "AbilityChannelTime"                                  "1.3"
+    "AbilityCooldown"                                     "14 13 12 11 11 11"
+    "AbilityManaCost"                                     "85 90 95 100 105 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +49,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stomp_damage"                                    "70 100 130 160 610 1060"
+        "stomp_damage"                                    "70 100 130 160 420 840"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan_2"
       }
       "05"
@@ -60,7 +65,8 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wake_damage_limit"                               "50 100 150 200 450 700"
+        "wake_damage_limit"                               "50 100 150 200 400 600"
+        "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan_4"
       }
     }
   }

@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+	// AoE Shadow Strike
+	//=================================================================================================================
+	"special_bonus_unique_queen_of_pain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6407"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"650"
+			}
+		}
+	}
+
+  //=================================================================================================================
+  // Upgrades Scream of Pain - gives fear effect
+  //=================================================================================================================
+  "special_bonus_unique_queen_of_pain_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                  "6856"
+		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"value"           "1.5"
+			}
+		}
+	}
+}

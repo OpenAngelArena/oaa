@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_veil_of_discord;item_upgrade_core"
-      "02"                                                "item_veil_of_discord;item_upgrade_core_2"
-      "03"                                                "item_veil_of_discord;item_upgrade_core_3"
-      "04"                                                "item_veil_of_discord;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +49,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "3830"
+    "ItemCost"                                            "3475"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod 2;veil of discord 2;veil 2"
@@ -67,48 +64,33 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER" // 3 6 8 12, 3 6 7 11
-        "bonus_health_regen"                              "5 8 14 21 32"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "9 15 25 40 60"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 20 29"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_mana_regen"                                 "1.5 3.0 4.5 6.0 7.5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "6 9 14 21 28"
+        "aura_radius"                                     "1200"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 9 14 22 32"
+        "spell_amp"                                       "20 25 30 35 40"
       }
       "05"
-      {
-        "var_type"                                        "FIELD_INTEGER" // 6 10 14 22
-        "bonus_int"                                       "14 20 30 44 66"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "resist_debuff"                                   "-25 -30 -36 -42 -50"
-      }
-      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "debuff_radius"                                   "600"
       }
-      "08"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "resist_debuff_duration"                          "16.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1000"
       }
     }
   }

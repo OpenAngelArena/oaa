@@ -13,7 +13,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -21,11 +25,11 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "55"
+    "AbilityCooldown"                                     "35" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 65 70 75 100 125"
+    "AbilityManaCost"                                     "60 70 80 90 130 180"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,29 +38,24 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "16 24 32 40 80 120"
+        "damage_per_second"                               "15 30 45 60 160 260"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen"                                           "12 18 24 30 60 90"
-        "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
+        "radius"                                          "600"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
+        "bonus_movement_speed_pct"                        "9 11 13 15 16 17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_6"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "11 12 13 14 15 16"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0 12.0 14.0 16.0 18.0 20.0"
+        "duration"                                        "16.0"
       }
     }
   }

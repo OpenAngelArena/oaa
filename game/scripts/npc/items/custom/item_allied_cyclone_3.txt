@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_allied_cyclone_2;item_upgrade_core_3"
-      "02"                                                "item_allied_cyclone_2;item_upgrade_core_4"
     }
   }
 
@@ -58,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "175"
-    "ItemCost"                                            "15750"
+    "ItemCost"                                            "15725"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "allied cyclone 3;allied euls 3"
@@ -71,17 +70,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 45 55"
+        "bonus_intellect"                                 "25 50 95 140"
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "3.25 4.50 6.50 8.75"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "6.0 7.5 9.25 11.5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "55 60 65 70"
+        "bonus_movement_speed"                            "25 30 35 40"
       }
       "04"
       {
@@ -91,7 +90,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "575"
+        "tooltip_drop_damage"                             "50"
       }
     }
     "OnSpellStart"
@@ -120,7 +119,7 @@
         {
           "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"         "%bonus_intellect"
           "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
-          "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"      "%bonus_movement_speed"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"      "%bonus_movement_speed"
         }
       }
     }

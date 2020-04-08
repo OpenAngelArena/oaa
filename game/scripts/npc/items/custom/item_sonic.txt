@@ -1,0 +1,87 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Sonic
+  //=================================================================================================================
+  "item_recipe_sonic"
+  {
+    "ID"                  "8513"
+    "BaseClass"           "item_datadriven"
+    "Model"               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"  "custom/recipe/recipe_3"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"        ""
+    "ItemRecipe"          "1"
+    "ItemResult"          "item_sonic"
+    "ItemRequirements"
+    {
+      "01"                "item_greater_phase_boots_2;item_upgrade_core_3"
+    }
+  }
+
+  //=================================================================================================================
+  // Sonic
+  //=================================================================================================================
+  "item_sonic"
+  {
+    "ID"                    "8514"
+    "BaseClass"             "item_lua"
+    "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"    "custom/sonic_2"
+    "AbilitySharedCooldown" "sonic"
+    "ScriptFile"            "items/transformation/sonic.lua"
+
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "16"
+    "AbilityCastPoint"      "0.0"
+
+    "MaxUpgradeLevel"       "2"
+    "ItemBaseLevel"         "1"
+    "UpgradesItems"         "item_sonic_2"
+
+    "ItemCost"              "13975"
+    "ItemShopTags"          "sonic"
+    "ItemQuality"           ""
+    "ItemAliases"           "sonic"
+    "ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "AbilitySpecial"
+    {
+      "01" // phase boots parameter
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "20 25"
+      }
+      "02" // phase boots parameter
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_melee"                              "68 108"
+      }
+      "03" // phase boots parameter
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_range"                              "68 108"
+      }
+      "04" // phase boots parameter
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "8 11"
+      }
+      "05" // sonic active percentage movement speed bonus
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_bonus"                                     "30"
+      }
+      "06" // sonic active percentage vision bonus
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vision_bonus"                                    "50"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
+      }
+    }
+  }
+}

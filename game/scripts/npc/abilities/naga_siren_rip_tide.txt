@@ -8,27 +8,17 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5469"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 150 200"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "120 160 200 240 420 620"
+    "AbilityCastPoint"                                    "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,18 +27,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-2 -3 -4 -5 -10 -15"
-        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_3"
+        "chance"                                          "17"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "320"
+        "armor_reduction"                                 "-2 -4 -6 -8 -12 -17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_3"
       }
       "03"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "30 40 50 60 120 200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "300"
+      }
+      "05"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0 8.0 8.0 8.0"
+        "duration"                                        "4.0"
       }
     }
   }

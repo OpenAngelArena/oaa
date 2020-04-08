@@ -1,6 +1,6 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
-GAME_VERSION = "3.13.6"
+GAME_VERSION = "7.8.2"
 
 -- Setup the main logger
 require('internal/logging')
@@ -18,8 +18,10 @@ CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. "
 
 require('internal/vconsole')
 require('internal/eventwrapper')
-
 require('internal/util')
+-- component self registry system
+require("components")
+
 require('gamemode')
 require('precache')
 
@@ -71,7 +73,7 @@ function Precache( context )
     if value == 1 then
       local hero = string.sub(key, 15)
       -- PrecacheResource("particle_folder", "particles/econ/items/" .. hero, context)
-      PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
+      -- PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
     end
   end
 

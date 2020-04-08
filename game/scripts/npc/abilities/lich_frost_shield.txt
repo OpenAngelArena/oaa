@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+
+  //=================================================================================================================
+  // Lich: Frost Shield
+  //=================================================================================================================
+  "lich_frost_shield"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5136"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30 25 20 15 15 15"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 110 120 130 260 500"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "30 40 50 60 70 80"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "20 25 30 35 40 45"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "20 30 40 50 100 200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "interval"                                        "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lich_4"
+      }
+    }
+  }
+}

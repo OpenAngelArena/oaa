@@ -10,11 +10,12 @@
     "ID"                                                  "5248"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Unit Targeting
@@ -25,8 +26,9 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5"
-    "AbilityCooldown"                                     "60 60 60 60 60"
+    "AbilityCastPoint"                                    "0.5"
+
+    "AbilityCooldown"                                     "85"
     "AbilityManaCost"                                     "175 225 275 525 750"
 
     // Special
@@ -36,12 +38,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_targets"                                     "16 16 16"
+        "max_targets"                                     "18"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 140 170 320 475"
+        "damage"                                          "110 170 230 410 710" //OAA, for picking screen tooltip
       }
       "03"
       {
@@ -56,17 +58,36 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "135 170 205 375 550"
+        "kill_damage"                                     "4 5 6 7 8"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_buffer"                                  "4"
+        "kill_damage_duration"                            "50"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buffer_tooltip_scepter"                          "4"
+        "damage_scepter"                                  "135 230 325 610 895" // OAA, for picking screen tooltip
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_buffer"                                  "4"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_large_hp_bonus_tooltip"                   "1650 2100 2700 3600 5400 8100" //OAA, same as in Nature's Call
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "treant_large_damage_bonus_tooltip"               "114 162 222 294 456 705" //OAA, same as in Nature's Call
+        "RequiresScepter"                                 "1"
       }
     }
   }

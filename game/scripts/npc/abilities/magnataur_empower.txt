@@ -14,11 +14,15 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 50 70 90 190 290"
+    "AbilityManaCost"                                     "45 60 75 90 190 290"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -39,18 +43,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "empower_duration"                                "40.0 40.0 40.0 40.0 40.0 40.0"
+        "empower_duration"                                "38 42 46 50 54 58"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "10 20 30 40 50 60" //OAA
+        "bonus_damage_pct"                                "10 15 20 25 35 65"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "10 20 30 40 50 60" //OAA
+        "cleave_damage_pct"                               "10 20 30 40 50 60"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "04"
@@ -61,17 +65,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "330"
+        "cleave_ending_width"                             "360"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "625"
+        "cleave_distance"                                 "650"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "splash_damage_pct"                               "10 15 20 25 30 35"
+        "splash_damage_pct"                               "10 15 20 25 45 65"
       }
       "08"
       {
@@ -82,6 +86,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "900"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_multiplier"                                 "2"
       }
     }
   }

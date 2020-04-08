@@ -14,6 +14,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
@@ -27,12 +28,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 18 18"
-    "AbilityDuration"                                     "1.0 1.5 2.0 2.5 2.75 3.25"
+    "AbilityCooldown"                                     "16"
+    "AbilityDuration"                                     "1.4 1.8 2.2 2.6 2.85 3.25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 85 85 85 170 340"
+    "AbilityManaCost"                                     "60 70 80 90 190 290"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "electric_vortex_pull_units_per_second"           "100"
+        "electric_vortex_pull_distance"                   "180 220 260 300 340 380"
       }
       "02"
       {
@@ -61,13 +62,14 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0 1.5 2.0 2.5 2.75 3.25"
+        "abilityduration"                                 ""
         "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "475"
+        "RequiresScepter"                                 "1"
       }
     }
   }

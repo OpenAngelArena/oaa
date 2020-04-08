@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"viper_poison_attack"
+  "viper_poison_attack"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,18 +11,19 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "600 640 680 720 760 800"
     "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6.0 4.0 2.0 0.0"
+    "AbilityCooldown"                                     "0.0"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 35 30 25 20 15"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,22 +40,32 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0"
+        "duration"                                        "4"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "0.25 0.5 0.75 1.0 2.0 8.0"
+        "damage"                                          "4 8 12 16 32 48"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-25 -30 -35 -40 -40 -40"
+        "movement_speed"                                  "6 8 10 12 14 16"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-25 -30 -35 -40 -65 -90"
+        "magic_resistance"                                "3 5 7 9 11 13"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_stacks"                                      "5"
+      }
+      "06" // Viper's attack range is 575
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_range"                                     "25 65 105 145 185 225"
       }
     }
   }

@@ -14,14 +14,20 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "26 24 22 20 18 16"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_pct"                                        "25 30 35 40 45 50"
+        "slow_pct"                                        "10 20 30 40 50 60"
       }
       "04"
       {
@@ -60,12 +66,29 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "skewer_damage"                                   "70 140 210 280 640 1000"
+        "skewer_damage"                                   "70 140 210 280 420 840"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tree_radius"                                     "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tool_attack_slow"                                "10 20 30 40 50 60"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "skewer_cooldown"                                 "6"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_manacost"                                 "40"
+        "RequiresScepter"                                 "1"
       }
     }
   }

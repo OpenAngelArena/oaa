@@ -1,0 +1,270 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Forged Spirit Summoned
+  //=================================================================================================================
+  "special_bonus_unique_invoker_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6097"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Radial Deafening Blast
+  //=================================================================================================================
+  "special_bonus_unique_invoker_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6098"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"0"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Tornado Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_invoker_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6099"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"10"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Cataclysm - unused
+  //=================================================================================================================
+  "special_bonus_unique_invoker_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6656"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2"
+      }
+      "02"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "cooldown"				"90"
+      }
+      "03"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "min_range"				"160"
+      }
+      "04"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "max_range"				"200"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Ability: Alacrity Attack Speed/Damage increased
+  //=================================================================================================================
+  "special_bonus_unique_invoker_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6657"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				      "75" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Chaos Meteor Contact Damage
+  //=================================================================================================================
+  "special_bonus_unique_invoker_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6811"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"40"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Cold Snap Duration
+  //=================================================================================================================
+  "special_bonus_unique_invoker_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7016"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2.5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Tornado Lift Time
+  //=================================================================================================================
+  "special_bonus_unique_invoker_8"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7017"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"1.25"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Cold Snap Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_invoker_9"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7148"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"10"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Ghost Walk Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_invoker_10"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7390"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"30"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Forged Spirit Armor Reduction
+  //=================================================================================================================
+  "special_bonus_unique_invoker_11"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"315"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2"
+      }
+    }
+  }
+}

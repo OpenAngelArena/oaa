@@ -1,8 +1,6 @@
 
 SaveLoadState = SaveLoadState or class({})
 
-Debug:EnableDebugging()
-
 local SaveLoadModules = {
   creeps = CreepCamps,
   time = HudTimer,

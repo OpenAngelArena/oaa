@@ -19,6 +19,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.47"
@@ -26,11 +28,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8" //OAA
+    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "70 80 90 100 120 130"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -43,13 +45,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "750" //OAA
+        "movement_speed"                                  "300 325 350 375 400 425"
         "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.2 1.6 2.0 2.4 2.6 3.0"
+        "stun_duration"                                   "1.2 1.6 2.0 2.4 2.6 2.8"
       }
       "03"
       {
@@ -65,6 +67,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "vision_duration"                                 "0.94"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "8" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_speed"                                   "100"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -10,13 +10,18 @@ function GameMode:_InitGameMode()
   GameRules:SetUseUniversalShopMode( UNIVERSAL_SHOP_MODE )
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
   GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
-  GameRules:SetHeroSelectionTime( HERO_SELECTION_TIME )
+  -- SetHeroSelectionTime is ignored because "EnablePickRules"   "1" on addoninfo
+  GameRules:SetHeroSelectionTime( RANKED_PICK_TIME )
+  GameRules:SetHeroSelectPenaltyTime( 10 )
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
-  GameRules:SetUseCustomHeroXPValues ( USE_CUSTOM_XP_VALUES )
+  if USE_CUSTOM_HERO_LEVELS then
+    GameRules:SetUseCustomHeroXPValues(true)
+    -- Start custom XP system
+	end
   GameRules:SetGoldPerTick(GOLD_PER_TICK)
   GameRules:SetGoldTickTime(GOLD_TICK_TIME)
-  GameRules:SetRuneSpawnTime(RUNE_SPAWN_TIME)
+
   GameRules:SetUseBaseGoldBountyOnHeroes(USE_STANDARD_HERO_GOLD_BOUNTY)
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
   GameRules:SetCreepMinimapIconScale( MINIMAP_CREEP_ICON_SIZE )
@@ -30,12 +35,15 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
 
+  GameRules:SetStrategyTime( 0 )
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
     GameRules:EnableCustomGameSetupAutoLaunch( true )
     GameRules:SetStrategyTime( 0 )
     GameRules:SetShowcaseTime( 0 )
+    RANKED_PREGAME_TIME = 1
+    RANKED_BAN_TIME = 1
   else
     GameRules:SetCustomGameSetupAutoLaunchDelay( AUTO_LAUNCH_DELAY )
     GameRules:LockCustomGameSetupTeamAssignment( LOCK_TEAM_SETUP )
@@ -111,6 +119,12 @@ function GameMode:_InitGameMode()
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
 
+  -- not all of these work
+  ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+  ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
+
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)
@@ -126,12 +140,6 @@ function GameMode:_InitGameMode()
   Convars:RegisterCommand('events_test', function()
       GameMode:StartEventTest()
     end, "events test", 0)]]
-
-  local spew = 0
-  if BAREBONES_DEBUG_SPEW then
-    spew = 1
-  end
-  Convars:RegisterConvar('barebones_spew', tostring(spew), 'Set to 1 to start spewing barebones debug info.  Set to 0 to disable.', 0)
 
   -- Change random seed
   local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '^0+','')
@@ -154,6 +162,13 @@ function GameMode:_CaptureGameMode()
   if mode == nil then
     -- Set GameMode parameters
     mode = GameRules:GetGameModeEntity()
+    if GetMapName() ~= "unranked" then
+      mode:SetDraftingBanningTimeOverride(0)
+      mode:SetDraftingHeroPickSelectTimeOverride(99999)
+    else
+      mode:SetDraftingBanningTimeOverride(RANKED_BAN_TIME)
+      mode:SetDraftingHeroPickSelectTimeOverride(RANKED_PICK_TIME)
+    end
     mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
     mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
     mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
@@ -161,9 +176,8 @@ function GameMode:_CaptureGameMode()
     mode:SetBuybackEnabled( BUYBACK_ENABLED )
     mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
     mode:SetTopBarTeamValuesVisible( TOP_BAR_VISIBLE )
-    mode:SetUseCustomHeroLevels ( USE_CUSTOM_HERO_LEVELS )
-    --mode:SetCustomHeroMaxLevel ( MAX_LEVEL )
-    mode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+    mode:SetUseCustomHeroLevels(USE_CUSTOM_XP_VALUES)
+    mode:SetCustomXPRequiredToReachNextLevel(XP_PER_LEVEL_TABLE)
 
     mode:SetBotThinkingEnabled( USE_STANDARD_DOTA_BOT_THINKING )
     mode:SetTowerBackdoorProtectionEnabled( ENABLE_TOWER_BACKDOOR_PROTECTION )
@@ -175,19 +189,28 @@ function GameMode:_CaptureGameMode()
     mode:SetAlwaysShowPlayerInventory( SHOW_ONLY_PLAYER_INVENTORY )
     mode:SetAnnouncerDisabled( DISABLE_ANNOUNCER )
     if FORCE_PICKED_HERO ~= nil then
-      mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
+      --mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
     end
     mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME )
     mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
     mode:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )
     mode:SetFountainPercentageManaRegen( FOUNTAIN_PERCENTAGE_MANA_REGEN )
     mode:SetLoseGoldOnDeath( LOSE_GOLD_ON_DEATH )
-    mode:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
-    mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
+    -- mode:SetMaximumAttackSpeed( MAXIMUM_ATTACK_SPEED )
+    -- mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
     mode:SetStashPurchasingDisabled ( DISABLE_STASH_PURCHASING )
 
-    for rune, spawn in pairs(ENABLED_RUNES) do
-      mode:SetRuneEnabled(rune, spawn)
+    if USE_DEFAULT_RUNE_SYSTEM then
+      mode:SetUseDefaultDOTARuneSpawnLogic(USE_DEFAULT_RUNE_SYSTEM)
+    else
+      -- Arcane runes are broken by Valve, if they don't fix them: use RuneSpawnFilter
+      -- RuneSpawnFilter is currently broken too
+      for rune, spawn in pairs(ENABLED_RUNES) do
+        mode:SetRuneEnabled(rune, spawn)
+      end
+      mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
+      mode:SetPowerRuneSpawnInterval(POWER_RUNE_SPAWN_INTERVAL)
+      GameRules:SetRuneSpawnTime(0)
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )

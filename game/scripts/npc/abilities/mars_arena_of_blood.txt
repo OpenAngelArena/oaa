@@ -1,0 +1,98 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Mars Arena of Blood
+  //=================================================================================================================
+  "mars_arena_of_blood"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6598"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilitySound"                                        "Hero_Mars.ArenaOfBlood.Start"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "90 75 60 60 60"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5 6 7 8 9"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "550"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "100"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_damage"                                    "120 250 450 650 850" //OAA
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "formation_time"                                  "0.6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_distance_from_wall"                        "160"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spear_attack_interval"                           "1.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_count"                                   "14"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "first_warrior_angle"                             "0.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "warrior_fade_min_dist"                           "350.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "warrior_fade_max_dist"                           "450.0"
+      }
+    }
+  }
+}

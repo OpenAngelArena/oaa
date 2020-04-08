@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"skeleton_king_reincarnation"
+  "skeleton_king_reincarnation"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -12,6 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
@@ -49,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attackslow_tooltip"                              "-75"
+        "attackslow"                                      "-75"
       }
       "05"
       {
@@ -59,17 +60,19 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "7"
+        "scepter_duration"                                "5" //OAA
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "aura_radius"                                     "900" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius_tooltip_scepter"                     "1200"
+        "aura_radius_tooltip_scepter"                     "900" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -75,7 +75,8 @@ end
 
 function modifier_electrician_electric_shield:DeclareFunctions()
 	local func = {
-		MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR,
+		--MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
 	}
 
 	return func
@@ -84,7 +85,8 @@ end
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_electrician_electric_shield:GetModifierPhysical_ConstantBlockUnavoidablePreArmor( event )
+	--[[
+  function modifier_electrician_electric_shield:GetModifierPhysical_ConstantBlockUnavoidablePreArmor( event )
 		-- start with the maximum block amount
 		local blockAmount = event.damage * self.shieldRate
 		-- grab the remaining shield hp
@@ -105,6 +107,30 @@ if IsServer() then
 		end
 
 		return blockAmount
+	end
+  ]]
+
+  function modifier_electrician_electric_shield:GetModifierTotal_ConstantBlock( event )
+    -- start with the maximum block amount
+    local blockAmount = event.damage * self.shieldRate
+    -- grab the remaining shield hp
+    local hp = self:GetStackCount()
+
+    -- don't block more than remaining hp
+    blockAmount = math.min( blockAmount, hp )
+
+    -- remove shield hp
+    self:SetStackCount( hp - blockAmount )
+
+    -- do the little block visual effect
+    SendOverheadEventMessage( nil, 8, self:GetParent(), blockAmount, nil )
+
+    -- destroy the modifier if hp is reduced to nothing
+    if self:GetStackCount() <= 0 then
+      self:Destroy()
+    end
+
+    return blockAmount
 	end
 
 --------------------------------------------------------------------------------
@@ -172,7 +198,7 @@ if IsServer() then
 			self.damageRadius,
 			spell:GetAbilityTargetTeam(),
 			spell:GetAbilityTargetType(),
-			spell:GetAbilityTargetFlags(),
+			DOTA_UNIT_TARGET_FLAG_NONE,
 			FIND_ANY_ORDER,
 			false
 		)

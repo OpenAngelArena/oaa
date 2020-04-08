@@ -15,8 +15,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
-    "HasScepterUpgrade"                                   "1"
+
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,15 +27,15 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 50 40 40 40"
+    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "400 500 600 1100 1600"
+    "AbilityDamage"                                       "400 600 800 1200 1600" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 475 725"
+    "AbilityManaCost"                                     "125 175 225 325 425"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,12 +54,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ghostship_width"                                 "425 425 425 425 425"
+        "ghostship_width"                                 "425"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus"                                 "10 10 10 10 10"
+        "movespeed_bonus"                                 "10"
       }
       "05"
       {
@@ -67,7 +69,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.4 1.4 1.4 1.4 1.4"
+        "stun_duration"                                   "1.4"
       }
       "07"
       {
@@ -76,18 +78,8 @@
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ghostship_speed_scepter"                         "650"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ghostship_width_scepter"                         "200"
-      }
-      "10"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "ghostship_absorb"                                "40 45 50 55 60"
+        "ghostship_absorb"                                "40"
       }
     }
   }

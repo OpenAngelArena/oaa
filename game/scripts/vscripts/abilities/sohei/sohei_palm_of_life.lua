@@ -151,8 +151,8 @@ if IsServer() then
 
 		-- Trail particle
 		local trail_pfx = ParticleManager:CreateParticle( "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf", PATTACH_CUSTOMORIGIN, parent )
-		ParticleManager:SetParticleControl( trail_pfx, 0, parent:GetAbsOrigin() )
-		ParticleManager:SetParticleControl( trail_pfx, 1, (  self.target:GetAbsOrigin() - parent:GetAbsOrigin() ):Normalized() * 300 )
+    ParticleManager:SetParticleControl( trail_pfx, 0, self.target:GetAbsOrigin() )
+    ParticleManager:SetParticleControl( trail_pfx, 1, parent:GetAbsOrigin() )
 		ParticleManager:ReleaseParticleIndex( trail_pfx )
 	end
 
@@ -199,8 +199,9 @@ if IsServer() then
 				self.target:EmitSound( "Sohei.PalmOfLife.Heal" )
 
 				local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.target )
-				ParticleManager:SetParticleControl( part, 1, Vector( self.target:GetModelRadius(), 1, 1 ) )
-				ParticleManager:ReleaseParticleIndex( part )
+        ParticleManager:SetParticleControl( part, 0, self.target:GetAbsOrigin() )
+        ParticleManager:SetParticleControl( part, 1, Vector( self.target:GetModelRadius(), 1, 1 ) )
+        ParticleManager:ReleaseParticleIndex( part )
 
 				SendOverheadEventMessage( nil, 10, self.target, healAmount, nil )
 

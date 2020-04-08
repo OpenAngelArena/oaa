@@ -8,12 +8,16 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5339"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -21,7 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "70.0 60.0 50.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +38,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "125 250 500 750 1500 3000" //OAA
+        "bonus_gold"                                      "50 100 150 200 600 1000" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_per_second"                               "999999"      // OAA
+        "regen"                                           "5 10 20 30 60 120" //OAA
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_level"                                     "6" //OAA
       }
     }
   }

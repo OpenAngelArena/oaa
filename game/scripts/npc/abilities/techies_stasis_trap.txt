@@ -10,10 +10,13 @@
     "ID"                                                  "5600"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -60,12 +63,18 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "2.0 2.0 2.0 2.0 2.0 2.0"
+        "fade_time"                                       "2.0"
       }
       "07"
       {
-        "var_type"          "FIELD_FLOAT"
-        "duration"          "600.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "600.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_scepter_bonus"                        "300"
+        "RequiresScepter"                                 "1"
       }
     }
   }

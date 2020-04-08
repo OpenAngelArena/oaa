@@ -1,12 +1,14 @@
 "DOTAAbilities"
 {
-"skeleton_king_vampiric_aura"
+  "skeleton_king_vampiric_aura"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5087"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
     "MaxLevel"                                            "6"
 
     "AbilitySpecial"
@@ -14,13 +16,23 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura_radius"                            "900"
+        "vampiric_aura_radius"                            "1200"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "18 22 26 30 35 40"
+        "vampiric_aura"                                   "5 10 15 20 25 30"
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "6 12 18 24 36 72"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_bonus"                                      "1.5"
       }
     }
   }

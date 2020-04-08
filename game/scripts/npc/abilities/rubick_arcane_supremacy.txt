@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Rubick: Arcane Supremacy
+  //=================================================================================================================
+  "rubick_arcane_supremacy"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7320"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "14 18 22 26 36 50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "16 24 32 40 48 56"
+      }
+    }
+  }
+
+}

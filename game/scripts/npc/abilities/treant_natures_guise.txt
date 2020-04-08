@@ -1,19 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Treant Protector: Nature's Guise
+  // Treant Protector: Nature's Guise - Innate ability
   //=================================================================================================================
   "treant_natures_guise"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5434"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "ID"                                                  "5434"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,31 +18,29 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "7 6 5 3 2 1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "150"
       }
       "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "265 265 265 265 275 300"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "10 18 26 34 40 46"
-      }
-      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "grace_time"                                      "0.75"
       }
-      "05"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "0.4 1.0 1.6 2.2 2.2 2.2"
-        "LinkedSpecialBonus"    "special_bonus_unique_treant_4"
+        "cooldown_time"                                   "3"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "regen_amp"                                       "40"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_bonus"                                  "15"
       }
     }
   }
-
 }

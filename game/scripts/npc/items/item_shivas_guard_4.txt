@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
-      "02"                                                "item_shivas_guard_3;item_upgrade_core_4"
     }
   }
 
@@ -69,17 +68,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "15 20 25 30 40"
+        "bonus_armor"                                     "15 17 20 24 29"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "-45 -60 -75 -95 -120"
+        "aura_attack_speed"                               "-45 -60 -80 -105 -135"
       }
       "05"
       {

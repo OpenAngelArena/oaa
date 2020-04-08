@@ -21,11 +21,12 @@
     "Ability1"                                            "boss_shielder_shield"
     "Ability2"                                            "boss_resistance"
     "Ability3"                                            "boss_cliffwalk"
+    "Ability4"          								  "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"            // Physical protection.
-    "MagicalResistance"                                   "-25"                                 // Magical protection (percentage).
+    "ArmorPhysical"                                       "28"            // Physical protection.
+    "MagicalResistance"                                   "-50"           // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -40,7 +41,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "0"     // Experience earn.
+    "BountyXP"                                            "2000"  // Experience earn.
     "BountyGoldMin"                                       "0"     // Gold earned min.
     "BountyGoldMax"                                       "0"     // Gold earned max.
 

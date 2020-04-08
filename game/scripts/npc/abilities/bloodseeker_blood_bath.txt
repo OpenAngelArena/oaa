@@ -12,6 +12,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,12 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 12 12"
+    "AbilityCooldown"                                     "12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "120 160 200 240 520 800"
+        "damage"                                          "125 175 225 275 575 875"
         "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_2"
       }
       "04"
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "delay_plus_castpoint_tooltip"                    "3.0"
+        "delay_plus_castpoint_tooltip"                    "2.9"
       }
     }
   }

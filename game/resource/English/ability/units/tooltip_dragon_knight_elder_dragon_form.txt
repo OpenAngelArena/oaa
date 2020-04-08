@@ -2,13 +2,15 @@
 // Dragon Knight Elder Dragon Form
 //=============================================================================
 
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa"							"Elder Dragon Form"
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Description"				"Dragon Knight takes the form of one of three powerful elder dragons, increasing his speed, and Dragon Tail's range, while granting him new powers.\n<font color=\"#9acd32\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal 20 poison damage per second for 5 seconds. Works on structures.\n<font color=\"#ff0000\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a 300 radius, with Corrosive Breath added to the targets.\n<font color=\"#87ceeb\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by 30%% and attack speed by 30 of enemy units in Splash Attack range for 3 seconds, with Corrosive Breath added to the targets.\n<font color=\"#87ceeb\">LEVEL 4 King Blue Dragon</font> - Draconic Rage: attacks have a %rage_chance%%% chance to transform Dragon Knight for %rage_duration% seconds. During Elder Dragon Form, its duration is extended instead.\n<font color=\"#87ceeb\">LEVEL 5 Emperor King Blue Dragon</font> - Draconic Rebirth: Elder Dragon Form becomes permanent, losing Dragonic Rage."
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Lore"						"The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm."
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Note0"					"Corrosive Breath poison damage is lethal."
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Note1"					"Splash Attack deals 100/75/50% damage in a 150/225/300 radius. Splash damage does not affect buildings."
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Note2"					"Frost Breath stacks with Unique Attack Modifiers."
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Note3"					"Manta Style's cooldown time will be based on whether Dragon Knight was in his ranged or melee form when the item was used."
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_duration"					"DURATION:"
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_bonus_movement_speed"		"BONUS MOVE SPEED:"
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_bonus_attack_range"		"BONUS ATTACK RANGE:"
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa"                      "Elder Dragon Form"
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Description"          "Dragon Knight takes the form of one of three powerful elder dragons, increasing his speed, and Dragon Tail's range, while granting him new powers.\n<font color=\"#9acd32\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal %corrosive_breath_damage% poison damage per second for %corrosive_breath_duration% seconds.\n<font color=\"#ff0000\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a %splash_radius% radius for %splash_damage_percent%%% damage, with Corrosive Breath added to the targets.\n<font color=\"#87ceeb\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by %frost_bonus_movement_speed%%% and attack speed by %frost_bonus_attack_speed% of enemy units in Splash Attack range for %frost_duration% seconds, with Corrosive Breath added to the targets.\n<font color=\"#87ceeb\">LEVEL 4 Black Dragon</font> - Draconic Rage: attacks have a %rage_chance%%% chance to transform Dragon Knight for %rage_duration% seconds. During Elder Dragon Form, its duration is extended instead. Black Dragon also grants %magic_resistance%%% Magic resistance.\n<font color=\"#87ceeb\">LEVEL 5 Emperor King Blue Dragon</font> - Draconic Rebirth: Elder Dragon Form becomes permanent, losing Dragonic Rage."
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Lore"                 "The dormant dragon power springs forth from within Davion, combining the powers of a legendary knight with a legendary Eldwurm."
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Note0"                "Corrosive Breath poison damage is lethal."
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Note1"                "Cooldowns of items that are different for ranged and melee heroes will be based on which form Dragon Knight was in when the item was used."
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_duration"             "DURATION:"
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_bonus_movement_speed" "BONUS MOVE SPEED:"
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_bonus_attack_range"   "BONUS ATTACK RANGE:"
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_aghanim_description"  "Increases the level of Elder Dragon Form. Adds a 6th level."
+
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"              "#{DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_Description}"
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_aghanim_description"      "#{DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_oaa_aghanim_description}"

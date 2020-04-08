@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Antimage Counterspell
+  //=================================================================================================================
+  "antimage_counterspell"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					            "7314"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"				  "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"    "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"				  "1"
+
+    "MaxLevel"                "6"
+    "RequiredLevel"           "1"
+    "LevelsBetweenUpgrades"   "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"				"0"
+    "AbilityCastPoint"				"0"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+    "AbilityCastGestureSlot"  "DEFAULT"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"         "15 11 7 3 3 3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"				  "45 50 55 60 60 60"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "magic_resistance"      "10 20 30 40 50 60" // OAA
+        "LinkedSpecialBonus"    "special_bonus_unique_antimage_4"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "1.2"
+      }
+    }
+  }
+}

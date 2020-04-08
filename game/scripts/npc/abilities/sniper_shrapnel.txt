@@ -26,7 +26,8 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-
+    "AbilityCharges"                                      "3"
+    "AbilityChargeRestoreTime"                            "40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,6 +45,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow_movement_speed"                             "-15 -20 -25 -30 -35 -40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_5"
       }
       "02"
       {
@@ -53,7 +55,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shrapnel_damage"                                 "15 35 55 75 175 275"
+        "shrapnel_damage"                                 "20 40 60 80 180 280"
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_1"
       }
       "04"
@@ -74,13 +76,8 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "3"
+        "AbilityCharges"                                  ""
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_2"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "55"
       }
     }
   }

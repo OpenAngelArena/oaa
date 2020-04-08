@@ -10,12 +10,15 @@
     "ID"                                                  "5691"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "6"    
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     "AbilityCastPoint"                                    "0.1"
     "AbilityCooldown"                                     "40 34 28 22 22 22"
-    "AbilityManaCost"                                     "75"  
-    
-    
+    "AbilityManaCost"                                     "75"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -23,17 +26,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "725"
+        "radius"                                          "775"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6 8 10 12 15 20"
-      }          
+        "duration"                                        "8 10 12 14 16 18"
+      }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "14"
+        "slow"                                            "10"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_percentage"                             "75"
       }
     }
   }

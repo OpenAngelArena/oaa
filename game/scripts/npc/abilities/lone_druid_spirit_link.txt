@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Lone Druid: Spirit Link
+  //=================================================================================================================
+  "lone_druid_spirit_link"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7309"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "15 30 45 60 75 90"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_percent"                               "20 35 50 65 80 95"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Lich: Sinister Gaze
+  //=================================================================================================================
+  "lich_sinister_gaze"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7325"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"                                  "1.5 2.0 2.5 3.0 3.5 4.0" //OAA
+    "AbilityCooldown"                                     "24 22 20 18 16 14"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120 130 140 150 200 300"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.5 2.0 2.5 3.0 3.5 4.0" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "destination"                                     "32 38 44 50 56 62"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_drain"                                      "10 15 20 25 30 35"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "500 525 550 575 600 625"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aoe_scepter"                                     "400"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

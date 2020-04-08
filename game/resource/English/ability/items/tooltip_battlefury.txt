@@ -1,8 +1,20 @@
 //=============================================================================
 // Battlefury
 //=============================================================================
+"DOTA_Tooltip_Ability_item_bfury"                                       "Cleaver"
+"DOTA_Tooltip_Ability_item_recipe_bfury"                                "Cleaver Recipe"
+"DOTA_Tooltip_ability_item_bfury_Description"                           "<h1>Active: Chop Tree/Ward</h1> Destroy a target tree or ward.<br><br>Tree Cast Range: %cast_range_tooltip%<br>Ward Cast Range: %cast_range_ward% \n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus%. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. (Melee Only)"
+"DOTA_Tooltip_ability_item_bfury_Lore"                                  "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
+"DOTA_Tooltip_ability_item_bfury_Note0"                                 "Cleave damage is reduced by armor value."
+"DOTA_Tooltip_ability_item_bfury_Note1"                                 "Cleave damage goes through spell immunity."
+"DOTA_Tooltip_ability_item_bfury_Note2"                                 "If multiple sources of Cleave are present, each Cleave's damage is applied separately."
+"DOTA_Tooltip_ability_item_bfury_Note3"                                 "Chop can be used to destroy Techies' Remote Mines."
+"DOTA_Tooltip_ability_item_bfury_bonus_damage"                          "+$damage"
+"DOTA_Tooltip_ability_item_bfury_bonus_health_regen"                    "+$hp_regen"
+"DOTA_Tooltip_ability_item_bfury_bonus_mana_regen"                      "+$mana_regen"
+
 "DOTA_Tooltip_Ability_item_bfury_2"                                     "#{DOTA_Tooltip_Ability_item_bfury}"
-"DOTA_Tooltip_Ability_item_recipe_bfury_2"                              "Battlefury Recipe"
+"DOTA_Tooltip_Ability_item_recipe_bfury_2"                              "#{DOTA_Tooltip_Ability_item_recipe_bfury}"
 "DOTA_Tooltip_Ability_item_bfury_2_Description"                         "#{DOTA_Tooltip_ability_item_bfury_Description}"
 "DOTA_Tooltip_Ability_item_bfury_2_Lore"                                "#{DOTA_Tooltip_ability_item_bfury_Lore}"
 "DOTA_Tooltip_Ability_item_bfury_2_Note0"                               "#{DOTA_Tooltip_ability_item_bfury_Note0}"

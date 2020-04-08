@@ -19,10 +19,6 @@
 
     "AbilityDuration"                                     "0.6"
 
-    // Damage
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "40 60 80 100 200 300"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "40"
@@ -36,22 +32,21 @@
         "var_type"                                        "FIELD_INTEGER"
         "overload_aoe"                                    "300"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "overload_move_slow"                              "-80"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "overload_attack_slow"                            "-50"
+        "overload_attack_slow"                            "-80"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_duration"                                "0.6"
+        "var_type"                                        "FIELD_INTEGER"
+        "overload_damage"                                 "50 75 100 125 250 375" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_6"
       }
     }
   }

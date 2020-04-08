@@ -1,0 +1,140 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Flame Guard Absorption
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6172"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"500" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Searing Chains duration
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6176"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Flame Guard DPS
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6647"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"60"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Sleight of Fist Charges
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7050"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Fire Remnant Charge Restore Time
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7051"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"10" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Sleight of Fist Hero Damage
+  //=================================================================================================================
+  "special_bonus_unique_ember_spirit_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"353"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"120" //OAA
+      }
+    }
+  }
+}

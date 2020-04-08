@@ -12,6 +12,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -22,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0"
+    "AbilityCooldown"                                     "34" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,23 +41,33 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "200"
+        "movement_speed"                                  "4 8 12 16 24 32"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "200"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.5"
+        "duration"                                        "15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_1"
       }
       "05"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.5"
+      }
+      "06"
+      {
         "var_type"                                        "FIELD_INTEGER"
         "tree_radius"                                     "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_vision"                                    "200 400 600 800 900 900"
       }
     }
   }

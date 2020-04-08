@@ -1,0 +1,83 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Void Spirit: Astral Step
+  //=================================================================================================================
+  "void_spirit_astral_step"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "7705"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    //"AbilityUnitDamageType"           "DAMAGE_TYPE_PHYSICAL"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"               "1"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"              "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "0"
+    "AbilityCharges"                "2"
+    "AbilityChargeRestoreTime"      "25" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "100"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "170"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_void_spirit_9"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityChargeRestoreTime"                        ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_void_spirit_1"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "min_travel_distance"   "200"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "max_travel_distance"   "700 900 1100 1300 1500"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "pop_damage_delay"      "1.25"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "pop_damage"            "150 250 350 650 950" //OAA
+      }
+      "08"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "movement_slow_pct"     "40 60 80 85 90"
+      }
+    }
+  }
+}

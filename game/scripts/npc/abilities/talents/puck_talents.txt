@@ -1,0 +1,140 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Illusory Orb Distance/Speed
+  //=================================================================================================================
+  "special_bonus_unique_puck"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6219"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "50"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Waning Rift Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_puck_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6402"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "5" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Dream Coil Rapid Fire
+  //=================================================================================================================
+  "special_bonus_unique_puck_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6855"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "0.6" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Waning Rift Damage
+  //=================================================================================================================
+  "special_bonus_unique_puck_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7057"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "420"  //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Phase Shift Attack
+  //=================================================================================================================
+  "special_bonus_unique_puck_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"348"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Waning Rift AoE and Range
+  //=================================================================================================================
+  "special_bonus_unique_puck_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"407"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "425"
+      }
+    }
+  }
+}

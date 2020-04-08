@@ -1,0 +1,73 @@
+"DOTAItems"
+{
+  // not buildable
+
+  "item_recipe_yasha_and_kaya"
+  {
+    "ID"              "274"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+  }
+  //=================================================================================================================
+  // Yasha and Kaya
+  //=================================================================================================================
+  "item_yasha_and_kaya"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "277"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "4100"
+    "ItemShopTags"          "damage;str;agi;attack_speed;unique"
+    "ItemQuality"         "artifact"
+    "ItemAliases"         "ynk;y&k;sk;yasha and kaya"
+    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "16 24 32 48 72"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 32 48 72"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "16 21 26 31 36"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "manacost_reduction"                              "16 18 22 28 36" //OAA
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "14 18 22 26 30"
+      }
+    }
+  }
+}

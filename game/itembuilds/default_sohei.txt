@@ -1,29 +1,43 @@
 "itembuilds/default_sohei.txt"
 {
-  "author"    "chrisinajar"
+  "author"    "Open Angel Arena"
   "hero"      "npc_dota_hero_sohei"
-  "Title"     "Open Angel Arena"
+  "Title"     "Recommended items for Sohei"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-
+      "item"    "item_tranquil_boots"
+      "item"    "item_vanguard"
+      "item"    "item_ultimate_scepter"
     }
 
     "#DOTA_Item_Build_Early_Game"
     {
-
+      "item"    "item_greater_tranquil_boots"
+      "item"    "item_hand_of_midas_3"
+      "item"    "item_ultimate_scepter_2"
+      "item"    "item_heart"
+      "item"    "item_heart"
     }
 
     "#DOTA_Item_Build_Core_Items"
     {
-
+      "item"    "item_greater_tranquil_boots_4"
+      "item"    "item_ultimate_scepter_5"
+      "item"    "item_regen_crystal_3"
+      "item"    "item_heavens_halberd_5"
+      "item"    "item_heart_5"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-
+      "item"    "item_bfury_5_oaa"
+      "item"    "item_abyssal_blade_5"
+      "item"    "item_assault_5"
+      "item"    "item_bloodthorn_5"
+      "item"    "item_force_staff_5"
     }
   }
 }

@@ -18,7 +18,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_aether_lens_3;item_upgrade_core_3;"
-      "02"                                                "item_aether_lens_3;item_upgrade_core_4;"
     }
   }
 
@@ -36,7 +35,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15350"
+    "ItemCost"                                            "15325"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "aether lens 4"
@@ -59,7 +58,7 @@
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_mana_regen"    "1.25 3.75 6.25 8.75 11.25"
+        "bonus_mana_regen"    "3.0 6.0 12.0 18.0 24.0"
       }
       "03"
       {

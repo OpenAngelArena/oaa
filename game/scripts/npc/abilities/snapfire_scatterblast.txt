@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Ability: Snapfire Scatterblast
+    //=================================================================================================================
+    "snapfire_scatterblast"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "6480"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"               "1"
+
+        "MaxLevel"                                            "6"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "800"
+        "AbilityCastPoint"              "0.4"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        "AnimationPlaybackRate"         "1.2" // 1.0 corresponds to cast point of 0.45 or so
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "13 12 11 10 10 10"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "80 90 100 110 130 150"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "80 150 220 290 590 990"
+                "LinkedSpecialBonus"        "special_bonus_unique_snapfire_7"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "blast_speed"               "3000"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "blast_width_initial"       "225"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "blast_width_end"           "400"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "debuff_duration"           "1.0"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_slow_pct"         "100"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "point_blank_range"         "450"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "point_blank_dmg_bonus_pct" "50.0"
+            }
+        }
+    }
+}

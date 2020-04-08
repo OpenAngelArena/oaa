@@ -23,17 +23,12 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "mana_regen"      "3.0"
+        "mana_regen"      "6"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "buff_duration"     "50"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "range_tooltip"     "250"
+        "buff_duration"     "30"
       }
     }
   }

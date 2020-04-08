@@ -10,9 +10,11 @@
     "ID"                                                  "5517"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -21,11 +23,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90.0 75.0 60.0 60 60"
+    "AbilityCooldown"                                     "90 80 70 60 50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +56,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1.8"
+        "slow_duration"                                   "2.3"
       }
       "05"
       {
@@ -69,17 +71,15 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "90 75 60 60 60"
+        "damage_reduction"                                "40"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "40"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "damage_reduction_tooltip_scepter"                "40"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

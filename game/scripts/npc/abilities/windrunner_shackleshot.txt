@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"windrunner_shackleshot"
+  "windrunner_shackleshot"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,6 +11,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -20,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 12 12"
+    "AbilityCooldown"                                     "12" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +43,8 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2.0 2.6 3.2 3.8 4.1 4.4"
+        "stun_duration"                                   "2.0 2.6 3.2 3.8 4.0 4.2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_windranger_6"
       }
       "03"
       {

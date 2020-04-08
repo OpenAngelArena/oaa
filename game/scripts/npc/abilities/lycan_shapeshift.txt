@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=================================================================================================================
   // Lycan: Shapeshift
   //=================================================================================================================
@@ -13,23 +12,27 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 105 80 80 80"
+    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 100 100 100 100"
+    "AbilityManaCost"                                     "100" //OAA, Valve's unlisted change
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // if Bite is overpowered set duration to 10 and decrease cooldown to 50
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18"
+        "duration"                                        "22"
         "LinkedSpecialBonus"                              "special_bonus_unique_lycan_1"
       }
       "02"
@@ -45,12 +48,13 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transformation_time"                             "1.5"
+        "transformation_time"                             "1.25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "crit_chance"                                     "40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_5"
       }
       "06"
       {
@@ -59,5 +63,4 @@
       }
     }
   }
-
 }

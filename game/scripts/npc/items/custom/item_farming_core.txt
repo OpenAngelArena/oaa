@@ -9,21 +9,34 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3510"      // unique ID
     "BaseClass"                                           "item_datadriven"
+    "ScriptFile"                                          "items/farming/greater_arcane_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityTextureName"                                  "custom/farming_core"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
 
-    "ItemCost"                                            "1500"
-    "ItemPurchasable"                                     "0"
-    //"ItemSellable"                                        "0"
+    "ItemCost"                                            "100"
+    "ItemPurchasable"                                     "1"
+    //"ItemSellable"                                      "0"
     "ItemKillable"                                        "0"
+
+    "ItemStockMax"                                        "1"
+    "ItemStockInitial"                                    "0"
+    "ItemStockTime"                                       "1500.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold_per_minute"                           "500"
+      }
+    }
   }
 }

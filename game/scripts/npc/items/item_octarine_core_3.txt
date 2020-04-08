@@ -16,8 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_octarine_core_2;item_upgrade_core_2"
-      "02"                                                "item_octarine_core_2;item_upgrade_core_3"
-      "03"                                                "item_octarine_core_2;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +50,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25 38 57 85 115"
+        "bonus_intelligence"                              "25 40 60 85 115"
       }
       "02"
       {
@@ -67,7 +65,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "25 27 29 31 33"
+        "bonus_cooldown"                                  "25"
       }
       "05"
       {

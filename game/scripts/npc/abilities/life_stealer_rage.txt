@@ -10,7 +10,9 @@
     "ID"                                                  "5249"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -18,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus"                              "40 50 60 70 90 130"
+        "movement_speed_bonus"                            "15"
       }
       "02"
       {

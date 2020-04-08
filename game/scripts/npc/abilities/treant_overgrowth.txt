@@ -13,23 +13,23 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    "AbilityCastPoint"                                    "0.5"
     "FightRecapLevel"                                     "2"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastPoint"                                    "0.5"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 85 70 70 70"
+    "AbilityCooldown"                                     "100"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 225 250"
+    "AbilityManaCost"                                     "200 250 300 350 400"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,23 +38,26 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.75 4.5 5.0 5.5"
+        "duration"                                        "3.0 4.0 5.0 5.5 6.0"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "800"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "eyes_radius"                                     "800"
-        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "75 100 125 200 325" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_11"
       }
     }
   }
-
 }

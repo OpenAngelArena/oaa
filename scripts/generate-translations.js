@@ -22,7 +22,8 @@ let dotaEnglish = {};
 let unchagedKeys = {};
 
 request.get({
-  url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+  // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
+  url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt'
 }, function (err, result) {
   if (err) {
     throw err;
@@ -122,7 +123,8 @@ function getUnchangedStrings (languageName, cb) {
     languageName = 'schinese';
   }
   request.get({
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_' + languageName + '.txt'
+    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_' + languageName + '.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_' + languageName + '.txt'
   }, function (err, result) {
     if (err) {
       console.error(languageName);
@@ -171,12 +173,12 @@ function generateFileForTranslations (languageName, translations, cb) {
         lines.push();
       }
       var indent = (new Array(100 - key.length)).join(' ');
-      lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key].replace(/\\n/g, '\n')));
+      lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key]));
 
       if (duplicateStrings[key]) {
         duplicateStrings[key].keys.forEach(function (dupKey) {
           var indent = (new Array(100 - dupKey.length)).join(' ');
-          lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key].replace(/\\n/g, '\n')));
+          lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key]));
         });
       }
     });

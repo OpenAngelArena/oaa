@@ -3,12 +3,11 @@
 //=================================================================================
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves"                            "Greater Guardian Greaves"
 "DOTA_Tooltip_Ability_item_recipe_greater_guardian_greaves"                     "Greater Guardian Greaves Recipe"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_Description"                "<h1>Active: Mend</h1> Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative buffs from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n <h1>Passive: Guardian Aura</h1> Provides nearby allies with %aura_health_regen% health regeneration and %aura_armor% bonus armor. If an allied hero's health falls below %aura_bonus_threshold%%%, they receive %aura_health_regen_bonus% health regeneration and %aura_armor_bonus% armor.<br><br>Radius: %replenish_radius%\n<h1>Passive: Greed</h1> Generates unreliable gold.\n#{fools_gold_penalty_warning}"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_movement"             "+$move_speed"
+"DOTA_Tooltip_Ability_item_greater_guardian_greaves_Description"                "<h1>Active: Mend</h1> Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative buffs from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n <h1>Passive: Guardian Aura</h1> Provides nearby allies with %aura_health_regen% health regeneration and %aura_armor% bonus armor. If an allied hero's health falls below %aura_bonus_threshold%%%, they receive %aura_health_regen_bonus% health regeneration and %aura_armor_bonus% armor.<br><br>Radius: %replenish_radius%"
+"DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_movement"             "%+$move_speed"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_all_stats"            "+$all"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_mana"                 "+$mana"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_armor"                "+$armor"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_gold_per_minute"      "+Gold/Min"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_Lore"                       "Forged by the Omniscience himself, sewn from the threads of mighty Pegasus's mane."
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_Note0"                      "The aura boost only applies to heroes."
 
@@ -19,7 +18,6 @@
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_2_bonus_all_stats"          "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_2_bonus_mana"               "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_mana}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_2_bonus_armor"              "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_armor}"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_2_bonus_gold_per_minute"    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_gold_per_minute}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_2_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Lore}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_2_Note0"                    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Note0}"
 
@@ -30,7 +28,6 @@
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_3_bonus_all_stats"          "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_3_bonus_mana"               "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_mana}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_3_bonus_armor"              "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_armor}"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_3_bonus_gold_per_minute"    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_gold_per_minute}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_3_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Lore}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_3_Note0"                    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Note0}"
 
@@ -41,7 +38,6 @@
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_4_bonus_all_stats"          "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_4_bonus_mana"               "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_mana}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_4_bonus_armor"              "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_armor}"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_4_bonus_gold_per_minute"    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_gold_per_minute}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_4_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Lore}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_4_Note0"                    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Note0}"
 
@@ -52,6 +48,5 @@
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_5_bonus_all_stats"          "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_5_bonus_mana"               "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_mana}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_5_bonus_armor"              "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_armor}"
-"DOTA_Tooltip_Ability_item_greater_guardian_greaves_5_bonus_gold_per_minute"    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_bonus_gold_per_minute}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_5_Lore"                     "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Lore}"
 "DOTA_Tooltip_Ability_item_greater_guardian_greaves_5_Note0"                    "#{DOTA_Tooltip_Ability_item_greater_guardian_greaves_Note0}"

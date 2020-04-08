@@ -14,11 +14,13 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "120"
+    "AbilityCooldown"                                     "100" //OAA
     "AbilityManaCost"                                     "200 250 300 525 750"
     "AbilityCastRange"                                    "410"
 
@@ -38,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "polarity_damage"                                 "50 125 200 350 500"
+        "polarity_damage"                                 "50 200 350 650 950" //OAA
       }
       "03"
       {

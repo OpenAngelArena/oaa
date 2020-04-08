@@ -11,7 +11,7 @@
     "Model"                                               "models/heroes/shadowshaman/shadowshaman_totem.vmdl"// Model.
     "SoundSet"                                            "ShadowShaman_Ward"         // Name of sound set.
     "Level"                                               "3"
-    "ModelScale"                                          "1.15"
+    "ModelScale"                                          "1.35"
     "SelectionGroup"                                      "Shaman_Wards"
     "wearable"                                            "8371"
 
@@ -31,19 +31,19 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "400"      // Damage range min.
-    "AttackDamageMax"                                     "400"      // Damage range max.
+    "AttackDamageMin"                                     "860"      // Damage range min.
+    "AttackDamageMax"                                     "860"      // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.5"   // Speed of attack.
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "600"   // Range within a target can be acquired.
-    "AttackRange"                                         "600"   // Range within a target can be attacked.
+    "AttackAcquisitionRange"                              "650"   // Range within a target can be acquired.
+    "AttackRange"                                         "650"   // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "900"   // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
     "HealthBarOffset"                                     "200"
 
     // Movement

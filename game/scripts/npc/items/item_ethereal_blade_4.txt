@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_ethereal_blade_3;item_upgrade_core_3"
-      "02"                                                "item_ethereal_blade_3;item_upgrade_core_4"
     }
   }
 
@@ -59,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "17700"
+    "ItemCost"                                            "17500"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -73,7 +72,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "40 45 50 60 70"
+        "bonus_agility"                                   "40 45 50 55 60"
       }
       "02"
       {
@@ -93,17 +92,17 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0"
+        "duration"                                        "4.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "blast_agility_multiplier"                        "2.0"
+        "blast_agility_multiplier"                        "1.5"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage_base"                               "75 100 150 225 330"
+        "blast_damage_base"                               "125 150 200 275 375"
       }
       "08"
       {
@@ -119,11 +118,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "projectile_speed"                                "1275"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
       }
     }
   }

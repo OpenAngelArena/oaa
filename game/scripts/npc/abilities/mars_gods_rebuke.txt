@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Mars: God's Rebuke
+  //=================================================================================================================
+  "mars_gods_rebuke"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6495"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "500"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16 14 12 10 10 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "65 70 75 80 110 150"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_mult"                                       "150 190 230 270 310 350"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_gods_rebuke_extra_crit"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "angle"                                           "140"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_distance"                              "150"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_slow"                                  "40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_slow_duration"                         "2"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "activity_duration"                               "2"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_vs_heroes"                          "35"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "3.5"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

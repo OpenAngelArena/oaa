@@ -7,23 +7,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "101"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "101" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "950"
-    "ItemShopTags"          ""
-    "ItemRecipe"                    "1"
+    "ItemCost"                                            "1000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_force_staff"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_force_staff"
     "ItemRequirements"
     {
-      "01"            "item_staff_of_wizardry;item_ring_of_regen"
+      "01"                                                "item_staff_of_wizardry;item_ring_of_regen"
     }
   }
 
@@ -43,15 +43,15 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "750"
+    "AbilityCastRange"              "550"
     "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "23.0 20.0 17.5 15.0 12.5"
+    "AbilityCooldown"       "23.0 20.0 17.0 15.0 12.0"
     "AbilitySharedCooldown"     "force"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "2250"
+    "ItemCost"            "2225"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "rare"
     "ItemAliases"         "fs;force staff;force"
@@ -65,23 +65,23 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_intellect"   "10 15 23 34 50"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "10 25 40 55 70"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "2 10 20 30 40"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "2.5 10 20 30 40"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "push_length"     "600"
+        "var_type"                                        "FIELD_INTEGER"
+        "push_length"                                     "600"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "tooltip_range"   "750"
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_cast_range"                                "850"
       }
     }
   }

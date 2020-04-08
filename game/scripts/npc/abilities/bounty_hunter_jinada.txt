@@ -9,15 +9,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5286"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0 10.0 8.0 6.0 6.0 6.0"
-    
+    "AbilityCooldown"                                     "12 9 6 3 3 3"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -25,23 +26,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "150 175 200 225 250 275"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
+        "bonus_damage"                                    "70 100 130 160 250 370"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed"                                 "-15 -20 -25 -30 -40 -50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attackspeed"                               "-15 -20 -25 -30 -60 -120"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0"
+        "gold_steal"                                      "60 90 120 150 1200 2400" //OAA // GPM 300 600 1200 3000 24000 48000
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
       }
     }
   }

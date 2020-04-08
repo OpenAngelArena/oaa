@@ -12,26 +12,27 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0 18.0 16.0 14.0 14.0 14.0"
+    "AbilityCooldown"                                     "14.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 50 50 50"
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 120 160 200 400 600"
+    //"AbilityDamage"                                       "80 120 160 200 500 800"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,17 +46,23 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0 10.0 10.0 10.0 10.0 10.0"
+        "duration"                                        "10.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1750"
+        "speed"                                           "2250"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "vision_radius"                                   "600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "80 120 160 200 500 800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk_2"
       }
     }
   }

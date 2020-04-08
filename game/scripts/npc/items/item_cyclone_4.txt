@@ -24,11 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_cyclone_3;item_upgrade_core_3"
-      "02"                                                "item_cyclone_3;item_upgrade_core_4"
-      "03"                                                "item_rod_of_atos_3;item_upgrade_core_3"
-      "04"                                                "item_rod_of_atos_3;item_upgrade_core_4"
-      "05"                                                "item_meteor_hammer_3;item_upgrade_core_3"
-      "06"                                                "item_meteor_hammer_3;item_upgrade_core_4"
+      "02"                                                "item_rod_of_atos_3;item_upgrade_core_3"
+      "03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
     }
   }
 
@@ -60,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"               "175 200 250 300 350"
-    "ItemCost"                      "15750"
+    "ItemCost"                      "15725"
     "ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                   "rare"
     "ItemAliases"                   "cyclone 4;euls 4;eul's scepter of divinity 4"
@@ -75,17 +72,17 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "10 25 40 60 80"
+        "bonus_intellect"       "10 25 50 95 140"
       }
       "02"
       {
         "var_type"              "FIELD_FLOAT"
-        "bonus_mana_regen"      "2.25 3.25 4.50 6.50 8.75"
+        "bonus_mana_regen"      "5.0 6.0 7.5 9.25 11.5"
       }
       "03"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_movement_speed"  "30 40 50 60 70"
+        "bonus_movement_speed"  "20 25 30 35 40"
       }
       "04"
       {
@@ -93,11 +90,6 @@
         "cyclone_duration"      "2.5"
       }
       "05"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "cast_range_tooltip"    "575 675 775 875 975"
-      }
-      "06"
       {
         "var_type"              "FIELD_INTEGER"
         "tooltip_drop_damage"   "50"

@@ -9,12 +9,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "850"
+    "ItemCost"                                            "825"
     "ItemShopTags"                                        "regen_health"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "roh;ring of health"
     "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE"
     "SideShop"                                            "0"
+    "SecretShop"                                          "0"
 
     // Sound
     //-------------------------------------------------------------------------------------------------------------
@@ -28,8 +29,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "6.5"
       }
     }
   }

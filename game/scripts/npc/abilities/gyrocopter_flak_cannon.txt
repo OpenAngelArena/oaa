@@ -11,22 +11,26 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40"
+    "AbilityCooldown"                                     "20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 50 50 50"
+    "AbilityManaCost"                                     "50"
 
     //Duration
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "15 15 15 15 15 15"
+    "AbilityDuration"                                     "10"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "3 4 5 6 10 16"
+        "max_attacks"                                     "3 4 5 6 10 14" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_2"
       }
       "03"
@@ -51,12 +55,14 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fire_rate"                                       "1.1"
+        "fire_rate"                                       "1.1" //OAA
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "600"
+        "scepter_radius"                                  "700"
+        "RequiresScepter"                                 "1"
       }
     }
   }

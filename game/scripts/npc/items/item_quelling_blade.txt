@@ -17,7 +17,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "150"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "qb;quelling blade"
@@ -30,22 +30,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "24"
+        "damage_bonus"                                    "18"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus_ranged"                             "7"
+        "damage_bonus_ranged"                             "5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "quelling_range_tooltip"                          "350"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_ward"                                 "450"
       }
     }
   }

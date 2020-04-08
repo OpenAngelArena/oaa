@@ -15,7 +15,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
@@ -25,7 +27,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10.0"
     "AbilityDuration"                                     "5.0"
-
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -57,6 +58,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "range"                                           "750"
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_5"
       }
       "04"
       {
@@ -85,11 +87,6 @@
         "slow_attack_speed_pct"                           "-28 -32 -36 -40 -60 -80"
       }
       "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_duration"                                "5"
-      }
-      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed_fire"                                      "1050"

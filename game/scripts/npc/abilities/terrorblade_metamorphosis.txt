@@ -15,13 +15,15 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0."
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "155.0"
+    "AbilityCooldown"                                     "60.0" // OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "40 44 48 52 56 60"
+        "duration"                                        "20 22 24 26 28 30" // OAA
       }
       "02"
       {
@@ -50,31 +52,60 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_range"                                     "400"
-        "LinkedSpecialBonus"  "special_bonus_unique_terrorblade_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_attack_range"                            "550"
-        "LinkedSpecialBonus"  "special_bonus_unique_terrorblade_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "20 40 60 80 180 280"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_loss"                                      "25"
+        "speed_loss"                                      "30"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "metamorph_aura_tooltip"                          "900"
+        "metamorph_aura_tooltip"                          "1200"
+      }
+      "09" // unused
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fear_duration"                                   "3.75"
+        "RequiresScepter"                                 "1"
+      }
+      "10" // unused
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown_reduction"                      "0"
+      }
+      "11" // unused
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "1600"
+        "RequiresScepter"                                 "1"
+      }
+      "12" // unused
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_speed"                                   "1000"
+        "RequiresScepter"                                 "1"
+      }
+      "13" // unused
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_spawn_delay"                             "0.6"
+        "RequiresScepter"                                 "1"
       }
     }
   }
-
 
 }

@@ -12,7 +12,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
     "MaxLevel"                                            "6"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "25"
@@ -24,7 +26,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0"
+        "duration"                                        "0.9 1.0 1.1 1.2 1.3 1.4" //OAA, for picking screen tooltip
       }
       "02"
       {
@@ -34,12 +36,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "10 15 20 25 25 25"
+        "chance_pct"                                      "25" //OAA, for picking screen tooltip
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 125 300 475"
+        "bonus_damage"                                    "50 60 70 80 240 480"  //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
     }

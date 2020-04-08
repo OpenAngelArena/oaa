@@ -20,7 +20,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "36 36 36 36 33 30"
+
+    "AbilityCooldown"                                     "26" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +40,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "dash_length"                                     "1400"
-        "LinkedSpecialBonus"  "special_bonus_unique_phoenix_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_4"
       }
       "03"
       {
@@ -59,7 +60,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "10 30 50 70 110 270"
+        "damage_per_second"                               "10 30 50 70 140 280"
       }
       "07"
       {
@@ -69,12 +70,13 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-28"
+        "slow_movement_speed_pct"                         "-19 -22 -25 -28 -31 -34"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_6"
       }
       "09"
       {
-        "var_type"        "FIELD_FLOAT"
-        "dive_duration"     "2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "dive_duration"                                   "2.0"
       }
     }
   }

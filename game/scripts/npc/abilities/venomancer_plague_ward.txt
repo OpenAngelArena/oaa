@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"venomancer_plague_ward"
+  "venomancer_plague_ward"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,12 +8,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +22,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20 20 20 20 20 20"
+    "AbilityManaCost"                                     "20"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,20 +32,22 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "40.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ward_hp_tooltip"                                 "75 200 325 450 1075 1700"
-        "LinkedSpecialBonus"  "special_bonus_unique_venomancer"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ward_damage_tooltip"                             "13 22 31 40 140 240"
-        "LinkedSpecialBonus"  "special_bonus_unique_venomancer"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_MULTIPLY"
+        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04" // For special bonus at level 25
       {
@@ -54,7 +57,7 @@
       "05" // For special bonus at level 25
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_damage"                                     "26 44 62 80 170 260"
+        "ward_damage"                                     "26 44 62 80 280 480"
       }
     }
   }

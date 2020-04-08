@@ -10,6 +10,7 @@
     "ID"                                                  "5330"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -23,11 +24,11 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "32 24 18 10 10 10"
+    "AbilityCooldown"                                     "15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 90 110 130 170 210"
+    "AbilityManaCost"                                     "90 110 130 150 180 210"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,18 +43,25 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "level_req"                                       "6"
+        "level_req"                                       "6" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "700 1400 2100 2800 5000 10000" //OAA
+        "health_min"                                      "1000 1400 2100 2800 5000 10000" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_chen_4"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "6.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_bonus"                            "10 15 20 25 30 35"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_bonus"                                    "10 20 30 40 80 120" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_chen_5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

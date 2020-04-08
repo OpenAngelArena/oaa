@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "2.5"
+    "AbilityDuration"                                     "2.75"
     "AbilityCooldown"                                     "27.0 24.0 21.0 18.0 18.0 18.0"
 
     // Casting
@@ -41,13 +41,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disruption_duration"                             "2.5"
+        "disruption_duration"                             "2.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "8 10 12 14 22 30"
+        "illusion_duration"                               "8 10 12 14 16 18"
       }
       "03"
       {
@@ -68,11 +68,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_total_illusion_incoming_damage"          "300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "charge_restore_time" "27.0 24.0 21.0 18.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_7"
       }
     }
   }

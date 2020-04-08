@@ -12,17 +12,19 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0 12.0 12.0 12.0"
-    "AbilityDuration"                                     "10.0 10.0 10.0 10.0"
+    "AbilityCooldown"                                     "12.0"
+    "AbilityDuration"                                     "8.0" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +51,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "interval_scepter"                                "10.0"
+        "interval_scepter"                                "8.0" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "secondary_starfall_damage_percent"               "75"
       }
     }
   }

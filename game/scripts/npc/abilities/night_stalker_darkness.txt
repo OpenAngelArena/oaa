@@ -13,13 +13,16 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
-    "HasScepterUpgrade"                                   "1"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "0"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "160 120 80 70 65"
-    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "110" //OAA
+    "AbilityManaCost"                                     "125 175 225 275 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,12 +31,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "40.0"
+        "duration"                                        "30.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blind_percentage"                                "-25"
+        "bonus_damage"                                    "50 100 150 300 500"
       }
     }
   }

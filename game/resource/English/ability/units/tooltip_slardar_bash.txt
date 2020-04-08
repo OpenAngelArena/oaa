@@ -2,10 +2,11 @@
 // Slardar's Bash of the Deep
 //=============================================================================
 "DOTA_Tooltip_ability_slardar_bash_oaa"                       "#{DOTA_Tooltip_ability_slardar_bash}"
-"DOTA_Tooltip_ability_slardar_bash_oaa_Description"           "<font color='#FFA500'>Bash of the Deep has a %tooltip_cooldown% seconds cooldown.</font>\n#{DOTA_Tooltip_ability_slardar_bash_Description}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_Description"           "Grants a chance that an attack will do bonus damage and stun an enemy. The duration is doubled against creeps. <font color='#FFA500'>Bash of the Deep has a %tooltip_cooldown% seconds cooldown.</font>"
 "DOTA_Tooltip_ability_slardar_bash_oaa_Lore"                  "#{DOTA_Tooltip_ability_slardar_bash_Lore}"
-"DOTA_Tooltip_ability_slardar_bash_oaa_Note0"                 "#{DOTA_Tooltip_ability_slardar_bash_Note0}"
-"DOTA_Tooltip_ability_slardar_bash_oaa_Note1"                 "#{DOTA_Tooltip_ability_slardar_bash_Note1}"
-"DOTA_Tooltip_ability_slardar_bash_oaa_chance"                "#{DOTA_Tooltip_ability_slardar_bash_chance}"
+"DOTA_Tooltip_ability_slardar_bash_oaa_Note0"                 "Does not stack with Abyssal Blade."
+"DOTA_Tooltip_ability_slardar_bash_oaa_chance"                "%BASH CHANCE:"
 "DOTA_Tooltip_ability_slardar_bash_oaa_bonus_damage"          "#{DOTA_Tooltip_ability_slardar_bash_bonus_damage}"
 "DOTA_Tooltip_ability_slardar_bash_oaa_duration"              "#{DOTA_Tooltip_ability_slardar_bash_duration}"
+
+"DOTA_Tooltip_ability_slardar_bash_Description"               "#{DOTA_Tooltip_ability_slardar_bash_oaa_Description}"

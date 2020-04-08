@@ -7,15 +7,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5256"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5256"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // OAA nerf to prevent easy farming
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // OAA
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -45,17 +46,23 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "250"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "30 50 70 90 190 290"
+        "damage_per_second"                               "24 46 68 90 190 290"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.1"
       }
     }
   }

@@ -22,23 +22,23 @@ require('libraries/event')
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
 -- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
-require('libraries/physics')
+--require('libraries/physics')
 -- This library can be used for advanced 3D projectile systems.
-require('libraries/projectiles')
+--require('libraries/projectiles')
 -- This library can be used for sending panorama notifications to the UIs of players/teams/everyone
 require('libraries/notifications')
 -- This library can be used for starting customized animations on units from lua
 require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
-require('libraries/attachments')
+--require('libraries/attachments')
 -- This library can be used to synchronize client-server data via player/client-specific nettables
 require('libraries/playertables')
 -- This library can be used to create container inventories or container shops
 require('libraries/containers')
 -- This library provides a searchable, automatically updating lua API in the tools-mode via "modmaker_api" console command
-require('libraries/modmaker')
+--require('libraries/modmaker')
 -- This library provides an automatic graph construction of path_corner entities within the map
-require('libraries/pathgraph')
+--require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua
 require('libraries/selection')
 -- Helpful math functions from the internet
@@ -55,6 +55,10 @@ require('libraries/basehero')
 require('libraries/gamerules')
 -- Pseudo-random distribution C constant calculator
 require('libraries/cfinder')
+-- Library for handling buildings (OAA custom or DOTA original)
+require('libraries/buildings')
+-- Vector Targetting library
+require('libraries/vector_targeting')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -112,11 +116,6 @@ end
 ]]
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
-
-  -- i wish this was observer pattern :/
-  if GameLengthVotes ~= nil then
-    GameLengthVotes:SetGameLength()
-  end
 end
 
 --[[
@@ -148,6 +147,7 @@ end
 
 function GameMode:OnPreGame()
   -- initialize modules
+  InitModule(PointsManager)
   InitModule(Music)
   InitModule(Gold)
   InitModule(BlinkBlock)
@@ -158,13 +158,20 @@ function GameMode:OnPreGame()
   InitModule(Glyph)
   InitModule(BubbleOrbFilter)
   InitModule(BossProtectionFilter)
-  InitModule(ReactiveFilter)
-  InitModule(NGP)
-  InitModule(Doors)
+  --InitModule(ReactiveFilter)
+  --InitModule(NGP)
+  --InitModule(Doors)
   InitModule(HeroKillGold)
+  InitModule(HeroKillXP)
   InitModule(EntityStatProvider)
-  InitModule(ProtectionAura)
   InitModule(RespawnManager)
+  InitModule(BountyRunePick)
+  --InitModule(WispProjectileFilter)
+  InitModule(HudTimer)
+  InitModule(Duels)
+  InitModule(DuelRunes)
+  InitModule(PlayerConnection)
+  InitModule(ProtectionAura)
 
   CheckCheatMode()
 end
@@ -176,24 +183,19 @@ end
 ]]
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
-
   -- initialize modules
-  InitModule(HudTimer)
-  InitModule(PointsManager)
   InitModule(SurrenderManager)
   InitModule(CreepPower)
   InitModule(CreepCamps)
   InitModule(CreepItemDrop)
-  InitModule(CaveHandler)
-  InitModule(Duels)
+  --InitModule(CaveHandler)
   InitModule(CapturePoints)
   InitModule(BossSpawner)
   InitModule(BottleCounter)
-  InitModule(DuelRunes)
   InitModule(FinalDuel)
-  InitModule(PlayerConnection)
-  InitModule(StatusResistance)
+  --InitModule(StatusResistance)
   InitModule(SaveLoadState)
+  InitModule(Runes)
 
   -- xpm stuff
   LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
@@ -206,7 +208,9 @@ function InitModule(myModule)
       myModule:Init()
     end)
     if err then
-      print(err)
+      local info = debug.getinfo(2, "Sl")
+      print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)
+      print(debug.traceback())
       print('Failed to init module!!!')
     end
   end
@@ -220,24 +224,33 @@ function CheckCheatMode()
   end
 end
 
+local OnInitGameModeEvent = CreateGameEvent('OnInitGameMode')
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
+  InitModule(Components)
+
   InitModule(FilterManager)
   InitModule(Bottlepass)
-  InitModule(GameLengthVotes)
   InitModule(Courier)
+  --InitModule(StartingItems)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
+  InitModule(VectorTarget)
+
+  -- Increase maximum owned item limit
+  Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
+
+  OnInitGameModeEvent()
 end
 
 -- This is an example console command

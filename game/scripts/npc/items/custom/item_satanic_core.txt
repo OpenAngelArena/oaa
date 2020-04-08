@@ -23,9 +23,7 @@
     "ItemResult"                                          "item_satanic_core"
     "ItemRequirements"
     {
-      "01"                                                "item_satanic;item_octarine_core_2;item_upgrade_core_2"
-      "02"                                                "item_satanic;item_octarine_core_2;item_upgrade_core_3"
-      "03"                                                "item_satanic;item_octarine_core_2;item_upgrade_core_4"
+      "01"                                                "item_octarine_core_2;item_upgrade_core_2"
     }
   }
 
@@ -56,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16400"
+    "ItemCost"                                            "10900"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core"
@@ -69,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "38 55 75"
+        "bonus_strength"                                  "40 55 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "38 55 75"
+        "bonus_intelligence"                              "40 55 75"
       }
       "03"
       {
@@ -86,52 +84,30 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "650 1000 1500"
       }
-      "05"
+      "05" // name needs to be the same as in octarine core
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "35"
+        "hero_lifesteal"                                  "35"
       }
-      "06"
+      "06" // name needs to be the same as in octarine core
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "165"
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "13 14 15"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_total_tooltip"                  "200"
+        "unholy_hero_spell_lifesteal"                     "150"
       }
       "08"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "4.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "unholy_creep_spell_lifesteal"                    "50"
       }
-      // Octarine Core Parameters
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "0"
-      }
-      "10"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "35"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "10 20 30"
-      }
-      // unholy spellsteal
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_spellsteal_unholy"                          "165"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_spellsteal_unholy"                         "190 180 170"
+        "duration"                                        "5.0"
       }
     }
   }

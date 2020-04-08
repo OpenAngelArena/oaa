@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseekers Thirst
+  // Ability: Bloodseeker's Thirst
   //=================================================================================================================
   "bloodseeker_thirst"
   {
@@ -9,7 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5017"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,19 +22,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_bonus_pct"                                   "75"
+        "min_bonus_pct"                                   "85" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "7 18 29 40 52 64"
+        "bonus_movement_speed"                            "12 24 36 48 54 60"
         "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "7 18 29 40 52 64"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
+        "bonus_attack_speed"                              "30 45 60 75 90 105"
       }
       "04"
       {
@@ -49,6 +49,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "invis_threshold_pct"                             "25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "linger_duration"                                 "4.0"
       }
     }
   }

@@ -1,40 +1,49 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin: Dash
+  // Sohei: Dash
   //=================================================================================================================
   "sohei_dash"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"           "ability_lua"
-    "ID"                  "9500"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_NONE"
-    "AbilityTextureName"      "custom/ronin_dash"
-    "ScriptFile"          "abilities/sohei/sohei_dash.lua"
+    "ID"                                                  "9500"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/sohei/sohei_dash.lua"
+    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityTextureName"                                  "custom/ronin_dash"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" // this is for UI tooltip
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // this is for UI tooltip
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastRange"        "300"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                                    "500" // old was like dash_distance
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "8"
+    "AbilityCooldown"                                     "20 16 12 8 7 7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "50"
+    "AbilityManaCost"                                     "40"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
-      "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
+      "particle"                                          "particles/econ/items/juggernaut/bladekeeper_omnislash/_dc_juggernaut_omni_slash_trail.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
     // Special
@@ -43,35 +52,93 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "dash_distance"       "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_distance"                                   "300"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "dash_speed"        "2400"
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_speed"                                      "2400"
       }
       "03"
       {
-        "var_type"          "FIELD_INTEGER"
-        "max_charges"       "2 3 4 5 6 7"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "3"
       }
       "04"
       {
-        "var_type"          "FIELD_INTEGER"
-        "tree_radius"       "175"
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_radius"                                     "175"
       }
       "05"
       {
-        "var_type"            "FIELD_INTEGER"
-        "charge_restore_time" "8"
-        "LinkedSpecialBonus"      "special_bonus_sohei_dash_recharge"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "20 16 12 8 7 7"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_dash_recharge"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "06"
       {
-        "var_type"            "FIELD_INTEGER"
-        "momentum_cd_refund"  "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "momentum_cd_refund"                              "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "effect_radius"                                   "175"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "75 100 125 150 300 450"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "-80"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_base_heal"                               "300"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_hp_as_heal"                              "10"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_max_charges"                             "6"
+        "RequiresScepter"                                 "1"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vector_targeting"                                "1"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vector_start_width"                              "175"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vector_end_width"                                "175"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "vector_length"                                   "300"
       }
     }
   }

@@ -16,7 +16,7 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-    
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "775"
@@ -53,7 +53,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "150 220 290 360 500 850"
+        "max_damage"                                      "150 220 290 360 800 1200"
       }
       "06"
       {

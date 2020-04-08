@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail;item_upgrade_core;item_relic"    //item added so that it doesn't clash with blade mail
-      "02"                                                "item_blade_mail;item_upgrade_core_2;item_relic"  //item added so that it doesn't clash with blade mail
-      "03"                                                "item_blade_mail;item_upgrade_core_3;item_relic"  //item added so that it doesn't clash with blade mail
-      "04"                                                "item_blade_mail;item_upgrade_core_4;item_relic"  //item added so that it doesn't clash with blade mail
     }
   }
 
@@ -56,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "7500"
+    "ItemCost"                                            "7300"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mm;martyrs mail;martyrsmail"
@@ -69,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35 50 75 120"
+        "bonus_damage"                                    "45 75 115 165"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "14 22 30 40"
+        "bonus_armor"                                     "9 13 18 24"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 22 32 45"
+        "bonus_intellect"                                 "20 30 40 50"
       }
       "04"
       {

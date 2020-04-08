@@ -1,5 +1,7 @@
 <root>
   <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="s2r://panorama/styles/hudstyles.vcss_c" />
     <include src="file://{resources}/styles/custom_game/stat_display.css"/>
   </styles>
   <scripts>
@@ -11,12 +13,6 @@
       <Panel id="BCRow">
         <Panel class="StatDisplayHeaderContainer">
           <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="Bottles"/>
-          <Label class="QuickStatLabel" id="QuickStatLabelValue" text="0" />
-        </Panel>
-      </Panel>
-      <Panel id="CCRow">
-        <Panel class="StatDisplayHeaderContainer">
-          <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="Caves"/>
           <Label class="QuickStatLabel" id="QuickStatLabelValue" text="0" />
         </Panel>
       </Panel>

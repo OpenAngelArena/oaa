@@ -23,8 +23,9 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_crit_4;item_upgrade_core_4"
       "01"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      "02"                                                "item_greater_crit_4;item_upgrade_core_4"
+      "03"                                                "item_nullifier_4;item_upgrade_core_4"
     }
   }
 
@@ -46,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "18.0"
+    "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "orchid"
     "AbilityTextureName"                                  "custom/bloodthorn_5"
     // Spicy Parameters
@@ -57,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "37075"
+    "ItemCost"                                            "37725"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 5"
@@ -75,49 +76,34 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45 50"
+        "bonus_attack_speed"                              "85 90 95 100 105"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 125 165 210"
+        "bonus_damage"                                    "30 40 60 90 130"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 2.5 2.75 3.0 3.25"
+        "bonus_mana_regen"                                "5.5 6.0 6.5 7.0 7.5"
       }
       "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "20"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "175 185 195 205 215"
-      }
-      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "silence_damage_percent"                          "30"
       }
-      "08"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "silence_duration"                                "5"
       }
-      "09"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "140 150 160 170 180"
+        "target_crit_multiplier"                          "130 140 150 160 170"
       }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "900"
-      }
-      "11"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_crit_chance"                             "100"

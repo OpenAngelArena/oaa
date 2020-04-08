@@ -1,0 +1,116 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Grimstroke: Phantom's Embrace
+  //=================================================================================================================
+  "grimstroke_ink_creature"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "8006"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"           "1"
+
+    "MaxLevel"                  "6"
+    "RequiredLevel"             "1"
+    "LevelsBetweenUpgrades"     "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"          "900"
+    "AbilityCastPoint"          "0.0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"           "20" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"           "110 120 130 140 240 340"
+
+    "AbilityModifierSupportValue" "0.5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spawn_time"                                      "0.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "speed"                                           "750"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "latch_duration"                                  "5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "destroy_attacks"                                 "6 6 9 9 12 15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_4"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_attack_multiplier"                          "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_tick"                                 "3 7 11 15 30 45"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dps_tooltip"                                     "6 14 22 30 60 90"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_vision_time"                               "4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.5"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "infection_search_radius"                         "1000"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pop_damage"                                      "120 200 280 360 720 1440"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "return_projectile_speed"                         "750"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latched_unit_offset"                             "130"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latched_unit_offset_short"                       "95"
+      }
+    }
+  }
+}

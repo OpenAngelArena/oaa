@@ -3,9 +3,9 @@
 //====================================================================
 "DOTA_Tooltip_Ability_item_allied_cyclone"                                  "Eul's Scepter of Sanctity"
 "DOTA_Tooltip_Ability_item_recipe_allied_cyclone"                           "Sanctity Recipe"
-"DOTA_Tooltip_Ability_item_allied_cyclone_Description"                      "<h1>Active: Cyclone</h1> Sweeps a target unit up into a cyclone, making them invulnerable for %allied_cyclone_duration% seconds. Empowered Cyclone can be cast on both friendly and enemy units.<br><br>Enemy units take %tooltip_drop_damage% magical damage upon landing.<br><br>Range: %cast_range_tooltip%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+"DOTA_Tooltip_Ability_item_allied_cyclone_Description"                      "<h1>Active: Empowered Cyclone</h1> Sweeps a target unit up into a cyclone, making them invulnerable for %allied_cyclone_duration% seconds. Empowered Cyclone can be cast on both friendly and enemy units.<br><br>Units take %tooltip_drop_damage% magical damage upon landing.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 "DOTA_Tooltip_Ability_item_allied_cyclone_Lore"                             "A mysterious scepter passed down through the ages, its disruptive winds can be used for good or evil."
-"DOTA_Tooltip_Ability_item_allied_cyclone_Note0"                            "Cyclones cast on allies go through spell immunity."
+"DOTA_Tooltip_Ability_item_allied_cyclone_Note0"                            "You can cyclone spell-immune allies."
 "DOTA_Tooltip_Ability_item_allied_cyclone_Note1"                            "Cyclone can purge some buffs and debuffs."
 "DOTA_Tooltip_Ability_item_allied_cyclone_bonus_intellect"                  "+$int"
 "DOTA_Tooltip_Ability_item_allied_cyclone_bonus_mana_regen"                 "+$mana_regen"

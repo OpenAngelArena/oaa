@@ -10,16 +10,18 @@
     "ID"                                                  "5021"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0 0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100"
-    "AbilityDuration"                                     "30.0"
+    "AbilityCooldown"                                     "30" //OAA
+    "AbilityDuration"                                     "5" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,8 +30,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "trueshot_ranged_damage"                          "10 20 30 40 50 60"
+        "trueshot_ranged_damage"                          "10 20 30 40 80 120"
         "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "1200"
       }
     }
   }

@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Generic boss regeneration for % health regen out of combat
+  //=================================================================================================================
+  "boss_regen"
+  {
+
+    "ID"                                                  "9905"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss_regen.lua"
+    "AbilityTextureName"                                  "dragon_knight_dragon_blood"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+	
+	
+    "AbilityCooldown"                                     "5.0"
+
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "regen_interval"                                  "0.1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_rate"                               "3.3"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "degen_duration"                                  "2.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "degen_interval"                                  "0.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_degen_rate"                               "1.0"
+      }
+      
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pauses_during_duel"                              "1"
+      }
+    }
+  }
+}

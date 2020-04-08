@@ -16,17 +16,19 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "350"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130.0 120.0 110.0 105.0 100.0"
+    "AbilityCooldown"                                     "80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,35 +44,25 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "omni_slash_damage"                               "200 225"
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_rate_multiplier"                          "1.7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "omni_slash_jumps"                                "3 6 9 12 18"
-        "LinkedSpecialBonus"    "special_bonus_unique_juggernaut_2"
+        "bonus_damage"                                    "30 40 50 100 220"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "omni_slash_radius"                               "425"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3 3.25 3.5 4.25 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_2"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "omni_slash_bounce_tick"                          "0.4 0.4 0.4 0.4 0.3 0.1"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "omni_slash_jumps_scepter"                        "6 9 12 15 21"
-        "LinkedSpecialBonus"    "special_bonus_unique_juggernaut_2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "omni_slash_cooldown_scepter"                     "70"
+        "omni_slash_radius"                               "425"
       }
     }
   }

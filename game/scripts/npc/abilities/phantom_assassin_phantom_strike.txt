@@ -13,24 +13,22 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000 1000 1000 1000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "600 700 800 900 1000 1100" //OAA
+    "AbilityCastPoint"                                    "0.25"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 11 8 5 5 5"
-
-    // Duration
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "3 3 3 3"
+    "AbilityCooldown"                                     "15 13 11 9 7 5" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 50"
-    
+    "AbilityManaCost"                                     "35 40 45 50 60 75"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -38,18 +36,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "130 130 130 130 140 160"
+        "bonus_attack_speed"                              "90 115 140 165 190 215"  //OAA
       }
-      
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_max_attack_count"                          "4 4 4 4 5 6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "1000 1000 1000 1000"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0"
       }
     }
   }

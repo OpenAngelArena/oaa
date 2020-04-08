@@ -12,13 +12,16 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -44,19 +47,29 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_void_damage_per_mana"                       "0.8 0.95 1.1 1.55 1.9"
+        "mana_void_damage_per_mana"                       "0.8 1.1 1.4 1.85 2.3" //OAA
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "mana_void_ministun"                              "0.3"
       }
-
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_void_aoe_radius"                            "300" //OAA
+        "mana_void_aoe_radius"                            "300 350 400 450 500" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown_increase"                       "100"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_ministun"                                "1.3"
+        "RequiresScepter"                                 "1"
       }
     }
   }

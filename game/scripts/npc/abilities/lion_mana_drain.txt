@@ -14,7 +14,9 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
@@ -45,7 +47,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_per_second"                                 "20 40 60 120 240 350"
+        "mana_per_second"                                 "20 60 80 180 280 380" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lion_5"
       }
       "03"
       {
@@ -60,7 +63,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "16 19 22 25 30 40"
+        "movespeed"                                       "20 25 30 35 45 75"
       }
     }
   }

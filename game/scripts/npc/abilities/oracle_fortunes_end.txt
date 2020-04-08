@@ -16,7 +16,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
@@ -29,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 120 150 180 330 480"
+        "damage"                                          "120 150 180 210 420 630"
       }
       "02"
       {
@@ -54,7 +58,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "maximum_purge_duration"                          "2.5"
-        "LinkedSpecialBonus"  "special_bonus_unique_oracle_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_oracle_2"
       }
       "05"
       {
@@ -63,8 +67,21 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_channel_time_tooltip"                        "2.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_range"                             "800"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_radius"                            "150"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_stun_percentage"                         "80" //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }

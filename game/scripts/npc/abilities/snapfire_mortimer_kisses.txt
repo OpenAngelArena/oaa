@@ -1,0 +1,137 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Ability: Snapfire Mortimer Kisses
+    //=================================================================================================================
+    "snapfire_mortimer_kisses"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                            "6482"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+        "MaxLevel"                                            "5"
+        "RequiredLevel"                                       "6"
+        "LevelsBetweenUpgrades"                               "6"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "3000"
+        "AbilityCastPoint"              "0.5"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+
+        // Damage
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "110"
+        "AbilityDuration"               "6.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "125 150 175 250 350"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_count"      "8"
+                "LinkedSpecialBonus"    "special_bonus_unique_snapfire_1"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_speed"      "1300"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_width"      "130"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "impact_radius"         "275"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage_per_impact"     "160 320 480 960 1280" //OAA
+            }
+            "06"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration_tooltip"      "6.0"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_vision"     "500"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "turn_rate"             "75"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "burn_interval"         "0.5"
+            }
+            "10"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "burn_damage"           "50 100 150 300 450" //OAA
+            }
+            "11"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "move_slow_pct"         "15 20 25 30 30"
+                "LinkedSpecialBonus"    "special_bonus_unique_snapfire_4"
+            }
+            "12"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "burn_ground_duration"  "3.0"
+            }
+            "13"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "dist_change_speed"     "75"
+            }
+            "14"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "min_range"             "600"
+            }
+            "15"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "min_lob_travel_time"   "0.8"
+            }
+            "16"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "max_lob_travel_time"   "2.0"
+            }
+            "17"
+            {
+                "var_type"                      "FIELD_FLOAT"
+                "delay_after_last_projectile"   "0.5"
+            }
+            "18"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "burn_linger_duration"  "1.0"
+            }
+        }
+    }
+}

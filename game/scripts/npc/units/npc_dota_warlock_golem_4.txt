@@ -27,14 +27,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"    // Physical protection.
+    "ArmorPhysical"                                       "40"    // Physical protection.
     "MagicalResistance"                                   "35"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "375"    // Damage range min.
-    "AttackDamageMax"                                     "375"    // Damage range max.
+    "AttackDamageMin"                                     "600"    // Damage range min.
+    "AttackDamageMax"                                     "600"    // Damage range max.
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -55,12 +55,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "360"    // Speed.
+    "MovementSpeed"                                       "370"    // Speed.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "4500"    // Base health.
-    "StatusHealthRegen"                                   "125"    // Health regeneration rate.
+    "StatusHealth"                                        "7500"    // Base health.
+    "StatusHealthRegen"                                   "150"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 
@@ -104,14 +104,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "17"      // Physical protection.
+    "ArmorPhysical"                                       "40"      // Physical protection.
     "MagicalResistance"                                   "35"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "280"    // Damage range min.
-    "AttackDamageMax"                                     "280"    // Damage range max.
+    "AttackDamageMin"                                     "450"    // Damage range min.
+    "AttackDamageMax"                                     "450"    // Damage range max.
     "AttackRate"                                          "1.2"    // Speed of attack.
     "AttackAnimationPoint"                                "0.26"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -132,12 +132,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "360"    // Speed.
+    "MovementSpeed"                                       "370"    // Speed.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "3750"    // Base health.
-    "StatusHealthRegen"                                   "125"    // Health regeneration rate.
+    "StatusHealth"                                        "5625"   // Base health.
+    "StatusHealthRegen"                                   "150"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 

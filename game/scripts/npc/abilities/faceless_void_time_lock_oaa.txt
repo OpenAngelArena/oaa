@@ -1,37 +1,43 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Faceless Void: Time Lock
+  // Faceless Void: Time Lock (OAA rework)
   //=================================================================================================================
   "faceless_void_time_lock_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-  "ID"                                                  "85184"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85184"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_time_lock.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-  "AbilityTextureName"                                  "faceless_void_time_lock"
+    "AbilityTextureName"                                  "faceless_void_time_lock"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "1.65"
+    "AbilityCooldown"                                     "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // in normal dota: min stun time is second_attack_delay + duration (with current patch its: 0.98);
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0"
+        "duration"                                        "0.9 1.0 1.1 1.2 1.3 1.4"
       }
       "02"
       {
@@ -41,18 +47,23 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "10 15 20 25 25 25"
+        "chance_pct"                                      "25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 75 100 125 300 475"
+        "bonus_damage"                                    "50 60 70 80 240 480"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_cooldown"                                "1.65"
+        "second_attack_delay"                             "0.33"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_cooldown"                                "2"
       }
     }
   }

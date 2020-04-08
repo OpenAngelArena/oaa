@@ -1,6 +1,10 @@
 //==============================================================================
 // Pipe of Insight
 //==============================================================================
+//"DOTA_Tooltip_ability_item_pipe_Description"                        "<h1>Active: Barrier</h1>Gives a shield that blocks %barrier_block% magic damage to all nearby allies. Lasts %barrier_duration% seconds.<br><br>Radius: %barrier_radius%\n<h1>Passive: Insight Aura</h1> Gives allied units %aura_health_regen% health regeneration and %magic_resistance_aura%%% magic resistance.<br><br>Radius: %aura_radius%"
+//"DOTA_Tooltip_ability_item_pipe_health_regen"                       "+$hp_regen"
+//"DOTA_Tooltip_ability_item_pipe_magic_resistance"                   "%+$spell_resist"
+
 "DOTA_Tooltip_Ability_item_pipe_2"                                  "#{DOTA_Tooltip_Ability_item_pipe}"
 "DOTA_Tooltip_Ability_item_recipe_pipe_2"                           "#{DOTA_Tooltip_Ability_item_recipe_pipe}"
 "DOTA_Tooltip_Ability_item_pipe_2_Description"                      "#{DOTA_Tooltip_ability_item_pipe_Description}"
@@ -9,12 +13,6 @@
 "DOTA_Tooltip_Ability_item_pipe_2_Note1"                            "#{DOTA_Tooltip_ability_item_pipe_Note1}"
 "DOTA_Tooltip_Ability_item_pipe_2_health_regen"                     "#{DOTA_Tooltip_ability_item_pipe_health_regen}"
 "DOTA_Tooltip_Ability_item_pipe_2_magic_resistance"                 "#{DOTA_Tooltip_ability_item_pipe_magic_resistance}"
-//"DOTA_Tooltip_Ability_item_pipe_2_aura_health_regen"                "AURA HEALTH REGEN:"
-//"DOTA_Tooltip_Ability_item_pipe_2_magic_resistance_aura"            "%AURA MAGIC RESISTANCE:"
-//"DOTA_Tooltip_Ability_item_pipe_2_aura_radius"                      "AURA RADIUS:"
-//"DOTA_Tooltip_Ability_item_pipe_2_barrier_block"                    "BARRIER SPELL BLOCK:"
-//"DOTA_Tooltip_Ability_item_pipe_2_barrier_duration"                 "BARRIER DURATION:"
-//"DOTA_Tooltip_Ability_item_pipe_2_barrier_radius"                   "BARRIER CAST RADIUS:"
 
 "DOTA_Tooltip_Ability_item_pipe_3"                                  "#{DOTA_Tooltip_Ability_item_pipe}"
 "DOTA_Tooltip_Ability_item_recipe_pipe_3"                           "#{DOTA_Tooltip_Ability_item_recipe_pipe}"
@@ -24,12 +22,6 @@
 "DOTA_Tooltip_Ability_item_pipe_3_Note1"                            "#{DOTA_Tooltip_ability_item_pipe_Note1}"
 "DOTA_Tooltip_Ability_item_pipe_3_health_regen"                     "#{DOTA_Tooltip_ability_item_pipe_health_regen}"
 "DOTA_Tooltip_Ability_item_pipe_3_magic_resistance"                 "#{DOTA_Tooltip_ability_item_pipe_magic_resistance}"
-//"DOTA_Tooltip_Ability_item_pipe_3_aura_health_regen"                "AURA HEALTH REGEN:"
-//"DOTA_Tooltip_Ability_item_pipe_3_magic_resistance_aura"            "%AURA MAGIC RESISTANCE:"
-//"DOTA_Tooltip_Ability_item_pipe_3_aura_radius"                      "AURA RADIUS:"
-//"DOTA_Tooltip_Ability_item_pipe_3_barrier_block"                    "BARRIER SPELL BLOCK:"
-//"DOTA_Tooltip_Ability_item_pipe_3_barrier_duration"                 "BARRIER DURATION:"
-//"DOTA_Tooltip_Ability_item_pipe_3_barrier_radius"                   "BARRIER CAST RADIUS:"
 
 "DOTA_Tooltip_Ability_item_pipe_4"                                  "#{DOTA_Tooltip_Ability_item_pipe}"
 "DOTA_Tooltip_Ability_item_recipe_pipe_4"                           "#{DOTA_Tooltip_Ability_item_recipe_pipe}"
@@ -39,12 +31,6 @@
 "DOTA_Tooltip_Ability_item_pipe_4_Note1"                            "#{DOTA_Tooltip_ability_item_pipe_Note1}"
 "DOTA_Tooltip_Ability_item_pipe_4_health_regen"                     "#{DOTA_Tooltip_ability_item_pipe_health_regen}"
 "DOTA_Tooltip_Ability_item_pipe_4_magic_resistance"                 "#{DOTA_Tooltip_ability_item_pipe_magic_resistance}"
-//"DOTA_Tooltip_Ability_item_pipe_4_aura_health_regen"                "AURA HEALTH REGEN:"
-//"DOTA_Tooltip_Ability_item_pipe_4_magic_resistance_aura"            "%AURA MAGIC RESISTANCE:"
-//"DOTA_Tooltip_Ability_item_pipe_4_aura_radius"                      "AURA RADIUS:"
-//"DOTA_Tooltip_Ability_item_pipe_4_barrier_block"                    "BARRIER SPELL BLOCK:"
-//"DOTA_Tooltip_Ability_item_pipe_4_barrier_duration"                 "BARRIER DURATION:"
-//"DOTA_Tooltip_Ability_item_pipe_4_barrier_radius"                   "BARRIER CAST RADIUS:"
 
 "DOTA_Tooltip_Ability_item_pipe_5"                                  "#{DOTA_Tooltip_Ability_item_pipe}"
 "DOTA_Tooltip_Ability_item_recipe_pipe_5"                           "#{DOTA_Tooltip_Ability_item_recipe_pipe}"
@@ -54,9 +40,3 @@
 "DOTA_Tooltip_Ability_item_pipe_5_Note1"                            "#{DOTA_Tooltip_ability_item_pipe_Note1}"
 "DOTA_Tooltip_Ability_item_pipe_5_health_regen"                     "#{DOTA_Tooltip_ability_item_pipe_health_regen}"
 "DOTA_Tooltip_Ability_item_pipe_5_magic_resistance"                 "#{DOTA_Tooltip_ability_item_pipe_magic_resistance}"
-//"DOTA_Tooltip_Ability_item_pipe_5_aura_health_regen"                "AURA HEALTH REGEN:"
-//"DOTA_Tooltip_Ability_item_pipe_5_magic_resistance_aura"            "%AURA MAGIC RESISTANCE:"
-//"DOTA_Tooltip_Ability_item_pipe_5_aura_radius"                      "AURA RADIUS:"
-//"DOTA_Tooltip_Ability_item_pipe_5_barrier_block"                    "BARRIER SPELL BLOCK:"
-//"DOTA_Tooltip_Ability_item_pipe_5_barrier_duration"                 "BARRIER DURATION:"
-//"DOTA_Tooltip_Ability_item_pipe_5_barrier_radius"                   "BARRIER CAST RADIUS:"

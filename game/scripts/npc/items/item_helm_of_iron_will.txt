@@ -9,7 +9,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "900"
+    "ItemCost"                                            "925"
     "ItemShopTags"                                        "armor;regen_health"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "helm of iron will"
@@ -26,8 +26,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_regen"                                     "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_regen"                                     "5"
       }
     }
   }

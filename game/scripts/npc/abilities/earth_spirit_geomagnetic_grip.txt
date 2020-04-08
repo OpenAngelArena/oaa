@@ -45,12 +45,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "75"
+        "rock_damage"                                     "50 100 150 200 400 800"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "miss_duration"                                   "2.0 2.5 3 3.5 4 4.5"
+        "duration"                                        "2 2.5 3 3.5 4 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_5"
       }
       "04"
       {
@@ -59,20 +60,15 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "rock_damage"                                     "50 100 150 200 450 700"
-      }
-      "06"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "pull_units_per_second"                           "1000"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "800"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "total_pull_distance"                             "1400"

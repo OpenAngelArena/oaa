@@ -8,12 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "253"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0" 
+    "ItemCost"            "0"
     "ItemShopTags"          ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
@@ -34,17 +34,17 @@
     "ID"                          "254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"             "1"
     "AbilityTextureName"          "custom/glimmer_cape_1"
 
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"            "800"
+    "AbilityCastRange"            "550 850 1150 1450 1750"
     "AbilityCooldown"             "14.0"
     "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"             "90"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                    "1950"
@@ -54,11 +54,11 @@
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "1"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
-    {     
+    {
       "01"
       {
         "var_type"                "FIELD_INTEGER"
@@ -72,7 +72,7 @@
       "03"
       {
         "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6"
+        "fade_delay"              "0.6 0.55 0.5 0.45 0.4"
       }
       "04"
       {
@@ -85,11 +85,6 @@
         "duration"                "5"
       }
       "06"
-      {
-        "var_type"                "FIELD_INTEGER"
-        "tooltip_range"            "800"
-      }
-      "07"
       {
         "var_type"        "FIELD_FLOAT"
         "building_duration_limit"     "180"

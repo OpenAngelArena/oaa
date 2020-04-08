@@ -11,14 +11,15 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "2"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -26,16 +27,15 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 100 100"
-    "AbilityDuration"                                     "5.0"
+    "AbilityCooldown"                                     "120 110 100 90 80"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 120 160 400 640"
+    "AbilityDamage"                                       "80 160 240 480 720" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 250 500"
+    "AbilityManaCost"                                     "150 175 200 300 500"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -47,73 +47,66 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_time_tooltip"                               "1.67"
+        "var_type"                                        "FIELD_INTEGER"
+        "requiem_radius"                                  "1000"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_radius"                                  "1000"
+        "requiem_reduction_ms"                            "-25 -30 -35 -40 -45" //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_ms"                            "-25"
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_slow_duration"                           "0.8"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_damage"                        "-50"
+        "var_type"                                        "FIELD_FLOAT"
+        "requiem_slow_duration_max"                       "2.4"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_tooltip"                       "-50"
+        "requiem_reduction_radius"                        "700"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_slow_duration"                           "5.0"
+        "requiem_soul_conversion"                         "2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_radius"                        "700"
+        "requiem_line_width_start"                        "125"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_soul_conversion"                         "2"
+        "requiem_line_width_end"                          "350"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_width_start"                        "125"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_width_end"                          "425"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "requiem_line_speed"                              "700"
       }
-      "12"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "soul_death_release"                              "0.5"
       }
-      "13"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_heal_pct_scepter"                        "100"
+        "RequiresScepter"                                 "1"
       }
-      "14"
+      "12"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_damage_pct_scepter"                      "40"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

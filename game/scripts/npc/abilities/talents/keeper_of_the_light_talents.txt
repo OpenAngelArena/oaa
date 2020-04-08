@@ -1,0 +1,140 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Illuminate bonus damage/heal talent
+  //=================================================================================================================
+  "special_bonus_unique_keeper_of_the_light"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "6217"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "500" // OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Chakra Magic Mana
+  //=================================================================================================================
+  "special_bonus_unique_keeper_of_the_light_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6527"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"300"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Will-O-Wisp Flicker
+  //=================================================================================================================
+  "special_bonus_unique_keeper_of_the_light_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6665"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Will-O-Wisp Health Count
+  //=================================================================================================================
+  "special_bonus_unique_keeper_of_the_light_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7398"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"3"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Blinding Light Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_keeper_of_the_light_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"421"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"3"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Will-O-Wisp AoE
+  //=================================================================================================================
+  "special_bonus_unique_keeper_of_the_light_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"422"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"250"
+      }
+    }
+  }
+}

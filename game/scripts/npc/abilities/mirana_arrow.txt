@@ -7,30 +7,32 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5048"                          // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5048"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "3000"
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17.0"
-    "AbilityDuration"                                     "3.11 3.11 3.11 3.11"
+    "AbilityCooldown"                                     "18 17 16 15 14 14"
+    "AbilityDuration"                                     "3.11"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "50 140 230 320 720 1120"
+    "AbilityDamage"                                       "60 150 240 330 660 990"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 100 100 100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "arrow_speed"                                     "857.0"
+        "arrow_speed"                                     "900.0"
       }
       "02"
       {
@@ -64,12 +66,12 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "arrow_max_stun"                                  "5.0"
+        "arrow_max_stun"                                  "3.5 4 4.5 5.0 5.0 5.0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_bonus_damage"                              "100 175 250 300 500 700" //OAA
+        "arrow_bonus_damage"                              "180 190 200 210 310 410" //OAA, for picking screen tooltip
       }
       "08"
       {

@@ -257,7 +257,7 @@ function isModifierHidden (modPair, cb) {
           foundLine = false;
           return;
         }
-        if (line === functionString) {
+        if (line.replace(' ()', '()') === functionString) {
           foundLine = true;
         }
       });

@@ -39,7 +39,7 @@
     "AbilityTextureName"                                  "custom/blade_mail_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
 
     // Spicy Parameters
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "2200"
+    "ItemCost"                                            "2000"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
@@ -63,22 +63,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 35 50 75 120"
+        "bonus_damage"                                    "28 45 75 115 165"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 14 22 30 40"
+        "bonus_armor"                                     "6 9 13 18 24"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 22 32 45"
+        "bonus_intellect"                                 "10 20 30 40 50"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.5 4.0 4.5 5.0" // OAA
+        "duration"                                        "4.5"
       }
     }
   }

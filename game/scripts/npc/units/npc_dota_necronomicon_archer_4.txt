@@ -15,10 +15,10 @@
     "IsSummoned"                                          "1"
     "CanBeDominated"                                      "0"
     "UnitLabel"                                           "necroarcher"
-    
+
     // Abilities
     //----------------------------------------------------------------
-    
+
     "Ability1"                                            "necronomicon_archer_purge"      // Ability 1.
     "Ability2"                                            "necronomicon_archer_aoe"      // Ability 2.
     "Ability3"                                            ""      // Ability 3.
@@ -86,11 +86,11 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1500"    // Range of vision during day light.
     "VisionNighttimeRange"                                "800"    // Range of vision at night time.
   }
-  
+
 }

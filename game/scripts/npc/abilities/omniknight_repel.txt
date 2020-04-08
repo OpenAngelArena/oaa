@@ -11,27 +11,30 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 26 22 18 18 18"
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 85 85 85 130 215"
+    "AbilityManaCost"                                     "80 90 100 110 220 330"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "3.0"  // Value much higher than cost.
-
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,8 +43,23 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4 5 6 7 8 9"
-        "LinkedSpecialBonus"  "special_bonus_unique_omniknight_3"
+        "duration"                                        "7" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_str"                                       "7 14 21 28 35 49"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen"                                        "8 12 16 20 28 52"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_5"
       }
     }
   }

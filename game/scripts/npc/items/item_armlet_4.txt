@@ -17,7 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_armlet_3;item_upgrade_core_3"
-      "02"                                                "item_armlet_3;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15380"
+    "ItemCost"                                            "15405"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "armlet of mordiggian 4;armlet 4"
@@ -61,52 +60,52 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "9 15 20 30 45"
+        "bonus_damage"                                    "10 15 25 40 60" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 28 32 36 40"
+        "bonus_attack_speed"                              "25 30 35 40 45"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 8 12 16 20"
+        "bonus_armor"                                     "5 6 8 11 15"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "4 6 9 12 16"
+        "bonus_health_regen"                              "5 10 15 20 25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_damage"                             "31 40 55 75 110"
+        "unholy_bonus_damage"                             "30 35 45 60 80" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "unholy_bonus_attack_speed"                       "0"
       }
-      "07"
+      "07" // 0.1 hp regen per STR
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_strength"                           "25 45 65 90 120"
+        "unholy_bonus_strength"                           "25 35 50 70 100"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_armor"                              "4 7 8 9 10"
+        "unholy_bonus_armor"                              "4 5 6 7 8"
       }
-      "09"
+      "09" // tick time is 0.11 seconds
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 7 10 15 20"
+        "unholy_health_drain_per_tick"                    "6 8 11 15 20"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 63 90 135 180"
+        "unholy_health_drain_per_second_tooltip"          "54 73 100 136 182"
       }
       "11"
       {

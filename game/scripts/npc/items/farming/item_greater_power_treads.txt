@@ -13,8 +13,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
-    "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +22,11 @@
     "ItemResult"                                          "item_greater_power_treads"
     "ItemRequirements"
     {
-      "01"                                                "item_power_treads;item_farming_core"
+      "01"                                                "item_power_treads;item_upgrade_core"
+      "02"                                                "item_phase_boots;item_upgrade_core"
+      "03"                                                "item_tranquil_boots;item_upgrade_core"
+      "04"                                                "item_travel_boots;item_upgrade_core"
+      "05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -37,10 +41,11 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "AbilityTextureName"                                  "custom/greater_power_treads"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1550"
+    "ItemCost"                                            "2475"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads;power treads;treads"
@@ -56,45 +61,38 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50 55 60 65"
+        "bonus_movement_speed"                            "20 25 30 35"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "15 24 36 54"
+        "bonus_stat"                                      "20 30 45 65"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45"
+        "bonus_attack_speed"                              "30 40 50 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_damage"                                    "10 15 25 40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_radius"                                    "300"
+        "all_stats"                                       "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage"                                    "40 50 60 70"
+        "bonus_magic_resistance"                          "10 12 14 16"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_damage_ranged"                             "40 50 60 70"
+        "bonus_spell_amp"                                 "9 12 15 18"
       }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/items/powertreads_splash.vpcf"
     }
   }
 }

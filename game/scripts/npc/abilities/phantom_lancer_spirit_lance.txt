@@ -15,23 +15,26 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "0"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0 7.0 7.0 7.0"
+    "AbilityCooldown"                                     "7.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 130 135 140 170 200"
+    "AbilityManaCost"                                     "110 120 130 140 170 220"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "750"
+    "AbilityCastRange"                                    "525 600 675 750 825 900"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,14 +42,14 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "lance_damage"        "100 150 200 250 475 700"
-        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "lance_damage"                                    "100 150 200 250 500 700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lance_speed"                                     "1000 1000 1000 1000"
+        "lance_speed"                                     "1000"
       }
       "03"
       {
@@ -56,52 +59,41 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "-10 -20 -30 -40 -45 -50"
+        "movement_speed_pct"                              "-10 -18 -26 -34 -42 -50"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "2.0 4.0 6.0 8.0 14.0 20.0"
+        "illusion_duration"                               "2.0 4.0 6.0 8.0 8.5 9.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_damage_out_pct"                         "-80 -80 -80 -80 -75 -70"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_damage"                         "20 20 20 20 25 30"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "300 300 300 300"
+        "illusion_damage_in_pct"                          "300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_in_pct"            "400 400 400 400"
+        "tooltip_illusion_total_damage_in_pct"            "400"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "fake_lance_distance"                             "675"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "400"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_jumps"                                   "5"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lance_speed_bounces"                             "700"
       }
     }
   }

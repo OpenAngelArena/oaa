@@ -51,7 +51,7 @@
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "UpgradesItems"                                       "item_shivas_guard;item_shivas_guard_2;item_shivas_guard_3"
@@ -68,17 +68,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "15 20 25 30 40"
+        "bonus_armor"                                     "15 17 20 24 29"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
+        "aura_radius"                                     "1200"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "-45 -60 -75 -95 -120"
+        "aura_attack_speed"                               "-45 -60 -80 -105 -135"
       }
       "05"
       {

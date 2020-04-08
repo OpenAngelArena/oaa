@@ -8,12 +8,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
-
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,14 +19,10 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200 1200 1200 1200 1300 1500"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_health_pct"                               "4 6 8 10 10 10"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_health_pct"                               "6 8 10 12 14 16"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

@@ -1,0 +1,19 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Mirana
+  //=================================================================================================================
+  "npc_dota_hero_mirana"
+  {
+    // Abilities
+    //-------------------------------------------------------------------------------------------------------------
+    "Ability2"    "mirana_arrow_oaa" // replaces mirana_arrow
+    "Ability10"   "special_bonus_attack_damage_45" // replaces special_bonus_attack_damage_15
+    "Ability15"   "special_bonus_mana_break_40" // replaces special_bonus_mana_break_25
+    "Ability17"   "special_bonus_mirana_arrow_global" // replaces special_bonus_unique_mirana_4
+
+    // Attributes
+    //-------------------------------------------------------------------------------------------------------------
+    "AttributeBaseAgility"		"22"
+  }
+}

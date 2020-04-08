@@ -28,12 +28,13 @@
 		"Ability2"					"ogre_tank_boss_jump_smash"
 		"Ability3"          "boss_resistance"
 		"Ability4"          "boss_cliffwalk"
-		"Ability5"          "siltbreaker_boss_protection"
+		"Ability5"          "boss_regen"
+		"Ability6"          "siltbreaker_boss_protection"
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"25"
-    "MagicalResistance"                                   "-25"            // Magical protection.
+		"ArmorPhysical"				"33"
+    	"MagicalResistance"        "-50"            // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -55,7 +56,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"1000"
+		"BountyXP"					"3000"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 

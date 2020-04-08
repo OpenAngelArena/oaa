@@ -7,6 +7,10 @@ LinkLuaModifier( "modifier_item_greater_power_treads", "items/farming/greater_po
 function item_greater_power_treads:GetAbilityTextureName()
   local baseName = self.BaseClass.GetAbilityTextureName( self )
 
+  if not self:IsSwappable() then
+    return baseName
+  end
+
   local attribute = -1
 
   if self.treadMod then
@@ -55,6 +59,12 @@ end
 
 --------------------------------------------------------------------------------
 
+function item_greater_power_treads:IsSwappable()
+  return self:GetSpecialValueFor("bonus_stat") > 0
+end
+
+--------------------------------------------------------------------------------
+
 modifier_item_greater_power_treads = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
@@ -93,26 +103,16 @@ function modifier_item_greater_power_treads:OnCreated( event )
   self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
   self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
   self.stat = spell:GetSpecialValueFor( "bonus_stat" )
+  self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
+  self.all_stats = spell:GetSpecialValueFor( "all_stats" )
+  self.magic_resistance = spell:GetSpecialValueFor( "bonus_magic_resistance" )
+  self.spell_amp = spell:GetSpecialValueFor( "bonus_spell_amp" )
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_item_greater_power_treads:OnRefresh( event )
-  local spell = self:GetAbility()
-
-  if not spell then
-    return
-  end
-
-  if spell.attribute then
-    self:SetStackCount( spell.attribute )
-  end
-
-  spell.treadMod = self
-
-  self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
-  self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
-  self.stat = spell:GetSpecialValueFor( "bonus_stat" )
+  return self:OnCreated( event )
 end
 
 --------------------------------------------------------------------------------
@@ -133,12 +133,15 @@ end
 
 function modifier_item_greater_power_treads:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 
   return funcs
@@ -146,6 +149,9 @@ end
 
 --------------------------------------------------------------------------------
 
+-- farewell power treads splash
+-- i loved you
+--[[
 if IsServer() then
   function modifier_item_greater_power_treads:OnAttackLanded( event )
     local parent = self:GetParent()
@@ -243,65 +249,87 @@ if IsServer() then
     end
   end
 end
+--]]
 
---------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Boots( event )
-  local spell = self:GetAbility()
-
-  return self.moveSpd or spell:GetSpecialValueFor( "bonus_movement_speed" )
+function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Percentage_Unique()
+  return self.moveSpd
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant( event )
-  local spell = self:GetAbility()
-
-  return self.atkSpd or spell:GetSpecialValueFor( "bonus_attack_speed" )
+function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant()
+  return self.atkSpd
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierBonusStats_Strength( event )
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
   local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  local bonus = self.all_stats
 
   if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    return self.stat or spell:GetSpecialValueFor( "bonus_stat" )
+    bonus = bonus + self.stat
   end
 
-  return 0
+  return bonus
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierBonusStats_Agility( event )
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
   local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  local bonus = self.all_stats
 
   if attribute == DOTA_ATTRIBUTE_AGILITY then
-    return self.stat or spell:GetSpecialValueFor( "bonus_stat" )
+    bonus = bonus + self.stat
   end
 
-  return 0
+  return bonus
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect( event )
-  local spell = self:GetAbility()
+function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  local bonus = self.all_stats
+
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    bonus = bonus + self.stat
+  end
+
+  return bonus
+end
+
+function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.magic_resistance
+  end
+  return 0
+end
+
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.bonus_damage
+  end
+  return 0
+end
+
+function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
   local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
 
   if attribute == DOTA_ATTRIBUTE_INTELLECT then
-    return self.stat or spell:GetSpecialValueFor( "bonus_stat" )
+    return self.spell_amp
   end
-
   return 0
 end
 
 --------------------------------------------------------------------------------
 
-item_greater_power_treads_2 = item_greater_power_treads
-item_greater_power_treads_3 = item_greater_power_treads
-item_greater_power_treads_4 = item_greater_power_treads
-item_greater_power_treads_5 = item_greater_power_treads
+item_greater_power_treads_2 = class(item_greater_power_treads)
+item_greater_power_treads_3 = class(item_greater_power_treads)
+item_greater_power_treads_4 = class(item_greater_power_treads)
+item_greater_power_treads_5 = class(item_greater_power_treads)
+--item_power_origin = class(item_greater_power_treads)

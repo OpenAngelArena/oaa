@@ -24,9 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_diffusal_blade;item_upgrade_core"
-      "02"                                                "item_diffusal_blade;item_upgrade_core_2"
-      "03"                                                "item_diffusal_blade;item_upgrade_core_3"
-      "04"                                                "item_diffusal_blade;item_upgrade_core_4"
     }
   }
 
@@ -72,27 +69,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 30 45 70 105"
+        "bonus_agility"                                   "20 30 45 65 90"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "50 60 80 100 120"
+        "feedback_mana_burn"                              "40 60 90 120 150"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "16 24 33 50 75"
+        "feedback_mana_burn_illusion_melee"               "16 24 48 64 80"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_ranged"              "8 12 16 20 30"
+        "feedback_mana_burn_illusion_ranged"              "8 12 24 32 40"
       }
       "06"
       {
@@ -113,11 +110,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_per_burn"                                 "0.8"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "600"
       }
     }
   }

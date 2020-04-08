@@ -12,19 +12,21 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "38 32 26 20 20 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"  
-    
+    "AbilityManaCost"                                     "50"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -32,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
+        "radius"                                          "375"
       }
       "02"
       {
@@ -43,6 +45,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "1.2 1.6 2.0 2.4 3.0 3.6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "only_affects_player_units"                       "1"
       }
     }
   }

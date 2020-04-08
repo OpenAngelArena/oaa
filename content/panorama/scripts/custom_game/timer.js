@@ -59,6 +59,6 @@ function formatTime (time) {
     return [Math.floor(time / 60), seconds < 10 ? '0' + seconds : seconds].join(':');
   } else {
     seconds = Math.abs(seconds);
-    return ['-' + Math.floor(time / 60), seconds < 10 ? '0' + seconds : seconds].join(':');
+    return ['-' + Math.abs(Math.ceil(time / 60)), seconds < 10 ? '0' + seconds : seconds].join(':');
   }
 }

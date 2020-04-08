@@ -1,0 +1,93 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Kaya and Sange 2
+  //=================================================================================================================
+  "item_recipe_kaya_and_sange_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8544"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_kaya_and_sange_2"
+    "ItemRequirements"
+    {
+      "01"                                                "item_kaya_and_sange;item_upgrade_core"
+      "02"                                                "item_sange_and_yasha;item_upgrade_core"
+      "03"                                                "item_yasha_and_kaya;item_upgrade_core"
+    }
+  }
+  //=================================================================================================================
+  // Kaya and Sange 2
+  //=================================================================================================================
+  "item_kaya_and_sange_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "8545"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                                           "item_kaya_and_sange"
+    "AbilityTextureName"                                  "item_kaya_and_sange"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "5600"
+    "ItemShopTags"          "damage;str;agi;attack_speed;unique"
+    "ItemQuality"         "artifact"
+    "ItemAliases"         "snk 2;s&k 2;sk 2;sange and kaya 2"
+    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "16 24 32 48 72"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 32 48 72"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "16 17 18 19 20"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "manacost_reduction"                              "16 18 22 28 36"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "14 18 22 26 30"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_amp"                                    "24 26 28 30 32"
+      }
+    }
+  }
+}

@@ -15,7 +15,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
@@ -30,7 +32,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "9 18 27 36 81 126"
+    "AbilityDamage"                                       "8 20 32 44 68 140"
     "AbilityDuration"                                     "10"
 
     // Special
@@ -43,7 +45,6 @@
         "num_explosions"                                  "40"
         "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_1"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -53,11 +54,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tower_bonus"                                     "40"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "10"
       }
     }
   }

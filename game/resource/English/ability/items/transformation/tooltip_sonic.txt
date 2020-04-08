@@ -1,0 +1,32 @@
+//=============================================================================
+// Sonic
+//=============================================================================
+"DOTA_Tooltip_Ability_item_sonic"                                               "Sonic"
+"DOTA_Tooltip_Ability_item_recipe_sonic"                                        "Sonic Recipe"
+"DOTA_Tooltip_Ability_item_sonic_Description"                                   "<h1>Active: Sonic Flight</h1> Grants %speed_bonus%%% bonus movement speed, %vision_bonus%%% bonus vision, flying movement, makes you unslowable and removes movement speed limit. Lasts %duration% seconds."
+"DOTA_Tooltip_Ability_item_sonic_bonus_movement_speed"                          "%+$move_speed"
+"DOTA_Tooltip_Ability_item_sonic_bonus_damage_melee"                            "+$damage"
+"DOTA_Tooltip_Ability_item_sonic_bonus_armor"                                   "+$armor"
+//"DOTA_Tooltip_Ability_item_sonic_Note0"                                         "#{transformation_note0}"
+"DOTA_Tooltip_Ability_item_sonic_Lore"                                          "Mask of some hedgehog that moved faster than light."
+
+"DOTA_Tooltip_Ability_item_sonic_2"                                             "#{DOTA_Tooltip_Ability_item_sonic}"
+"DOTA_Tooltip_Ability_item_recipe_sonic_2"                                      "#{DOTA_Tooltip_Ability_item_recipe_sonic}"
+"DOTA_Tooltip_Ability_item_sonic_2_Description"                                 "#{DOTA_Tooltip_Ability_item_sonic_Description}"
+"DOTA_Tooltip_Ability_item_sonic_2_bonus_movement_speed"                        "#{DOTA_Tooltip_Ability_item_sonic_bonus_movement_speed}"
+"DOTA_Tooltip_Ability_item_sonic_2_bonus_damage_melee"                          "#{DOTA_Tooltip_Ability_item_sonic_bonus_damage_melee}"
+"DOTA_Tooltip_Ability_item_sonic_2_bonus_armor"                                 "#{DOTA_Tooltip_Ability_item_sonic_bonus_armor}"
+//"DOTA_Tooltip_Ability_item_sonic_2_Note0"                                       "#{DOTA_Tooltip_Ability_item_sonic_Note0}"
+"DOTA_Tooltip_Ability_item_sonic_2_Lore"                                        "#{DOTA_Tooltip_Ability_item_sonic_Lore}"
+
+"DOTA_Tooltip_Ability_item_sonic_3"                                             "#{DOTA_Tooltip_Ability_item_sonic}"
+"DOTA_Tooltip_Ability_item_recipe_sonic_3"                                      "#{DOTA_Tooltip_Ability_item_recipe_sonic}"
+"DOTA_Tooltip_Ability_item_sonic_3_Description"                                 "#{DOTA_Tooltip_Ability_item_sonic_Description}"
+"DOTA_Tooltip_Ability_item_sonic_3_bonus_movement_speed"                        "#{DOTA_Tooltip_Ability_item_sonic_bonus_movement_speed}"
+"DOTA_Tooltip_Ability_item_sonic_3_bonus_damage"                                "#{DOTA_Tooltip_Ability_item_sonic_bonus_damage_melee}"
+"DOTA_Tooltip_Ability_item_sonic_3_bonus_armor"                                 "#{DOTA_Tooltip_Ability_item_sonic_bonus_armor}"
+//"DOTA_Tooltip_Ability_item_sonic_3_Note0"                                       "#{DOTA_Tooltip_Ability_item_sonic_Note0}"
+"DOTA_Tooltip_Ability_item_sonic_3_Lore"                                        "#{DOTA_Tooltip_Ability_item_sonic_Lore}"
+
+"dota_tooltip_modifier_sonic_fly"                                               "Sonic Flight"
+"dota_tooltip_modifier_sonic_fly_Description"                                   "Flying, unslowable, bonus movement speed and bonus vision range."

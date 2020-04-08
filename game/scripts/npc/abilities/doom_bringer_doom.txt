@@ -17,8 +17,8 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
-    "AbilityCooldown"                                     "145.0"
+    "AbilityCooldown"                                     "120" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,16 +49,6 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_5"
       }
       "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "16.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "20 35 50 125 200"
-      }
-      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "deniable_pct"                                    "25"

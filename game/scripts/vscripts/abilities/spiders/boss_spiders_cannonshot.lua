@@ -21,11 +21,10 @@ function boss_spiders_cannonshot:OnSpellStart(keys)
 		for k,target in pairs(self.target_points) do
 			local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/wards_area_view.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(indicator, 0, target + Vector(0,0,32))
-			ParticleManager:SetParticleControl(indicator, 1, Vector(400,0,0))
 			ParticleManager:SetParticleControl(indicator, 15, Vector(255,55,55))
 			ParticleManager:SetParticleControl(indicator, 16, Vector(1,1,1))
 
-			local origin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc")) + (caster:GetForwardVector() * 30)
+			local origin = caster:GetAbsOrigin() + (caster:GetForwardVector() * 30)
 
 			local explosive = CreateUnitByName("npc_dota_boss_spiders_explosive", origin, false, caster, caster, caster:GetTeamNumber())
 
@@ -50,7 +49,7 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_spiders_cannonshot:Explode(explosive)
-	local radius = self:GetSpecialValueFor("radius")
+	local radius = 240
 
 	local units = FindUnitsInRadius(
 		explosive:GetTeamNumber(),

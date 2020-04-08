@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spectre: Shadow Step (Scepter Upgrade)
+  //=================================================================================================================
+  "spectre_haunt_single"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7851"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "FightRecapLevel"                                     "2"
+
+    "MaxLevel"                                            "5"
+
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_5"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "180"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0 6.0 7.0 7.5 8.0"
+        "RequiresScepter"                                 "1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_outgoing"                        "-60 -40 -20 -0 20"
+        "RequiresScepter"                                 "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_outgoing"                                "40 60 80 100 120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spectre_4"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_incoming"                        "100"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_illusion_total_damage_incoming"          "200"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_delay"                                    "1.0"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_cooldown"                                "35"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

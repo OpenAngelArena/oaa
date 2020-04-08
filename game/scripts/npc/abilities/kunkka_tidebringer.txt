@@ -15,12 +15,14 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                     "13.0 10.0 7.0 4.0 3.0 2.0"
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.0 0.0 0.0 0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,23 +36,25 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "500 550 600 650 675 700"
+        "cleave_ending_width"                             "500 550 600 650 700 750"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "650 800 950 1100 1150 1200"
+        "cleave_distance"                                 "650 800 950 1100 1250 1400"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "25 50 75 100 175 250"
+        "damage_bonus"                                    "25 50 75 100 350 600"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage"                                   "100"
-        "LinkedSpecialBonus"    "special_bonus_unique_kunkka_4"
+        "cleave_damage"                                   "165 175 185 195 205 215" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_4"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

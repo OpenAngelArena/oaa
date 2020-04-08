@@ -20,6 +20,21 @@ function FinalDuel:Init ()
   Duels.onPreparing(partial(FinalDuel.PreparingDuelHandler, FinalDuel))
   Duels.onStart(partial(FinalDuel.StartDuelHandler, FinalDuel))
   PointsManager.onWinner(partial(FinalDuel.Trigger, FinalDuel))
+  PointsManager.onLimitChanged(partial(FinalDuel.CheckCancelDuel, FinalDuel))
+end
+
+function FinalDuel:CheckCancelDuel ()
+  if not self.isCurrentlyFinalDuel then
+    return
+  end
+  local limit = PointsManager:GetLimit()
+  local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+  local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  if goodPoints < limit and badPoints < limit then
+    Duels:CancelDuel()
+    self.isCurrentlyFinalDuel = false
+    self.needsFinalDuel = false
+  end
 end
 
 function FinalDuel:Trigger (team)
@@ -27,6 +42,7 @@ function FinalDuel:Trigger (team)
   local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
   local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
   if goodPoints < limit and badPoints < limit then
+    self.needsFinalDuel = false
     return
   end
   self.needsFinalDuel = true
@@ -39,7 +55,8 @@ function FinalDuel:Trigger (team)
   Duels:StartDuel({
     players = 0,
     timeout = FINAL_DUEL_TIMEOUT,
-    isFinalDuel = true
+    isFinalDuel = true,
+    forceAllPlayers = true
   })
 end
 
@@ -109,7 +126,5 @@ function FinalDuel:EndDuelHandler (currentDuel)
   self.badCanWin = false
 
   local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]
-  Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=addToLimit}})
-
-  PointsManager:SetLimit(PointsManager:GetLimit() + addToLimit)
+  PointsManager:IncreaseLimit(addToLimit)
 end

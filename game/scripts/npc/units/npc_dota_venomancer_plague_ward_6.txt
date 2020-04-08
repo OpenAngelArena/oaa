@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Venomancer Plague Ward 6
-//=================================================================================
+  //=================================================================================
+  // Venomancer Plague Ward 6
+  //=================================================================================
   "npc_dota_venomancer_plague_ward_6"
   {
     // General
@@ -13,7 +13,8 @@
     "Level"                                               "1"
     "ModelScale"                                          "0.8"
     "SelectionGroup"                                      "Venomancer_Wards"
-
+    "UnitLabel"                                           "plaguewards"
+    "wearable"                                            "684"
 
     // Abilities
     //----------------------------------------------------------------
@@ -31,10 +32,10 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "129"    // Damage range min.
-    "AttackDamageMax"                                     "131"    // Damage range max.
+    "AttackDamageMin"                                     "240"    // Damage range min.
+    "AttackDamageMax"                                     "240"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "1.5"    // Speed of attack.
+    "AttackRate"                                          "1.4"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
     "AttackRange"                                         "600"    // Range within a target can be attacked.
@@ -43,7 +44,7 @@
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
     "HealthBarOffset"                                     "170"
 
     // Movement
@@ -51,7 +52,7 @@
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"      // Type of locomotion - ground, air
     "MovementSpeed"                                       "0"      // Speed
     "MovementTurnRate"                                    "0.5"    // Turning rate.
-    
+
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "35"    // Experience earn.
@@ -71,7 +72,7 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "800"    // Range of vision during day light.

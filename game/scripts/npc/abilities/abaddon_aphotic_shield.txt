@@ -12,13 +12,14 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,8 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "115"
-
+    "AbilityManaCost"                                     "100 105 110 115 130 155"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_absorb"                                   "110 140 170 200 350 500"
+        "damage_absorb"                                   "110 140 170 200 400 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon"
       }
       "03"

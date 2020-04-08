@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "950"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_vanguard;item_buckler"
+      "01"                                                "item_vanguard;item_helm_of_iron_will"
     }
   }
 
@@ -40,20 +40,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "46.0"
     "AbilitySharedCooldown"                               "guard"
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3550"
+    "ItemCost"                                            "3800"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard"
     "ItemAlertable"                                       "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "UpgradesItems"                                       "item_crimson_guard;item_crimson_guard_2;item_crimson_guard_3;item_crimson_guard_4;item_crimson_guard_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,22 +62,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 750 1000 1500"
+        "bonus_health"                                    "400 1000 1500 2000 2500" //OAA
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 14 19 27"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "12 20 30 40 50"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "2 3 5 7 10"
+        "bonus_armor"                                     "6 7 9 12 16"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 9 11 13"
+        "bonus_all_stats"                                 "0" //OAA, components dont give stats
       }
       "05"
       {
@@ -87,7 +87,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 45 75 100 150"
+        "block_damage_ranged"                             "35 50 75 100 150"
       }
       "07"
       {
@@ -97,34 +97,29 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_armor"                                 "2 3 4 5 6"
+        "duration"                                        "12"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "12"
+        "bonus_aoe_radius"                                "1200"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "900"
+        "block_damage_melee_active"                       "60 90 140 180 275"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_ranged_active"                      "60 90 140 180 275"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "block_chance_active"                             "100"
       }
-      "14"
+      "13"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_reapply_time"                            "46"

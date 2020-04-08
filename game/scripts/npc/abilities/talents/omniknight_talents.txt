@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Purification Damage/Heal
+  //=================================================================================================================
+  "special_bonus_unique_omniknight_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"5981"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"400" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // More slow for Degen Aura
+  //=================================================================================================================
+  "special_bonus_unique_omniknight_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6300"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"-24" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Upgrades Heavenly Grace - decreases cooldown
+  //=================================================================================================================
+  "special_bonus_unique_omniknight_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "6709"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "value"           "5" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Purification AoE
+  //=================================================================================================================
+  "special_bonus_unique_omniknight_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7010"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"100"
+      }
+    }
+  }
+}

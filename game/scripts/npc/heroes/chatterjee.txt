@@ -1,0 +1,98 @@
+"DOTAUnits" //or DOTAHeroes
+{
+  //=================================================================================================================
+  // HERO: Electrician Chatterjee
+  //=================================================================================================================
+  "npc_dota_hero_electrician"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "npc_dota_hero_dazzle"
+    "HeroID"                    "123"
+    "Model"                     "models/heroes/electrician/electrician.vmdl"
+    "SoundSet"                  "Hero_Electrician"
+    "particle_folder"           "particles/units/heroes/hero_electrician"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
+    //"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
+
+    "BotImplemented"            "0"
+
+    // Abilities
+    //-------------------------------------------------------------------------------------------------------------
+    "Ability1"            "electrician_static_grip"
+    "Ability2"            "electrician_electric_shield"
+    "Ability3"            "electrician_energy_absorption"
+    "Ability4"            "generic_hidden"
+    "Ability5"            "generic_hidden"
+    "Ability6"            "electrician_cleansing_shock"
+
+    "Ability10"           "special_bonus_mp_regen_6"
+    "Ability11"           "special_bonus_hp_regen_10"
+
+    "Ability12"           "special_bonus_attack_damage_90"
+    "Ability13"           "special_bonus_cast_range_125"
+
+    "Ability14"           "special_bonus_electrician_absorption_hero_mana_restore"
+    "Ability15"           "special_bonus_electrician_shock_autoself"
+
+    "Ability16"           "special_bonus_mp_1000"
+    "Ability17"           "special_bonus_electrician_shock_spell_immunity"
+
+    // Armor
+    //-------------------------------------------------------------------------------------------------------------
+    "ArmorPhysical"             "3"
+    "MagicalResistance"         "25"
+
+    // Attack
+    //-------------------------------------------------------------------------------------------------------------
+    "AttackCapabilities"			  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "48"
+    "AttackDamageMax"           "55"
+    "AttackRate"                "1.7"
+    "BaseAttackSpeed"           "100"
+    "AttackAnimationPoint"      "0.3"
+    "AttackAcquisitionRange"    "600"
+    "AttackRange"               "150"
+    "ProjectileSpeed"           "0"
+
+    // Attributes
+    //-------------------------------------------------------------------------------------------------------------
+    "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+    "AttributeBaseStrength"     "23"
+    "AttributeStrengthGain"     "3.9"
+    "AttributeBaseAgility"      "13"
+    "AttributeAgilityGain"      "2.0"
+    "AttributeBaseIntelligence" "25"
+    "AttributeIntelligenceGain" "2.5"
+
+    // Movement
+    //-------------------------------------------------------------------------------------------------------------
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "295"
+    "MovementTurnRate"          "0.5"
+    "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
+
+    // Status
+    //-------------------------------------------------------------------------------------------------------------
+    "StatusHealth"              "200"
+    "StatusHealthRegen"         "1.5"
+    "StatusMana"                "75"
+    "StatusManaRegen"           "0.0"
+
+    // Team
+    //-------------------------------------------------------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_GOODGUYS"
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+
+    // Vision
+    //-------------------------------------------------------------------------------------------------------------
+    "VisionDaytimeRange"        "1800"
+    "VisionNighttimeRange"      "800"
+
+    //Inventory
+    //-------------------------------------------------------------------------------------------------------------
+    "HasInventory"              "1"
+  }
+}

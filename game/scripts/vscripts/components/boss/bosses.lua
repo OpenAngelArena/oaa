@@ -3,7 +3,6 @@ Bosses = {
   ---- TIER 1 SAFE BOSS PIT
   -----------------------------
   {
-
     "npc_dota_boss_tier_1",
     "npc_dota_boss_twin",
     "npc_dota_creature_ogre_tank_boss",

@@ -1,0 +1,104 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Holy Locket 3
+  //=================================================================================================================
+  "item_recipe_holy_locket_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "8551"
+    "BaseClass"                   "item_datadriven"
+    "Model"                       "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"          "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "3500"
+    "ItemShopTags"                ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                  "1"
+    "ItemResult"                  "item_holy_locket_3"
+    "ItemRequirements"
+    {
+      "01"                        "item_holy_locket_2;item_upgrade_core_2"
+    }
+  }
+
+  //=================================================================================================================
+  // Holy Locket 3
+  //=================================================================================================================
+  "item_holy_locket_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "8552"
+    "BaseClass"                   "item_holy_locket"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"          "custom/holy_locket_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "7500"
+    "ItemShopTags"                ""
+    "ItemQuality"                 "rare"
+    "ItemAliases"                 "holy locket 3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13.0"
+    "AbilitySharedCooldown"                               "magicwand"
+    "AbilityCastRange"                                    "1200"
+
+    "MaxUpgradeLevel"             "5"
+    "ItemBaseLevel"               "3"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500 1000 1500 2500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "325 650 975 1300 1625"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "4.5 10 16 23 30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_increase"                                   "35 40 45 50 55"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_radius"                                   "1200"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "3 10 15 20 25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "restore_per_charge"                              "15 20 30 45 65"
+      }
+    }
+  }
+}

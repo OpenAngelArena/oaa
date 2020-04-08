@@ -9,17 +9,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5029"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "MaxLevel"                                            "6"    
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "350"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
-    
-    // Time    
+    "AbilityCastPoint"                                    "0.3"
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0 60.0 60.0 60.0 55.0 50.0"
-    "AbilityDuration"                                     "25.0 25.0 25.0 25.0 25.0 25.0"
-    
+    "AbilityCooldown"                                     "40" //OAA
+    "AbilityDuration"                                     "25.0"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "140"
@@ -41,12 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "healing_ward_movespeed_tooltip"                  "420"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "healing_ward_duration_tooltip"                   "25"
+        "healing_ward_movespeed_tooltip"                  "350"
       }
     }
   }

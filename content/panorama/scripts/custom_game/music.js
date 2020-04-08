@@ -15,7 +15,6 @@ function ToggleMusic () {
     $.GetContextPanel().FindChildTraverse('ToggleMusic').RemoveClass('MusicOn');
     $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOff');
     GameEvents.SendCustomGameEventToServer('music_mute', {
-      playerID: Players.GetLocalPlayer(),
       mute: 1
     });
   } else {
@@ -24,7 +23,6 @@ function ToggleMusic () {
     $.GetContextPanel().FindChildTraverse('ToggleMusic').RemoveClass('MusicOff');
     $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
     GameEvents.SendCustomGameEventToServer('music_mute', {
-      playerID: Players.GetLocalPlayer(),
       mute: 0
     });
   }

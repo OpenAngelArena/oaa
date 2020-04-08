@@ -7,11 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5402"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "5402"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCooldown"                                     "23 21 19 17 16 15"
+
+    "AbilityManaCost"                                     "35 40 45 50 100 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -20,25 +26,33 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dodge_chance"                                    "10 15 20 25 30 35"
-        "LinkedSpecialBonus"    "special_bonus_unique_brewmaster_4"
+        "dodge_chance"                                    "50 60 70 80 85 90"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "10 15 20 25 30 35"
-        "LinkedSpecialBonus"    "special_bonus_unique_brewmaster_4"
+        "crit_chance"                                     "80"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "230"
+        "crit_multiplier"                                 "140 180 220 260 280 300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_4"
       }
       "04"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "min_movement"                                    "-20"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_movement"                                    "40"
+      }
+      "06"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "last_proc"                                       "13 12 11 10 8 6"
-        "LinkedSpecialBonus"    "special_bonus_unique_brewmaster_4"
+        "duration"                                        "5.0"
       }
     }
   }

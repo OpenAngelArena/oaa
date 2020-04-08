@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Beastmaster: Call of the Wild Hawk (OAA rework)
+  //=================================================================================================================
+  "beastmaster_call_of_the_wild_hawk_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "87231"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
+    "AbilityTextureName"                                  "beastmaster_call_of_the_wild_hawk"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "30"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "120"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_hp_tooltip"                                 "150 200 250 300 1250 2500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_speed_tooltip"                              "300 340 380 420 460 500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_vision_tooltip"                             "600 700 800 900 1350 1800"
+      }
+    }
+  }
+}

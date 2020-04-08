@@ -15,7 +15,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -36,12 +38,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "125 125 125 125"
+        "width"                                           "125"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.6 2.0 2.4 2.8 3.0 3.2"
+        "duration"                                        "1.4 1.8 2.2 2.6 3.0 3.2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nyx_4"
       }
       "03"
       {
@@ -51,18 +54,18 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1600 1600 1600 1600"
+        "speed"                                           "1600"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_upgrade"                                "7"
+        "cooldown_upgrade"                                "11" //OAA, setting the cd to this value
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "impale_damage"     "80 140 200 260 560 860"
-        "LinkedSpecialBonus"  "special_bonus_unique_nyx_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "impale_damage"                                   "80 140 200 260 560 860"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nyx_2"
       }
     }
   }

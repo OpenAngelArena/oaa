@@ -15,11 +15,12 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,8 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 14 14"
-
+    "AbilityCooldown"                                     "14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.3"  // Primarily about the damageo
+    "AbilityModifierSupportValue"                         "0.3"  // Primarily about the damage
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,11 +52,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_hero"                                   "3 3.5 4 4.5 5.0 5.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration_creep"                                  "6.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinker_4"
       }
       "04"
       {
@@ -67,12 +69,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "650"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "scepter_bounce_range"                            "400"
+        "RequiresScepter"                                 "1"
       }
     }
   }

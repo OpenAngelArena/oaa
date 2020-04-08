@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Lycan Wolf 5
-//=================================================================================
+  //=================================================================================
+  // Lycan Wolf 5
+  //=================================================================================
   "npc_dota_lycan_wolf5"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/lycan/summon_wolves.vmdl"  // Model.
@@ -31,14 +31,14 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "163"    // Damage range min.
-    "AttackDamageMax"                                     "167"    // Damage range max.  
+    "AttackDamageMin"                                     "170"    // Damage range min.
+    "AttackDamageMax"                                     "170"    // Damage range max.
     "AttackRate"                                          "0.8"    // Speed of attack.
     "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "90"    // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -59,11 +59,11 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1320"    // Base health.
+    "StatusHealth"                                        "1500"    // Base health.
     "StatusHealthRegen"                                   "0.5"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
-    "StatusManaRegen"                                     "0"      // Mana regeneration rate.     
-    
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1200"    // Range of vision during day light.
@@ -76,5 +76,5 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-  
+
 }

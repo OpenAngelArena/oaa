@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "70 75 80 85 90 95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,14 +48,14 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_incoming_damage"                        "300.0"
+        "illusion_incoming_damage"                        "200.0" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_incoming_damage_total_tooltip"          "400.0"
+        "illusion_incoming_damage_total_tooltip"          "300.0" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }
-
 }

@@ -1,0 +1,95 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Void Spirit Pulse
+  //=================================================================================================================
+  "void_spirit_resonant_pulse"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "7710"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"               "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "0"
+    "AbilityCastPoint"              "0.0"
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastGestureSlot"        "DEFAULT"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "16"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "100 110 120 130 230 330"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "500"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "speed"                 "1200"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage"                "70 120 170 220 440 880"
+        "LinkedSpecialBonus"    "special_bonus_unique_void_spirit_4"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "buff_duration"         "10.0"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "base_absorb_amount"    "40 80 120 160 320 640"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "absorb_per_hero_hit"   "30 45 60 75 150 300"
+      }
+      "07"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "return_projectile_speed"   "900"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "2"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_restore_time"                             "16"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration_scepter"                        "2.0"
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Reactive Reflex
+  // Recipe: Reflection Shard
   //=================================================================================================================
   "item_recipe_reflection_shard_1"
   {
@@ -24,13 +24,11 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere_2;item_upgrade_core_2"
-      "02"                                                "item_sphere_2;item_upgrade_core_3"
-      "03"						                                    "item_sphere_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Reactive Reflex
+  // Reflection Shard
   //=================================================================================================================
   "item_reflection_shard_1"
   {
@@ -43,28 +41,27 @@
     "AbilityTextureName"                                  "custom/reflection_shard_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.5"
+    "AbilityCooldown"                                     "10.0 9.0 8.0"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
 
-    "ItemInitialCharges"                                  "1 2 3"
-    "ItemRequiresCharges"                                 "1"
-    "ItemDisplayCharges"                                  "1"
-
+    //"ItemInitialCharges"                                  "1 2 3"
+    //"ItemRequiresCharges"                                 "1"
+    //"ItemDisplayCharges"                                  "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "10050"
+    "ItemCost"                                            "10000"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "reflect shard 1"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "Precache"
+    "precache"
     {
       "particle"                                          "particles/items/reflection_shard/reflection_shield.vpcf"
       "particle"                                          "particles/items/reflection_shard/reflection_shield_highlight1.vpcf"
@@ -79,7 +76,7 @@
       "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow.vpcf"
       "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_b.vpcf"
       "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_lincoln_b.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
     }
 
     // Special
@@ -89,7 +86,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "35 45 55"
+        "bonus_all_stats"                                 "40 55 70"
       }
       "02"
       {
@@ -99,24 +96,18 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.50 6.0 8.0"
+        "bonus_mana_regen"                                "9 11 13"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "0.75"
+        "duration"                                        "1.2"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "1 2 3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "14 14 14"
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_tooltip"                                "10 9 8"
       }
     }
-
   }
 }

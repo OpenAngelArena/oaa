@@ -48,7 +48,7 @@
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "desolator;deso"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_desolator;item_desolator_2;item_desolator_3;item_desolator_4;item_desolator_5"
+    "UpgradesItems"                                       "item_desolator;item_desolator_oaa_2;item_desolator_3;item_desolator_4;item_desolator_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,17 +57,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 140 200"
+        "bonus_damage"                                    "50 70 100 140 200" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-6 -9 -13 -18 -24"
+        "corruption_armor"                                "-6 -9 -13 -18 -24" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "corruption_duration"                             "15.0"
+        "corruption_duration"                             "7.0"
       }
     }
   }

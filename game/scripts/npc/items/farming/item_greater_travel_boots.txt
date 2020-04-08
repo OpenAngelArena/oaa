@@ -11,9 +11,10 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +23,11 @@
     "ItemResult"                                          "item_greater_travel_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_travel_boots;item_farming_core"
+      "01"                                                "item_travel_boots;item_upgrade_core"
+      "02"                                                "item_tranquil_boots;item_upgrade_core"
+      "03"                                                "item_phase_boots;item_upgrade_core"
+      "04"                                                "item_power_treads;item_upgrade_core"
+      "05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -41,16 +46,18 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityTextureName"                                  "item_custom/greater_travels"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
-    "AbilitySharedCooldown"                               "teleport"
-    "AbilityChannelTime"                                  "2.75 2.5 2.25 2"
+    "AbilityCooldown"                                     "40"
+    
+    "AbilitySharedCooldown"                               "travel"
+    "AbilityChannelTime"                                  "3.0 2.5 2.0 1.5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "2475"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
@@ -68,28 +75,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "125 150 175 200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_percent"                                  "85 100 115 130"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "assist_radius"                                   "1300 1400 1500 1600"
-      }
-      "04"
-      {
-        // Stickiness of creep assist gold aura (the aura used internally to track creep kills of nearby allied heroes)
-        "var_type"                                        "FIELD_FLOAT"
-        "assist_stickiness"                               "0.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bounty_percent"                            "30"
+        "bonus_movement_speed"                            "45"
       }
     }
   }

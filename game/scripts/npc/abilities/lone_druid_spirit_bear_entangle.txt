@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Lone Druid: Spirit Bear Entangling Claws
+  //=================================================================================================================
+  "lone_druid_spirit_bear_entangle"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "5419" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "60 70 80 90 110 170" //OAA
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "entangle_chance"                                 "20"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_duration"                                   "0.75 1.5 2.25 3.0 3.5 4.0"
+        //"LinkedSpecialBonus"                            "special_bonus_unique_lone_druid_3"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_duration"                                  "2.25 4.5 6.75 9.0 10.5 12"
+        //"LinkedSpecialBonus"                            "special_bonus_unique_lone_druid_3"
+      }
+    }
+  }
+}

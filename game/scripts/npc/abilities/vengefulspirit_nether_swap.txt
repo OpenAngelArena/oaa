@@ -15,20 +15,22 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 950 1200 1450 1700"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "700 850 1000 1300 1600"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45.0"
+    "AbilityCooldown"                                     "0.0"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "90 80 70 50 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,24 +43,15 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "700 950 1200 1450 1700"
+        "scepter_radius"                                  "700"
+        "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "nether_swap_cooldown_scepter"                    "10"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_damage_out_pct_scepter"                 "100"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct_scepter"                  "150"
+        "scepter_duration"                                "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }
-
 }

@@ -1,16 +1,16 @@
 //=============================================================================
 // Pangolier Heartpiercer (OAA rework)
 //=============================================================================
-"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa"                             "#{DOTA_Tooltip_ability_pangolier_heartpiercer}"
+"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa"                             "Heartpiercer"
 "DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_Description"                 "Pangolier reads his enemies perfectly, deftly slipping his blade past defenses. Each attack has a chance to negate enemy <font color='#FFA500'>base armor</font> and slow the target for a duration, activating after a short delay."
-"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_Lore"                        "#{DOTA_Tooltip_ability_pangolier_heartpiercer_Lore}"
-"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_chance_pct"                  "#{DOTA_Tooltip_ability_pangolier_heartpiercer_chance_pct}"
-"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_duration"                    "#{DOTA_Tooltip_ability_pangolier_heartpiercer_duration}"
-"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_slow_pct"                    "#{DOTA_Tooltip_ability_pangolier_heartpiercer_slow_pct}"
-"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_debuff_delay"                "#{DOTA_Tooltip_ability_pangolier_heartpiercer_debuff_delay}"
+"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_Lore"                        "These fools know nothing of real armor..."
+"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_chance_pct"                  "%PIERCE CHANCE:"
+"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_duration"                    "DURATION:"
+"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_slow_pct"                    "%MOVE SLOW:"
+"DOTA_Tooltip_ability_pangolier_heartpiercer_oaa_debuff_delay"                "DEBUFF DELAY:"
 
-"DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_delay"                      "#{DOTA_Tooltip_modifier_pangolier_heartpiercer_delay}"
-"DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_delay_Description"          "#{DOTA_Tooltip_modifier_pangolier_heartpiercer_delay_Description}"
+"DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_delay"                      "Heartpiercer Activation"
+"DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_delay_Description"          "About to be Heartpierced."
 
-"DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_debuff"                     "#{DOTA_Tooltip_modifier_pangolier_heartpiercer_debuff}"
+"DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_debuff"                     "Heartpiercer"
 "DOTA_Tooltip_modifier_pangolier_heartpiercer_oaa_debuff_Description"         "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."

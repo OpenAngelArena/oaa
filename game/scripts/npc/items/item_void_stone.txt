@@ -9,11 +9,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "850"
+    "ItemCost"                                            "825"
     "ItemShopTags"                                        "regen_mana"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "void stone"
     "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE"
+    "SecretShop"                                          "0"
     "SideShop"                                            "0"
 
     // Special
@@ -23,7 +24,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.0"
+        "bonus_mana_regen"                                "2.25"
       }
     }
   }

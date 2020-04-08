@@ -26,38 +26,28 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "12 18 24 30 36 42"
+        "bonus_attributes"                                "4 7 10 13 26 52"
         "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "bonus_attack_range"                              "50 75 100 125 150 175"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "images_do_damage_percent"  "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
       }
       "04"
       {
-        "var_type"        "FIELD_INTEGER"
-        "images_do_damage_percent_tooltip"      "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_out_pct"                         "70 80 90 100 110 120"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "images_take_damage_percent"  "100"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "images_take_damage_percent_tooltip"      "200"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "illusion_duration"     "6"
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_in_pct"                          "150"
       }
     }
   }

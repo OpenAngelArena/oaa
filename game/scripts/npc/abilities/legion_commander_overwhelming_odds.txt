@@ -13,7 +13,9 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15"
@@ -21,11 +23,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 180 230"
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +36,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 60 80 100 200 300"
+        "damage"                                          "40 60 80 100 200 400"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_unit"                                 "14 16 18 20 30 40"
+        "damage_per_unit"                                 "14 16 18 20 40 80"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_hero"                                 "30 60 90 120 260 400"
-        "LinkedSpecialBonus"  "special_bonus_unique_legion_commander_4"
+        "damage_per_hero"                                 "30 60 90 120 240 480"
+        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_4"
       }
       "04"
       {

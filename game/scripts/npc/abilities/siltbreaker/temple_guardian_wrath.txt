@@ -28,7 +28,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"               "30"
-    "AbilityChannelTime"            "8.0"
+    "AbilityChannelTime"            "6.0"
     "AbilityCastPoint"              "1.0"
 
       // Special
@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "effect_radius"             "1500"
+        "effect_radius"             "1200" // Was 1500, which goes far outside the boss pit
       }
       "02"
       {
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                  "FIELD_FLOAT"
-        "channel_duration"          "8.0"
+        "channel_duration"          "6.0"
       }
       "06"
       {

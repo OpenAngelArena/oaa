@@ -14,6 +14,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "ID"              "147"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityTextureName"                                  "custom/manta_style_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -23,16 +24,16 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_manta_1;item_manta_2;item_manta_3;item_manta_4;item_manta_5"
+    "UpgradesItems"                                       "item_manta;item_manta_2;item_manta_3;item_manta_4;item_manta_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "4700"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "manta style;manta"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -42,27 +43,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 14 19 25 32"
+        "bonus_strength"                                  "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 31 38 47 58"
+        "bonus_agility"                                   "26 31 41 56 76"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 14 19 25 32"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "12 15 18 21 24"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "8 10 14 17 22"
+        "bonus_movement_speed"                            "20 25 30 35 40"
       }
       "06"
       {

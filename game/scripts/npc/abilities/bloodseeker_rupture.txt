@@ -17,6 +17,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
@@ -29,11 +30,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 225 250 375 500"
+    "AbilityManaCost"                                     "200 225 250 275 350"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -50,38 +51,37 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12.0"
+        "duration"                                        "10 11 12 13 14"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_damage_pct"                             "30 45 60 120 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_3"
+        "movement_damage_pct"                             "30 90 150 250 300" //OAA
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_cap_amount"                               "200"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_cap_interval"                             "0.25"
+        "var_type"                                        "FIELD_INTEGER"
+        "abilitycastrange"                                ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "1000"
+        "max_charges_scepter"                             "2"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges_scepter"                             "2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "charge_restore_time_scepter"                     "40"
+        "RequiresScepter"                                 "1"
       }
     }
   }

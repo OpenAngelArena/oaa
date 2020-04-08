@@ -14,22 +14,23 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "640"
+    "AbilityCastRange"                                    "625"
     "AbilityCastPoint"                                    "0.0"
 
-    // Time    
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "10"
+    "AbilityManaCost"                                     "6 8 10 12 14 16"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "30 40 50 60 100 150"
+        "damage_bonus"                                    "20 30 40 50 70 130"
         "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_1"
       }
     }

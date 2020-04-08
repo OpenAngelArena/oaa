@@ -1,0 +1,255 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Spirit Bear Damage
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6261"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"200"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Spirit Bear Armor
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6262"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"10"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Entangle Duration
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6263"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"1.5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Savage Roar Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6268"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"12"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Spirit Bear Magic Resistance - unused
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6508"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"50"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Spirit Link Attack Speed - unused
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6679"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"40"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // True Form bonus health
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6680"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1000"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases True Form Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_8"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6806"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"40"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // 0 Entangle Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_9"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7036"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"0"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Spirit Bear Base Attack Time
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_10"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7382"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"             "-0.25"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Spirit Bear movement speed
+  //=================================================================================================================
+  "special_bonus_unique_lone_druid_11"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"423"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"30"
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
 //=================================================================================
-// Giant Spiderling
+// Giant Spiderling - unused
 //=================================================================================
 
   "npc_dota_broodmother_giant_spiderling"
@@ -20,7 +20,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    
+
     "Ability1"                                            "broodmother_poison_sting"      // Ability 1.
     "Ability2"                                            "broodmother_spawn_spiderite"    // Ability 2.
     "Ability3"                                            ""      // Ability 3.
@@ -78,7 +78,7 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1100"    // Range of vision during day light.

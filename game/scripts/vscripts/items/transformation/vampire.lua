@@ -1,5 +1,5 @@
-
 item_vampire = class(TransformationBaseClass)
+
 local vampire = {}
 
 LinkLuaModifier( "modifier_item_vampire", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
@@ -19,9 +19,6 @@ item_vampire_2 = item_vampire
 --------------------------------------------------------------------------------
 
 modifier_item_vampire = class(ModifierBaseClass)
-modifier_item_vampire_active = class(ModifierBaseClass)
-
---------------------------------------------------------------------------------
 
 function modifier_item_vampire:IsHidden()
   return true
@@ -36,6 +33,8 @@ end
 function modifier_item_vampire:DeclareFunctions()
   local funcs = {
     -- MODIFIER_EVENT_ON_HEALTH_GAINED,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
@@ -50,6 +49,18 @@ end
 
 function modifier_item_vampire:GetModifierBonusStats_Strength()
   return self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_vampire:GetModifierStatusResistanceStacking()
+  if not self:GetParent():HasModifier( "modifier_item_vampire_active" ) then
+    return self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
+  else
+    return 0
+  end
+end
+
+function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
+  return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
@@ -74,6 +85,20 @@ end
 
 --------------------------------------------------------------------------------
 
+modifier_item_vampire_active = class(ModifierBaseClass)
+
+function modifier_item_vampire_active:IsHidden()
+  return false
+end
+
+function modifier_item_vampire_active:IsDebuff()
+  return false
+end
+
+function modifier_item_vampire_active:IsPurgable()
+  return true
+end
+
 function modifier_item_vampire_active:OnCreated()
   if IsServer() then
     if not self.procRecords then
@@ -87,7 +112,7 @@ function modifier_item_vampire_active:OnCreated()
   end
 end
 
-function modifier_item_vampire_active:OnDestroy(  )
+function modifier_item_vampire_active:OnDestroy()
   if IsServer() then
     if self.nPreviewFX ~= nil then
       ParticleManager:DestroyParticle( self.nPreviewFX, false )
@@ -115,17 +140,12 @@ function modifier_item_vampire_active:OnIntervalThink()
       attacker = parent,
       damage = damage,
       damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
       ability = spell,
     }
 
     ApplyDamage( damageTable )
   end
-end
-
-
-function modifier_item_vampire_active:IsPurgable()
-  return false
 end
 
 function modifier_item_vampire_active:DeclareFunctions()
@@ -140,11 +160,14 @@ end
 
 function modifier_item_vampire_active:GetDisableHealing( kv )
   if IsServer() then
+    if not GameRules:IsDaytime() then
+      return 0
+	end
     -- Check that event is being called for the unit that self is attached to
-    if not self.isVampHeal then
-      return 1
+    if self.isVampHeal then
+      return 0
     end
-    return 0
+    return 1
   end
 end
 
@@ -170,9 +193,6 @@ end
 
 function vampire:lifesteal(event, spell, parent, amount)
   if IsServer() then
-    -- if parent:PassivesDisabled() then
-    --   return
-    -- end
 
     if event.attacker ~= parent or not self.procRecords[event.record] then
       return
@@ -197,7 +217,7 @@ function vampire:lifesteal(event, spell, parent, amount)
       target,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_NONE,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
       parentTeam
     )
 

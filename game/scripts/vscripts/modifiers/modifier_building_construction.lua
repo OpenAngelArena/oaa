@@ -33,9 +33,9 @@ if IsServer() then
     end
 
     local origin = parent:GetOrigin()
-    parent:SetOrigin(GetGroundPosition(origin, parent) - Vector(0, 0, self.initialSinkHeight))
+    parent:SetAbsOrigin(Vector(origin.x, origin.y, origin.z-self.initialSinkHeight))
 
-    ResolveNPCPositions(origin, parent:GetHullRadius())
+    PreventGettingStuck(parent, origin)
 
     parent:SetHealth(self.maxHealth * 0.01)
 
@@ -53,11 +53,11 @@ if IsServer() then
     local parent = self:GetParent()
 
     local origin = parent:GetOrigin()
-    parent:SetOrigin(origin + Vector(0, 0, self.initialSinkHeight / self.totalTicks))
+    parent:SetAbsOrigin(Vector(origin.x, origin.y, origin.z+self.initialSinkHeight / self.totalTicks))
 
     -- The call in OnCreated often does not push units out, so call continuously to
     -- ensure units don't get stuck inside the building
-    ResolveNPCPositions(origin, parent:GetHullRadius())
+    PreventGettingStuck(parent, origin)
 
     self.ticksRemaining = self.ticksRemaining - 1
   end

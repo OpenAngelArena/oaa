@@ -33,7 +33,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_spill_width"                              "75"
+        "attack_spill_width"                              "90"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_spill_pct"                                "100"
       }
     }
   }

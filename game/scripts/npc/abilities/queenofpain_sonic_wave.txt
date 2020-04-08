@@ -10,20 +10,22 @@
     "ID"                                                  "5176"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
-    "MaxLevel"                                            "5"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
+
+    "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.452 0.452 0.452"
+    "AbilityCastPoint"                                    "0.452"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "135 135 135"
+    "AbilityCooldown"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -56,17 +58,29 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "320 410 500 900 1400"
+        "damage"                                          "340 560 780 1220 2100" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "40"
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "370 480 590 1125 1700"
+        "damage_scepter"                                  "390 610 830 1490 2590" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "350"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "1.4"
       }
     }
   }

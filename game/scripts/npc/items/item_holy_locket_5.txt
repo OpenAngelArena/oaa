@@ -1,0 +1,104 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Holy Locket 5
+  //=================================================================================================================
+  "item_recipe_holy_locket_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "8555"
+    "BaseClass"                   "item_datadriven"
+    "Model"                       "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"          "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "20000"
+    "ItemShopTags"                ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                  "1"
+    "ItemResult"                  "item_holy_locket_5"
+    "ItemRequirements"
+    {
+      "01"                        "item_holy_locket_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Holy Locket 5
+  //=================================================================================================================
+  "item_holy_locket_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "8556"
+    "BaseClass"                   "item_holy_locket"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"          "custom/holy_locket_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "35500"
+    "ItemShopTags"                ""
+    "ItemQuality"                 "rare"
+    "ItemAliases"                 "holy locket 5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13.0"
+    "AbilitySharedCooldown"                               "magicwand"
+    "AbilityCastRange"                                    "1200"
+
+    "MaxUpgradeLevel"             "5"
+    "ItemBaseLevel"               "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500 1000 1500 2500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "325 650 975 1300 1625"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "4.5 10 16 23 30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_increase"                                   "35 40 45 50 55"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_radius"                                   "1200"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "3 10 15 20 25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "restore_per_charge"                              "15 20 30 45 65"
+      }
+    }
+  }
+}

@@ -25,11 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_octarine_core_3;item_upgrade_core_3"
-      "02"                                                "item_octarine_core_3;item_upgrade_core_4"
-      "01"                                                "item_satanic_core;item_upgrade_core_3"
-      "02"                                                "item_satanic_core;item_upgrade_core_4"
-      // "01"                                                "item_refresher_3;item_upgrade_core_3"
-      // "02"                                                "item_refresher_3;item_upgrade_core_4"
+      "02"                                                "item_satanic_core;item_upgrade_core_3"
     }
   }
 
@@ -41,7 +37,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8469"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_refresher"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/refresher.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/refresher_orb_4"
     // Stats
@@ -56,11 +53,13 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "275"
-    "ItemCost"                                            "24400"
+    "ItemCost"                                            "18900"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 4;refresher 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "IsTempestDoubleClonable"                             "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -69,12 +68,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "11 17 25 40 60"
+        "bonus_health_regen"                              "13 19 27 42 62"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 7.0 10.0 14.0 20.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500 750 1000 1500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "250 500 750 1000 1500"
       }
     }
   }

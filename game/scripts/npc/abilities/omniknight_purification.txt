@@ -12,10 +12,11 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
@@ -23,11 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11"
+    "AbilityCooldown"                                     "18 16 14 12 10 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85 100 115 130 255 380"
+    "AbilityManaCost"                                     "85 100 115 130 230 330"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,8 +44,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_4"
       }
     }
   }
-
 }

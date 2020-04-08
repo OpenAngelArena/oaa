@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"warlock_upheaval"
+  "warlock_upheaval"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -8,24 +8,25 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.5"
     "AbilityChannelTime"                                  "16.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 46 42 38 34 30"
+    "AbilityCooldown"                                     "30" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0 0 0 0"
+    "AbilityDamage"                                       "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 180 230"
+    "AbilityManaCost"                                     "70 90 110 130 180 230"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aoe"                                             "650 650 650 650"
+        "aoe"                                             "650"
       }
       "02"
       {

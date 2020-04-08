@@ -47,7 +47,7 @@ modifier_creep_assist_gold.OnRefresh = modifier_creep_assist_gold.OnCreated
 -- aura stuff
 
 function modifier_creep_assist_gold:IsAura()
-  return true
+  return Gold:IsGoldGenActive()
 end
 
 function modifier_creep_assist_gold:GetAuraDuration()

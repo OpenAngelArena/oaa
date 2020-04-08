@@ -1,0 +1,13 @@
+//=============================================================================
+// Boss Regen
+//=============================================================================
+"DOTA_Tooltip_Ability_boss_regen"                             "Boss Regeneration"
+"DOTA_Tooltip_Ability_boss_regen_Description"                 "Rapidly heals a percentage of max health each second. Taking damage from another unit temporarily disables this and causes a percentage of max heath to be lost each second for a short time."
+"DOTA_Tooltip_Ability_boss_regen_Note0"                       "Health loss is non-lethal."
+"DOTA_Tooltip_Ability_boss_regen_health_regen_rate"           "%MAX HEALTH RESTORED PER SECOND:"
+"DOTA_Tooltip_Ability_boss_regen_degen_duration"              "HEALTH LOSS DURATION:"
+"DOTA_Tooltip_Ability_boss_regen_health_degen_rate"           "%MAX HEALTH LOST PER SECOND:"
+"DOTA_Tooltip_Ability_boss_regen_Lore"                        "Roshan is ambivalent on this."
+
+"DOTA_Tooltip_modifier_boss_regen_degen"                      "Bleed Out"
+"DOTA_Tooltip_modifier_boss_regen_degen_Description"          "Lossing %dMODIFIER_PROPERTY_TOOLTIP%%% max health each second."

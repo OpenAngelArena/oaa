@@ -7,20 +7,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6341"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6341"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                      "6"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "30 24 18 12 12 12"
+    "AbilityCooldown"                                     "20 18 16 14 14 14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "70 80 90 100 150 200"
+    "AbilityManaCost"                                     "70 80 90 100 200 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,25 +33,31 @@
     {
       "01"
       {
-        "var_type"                      "FIELD_FLOAT"
-        "duration"                      "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
       }
       "02"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "damage"                        "120 200 280 360 720 1180"
-        "LinkedSpecialBonus"            "special_bonus_unique_dark_willow_1"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "90 180 270 360 450 540"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_1"
       }
       "03"
       {
-        "var_type"                      "FIELD_INTEGER"
-        "attack_range_bonus"            "600"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range_bonus"                              "600"
       }
       "04"
       {
-        "var_type"                      "FIELD_FLOAT"
-        "max_damage_duration"           "3"
-        "CalculateSpellDamageTooltip"   "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_damage_duration"                             "3.5"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "900"
+        "RequiresScepter"                                 "1"
       }
     }
   }

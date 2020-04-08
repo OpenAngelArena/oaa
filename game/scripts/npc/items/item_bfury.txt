@@ -6,14 +6,14 @@
   "item_recipe_bfury"
   {
     "ID"                                                  "144"    // unique ID
-    "ItemCost"                                            "300"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_demon_edge;item_pers;item_quelling_blade"
+      "01"                                                "item_broadsword;item_mithril_hammer;item_pers;item_quelling_blade"
     }
   }
 
@@ -43,7 +43,7 @@
     "ItemCost"                                            "4400"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bf;battle fury"
+    "ItemAliases"                                         "cleaver"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -53,67 +53,52 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 85 125 180"
+        "bonus_damage"                                    "60 80 110 150 200"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 12 18 24 30"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "7.5 14.0 20.0 25.0 32.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 3.3 4.75 6.5 9"
+        "bonus_mana_regen"                                "3.75 4.5 6.25 8.0 10.5"
       }
-      "04"
+      "04" // Cleave against heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "20 30 40 50 65"	//OAA
+        "cleave_damage_percent"                           "50 70 90 110 130" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "120"	//OAA
+        "cleave_damage_percent_creep"                     "30 50 70 90 110" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "120"	//OAA
+        "quelling_bonus"                                  "18"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_starting_width"                           "150"
+        "quelling_bonus_ranged"                           "18" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "330"
+        "cleave_starting_width"                           "150"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "625"
+        "cleave_ending_width"                             "360"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "350"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_ward"                                 "450"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_quelling_bonus"                          "20"	//OAA
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_quelling_bonus_ranged"                   "20"	//OAA
+        "cleave_distance"                                 "650"
       }
     }
   }

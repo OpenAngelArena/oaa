@@ -1,0 +1,149 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+	// Bonus Leap Attack Speed
+	//=================================================================================================================
+	"special_bonus_unique_mirana_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6013"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"120" //OAA
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Multishot Sacred Arrows
+	//=================================================================================================================
+	"special_bonus_unique_mirana_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6242"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Decreases Sacred Arrow cooldown
+	//=================================================================================================================
+	"special_bonus_unique_mirana_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6397"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"5"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Decreases Moonlight Shadow Cooldown - unused in OAA
+	//=================================================================================================================
+	"special_bonus_unique_mirana_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6692"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"70"
+			}
+		}
+	}
+
+  //=================================================================================================================
+  // Custom Mirana talent: Global Range Sacred Arrow
+  //=================================================================================================================
+  "special_bonus_mirana_arrow_global"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "86397"
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "cast_range"      "0"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        // Cannot be 0 because is used to calculate lifetime of the arrow
+        // Destroyed on map border hit
+        "projectile_range" "50000"          // 45000 is enough even if the map size is 32k x 32k
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Custom Mirana talent: Sacred Arrow Pierces targets
+  //=================================================================================================================
+  "special_bonus_mirana_arrow_pierce"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                  "86398"
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "value"           "4"
+      }
+    }
+  }
+}

@@ -16,9 +16,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_mask_of_madness;item_upgrade_core"
-      "02"                                                "item_mask_of_madness;item_upgrade_core_2"
-      "03"                                                "item_mask_of_madness;item_upgrade_core_3"
-      "04"                                                "item_mask_of_madness;item_upgrade_core_4"
     }
   }
 
@@ -36,21 +33,24 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-  "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "16.0"
     "AbilitySharedCooldown"                               "madness"
     "AbilityTextureName"                                  "custom/mask_of_madness_2"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_mask_of_madness_2"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3475"
+    "ItemCost"                                            "3275"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 2;mask of madness 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -60,27 +60,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 30 50 75 120"
+        "bonus_damage"                                    "15 35 65 105 155"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "10 20 30 40 50"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "15"
+        "lifesteal_percent"                               "20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "110 135 160 185 210"
+        "berserk_bonus_attack_speed"                      "110 130 150 170 190"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "12 17 22 27 32"
+        "berserk_bonus_movement_speed"                    "30 35 40 45 50"
       }
       "06"
       {
@@ -90,7 +90,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "berserk_duration"                                "8.0"
+        "berserk_duration"                                "6.0"
       }
     }
   }

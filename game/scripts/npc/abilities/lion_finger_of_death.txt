@@ -15,7 +15,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -25,11 +27,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "160.0 100.0 40.0 40.0 40.0"
+    "AbilityCooldown"                                     "120.0 80.0 40.0 40.0 40.0" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 420 650 1450 2300"
+    "AbilityManaCost"                                     "200 420 650 1500 2500"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,26 +52,42 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "725 875 1025 1725 2500"
         "LinkedSpecialBonus"                              "special_bonus_unique_lion_3"
+        "RequiresScepter"                                 "1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "200 420 625 1500 2600"
+        "damage_per_kill"                                 "40"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_delay"                                    "0.25"
+        "grace_period"                                    "3"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "100.0 60.0 20.0 20.0 20.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_scepter"                               "200 420 625 1400 2300"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
+        "damage_delay"                                    "0.25"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_scepter"                                "100.0 60.0 20.0 20.0 20.0"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
         "splash_radius_scepter"                           "325"
+        "RequiresScepter"                                 "1"
       }
     }
   }

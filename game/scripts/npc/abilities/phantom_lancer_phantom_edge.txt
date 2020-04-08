@@ -9,7 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5068"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 12 8 4 4 4"
@@ -26,7 +31,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "600 700 800 900 1000 1200"
+        "max_distance"                                    "600 700 800 900 1000 1100"
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer"
       }
       "03"
@@ -37,12 +42,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "6 14 22 30 60 90"
+        "bonus_agility"                                   "11 22 33 44 66 88"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "agility_duration"                                "2"
+        "agility_duration"                                "1.5"
       }
     }
   }

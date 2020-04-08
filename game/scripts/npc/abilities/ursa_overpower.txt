@@ -22,12 +22,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10.0"
-    "AbilityDuration"                                     "20"
+    "AbilityCooldown"                                     "15 13 11 10 9 8" //OAA
+    "AbilityDuration"                                     "15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 55 65 75 125 170"
+    "AbilityManaCost"                                     "55 60 65 70 75 80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,17 +36,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "4 5 6 7 12 18"
+        "max_attacks"                                     "3 4 5 6 8 10"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed_bonus_pct"                          "400"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_tooltip"                                "20"
       }
     }
   }

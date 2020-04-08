@@ -2,9 +2,10 @@
 // Tiny Grow
 //=============================================================================
 "DOTA_Tooltip_ability_tiny_grow_oaa"                                "#{DOTA_Tooltip_ability_tiny_grow}"
-"DOTA_Tooltip_ability_tiny_grow_oaa_Description"                    "#{DOTA_Tooltip_ability_tiny_grow_Description}"
+"DOTA_Tooltip_ability_tiny_grow_oaa_Description"                    "Tiny gains craggy mass, increases his armor and base damage but reduces his attack speed."
 "DOTA_Tooltip_ability_tiny_grow_oaa_Lore"                           "#{DOTA_Tooltip_ability_tiny_grow_Lore}"
-"DOTA_Tooltip_ability_tiny_grow_oaa_status_resistance"              "#{DOTA_Tooltip_ability_tiny_grow_status_resistance}"
 "DOTA_Tooltip_ability_tiny_grow_oaa_bonus_armor"                    "#{DOTA_Tooltip_ability_tiny_grow_bonus_armor}"
 "DOTA_Tooltip_ability_tiny_grow_oaa_bonus_damage"                   "#{DOTA_Tooltip_ability_tiny_grow_bonus_damage}"
 "DOTA_Tooltip_ability_tiny_grow_oaa_attack_speed_reduction"         "#{DOTA_Tooltip_ability_tiny_grow_attack_speed_reduction}"
+
+"DOTA_Tooltip_ability_tiny_grow_Description"                        "#{DOTA_Tooltip_ability_tiny_grow_oaa_Description}"

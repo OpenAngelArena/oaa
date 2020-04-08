@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -24,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 10 10"
+    "AbilityCooldown"                                     "16 14 12 10 10 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +42,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.5 6.0 7.5 9.0 10.5"
+        "duration"                                        "3 4 5 6 6.5 7"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_boost"                                     "250"
       }
     }
   }

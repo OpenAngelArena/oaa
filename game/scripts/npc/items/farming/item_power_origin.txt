@@ -1,0 +1,112 @@
+"DOTAItems"
+{
+  "item_power_treads"                                     "REMOVED"
+  //=================================================================================================================
+  // Recipe: Power Origin
+  //=================================================================================================================
+  "item_recipe_power_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8610"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "25"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_power_origin"
+    "ItemRequirements"
+    {
+      "01"                                                "item_farming_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Power Origin
+  //=================================================================================================================
+  "item_power_origin"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8611"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_power_treads.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityTextureName"                                  "custom/power_origin"
+
+	// Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "125"
+    "ItemShopTags"                                        "attack_speed;int;agi;str"
+
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "power spark;power;spark"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_stat"                                      "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "15"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_melee"                              "40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_ranged"                             "40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_melee_illusion"                     "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_ranged_illusion"                    "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "all_stats"                                       "5"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/items/powertreads_splash.vpcf"
+    }
+  }
+}

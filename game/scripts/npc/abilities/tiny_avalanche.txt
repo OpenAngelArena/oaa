@@ -25,9 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17"
-    "AbilityDuration"                                     "2.0"
-
+    "AbilityCooldown"                                     "26 22 18 14 14 14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,32 +38,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
+        "radius"                                          "325 350 375 400 425 450"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.25"
+        "tick_interval"                                   "0.3"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_ticks"                                       "4"
+        "var_type"                                        "FIELD_FLOAT"
+        "total_duration"                                  "1.4"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "tick_count"                                      "5"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "projectile_duration"                             "0.5"
+        "stun_duration"                                   "0.2"
       }
       "06"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "projectile_duration"                             "0.5"
+      }
+      "07"
+      {
         "var_type"                                        "FIELD_INTEGER"
-        "avalanche_damage"                                "120 180 240 300 600 900"
+        "avalanche_damage"                                "75 150 225 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_tiny"
       }
     }

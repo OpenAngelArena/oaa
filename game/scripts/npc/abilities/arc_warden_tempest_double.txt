@@ -11,9 +11,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,7 +26,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60 50 40 40 40"
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -31,7 +33,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "14 16 18 21 24"
+        "duration"                                        "18 22 26 30 34"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounty"                                          "180 240 300 750 1500"
       }
     }
   }

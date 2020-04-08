@@ -60,7 +60,7 @@
 
         <!-- Footer -->
         <Panel id="Footer">
-          <Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
+          <Button id="ShuffleTeamAssignmentButton" onactivate="MMRShuffle()">
             <Label text="#custom_game_team_select_shuffle" />
           </Button>
         </Panel>

@@ -9,19 +9,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5464"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25 20 15 10 10 10"
-    "AbilityCastPoint"                                    "0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 40 40 40"
+    "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,24 +31,24 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "reflect_duration"                                "2.25"
+        "reflect_duration"                                "2.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "0.6 1.2 1.8 2.4 2.6 2.8"
       }
-      "03"
+      "03" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "0"
       }
-      "04"
+      "04" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "0"
       }
-      "05"
+      "05" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_intellect"                                 "0"
@@ -60,7 +61,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reflect_pct"                      "100"
+        "damage_reflect_pct"                              "100"
         "LinkedSpecialBonus"                              "special_bonus_unique_nyx"
       }
     }

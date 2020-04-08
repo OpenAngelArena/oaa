@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_martyrs_mail_2;item_upgrade_core_3"
-      "02"                                                "item_martyrs_mail_2;item_upgrade_core_4"
     }
   }
 
@@ -55,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "19000"
+    "ItemCost"                                            "18800"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mm 3;martyrs mail 3;martyrsmail 3"
@@ -68,17 +67,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35 50 75 120"
+        "bonus_damage"                                    "45 75 115 165"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "14 22 30 40"
+        "bonus_armor"                                     "9 13 18 24"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 22 32 45"
+        "bonus_intellect"                                 "20 30 40 50"
       }
       "04"
       {

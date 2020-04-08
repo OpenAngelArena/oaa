@@ -23,8 +23,7 @@
     "ItemResult"                                          "item_dagger_of_moriah"
     "ItemRequirements"
     {
-      "01"                                                "item_kaya_3;item_upgrade_core_3"
-      "02"                                                "item_kaya_3;item_upgrade_core_4"
+      "01"                                                "item_veil_of_discord_3;item_upgrade_core_3"
     }
   }
 
@@ -45,16 +44,17 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "8.0"
+    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_dagger_of_moriah_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14950"
+    "ItemCost"                                            "14975"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -78,22 +78,27 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "100 100"
+        "sangromancy_self_damage"                         "100"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_intellect"       "50 75"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "25 40"
       }
       "04"
       {
-        "var_type"              "FIELD_INTEGER"
-        "spell_amp"             "10 10"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "25 40"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_health_regen"  "10 20"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "6.0 7.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
     }
   }

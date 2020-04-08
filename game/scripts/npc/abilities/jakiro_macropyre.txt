@@ -15,17 +15,19 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
-    "AbilityCastPoint"                                    "0.55 0.55 0.55 0.55 0.55"
+    "AbilityCastPoint"                                    "0.55"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 60 60 60 60"
+    "AbilityCooldown"                                     "60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 140 180 370 560"
+        "damage"                                          "100 180 260 420 580" //OAA
       }
       "02"
       {
@@ -53,32 +55,35 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_duration"                                "10"
+        "duration"                                        "10"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "10"
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_interval"                                   "0.5"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "0.5 0.5 0.5 0.5 0.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_scepter"                                  "125 225 325 525 725" //OAA
+        "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "125 175 225 425 650"
+        "cast_range_scepter"                              "1800"
+        "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "1800"
+        "duration_scepter"                                "30"
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_scepter"                                "30"
+        "var_type"                                        "FIELD_FLOAT"
+        "linger_duration"                                 "2"
       }
     }
   }

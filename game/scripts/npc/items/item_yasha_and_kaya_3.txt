@@ -1,0 +1,94 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Yasha and Kaya 3
+  //=================================================================================================================
+  "item_recipe_yasha_and_kaya_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8532"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_yasha_and_kaya_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_yasha_and_kaya_2;item_upgrade_core_2"
+      "02"                                                "item_kaya_and_sange_2;item_upgrade_core_2"
+      "03"                                                "item_sange_and_yasha_2;item_upgrade_core_2"
+    }
+  }
+  //=================================================================================================================
+  // Yasha and Kaya 3
+  //=================================================================================================================
+  "item_yasha_and_kaya_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "8548"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                     "item_yasha_and_kaya"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"            "custom/yasha_and_kaya_3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"               "5"
+    "ItemBaseLevel"                 "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "9100"
+    "ItemShopTags"                  "damage;str;agi;attack_speed;unique"
+    "ItemQuality"                   "artifact"
+    "ItemAliases"                   "ynk 3;y&k 3;yk 3;yasha and kaya 3"
+    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"             "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+       "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "16 24 32 48 72"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "16 24 32 48 72"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "16 21 26 31 36"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "manacost_reduction"                              "16 18 22 28 36"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_percent_bonus"                    "20 25 30 35 40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "14 18 22 26 30"
+      }
+    }
+  }
+}

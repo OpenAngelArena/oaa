@@ -12,15 +12,16 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5 0.5 0.5 0.5"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "14"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -51,11 +52,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "1.0"
-      }
-      "03"
-      {
-        "var_type"                  "FIELD_INTEGER"
-        "range_tooltip"             "450 550 650 750 825 900"
       }
     }
   }

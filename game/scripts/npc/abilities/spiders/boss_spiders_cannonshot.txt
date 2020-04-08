@@ -51,7 +51,7 @@
       "02"
       {
         "var_type"                  "FIELD_FLOAT"
-        "radius"                    "400"
+        "radius"                    "350"
       }
       "03"
       {
@@ -69,6 +69,7 @@
     {
       "particle"                    "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
       "particle"                    "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf"
+      "particle"                    "particles/test_particle/ogre_melee_smash.vpcf"
       "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
       "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
     }

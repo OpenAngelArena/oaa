@@ -8,23 +8,26 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5476"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "MaxLevel"                                            "5"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900 900 900 900 900"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3 0.3"
+    "AbilityCastRange"                                    "575 650 725 800 875 950" //OAA
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 16 12 12 12"
+    "AbilityCooldown"                                     "14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 50 50 50 50"
+    "AbilityManaCost"                                     "130 145 160 175 350 525"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -37,32 +40,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "675 675 675 675 675"
+        "miss_rate"                                       "70"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "miss_duration"                                   "4.0 5.0 6.0 7.0 8.0"
+        "duration"                                        "3 4 5 6 7 8"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "80 80 80 80 80"
+        "radius"                                          "600"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_distance"                              "525"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_height"                                "50 50 50 50 50"
-      }
-      "06"
+      "05" // 04
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.4 0.4 0.4 0.4 0.4"
+        "knockback_duration"                              "0.4"
+      }
+      "06" // 05
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_distance"                              "350"
+      }
+      "07" // 06
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "75 150 225 300 600 1200" //OAA
       }
     }
   }

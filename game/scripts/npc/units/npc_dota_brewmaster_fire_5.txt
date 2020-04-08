@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Brewmaster Fire 5
-//=================================================================================
+  //=================================================================================
+  // Brewmaster Fire 5
+  //=================================================================================
   "npc_dota_brewmaster_fire_5"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/brewmaster/brewmaster_firespirit.vmdl"  // Model.
@@ -13,7 +13,7 @@
     "SoundSet"                                            "Brewmaster_Fire"      // Name of sound set.
     "IdleSoundLoop"                                       "Brewmaster_Fire.Move_Loop"
     "Level"                                               "8"
-    "ModelScale"                                          "1.05"
+    "ModelScale"                                          "1.1"
     "IsSummoned"                                          "0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -23,7 +23,7 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "brewmaster_fire_permanent_immolation"    // Ability 1
-    "Ability2"                                            "brewmaster_drunken_brawler"    // Ability 2    
+    "Ability2"                                            "brewmaster_drunken_brawler"    // Ability 2
 
     // Armor
     //----------------------------------------------------------------
@@ -32,17 +32,16 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "655"    // Damage range min.
-    "AttackDamageMax"                                     "665"    // Damage range max.  
-    "AttackRate"                                          "0.75"    // Speed of attack.
+    "AttackDamageMin"                                     "1075"    // Damage range min.
+    "AttackDamageMax"                                     "1085"    // Damage range max.
+    "AttackRate"                                          "1.0"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounds
     //----------------------------------------------------------------
-    "HealthBarOffset"                                     "175"
-
+    "HealthBarOffset"                                     "185"
 
     // Movement
     //----------------------------------------------------------------
@@ -55,7 +54,9 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "5200"    // Base health.
     "StatusHealthRegen"                                   "40"    // Health regeneration rate.
-    
+    "StatusMana"                                          "750"   // Base mana.
+    "StatusManaRegen"                                     "1.5" // Mana regeneration rate.
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
@@ -67,6 +68,5 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-  }  
-
+  }
 }

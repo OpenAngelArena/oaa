@@ -1,14 +1,35 @@
-LinkLuaModifier("modifier_item_bloodstone_oaa", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_bloodstone_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_bloodstone_non_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_item_bloodstone_charge_collector", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_bloodstone_1 = class(ItemBaseClass)
 
 function item_bloodstone_1:GetIntrinsicModifierName()
-  return "modifier_item_bloodstone_oaa"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_bloodstone_1:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_bloodstone_stacking_stats",
+    "modifier_item_bloodstone_non_stacking_stats"
+  }
+end
+
+function item_bloodstone_1:GetManaCost(nLevel)
+  local caster = self:GetCaster() or self:GetOwner() or self:GetPurchaser()
+  local mana_cost_percentage = self:GetSpecialValueFor("mana_cost_percentage")
+  local caster_max_mana = caster:GetMaxMana()
+
+  return caster_max_mana*mana_cost_percentage/100
 end
 
 function item_bloodstone_1:OnSpellStart()
-  self:GetCaster():Kill(self, self:GetCaster())
+  local caster = self:GetCaster()
+  --caster:Kill(self, caster) -- old bloodstone (Pocket Deny)
+  local duration = self:GetSpecialValueFor("restore_duration")
+  caster:AddNewModifier(caster, self, "modifier_item_bloodstone_active", {duration = duration})
+  -- modifier_item_bloodstone_active is a built-in bloodstone modifier.
 end
 
 -- upgrades
@@ -18,23 +39,24 @@ item_bloodstone_4 = item_bloodstone_1
 item_bloodstone_5 = item_bloodstone_1
 
 --------------------------------------------------------------------------
--- base modifier
+-- Parts of bloodstone that should stack with other bloodstones
 
-modifier_item_bloodstone_oaa = class(ModifierBaseClass)
+modifier_item_bloodstone_stacking_stats = class(ModifierBaseClass)
 
-function modifier_item_bloodstone_oaa:OnCreated()
+function modifier_item_bloodstone_stacking_stats:OnCreated()
   if IsServer() then
     self:Setup(true)
   end
 end
-function modifier_item_bloodstone_oaa:OnRefreshed()
+function modifier_item_bloodstone_stacking_stats:OnRefreshed()
   if IsServer() then
     self:Setup()
   end
 end
-function modifier_item_bloodstone_oaa:Setup(created)
+function modifier_item_bloodstone_stacking_stats:Setup(created)
   local ability = self:GetAbility()
   local caster = self:GetCaster()
+  local initial_charges = ability:GetSpecialValueFor("initial_charges_tooltip")
 
   -- destroy happens after create when upgrading, and also item doesn't have half of it's abilities yet
   Timers:CreateTimer(0.1, function()
@@ -77,11 +99,11 @@ function modifier_item_bloodstone_oaa:Setup(created)
         ability.addedCharges = true
       else
         if not caster.surplusCharges then
-          caster.surplusCharges = 14
+          caster.surplusCharges = initial_charges
         end
         DebugPrint('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
-        self.charges = 14
-        caster.surplusCharges = math.min(14, caster.surplusCharges)
+        self.charges = initial_charges
+        caster.surplusCharges = math.min(initial_charges, caster.surplusCharges)
         needsSetCharges = true
       end
     end
@@ -111,7 +133,7 @@ function modifier_item_bloodstone_oaa:Setup(created)
   end)
 end
 
-function modifier_item_bloodstone_oaa:OnDestroy()
+function modifier_item_bloodstone_stacking_stats:OnDestroy()
   if IsServer() then
     local ability = self:GetAbility()
     -- store our point values for later
@@ -124,28 +146,29 @@ function modifier_item_bloodstone_oaa:OnDestroy()
   end
 end
 
-function modifier_item_bloodstone_oaa:GetAttributes()
+function modifier_item_bloodstone_stacking_stats:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_bloodstone_oaa:IsHidden()
+function modifier_item_bloodstone_stacking_stats:IsHidden()
   return true
 end
-function modifier_item_bloodstone_oaa:IsDebuff()
+function modifier_item_bloodstone_stacking_stats:IsDebuff()
   return false
 end
-function modifier_item_bloodstone_oaa:IsPurgable()
+function modifier_item_bloodstone_stacking_stats:IsPurgable()
   return false
 end
 
 if IsServer() then
-  function modifier_item_bloodstone_oaa:DeclareFunctions()
+  function modifier_item_bloodstone_stacking_stats:DeclareFunctions()
     return {
       MODIFIER_EVENT_ON_DEATH,
       MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
       MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
       MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
       MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+      MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     }
   end
 end
@@ -153,27 +176,32 @@ end
 --------------------------------------------------------------------------
 -- bloodstone stats
 
-function modifier_item_bloodstone_oaa:GetModifierHealthBonus()
+function modifier_item_bloodstone_stacking_stats:GetModifierHealthBonus()
   return self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
-function modifier_item_bloodstone_oaa:GetModifierManaBonus()
+function modifier_item_bloodstone_stacking_stats:GetModifierManaBonus()
   return self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
-function modifier_item_bloodstone_oaa:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+function modifier_item_bloodstone_stacking_stats:GetModifierConstantHealthRegen()
+  local ability = self:GetAbility()
+  return ability:GetSpecialValueFor("bonus_health_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
 end
 
-function modifier_item_bloodstone_oaa:GetModifierConstantManaRegen()
+function modifier_item_bloodstone_stacking_stats:GetModifierConstantManaRegen()
   local ability = self:GetAbility()
-  return self:GetAbility():GetSpecialValueFor("bonus_mana_regen") + (self:GetAbility():GetCurrentCharges() * self:GetAbility():GetSpecialValueFor("mana_per_charge"))
+  return ability:GetSpecialValueFor("bonus_mana_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
+end
+
+function modifier_item_bloodstone_stacking_stats:GetModifierBonusStats_Intellect()
+  return self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
 --------------------------------------------------------------------------
 -- charge handling
 
-function modifier_item_bloodstone_oaa:OnDeath(keys)
+function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
   local caster = self:GetCaster()
   local dead = keys.unit
   local killer = keys.attacker
@@ -197,7 +225,7 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
       local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
 
       if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
-        stone:SetCurrentCharges(stone:GetCurrentCharges() + 1)
+        stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
         self.charges = stone:GetCurrentCharges()
       end
     end
@@ -207,54 +235,93 @@ function modifier_item_bloodstone_oaa:OnDeath(keys)
   -- Charge loss
 
   local oldCharges = stone:GetCurrentCharges()
-  local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
+  --local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
+  local newCharges = math.max(0, math.ceil(oldCharges - stone:GetSpecialValueFor("death_charges")))
 
   stone:SetCurrentCharges(newCharges)
   self.charges = newCharges
 
-  if not caster:IsRealHero() or caster:IsTempestDouble() then
-    return
-  end
+  --if not caster:IsRealHero() or caster:IsTempestDouble() then
+    --return
+  --end
 
-  local healAmount = stone:GetSpecialValueFor("heal_on_death_base") + (stone:GetSpecialValueFor("heal_on_death_per_charge") * oldCharges)
-  local heroes = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
-    nil,
-    stone:GetSpecialValueFor("heal_on_death_range"),
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
+  -- local healAmount = stone:GetSpecialValueFor("heal_on_death_base") + (stone:GetSpecialValueFor("heal_on_death_per_charge") * oldCharges)
+  -- local heroes = FindUnitsInRadius(
+    -- caster:GetTeamNumber(),
+    -- caster:GetAbsOrigin(),
+    -- nil,
+    -- stone:GetSpecialValueFor("heal_on_death_range"),
+    -- DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    -- DOTA_UNIT_TARGET_HERO,
+    -- DOTA_UNIT_TARGET_FLAG_NONE,
+    -- FIND_ANY_ORDER,
+    -- false
+  -- )
 
-  heroes = iter(heroes)
-  heroes:each(function (hero)
-    hero:Heal(healAmount, stone)
-  end)
+  -- heroes = iter(heroes)
+  -- heroes:each(function (hero)
+    -- hero:Heal(healAmount, stone)
+  -- end)
+end
+
+-------------------------------------------------------------------------
+-- Parts of bloodstone that should NOT stack with other bloodstones
+
+modifier_item_bloodstone_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_bloodstone_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_bloodstone_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_bloodstone_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING -- GetModifierPercentageManacostStacking
+  }
+end
+
+function modifier_item_bloodstone_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
+  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")-100
+end
+
+function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  local ability = self:GetAbility()
+  return ability:GetSpecialValueFor("spell_amp") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("amp_per_charge"))
+end
+
+function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
+  return self:GetAbility():GetSpecialValueFor("manacost_reduction")
 end
 
 --------------------------------------------------------------------------
 -- aura stuff
 
--- function modifier_item_bloodstone_oaa:IsAura()
+-- function modifier_item_bloodstone_stacking_stats:IsAura()
 --   return true
 -- end
 
--- function modifier_item_bloodstone_oaa:GetAuraSearchType()
+-- function modifier_item_bloodstone_stacking_stats:GetAuraSearchType()
 --   return DOTA_UNIT_TARGET_HERO
 -- end
 
--- function modifier_item_bloodstone_oaa:GetAuraSearchTeam()
+-- function modifier_item_bloodstone_stacking_stats:GetAuraSearchTeam()
 --   return DOTA_UNIT_TARGET_TEAM_ENEMY
 -- end
 
--- function modifier_item_bloodstone_oaa:GetAuraRadius()
+-- function modifier_item_bloodstone_stacking_stats:GetAuraRadius()
 --   return self:GetAbility():GetSpecialValueFor("charge_range")
 -- end
 
--- function modifier_item_bloodstone_oaa:GetModifierAura()
+-- function modifier_item_bloodstone_stacking_stats:GetModifierAura()
 --   return "modifier_item_bloodstone_charge_collector"
 -- end
 

@@ -1,4 +1,4 @@
-"DOTAItems"
+	"DOTAItems"
 {
   //=================================================================================================================
   // Recipe: Echo Sabre
@@ -40,13 +40,13 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 3.1 2.3 1.6"
+    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.5"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "2650"
+    "ItemCost"                                            "2550"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "echo sabre"
@@ -62,12 +62,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 35 50"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 18 30 42 60"
+        "bonus_strength"                                  "12 17 27 42 62"
       }
       "03"
       {
@@ -77,12 +77,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "12 18 30 42 60"
+        "bonus_damage"                                    "15 35 65 105 155"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0.75 1.25 1.75 2.50 3.50"
+        "bonus_mana_regen"                                "1.25 1.75 2.25 3.0 4.0"
       }
       "06"
       {
@@ -102,7 +102,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8"
+        "slow_duration"                                   "0.5" //OAA
       }
     }
   }

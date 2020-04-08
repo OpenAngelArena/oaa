@@ -10,7 +10,7 @@
     "ID"                                                  "5120"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
@@ -27,10 +27,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "7.0 6.0 5.0 4.0 4.0 4.0"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 125 175 225 575 725"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "30 40 50 60 110 160"
@@ -42,15 +38,21 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "-45 -50 -55 -60 -60 -60"
-        "LinkedSpecialBonus"  "special_bonus_unique_tidehunter_3"
+        "attack_damage"                                   "45 90 135 180 315 450"
       }
       "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "-30 -40 -50 -60 -60 -60"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_3"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "reduction_duration"                              "6.0"
       }
-      "03"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "375"

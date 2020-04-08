@@ -1,0 +1,100 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Holy Locket
+  //=================================================================================================================
+  "item_recipe_holy_locket"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "268"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "500"
+    "ItemShopTags"                ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                  "1"
+    "ItemResult"                  "item_holy_locket"
+    "ItemRequirements"
+    {
+      "01"            "item_ring_of_tarrasque;item_energy_booster;item_magic_wand"
+    }
+  }
+
+  //=================================================================================================================
+  // Holy Locket
+  //=================================================================================================================
+  "item_holy_locket"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                          "269"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"          "custom/holy_locket_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                    "2500"
+    "ItemShopTags"                ""
+    "ItemQuality"                 "rare"
+    "ItemAliases"                 "holy locket"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13.0"
+    "AbilitySharedCooldown"                               "magicwand"
+    "AbilityCastRange"                                    "1200"
+
+    "MaxUpgradeLevel"             "5"
+    "ItemBaseLevel"               "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "250 500 1000 1500 2500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "325 650 975 1300 1625"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "4.5 10 16 23 30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_increase"                                   "35 40 45 50 55"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charge_radius"                                   "1200"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "3 10 15 20 25" // old magic wand: 3 20 40 60 90
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "restore_per_charge"                              "15 20 30 45 65" // old magic wand: 15 30 60 120 240; keep in mind the heal increase
+      }
+    }
+  }
+}

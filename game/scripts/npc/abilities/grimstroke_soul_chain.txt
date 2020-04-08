@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Grimstroke: Soulbind
+  //=================================================================================================================
+  "grimstroke_soul_chain"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6491"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "50" //OAA
+    "AbilityCastRange"                                    "700 800 900 1000 1100"
+    "AbilityCastPoint"                                    "0.15"
+
+    "AbilityManaCost"                                     "150 200 250 300 350"
+
+    "AbilityModifierSupportValue"                         "0.75"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "chain_duration"                                  "6.0 7.0 8.0 9.0 10.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "chain_latch_radius"                              "550"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "chain_break_distance"                            "700"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "leash_limit_multiplier"                          "1.3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leash_radius_buffer"                             "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_duration_pct"                              "50.0"
+      }
+    }
+  }
+}

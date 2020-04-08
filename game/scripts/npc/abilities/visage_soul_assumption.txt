@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"visage_soul_assumption"
+  "visage_soul_assumption"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -15,19 +15,19 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2 0.2 0.2 0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "4.0 4.0 4.0 4.0"
+    "AbilityCooldown"                                     "4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170 160 150 140 130 120"
+    "AbilityManaCost"                                     "150"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900 900 900 900"
+    "AbilityCastRange"                                    "1000"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,8 +46,8 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "soul_charge_damage"                              "65"
-        "LinkedSpecialBonus"    "special_bonus_unique_visage_4"
+        "soul_charge_damage"                              "75"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_4"
       }
       "04"
       {
@@ -62,12 +62,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_limit"                                    "110"
+        "damage_limit"                                    "100"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1375"
+        "radius"                                          "1500"
       }
       "08"
       {

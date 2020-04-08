@@ -18,6 +18,7 @@ end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
 local OnGameRulesStateChangeEvent = CreateGameEvent('OnGameRulesStateChange')
+local OnStrategyEvent = CreateGameEvent('OnStrategy')
 local OnPreGameEvent = CreateGameEvent('OnPreGame')
 local OnEndGameEvent = CreateGameEvent('OnEndGame')
 function GameMode:OnGameRulesStateChange(keys)
@@ -28,6 +29,7 @@ function GameMode:OnGameRulesStateChange(keys)
   local newState = GameRules:State_Get()
   -- Strategy time started
   if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+    OnStrategyEvent()
     GameMode:OnStrategyTime()
   -- Pre-Game started
   elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then
@@ -35,6 +37,9 @@ function GameMode:OnGameRulesStateChange(keys)
     GameMode:OnPreGame()
   elseif newState == DOTA_GAMERULES_STATE_POST_GAME then
     OnEndGameEvent(keys)
+  elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    GameMode:OnGameInProgress()
+    OnGameInProgressEvent()
   end
 end
 
@@ -67,6 +72,13 @@ function GameMode:OnNPCSpawned(keys)
       npc:RemoveModifierByName("modifier_silencer_int_steal")
       npc:AddNewModifier(npc, npc:FindAbilityByName("silencer_glaives_of_wisdom_oaa"), "modifier_oaa_int_steal", {})
     end)
+  end
+
+  if npc.GetPhysicalArmorValue then
+    LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
+    if npc:IsRealHero() or (npc:IsConsideredHero() and (not npc:IsIllusion())) then
+      npc:AddNewModifier(npc, nil, "modifier_legacy_armor", {})
+    end
   end
 end
 
@@ -120,7 +132,107 @@ function GameMode:OnItemPickedUp(keys)
   end
 
   local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local playerID = keys.PlayerID
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnItemGifted
+local OnItemGiftedEvent = CreateGameEvent('OnItemGifted')
+function GameMode:OnItemGifted(keys)
+  OnItemGiftedEvent(keys)
+  DebugPrint( '[BAREBONES] OnItemGifted' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local playerID = keys.PlayerID
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnPlayerGotItem
+local OnPlayerGotItemEvent = CreateGameEvent('OnPlayerGotItem')
+function GameMode:OnPlayerGotItem(keys)
+  OnPlayerGotItemEvent(keys)
+  DebugPrint( '[BAREBONES] OnPlayerGotItem' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local playerID = keys.PlayerID
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnInventoryItemChanged
+local OnInventoryItemChangedEvent = CreateGameEvent('OnInventoryItemChanged')
+function GameMode:OnInventoryItemChanged(keys)
+  OnInventoryItemChangedEvent(keys)
+  DebugPrint( '[BAREBONES] OnInventoryItemChanged' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local playerID = keys.PlayerID
+  local itemname = keys.itemname
+end
+
+-- An item was picked up off the ground
+-- game event object for OnInventoryChanged
+local OnInventoryChangedEvent = CreateGameEvent('OnInventoryChanged')
+function GameMode:OnInventoryChanged(keys)
+  OnInventoryChangedEvent(keys)
+  DebugPrint( '[BAREBONES] OnInventoryChanged' )
+  DebugPrintTable(keys)
+
+  -- itemname ( string )
+  -- PlayerID ( short )
+  -- ItemEntityIndex( short )
+  -- HeroEntityIndex( short )
+
+  local unitEntity = nil
+  if keys.UnitEntitIndex then
+    unitEntity = EntIndexToHScript(keys.UnitEntitIndex)
+  elseif keys.HeroEntityIndex then
+    unitEntity = EntIndexToHScript(keys.HeroEntityIndex)
+  end
+
+  local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+  local playerID = keys.PlayerID
   local itemname = keys.itemname
 end
 
@@ -133,33 +245,25 @@ function GameMode:OnPlayerReconnect(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
   DebugPrintTable(keys)
 
-  local playID = keys.PlayerID
-  if not playID then
-    return
-  end
-
+  local playerID = keys.PlayerID
 end
 
 -- An item was purchased by a player
 -- game event object for OnItemPurchased
 local OnItemPurchasedEvent = CreateGameEvent('OnItemPurchased')
-function GameMode:OnItemPurchased( keys )
+function GameMode:OnItemPurchased(keys)
   OnItemPurchasedEvent(keys)
   DebugPrint( '[BAREBONES] OnItemPurchased' )
   DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
-  local plyID = keys.PlayerID
-  if not plyID then return end
+  local playerID = keys.PlayerID
 
   -- The name of the item purchased
   local itemName = keys.itemname
 
   -- The cost of the item purchased
   local itemcost = keys.itemcost
-
-
-
 end
 
 -- An ability was used by a player
@@ -170,7 +274,7 @@ function GameMode:OnAbilityUsed(keys)
   DebugPrint('[BAREBONES] AbilityUsed')
   DebugPrintTable(keys)
 
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local playerID = keys.PlayerID
   local abilityname = keys.abilityname
 end
 
@@ -182,7 +286,7 @@ function GameMode:OnNonPlayerUsedAbility(keys)
   DebugPrint('[BAREBONES] OnNonPlayerUsedAbility')
   DebugPrintTable(keys)
 
-  local abilityname=  keys.abilityname
+  local abilityname = keys.abilityname
 end
 
 -- A player changed their name
@@ -200,12 +304,12 @@ end
 -- A player leveled up an ability
 -- game event object for OnPlayerLearnedAbility
 local OnPlayerLearnedAbilityEvent = CreateGameEvent('OnPlayerLearnedAbility')
-function GameMode:OnPlayerLearnedAbility( keys)
+function GameMode:OnPlayerLearnedAbility(keys)
   OnPlayerLearnedAbilityEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerLearnedAbility')
   DebugPrintTable(keys)
 
-  local player = EntIndexToHScript(keys.player)
+  local playerID = keys.PlayerID
   local abilityname = keys.abilityname
 end
 
@@ -241,7 +345,7 @@ function GameMode:OnLastHit(keys)
   local isFirstBlood = keys.FirstBlood == 1
   local isHeroKill = keys.HeroKill == 1
   local isTowerKill = keys.TowerKill == 1
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local playerID = keys.PlayerID
   local killedEnt = EntIndexToHScript(keys.EntKilled)
 end
 
@@ -259,28 +363,14 @@ end
 
 -- A rune was activated by a player
 -- game event object for OnRuneActivated
-local OnRuneActivatedEvent = CreateGameEvent('OnRuneActivated ')
-function GameMode:OnRuneActivated (keys)
+local OnRuneActivatedEvent = CreateGameEvent('OnRuneActivated')
+function GameMode:OnRuneActivated(keys)
   OnRuneActivatedEvent(keys)
   DebugPrint('[BAREBONES] OnRuneActivated')
   DebugPrintTable(keys)
 
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local playerID = keys.PlayerID
   local rune = keys.rune
-
-  --[[ Rune Can be one of the following types
-  DOTA_RUNE_DOUBLEDAMAGE
-  DOTA_RUNE_HASTE
-  DOTA_RUNE_HAUNTED
-  DOTA_RUNE_ILLUSION
-  DOTA_RUNE_INVISIBILITY
-  DOTA_RUNE_BOUNTY
-  DOTA_RUNE_MYSTERY
-  DOTA_RUNE_RAPIER
-  DOTA_RUNE_REGENERATION
-  DOTA_RUNE_SPOOKY
-  DOTA_RUNE_TURBO
-  ]]
 end
 
 -- A player took damage from a tower
@@ -291,7 +381,7 @@ function GameMode:OnPlayerTakeTowerDamage(keys)
   DebugPrint('[BAREBONES] OnPlayerTakeTowerDamage')
   DebugPrintTable(keys)
 
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local playerID = keys.PlayerID
   local damage = keys.damage
 end
 
@@ -305,7 +395,7 @@ function GameMode:OnPlayerPickHero(keys)
 
   local heroClass = keys.hero
   local heroEntity = EntIndexToHScript(keys.heroindex)
-  local player = EntIndexToHScript(keys.player)
+  local player_index = keys.player
 end
 
 -- A player killed another player in a multi-team context
@@ -315,16 +405,11 @@ function GameMode:OnTeamKillCredit(keys)
   OnTeamKillCreditEvent(keys)
   DebugPrint('[BAREBONES] OnTeamKillCredit')
   DebugPrintTable(keys)
-
-  local killerPlayer = PlayerResource:GetPlayer(keys.killer_userid)
-  local victimPlayer = PlayerResource:GetPlayer(keys.victim_userid)
-  local numKills = keys.herokills
-  local killerTeamNumber = keys.teamnumber
 end
 
 -- game event object for OnTeamKillCredit
 local OnHeroKilledEvent = CreateGameEvent('OnHeroKilled')
-function GameMode:OnHeroKilled (keys)
+function GameMode:OnHeroKilled(keys)
   OnHeroKilledEvent(keys)
 end
 
@@ -332,29 +417,33 @@ end
 -- game event object for keys
 local OnEntityKilledEvent = CreateGameEvent('OnEntityKilled')
 local OnHeroDiedEvent = CreateGameEvent('OnHeroDied')
-function GameMode:OnEntityKilled( keys )
+function GameMode:OnEntityKilled(keys)
   OnEntityKilledEvent(keys)
   DebugPrint( '[BAREBONES] OnEntityKilled Called' )
   DebugPrintTable( keys )
 
+  -- Indexes:
+  local killed_entity_index = keys.entindex_killed
+  local attacker_entity_index = keys.entindex_attacker
+  local inflictor_index = keys.entindex_inflictor -- it can be nil if not killed by an item/ability
 
   -- The Unit that was Killed
-  local killedUnit = EntIndexToHScript( keys.entindex_killed )
-  -- The Killing entity
-  local killerEntity = nil
-
-  if keys.entindex_attacker ~= nil then
-    killerEntity = EntIndexToHScript( keys.entindex_attacker )
+  local killedUnit
+  if killed_entity_index then
+    killedUnit = EntIndexToHScript(killed_entity_index)
   end
 
-  -- The ability/item used to kill, or nil if not killed by an item/ability
-  local killerAbility = nil
-
-  if keys.entindex_inflictor ~= nil then
-    killerAbility = EntIndexToHScript( keys.entindex_inflictor )
+  -- Find the entity (killer) that killed the entity mentioned above
+  local killerEntity
+  if attacker_entity_index then
+    killerEntity = EntIndexToHScript(attacker_entity_index)
   end
 
-  local damagebits = keys.damagebits -- This might always be 0 and therefore useless
+  -- Find the ability/item used to kill, or nil if not killed by an item/ability
+  local killerAbility
+  if inflictor_index then
+    killerAbility = EntIndexToHScript(inflictor_index)
+  end
 
   -- Fire ent killed event
   if killedUnit.deathEvent then
@@ -365,7 +454,6 @@ function GameMode:OnEntityKilled( keys )
     OnHeroDiedEvent(killedUnit)
   end
 end
-
 
 -- This function is called 1 to 2 times as the player connects initially but before they
 -- have completely connected
@@ -382,15 +470,9 @@ function GameMode:OnConnectFull(keys)
   DebugPrint('[BAREBONES] OnConnectFull')
   DebugPrintTable(keys)
 
-  local entIndex = keys.index+1
-  -- The Player entity of the joining user
-  local ply = EntIndexToHScript(entIndex)
-
-  -- The Player ID of the joining player
-  if ply then
-    local playerID = ply:GetPlayerID()
-    -- do stuff?
-  end
+  local index = keys.index  -- player slot
+  local playerID = keys.PlayerID
+  local userID = keys.userid  -- user ID on server
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity
@@ -413,9 +495,7 @@ function GameMode:OnItemCombined(keys)
   DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
-  local plyID = keys.PlayerID
-  if not plyID then return end
-  local player = PlayerResource:GetPlayer(plyID)
+  local playerID = keys.PlayerID
 
   -- The name of the item purchased
   local itemName = keys.itemname
@@ -432,7 +512,7 @@ function GameMode:OnAbilityCastBegins(keys)
   DebugPrint('[BAREBONES] OnAbilityCastBegins')
   DebugPrintTable(keys)
 
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
+  local playerID = keys.PlayerID
   local abilityName = keys.abilityname
 end
 
@@ -445,7 +525,6 @@ function GameMode:OnTowerKill(keys)
   DebugPrintTable(keys)
 
   local gold = keys.gold
-  local killerPlayer = PlayerResource:GetPlayer(keys.killer_userid)
   local team = keys.teamnumber
 end
 
@@ -457,7 +536,7 @@ function GameMode:OnPlayerSelectedCustomTeam(keys)
   DebugPrint('[BAREBONES] OnPlayerSelectedCustomTeam')
   DebugPrintTable(keys)
 
-  local player = PlayerResource:GetPlayer(keys.player_id)
+  local playerID = keys.player_id
   local success = (keys.success == 1)
   local team = keys.team_id
 end
@@ -469,10 +548,6 @@ function GameMode:OnNPCGoalReached(keys)
   OnNPCGoalReachedEvent(keys)
   DebugPrint('[BAREBONES] OnNPCGoalReached')
   DebugPrintTable(keys)
-
-  local goalEntity = EntIndexToHScript(keys.goal_entindex)
-  local nextGoalEntity = EntIndexToHScript(keys.next_goal_entindex)
-  local npc = EntIndexToHScript(keys.npc_entindex)
 end
 
 -- This function is called whenever any player sends a chat message to team or All

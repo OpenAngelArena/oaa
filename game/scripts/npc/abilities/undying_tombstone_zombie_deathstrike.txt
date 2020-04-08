@@ -14,7 +14,6 @@
 
     "MaxLevel"                                            "6"
 
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "5"
@@ -28,15 +27,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "-7"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_threshold"                                "100 200 300 400 900 1400"
-      }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_threshold_pct"                            "20 25 30 35 40 50"
+        "health_threshold_pct"                            "40"
       }
       "04"
       {
@@ -46,12 +40,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "50"
+        "bonus_move_speed"                                "35 40 45 50 55 60"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "75"
+        "bonus_attack_speed"                              "80" //OAA
       }
       "07"
       {

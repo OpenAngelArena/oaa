@@ -46,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 650 700 750 800 850 900 950 1000"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "35.0 30.0 25.0 20.0 15.0 15.0 15.0 13.0 10.0"
+    "AbilityCooldown"                                     "35.0 30.0 25.0 20.0 15.0 10.0 10.0 10.0 10.0"
     "AbilitySharedCooldown"                               "dagon"
     "MaxUpgradeLevel"                                     "9"
     "ItemBaseLevel"                                       "9"
@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "180"
-    "ItemCost"                                            "40715"
+    "ItemCost"                                            "40700"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 9"
@@ -67,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 18 21 24 27 35 50 70 90"
+        "bonus_intellect"                                 "15 18 21 24 27 40 60 90 130"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3"
+        "bonus_all_stats"                                 "5 5 5 5 5 10 15 20 25"
       }
       "03"
       {

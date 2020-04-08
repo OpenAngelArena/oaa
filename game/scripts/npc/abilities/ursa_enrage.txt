@@ -14,11 +14,11 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
 
-    "HasScepterUpgrade"                                   "1"
-
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -38,24 +38,25 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "enrage_multiplier"                               "1.5 1.75 2.0 2.25 2.75"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction"                                "80"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "80"
+        "status_resistance"                               "50"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
+        "duration"                                        "4 4.5 5 5.25 5.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "30 26 22 17 12"  //OAA
+        "cooldown_scepter"                                "26 24 22 20 18"  //OAA
+        "RequiresScepter"                                 "1"
       }
     }
   }
