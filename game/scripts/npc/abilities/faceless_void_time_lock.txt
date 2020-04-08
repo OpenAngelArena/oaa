@@ -15,6 +15,8 @@
 
     "MaxLevel"                                            "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportBonus"                         "25"
@@ -43,6 +45,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "50 60 70 80 240 480"  //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
+      }
+      "05" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_cooldown"                                "2"
       }
     }
   }

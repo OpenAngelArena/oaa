@@ -41,6 +41,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "attack_count"                                    "3"
       }
+      "04" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_cooldown"                                "1.65"
+      }
     }
   }
 
