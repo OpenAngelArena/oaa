@@ -1,7 +1,7 @@
 modifier_boss_magma_mage_volcano = class(ModifierBaseClass)
 
 GRAVITY_DECEL = 800
---------------------------------------------------------------------------------
+
 function modifier_boss_magma_mage_volcano:IsHidden()
   return true
 end
@@ -30,14 +30,22 @@ function modifier_boss_magma_mage_volcano:RemoveOnDeath()
   return true
 end
 
+function modifier_boss_magma_mage_volcano:GetEffectName()
+  return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+
+function modifier_boss_magma_mage_volcano:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+
 function modifier_boss_magma_mage_volcano:DeclareFunctions()
   local funcs = {
-  MODIFIER_PROPERTY_OVERRIDE_ANIMATION
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
   return funcs
 end
 
-function modifier_boss_magma_mage_volcano:GetOverrideAnimation( params )
+function modifier_boss_magma_mage_volcano:GetOverrideAnimation()
   return ACT_DOTA_FLAIL
 end
 
@@ -49,7 +57,6 @@ function modifier_boss_magma_mage_volcano:OnCreated( kv )
       self:Destroy()
     end
   end
-  return
 end
 
 function modifier_boss_magma_mage_volcano:OnRefresh( kv )
@@ -61,16 +68,13 @@ function modifier_boss_magma_mage_volcano:OnRefresh( kv )
       self:Destroy()
     end
   end
-  return
 end
-
 
 function modifier_boss_magma_mage_volcano:OnDestroy()
   if IsServer() then
     local hParent = self:GetParent()
     hParent:RemoveVerticalMotionController(self)
   end
-  return
 end
 
 function modifier_boss_magma_mage_volcano:UpdateVerticalMotion( me, dt )
@@ -81,13 +85,11 @@ function modifier_boss_magma_mage_volcano:UpdateVerticalMotion( me, dt )
     local vVect = iVectLength*Vector(0,0,1)
     parent:SetOrigin(parent:GetOrigin()+vVect)
   end
-  return
 end
 
 function modifier_boss_magma_mage_volcano:CheckState()
   local state = {
-  [MODIFIER_STATE_STUNNED] = true
+    [MODIFIER_STATE_STUNNED] = true
   }
   return state
 end
-
