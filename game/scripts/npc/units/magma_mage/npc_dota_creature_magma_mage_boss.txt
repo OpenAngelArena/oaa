@@ -37,12 +37,12 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1400"
-    "AttackDamageMax"                                     "1400"
-    "AttackRate"                                          "0.8"
+    "AttackDamageMin"                                     "2400"
+    "AttackDamageMax"                                     "2400"
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.2"
     "AttackAcquisitionRange"                              "1000"
-    "AttackRange"                                         "450"
+    "AttackRange"                                         "300"
     "ProjectileModel"                                     "particles/sniper_big_attack.vpcf"
     "ProjectileSpeed"                                     "1000"
 
@@ -61,15 +61,15 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "400"
+    "MovementSpeed"                                       "240"
     "MovementTurnRate"                                    "0.8"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "12000"
-    "StatusHealthRegen"                                   "0"
-    "StatusMana"                                          "2400"
-    "StatusManaRegen"                                     "25"
+    "StatusHealthRegen"                                   "5"
+    "StatusMana"                                          "1000"
+    "StatusManaRegen"                                     "5"
 
     // Vision
     //----------------------------------------------------------------
@@ -83,11 +83,15 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
     {
-      "DisableResistance"                                   "50.0"
+      "DisableResistance"                                 "50.0"
     }
   }
 }

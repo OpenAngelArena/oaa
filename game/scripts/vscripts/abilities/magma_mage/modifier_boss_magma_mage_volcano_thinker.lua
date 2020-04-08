@@ -22,6 +22,7 @@ end
 
 function modifier_boss_magma_mage_volcano_thinker:DeclareFunctions()
   local funcs = {
+    MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
@@ -30,12 +31,11 @@ function modifier_boss_magma_mage_volcano_thinker:DeclareFunctions()
   return funcs
 end
 
-function modifier_boss_magma_mage_volcano_thinker:OnCreated(kv)
+function modifier_boss_magma_mage_volcano_thinker:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
     local hAbility = self:GetAbility()
 
-    self.creationtime = kv.creationtime --??
     self.delay = hAbility:GetSpecialValueFor("torrent_delay")
     self.interval = hAbility:GetSpecialValueFor("magma_damage_interval")
     self.radius = hAbility:GetSpecialValueFor("torrent_aoe")
@@ -56,7 +56,7 @@ function modifier_boss_magma_mage_volcano_thinker:OnCreated(kv)
     ParticleManager:SetParticleControl(self.nFXIndex2, 2, parent:GetAbsOrigin())
 
     self.bErupted = false
-    self:StartIntervalThink(1/30)
+    self:StartIntervalThink(self.delay)
   end
 end
 
@@ -73,7 +73,7 @@ function modifier_boss_magma_mage_volcano_thinker:OnDestroy()
     -- Instead ofUTIL_Remove(self:GetParent())
     local parent = self:GetParent()
     if parent then
-      --parent:AddNoDraw()
+      parent:AddNoDraw()
     end
   end
 end
@@ -93,7 +93,7 @@ function modifier_boss_magma_mage_volcano_thinker:OnIntervalThink()
         damage_type = self.damage_type,
         ability = ability,
     }
-    local units = FindUnitsInRadius(hParent:GetTeamNumber(), hParent:GetAbsOrigin(), hParent, self.magma_radius, DOTA_UNIT_TARGET_TEAM_BOTH, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), 0, 0, false )
+    local units = FindUnitsInRadius(hParent:GetTeamNumber(), hParent:GetAbsOrigin(), hParent, self.magma_radius, DOTA_UNIT_TARGET_TEAM_BOTH, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
       if #units > 0 then
         for _,unit in pairs(units) do
           if unit and not unit:IsNull() then
@@ -109,10 +109,10 @@ function modifier_boss_magma_mage_volcano_thinker:OnIntervalThink()
         end
     end
 
-    self.magma_radius = math.min( math.sqrt(self.magma_radius^2 + aoe_per_interval/math.pi), self.max_radius)
+    self.magma_radius = math.min(math.sqrt(self.magma_radius^2 + aoe_per_interval/math.pi), self.max_radius)
     ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.magma_radius, 0, 0))
 
-  elseif GameRules:GetGameTime() >= (self.creationtime + self.delay) then
+  else
     self:MagmaErupt()
     self.bErupted = true
     self:StartIntervalThink(self.interval)
@@ -146,7 +146,7 @@ function modifier_boss_magma_mage_volcano_thinker:MagmaErupt()
 
   hParent:AddNewModifier(hCaster, self:GetAbility(), "modifier_boss_magma_mage_volcano_thinker_child", {duration = self.knockup_duration})
 
-  local enemies = FindUnitsInRadius(hParent:GetTeamNumber(), hParent:GetAbsOrigin(), hParent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), 0, 0, false)
+  local enemies = FindUnitsInRadius(hParent:GetTeamNumber(), hParent:GetAbsOrigin(), hParent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
   if #enemies > 0 then
     local hAbility = self:GetAbility()
@@ -206,6 +206,10 @@ end
 
 function modifier_boss_magma_mage_volcano_thinker:GetAbsoluteNoDamagePure()
   return 1
+end
+
+function modifier_boss_magma_mage_volcano_thinker:GetDisableHealing()
+	return 1
 end
 
 function modifier_boss_magma_mage_volcano_thinker:GetMagmaRadius()

@@ -37,7 +37,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "torrent_aoe"                                     "225"
       }
-      "02"
+      "02" // 3 phases
       {
         "var_type"                                        "FIELD_INTEGER"
         "torrents_casted"                                 "1 2 3"
@@ -55,7 +55,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "torrent_stun_duration"                           "4.0"
+        "torrent_stun_duration"                           "2.0"
       }
       "06" // cast range (max distance from caster and volcano)
       {
@@ -72,10 +72,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "magma_initial_aoe"                               "225"
       }
-      "09"
+      "09" // currently AREA per second not distance (to look more natural)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_spread_speed"                              "10000" // currently AREA per second not distance (to look more natural)
+        "magma_spread_speed"                              "10000"
       }
       "10"
       {
@@ -85,7 +85,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_heal_per_second"                           "25"
+        "magma_heal_per_second"                           "300"
       }
       "12"
       {
@@ -100,14 +100,14 @@
       "14"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "magma_damage_interval"                           "0.33"
+        "magma_damage_interval"                           "0.2"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
         "magma_radius_max"                                "1000"
       }
-      "16"
+      "16" // max volcano duration in seconds
       {
         "var_type"                                        "FIELD_INTEGER"
         "totem_duration_max"                              "120"

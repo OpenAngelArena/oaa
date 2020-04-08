@@ -19,13 +19,7 @@ end
 function modifier_boss_magma_mage_volcano_thinker_child:RemoveOnDeath()
   return true
 end
---[[
-function modifier_boss_magma_mage_volcano_thinker_child:DeclareFunctions()
-  local funcs = {
-  }
-  return funcs
-end
-]]
+
 function modifier_boss_magma_mage_volcano_thinker_child:OnCreated(kv)
   if IsServer() then
     self.duration = kv.duration
