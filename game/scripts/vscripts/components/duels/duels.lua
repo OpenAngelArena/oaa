@@ -390,7 +390,6 @@ function Duels:ActuallyStartDuel(options)
 end
 
 function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
-
   local spawn1 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_2'):GetAbsOrigin()
 
@@ -485,6 +484,15 @@ function Duels:SpawnPlayersOnArenas(playerSplit, arenaIndex1, arenaIndex2)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
+  local options = 0
+  for _,player in pairs(group) do
+    if not player.assigned then
+      options = options + 1
+    end
+  end
+  if options < 1 then
+    return nil
+  end
   while true do
     local playerIndex = RandomInt(1, max)
     if group[playerIndex].assignable and group[playerIndex].assigned == nil then

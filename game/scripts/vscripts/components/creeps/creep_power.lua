@@ -55,6 +55,6 @@ function CreepPower:Init ()
     maxTeamPlayerCount = 20
   end
   self.numPlayersXPFactor = 1 -- PlayerResource:GetTeamPlayerCount() / maxTeamPlayerCount
-  self.numPlayersStatsFactor = PlayerResource:GetTeamPlayerCount() / maxTeamPlayerCount
+  self.numPlayersStatsFactor = (PlayerResource:GetTeamPlayerCount() + 5) / (maxTeamPlayerCount + 5)
   self.BootGoldFactor = _G.BOOT_GOLD_FACTOR
 end
