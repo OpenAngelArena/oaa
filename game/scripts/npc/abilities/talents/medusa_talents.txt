@@ -1,0 +1,117 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Stone Gaze duration
+  //=================================================================================================================
+  "special_bonus_unique_medusa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6182"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"1.5" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Split Shot Targets - unused
+  //=================================================================================================================
+  "special_bonus_unique_medusa_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6392"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"7"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Mystic Snake Mana Gain (%)
+  //=================================================================================================================
+  "special_bonus_unique_medusa_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6687"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"40"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Split Shot Uses Modifiers
+  //=================================================================================================================
+  "special_bonus_unique_medusa_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6803"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Mystic Snake Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_medusa_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7389"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"4"
+      }
+    }
+  }
+}
