@@ -82,12 +82,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-75"
+        "heal_prevent_percent"                            "-75 -100"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_duration"                           "1 2"
+        "heal_prevent_duration"                           "3"
       }
     }
   }
