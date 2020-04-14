@@ -60,18 +60,18 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "5" //OAA
+        "scepter_duration"                                "6" //OAA
         "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900" //OAA
+        "aura_radius"                                     "600" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius_tooltip_scepter"                     "900" //OAA
+        "aura_radius_tooltip_scepter"                     "600" //OAA
         "RequiresScepter"                                 "1"
       }
     }

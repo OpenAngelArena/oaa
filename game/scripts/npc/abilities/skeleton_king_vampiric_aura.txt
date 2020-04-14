@@ -21,18 +21,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "5 10 15 20 25 30"
+        "vampiric_aura"                                   "4 8 12 16 20" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "6 12 18 24 36 72"
+        "damage"                                          "5 10 15 20 30 60" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "self_bonus"                                      "1.5"
+        "self_bonus"                                      "2" //OAA
       }
     }
   }
