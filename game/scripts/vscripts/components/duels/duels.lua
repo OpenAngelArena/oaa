@@ -393,8 +393,8 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
   local spawn1 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_2'):GetAbsOrigin()
 
-  local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.GoodPlayerIndex)
-  local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.BadPlayerIndex)
+  local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.MaxGoodPlayers)
+  local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.MaxBadPlayers)
 
   local function spawnHeroForGuy(guy, spawn)
     local player = PlayerResource:GetPlayer(guy.id)
@@ -486,14 +486,21 @@ end
 function Duels:GetUnassignedPlayer (group, max)
   local options = 0
   for _,player in pairs(group) do
-    if not player.assigned then
+    if not player.assigned and _ < max then
       options = options + 1
     end
   end
   if options < 1 then
     return nil
   end
+  local attempts = 0
   while true do
+    attempts = attempts + 1
+    if attempts == 100 then
+      Debug:EnableDebugging()
+      DebugPrint('Failed to find player after 100 attempts!!!')
+      return nil
+    end
     local playerIndex = RandomInt(1, max)
     if group[playerIndex].assignable and group[playerIndex].assigned == nil then
       group[playerIndex].assigned = true
