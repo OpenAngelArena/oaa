@@ -18,7 +18,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
@@ -49,7 +48,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stomp_damage"                                    "70 100 130 160 420 840"
+        "stomp_damage"                                    "70 100 130 160 320 640"
         "LinkedSpecialBonus"                              "special_bonus_unique_elder_titan_2"
       }
       "05"

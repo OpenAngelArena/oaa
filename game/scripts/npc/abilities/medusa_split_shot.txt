@@ -11,7 +11,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "MaxLevel"                                            "6"    
+
+    "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
@@ -31,15 +33,15 @@
         "damage_modifier_tooltip"                         "30 45 60 75 85 90"
       }
       "03"
-      {  
+      {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_count"                                     "3"
-        "LinkedSpecialBonus"      "special_bonus_unique_medusa_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_medusa_2"
       }
       "04"
       {
-        "var_type"            "FIELD_INTEGER"
-        "split_shot_bonus_range"    "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "split_shot_bonus_range"                          "100"
       }
     }
   }
