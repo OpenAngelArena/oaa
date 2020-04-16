@@ -486,7 +486,7 @@ end
 function Duels:GetUnassignedPlayer (group, max)
   local options = 0
   for _,player in pairs(group) do
-    if not player.assigned and _ < max then
+    if not player.assigned and _ <= max then
       options = options + 1
     end
   end
