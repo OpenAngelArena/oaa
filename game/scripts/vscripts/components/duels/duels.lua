@@ -329,11 +329,12 @@ function Duels:SplitDuelPlayers(options)
 
   -- split up players, put them in the duels
   local maxPlayers = 0
-  if options.forceAllPlayers then
-    maxPlayers = math.max(validGoodPlayerIndex, validBadPlayerIndex)
-  else
-    maxPlayers = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+  if not options.forceAllPlayers then
+    validGoodPlayerIndex = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+    validBadPlayerIndex = math.min(validGoodPlayerIndex, validBadPlayerIndex)
   end
+
+  maxPlayers = math.max(validGoodPlayerIndex, validBadPlayerIndex)
 
   DebugPrint('Max players per team for this duel ' .. maxPlayers)
 
@@ -393,8 +394,8 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
   local spawn1 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_2'):GetAbsOrigin()
 
-  local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.MaxGoodPlayers)
-  local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.MaxBadPlayers)
+  local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.GoodPlayerIndex)
+  local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.BadPlayerIndex)
 
   local function spawnHeroForGuy(guy, spawn)
     local player = PlayerResource:GetPlayer(guy.id)
@@ -486,7 +487,7 @@ end
 function Duels:GetUnassignedPlayer (group, max)
   local options = 0
   for _,player in pairs(group) do
-    if not player.assigned and _ <= max then
+    if not player.assigned and player.assignable and _ <= max then
       options = options + 1
     end
   end
