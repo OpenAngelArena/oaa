@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Pit of Malice Root Duration
+    //=================================================================================================================
+    "special_bonus_unique_underlord"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                    "6019"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "value"             "0.8"
+            }
+        }
+    }
+
+    //=================================================================================================================
+    // Firestorm Wave Damage
+    //=================================================================================================================
+    "special_bonus_unique_underlord_2"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                    "6967"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "value"             "40" //OAA
+            }
+        }
+    }
+
+    //=================================================================================================================
+    // Atrophy Permanent Bonus Damage
+    //=================================================================================================================
+    "special_bonus_unique_underlord_3"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                    "6968"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "value"             "6"
+            }
+        }
+    }
+
+    //=================================================================================================================
+    // Firestorm Building Damage
+    //=================================================================================================================
+    "special_bonus_unique_underlord_4"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "ID"                    "6969"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "value"             "25"
+            }
+        }
+    }
+}
