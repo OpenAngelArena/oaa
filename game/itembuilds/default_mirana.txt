@@ -14,7 +14,6 @@
 
 		"#DOTA_Item_Build_Early_Game"
 		{
-			"item"		""
 			"item"		"item_magic_wand"
 			"item"		"item_boots"
 			"item"		""
@@ -30,8 +29,9 @@
 		"#DOTA_Item_Build_Late_Items"
 		{
 			"item"		"item_blink"
-			"item"		""
-			"item"		""
+			"item"		"item_ethereal_blade"
+			"item"		"item_yasha_and_kaya"
+      "item"    "item_bloodstone_1"
 		}
 
 		"#DOTA_Item_Build_Luxury"
@@ -44,16 +44,13 @@
 			"item"		"item_manta"
 			"item"		"item_skadi"
 			"item"		""
-			"item"		"item_ethereal_blade"
+			"item"		""
 			"item"		"item_cyclone"
 			"item"		"item_lotus_orb"
 			"item"		"item_mjollnir"
 			"item"		""
 			"item"		"item_hurricane_pike"
 			"item"		"item_bloodthorn"
-			"item"		""
-			"item"		"item_veil_of_discord"
-			"item"		""
 		}
 	}
 }
