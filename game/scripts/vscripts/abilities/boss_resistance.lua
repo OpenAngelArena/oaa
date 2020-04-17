@@ -27,8 +27,8 @@ function modifier_boss_resistance:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-	MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-	MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
 end
 
@@ -56,13 +56,13 @@ function modifier_boss_resistance:GetModifierPhysicalArmorBonus()
     return 0
   else
     self.checkArmor = true
-	local base_armor = parent:GetPhysicalArmorBaseValue()
+    local base_armor = parent:GetPhysicalArmorBaseValue()
     local current_armor = parent:GetPhysicalArmorValue(false)
     self.checkArmor = false
-	local min_armor = base_armor - 20
-	if current_armor < min_armor then
-	  return min_armor - current_armor
-	end
+    local min_armor = base_armor - 20
+    if current_armor < min_armor then
+      return min_armor - current_armor
+    end
   end
   return 0
 end
@@ -121,11 +121,11 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
   if not inflictor then
     -- Damage was not done with an ability
     if IsServer() then
-	  -- Lone Druid Bear Demolish bonus damage
-	  if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") then
+      -- Lone Druid Bear Demolish bonus damage
+      if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
         if ability then
-		  local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
           end
@@ -136,7 +136,7 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
       if attacker:HasModifier("modifier_tiny_tree_grab") then
         local ability = attacker:FindAbilityByName("tiny_tree_grab")
         if ability then
-		  local damage_increase_pct = ability:GetSpecialValueFor("bonus_damage_buildings")
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_damage_buildings")
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
           end
@@ -147,14 +147,13 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
       if attacker:HasModifier("modifier_brewmaster_earth_pulverize") then
         local ability = attacker:FindAbilityByName("brewmaster_earth_pulverize")
         if ability then
-		  local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
           end
         end
       end
     end
-
     return 0
   end
 
