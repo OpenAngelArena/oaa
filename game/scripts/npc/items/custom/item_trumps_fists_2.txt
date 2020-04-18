@@ -62,7 +62,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 25"
+        "bonus_damage"                                    "10 20"
       }
       "02"
       {
@@ -72,17 +72,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000 1250"
+        "bonus_health"                                    "900 1125"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "750 1000"
+        "bonus_mana"                                      "1000 1250"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-75 -100"
+        "heal_prevent_percent"                            "-50 -75"
       }
       "06"
       {
