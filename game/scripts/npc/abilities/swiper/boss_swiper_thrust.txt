@@ -16,7 +16,7 @@
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "AnimationIgnoresModelScale"     "1"
 
         // Casting
@@ -54,7 +54,7 @@
             "04"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage"                    "3150"
+                "damage"                    "5000"
             }
         }
 
