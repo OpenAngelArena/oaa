@@ -27,12 +27,12 @@
 		"Ability1"					"ogre_magi_channelled_bloodlust_tier5"
 		"Ability2"					"ogre_seer_area_ignite_tier5"
 		"Ability3"					"boss_regen"
-		"Ability4"					""
+		"Ability3"          "boss_resistance"
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"25"
-		"MagicalResistance"                                   "-25"            // Magical protection.
+		"ArmorPhysical"				"40"
+		"MagicalResistance"                                   "-50"            // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -64,7 +64,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"10000"
+		"StatusHealth"				"2000"
 		"StatusHealthRegen"			"50"
 		"StatusMana"				"1200"
 		"StatusManaRegen"			"10"
