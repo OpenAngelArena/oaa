@@ -13,18 +13,18 @@ function Spawn(entityKeyValues)
 end
 
 function MagmaMageBossThink()
-	if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
-		return 1
+  if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
+    return 1
   end
 
   if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
     thisEntity.bHasAgro = false
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
-	end
+  end
 
   local hEnemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
@@ -37,7 +37,7 @@ function MagmaMageBossThink()
     FIND_CLOSEST,
     false )
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > (thisEntity.BossTier or 1) * BOSS_AGRO_FACTOR
   local fDistanceToOrigin = (thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos):Length2D()
 
 	--Agro
