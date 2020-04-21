@@ -24,16 +24,16 @@
 
 		"#DOTA_Item_Build_Mid_Items"
 		{
-			"item"		""
-			"item"		""
 			"item"		"item_cyclone"
 			"item"		"item_kaya"
 		}
 
 		"#DOTA_Item_Build_Late_Items"
 		{
-			"item"		""
+			"item"		"item_ethereal_blade"
+      "item"    "item_yasha_and_kaya"
 			"item"		"item_ultimate_scepter"
+      "item"    "item_sheepstick_4"
 		}
 
 		"#DOTA_Item_Build_Luxury"
@@ -53,7 +53,7 @@
 			"item"		"item_sphere"
 			"item"		"item_desolator"
 			"item"		"item_hurricane_pike"
-			"item"		"item_ethereal_blade"
+			"item"		""
 			"item"		"item_skadi"
 		}
 	}
