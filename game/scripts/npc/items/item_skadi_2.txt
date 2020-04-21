@@ -84,6 +84,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "cold_duration"                                   "3.0"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_reduction"                                  "35 40 45 50 55"
+      }
     }
   }
 }
