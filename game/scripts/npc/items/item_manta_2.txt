@@ -93,12 +93,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-67"
+        "images_do_damage_percent_melee"                  "-65 -60 -55 -50 -45" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee"                   "33"
+        "tooltip_damage_outgoing_melee"                   "35 40 45 50 55" //OAA
       }
       "10"
       {
@@ -113,12 +113,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-72"
+        "images_do_damage_percent_ranged"                 "-70 -65 -60 -55 -50" //OAA
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged"                  "28"
+        "tooltip_damage_outgoing_ranged"                  "30 35 40 45 50" //OAA
       }
       "14"
       {
