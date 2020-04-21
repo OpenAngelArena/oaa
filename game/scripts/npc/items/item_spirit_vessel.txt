@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "750"
+    "ItemCost"            "1000"
     "ItemShopTags"          ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"          "item_spirit_vessel"
     "ItemRequirements"
     {
-      "01"            "item_urn_of_shadows;item_vitality_booster;item_wind_lace"
+      "01"            "item_urn_of_shadows;item_vitality_booster"
     }
   }
   //=================================================================================================================
