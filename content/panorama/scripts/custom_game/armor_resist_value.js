@@ -15,8 +15,8 @@
 }());
 function UpdateTooltipPhysicalResistanceValue () {
   var physicalResistLabel = FindDotaHudElement('PhysicalResist');
-  var unit = Players.GetLocalPlayerPortraitUnit()
-  if (physicalResistLabel != null && HasModifier(unit, "modifier_legacy_armor")) {
+  var unit = Players.GetLocalPlayerPortraitUnit();
+  if (physicalResistLabel != null && HasModifier(unit, 'modifier_legacy_armor')) {
     var unitArmor = Entities.GetPhysicalArmorValue(unit);
     var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
     physicalResistLabel.text = physicalResistance + '%';
@@ -24,8 +24,8 @@ function UpdateTooltipPhysicalResistanceValue () {
 }
 function UpdateAltDisplayPhysicalResistanceValue () {
   var physicalResistLabel = FindDotaHudElement('PhysicalDamageResist');
-  var unit = Players.GetLocalPlayerPortraitUnit()
-  if (physicalResistLabel != null && HasModifier(unit, "modifier_legacy_armor")) {
+  var unit = Players.GetLocalPlayerPortraitUnit();
+  if (physicalResistLabel != null && HasModifier(unit, 'modifier_legacy_armor')) {
     var unitArmor = Entities.GetPhysicalArmorValue(unit);
     var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
     physicalResistLabel.text = physicalResistance + '%';
@@ -34,7 +34,7 @@ function UpdateAltDisplayPhysicalResistanceValue () {
 
 function FindModifier (unit, modifier) {
   for (var i = 0; i < Entities.GetNumBuffs(unit); i++) {
-    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) == modifier){
+    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) === modifier) {
       return Entities.GetBuff(unit, i);
     }
   }
