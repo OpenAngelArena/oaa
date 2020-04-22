@@ -47,7 +47,7 @@ function modifier_item_stoneskin_stone_armor:IsDebuff()
 end
 
 function modifier_item_stoneskin_stone_armor:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_stoneskin_stone_armor:OnCreated()
