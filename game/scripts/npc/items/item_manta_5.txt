@@ -79,7 +79,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35 40"
+        "bonus_movement_speed"                            "8 10 12 14 16"
       }
       "06"
       {
@@ -94,12 +94,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-65 -55 -45 -35 -25" //OAA
+        "images_do_damage_percent_melee"                  "-67 -62 -57 -52 -47"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee"                   "35 45 55 65 75" //OAA
+        "tooltip_damage_outgoing_melee"                   "33 38 43 48 53"
       }
       "10"
       {
@@ -114,12 +114,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-70 -60 -50 -40 -30" //OAA
+        "images_do_damage_percent_ranged"                 "-72 -67 -62 -57 -52"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged"                  "30 40 50 60 70" //OAA
+        "tooltip_damage_outgoing_ranged"                  "28 33 38 43 48"
       }
       "14"
       {
