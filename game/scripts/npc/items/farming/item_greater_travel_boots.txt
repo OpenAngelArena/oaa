@@ -50,7 +50,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "40"
-    
+
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "3.0 2.5 2.0 1.5"
 
@@ -75,7 +75,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45"
+        "bonus_movement_speed"                            "130 140 150 160"
       }
     }
   }
