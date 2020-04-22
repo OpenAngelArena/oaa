@@ -16,10 +16,10 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.2" //OAA
     "AbilityCastRange"                                    "1000"
 
-    "AbilityCooldown"                                     "70 55 40 35 30"
+    "AbilityCooldown"                                     "50 45 40 35 30" //OAA
     "AbilityManaCost"                                     "150 75 0 0 0"
 
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "16 16 16 14 12"
+        "cooldown_scepter"                                "16"
         "RequiresScepter"                                 "1"
       }
       "02"

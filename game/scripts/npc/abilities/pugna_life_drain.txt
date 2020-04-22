@@ -30,7 +30,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,13 +47,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "175 400 625 1300 2425" //OAA
+        "health_drain"                                    "150 300 450 900 1650" //OAA
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_health_drain"                            "200 400 600 1200 2400" //OAA
         "RequiresScepter"                                 "1"
       }
       "03"
@@ -65,6 +65,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "drain_buffer"                                    "200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "0.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }

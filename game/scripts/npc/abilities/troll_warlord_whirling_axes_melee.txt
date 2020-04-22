@@ -30,7 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
 
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -38,8 +37,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "50 100 150 200 450 700"
-        "LinkedSpecialBonus"    "special_bonus_unique_troll_warlord_3"
+        "damage"                                          "50 100 150 200 400 800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_3"
       }
       "02"
       {
@@ -73,5 +72,4 @@
       }
     }
   }
-
 }

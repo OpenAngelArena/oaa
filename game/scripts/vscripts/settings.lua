@@ -34,8 +34,9 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 50
-TEN_V_TEN_KILL_LIMIT = 80
+NORMAL_KILL_LIMIT = 3
+TEN_V_TEN_KILL_LIMIT = 2
+KILL_LIMIT_INCREASE = 10
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -161,7 +162,7 @@ HERO_SELECTION_TIME = 30.0              -- How long should we let people select 
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
-GOLD_PER_TICK = 2                       -- How much gold should players get per tick? This increases over time in OAA.
+GOLD_PER_TICK = 1                       -- How much gold should players get per tick? This increases over time in OAA.
 GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes

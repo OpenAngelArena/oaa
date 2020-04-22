@@ -328,7 +328,13 @@ function Duels:SplitDuelPlayers(options)
   validBadPlayerIndex = validBadPlayerIndex - 1
 
   -- split up players, put them in the duels
-  local maxPlayers = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+  local maxPlayers = 0
+  if not options.forceAllPlayers then
+    validGoodPlayerIndex = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+    validBadPlayerIndex = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+  end
+
+  maxPlayers = math.max(validGoodPlayerIndex, validBadPlayerIndex)
 
   DebugPrint('Max players per team for this duel ' .. maxPlayers)
 
@@ -350,13 +356,15 @@ function Duels:SplitDuelPlayers(options)
     playerSplitOffset = maxPlayers - playerSplitOffset
   end
 
-  if options.isFinalDuel or HeroSelection.isCM then
+  if options.isFinalDuel or HeroSelection.isCM or options.forceAllPlayers then
     playerSplitOffset = 0
   end
 
   return
   {
     MaxPlayers = maxPlayers,
+    MaxGoodPlayers = validGoodPlayerIndex,
+    MaxBadPlayers = validBadPlayerIndex,
     PlayerSplitOffset = playerSplitOffset,
     GoodPlayers = goodPlayers,
     BadPlayers = badPlayers,
@@ -383,38 +391,31 @@ function Duels:ActuallyStartDuel(options)
 end
 
 function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
-
   local spawn1 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_2'):GetAbsOrigin()
 
   local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.GoodPlayerIndex)
   local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.BadPlayerIndex)
-  local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
-  local badPlayer = PlayerResource:GetPlayer(badGuy.id)
-  local goodHero = goodPlayer:GetAssignedHero()
-  local badHero = badPlayer:GetAssignedHero()
 
+  local function spawnHeroForGuy(guy, spawn)
+    local player = PlayerResource:GetPlayer(guy.id)
+    local hero = player:GetAssignedHero()
+    guy.duelNumber = duelNumber
+    self.zones[arenaIndex].addPlayer(guy.id)
 
-  DebugPrint('Spawning Hero ' .. goodHero:GetUnitName() .. ' and ' .. badHero:GetUnitName() .. ' on Arena ' .. tostring(arenaIndex) .. ' duelNumber ' .. tostring(duelNumber) )
-  goodGuy.duelNumber = duelNumber
-  badGuy.duelNumber = duelNumber
+    SafeTeleportAll(hero, spawn, 250)
+    MoveCameraToPlayer(hero)
+    hero:Stop()
+    hero:SetRespawnsDisabled(true)
+  end
 
-  SafeTeleportAll(goodHero, spawn1, 250)
-  SafeTeleportAll(badHero, spawn2, 250)
+  if goodGuy then
+    spawnHeroForGuy(goodGuy, spawn1)
+  end
 
-  self.zones[arenaIndex].addPlayer(goodGuy.id)
-  self.zones[arenaIndex].addPlayer(badGuy.id)
-
-  MoveCameraToPlayer(goodHero)
-  MoveCameraToPlayer(badHero)
-
-  -- stop player action
-  goodHero:Stop()
-  badHero:Stop()
-
-  -- disable respawn
-  goodHero:SetRespawnsDisabled(true)
-  badHero:SetRespawnsDisabled(true)
+  if badGuy then
+    spawnHeroForGuy(badGuy, spawn2)
+  end
 end
 
 function Duels:PreparePlayersToStartDuel(options, playerSplit)
@@ -440,8 +441,8 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
   self.currentDuel = {
     goodLiving1 = playerSplit.PlayerSplitOffset,
     badLiving1 = playerSplit.PlayerSplitOffset,
-    goodLiving2 = playerSplit.MaxPlayers - playerSplit.PlayerSplitOffset,
-    badLiving2 = playerSplit.MaxPlayers - playerSplit.PlayerSplitOffset,
+    goodLiving2 = playerSplit.MaxGoodPlayers - playerSplit.PlayerSplitOffset,
+    badLiving2 = playerSplit.MaxBadPlayers - playerSplit.PlayerSplitOffset,
     duelEnd1 = playerSplit.PlayerSplitOffset == 0,
     duelEnd2 = playerSplit.MaxPlayers == playerSplit.PlayerSplitOffset,
     badPlayers = playerSplit.BadPlayers,
@@ -484,7 +485,23 @@ function Duels:SpawnPlayersOnArenas(playerSplit, arenaIndex1, arenaIndex2)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
+  local options = 0
+  for _,player in pairs(group) do
+    if not player.assigned and player.assignable and _ <= max then
+      options = options + 1
+    end
+  end
+  if options < 1 then
+    return nil
+  end
+  local attempts = 0
   while true do
+    attempts = attempts + 1
+    if attempts == 100 then
+      Debug:EnableDebugging()
+      DebugPrint('Failed to find player after 100 attempts!!!')
+      return nil
+    end
     local playerIndex = RandomInt(1, max)
     if group[playerIndex].assignable and group[playerIndex].assigned == nil then
       group[playerIndex].assigned = true

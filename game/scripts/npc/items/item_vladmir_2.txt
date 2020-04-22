@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "3800"
+    "ItemCost"            "3700"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering 2;vlads 2"
@@ -58,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_aura"                                 "1.25 2.5 4.0 6.0 7.5"
+        "mana_regen_aura"                                 "1.5 2.5 4.0 6.0 7.5"
       }
       "02"
       {
@@ -78,7 +78,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "6 10 15 20 25"
+        "bonus_all_stats"                                 "5 10 15 20 25"
       }
     }
   }

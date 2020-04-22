@@ -37,8 +37,8 @@
     "AbilityTextureName"                                  "item_necronomicon_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "3550"
+    "AbilityManaCost"                                     "150"
+    "ItemCost"                                            "3400"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 2;necro 2"
@@ -55,7 +55,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 36 54 70 86"
+        "bonus_strength"                                  "6 12 18 36 54 70 86"
       }
       "02"
       {

@@ -110,9 +110,14 @@
       "14" // this is a percentage bonus
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_spirit_bonus_damage"                     "75 75 75 100 125"
+        "scepter_spirit_bonus_damage"                     "50 50 50 75 100"
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_bonus"                                  "20"
       }
     }
   }

@@ -6,14 +6,14 @@
   "item_recipe_bfury"
   {
     "ID"                                                  "144"    // unique ID
-    "ItemCost"                                            "300"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_demon_edge;item_pers;item_quelling_blade"
+      "01"                                                "item_broadsword;item_mithril_hammer;item_pers;item_quelling_blade"
     }
   }
 
@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4350"
+    "ItemCost"                                            "4400"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver"
