@@ -16,19 +16,29 @@
 function UpdateTooltipPhysicalResistanceValue () {
   var physicalResistLabel = FindDotaHudElement('PhysicalResist');
   var unit = Players.GetLocalPlayerPortraitUnit();
-  if (physicalResistLabel != null && HasModifier(unit, 'modifier_legacy_armor')) {
+  if (physicalResistLabel != null) {
     var unitArmor = Entities.GetPhysicalArmorValue(unit);
-    var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
-    physicalResistLabel.text = physicalResistance + '%';
+	if (HasModifier(unit, 'modifier_legacy_armor')) {
+      var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
+      physicalResistLabel.text = physicalResistance + '%';
+    } else {
+      var physicalResistance = Math.round(0.052 * unitArmor / (0.9 + 0.048 * Math.abs(unitArmor)) * 100);
+      physicalResistLabel.text = physicalResistance + '%';
+    }
   }
 }
 function UpdateAltDisplayPhysicalResistanceValue () {
   var physicalResistLabel = FindDotaHudElement('PhysicalDamageResist');
   var unit = Players.GetLocalPlayerPortraitUnit();
-  if (physicalResistLabel != null && HasModifier(unit, 'modifier_legacy_armor')) {
+  if (physicalResistLabel != null) {
     var unitArmor = Entities.GetPhysicalArmorValue(unit);
-    var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
-    physicalResistLabel.text = physicalResistance + '%';
+	if (HasModifier(unit, 'modifier_legacy_armor')) {
+      var physicalResistance = Math.round(0.05 * unitArmor / (1 + 0.05 * Math.abs(unitArmor)) * 100);
+      physicalResistLabel.text = physicalResistance + '%';
+    } else {
+      var physicalResistance = Math.round(0.052 * unitArmor / (0.9 + 0.048 * Math.abs(unitArmor)) * 100);
+      physicalResistLabel.text = physicalResistance + '%';
+    }
   }
 }
 
