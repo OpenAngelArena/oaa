@@ -64,15 +64,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // like bonus_intelligence
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "40 55 75"
+        "bonus_strength"                                  "40 60 85"
       }
-      "02"
+      "02" // like Octarine Core intelligence at levels 2-4
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "40 55 75"
+        "bonus_intelligence"                              "40 60 85"
       }
       "03"
       {
@@ -92,12 +92,12 @@
       "06" // name needs to be the same as in octarine core
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "13 14 15"
+        "creep_lifesteal"                                 "15 20 25"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_hero_spell_lifesteal"                     "150"
+        "unholy_hero_spell_lifesteal"                     "200"
       }
       "08"
       {
@@ -108,6 +108,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resist"                             "10 15 20"
       }
     }
   }
