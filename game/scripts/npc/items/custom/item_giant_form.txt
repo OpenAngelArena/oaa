@@ -65,17 +65,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "35 50"
+        "bonus_agility"                                   "50 70"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "27 42"
+        "bonus_strength"                                  "42 62"
       }
-      "03"
+      "03" // ranged only
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "160 170"
+        "base_attack_range"                               "170 180"
       }
       "04"
       {
@@ -105,12 +105,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_splash"                                    "100"
+        "giant_splash"                                    "150"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_move_speed"                                "250"
+        "giant_move_speed"                                "290"
       }
       "11"
       {
