@@ -51,27 +51,27 @@
       "01" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25"
+        "bonus_movement_speed"                            "60 65"
       }
       "02" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "68 108"
+        "bonus_damage_melee"                              "108 158"
       }
       "03" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "68 108"
+        "bonus_damage_range"                              "108 158"
       }
       "04" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "8 11"
+        "bonus_armor"                                     "10 14"
       }
       "05" // sonic active percentage movement speed bonus
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "30"
+        "speed_bonus"                                     "30 35"
       }
       "06" // sonic active percentage vision bonus
       {

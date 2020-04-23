@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "400 500 600 700 800 900"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -52,7 +52,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-30 -40 -50 -60 -65 -70"
+        "bonus_movement_speed"                            "-30 -40 -50 -60 -70 -80"
       }
       "05"
       {

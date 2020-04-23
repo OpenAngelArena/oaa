@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "750"
+    "ItemCost"            "1000"
     "ItemShopTags"          ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"          "item_spirit_vessel"
     "ItemRequirements"
     {
-      "01"            "item_urn_of_shadows;item_vitality_booster;item_wind_lace"
+      "01"            "item_urn_of_shadows;item_vitality_booster"
     }
   }
   //=================================================================================================================
@@ -63,63 +63,68 @@
       }
       "02"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_movement_speed"        "20 25 30 35 40"
-      }
-      "03"
-      {
         "var_type"                    "FIELD_FLOAT"
         "bonus_mana_regen"            "1.5 2.0 2.5 4.0 6.0"
       }
-      "04"
+      "03"
       {
         "var_type"                    "FIELD_INTEGER"
         "bonus_all_stats"             "2 10 15 20 25"
       }
-      "05"
+      "04"
       {
         "var_type"                    "FIELD_FLOAT"
         "bonus_armor"                 "2 3 5 8 12"
       }
-      "06"
+      "05"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_radius"                 "1400"
       }
-      "07"
+      "06"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_initial_charge"         "2"
       }
-      "08"
+      "07"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_additional_charges"     "1"
       }
-      "09"
+      "08"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_heal_amount"            "30 55 75 95 105"
       }
-      "10"
+      "09"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_damage_amount"          "25 40 65 100 145"
       }
-      "11"
+      "10"
       {
         "var_type"                    "FIELD_FLOAT"
         "duration"                    "8.0"
       }
-      "12"
+      "11"
       {
         "var_type"                    "FIELD_INTEGER"
-        "hp_regen_reduction_enemy"    "60 70 80 90 100"
+        "hp_regen_reduction_enemy"    "35 40 45 50 55"
       }
-      "13"
+      "12"
       {
         "var_type"                    "FIELD_FLOAT"
         "enemy_hp_drain"              "4"
+      }
+      "13"
+      {
+        "var_type"                    "FIELD_INTEGER"
+        "hp_regen_degen_aura"         "20 25 30 35 40"
+      }
+      "14"
+      {
+        "var_type"                    "FIELD_INTEGER"
+        "hp_regen_degen_aura_range"   "1200"
       }
     }
   }

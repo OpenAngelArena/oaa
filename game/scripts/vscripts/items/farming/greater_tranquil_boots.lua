@@ -187,7 +187,7 @@ end
 
 function modifier_item_greater_tranquil_boots:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -227,7 +227,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Percentage_Unique()
+function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Constant_Unique()
 	local spell = self:GetAbility()
 
 	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
