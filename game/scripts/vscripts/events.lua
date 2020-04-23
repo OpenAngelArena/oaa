@@ -76,7 +76,7 @@ function GameMode:OnNPCSpawned(keys)
 
   if npc.GetPhysicalArmorValue then
     LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
-    if npc:IsRealHero() or (npc:IsConsideredHero() and (not npc:IsIllusion())) then
+    if npc:IsRealHero() or (npc:IsConsideredHero() and (not npc:IsIllusion()) and npc:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS) then
       npc:AddNewModifier(npc, nil, "modifier_legacy_armor", {})
     end
   end

@@ -80,7 +80,7 @@ function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
     local attacker = kv.attacker
     local target = kv.target
-    if attacker == self:GetParent() and not attacker:IsIllusion() and not target:IsMagicImmune() then
+    if attacker == self:GetParent() and not attacker:IsIllusion() then
       local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
       target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = debuff_duration } )
     end
@@ -109,7 +109,8 @@ function modifier_item_trumps_fists_frostbite:DeclareFunctions()
   }
   return funcs
 end
-
+-- Old heal prevention that decays over time
+--[[
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then
     -- Check that event is being called for the unit that self is attached to
@@ -122,6 +123,24 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
 
       DebugPrint(desiredHP)
       kv.unit:SetHealth( desiredHP )
+    end
+  end
+end
+]]
+function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
+  if IsServer() then
+    local unit = kv.unit
+    if unit == self:GetParent() and kv.gain > 0 then
+      local healPercent = self.heal_prevent_percent / 100
+      local damage = kv.gain * healPercent
+      local damage_table = {
+        victim = unit,
+        attacker = self:GetCaster(),
+        damage = damage,
+        damage_type = DAMAGE_TYPE_PURE,
+        ability = self:GetAbility()
+      }
+      ApplyDamage(damage_table)
     end
   end
 end

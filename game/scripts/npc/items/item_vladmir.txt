@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "550"
+    "ItemCost"            "600"
     "ItemShopTags"          ""
 
     // Recipe
@@ -43,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2200"
+    "ItemCost"            "2275"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering;vlads"
@@ -66,7 +66,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "20 25 30 35 40" //OAA
+        "vampiric_aura"                                   "20 25 30 35 40"
       }
       "04"
       {

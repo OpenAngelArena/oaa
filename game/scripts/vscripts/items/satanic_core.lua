@@ -62,6 +62,7 @@ function modifier_item_satanic_core:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
     --MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
   return funcs
@@ -81,6 +82,10 @@ end
 
 function modifier_item_satanic_core:GetModifierManaBonus()
   return self:GetAbility():GetSpecialValueFor("bonus_mana")
+end
+
+function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
+  return self:GetAbility():GetSpecialValueFor("bonus_status_resist")
 end
 
 --[[

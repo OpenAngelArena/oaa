@@ -133,7 +133,7 @@ end
 
 function modifier_item_greater_power_treads:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
@@ -252,7 +252,7 @@ end
 --]]
 
 
-function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Percentage_Unique()
+function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Constant_Unique()
   return self.moveSpd
 end
 
