@@ -186,7 +186,7 @@ end
 
 function modifier_item_bloodstone_stacking_stats:GetModifierConstantHealthRegen()
   local ability = self:GetAbility()
-  return ability:GetSpecialValueFor("bonus_health_regen") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
+  return ability:GetSpecialValueFor("bonus_health_regen")--+ (ability:GetCurrentCharges() * ability:GetSpecialValueFor("regen_per_charge"))
 end
 
 function modifier_item_bloodstone_stacking_stats:GetModifierConstantManaRegen()
@@ -295,11 +295,19 @@ end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Percentage()
   local ability = self:GetAbility()
-  return ability:GetSpecialValueFor("spell_amp") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("amp_per_charge"))
+  local parent = self:GetParent()
+  if parent:HasModifier("kaya_item_modifier_name") then
+    return ability:GetSpecialValueFor("spell_amp") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("amp_per_charge"))
+  end
+  return 0
 end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
-  return self:GetAbility():GetSpecialValueFor("manacost_reduction")
+  local parent = self:GetParent()
+  if parent:HasModifier("kaya_item_modifier_name") then
+    return self:GetAbility():GetSpecialValueFor("manacost_reduction")
+  end
+  return 0
 end
 
 --------------------------------------------------------------------------
