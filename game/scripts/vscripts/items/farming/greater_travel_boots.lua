@@ -142,11 +142,11 @@ end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE
   }
 end
 
-function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Constant_Unique()
+function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Boots()
   if self:GetAbility() then
     return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
   end
