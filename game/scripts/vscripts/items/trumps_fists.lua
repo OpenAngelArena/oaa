@@ -130,7 +130,8 @@ end
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then
     local unit = kv.unit
-    if unit == self:GetParent() and kv.gain > 0 then
+    local caster = self:GetCaster()
+    if unit == self:GetParent() and kv.gain > 0 and not unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
       local healPercent = self.heal_prevent_percent / 100
       local damage = kv.gain * healPercent
       local damage_table = {
