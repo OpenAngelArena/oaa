@@ -296,7 +296,7 @@ end
 function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Percentage()
   local ability = self:GetAbility()
   local parent = self:GetParent()
-  if parent:HasModifier("kaya_item_modifier_name") then
+  if not parent:HasModifier("kaya_item_modifier_name") then
     return ability:GetSpecialValueFor("spell_amp") + (ability:GetCurrentCharges() * ability:GetSpecialValueFor("amp_per_charge"))
   end
   return 0
@@ -304,7 +304,7 @@ end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
   local parent = self:GetParent()
-  if parent:HasModifier("kaya_item_modifier_name") then
+  if not parent:HasModifier("kaya_item_modifier_name") then
     return self:GetAbility():GetSpecialValueFor("manacost_reduction")
   end
   return 0
