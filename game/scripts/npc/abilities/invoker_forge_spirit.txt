@@ -38,19 +38,19 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_armor"                                    "0 1 2 3 4 5 6 7 8 9 10 11 12 15 20"
+        "spirit_armor"                                    "0 1 2 3 4 5 6 7 9 11 13 15 17 19 21"
         "levelkey"                                        "exortlevel"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spirit_attack_range"                             "300 365 430 495 560 625 690 755 775 795 805 825 850 900 925"
+        "spirit_attack_range"                             "300 365 430 495 560 625 690 755 765 775 785 795 805 825 850"
         "levelkey"                                        "quaslevel"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spirit_hp"                                       "300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1600 1800 2000"
+        "spirit_hp"                                       "300 500 700 900 1100 1300 1500 1700 2100 2500 2900 3300 3700 4100 4500" //OAA
         "levelkey"                                        "quaslevel"
       }
       "06"
@@ -61,6 +61,4 @@
       }
     }
   }
-
-
 }
