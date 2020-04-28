@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"8"
+        "value"				"12" //OAA
       }
     }
   }
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"-100"
+        "value"				"-100" //OAA
       }
     }
   }
@@ -86,8 +86,8 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"16" //OAA
+        "var_type"					"FIELD_FLOAT"
+        "value"				"16.0" //OAA
       }
     }
   }
@@ -110,7 +110,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"25"
+        "value"				"40" //OAA
       }
     }
   }
