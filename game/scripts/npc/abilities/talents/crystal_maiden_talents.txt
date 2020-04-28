@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"					"FIELD_FLOAT"
-        "value"				"1.5"
+        "value"				"1.25"
       }
     }
   }
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"400" //OAA
+        "value"				"480" //OAA
       }
     }
   }
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"120" //OAA
+        "value"				"100" //OAA
       }
     }
   }
@@ -88,6 +88,29 @@
       {
         "var_type"					"FIELD_INTEGER"
         "value"				"15" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Crystal Nova Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_crystal_maiden_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7654"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"1.5"
       }
     }
   }

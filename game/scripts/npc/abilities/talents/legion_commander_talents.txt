@@ -18,13 +18,13 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"40"
+        "value"				"32"
       }
     }
   }
 
   //=================================================================================================================
-  // Decreases Press The Attack Cooldown
+  // Decreases Press The Attack Cooldown - unused
   //=================================================================================================================
   "special_bonus_unique_legion_commander_2"
   {
@@ -87,7 +87,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"160" //OAA
+        "value"				"165" //OAA
       }
     }
   }
@@ -110,7 +110,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"350"
+        "value"				"275"
       }
     }
   }

@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"15"
+				"value"				"15" //OAA
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"4.0"
+				"value"				"3.0"
 			}
 		}
 	}
@@ -94,6 +94,29 @@
   }
 
   //=================================================================================================================
+  // Burning Army Truestrike - unused
+  //=================================================================================================================
+  "special_bonus_unique_clinkz_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7878"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"0"
+      }
+    }
+  }
+
+  //=================================================================================================================
   // Burning Army Cooldown
   //=================================================================================================================
   "special_bonus_unique_clinkz_5"
@@ -111,7 +134,30 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"30"
+        "value"				"30" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Death Pact Health
+  //=================================================================================================================
+  "special_bonus_unique_clinkz_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"345"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"550" //OAA
       }
     }
   }
