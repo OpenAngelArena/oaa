@@ -1,15 +1,16 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Daedalus 5
+  // Recipe: Imp Claw 2
   //=================================================================================================================
-  "item_recipe_greater_crit_5"
+  "item_recipe_imp_claw_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3061"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8563" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,40 +20,48 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_greater_crit_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemResult"                                          "item_imp_claw_2"
+
     "ItemRequirements"
     {
-      "01"                                                "item_greater_crit_4;item_upgrade_core_4"
-      "02"                                                "item_bloodthorn_4;item_upgrade_core_4"
-      "03"                                                "item_nullifier_4;item_upgrade_core_4"
-      "04"                                                "item_imp_claw;item_upgrade_core_4"
+      "01"                                                "item_imp_claw;item_upgrade_core_4"
+      "02"                                                "item_greater_crit_4;item_upgrade_core_4"
+      "03"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      "04"                                                "item_nullifier_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Daedalus 5
+  // Imp Claw 2
   //=================================================================================================================
-  "item_greater_crit_5"
+  "item_imp_claw_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3065"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_greater_crit"
+    "ID"                                                  "8564" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_imp_claw"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/daedalus_5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+
+    "AbilityCooldown"                                     "8.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "37725"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "daedalus 5;crit 5"
+    "ItemAliases"                                         "imp claw;crit claw"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -61,22 +70,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "88 100 140 200 280"
+        "crit_multiplier"                                 "300"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "30"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "175 205 235 265 295"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "75 105 135 165 195"
+        "bonus_damage"                                    "200 280"
       }
     }
   }

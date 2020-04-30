@@ -1,15 +1,16 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Echo Sabre 5
+  // Recipe: Havoc Hammer 2
   //=================================================================================================================
-  "item_recipe_echo_sabre_5"
+  "item_recipe_havoc_hammer_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3658"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8519" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,44 +20,45 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_echo_sabre_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemResult"                                          "item_havoc_hammer_2"
     "ItemRequirements"
     {
-      "01"                                                "item_echo_sabre_4;item_upgrade_core_4"
+      "01"                                                "item_havoc_hammer;item_upgrade_core_4"
       "02"                                                "item_heavens_halberd_4;item_upgrade_core_4"
-      "03"                                                "item_havoc_hammer;item_upgrade_core_4"
+      "03"                                                "item_echo_sabre_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Echo Sabre 5
+  // Havoc Hammer
   //=================================================================================================================
-  "item_echo_sabre_5"
+  "item_havoc_hammer_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3659"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_echo_sabre"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/echo_sabre_5"
+    "ID"                                                  "8520" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_havoc_hammer"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.5"
-    "AbilitySharedCooldown"                               "echo"
+    "AbilityCooldown"                                     "10.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
     "ItemCost"                                            "35550"
-    "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
+    "ItemShopTags"                                        "str;damage"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "echo sabre 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "havoc hammer 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,47 +67,52 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 40 60"
+        "bonus_damage"                                    "65 105"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 17 27 42 62"
+        "bonus_strength"                                  "80 120"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "range"                                           "350"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 35 65 105 155"
+        "slow"                                            "50"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.25 1.75 2.25 3.0 4.0"
+        "slow_duration"                                   "3"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_damage"                                     "0"
+        "angle"                                           "360"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "100"
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.3"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_distance"                              "250"
       }
       "09"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "nuke_base_dmg"                                   "225 375"
+      }
+      "10"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5" //OAA
+        "nuke_str_dmg"                                    "1"
       }
     }
   }

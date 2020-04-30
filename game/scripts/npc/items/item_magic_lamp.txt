@@ -1,0 +1,72 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Recipe: Magic Lamp
+  //=================================================================================================================
+  "item_recipe_panic_button"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8538"    // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+
+    "ItemResult"                                          "item_panic_button"
+    "ItemRequirements"
+    {
+      "01"                                                "item_aeon_disk_4;item_upgrade_core_4"
+      "02"                                                "item_reflection_shard_2;item_upgrade_core_4"
+      "03"                                                "item_sphere_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Magic Lamp
+  //=================================================================================================================
+  "item_panic_button"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "365" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "ItemCost"                                            "38000" //OAA
+    "ItemShopTags"                                        "health_pool;hard_to_tag"
+    "ItemAliases"                                         "magic lamp;panic button"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+
+    "AbilitySharedCooldown"                               "combobreaker"
+    "AbilityCooldown"                                     "35.0" //OAA
+
+    "ItemIsNeutralDrop"                                   "0" //OAA
+    "ItemPurchasable"                                     "1" //OAA
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "2700" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal"                                            "1400" //OAA
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_threshold"                                "20"
+      }
+    }
+  }
+}
