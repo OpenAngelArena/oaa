@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"4"
+        "value"				"3"
       }
     }
   }
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"4"
+        "value"				"4" //OAA
       }
     }
   }
@@ -87,7 +87,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"10"
+        "value"				"10" //OAA
       }
     }
   }
@@ -110,7 +110,30 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"4"
+        "value"				"4" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Kinetic Field Grants True Sight
+  //=================================================================================================================
+  "special_bonus_unique_disruptor_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7656"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"0"
       }
     }
   }

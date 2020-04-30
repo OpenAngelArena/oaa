@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"5"
+				"value"				"5" //OAA
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"1000"
+				"value"				"1000" //OAA
 			}
 		}
 	}
@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60" //OAA
+				"value"				"50" //OAA
 			}
 		}
 	}
@@ -137,4 +137,27 @@
 			}
 		}
 	}
+
+  //=================================================================================================================
+  // Decreases Hand of God Cooldown
+  //=================================================================================================================
+  "special_bonus_unique_chen_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"7653"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"25" //OAA
+      }
+    }
+  }
 }

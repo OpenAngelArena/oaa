@@ -1,0 +1,52 @@
+"itembuilds"
+{
+  "author"		"Valve"
+  "hero"			"npc_dota_hero_dragon_knight"
+  "Title"			"Recommended items for Dragon Knight"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"    "item_bracer"
+      "item"    "item_flask"
+    }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"    ""
+      "item"    "item_magic_wand"
+      "item"    "item_soul_ring"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"    "item_sange"
+      "item"    "item_armlet"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_sange_and_yasha"
+      "item"    "item_satanic"
+      "item"    "item_assault"
+      "item"    "item_greater_crit"
+      "item"    "item_abyssal_blade_3"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_blink"
+      "item"    "item_black_king_bar_1"
+      "item"    "item_ancient_janggo"
+      "item"    "item_heavens_halberd"
+      "item"    "item_pipe"
+      "item"    "item_heart"
+      "item"    "item_mjollnir"
+      "item"    "item_silver_edge"
+      "item"    "item_blade_mail"
+      "item"    "item_monkey_king_bar"
+      "item"    "item_hurricane_pike"
+    }
+  }
+}

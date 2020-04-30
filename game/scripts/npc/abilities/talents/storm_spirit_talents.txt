@@ -70,7 +70,7 @@
   }
 
   //=================================================================================================================
-  // Distance Auto Remnant in Ball Lightning //not used
+  // Distance Auto Remnant in Ball Lightning - unused in OAA
   //=================================================================================================================
   "special_bonus_unique_storm_spirit_4"
   {
@@ -87,7 +87,7 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "value"           "750" //OAA
+        "value"           "600"
       }
     }
   }

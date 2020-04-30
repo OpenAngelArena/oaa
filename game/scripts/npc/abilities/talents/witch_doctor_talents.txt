@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"125"
+				"value"				"125" //OAA
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"1.5"
+				"value"				"1.2"
 			}
 		}
 	}
@@ -84,11 +84,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"4"
-			}
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "4" 					//bonus duration
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value2"                                          "1"					// bonus ticks
+      }
 		}
 	}
 

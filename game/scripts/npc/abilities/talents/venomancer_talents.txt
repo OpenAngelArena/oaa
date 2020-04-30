@@ -1,0 +1,163 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Plague Ward HP/Damage Multiplier
+  //=================================================================================================================
+  "special_bonus_unique_venomancer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6058"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"3" //OAA
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Poison Sting Slow
+  //=================================================================================================================
+  "special_bonus_unique_venomancer_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6532"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"-10"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Decreases Venomous Gale cooldown
+  //=================================================================================================================
+  "special_bonus_unique_venomancer_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6979"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"6"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Poison Nova Duration
+  //=================================================================================================================
+  "special_bonus_unique_venomancer_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6980"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"5.5"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Gale Hero Impact Summons Plague Wards
+  //=================================================================================================================
+  "special_bonus_unique_venomancer_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6981"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"2" // how many wards
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Poison Nova AoE
+  //=================================================================================================================
+  "special_bonus_unique_venomancer_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6999"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"640"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Bonus Plague Ward Duration - unused in OAA
+  //=================================================================================================================
+  "special_bonus_unique_venomancer_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"416"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"12"
+      }
+    }
+  }
+}

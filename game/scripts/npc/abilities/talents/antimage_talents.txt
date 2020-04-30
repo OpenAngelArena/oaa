@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_FLOAT"
-				"value"           "2" // OAA
+				"value"           "2"
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"50"
+				"value"				"40"
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"400"
+				"value"				"325"
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"25"
+				"value"				"20"
 			}
 		}
 	}
@@ -110,7 +110,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"-75"
+				"outgoing_damage"			"-75" //OAA
 			}
 			"02"
 			{

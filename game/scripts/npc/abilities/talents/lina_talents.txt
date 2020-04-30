@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"						"6"
+				"value"						"5"
 			}
 		}
 	}
@@ -41,12 +41,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"30"
+				"value"				"30" //OAA
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value2"				"2"
+				"value2"				"2" //OAA
 			}
 		}
 	}
@@ -69,13 +69,13 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"300" //OAA
+				"value"				"280" //OAA
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// Bonus Light Strike AoE
+	// Bonus Light Strike AoE - unused
 	//=================================================================================================================
 	"special_bonus_unique_lina_4"
 	{

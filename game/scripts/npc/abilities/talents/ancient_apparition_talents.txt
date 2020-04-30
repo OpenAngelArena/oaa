@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Charges of Cold Feet
+  // Bonus Charges of Cold Feet - unused
   //=================================================================================================================
   "special_bonus_unique_ancient_apparition_1"
   {
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"80"
+        "value"				"80" //OAA
       }
     }
   }
@@ -64,7 +64,7 @@
       "01"
       {
         "var_type"					"FIELD_FLOAT"
-        "value"				"2.5"
+        "value"				"2"
       }
     }
   }
@@ -87,7 +87,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"-8"
+        "value"				"-6"
       }
     }
   }
@@ -110,7 +110,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"5"
+        "value"				"4"
       }
     }
   }
@@ -156,7 +156,7 @@
       "01"
       {
         "var_type"        "FIELD_INTEGER"
-        "value"           "120" //OAA
+        "value"           "140"
       }
     }
   }
