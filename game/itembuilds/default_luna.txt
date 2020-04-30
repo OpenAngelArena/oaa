@@ -1,0 +1,52 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_luna"
+    "Title"         "Recommended items for Luna"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_boots"
+            "item"      "item_clarity"
+            "item"      "item_flask"
+            "item"      "item_mango"
+            "item"      "item_mango"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_arcane_boots"
+            "item"      "item_ultimate_scepter"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_octarine_core"
+            "item"      "item_bloodstone"
+            "item"      "item_ethereal_blade"
+            "item"      "item_cyclone"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_refresher_4"
+            "item"      "item_octarine_core_4"
+            "item"      "item_sheepstick_4"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_shivas_guard"
+            "item"      "item_dispel_orb_1"
+            "item"      "item_lotus_orb"
+            "item"      "item_black_king_bar_1"
+            "item"      "item_hurricane_pike
+            "item"      "item_butterfly"
+            "item"      "item_skadi"
+            "item"      "item_satanic"
+            "item"      "item_greater_crit"
+        }
+    }
+}
