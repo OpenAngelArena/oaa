@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Spirit Bear Damage
+  // Bonus Spirit Bear Damage - unused
   //=================================================================================================================
   "special_bonus_unique_lone_druid_1"
   {
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"10"
+        "value"				"10" //OAA
       }
     }
   }
@@ -87,7 +87,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"12"
+        "value"				"10"
       }
     }
   }
@@ -156,7 +156,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"1000"
+        "value"				"800"
       }
     }
   }
@@ -179,7 +179,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"40"
+        "value"				"40" //OAA
       }
     }
   }
@@ -225,7 +225,7 @@
       "01"
       {
         "var_type"					"FIELD_FLOAT"
-        "value"             "-0.2"
+        "value"             "-0.2" //OAA
       }
     }
   }
@@ -248,7 +248,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"30"
+        "value"				"30" //OAA
       }
     }
   }

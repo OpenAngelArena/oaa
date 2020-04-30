@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Ability: Special Bonus
+	// Bonus Insatiable Hunger Damage/Lifesteal
 	//=================================================================================================================
 	"special_bonus_unique_broodmother_1"
 	{
@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"60"
+				"value"				"50"
 			}
 		}
 	}
@@ -41,7 +41,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "900"  // OAA
+				"value"           "850"  //OAA
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "175"  // OAA
+				"value"           "200"  //OAA
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"        "FIELD_INTEGER"
-				"value"           "100"  // OAA
+				"value"           "75"  //OAA
 			}
 		}
 	}

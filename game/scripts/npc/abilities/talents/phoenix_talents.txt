@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"80" //OAA
+				"value"				"70" //OAA
 			}
 		}
 	}
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				"1400"
+				"value"				"1100"
 			}
 			"02"
 			{
@@ -115,8 +115,54 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"2"
+				"value"				"1.5"
 			}
 		}
 	}
+
+  //=================================================================================================================
+  // Bonus Icarus Dive Slow
+  //=================================================================================================================
+  "special_bonus_unique_phoenix_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"406"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"-14"
+      }
+    }
+  }
+
+  //=================================================================================================================
+  // Sun Ray During Supernova
+  //=================================================================================================================
+  "special_bonus_unique_phoenix_7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"426"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"0"
+      }
+    }
+  }
 }

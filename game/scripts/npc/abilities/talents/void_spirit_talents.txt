@@ -17,8 +17,8 @@
     {
       "01"
       {
-        "var_type"				"FIELD_INTEGER"
-        "value"					"-7" // (Astral Step Charge Restore Time)
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "-5.5" // (Astral Step Charge Restore Time)
       }
     }
   }
@@ -87,13 +87,13 @@
       "01"
       {
         "var_type"				"FIELD_INTEGER"
-        "value"					"100"
+        "value"					"100" //OAA
       }
     }
   }
 
   //=================================================================================================================
-  // Larger Dissimilate Portals
+  // Larger Dissimilate Portals - unused
   //=================================================================================================================
   "special_bonus_unique_void_spirit_5"
   {
@@ -116,7 +116,7 @@
   }
 
   //=================================================================================================================
-  // Astral Step Invis
+  // Astral Step Invis - unused
   //=================================================================================================================
   "special_bonus_unique_void_spirit_6"
   {
@@ -156,7 +156,7 @@
       "01"
       {
         "var_type"				"FIELD_INTEGER"
-        "value"					"600"
+        "value"					"475"
       }
     }
   }
@@ -179,13 +179,13 @@
       "01"
       {
         "var_type"				"FIELD_INTEGER"
-        "value"					"200" // (Astral Step Crit)
+        "value"					"160" // (Astral Step Crit)
       }
     }
   }
 
   //=================================================================================================================
-  // Bonus Astral Step Charges
+  // Bonus Astral Step Charges - unused
   //=================================================================================================================
   "special_bonus_unique_void_spirit_9"
   {

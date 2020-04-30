@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
+  //=================================================================================================================
 	// Battery Assasult Interval
 	//=================================================================================================================
 	"special_bonus_unique_clockwerk"
@@ -10,7 +10,7 @@
 		"ID"					"5977"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -18,14 +18,14 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"value"				"-0.3"
+				"value"				"-0.25"
 			}
 		}
 	}
 
 
 	//=================================================================================================================
-	// Rocket Flair Damage
+	// Rocket Flare Damage
 	//=================================================================================================================
 	"special_bonus_unique_clockwerk_2"
 	{
@@ -34,7 +34,7 @@
 		"ID"					"6364"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -58,7 +58,7 @@
 		"ID"					"6512"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -82,7 +82,7 @@
 		"ID"					"7028"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"

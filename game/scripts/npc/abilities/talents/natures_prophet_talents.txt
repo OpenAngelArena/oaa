@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Health to Primal Split Units
+  // Treant HP/Damage multiplier
   //=================================================================================================================
-  "special_bonus_unique_brewmaster"
+  "special_bonus_unique_furion"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6082"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6084"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,20 +17,20 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "2000" //OAA
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2" //OAA
       }
     }
   }
 
   //=================================================================================================================
-  // Decreases Primal Split Cooldown
+  // Bonus Treants Summoned
   //=================================================================================================================
-  "special_bonus_unique_brewmaster_2"
+  "special_bonus_unique_furion_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6359"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6500"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -40,20 +40,20 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "85" //OAA
+        "var_type"					"FIELD_INTEGER"
+        "value"				"3"
       }
     }
   }
 
   //=================================================================================================================
-  // Bonus Thunder Clap Slow duration
+  // Removed Teleportation Cooldown
   //=================================================================================================================
-  "special_bonus_unique_brewmaster_3"
+  "special_bonus_unique_furion_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6516"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6539"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -63,20 +63,20 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "2.5"
+        "var_type"					"FIELD_INTEGER"
+        "value"				"1"
       }
     }
   }
 
   //=================================================================================================================
-  // Bonus Drunken Brawler Critical Strike Damage
+  // Decreases Sprout Cooldown
   //=================================================================================================================
-  "special_bonus_unique_brewmaster_4"
+  "special_bonus_unique_furion_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6614"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6702"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -86,8 +86,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "120" //OAA
+        "var_type"					"FIELD_INTEGER"
+        "value"				"4"
       }
     }
   }
