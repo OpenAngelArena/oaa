@@ -1,0 +1,66 @@
+"itembuilds"
+{
+  "author"      "Valve"
+  "hero"        "npc_dota_hero_axe"
+  "Title"       "Recommended items for Axe"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"    "item_flask"
+      "item"    "item_flask"
+      "item"    "item_ring_of_protection"
+    }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"    "item_phase_boots"
+      "item"    "item_magic_wand"
+      "item"    "item_bracer"
+      "item"    "item_vanguard"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"    "item_blink"
+      "item"    "item_heart"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_blade_mail"
+      "item"    "item_black_king_bar_1"
+      "item"    "item_crimson_guard"
+      "item"    "item_guardian_greaves"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_pull_staff"
+      "item"    "item_silver_edge"                  // Situational
+      "item"    "item_lotus_orb"                    // Situational
+      "item"    "item_pipe"                         // Aura/Situational
+      "item"    "item_vladmir"                      // Aura/Situational
+      "item"    "item_lucience"                     // Aura/Situational
+      "item"    "item_regen_crystal_1"
+      "item"    "item_reduction_orb_3"
+      "item"    "item_stoneskin"
+      "item"    "item_bubble_orb_1"
+      "item"    "item_ultimate_scepter"             // Situational
+      "item"    "item_heavens_halberd"              // Situational
+      "item"    "item_octarine_core"                // Situational
+      "item"    "item_refresher_4"                  // Situational
+      "item"    "item_mjollnir"                     // Rightclick
+      "item"    "item_abyssal_blade_3"              // Rightclick
+      "item"    "item_satanic"                      // Rightclick
+      "item"    "item_armlet"                       // Rightclick
+      "item"    "item_assault"                      // Rightclick
+      "item"    "item_manta"                        // Rightclick
+      "item"    "item_sheepstick_4"
+      "item"    "item_martyrs_mail_4"
+      "item"    "item_dagon_5"                      // Meme
+      "item"    "item_meteor_hammer_2"              // Meme
+    }
+  }
+}

@@ -1,0 +1,44 @@
+"itembuilds"
+{
+    "author"        "Valve"
+    "hero"          "npc_dota_hero_huskar"
+    "Title"         "Recommended items for Huskar"
+
+    "items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_bracer"
+            "item"      "item_flask"
+            "item"      "item_flask"
+            "item"      "item_mango"
+        }
+
+        "#DOTA_Item_Build_Early_Game"
+        {
+            "item"      "item_power_treads"
+            "item"      "item_armlet"
+        }
+
+        "#DOTA_Item_Build_Mid_Items"
+        {
+            "item"      "item_heavens_halberd"
+            "item"      "item_satanic"
+            "item"      "item_black_king_bar_1"
+        }
+
+        "#DOTA_Item_Build_Late_Items"
+        {
+            "item"      "item_assault"
+            "item"      "item_ultimate_scepter"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"      "item_monkey_king_bar"
+            "item"      "item_solar_crest"
+            "item"      "item_trumps_fists"
+            "item"      "item_skadi"
+        }
+    }
+}
