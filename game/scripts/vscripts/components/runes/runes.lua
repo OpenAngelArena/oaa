@@ -2,14 +2,16 @@
 Runes = Runes or {}
 
 function Runes:Init()
-  Debug.EnableDebugging()
-  DebugPrint('Init runes module')
+  --Debug.EnableDebugging()
+  --DebugPrint('Init runes module')
 
   -- Check every 0.5 second if there is a rune spawned before the first duel, if yes remove it
   Timers:CreateTimer(function()
-    if HudTimer:GetGameTime() < -1 then
-      self:RemoveAllRunes()
-      return 0.5
+    if HudTimer and HudTimer:GetGameTime() then
+      if HudTimer:GetGameTime() < -1 then
+        Runes:RemoveAllRunes()
+        return 0.5
+      end
     end
   end)
 
