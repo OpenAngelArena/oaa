@@ -12,6 +12,8 @@ function Runes:Init()
         Runes:RemoveAllRunes()
         return 0.5
       end
+    else
+      return 0.5
     end
   end)
 
@@ -29,6 +31,8 @@ end
 function Runes:RemoveAllRunes()
   local all_runes = Entities:FindAllByClassname("dota_item_rune")
   for _,rune in pairs(all_runes) do
-    UTIL_Remove(rune)
+    if rune and not rune:IsNull() then
+      UTIL_Remove(rune)
+    end
   end
 end

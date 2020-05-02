@@ -85,7 +85,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_black_king_bar_oaa:GetModifierBonusStats_Strength( event )
-	return self.str or or self:GetAbility():GetSpecialValueFor("bonus_strength")
+	return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 --------------------------------------------------------------------------------
