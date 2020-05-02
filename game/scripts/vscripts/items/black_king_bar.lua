@@ -49,18 +49,20 @@ end
 
 function modifier_item_black_king_bar_oaa:OnCreated( event )
 	local spell = self:GetAbility()
-
-	self.str = spell:GetSpecialValueFor( "bonus_strength" )
-	self.damage = spell:GetSpecialValueFor( "bonus_damage" )
+  if spell and not spell:IsNull() then
+	  self.str = spell:GetSpecialValueFor( "bonus_strength" )
+	  self.damage = spell:GetSpecialValueFor( "bonus_damage" )
+  end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_item_black_king_bar_oaa:OnRefresh( event )
 	local spell = self:GetAbility()
-
-	self.str = spell:GetSpecialValueFor( "bonus_strength" )
-	self.damage = spell:GetSpecialValueFor( "bonus_damage" )
+  if spell and not spell:IsNull() then
+	  self.str = spell:GetSpecialValueFor( "bonus_strength" )
+	  self.damage = spell:GetSpecialValueFor( "bonus_damage" )
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -77,13 +79,13 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_black_king_bar_oaa:GetModifierPreAttack_BonusDamage( event )
-	return self.damage
+	return self.damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_item_black_king_bar_oaa:GetModifierBonusStats_Strength( event )
-	return self.str
+	return self.str or or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 --------------------------------------------------------------------------------
