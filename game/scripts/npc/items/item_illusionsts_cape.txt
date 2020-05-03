@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Illusionist Cape
   //=================================================================================================================
-  "item_recipe_illusionsts_cape"
+  "item_recipe_illusionists_cape_1"
   {
     "ID"                                                  "8511"    // unique ID
     "BaseClass"                                           "item_datadriven"
@@ -12,7 +12,7 @@
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_illusionsts_cape"
+    "ItemResult"                                          "item_illusionists_cape_1"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
@@ -23,11 +23,12 @@
   //=================================================================================================================
   // Illusionist Cape
   //=================================================================================================================
-  "item_illusionsts_cape"
+  "item_illusionists_cape_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "363" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8567" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_illusionsts_cape"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     // Stats
