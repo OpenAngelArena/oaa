@@ -91,4 +91,28 @@
       }
     }
   }
+
+
+  //=================================================================================================================
+  // Wrath of Nature Base Damage Increase
+  //=================================================================================================================
+  "special_bonus_unique_furion_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"          "470"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "value"       "15"
+      }
+    }
+  }
 }
