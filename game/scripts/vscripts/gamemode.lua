@@ -58,7 +58,7 @@ require('libraries/cfinder')
 -- Library for handling buildings (OAA custom or DOTA original)
 require('libraries/buildings')
 -- Vector Targetting library
-require('libraries/vector_targeting')
+--require('libraries/vector_targeting')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
