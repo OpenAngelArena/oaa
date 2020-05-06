@@ -109,9 +109,4 @@ GameEvents:OnEntityFatalDamage(function (keys)
   local newGoldBountyMax = oldGoldBountyMax * creepBountyMultiplier
   killedUnit:SetMinimumGoldBounty(newGoldBountyMin)
   killedUnit:SetMaximumGoldBounty(newGoldBountyMax)
-
-  -- PlayerResource:ModifyGold(playerID, goldBounty, false, DOTA_ModifyGold_CreepKill)
-  -- if player then
-  --   SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, killedUnit, goldBounty, player)
-  -- end
 end)

@@ -57,7 +57,7 @@ function item_hand_of_midas_1:OnSpellStart()
   end
 
   -- Giving only bonus gold as reliable gold to the player that used Hand of Midas
-  PlayerResource:ModifyGold(playerID, bonusGold, true, DOTA_ModifyGold_CreepKill)
+  Gold:ModifyGold(playerID, bonusGold, true, DOTA_ModifyGold_CreepKill)
 
   --target:SetDeathXP(0)           -- setting this to 0 will mess up OAA Mud Golems
   --target:SetMinimumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems

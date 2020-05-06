@@ -24,8 +24,15 @@ function modifier_frostburn_oaa_applier:IsPurgable()
 end
 
 function modifier_frostburn_oaa_applier:OnCreated()
-  self.heal_prevent_duration = self:GetAbility():GetSpecialValueFor("heal_prevent_duration")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.heal_prevent_duration = ability:GetSpecialValueFor("heal_prevent_duration")
+  else
+    self.heal_prevent_duration = 5
+  end
 end
+
+modifier_frostburn_oaa_applier.OnRefresh = modifier_frostburn_oaa_applier.OnCreated
 
 function modifier_frostburn_oaa_applier:DeclareFunctions()
   local funcs = {
@@ -38,6 +45,10 @@ function modifier_frostburn_oaa_applier:OnAttackLanded(event)
   if IsServer() then
     local attacker = event.attacker
     local target = event.target
+    local parent = self:GetParent()
+    if not parent or parent:IsNull() then
+      return
+    end
     if attacker == self:GetParent() and not attacker:IsIllusion() and not attacker:PassivesDisabled() and not target:IsMagicImmune() then
       local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
       target:AddNewModifier(attacker, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = debuff_duration})
@@ -58,7 +69,7 @@ function modifier_frostburn_oaa_effect:IsDebuff()
 end
 
 function modifier_frostburn_oaa_effect:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_frostburn_oaa_effect:OnCreated()

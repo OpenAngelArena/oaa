@@ -2,13 +2,17 @@
 Runes = Runes or {}
 
 function Runes:Init()
-  Debug.EnableDebugging()
-  DebugPrint('Init runes module')
+  --Debug.EnableDebugging()
+  --DebugPrint('Init runes module')
 
   -- Check every 0.5 second if there is a rune spawned before the first duel, if yes remove it
   Timers:CreateTimer(function()
-    if HudTimer:GetGameTime() < -1 then
-      self:RemoveAllRunes()
+    if HudTimer and HudTimer:GetGameTime() then
+      if HudTimer:GetGameTime() < -1 then
+        Runes:RemoveAllRunes()
+        return 0.5
+      end
+    else
       return 0.5
     end
   end)
@@ -27,6 +31,8 @@ end
 function Runes:RemoveAllRunes()
   local all_runes = Entities:FindAllByClassname("dota_item_rune")
   for _,rune in pairs(all_runes) do
-    UTIL_Remove(rune)
+    if rune and not rune:IsNull() then
+      UTIL_Remove(rune)
+    end
   end
 end

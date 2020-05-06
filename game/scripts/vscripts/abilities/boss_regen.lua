@@ -35,11 +35,11 @@ end
 
 function modifier_boss_regen:OnCreated( event )
 	local spell = self:GetAbility()
-
-	spell.paused = false
-	self:StartIntervalThink( spell:GetSpecialValueFor( "regen_interval" ) )
+  if spell and not spell:IsNull() then
+	  spell.paused = false
+	  self:StartIntervalThink( spell:GetSpecialValueFor( "regen_interval" ) )
+  end
 end
-
 
 function modifier_boss_regen:OnRefresh( event )
 	self:OnCreated( event )
