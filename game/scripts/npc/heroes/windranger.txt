@@ -1,10 +1,10 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Dark Willow
+  // HERO: Windranger / Windrunner
   //=================================================================================================================
-  "npc_dota_hero_dark_willow"
+  "npc_dota_hero_windrunner"
   {
-    "Ability10"                                           "special_bonus_spell_lifesteal_10" // replaces special_bonus_intelligence_10"
+    "Ability10"                                           "special_bonus_attack_damage_20" // replaces special_bonus_mp_regen_150
   }
 }

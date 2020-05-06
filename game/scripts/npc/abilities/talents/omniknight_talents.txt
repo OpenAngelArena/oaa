@@ -114,4 +114,27 @@
       }
     }
   }
+
+  //=================================================================================================================
+  // Purification Cooldown Reduction
+  //=================================================================================================================
+  "special_bonus_unique_omniknight_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"          "472"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "value"       "2"
+      }
+    }
+  }
 }
