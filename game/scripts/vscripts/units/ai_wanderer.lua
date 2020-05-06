@@ -220,8 +220,8 @@ function WalkTowardsSpot (spot)
   })
 end
 
-local FIRST_MIN_X = 1600
-local FIRST_MIN_Y = 1900
+local FIRST_MIN_X = 600
+local FIRST_MIN_Y = 600
 
 function GetNextWanderLocation (startPosition)
   local maxY = FIRST_MIN_Y
@@ -230,8 +230,13 @@ function GetNextWanderLocation (startPosition)
   local minX = 0
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-  if scoreDiff < 10 then
+  if scoreDiff < 5 then
     isGoodLead = RandomInt(0, 1) == 0
+  end
+
+  if scoreDiff > 5 then
+    maxX = 1600
+    maxY = 1900
   end
   if scoreDiff > 10 then
     maxY = 4000
