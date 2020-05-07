@@ -497,9 +497,9 @@ function Duels:GetUnassignedPlayer (group, max)
   local attempts = 0
   while true do
     attempts = attempts + 1
-    if attempts == 100 then
+    if attempts > 50 then
       Debug:EnableDebugging()
-      DebugPrint('Failed to find player after 100 attempts!!!')
+      DebugPrint('Failed to find player after 50 attempts!!!')
       return nil
     end
     local playerIndex = RandomInt(1, max)

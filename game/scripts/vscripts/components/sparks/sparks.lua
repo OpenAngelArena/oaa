@@ -31,10 +31,16 @@ function Sparks:Init()
   CustomGameEventManager:RegisterListener('select_spark', partial(Sparks.OnSelectSpark, Sparks))
 
   GameEvents:OnHeroInGame(Sparks.SelectDefaultSpark)
+  GameEvents:OnGameInProgress(Sparks.SelectDefaultSpark)
+  Duels.onEnd(Sparks.SelectDefaultSpark)
 
   Timers:CreateTimer(1, function()
     return Sparks:DecreaseCooldowns()
   end)
+end
+
+function Sparks.EnsureHeroSparks ()
+  Sparks:CheckSparkOnHeroes()
 end
 
 function Sparks.SelectDefaultSpark (hero)
@@ -113,6 +119,12 @@ function Sparks:OnSelectSpark (eventId, keys)
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
 
   Sparks:CheckSparkOnHero(playerId)
+end
+
+function Sparks:CheckSparkOnHeroes ()
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+    Sparks:CheckSparkOnHero(playerId)
+  end)
 end
 
 function Sparks:CheckSparkOnHero (playerId)
