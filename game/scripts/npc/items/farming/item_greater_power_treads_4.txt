@@ -76,7 +76,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 15 25 40"
+        "bonus_damage"                                    "10 30 60 100"
       }
       "05"
       {
@@ -86,12 +86,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "10 12 14 16"
+        "bonus_magic_resistance"                          "12 14 16 18"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "9 12 15 18"
+        "bonus_spell_amp"                                 "8 12 16 20"
       }
     }
   }

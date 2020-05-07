@@ -9,7 +9,7 @@ LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_
 
 item_ward_stack = class(ItemBaseClass)
 
-Debug:EnableDebugging()
+--Debug:EnableDebugging()
 
 local WARD_TYPE_SENTRY = 1
 local WARD_TYPE_OBSERVER = 2
@@ -91,7 +91,7 @@ if IsServer() then
     self:Setup()
     local caster = self:GetCaster()
     local newVal = self.wardType % 2 + 1
-    DebugPrint('Toggling! ' .. self.wardType .. '->' .. newVal)
+    --DebugPrint('Toggling! ' .. self.wardType .. '->' .. newVal)
     if caster[wardTypeToString(newVal) .. 'Count'] == 0 then
       return
     end
@@ -178,14 +178,14 @@ function modifier_item_ward_stack_sentries:OnCreated (keys)
   self.wardStack = wardStack
   self.wasMaxed = false
 
-  if not IsServer() then
+  if not IsServer() or self:GetParent():IsIllusion() then
     return
   end
 
   self:StartIntervalThink(WARD_INTERVAL)
   self.wardStack[self:WardName() .. "IntervalCount"] = self.wardStack[self:WardName() .. "IntervalCount"] or 0
 
-  DebugPrint('Init ' .. self:WardName() .. ' with ' .. self:GetStackCount() .. '/' .. self.wardStack[self:WardName() .. "IntervalCount"])
+  --DebugPrint('Init ' .. self:WardName() .. ' with ' .. self:GetStackCount() .. '/' .. self.wardStack[self:WardName() .. "IntervalCount"])
 end
 
 function modifier_item_ward_stack_sentries:OnDestroy ()
@@ -276,7 +276,7 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
     return
   end
 
-  DebugPrint('Adding new charger!')
+  --DebugPrint('Adding new charger!')
   self.charger = caster:AddNewModifier(caster, ability, modifierCharger, { duration = self:GetIntervalCount() - self.wardStack[intervalCount] } )
 end
 
@@ -483,7 +483,11 @@ function modifier_item_ward_stack_aura:DeclareFunctions()
 end
 
 function modifier_item_ward_stack_aura:GetModifierConstantManaRegen()
-  return self:GetAbility():GetSpecialValueFor('aura_mana_regen')
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor('aura_mana_regen')
+  end
+  return 0
 end
 
 function modifier_item_ward_stack_aura:IsHidden()

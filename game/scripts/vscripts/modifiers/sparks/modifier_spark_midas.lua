@@ -133,7 +133,7 @@ if IsServer() then
       local bonus_xp = self.bonus_xp[spark_level]
 
       -- bonus gold
-      PlayerResource:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
+      Gold:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
       SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, player)
 
       -- bonus experience

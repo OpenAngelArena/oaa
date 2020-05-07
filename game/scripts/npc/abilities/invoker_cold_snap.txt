@@ -46,7 +46,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "freeze_duration"                                 "0.4"
+        "freeze_duration"                                 "0.35" //OAA
       }
       "03"
       {
@@ -57,7 +57,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "freeze_damage"                                   "8 16 24 32 40 48 56 64 72 84 98 114 140 190 265"
+        "freeze_damage"                                   "8 16 24 32 40 48 56 64 72 88 96 112 128 160 224"
         "levelkey"                                        "quaslevel"
       }
       "05"

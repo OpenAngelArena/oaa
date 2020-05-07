@@ -4,7 +4,7 @@ if HeroProgression == nil then
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   -- dota_player_gained_level:
   --"player_id"
   --"level"
@@ -196,20 +196,14 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
 end
 
 function HeroProgression:ProcessAbilityPointGain(hero, level)
-  DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
-  --[[
-  if not self:ShouldGetAnAbilityPoint(hero, level) then
-    DebugPrint('...taken it away! (had ' .. hero:GetAbilityPoints() .. ' ability points)')
-    hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
-  end
-  ]]
+  --DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
   --[[ -- ability points are not spent automatically on the talents at 30
   if level == 30 then
     hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
   end
   ]]
   if self:ShouldGetAnAbilityPoint(hero, level) and level > 25 then
-    DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
+    --DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
   end
 end

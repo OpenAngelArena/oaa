@@ -215,8 +215,15 @@ end
 modifier_boss_truesight = class(ModifierBaseClass)
 
 function modifier_boss_truesight:OnCreated()
-  self.maxRevealDist = self:GetAbility():GetSpecialValueFor("reveal_max_distance")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.maxRevealDist = ability:GetSpecialValueFor("reveal_max_distance")
+  else
+    self.maxRevealDist = 1500
+  end
 end
+
+modifier_boss_truesight.OnRefresh = modifier_boss_truesight.OnCreated
 
 if IsServer() then
   function modifier_boss_truesight:CheckState()

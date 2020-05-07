@@ -42,6 +42,7 @@ function modifier_item_dagger_of_moriah_sangromancy:OnCreated( event )
 
   self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
   self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
+  self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
 
   if IsServer() and self.nPreviewFX == nil then
     self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
@@ -64,6 +65,7 @@ function modifier_item_dagger_of_moriah_sangromancy:OnRefresh( event )
 
   self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
   self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
+  self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
 end
 
 function modifier_item_dagger_of_moriah_sangromancy:OnRemoved()
@@ -95,7 +97,7 @@ function modifier_item_dagger_of_moriah_sangromancy:GetModifierIncomingDamage_Pe
   if event.attacker == self:GetParent() then
     return 0
   else
-    return self.spellamp or spell:GetSpecialValueFor( "sangromancy_spell_amp" )
+    return self.bonusDamagefromOthers or spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
   end
 end
 

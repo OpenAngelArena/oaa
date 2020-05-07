@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Imp Claw
   //=================================================================================================================
-  "item_recipe_imp_claw"
+  "item_recipe_imp_claw_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_imp_claw"
+    "ItemResult"                                          "item_imp_claw_1"
 
     "ItemRequirements"
     {
@@ -33,11 +33,12 @@
   //=================================================================================================================
   // Imp Claw
   //=================================================================================================================
-  "item_imp_claw"
+  "item_imp_claw_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "334" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8568" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_imp_claw"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats

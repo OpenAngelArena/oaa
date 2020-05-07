@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Havoc Hammer
   //=================================================================================================================
-  "item_recipe_havoc_hammer"
+  "item_recipe_havoc_hammer_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_havoc_hammer"
+    "ItemResult"                                          "item_havoc_hammer_1"
     "ItemRequirements"
     {
       "01"                                                "item_heavens_halberd_3;item_upgrade_core_3"
@@ -31,11 +31,12 @@
   //=================================================================================================================
   // Havoc Hammer
   //=================================================================================================================
-  "item_havoc_hammer"
+  "item_havoc_hammer_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "364" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8566" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_havoc_hammer"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     // Stats
