@@ -485,29 +485,19 @@ function Duels:SpawnPlayersOnArenas(playerSplit, arenaIndex1, arenaIndex2)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
-  local options = 0
+  local options = {}
   for _,player in pairs(group) do
     if not player.assigned and player.assignable and _ <= max then
-      options = options + 1
+      table.insert(options, player)
     end
   end
-  if options < 1 then
+  if #options < 1 then
     return nil
   end
-  local attempts = 0
-  while true do
-    attempts = attempts + 1
-    if attempts > 50 then
-      Debug:EnableDebugging()
-      DebugPrint('Failed to find player after 50 attempts!!!')
-      return nil
-    end
-    local playerIndex = RandomInt(1, max)
-    if group[playerIndex].assignable and group[playerIndex].assigned == nil then
-      group[playerIndex].assigned = true
-      return group[playerIndex]
-    end
-  end
+
+  local playerIndex = RandomInt(1, #options)
+  options[playerIndex].assigned = true
+  return options[playerIndex]
 end
 
 function Duels:TimeoutDuel ()

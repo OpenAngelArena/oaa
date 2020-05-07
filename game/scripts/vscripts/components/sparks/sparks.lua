@@ -31,8 +31,8 @@ function Sparks:Init()
   CustomGameEventManager:RegisterListener('select_spark', partial(Sparks.OnSelectSpark, Sparks))
 
   GameEvents:OnHeroInGame(Sparks.SelectDefaultSpark)
-  GameEvents:OnGameInProgress(Sparks.SelectDefaultSpark)
-  Duels.onEnd(Sparks.SelectDefaultSpark)
+  GameEvents:OnGameInProgress(Sparks.EnsureHeroSparks)
+  Duels.onEnd(Sparks.EnsureHeroSparks)
 
   Timers:CreateTimer(1, function()
     return Sparks:DecreaseCooldowns()
@@ -55,7 +55,7 @@ function Sparks.SelectDefaultSpark (hero)
     return
   end
 
-  Sparks:OnSelectSpark(nil, {
+  Sparks:OnSelectSpark('asdf', {
     PlayerID = playerId,
     spark = 'gpm',
     skipCooldown = true
@@ -87,10 +87,6 @@ function Sparks:DecreaseCooldowns ()
 end
 
 function Sparks:OnSelectSpark (eventId, keys)
-  -- Debug:EnableDebugging()
-  DebugPrint(eventId)
-  DebugPrintTable(keys)
-
   local playerId = keys.PlayerID
   local player = PlayerResource:GetPlayer(playerId)
   local spark = keys.spark
@@ -123,6 +119,14 @@ end
 
 function Sparks:CheckSparkOnHeroes ()
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+    if not Sparks.data.hasSpark[playerId] then
+      Sparks:OnSelectSpark("asdf", {
+        PlayerID = playerId,
+        spark = 'gpm',
+        skipCooldown = true
+      })
+    end
+
     Sparks:CheckSparkOnHero(playerId)
   end)
 end
