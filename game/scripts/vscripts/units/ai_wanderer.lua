@@ -262,7 +262,7 @@ function GetNextWanderLocation (startPosition)
       nextPosition.x = 0 - nextPosition.x
     end
     isValidPosition = true
-    if (nextPosition - startPosition):Length2D() < 2000 then
+    if scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 2000 then
       isValidPosition = false
     elseif IsNearWell(nextPosition) then
       isValidPosition = false
