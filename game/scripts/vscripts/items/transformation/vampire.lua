@@ -140,7 +140,7 @@ function modifier_item_vampire_active:OnIntervalThink()
       attacker = parent,
       damage = damage,
       damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
       ability = spell,
     }
 
@@ -160,9 +160,10 @@ end
 
 function modifier_item_vampire_active:GetDisableHealing( kv )
   if IsServer() then
+    -- Don't disable healing during the night
     if not GameRules:IsDaytime() then
       return 0
-	end
+    end
     -- Check that event is being called for the unit that self is attached to
     if self.isVampHeal then
       return 0
@@ -216,8 +217,8 @@ function vampire:lifesteal(event, spell, parent, amount)
     local ufResult = UnitFilter(
       target,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
       parentTeam
     )
 
