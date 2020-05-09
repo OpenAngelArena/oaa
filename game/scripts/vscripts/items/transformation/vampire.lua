@@ -77,9 +77,7 @@ function modifier_item_vampire:OnTakeDamage( event )
     local parent = self:GetParent()
     local spell = self:GetAbility()
 
-    if not spell.mod then
-      vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
-    end
+    vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
   end
 end
 
