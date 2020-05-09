@@ -37,6 +37,7 @@ function modifier_item_vampire:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
@@ -61,6 +62,10 @@ end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
   return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+end
+
+function modifier_item_vampire:GetBonusNightVision()
+  return self:GetAbility():GetSpecialValueFor("bonus_night_vision")
 end
 
 -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
