@@ -46,18 +46,18 @@
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
 
-    "AbilityCooldown"                                     "8.0"
+    "AbilityCooldown"                                     "6.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17725" //OAA
+    "ItemCost"                                            "17725"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "imp claw;crit claw"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "ItemIsNeutralDrop"                                   "0" //OAA
-    "ItemPurchasable"                                     "1" //OAA
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
@@ -69,12 +69,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "300" //OAA
+        "crit_multiplier"                                 "400 450"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "200 280" //OAA
+        "bonus_damage"                                    "200 280"
       }
     }
   }
