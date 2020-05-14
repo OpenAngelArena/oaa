@@ -94,13 +94,17 @@ modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then
     self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
-    self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
-    self.health_fraction = 0
+    --self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+    --self.health_fraction = 0
   end
 end
 
 function modifier_item_trumps_fists_frostbite:IsDebuff()
   return true
+end
+
+function modifier_item_trumps_fists_frostbite:IsPurgable()
+  return false
 end
 
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
@@ -127,21 +131,24 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   end
 end
 ]]
+-- Deals damage every time a unit gains hp; damage is equal to percent of gained hp;
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then
     local unit = kv.unit
     local caster = self:GetCaster()
-    if unit == self:GetParent() and kv.gain > 0 and not unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
-      local healPercent = self.heal_prevent_percent / 100
-      local damage = kv.gain * healPercent
-      local damage_table = {
-        victim = unit,
-        attacker = self:GetCaster(),
-        damage = damage,
-        damage_type = DAMAGE_TYPE_PURE,
-        ability = self:GetAbility()
-      }
-      ApplyDamage(damage_table)
+    if unit == self:GetParent() and kv.gain and not unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
+      if kv.gain > 0 then
+        local heal_to_damage = self.heal_prevent_percent / 100
+        local damage = kv.gain * heal_to_damage
+        local damage_table = {
+          victim = unit,
+          attacker = caster,
+          damage = damage,
+          damage_type = DAMAGE_TYPE_PURE,
+          ability = self:GetAbility()
+        }
+        ApplyDamage(damage_table)
+      end
     end
   end
 end
