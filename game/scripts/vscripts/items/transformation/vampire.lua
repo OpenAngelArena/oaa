@@ -37,6 +37,7 @@ function modifier_item_vampire:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
@@ -63,6 +64,10 @@ function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
   return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
+function modifier_item_vampire:GetBonusNightVision()
+  return self:GetAbility():GetSpecialValueFor("bonus_night_vision")
+end
+
 -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
 function modifier_item_vampire:OnAttackLanded(event)
   local parent = self:GetParent()
@@ -77,9 +82,7 @@ function modifier_item_vampire:OnTakeDamage( event )
     local parent = self:GetParent()
     local spell = self:GetAbility()
 
-    if not spell.mod then
-      vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
-    end
+    vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
   end
 end
 
@@ -140,7 +143,7 @@ function modifier_item_vampire_active:OnIntervalThink()
       attacker = parent,
       damage = damage,
       damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
       ability = spell,
     }
 
@@ -160,9 +163,10 @@ end
 
 function modifier_item_vampire_active:GetDisableHealing( kv )
   if IsServer() then
+    -- Don't disable healing during the night
     if not GameRules:IsDaytime() then
       return 0
-	end
+    end
     -- Check that event is being called for the unit that self is attached to
     if self.isVampHeal then
       return 0
@@ -216,8 +220,8 @@ function vampire:lifesteal(event, spell, parent, amount)
     local ufResult = UnitFilter(
       target,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
       parentTeam
     )
 
