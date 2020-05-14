@@ -45,9 +45,9 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15550" //OAA
-    "ItemIsNeutralDrop"                                   "0" //OAA
-    "ItemPurchasable"                                     "1" //OAA
+    "ItemCost"                                            "15550"
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
     "ItemShopTags"                                        "str;damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -66,12 +66,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "65 105" //OAA
+        "bonus_damage"                                    "105 155"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "80 120" //OAA
+        "bonus_strength"                                  "80 120"
       }
       "03"
       {
@@ -106,7 +106,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "nuke_base_dmg"                                   "225 375"
+        "nuke_base_dmg"                                   "550 650"
       }
       "10"
       {
