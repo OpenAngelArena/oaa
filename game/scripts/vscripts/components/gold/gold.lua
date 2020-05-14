@@ -176,7 +176,7 @@ function Gold.HeroSpawn(hero)
   if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
     return
   end
-  if self.hasPassiveGPM[hero] then
+  if Gold.hasPassiveGPM[hero] then
     return
   end
   if hero:IsTempestDouble() or hero:IsClone() then
