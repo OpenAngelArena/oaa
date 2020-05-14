@@ -68,7 +68,7 @@ function SaveLoadState:GetPlayerList ()
     dire = {}
   }
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local hero = PlayerResource:GetSelectedHeroName(playerID)
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 

@@ -58,7 +58,7 @@ function Bottlepass:SendWinner (winner)
   local abandonedPlayers = {}
 
   local playerBySteamid = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     local player = PlayerResource:GetPlayer(playerID)
     playerBySteamid[tostring(steamid)] = playerID
@@ -122,7 +122,7 @@ function Bottlepass:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
   local radiant = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     if steamid ~= 0 then
       steamid = tostring(steamid)
@@ -144,7 +144,7 @@ end
 function Bottlepass:Ready ()
   local userList = {}
   local hostId = 0
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
     if steamid ~= 0 then
       table.insert(userList, steamid)

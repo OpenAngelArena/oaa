@@ -276,47 +276,49 @@ function Duels:SplitDuelPlayers(options)
   local goodPlayers = {}
   local badPlayers = {}
 
-  for playerId = 0,19 do
-    local player = PlayerResource:GetPlayer(playerId)
-    if player ~= nil then
-      if player:GetAssignedHero() then
-        if player:GetTeam() == DOTA_TEAM_BADGUYS then
-          badPlayers[badPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
-          badPlayers[badPlayerIndex].id = playerId
-          -- used to generate keynames like badEnd1
-          -- not used in dota apis
-          badPlayers[badPlayerIndex].team = 'bad'
-          badPlayerIndex = badPlayerIndex + 1
-          validBadPlayerIndex = validBadPlayerIndex + 1
+  for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    if PlayerResource:IsValidPlayerID(playerId) then
+      local player = PlayerResource:GetPlayer(playerId)
+      if player ~= nil and not player:IsNull() then
+        if player:GetAssignedHero() then
+          if player:GetTeam() == DOTA_TEAM_BADGUYS then
+            badPlayers[badPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
+            badPlayers[badPlayerIndex].id = playerId
+            -- used to generate keynames like badEnd1
+            -- not used in dota apis
+            badPlayers[badPlayerIndex].team = 'bad'
+            badPlayerIndex = badPlayerIndex + 1
+            validBadPlayerIndex = validBadPlayerIndex + 1
 
-        elseif player:GetTeam() == DOTA_TEAM_GOODGUYS then
-          goodPlayers[goodPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
-          goodPlayers[goodPlayerIndex].id = playerId
-          goodPlayers[goodPlayerIndex].team = 'good'
-          goodPlayerIndex = goodPlayerIndex + 1
-          validGoodPlayerIndex = validGoodPlayerIndex + 1
+          elseif player:GetTeam() == DOTA_TEAM_GOODGUYS then
+            goodPlayers[goodPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
+            goodPlayers[goodPlayerIndex].id = playerId
+            goodPlayers[goodPlayerIndex].team = 'good'
+            goodPlayerIndex = goodPlayerIndex + 1
+            validGoodPlayerIndex = validGoodPlayerIndex + 1
+          end
+
+          HeroState.ResetState(player:GetAssignedHero())
         end
-
-        HeroState.ResetState(player:GetAssignedHero())
-      end
-    else
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-      local function CreateDisonnectedPlayer ()
-        return {
-          assignable = false
-        }
-      end
-      if hero ~= nil then
-        if PlayerResource:GetTeam(playerId) == DOTA_TEAM_BADGUYS then
-          badPlayers[badPlayerIndex] = CreateDisonnectedPlayer()
-          badPlayers[badPlayerIndex].id = playerId
-          badPlayers[badPlayerIndex].team = 'bad'
-          badPlayerIndex = badPlayerIndex + 1
-        elseif PlayerResource:GetTeam(playerId) == DOTA_TEAM_GOODGUYS then
-          goodPlayers[goodPlayerIndex] = CreateDisonnectedPlayer()
-          goodPlayers[goodPlayerIndex].id = playerId
-          goodPlayers[goodPlayerIndex].team = 'good'
-          goodPlayerIndex = goodPlayerIndex + 1
+      else
+        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+        local function CreateDisonnectedPlayer ()
+          return {
+            assignable = false
+          }
+        end
+        if hero ~= nil then
+          if PlayerResource:GetTeam(playerId) == DOTA_TEAM_BADGUYS then
+            badPlayers[badPlayerIndex] = CreateDisonnectedPlayer()
+            badPlayers[badPlayerIndex].id = playerId
+            badPlayers[badPlayerIndex].team = 'bad'
+            badPlayerIndex = badPlayerIndex + 1
+          elseif PlayerResource:GetTeam(playerId) == DOTA_TEAM_GOODGUYS then
+            goodPlayers[goodPlayerIndex] = CreateDisonnectedPlayer()
+            goodPlayers[goodPlayerIndex].id = playerId
+            goodPlayers[goodPlayerIndex].team = 'good'
+            goodPlayerIndex = goodPlayerIndex + 1
+          end
         end
       end
     end

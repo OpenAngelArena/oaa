@@ -3,7 +3,7 @@ SaveLoadStateHero = SaveLoadStateHero or class({})
 function SaveLoadStateHero:GetState ()
   local state = {}
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
@@ -35,7 +35,7 @@ function SaveLoadStateHero:GetState ()
 end
 
 function SaveLoadStateHero:LoadState (state)
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 

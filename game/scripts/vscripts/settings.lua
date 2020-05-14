@@ -83,11 +83,11 @@ SPARK_LEVEL_4_TIME = 1500               -- 25 minutes
 SPARK_LEVEL_5_TIME = 2100               -- 35 minutes
 
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 600       -- how long after the clock hits 0 should the initial Capture Point start counting down
+INITIAL_CAPTURE_POINT_DELAY = 660       -- how long after the clock hits 0 should the initial Capture Point start counting down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
-CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
+CAPTURE_INTERVAL = 480                  -- time from CapturePoint beginning until next CapturePoint begins
 CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
 
 -- Bosses
