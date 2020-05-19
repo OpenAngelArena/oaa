@@ -57,8 +57,8 @@ require('libraries/gamerules')
 require('libraries/cfinder')
 -- Library for handling buildings (OAA custom or DOTA original)
 require('libraries/buildings')
--- Vector Targetting library
-require('libraries/vector_targeting')
+-- Vector Targeting library (requires VectorTarget module and vector_targeting.js)
+--require('libraries/vector_targeting')
 
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
@@ -240,7 +240,7 @@ function GameMode:InitGameMode()
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
-  InitModule(VectorTarget)
+  --InitModule(VectorTarget)
 
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
