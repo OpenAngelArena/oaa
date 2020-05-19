@@ -30,45 +30,46 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge:OnSpellStart()
-	if IsServer() then
-		ParticleManager:DestroyParticle( self.nPreviewFX, true )
-		self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
+  if IsServer() then
+    local caster = self:GetCaster()
+    ParticleManager:DestroyParticle( self.nPreviewFX, true )
+    caster:RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
 
-		self.lunge_speed = self:GetSpecialValueFor( "lunge_speed" )
-		self.lunge_width = self:GetSpecialValueFor( "lunge_width" )
-		self.lunge_distance = self:GetSpecialValueFor( "lunge_distance" )
-		self.lunge_damage = self:GetSpecialValueFor( "lunge_damage" )
+    self.lunge_speed = self:GetSpecialValueFor( "lunge_speed" )
+    self.lunge_width = self:GetSpecialValueFor( "lunge_width" )
+    self.lunge_distance = self:GetSpecialValueFor( "lunge_distance" )
+    self.lunge_damage = self:GetSpecialValueFor( "lunge_damage" )
 
-		local vPos = nil
-		if self:GetCursorTarget() then
-			vPos = self:GetCursorTarget():GetOrigin()
-		else
-			vPos = self:GetCursorPosition()
-		end
+    local vPos = nil
+    if self:GetCursorTarget() then
+      vPos = self:GetCursorTarget():GetOrigin()
+    else
+      vPos = self:GetCursorPosition()
+    end
 
-		local vDirection = vPos - self:GetCaster():GetOrigin()
-		vDirection.z = 0.0
-		vDirection = vDirection:Normalized()
+    local vDirection = vPos - caster:GetOrigin()
+    vDirection.z = 0.0
+    vDirection = vDirection:Normalized()
 
-		self.vProjectileLocation = self:GetCaster():GetOrigin() -- + ( vDirection * 100 )
+    self.vProjectileLocation = caster:GetOrigin() -- + ( vDirection * 100 )
 
-		local info = {
-			EffectName = "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf",
-			Ability = self,
-			vSpawnOrigin = self.vProjectileLocation,
-			fStartRadius = self.lunge_width,
-			fEndRadius = self.lunge_width,
-			vVelocity = vDirection * self.lunge_speed,
-			fDistance = self.lunge_distance,
-			Source = self:GetCaster(),
-			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
-		}
+    local info = {
+      EffectName = "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf",
+      Ability = self,
+      vSpawnOrigin = self.vProjectileLocation,
+      fStartRadius = self.lunge_width,
+      fEndRadius = self.lunge_width,
+      vVelocity = vDirection * self.lunge_speed,
+      fDistance = self.lunge_distance,
+      Source = caster,
+      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+      iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_BUILDING),
+    }
 
-		ProjectileManager:CreateLinearProjectile( info )
+    ProjectileManager:CreateLinearProjectile( info )
 
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_claw_lunge", {} )
-	end
+    caster:AddNewModifier( caster, self, "modifier_lycan_boss_claw_lunge", {} )
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -76,7 +77,7 @@ end
 function lycan_boss_claw_lunge:OnProjectileHit( hTarget, vLocation )
 	if IsServer() then
 		if hTarget ~= nil then
-			if hTarget:IsInvulnerable() == false then
+			if not hTarget:IsInvulnerable() then
 				local damageInfo =
 				{
 					victim = hTarget,
