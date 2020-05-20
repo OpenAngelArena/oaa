@@ -105,10 +105,6 @@ function checkKVData (t, name, data, isItem, cb) {
   t.test(name, function (t) {
     var root = data;
     var foundRoot = false;
-    if (root.DOTAItems) {
-      root = root.DOTAItems;
-      foundRoot = true;
-    }
     if (root.DOTAAbilities) {
       root = root.DOTAAbilities;
       foundRoot = true;
@@ -116,7 +112,7 @@ function checkKVData (t, name, data, isItem, cb) {
     if (!foundRoot) {
       console.log(root);
     }
-    t.ok(foundRoot, 'Starts with either DOTAItems or DOTAAbilities');
+    t.ok(foundRoot, 'Starts with DOTAAbilities');
 
     var keys = Object.keys(root).filter(a => a !== 'values');
     var done = after(keys.length, function (err) {
@@ -434,9 +430,9 @@ function buildItemTree (t, data, cb) {
   var allRecipeNames = [];
   t.test('item upgrade paths', function (t) {
     Object.keys(data).forEach(function (fileName) {
-      var entry = data[fileName].DOTAItems;
+      var entry = data[fileName].DOTAAbilities;
       if (!entry) {
-        t.fail('Could not find the DOTAItems entry for ' + fileName);
+        t.fail('Could not find the DOTAAbilities entry for ' + fileName);
         return;
       }
       var itemNames = Object.keys(entry).filter(a => a !== 'values');
