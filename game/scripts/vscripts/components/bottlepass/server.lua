@@ -5,7 +5,7 @@ Bottlepass = Bottlepass or class({})
 GameStartTime = GameStartTime or (GetSystemDate() .. GetSystemTime())
 
 BATTLE_PASS_SERVER = 'http://chrisinajar.com:6969/'
-AUTH_KEY = GetDedicatedServerKey('1')
+AUTH_KEY = GetDedicatedServerKeyV2('1')
 
 if IsInToolsMode() then
   -- test server
