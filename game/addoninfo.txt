@@ -35,10 +35,11 @@
 	CheckAFKPlayers = false
 	DefaultMap = "oaa"
 	Default_Keys = [  ]
-	DisableIK = false
+	DisableIK = true
 	EventGame = false
 	hero_picker = 
 	{
+		background_map = "backgrounds/dashboard_parallax_frostivus_2017"
 	}
 	HeroGuidesSupported = true
 	ForceDefaultGuide = true
