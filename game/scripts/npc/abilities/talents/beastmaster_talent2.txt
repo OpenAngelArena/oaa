@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Brain Sap Damage/Heal
+  // Bonus Boar Damage talent
   //=================================================================================================================
-  "special_bonus_unique_bane_2"
+  "special_bonus_unique_beastmaster_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6069"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6517"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +18,8 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"500" //OAA
-        "ad_linked_ability"			"bane_brain_sap"
+        "value"				"70" //OAA
+        "ad_linked_ability"			"beastmaster_call_of_the_wild_boar"
       }
     }
   }

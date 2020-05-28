@@ -1,107 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Blink Cooldown talent
-	//=================================================================================================================
-	"special_bonus_unique_antimage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                  "6012"
-		"AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"        "FIELD_FLOAT"
-				"value"           "2.0"
-			}
-		}
-	}
-
-  //=================================================================================================================
-	// Mana Void Cooldown
-	//=================================================================================================================
-	"special_bonus_unique_antimage_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6353"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"45"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Blink Cast Range
-	//=================================================================================================================
-	"special_bonus_unique_antimage_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6606"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"325"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Counterspell Magic Resistance
-	//=================================================================================================================
-	"special_bonus_unique_antimage_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6607"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"20"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Blink Uncontrollable Illusion
 	//=================================================================================================================
 	"special_bonus_unique_antimage_5"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6800"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ID"                                                  "6800" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -109,18 +17,21 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"outgoing_damage"			"-75" //OAA
+				"var_type"                                        "FIELD_INTEGER"
+				"outgoing_damage"                                 "-75" //OAA
+        "ad_linked_ability"                               "antimage_blink"
 			}
 			"02"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"incoming_damage"			"250"
+				"var_type"                                        "FIELD_INTEGER"
+				"incoming_damage"                                 "250"
+        "ad_linked_ability"                               "antimage_blink"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_duration"			"10"
+				"var_type"                                        "FIELD_INTEGER"
+				"illusion_duration"                               "10"
+        "ad_linked_ability"                               "antimage_blink"
 			}
 		}
 	}
