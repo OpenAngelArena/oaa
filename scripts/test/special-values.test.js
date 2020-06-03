@@ -104,7 +104,7 @@ test('KV Values', function (t) {
       if (idsFound[iter] !== undefined) {
         for (j = 1; j < 153; j++) {
           idToCheck = iter - 65535 * j;
-          if (idToCheck > 0 && idsFound[idToCheck] !== undefined && usedIDs[idToCheck] !== undefined) {
+          if (idToCheck > 0 && idsFound[idToCheck] !== undefined) {
             console.log('ID: ' + iter, idsFound[iter]);
             console.log('is in a potential conflict with: ' + idToCheck, idsFound[idToCheck]);
           }
@@ -122,7 +122,7 @@ test('KV Values', function (t) {
             if (idToCheck < 0) {
               console.log('potentially negative ID: ' + iter, idsFound[iter]);
             }
-            if (idToCheck > 0 && idsFound[idToCheck] !== undefined && usedIDs[idToCheck] !== undefined) {
+            if (idToCheck > 0 && idsFound[idToCheck] !== undefined) {
               console.log('ID: ' + iter, idsFound[iter]);
               console.log('is in potential conflict with: ' + idToCheck, idsFound[idToCheck]);
             }
