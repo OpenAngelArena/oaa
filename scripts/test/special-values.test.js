@@ -420,7 +420,8 @@ var keyWhiteList = [
   'CalculateSpellDamageTooltip',
   'levelkey',
   'RequiresScepter',
-  'ad_linked_ability'
+  'ad_linked_ability',
+  'linked_ad_abilities'
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
   return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);
