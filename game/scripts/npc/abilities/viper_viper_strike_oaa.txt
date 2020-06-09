@@ -99,30 +99,4 @@
       }
     }
   }
-
-  // maybe this shouldn't go here?
-  // but then again where else would it
-  //=================================================================================================================
-  // Ability: Special Bonus
-  //=================================================================================================================
-  "special_bonus_unique_viper_3_oaa"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"             "special_bonus_undefined"
-    "ID"                    "86819"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"           "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                  "FIELD_INTEGER"
-        "value"                     "1"
-      }
-    }
-  }
 }

@@ -95,6 +95,41 @@ test('KV Values', function (t) {
     }
     t.ok(nextAvailableId, 'found an available id');
     console.log('Next available ID is', nextAvailableId);
+    var iter = 0;
+    var idToCheck = 0;
+    var j = 0;
+    // short unsigned (0, 65535)
+    console.log('items/abilities with potentially bad ID if unique ID is short unsigned type:');
+    for (iter = 10000; iter < 9999999; iter++) {
+      if (idsFound[iter] !== undefined) {
+        for (j = 1; j < 153; j++) {
+          idToCheck = iter - 65535 * j;
+          if (idToCheck > 0 && idsFound[idToCheck] !== undefined) {
+            console.log('ID: ' + iter, idsFound[iter]);
+            console.log('is in a potential conflict with: ' + idToCheck, idsFound[idToCheck]);
+          }
+        }
+      }
+    }
+    /*
+    // short signed (-32767, 32767)
+    console.log('items/abilities with potentially bad ID if unique ID is short signed type:');
+    for (iter = 10000; iter < 9999999; iter++) {
+      if (idsFound[iter] !== undefined) {
+        for (j = 1; j < 306; j = j + 2) {
+          if (iter > 32767 * j && iter < 32767 * (j + 2)) {
+            idToCheck = iter - 32767 * (j + 1);
+            if (idToCheck < 0) {
+              console.log('potentially negative ID: ' + iter, idsFound[iter]);
+            }
+            if (idToCheck > 0 && idsFound[idToCheck] !== undefined) {
+              console.log('ID: ' + iter, idsFound[iter]);
+              console.log('is in potential conflict with: ' + idToCheck, idsFound[idToCheck]);
+            }
+          }
+        }
+      }
+    } */
     t.end();
   });
 });
@@ -419,7 +454,9 @@ var keyWhiteList = [
   'LinkedSpecialBonusOperation',
   'CalculateSpellDamageTooltip',
   'levelkey',
-  'RequiresScepter'
+  'RequiresScepter',
+  'ad_linked_ability',
+  'linked_ad_abilities'
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
   return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);
