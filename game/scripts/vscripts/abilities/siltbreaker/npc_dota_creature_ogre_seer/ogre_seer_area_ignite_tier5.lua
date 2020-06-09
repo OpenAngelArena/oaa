@@ -1,4 +1,3 @@
-
 ogre_seer_area_ignite_tier5 = class (AbilityBaseClass)
 LinkLuaModifier( "modifier_ogre_seer_area_ignite_thinker", "modifiers/modifier_ogre_seer_area_ignite_thinker", LUA_MODIFIER_MOTION_NONE )
 
@@ -46,7 +45,7 @@ function ogre_seer_area_ignite_tier5:OnProjectileHit( hTarget, vLocation )
 				if hBuff ~= nil then
 					hBuff:OnIntervalThink()
 				end
-				hThinker = nil;
+				hThinker = nil
 			end
 		end
 	end

@@ -199,14 +199,14 @@ function getUnitsFromKV (data) {
 }
 
 function getItemsFromKV (data) {
-  if (!data.DOTAItems) {
+  if (!data.DOTAAbilities) {
     return [];
   }
-  return Object.keys(data.DOTAItems).filter(function (name) {
+  return Object.keys(data.DOTAAbilities).filter(function (name) {
     if (name === 'values') {
       return false;
     }
-    return !(!data.DOTAItems[name].values.BaseClass || data.DOTAItems[name].values.BaseClass === name);
+    return !(!data.DOTAAbilities[name].values.BaseClass || data.DOTAAbilities[name].values.BaseClass === name);
   });
 }
 
@@ -216,16 +216,16 @@ function getAbilitiesFromKV (data) {
 
 function getLuaPathsFromKV (data) {
   return getItemsFromKV(data).map(function (item) {
-    switch (data.DOTAItems[item].values.BaseClass) {
+    switch (data.DOTAAbilities[item].values.BaseClass) {
       case 'item_datadriven':
         // probably nothing?
-        // console.log(Object.keys(data.DOTAItems[item]));
+        // console.log(Object.keys(data.DOTAAbilities[item]));
         break;
       case 'item_lua':
-        if (data.DOTAItems[item].values.ScriptFile.endsWith('.lua')) {
-          return data.DOTAItems[item].values.ScriptFile;
+        if (data.DOTAAbilities[item].values.ScriptFile.endsWith('.lua')) {
+          return data.DOTAAbilities[item].values.ScriptFile;
         } else {
-          return data.DOTAItems[item].values.ScriptFile + '.lua';
+          return data.DOTAAbilities[item].values.ScriptFile + '.lua';
         }
     }
     return [];

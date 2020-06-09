@@ -1,4 +1,3 @@
-
 lycan_boss_summon_wolves_tier5 = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
