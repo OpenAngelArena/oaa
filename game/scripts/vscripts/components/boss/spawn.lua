@@ -18,7 +18,7 @@ end
 
 function BossSpawner:Init ()
   HudTimer:At(BOSS_RESPAWN_START, Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'))
-  ChatCommand:LinkDevCommand("-spawnbosses", Dynamic_Wrap(self, 'SpawnAllBosses'), self)
+  ChatCommand:LinkDevCommand("-spawnbosses", Dynamic_Wrap(BossSpawner, 'SpawnAllBosses'), BossSpawner)
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
@@ -56,7 +56,7 @@ function BossSpawner:Init ()
     bossPit.killCount = 1 -- 1 index because lua is that person from the internet who doesn't look like their pictures
   end
 
-  self.hasKilledTiers = {
+  BossSpawner.hasKilledTiers = {
     [1] = false,
     [2] = false,
     [3] = false,
@@ -72,10 +72,10 @@ function BossSpawner:GetState ()
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    state[self:PitID(bossPit)] = bossPit.killCount
+    state[BossSpawner:PitID(bossPit)] = bossPit.killCount
   end
 
-  state.hasKilledTiers = self.hasKilledTiers
+  state.hasKilledTiers = BossSpawner.hasKilledTiers
 
   return state
 end
@@ -84,10 +84,10 @@ function BossSpawner:LoadState (state)
   local bossPits = Entities:FindAllByName('boss_pit')
 
   for _,bossPit in ipairs(bossPits) do
-    bossPit.killCount = state[self:PitID(bossPit)]
+    bossPit.killCount = state[BossSpawner:PitID(bossPit)]
   end
 
-  self.hasKilledTiers = state.hasKilledTiers
+  BossSpawner.hasKilledTiers = state.hasKilledTiers
 
   BossSpawner:SpawnAllBosses()
 end
@@ -194,8 +194,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
-    if not self.hasKilledTiers[bossTier] then
-      self.hasKilledTiers[bossTier] = true
+    if not BossSpawner.hasKilledTiers[bossTier] then
+      BossSpawner.hasKilledTiers[bossTier] = true
       PointsManager:IncreaseLimit(KILL_LIMIT_INCREASE)
     end
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()

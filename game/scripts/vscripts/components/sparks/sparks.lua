@@ -89,6 +89,10 @@ end
 function Sparks:OnSelectSpark (eventId, keys)
   local playerId = keys.PlayerID
   local player = PlayerResource:GetPlayer(playerId)
+  if not player then
+    return
+  end
+  
   local spark = keys.spark
 
   if Sparks.data.cooldowns[playerId] and Sparks.data.cooldowns[playerId] > 0 then
