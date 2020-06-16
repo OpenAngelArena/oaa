@@ -13,6 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -21,7 +22,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
     "AbilityCooldown"                                     "13" //OAA
-    "AbilityManaCost"                                     "115 120 125 130 230 330"
+    "AbilityManaCost"                                     "115 120 125 130 140 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +42,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stomp_damage"                                    "80 110 140 170 500 750"
+        "stomp_damage"                                    "80 110 140 170 340 680"
       }
     }
   }
