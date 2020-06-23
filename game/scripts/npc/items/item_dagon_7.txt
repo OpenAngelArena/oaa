@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "180"
+    "AbilityManaCost"                                     "120 140 160 180 200 210 220 230 240"
     "ItemCost"                                            "12700"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -69,7 +69,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 18 21 24 27 40 60 90 130"
+        "bonus_intellect"                                 "13 16 19 22 25 40 60 90 130"
       }
       "02"
       {
@@ -83,18 +83,13 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range_tooltip"                                   "600 650 700 750 800 850 900 950 1000"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_cost_tooltip"                               "180"
+        "mana_cost_tooltip"                               "120 140 160 180 200 210 220 230 240"
       }
       "07"
       {
