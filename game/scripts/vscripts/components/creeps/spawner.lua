@@ -143,7 +143,7 @@ function CreepCamps:GetCreepProperties(creepHandle)
   local creepProperties = {}
 
   creepProperties[HEALTH_ENUM] = creepHandle:GetMaxHealth()
-  creepProperties[MANA_ENUM] = creepHandle:GetMana()
+  creepProperties[MANA_ENUM] = creepHandle:GetMaxMana()
   creepProperties[DAMAGE_ENUM] = (creepHandle:GetBaseDamageMin() + creepHandle:GetBaseDamageMax()) / 2
   creepProperties[ARMOR_ENUM] = creepHandle:GetPhysicalArmorBaseValue()
   creepProperties[GOLD_BOUNTY_ENUM] = (creepHandle:GetMinimumGoldBounty() + creepHandle:GetMaximumGoldBounty()) / 2
