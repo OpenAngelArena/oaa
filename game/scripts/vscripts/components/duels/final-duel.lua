@@ -98,7 +98,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
     if self.needsFinalDuel then
       -- a duel just ended and we need to trigger the final duel
       Timers:CreateTimer(10, function ()
-        self:Trigger()
+        FinalDuel:Trigger()
       end)
     end
     return

@@ -21,36 +21,36 @@ function HudTimer:Init()
 
   Timers:CreateTimer(1 - GameRules:GetDOTATime(true, true) % 1, function()
     local gameState = GameRules:State_Get()
-    if (gameState ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and gameState ~= DOTA_GAMERULES_STATE_PRE_GAME) or self.isPaused then
+    if (gameState ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS and gameState ~= DOTA_GAMERULES_STATE_PRE_GAME) or HudTimer.isPaused then
       return 1
     end
 
-    if self.IsGameInProgress == false and gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-      self.gameTime = 0
+    if HudTimer.IsGameInProgress == false and gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+      HudTimer.gameTime = 0
       startingOffset = math.floor(GameRules:GetDOTATime(true, true))
-      self.IsGameInProgress =true
+      HudTimer.IsGameInProgress = true
     end
 
     local timeToNextDuel = Duels:GetNextDuelTime()
-    if timeToNextDuel == nil then timeToNextDuel = 0 else timeToNextDuel = timeToNextDuel - self.gameTime end
+    if timeToNextDuel == nil then timeToNextDuel = 0 else timeToNextDuel = timeToNextDuel - HudTimer.gameTime end
     if timeToNextDuel < 0 then timeToNextDuel = 0 end
 
     local timeToNextCapture = CapturePoints:GetCaptureTime()
-    if timeToNextCapture == nil then timeToNextCapture = 0 else timeToNextCapture = timeToNextCapture - self.gameTime end
+    if timeToNextCapture == nil then timeToNextCapture = 0 else timeToNextCapture = timeToNextCapture - HudTimer.gameTime end
     if timeToNextCapture < 0 then timeToNextCapture = 0 end
 
     local floorGameTime = math.floor(GameRules:GetDOTATime(true, true))
-    if not self.isPaused then
+    if not HudTimer.isPaused then
       local newGameTime = floorGameTime - startingOffset
-      if self.gameTime ~= newGameTime then
-        self.gameTime = newGameTime
-        self:SendOnThe(self.gameTime)
-        self:SendAt(self.gameTime)
+      if HudTimer.gameTime ~= newGameTime then
+        HudTimer.gameTime = newGameTime
+        HudTimer:SendOnThe(HudTimer.gameTime)
+        HudTimer:SendAt(HudTimer.gameTime)
       end
     end
 
     CustomNetTables:SetTableValue( 'timer', 'data', {
-      time = self.gameTime,
+      time = HudTimer.gameTime,
       isDay = GameRules:IsDaytime(),
       isNightstalker = GameRules:IsNightstalkerNight(),
       killLimit = PointsManager:GetLimit(),
@@ -59,9 +59,9 @@ function HudTimer:Init()
     })
 
     local gameMinuteOffset = (math.floor(GameRules:GetDOTATime(true, true) - DOTA_CLOCK_SKEW) % CLOCK_SYNC_INTERVAL)
-    local localMinuteOffset = math.floor(self.gameTime) % CLOCK_SYNC_INTERVAL
+    local localMinuteOffset = math.floor(HudTimer.gameTime) % CLOCK_SYNC_INTERVAL
 
-    if self.gameTime > 0 and gameMinuteOffset ~= localMinuteOffset then
+    if HudTimer.gameTime > 0 and gameMinuteOffset ~= localMinuteOffset then
       Debug:EnableDebugging()
       DebugPrint('Clock skew detected! ' .. gameMinuteOffset .. ' / ' .. localMinuteOffset)
     end

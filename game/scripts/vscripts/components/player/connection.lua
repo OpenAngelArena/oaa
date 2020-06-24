@@ -46,7 +46,7 @@ function PlayerConnection:Init()
     self.disconnectedTime[keys.PlayerID] = nil
   end)
   Timers:CreateTimer(function()
-    return self:Think()
+    return PlayerConnection:Think()
   end)
   self.countdown = nil
 
