@@ -50,6 +50,10 @@ function CreepPower:GetBaseCavePowerForMinute (minute)
 end
 
 function CreepPower:Init ()
+  if self.initialized then
+    print("CreepPower is already initialized and there was an attempt to initialize it again -> preventing")
+    return nil
+  end
   local maxTeamPlayerCount = 10 -- TODO: Make maxTeamPlayerCount based on values set in settings.lua (?)
   if HeroSelection.is10v10 then
     maxTeamPlayerCount = 20
@@ -62,4 +66,5 @@ function CreepPower:Init ()
   end
 
   self.BootGoldFactor = _G.BOOT_GOLD_FACTOR
+  self.initialized = true
 end

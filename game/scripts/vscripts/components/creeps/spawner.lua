@@ -24,19 +24,28 @@ local EXP_BOUNTY_ENUM = 7
 -- profit
 
 function CreepCamps:Init ()
-  DebugPrint ( 'Initializing.' )
-  CreepCamps = self
+  DebugPrint ( 'Initializing CreepCamps' )
+  if self.initialized then
+    print("CreepCamps is already initialized and there was an attempt to initialize it again -> preventing")
+    return nil
+  end
+
   self.CampPRDCounters = {}
   self.firstSpawn = true
-  if not SKIP_TEAM_SETUP then
+  if HudTimer then
     HudTimer:At(INITIAL_CREEP_DELAY, partial(self.CreepSpawnTimer, self))
   else
-    Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+    Timers:CreateTimer(INITIAL_CREEP_DELAY, function()
+      CreepCamps:CreepSpawnTimer()
+	  --return CREEP_SPAWN_INTERVAL
+    end)
   end
 
   Minimap:InitializeCampIcons()
 
   ChatCommand:LinkDevCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+
+  self.initialized = true
 end
 
 function CreepCamps:GetState ()
