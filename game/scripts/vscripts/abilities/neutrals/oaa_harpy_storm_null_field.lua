@@ -28,6 +28,9 @@ function modifier_harpy_null_field_oaa_applier:IsAura()
   if parent:PassivesDisabled() then
     return false
   end
+  if not parent:IsControllableByAnyPlayer() then
+    return false
+  end
   return true
 end
 
