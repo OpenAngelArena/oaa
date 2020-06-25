@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 
 CAPTUREPOINT_IS_STARTING = 60
-CapturePoints = CapturePoints or {}
+CapturePoints = CapturePoints or class({})
 --local FirstZones = {
   --left = Vector(-3584, 0, 256),
   --right = Vector(3584, 0, 256),
@@ -61,7 +61,7 @@ function CapturePoints:Init ()
 
   CapturePoints.nextCaptureTime = INITIAL_CAPTURE_POINT_DELAY
   HudTimer:At(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
-    self:ScheduleCapture()
+    CapturePoints:ScheduleCapture()
   end)
 
   -- Add chat commands to force start and end captures
@@ -135,7 +135,7 @@ function CapturePoints:ScheduleCapture()
   CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_INTERVAL + CAPTURE_FIRST_WARN
 
   self.scheduleCaptureTimer = Timers:CreateTimer(CAPTURE_INTERVAL, function ()
-    self:ScheduleCapture()
+    CapturePoints:ScheduleCapture()
   end)
 
   if self.currentCapture then
@@ -182,7 +182,7 @@ function CapturePoints:StartCapture(color)
   self:MinimapPing(5)
   Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
     Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
-    self:MinimapPing(5)
+    CapturePoints:MinimapPing(5)
   end)
 
   for index = 0,(CAPTURE_START_COUNTDOWN - 1) do

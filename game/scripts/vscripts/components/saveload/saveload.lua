@@ -36,8 +36,8 @@ function SaveLoadState:Init ()
   -- ChatCommand:LinkCommand("-save", function ()
     -- start auto-saving after beasts have spawned
     if not Duels:IsActive() and not PlayerConnection:IsAnyDisconnected() then
-      local data = self:GetState()
-      Bottlepass:StateSave(self:GetPlayerList(), data)
+      local data = SaveLoadState:GetState()
+      Bottlepass:StateSave(SaveLoadState:GetPlayerList(), data)
     end
 
     return SAVE_STATE_INTERVAL
