@@ -40,7 +40,7 @@
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
 
-    "AbilitySharedCooldown"                               "combobreaker"
+    //"AbilitySharedCooldown"                               "combobreaker"
     "AbilityCooldown"                                     "35.0" //OAA
 
     "ItemIsNeutralDrop"                                   "0" //OAA
@@ -61,7 +61,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal"                                            "1400" //OAA
+        "heal"                                            "2700" //OAA
       }
       "03"
       {
