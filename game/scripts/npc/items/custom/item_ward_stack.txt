@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "75"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_ward_stack"
     "ItemRequirements"
     {
-      "01"                                                "item_ring_of_basilius;item_branches"
+      "01"                                                "item_sobi_mask;item_ring_of_regen;item_branches"
     }
   }
 
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "550"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
