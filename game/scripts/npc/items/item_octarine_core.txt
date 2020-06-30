@@ -11,9 +11,9 @@
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_octarine_core"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
-    { //OAA
-      "01"                                                "item_staff_of_wizardry;item_voodoo_mask;item_soul_booster" //OAA
+    "ItemRequirements" //OAA
+    {
+      "01"                                                "item_staff_of_wizardry;item_voodoo_mask;item_soul_booster"
     }
   }
 
