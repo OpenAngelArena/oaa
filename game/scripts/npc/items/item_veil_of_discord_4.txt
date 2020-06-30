@@ -38,18 +38,18 @@
     "BaseClass"                                           "item_veil_of_discord"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
     "AbilityTextureName"                                  "custom/veil_of_discord_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "veil"
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.0"
 
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "15025"
+    "ItemCost"                                            "14525"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod 4;veil of discord 4;veil 4"
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "9 15 25 40 60"
+        "bonus_all_stats"                                 "4 15 25 40 60"
       }
       "02"
       {
