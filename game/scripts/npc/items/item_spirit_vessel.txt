@@ -94,12 +94,12 @@
       "08"
       {
         "var_type"                    "FIELD_INTEGER"
-        "soul_heal_amount"            "30 55 75 95 105"
+        "soul_heal_amount"            "40 55 75 100 130"
       }
       "09"
       {
         "var_type"                    "FIELD_INTEGER"
-        "soul_damage_amount"          "25 40 65 100 145"
+        "soul_damage_amount"          "35 50 70 95 125"
       }
       "10"
       {
@@ -109,22 +109,12 @@
       "11"
       {
         "var_type"                    "FIELD_INTEGER"
-        "hp_regen_reduction_enemy"    "35 40 45 50 55"
+        "hp_regen_reduction_enemy"    "45 50 55 60 65"
       }
       "12"
       {
         "var_type"                    "FIELD_FLOAT"
         "enemy_hp_drain"              "4"
-      }
-      "13"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "hp_regen_degen_aura"         "20 25 30 35 40"
-      }
-      "14"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "hp_regen_degen_aura_range"   "1200"
       }
     }
   }
