@@ -74,12 +74,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_slow_melee"                                 "-20 -25 -30 -35 -40"
+        "cold_slow_melee"                                 "-25 -30 -35 -40 -45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_slow_ranged"                                "-45 -50 -55 -60 -65"
+        "cold_slow_ranged"                                "-50 -55 -60 -65 -70"
       }
       "06"
       {
@@ -89,7 +89,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_reduction"                                  "35 40 45 50 55"
+        "heal_reduction"                                  "40 45 50 55 60"
       }
     }
   }
