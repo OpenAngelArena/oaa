@@ -51,7 +51,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25 40 60 85 115"
+        "bonus_intelligence"                              "10 25 45 70 100"
       }
       "02"
       {
@@ -66,22 +66,27 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "25"
+        "bonus_magical_armor"                             "10"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "25 27 29 31 33"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "25"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "5 7 9 11 13"
+        "hero_lifesteal"                                  "25 27 29 31 33"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "active_duration"   "7"
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "5 7 9 11 13"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_duration"                                 "7"
       }
     }
   }
