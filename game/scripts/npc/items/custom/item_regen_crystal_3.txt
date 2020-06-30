@@ -63,13 +63,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1300 2300 3200"
+        "bonus_health"                                    "1200 2300 3400"
       }
       "02"
       {
@@ -79,21 +78,25 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                             "500 650 800"
+        "bonus_health_regen"                              "30 40 50"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_health_regen"                             "500 650 800"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "5"
       }
     }
 
-    // Special
+    // Precache
     //-------------------------------------------------------------------------------------------------------------
-    // "precache"
-    // {
-    //   "soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-    //   "particle"                                     "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-    // }
+    "precache"
+    {
+      "particle"                                          "particles/items/regen_crystal/regen_ambient.vpcf"
+    }
   }
 }
