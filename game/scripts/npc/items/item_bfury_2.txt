@@ -15,7 +15,8 @@
     "ItemResult"                                          "item_bfury_2"
     "ItemRequirements"
     {
-      "01"                                                "item_desolator;item_upgrade_core"
+      "01"                                                "item_bfury;item_upgrade_core"
+      "02"                                                "item_desolator;item_upgrade_core"
     }
   }
 
@@ -71,7 +72,7 @@
       "04" // Cleave against heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "50 70 90 110 130" //OAA
+        "cleave_damage_percent"                           "70 90 110 130 150"
       }
       "05"
       {
