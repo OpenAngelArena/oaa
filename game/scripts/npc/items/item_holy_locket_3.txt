@@ -36,7 +36,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                          "8552"
     "BaseClass"                   "item_holy_locket"
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
     "AbilityTextureName"          "custom/holy_locket_3"
 
     // Item Info
@@ -50,7 +52,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13.0"
     "AbilitySharedCooldown"                               "magicwand"
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "500 600 700 800 900"
+    "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "3"
