@@ -40,10 +40,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/shivas_guard_5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "shivas"
+    "AbilityCastRange"                                    "900"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
@@ -105,6 +108,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "blast_speed"                                     "350"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_degen_aura"                             "25"
       }
     }
   }
