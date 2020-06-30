@@ -19,7 +19,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_dagon_2"
-    "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements" // OAA
     {
       "01"                                                "item_dagon;item_recipe_dagon"
@@ -68,32 +67,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "13 16 19 22 25 40 60 90 130"
+        "bonus_all_stats"                                 "6 8 10 12 14 20 25 30 35"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "5 5 5 5 5 10 15 20 25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "400 500 600 700 800 900 1100 1300 1500"
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0"
       }
-      "06"
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "mana_cost_tooltip"                               "120 140 160 180 200 210 220 230 240"
       }
-      "07"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "0 0 0 0 0 2 4 7 10"
+        "spell_amp"                                       "0 1 1 1 2 5 9 14 20"
       }
     }
 
