@@ -26,6 +26,7 @@ Duels.onEnd = DuelEndEvent.listen
 function Duels:Init ()
   DebugPrint('Init duels')
   self.currentDuel = nil
+  self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
   GameEvents:OnHeroDied(function (keys)
@@ -230,6 +231,9 @@ function Duels:StartDuel(options)
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
+    self.allowExperienceGain = 0
+  else
+    self.allowExperienceGain = 2
   end
   Timers:RemoveTimer('EndDuel')
   self.currentDuel = DUEL_IS_STARTING
@@ -360,6 +364,9 @@ function Duels:SplitDuelPlayers(options)
 
   if options.isFinalDuel or HeroSelection.isCM or options.forceAllPlayers then
     playerSplitOffset = 0
+    if Duels.allowExperienceGain ~= 2 then
+      Duels.allowExperienceGain = 1
+    end
   end
 
   return
