@@ -41,7 +41,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10500"
+    "ItemCost"                                            "10300"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 3;eye of skadi 3;skadi 3"
@@ -73,12 +73,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_slow_melee"                                 "-20 -25 -30 -35 -40"
+        "cold_slow_melee"                                 "-25 -30 -35 -40 -45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cold_slow_ranged"                                "-45 -50 -55 -60 -65"
+        "cold_slow_ranged"                                "-50 -55 -60 -65 -70"
       }
       "06"
       {
@@ -88,7 +88,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_reduction"                                  "35 40 45 50 55"
+        "heal_reduction"                                  "40 45 50 55 60"
       }
     }
   }

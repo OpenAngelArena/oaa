@@ -36,7 +36,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "90"
+    "AbilityCooldown"                                     "85"
     "AbilitySharedCooldown"                               "bloodstone"
     "AbilityTextureName"                                  "custom/bloodstone_2"
 
@@ -79,7 +79,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 15 18 21 24"
+        "manacost_reduction"                              "12"
       }
       "05"
       {
@@ -89,7 +89,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "200 225 250 275 300"
+        "mana_regen_multiplier"                           "100 125 150 175 200"
       }
       "07"
       {

@@ -42,7 +42,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "46.0"
+    "AbilityCooldown"                                     "40.0"
     "AbilitySharedCooldown"                               "guard"
     "AbilityCastRange"                                    "1200"
 
@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 1000 1500 2000 2500" //OAA
+        "bonus_health"                                    "400 1000 1500 2000 2500"
       }
       "02"
       {
@@ -81,52 +81,47 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "0" //OAA
+        "block_damage_melee"                              "70 100 150 200 300"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100 150 200 300"
+        "block_damage_ranged"                             "35 50 75 100 150"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 50 75 100 150"
+        "block_chance"                                    "50"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "duration"                                        "12"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "12"
+        "bonus_aoe_radius"                                "1200"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "1200"
+        "block_damage_melee_active"                       "60 90 140 180 275"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_ranged_active"                      "60 90 140 180 275"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
+        "block_chance_active"                             "100"
       }
       "12"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance_active"                             "100"
-      }
-      "13"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_reapply_time"                            "46"
+        "tooltip_reapply_time"                            "40"
       }
     }
   }

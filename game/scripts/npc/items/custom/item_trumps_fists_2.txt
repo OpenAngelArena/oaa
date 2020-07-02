@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38500"
+    "ItemCost"                                            "38300"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps fists 2;covfefe 2;blade of judecca 2"
@@ -82,7 +82,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "50 75"
+        "heal_prevent_percent"                            "60 85"
       }
       "06"
       {

@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3450"
+    "ItemCost"                                            "2975"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance 2;drums 2"
@@ -63,39 +63,34 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "4 10 15 20 25"
+        "bonus_movement_speed"                            "20 25 30 35 40"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "6 10 15 20 25"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35 40"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.5 1.75 2.25 3.0 4.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_aura"                               "20 25 30 35 40"
+        "bonus_attack_speed_pct"                          "45 55 65 75 85"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed_pct"                          "35 45 55 65 75"
+        "bonus_movement_speed_pct"                        "13 16 19 22 25"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "12 15 18 21 24"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "6"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "1200"

@@ -1,6 +1,8 @@
 modifier_legacy_armor = class(ModifierBaseClass)
 -- Adjusts armor so that it is equivalent to the old armor damage reduction formula:
--- (0.05 * armor) / (1 + 0.05 * |armor|)
+-- legacy formula (0.05 * armor) / (1 + 0.05 * |armor|)
+-- dota formula = (x * armor) / (y + z * |armor|)
+-- to get legacy formula from dota formula, bonus armor needs to be: ((0.05 * y * armor) / (x + 0.05 * (x-z) * |armor|)) - armor
 
 function modifier_legacy_armor:IsPurgable()
   return false

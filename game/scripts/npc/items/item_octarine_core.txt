@@ -6,14 +6,14 @@
   "item_recipe_octarine_core"
   {
     "ID"                                                  "228"    // unique ID
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "0" //OAA
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_octarine_core"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_mystic_staff;item_soul_booster"
+      "01"                                                "item_staff_of_wizardry;item_voodoo_mask;item_soul_booster"
     }
   }
 
@@ -29,7 +29,7 @@
     "AbilityTextureName"                                  "custom/octarine_core_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5900"
+    "ItemCost"                                            "5100" //OAA
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mana;mb;octarine core"
@@ -47,7 +47,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25 40 60 85 115"
+        "bonus_intelligence"                              "10 25 45 70 100" // OAA
       }
       "02"
       {
@@ -62,22 +62,27 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "25"
+        "bonus_magical_armor"                             "10"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "25 27 29 31 33"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cooldown"                                  "25"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "5 7 9 11 13"
+        "hero_lifesteal"                                  "25 27 29 31 33"
       }
       "07"
       {
-        "var_type"        "FIELD_INTEGER"
-        "active_duration"   "7"
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_lifesteal"                                 "5 7 9 11 13"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_duration"                                 "7"
       }
     }
   }

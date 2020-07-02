@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1150"
+    "ItemCost"                                            "650"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -39,7 +39,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "veil"
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.0"
@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "2025"
+    "ItemCost"                                            "1525"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod;veil of discord;veil"
@@ -63,7 +63,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "9 15 25 40 60"
+        "bonus_all_stats"                                 "4 15 25 40 60"
       }
       "02"
       {
@@ -75,10 +75,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "1200"
       }
-      "04"
+      "04" // Old: -25 -30 -36 -42 -50
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "20 25 30 35 40" // Old: -25 -30 -36 -42 -50
+        "spell_amp"                                       "20 25 30 35 40" // OAA
       }
       "05"
       {

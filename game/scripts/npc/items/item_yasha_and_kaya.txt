@@ -1,13 +1,5 @@
 "DOTAAbilities"
 {
-  // not buildable
-
-  "item_recipe_yasha_and_kaya"
-  {
-    "ID"              "274"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-  }
   //=================================================================================================================
   // Yasha and Kaya
   //=================================================================================================================
@@ -56,7 +48,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 18 22 28 36" //OAA
+        "mana_regen_multiplier"                           "30 40 50 60 70"
       }
       "05"
       {
@@ -66,7 +58,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "14 18 22 26 30"
+        "spell_amp"                                       "16 20 24 28 32"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_lifesteal_amp"                             "26 28 30 32 34" //OAA
       }
     }
   }
