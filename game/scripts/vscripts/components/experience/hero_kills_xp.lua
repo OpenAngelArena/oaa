@@ -27,6 +27,10 @@ function HeroKillXP:HeroDeathHandler(keys)
     return
   end
 
+  if Duels:IsActive() and Duels.allowExperienceGain ~= 1 then
+    return
+  end
+
   local killerEntity = keys.killer
   local killedHero = keys.killed
   -- killer is sometimes nil for some reason
