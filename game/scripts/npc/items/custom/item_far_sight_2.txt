@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "127003"    // unique ID
+    "ID"                                                  "8604"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                             "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                         "custom/recipe/recipe_2"
@@ -35,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                      "127004"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                      "8605"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
