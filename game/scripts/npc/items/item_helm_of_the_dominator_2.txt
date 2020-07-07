@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"            "3600"
+    "ItemCost"            "3875"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd 2;helm of the dominator 2;helm 2;dominator 2"
@@ -98,7 +98,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus_damage"                              "40 50 100 150 200"
+        "creep_bonus_damage"                              "25 50 100 150 200"
       }
       "08"
       {
