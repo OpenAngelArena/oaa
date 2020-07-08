@@ -2826,6 +2826,7 @@ read_globals = { -- these globals can only be accessed.
 "FORCE_PICKED_HERO",
 "DotProduct",
 "GetDedicatedServerKey",
+"GetDedicatedServerKeyV2",
 "sha256",
 "TEN_V_TEN_KILL_LIMIT",
 "NORMAL_KILL_LIMIT",
