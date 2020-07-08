@@ -1,5 +1,5 @@
-local function FindCannonshotLocations()
-  local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
+local function FindCannonshotLocations(thisEntity)
+  local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
   local entityOrigin = thisEntity:GetAbsOrigin()
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), entityOrigin, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
 
@@ -42,8 +42,8 @@ local function FindCannonshotLocations()
   return target1, target2
 end
 
-local function FindSpidershotLocations()
-  local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
+local function FindSpidershotLocations(thisEntity)
+  local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
 
   local target1, target2
@@ -170,11 +170,11 @@ function SpidersThink()
     local target1, target2
     if math.random(0, 1) == 0 then
       ability = thisEntity.SpidershotAbility
-      target1, target2 = FindSpidershotLocations()
+      target1, target2 = FindSpidershotLocations(thisEntity)
       DebugPrint('Trying to cast spider shot')
     else
       ability = thisEntity.CannonshotAbility
-      target1, target2 = FindCannonshotLocations()
+      target1, target2 = FindCannonshotLocations(thisEntity)
       DebugPrint('Trying to cast cannon')
     end
 
@@ -189,10 +189,10 @@ function SpidersThink()
     local target1, target2
     if math.random(0, 1) == 0 then
       ability = thisEntity.SpidershotAbility
-      target1, target2 = FindSpidershotLocations()
+      target1, target2 = FindSpidershotLocations(thisEntity)
     else
       ability = thisEntity.CannonshotAbility
-      target1, target2 = FindCannonshotLocations()
+      target1, target2 = FindCannonshotLocations(thisEntity)
     end
 
     if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.SpidershotAbility:IsCooldownReady() or thisEntity.bDouble then
@@ -211,7 +211,7 @@ function SpidersThink()
       local cannonshots = RandomInt(1,3)
       thisEntity.lastCannonShots = cannonshots
       local ability = thisEntity.CannonshotAbility
-      local target1, target2 = FindCannonshotLocations()
+      local target1, target2 = FindCannonshotLocations(thisEntity)
 
       -- end spidershot CD whenever we shoot a cannon
       thisEntity.SpidershotAbility:EndCooldown()
@@ -229,7 +229,7 @@ function SpidersThink()
     elseif thisEntity.SpidershotAbility:IsCooldownReady() then
       local spidershots = 4 - (thisEntity.lastCannonShots or 0)
       local ability = thisEntity.SpidershotAbility
-      local spiderTarget1, spiderTarget2 = FindSpidershotLocations()
+      local spiderTarget1, spiderTarget2 = FindSpidershotLocations(thisEntity)
       local spiderTargetPoints = {}
       table.insert(spiderTargetPoints, spiderTarget1)
       table.insert(spiderTargetPoints, spiderTarget2)
