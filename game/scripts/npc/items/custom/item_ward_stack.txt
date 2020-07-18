@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "75"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_ward_stack"
     "ItemRequirements"
     {
-      "01"                                                "item_ring_of_basilius;item_branches"
+      "01"                                                "item_sobi_mask;item_ring_of_regen;item_branches"
     }
   }
 
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "550"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -88,7 +88,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "1.4 2.0 3.0 4.0 5.0"
+        "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
       }
       "06" // dota observer ward: 360
       {

@@ -3,10 +3,10 @@
 //============================================================================
 "DOTA_Tooltip_Ability_item_dagon"                                       "Dagon"
 "DOTA_Tooltip_Ability_item_recipe_dagon"                                "Dagon Recipe"
-"DOTA_Tooltip_Ability_item_dagon_Description"                           "<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit. Upgradable.<br><br>Damage: %damage%<br>Range: %range_tooltip%"
+"DOTA_Tooltip_Ability_item_dagon_Description"                           "<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit. <br><br>Damage: %damage%<br>Range: %abilitycastrange%<br>Mana Cost: %mana_cost_tooltip%"
 "DOTA_Tooltip_Ability_item_dagon_Lore"                                  "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user."
 "DOTA_Tooltip_ability_item_dagon_Note0"                                 "Instantly kills illusions."
-"DOTA_Tooltip_Ability_item_dagon_bonus_intellect"                       "+$int"
+//"DOTA_Tooltip_Ability_item_dagon_bonus_intellect"                       "+$int"
 "DOTA_Tooltip_Ability_item_dagon_bonus_all_stats"                       "+$all"
 "DOTA_Tooltip_Ability_item_dagon_spell_amp"                             "%+Spell Amplification"
 
@@ -15,7 +15,7 @@
 "DOTA_Tooltip_Ability_item_dagon_2_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_2_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_2_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_2_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_2_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_2_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_2_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -24,7 +24,7 @@
 "DOTA_Tooltip_Ability_item_dagon_3_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_3_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_3_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_3_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_3_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_3_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_3_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -33,7 +33,7 @@
 "DOTA_Tooltip_Ability_item_dagon_4_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_4_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_4_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_4_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_4_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_4_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_4_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -42,7 +42,7 @@
 "DOTA_Tooltip_Ability_item_dagon_5_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_5_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_5_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_5_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_5_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_5_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_5_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -51,7 +51,7 @@
 "DOTA_Tooltip_Ability_item_dagon_6_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_6_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_6_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_6_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_6_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_6_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_6_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -60,7 +60,7 @@
 "DOTA_Tooltip_Ability_item_dagon_7_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_7_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_7_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_7_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_7_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_7_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_7_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -69,7 +69,7 @@
 "DOTA_Tooltip_Ability_item_dagon_8_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_8_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_8_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_8_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_8_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_8_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_8_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"
 
@@ -78,6 +78,6 @@
 "DOTA_Tooltip_Ability_item_dagon_9_Description"                         "#{DOTA_Tooltip_Ability_item_dagon_Description}"
 "DOTA_Tooltip_Ability_item_dagon_9_Lore"                                "#{DOTA_Tooltip_Ability_item_dagon_Lore}"
 "DOTA_Tooltip_ability_item_dagon_9_Note0"                               "#{DOTA_Tooltip_ability_item_dagon_Note0}"
-"DOTA_Tooltip_Ability_item_dagon_9_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
+//"DOTA_Tooltip_Ability_item_dagon_9_bonus_intellect"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_intellect}"
 "DOTA_Tooltip_Ability_item_dagon_9_bonus_all_stats"                     "#{DOTA_Tooltip_Ability_item_dagon_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_dagon_9_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_spell_amp}"

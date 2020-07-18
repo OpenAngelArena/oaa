@@ -13,7 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_broadsword;item_mithril_hammer;item_pers;item_quelling_blade"
+      "01"                                                "item_broadsword;item_claymore;item_pers;item_quelling_blade"
     }
   }
 
@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4400"
+    "ItemCost"                                            "4180"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver"
@@ -53,7 +53,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 110 150 200"
+        "bonus_damage"                                    "55 80 110 150 200"
       }
       "02"
       {
@@ -63,12 +63,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.75 4.5 6.25 8.0 10.5"
+        "bonus_mana_regen"                                "3.25 3.5 4.0 4.75 5.75"
       }
       "04" // Cleave against heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "50 70 90 110 130" //OAA
+        "cleave_damage_percent"                           "70 90 110 130 150"
       }
       "05"
       {

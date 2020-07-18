@@ -41,7 +41,7 @@
 
     // Item Info---------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250"
-    "ItemCost"                                            "5675"
+    "ItemCost"                                            "5575"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
@@ -60,15 +60,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_agility"                                   "10 15 20 30 40"
       }
-      "03"
+      "03" // first 3 values must be the same as Eul's Scepter or Rod of Atos
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 50 70 105 140"
+        "bonus_intellect"                                 "10 25 45 70 100" //OAA
       }
-      "04"
+      "04" // first 3 values must be the same as Eul's Scepter
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "9.0 9.75 11.25 13.5 16.0"
+        "bonus_mana_regen"                                "5.0 5.25 5.75 9.0 10.0" //OAA
       }
       "05"
       {

@@ -25,13 +25,13 @@ GameEvents:OnEntityFatalDamage(function (keys)
   -- do shared creep bounty for neutrals
   if killedUnit:IsNeutralUnitType() then
     local allies = FindUnitsInRadius(
-	  PlayerResource:GetTeam(playerID),
-	  attacker:GetOrigin(),
-	  nil,
-	  CREEP_BOUNTY_SHARE_RADIUS,
-	  DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-	  DOTA_UNIT_TARGET_HERO,
-	  bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO),
+      PlayerResource:GetTeam(playerID),
+      attacker:GetOrigin(),
+      nil,
+      CREEP_BOUNTY_SHARE_RADIUS,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      DOTA_UNIT_TARGET_HERO,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO),
       FIND_ANY_ORDER,
       false
     )
@@ -39,10 +39,10 @@ GameEvents:OnEntityFatalDamage(function (keys)
     -- first, locate appropriate units ( in this case, real allied heroes )
     for _, unit in pairs(allies) do
       local shareID = unit:GetPlayerOwnerID()
-	  if shareID ~= playerID then
+      if shareID ~= playerID then
         if not shareTable[shareID] then
-	      shareTable[shareID] = 0
-	    end
+          shareTable[shareID] = 0
+        end
 
         -- record the amount of bonus
         -- this is a really ugly hardcoded way to do this
@@ -63,8 +63,8 @@ GameEvents:OnEntityFatalDamage(function (keys)
             end
           end
         end
-	  end
-	end
+      end
+    end
 
     -- now that we know what players to give gold too, as well as their bonus
     -- do the gold givery

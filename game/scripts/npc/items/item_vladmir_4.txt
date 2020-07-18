@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "15300"
+    "ItemCost"            "15375"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering 4;vlads 4"
@@ -59,27 +59,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_aura"                                 "1.5 2.5 4.0 6.0 7.5"
+        "mana_regen_aura"                                 "2.0 2.25 2.75 3.5 4.5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_aura"                                      "3 4 6 9 13"
+        "lifesteal_aura"                                  "15 25 35 45 55"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "20 25 30 35 40"
+        "damage_aura"                                     "18 28 38 48 58"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "5 10 15 20 25"
       }
     }
   }

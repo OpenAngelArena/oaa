@@ -37,10 +37,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37700" //OAA
+    "ItemCost"                                            "37600"
     "ItemShopTags"                                        "agi;str;hard_to_tag"
-    "ItemIsNeutralDrop"                                   "0" //OAA
-    "ItemPurchasable"                                     "1" //OAA
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "illusion cape;illusionist;illusionist cape"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -85,12 +85,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "76" //OAA
+        "bonus_agi"                                       "76"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "60" //OAA
+        "bonus_str"                                       "60"
       }
     }
   }

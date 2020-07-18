@@ -84,7 +84,7 @@ function Glyph:SetWardCooldown(playerID, time)
   self.ward.cooldowns[playerID] = time
   CustomGameEventManager:Send_ServerToPlayer(player, "glyph_ward_cooldown", { cooldown = time, maxCooldown = self:GetWardCooldown() })
   Timers:CreateTimer(time, function ()
-    self.ward.cooldowns[playerID] = 0
+    Glyph.ward.cooldowns[playerID] = 0
   end)
 end
 
@@ -143,7 +143,7 @@ function Glyph:SetScanCooldown(playerID, time)
   self.scan.cooldowns[team] = time
   CustomGameEventManager:Send_ServerToTeam( team, "glyph_scan_cooldown", { cooldown = time, maxCooldown = self:GetScanCooldown() } )
   Timers:CreateTimer(time, function ()
-    self.scan.cooldowns[team] = 0
+    Glyph.scan.cooldowns[team] = 0
   end)
 end
 

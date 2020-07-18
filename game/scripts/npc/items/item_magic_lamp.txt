@@ -35,16 +35,16 @@
     "BaseClass"                                           "item_panic_button"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                                            "38000" //OAA
+    "ItemCost"                                            "37600"
     "ItemShopTags"                                        "health_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
 
-    "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "35.0" //OAA
+    //"AbilitySharedCooldown"                               "combobreaker"
+    "AbilityCooldown"                                     "35.0"
 
-    "ItemIsNeutralDrop"                                   "0" //OAA
-    "ItemPurchasable"                                     "1" //OAA
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
@@ -56,12 +56,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2700" //OAA
+        "bonus_health"                                    "2700"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal"                                            "1400" //OAA
+        "heal"                                            "2700"
       }
       "03"
       {

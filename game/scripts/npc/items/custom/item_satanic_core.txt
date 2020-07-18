@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10900"
+    "ItemCost"                                            "10100"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core"
@@ -67,12 +67,12 @@
       "01" // like bonus_intelligence
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "40 60 85"
+        "bonus_strength"                                  "25 45 70"
       }
       "02" // like Octarine Core intelligence at levels 2-4
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "40 60 85"
+        "bonus_intelligence"                              "45 70 100"
       }
       "03"
       {
@@ -82,7 +82,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "650 1000 1500"
+        "bonus_mana"                                      "675 875 1125"
       }
       "05" // name needs to be the same as in octarine core
       {

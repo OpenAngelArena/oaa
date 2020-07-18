@@ -11,7 +11,7 @@ function EntityStatProvider:Init()
   self.activeEntities = {}
 
   Timers:CreateTimer(function ()
-    self:CollectGarbage()
+    EntityStatProvider:CollectGarbage()
     return 300
   end)
 end

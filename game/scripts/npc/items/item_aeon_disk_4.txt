@@ -36,7 +36,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "ItemCost"                                            "18000"
+    "ItemCost"                                            "17600"
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"
@@ -55,7 +55,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "300 600 900 1200 1500"
+        "bonus_mana"                                      "300 400 550 750 1000"
       }
       "03"
       {

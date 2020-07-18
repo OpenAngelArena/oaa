@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "6875"
+    "ItemCost"                                            "6475"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "orchid malevolence;bloodthorn"
@@ -68,12 +68,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 45 55 65"
+        "bonus_intellect"                                 "25 40 60 85 115"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "85 90 95 100 105"
+        "bonus_attack_speed"                              "90 95 100 105 110"
       }
       "03"
       {
@@ -83,7 +83,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.5 6.0 6.5 7.0 7.5"
+        "bonus_mana_regen"                                "5.5 5.75 6.25 7.0 8.0"
       }
       "05"
       {

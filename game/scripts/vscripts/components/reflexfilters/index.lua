@@ -1,2 +1,2 @@
 require('components/reflexfilters/bubble')
-require('components/reflexfilters/reactive')
+--require('components/reflexfilters/reactive')

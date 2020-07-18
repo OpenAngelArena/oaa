@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "2225"
+    "ItemCost"            "2175"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "rare"
     "ItemAliases"         "fs;force staff;force"
@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 25 40 55 70"
+        "bonus_intellect"                                 "10 25 45 70 100"
       }
       "02"
       {

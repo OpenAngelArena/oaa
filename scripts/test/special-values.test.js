@@ -98,12 +98,12 @@ test('KV Values', function (t) {
     var iter = 0;
     var idToCheck = 0;
     var j = 0;
-    // short unsigned (0, 65535)
+    // short unsigned (0, 65535) 65536 is equivalent to 0; 65537 is equivalent to 1 etc.
     console.log('items/abilities with potentially bad ID if unique ID is short unsigned type:');
     for (iter = 10000; iter < 9999999; iter++) {
       if (idsFound[iter] !== undefined) {
         for (j = 1; j < 153; j++) {
-          idToCheck = iter - 65535 * j;
+          idToCheck = iter - 65536 * j;
           if (idToCheck > 0 && idsFound[idToCheck] !== undefined) {
             console.log('ID: ' + iter, idsFound[iter]);
             console.log('is in a potential conflict with: ' + idToCheck, idsFound[idToCheck]);
@@ -117,8 +117,8 @@ test('KV Values', function (t) {
     for (iter = 10000; iter < 9999999; iter++) {
       if (idsFound[iter] !== undefined) {
         for (j = 1; j < 306; j = j + 2) {
-          if (iter > 32767 * j && iter < 32767 * (j + 2)) {
-            idToCheck = iter - 32767 * (j + 1);
+          if (iter > 32767 * j && iter < 32768 * (j + 2)) {
+            idToCheck = iter - 32768 * (j + 1) + 1;
             if (idToCheck < 0) {
               console.log('potentially negative ID: ' + iter, idsFound[iter]);
             }

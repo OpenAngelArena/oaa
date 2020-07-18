@@ -66,7 +66,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3725"
+    "ItemCost"                                            "3675"
 
     "ItemKillable"                                        "0"
     "ItemSellable"                                        "1"
@@ -100,7 +100,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 30 45 60"
+        "bonus_intellect"                                 "25 45 70 100"
       }
       "02"
       {

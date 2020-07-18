@@ -24,19 +24,28 @@ local EXP_BOUNTY_ENUM = 7
 -- profit
 
 function CreepCamps:Init ()
-  DebugPrint ( 'Initializing.' )
-  CreepCamps = self
+  DebugPrint ( 'Initializing CreepCamps' )
+  if self.initialized then
+    print("CreepCamps is already initialized and there was an attempt to initialize it again -> preventing")
+    return nil
+  end
+
   self.CampPRDCounters = {}
   self.firstSpawn = true
-  if not SKIP_TEAM_SETUP then
+  if HudTimer then
     HudTimer:At(INITIAL_CREEP_DELAY, partial(self.CreepSpawnTimer, self))
   else
-    Timers:CreateTimer(Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+    Timers:CreateTimer(INITIAL_CREEP_DELAY, function()
+      CreepCamps:CreepSpawnTimer()
+	  --return CREEP_SPAWN_INTERVAL
+    end)
   end
 
   Minimap:InitializeCampIcons()
 
   ChatCommand:LinkDevCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
+
+  self.initialized = true
 end
 
 function CreepCamps:GetState ()
@@ -134,7 +143,7 @@ function CreepCamps:GetCreepProperties(creepHandle)
   local creepProperties = {}
 
   creepProperties[HEALTH_ENUM] = creepHandle:GetMaxHealth()
-  creepProperties[MANA_ENUM] = creepHandle:GetMana()
+  creepProperties[MANA_ENUM] = creepHandle:GetMaxMana()
   creepProperties[DAMAGE_ENUM] = (creepHandle:GetBaseDamageMin() + creepHandle:GetBaseDamageMax()) / 2
   creepProperties[ARMOR_ENUM] = creepHandle:GetPhysicalArmorBaseValue()
   creepProperties[GOLD_BOUNTY_ENUM] = (creepHandle:GetMinimumGoldBounty() + creepHandle:GetMaximumGoldBounty()) / 2
@@ -197,6 +206,7 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   creepHandle:SetHealth(math.ceil(targetHealth))
 
   --MANA
+  creepHandle:SetMaxMana(math.ceil(creepProperties[MANA_ENUM]))
   creepHandle:SetMana(math.ceil(creepProperties[MANA_ENUM]))
 
   --DAMAGE

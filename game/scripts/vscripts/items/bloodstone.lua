@@ -290,7 +290,11 @@ function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
 end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
-  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")-100
+  local parent = self:GetParent()
+  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") then
+    return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+  end
+  return 0
 end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Percentage()
@@ -303,11 +307,11 @@ function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Per
 end
 
 function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
-  local parent = self:GetParent()
-  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") then
-    return self:GetAbility():GetSpecialValueFor("manacost_reduction")
-  end
-  return 0
+  --local parent = self:GetParent()
+  --if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") then
+  return self:GetAbility():GetSpecialValueFor("manacost_reduction")
+  --end
+  --return 0
 end
 
 --------------------------------------------------------------------------

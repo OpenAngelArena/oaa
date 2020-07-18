@@ -26,6 +26,7 @@ Duels.onEnd = DuelEndEvent.listen
 function Duels:Init ()
   DebugPrint('Init duels')
   self.currentDuel = nil
+  self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
   GameEvents:OnHeroDied(function (keys)
@@ -104,7 +105,7 @@ function Duels:Init ()
   Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY -1
   Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME -1, function ()
   --HudTimer:At(INITIAL_DUEL_DELAY, function ()
-    self:StartDuel({
+    Duels:StartDuel({
       players = 0,
       firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
@@ -230,6 +231,9 @@ function Duels:StartDuel(options)
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
+    self.allowExperienceGain = 0
+  else
+    self.allowExperienceGain = 2
   end
   Timers:RemoveTimer('EndDuel')
   self.currentDuel = DUEL_IS_STARTING
@@ -360,6 +364,9 @@ function Duels:SplitDuelPlayers(options)
 
   if options.isFinalDuel or HeroSelection.isCM or options.forceAllPlayers then
     playerSplitOffset = 0
+    if Duels.allowExperienceGain ~= 2 then
+      Duels.allowExperienceGain = 1
+    end
   end
 
   return
@@ -466,7 +473,7 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
     Timers:CreateTimer('EndDuel', {
       endTime = options.timeout,
       callback = function()
-        self:TimeoutDuel()
+        Duels:TimeoutDuel()
       end
     })
   end
@@ -513,7 +520,7 @@ function Duels:TimeoutDuel ()
 
   for i = 0,(DUEL_END_COUNTDOWN - 1) do
     Timers:CreateTimer(i, function ()
-      if self.currentDuel == nil then
+      if Duels.currentDuel == nil then
         return
       end
       Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
@@ -523,7 +530,7 @@ function Duels:TimeoutDuel ()
   Timers:CreateTimer('EndDuel', {
     endTime = DUEL_END_COUNTDOWN,
     callback = function()
-      self:EndDuel()
+      Duels:EndDuel()
     end
   })
 end
@@ -581,7 +588,7 @@ function Duels:EndDuel ()
 
   Timers:CreateTimer(0.1, function ()
     DebugPrint('Sending all players back!')
-    self:AllPlayers(currentDuel, function (state)
+    Duels:AllPlayers(currentDuel, function (state)
       local player = PlayerResource:GetPlayer(state.id)
       if player == nil then -- disconnected!
         return

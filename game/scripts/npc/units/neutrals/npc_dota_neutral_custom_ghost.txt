@@ -19,14 +19,14 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "ghost_frostburn_oaa"
-    "Ability2"                                            "ghost_vortex_oaa"
+    "Ability2"                                            "mudgolem_cloak_aura"
     "Ability3"                                            ""
     "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "1"     // Physical protection.
-    "MagicalResistance"                                   "25"    // Magical protection.
+    "MagicalResistance"                                   "5"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -60,7 +60,7 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "500"   // Base health.
     "StatusHealthRegen"                                   "0.5"   // Health regeneration rate.
-    "StatusMana"                                          "400"   // Base mana.
+    "StatusMana"                                          "0"   // Base mana.
     "StatusManaRegen"                                     "1.0"   // Mana regeneration rate.
 
     // Vision
