@@ -25,12 +25,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80"  //OAA
-    "AbilityDuration"                                     "25.0"
+    "AbilityCooldown"                                     "75"  //OAA
+    "AbilityDuration"                                     "40.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 300 500"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,14 +39,9 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_damage"                            "80 120 160 200 240"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_bonus_str"                         "10 25 40 55 70" //OAA
+        "gods_strength_damage"                            "110 160 210 230 250"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

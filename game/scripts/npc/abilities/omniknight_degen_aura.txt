@@ -16,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "275"
+    "AbilityCastRange"                                    "375"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,19 +25,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "-10 -18 -26 -34 -38 -45"
+        "speed_bonus"                                     "10 18 26 34 42 50"
         "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_bonus_tooltip"                            "-10 -18 -26 -34 -46 -85"
-        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_2"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
+        "radius"                                          "375"
       }
     }
   }

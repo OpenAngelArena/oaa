@@ -27,11 +27,11 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "11"
-    "AbilityChannelTime"                                  "2.0 3.0 4.0 5.0 5.0 5.0"
+    "AbilityChannelTime"                                  "2 2.7 3.4 4.1 5.0 5.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 160 170 180 230 280"
+    "AbilityManaCost"                                     "150 160 170 180 190 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,13 +39,14 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "100.0 100.0 100.0 100.0 250.0 400.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "total_damage"                                    "200 300 400 500 1000 2000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_channel_time"                                "2.0 3.0 4.0 5.0 5.0 5.0"
+        "max_channel_time"                                "2 2.7 3.4 4.1 5.0 5.0"
       }
       "03"
       {
@@ -91,12 +92,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "channel_vision_step"                             "150"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "200 300 400 500 1250 2000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
     }
   }

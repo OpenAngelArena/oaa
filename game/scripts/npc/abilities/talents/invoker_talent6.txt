@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Chaos Meteor Contact Damage
+  // Bonus Chaos Meteor Damage
   //=================================================================================================================
   "special_bonus_unique_invoker_6"
   {
@@ -17,9 +17,15 @@
     {
       "01"
       {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"1.4" //OAA
+        "ad_linked_ability"			"invoker_chaos_meteor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+      }
+      "02"
+      {
         "var_type"					"FIELD_INTEGER"
-        "value"				"80" //OAA
-        "ad_linked_ability"			"invoker_chaos_meteor"
+        "value_tooltip"				"40" //OAA
+        "ad_linked_ability"			"invoker_chaos_meteor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
       }
     }
   }

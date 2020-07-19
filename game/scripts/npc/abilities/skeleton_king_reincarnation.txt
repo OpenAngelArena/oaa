@@ -50,17 +50,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attackslow"                                      "-75"
+        "attackslow"                                      "-75 -75 -75 -150 -225"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "5.0 5.0 5.0 6.0 7.0"
+        "slow_duration"                                   "5.0"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "5" //OAA
+        "scepter_duration"                                "7"
         "RequiresScepter"                                 "1"
       }
       "08"

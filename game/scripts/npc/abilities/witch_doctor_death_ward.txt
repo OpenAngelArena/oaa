@@ -54,6 +54,12 @@
         "bounce_radius"                                   "650"
         "RequiresScepter"                                 "1"
       }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_lifesteal"                               "10"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

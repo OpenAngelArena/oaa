@@ -50,6 +50,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movespeed_bonus_pct"                             "12 14 16 18 20 22"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_6"
       }
       "03"
       {
@@ -66,7 +67,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_stun"                                        "2.0 2.6 3.2 3.8 4.4 5.0" //OAA
+        "max_stun"                                        "2.0 2.5 3.0 3.5 4.0 4.5" //OAA
       }
       "06"
       {

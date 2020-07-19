@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Degen Aura Bonus MS/AS slow
+  // Degen Aura Bonus MS slow
   //=================================================================================================================
   "special_bonus_unique_omniknight_2"
   {
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"-24" //OAA
+        "value"				"15" //OAA
         "ad_linked_ability"			"omniknight_degen_aura"
       }
     }

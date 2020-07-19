@@ -72,7 +72,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_interval"                                 "1.2"
+        "attack_interval"                                 "1.1"
       }
       "07"
       {
@@ -83,7 +83,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_chance"                                     "35"
+        "proc_chance"                                     "50"
       }
       "09"
       {
@@ -103,7 +103,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "110 90 70 50 50"
+        "cooldown_scepter"                                "110 90 70 60 50"
         "RequiresScepter"                                 "1"
       }
       "13"

@@ -19,17 +19,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "2 4 6 8 10 12"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed_pct"                         "6 10 14 18 22 26"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
+        "self_movement_speed_pct"                         "12 16 20 24 28 32"
+        "LinkedSpecialBonus"                              "special_bonus_unique_razor_5"
       }
     }
   }
