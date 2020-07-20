@@ -17,16 +17,11 @@ function clinkz_death_pact_oaa:OnSpellStart()
 
 	-- apply the standard death pact modifier ( does nothing but display duration )
 	-- ( and animation too )
-	caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact", {
-		duration = duration,
-	} )
+	caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact", {duration = duration} )
 
 	-- apply the new modifier which actually provides the stats
 	-- then set its stack count to the amount of health the target had
-	local mod = caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_oaa", {
-		duration = duration,
-		stacks = targetHealth,
-	} )
+	caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_oaa", {duration = duration, stacks = targetHealth} )
 
 	-- play the sounds
 	caster:EmitSound( "Hero_Clinkz.DeathPact.Cast" )
@@ -72,23 +67,34 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 		self:SetStackCount( event.stacks )
 	end
 
-	-- get out values
-	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" ) * 0.01
+	-- get KV variables
+	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" )
 	local healthMax = spell:GetSpecialValueFor( "health_gain_max" )
-	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" ) * 0.01
+	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" )
 	local damageMax = spell:GetSpecialValueFor( "damage_gain_max" )
+
+  if IsServer() then
+    -- Talent that increases hp and dmg gain
+    local talent = parent:FindAbilityByName("special_bonus_unique_clinkz_8")
+    if talent then
+      if talent:GetLevel() > 0 then
+        healthPct = healthPct + talent:GetSpecialValueFor("value")
+        damagePct = damagePct + talent:GetSpecialValueFor("value2")
+      end
+    end
+  end
 
 	-- retrieve the stack count
 	local targetHealth = self:GetStackCount()
 
 	-- make sure the resulting buffs don't exceed the caps
-	self.health = targetHealth * healthPct
+	self.health = targetHealth * healthPct * 0.01
 
 	if healthMax > 0 then
 		self.health = math.min( healthMax, self.health )
 	end
 
-	self.damage = targetHealth * damagePct
+	self.damage = targetHealth * damagePct * 0.01
 
 	if damageMax > 0 then
 		self.damage = math.min( damageMax, self.health )
@@ -100,7 +106,7 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 
 		-- add the added health
 		parent:SetHealth( self.parentHealth + self.health )
-		self.parentHealth = 0
+		--self.parentHealth = 0
 	end
 end
 
@@ -120,23 +126,34 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 		self:SetStackCount( event.stacks )
 	end
 
-	-- get out values
-	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" ) * 0.01
+	-- get KV variables
+	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" )
 	local healthMax = spell:GetSpecialValueFor( "health_gain_max" )
-	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" ) * 0.01
+	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" )
 	local damageMax = spell:GetSpecialValueFor( "damage_gain_max" )
+
+  if IsServer() then
+    -- Talent that increases hp and dmg gain
+    local talent = parent:FindAbilityByName("special_bonus_unique_clinkz_8")
+    if talent then
+      if talent:GetLevel() > 0 then
+        healthPct = healthPct + talent:GetSpecialValueFor("value")
+        damagePct = damagePct + talent:GetSpecialValueFor("value2")
+      end
+    end
+  end
 
 	-- retrieve the stack count
 	local targetHealth = self:GetStackCount()
 
 	-- make sure the resulting buffs don't exceed the caps
-	self.health = targetHealth * healthPct
+	self.health = targetHealth * healthPct * 0.01
 
 	if healthMax > 0 then
 		self.health = math.min( healthMax, self.health )
 	end
 
-	self.damage = targetHealth * damagePct
+	self.damage = targetHealth * damagePct * 0.01
 
 	if damageMax > 0 then
 		self.damage = math.min( damageMax, self.health )
@@ -148,7 +165,7 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 
 		-- add the added health
 		parent:SetHealth( self.parentHealth + self.health )
-		self.parentHealth = 0
+		--self.parentHealth = 0
 	end
 end
 

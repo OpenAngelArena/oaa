@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 180 240"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,12 +57,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_creeps"                                 "8.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_3"
       }
     }

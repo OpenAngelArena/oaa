@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17 17 17"
+    "AbilityCooldown"                                     "20 19 18 17 16 15"
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -33,7 +33,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "20.0 25.0 30.0 35.0 35.0 35.0"
+        "duration"                                        "20 25 30 35 40 45" //OAA
       }
       "02"
       {
@@ -43,36 +43,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed_bonus_pct"                            "15 25 35 45 55 65"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_speed_duration"                           "4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "70 100 130 160 190 220"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus"                                   "30"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_skeleton_count"                          "2"
-        "RequiresScepter"                                 "1"
-      }
-      "08" // move_speed_bonus_pct + scepter_bonus
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_tooltip"                           "45 55 65 75 85 95"
-        "RequiresScepter"                                 "1"
+        "move_speed_bonus_pct"                            "15 25 35 45 55 65" //OAA
       }
     }
   }
