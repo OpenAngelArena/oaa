@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Retaliate Damage
+  // Bonus Retaliate/Return Damage
   //=================================================================================================================
   "special_bonus_unique_centaur_3"
   {
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"					"FIELD_INTEGER"
-        "value"				"140" //OAA
+        "value"				"100" //OAA
         "ad_linked_ability"			"centaur_return"
       }
     }

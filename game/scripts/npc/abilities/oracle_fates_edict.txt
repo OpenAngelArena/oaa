@@ -14,7 +14,9 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500 600 700 800 900 1000"
@@ -35,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.5 4.0 4.5 4.7 5.0"
+        "duration"                                        "3.0 3.5 4.0 4.5 4.75 5.0"
       }
       "02"
       {

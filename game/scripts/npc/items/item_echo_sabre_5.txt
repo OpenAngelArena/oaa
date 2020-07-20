@@ -53,6 +53,7 @@
     "ItemCost"                                            "35500"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "echo sabre 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
