@@ -43,7 +43,7 @@ function visage_summon_familiars_oaa:OnSpellStart()
       number_of_familiars = number_of_familiars + talent:GetSpecialValueFor("value")
     end
   end
-  
+
   -- Talent that increases familiar movement speed
   local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_2")
   if talent2 then
@@ -69,7 +69,7 @@ function visage_summon_familiars_oaa:OnSpellStart()
       familiar:SetBaseMaxHealth(familiar_hp)
       familiar:SetMaxHealth(familiar_hp)
       familiar:SetHealth(familiar_hp)
-  
+
       -- DAMAGE
       familiar:SetBaseDamageMin(familiar_dmg)
       familiar:SetBaseDamageMax(familiar_dmg)
