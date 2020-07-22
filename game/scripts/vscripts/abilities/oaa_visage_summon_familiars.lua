@@ -20,20 +20,37 @@ function visage_summon_familiars_oaa:OnSpellStart()
   end
 
   local baseUnitName = "npc_dota_visage_familiar"
-  local levelUnitName = baseUnitName .. abilityLevel
+  local levelUnitName = "npc_dota_visage_familiar3"
+  if abilityLevel <= 3 then
+    levelUnitName = baseUnitName .. abilityLevel
+  end
+
+  -- KV variables
   local number_of_familiars = self:GetSpecialValueFor("total_familiars")
+  local familiar_hp = self:GetLevelSpecialValueFor("familiar_hp", abilityLevel-1)
+  local familiar_armor = self:GetLevelSpecialValueFor("familiar_armor", abilityLevel-1)
+  local familiar_dmg = self:GetLevelSpecialValueFor("familiar_attack_damage", abilityLevel-1)
+  local familiar_speed = self:GetLevelSpecialValueFor("familiar_speed", abilityLevel-1)
 
   if caster:HasScepter() then
     number_of_familiars = self:GetSpecialValueFor("scepter_total_familiars")
   end
 
   -- Talent that increases number of familiars
-	local talent = caster:FindAbilityByName("special_bonus_unique_visage_6")
-	if talent then
-		if talent:GetLevel() > 0 then
-			number_of_familiars = number_of_familiars + talent:GetSpecialValueFor("value")
-		end
-	end
+  local talent = caster:FindAbilityByName("special_bonus_unique_visage_6")
+  if talent then
+    if talent:GetLevel() > 0 then
+      number_of_familiars = number_of_familiars + talent:GetSpecialValueFor("value")
+    end
+  end
+  
+  -- Talent that increases familiar movement speed
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_2")
+  if talent2 then
+    if talent2:GetLevel() > 0 then
+      familiar_speed = familiar_speed + talent2:GetSpecialValueFor("value")
+    end
+  end
 
   for i = 1, number_of_familiars do
     local familiar = self:SpawnUnit(levelUnitName, caster, playerID, false)
@@ -43,8 +60,26 @@ function visage_summon_familiars_oaa:OnSpellStart()
     if stoneFormAbility then
       stoneFormAbility:SetLevel(abilityLevel)
     end
+    -- Add some built-in modifier
+	familiar:AddNewModifier(caster, self, "modifier_visage_summon_familiars_damage_charge", {})
 
-    -- modifier_visage_summon_familiars_damage_charge
+    -- Fix stats of familiars above level 3
+    if abilityLevel > 3 then
+      -- HP
+      familiar:SetBaseMaxHealth(familiar_hp)
+      familiar:SetMaxHealth(familiar_hp)
+      familiar:SetHealth(familiar_hp)
+  
+      -- DAMAGE
+      familiar:SetBaseDamageMin(familiar_dmg)
+      familiar:SetBaseDamageMax(familiar_dmg)
+
+      -- ARMOR
+      familiar:SetPhysicalArmorBaseValue(familiar_armor)
+    end
+
+    -- Set Familiar movement speed
+    familiar:SetBaseMoveSpeed(familiar_speed)
 
     -- Create particle effects
     --local particleName = ".vpcf"
@@ -55,6 +90,7 @@ function visage_summon_familiars_oaa:OnSpellStart()
     -- Store familiars on the caster handle
     table.insert(caster.familiars, familiar)
   end
+
   -- Sound
   caster:EmitSound("Hero_Visage.SummonFamiliars.Cast")
 end
