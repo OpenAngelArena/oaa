@@ -1,8 +1,9 @@
 clinkz_death_pact_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_clinkz_death_pact_oaa", "abilities/oaa_death_pact.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_clinkz_death_pact_effect_oaa", "abilities/oaa_death_pact.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 function clinkz_death_pact_oaa:OnSpellStart()
 	local caster = self:GetCaster()
@@ -15,9 +16,8 @@ function clinkz_death_pact_oaa:OnSpellStart()
 	-- kill the target
 	target:Kill( self, caster )
 
-	-- apply the standard death pact modifier ( does nothing but display duration )
-	-- ( and animation too )
-	caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact", {duration = duration} )
+  -- Apply the modifier that just displays duration and visual effects
+  caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_effect_oaa", {duration = duration} )
 
 	-- apply the new modifier which actually provides the stats
 	-- then set its stack count to the amount of health the target had
@@ -33,11 +33,9 @@ function clinkz_death_pact_oaa:OnSpellStart()
 	ParticleManager:ReleaseParticleIndex( part )
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_clinkz_death_pact_oaa = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_clinkz_death_pact_oaa:IsHidden()
 	return true
@@ -50,8 +48,6 @@ end
 function modifier_clinkz_death_pact_oaa:IsPurgable()
 	return false
 end
-
---------------------------------------------------------------------------------
 
 function modifier_clinkz_death_pact_oaa:OnCreated( event )
 	local parent = self:GetParent()
@@ -110,8 +106,6 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 	end
 end
 
---------------------------------------------------------------------------------
-
 function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 	local parent = self:GetParent()
 	local spell = self:GetAbility()
@@ -169,8 +163,6 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 	end
 end
 
---------------------------------------------------------------------------------
-
 function modifier_clinkz_death_pact_oaa:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
@@ -180,14 +172,34 @@ function modifier_clinkz_death_pact_oaa:DeclareFunctions()
 	return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_clinkz_death_pact_oaa:GetModifierBaseAttack_BonusDamage( event )
 	return self.damage
 end
 
---------------------------------------------------------------------------------
-
 function modifier_clinkz_death_pact_oaa:GetModifierExtraHealthBonus( event )
 	return self.health
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_clinkz_death_pact_effect_oaa = class( ModifierBaseClass )
+
+function modifier_clinkz_death_pact_effect_oaa:IsHidden()
+	return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:IsDebuff()
+	return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:IsPurgable()
+	return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:GetEffectName()
+  return "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+end
+
+function modifier_clinkz_death_pact_effect_oaa:GetEffectAttachType()
+  return PATTACH_POINT_FOLLOW
 end
