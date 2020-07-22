@@ -33,14 +33,14 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "12"      // Physical protection.
+    "ArmorPhysical"                                       "7"      // Physical protection.
     "MagicalResistance"                                   "35"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "230"      // Damage range min.
-    "AttackDamageMax"                                     "230"      // Damage range max.
+    "AttackDamageMin"                                     "240"      // Damage range min.
+    "AttackDamageMax"                                     "240"      // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.4"    // Speed of attack.
     "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
@@ -51,9 +51,9 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "41"    // Experience earn.
-    "BountyGoldMin"                                       "100"    // Gold earned min.
-    "BountyGoldMax"                                       "100"    // Gold earned max.
+    "BountyXP"                                            "200"    // Experience earn.
+    "BountyGoldMin"                                       "300"    // Gold earned min.
+    "BountyGoldMax"                                       "300"    // Gold earned max.
 
     // Bounds
     //----------------------------------------------------------------
@@ -68,7 +68,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2200"    // Base health.
+    "StatusHealth"                                        "2100"    // Base health.
     "StatusHealthRegen"                                   "0.0"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0.0"    // Mana regeneration rate.
