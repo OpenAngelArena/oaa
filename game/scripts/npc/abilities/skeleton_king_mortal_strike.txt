@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50" //OAA
+    "AbilityManaCost"                                     "80" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "10 13 16 19 22 25" //OAA
+        "crit_chance"                                     "9 11 13 15 19 25"
       }
       "03"
       {
@@ -57,6 +57,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "reincarnate_time"                                "3"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "gold_bounty"                                     "5"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "xp_bounty"                                       "5"
       }
     }
   }

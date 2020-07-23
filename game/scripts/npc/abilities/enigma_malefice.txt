@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 260 360"
+    "AbilityManaCost"                                     "100 120 140 160 180 200"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -47,13 +47,13 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.4 0.6 0.8 1.0 1.1 1.25"
+        "stun_duration"                                   "0.4 0.6 0.8 1.0 1.1 1.2"
         "LinkedSpecialBonus"                              "special_bonus_unique_enigma_6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 55 80 105 205 305"
+        "damage"                                          "40 60 80 100 200 300"
         "LinkedSpecialBonus"                              "special_bonus_unique_enigma_5"
       }
       "04"

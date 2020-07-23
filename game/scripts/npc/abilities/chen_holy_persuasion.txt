@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "1000 1400 2100 2800 5000 10000" //OAA
+        "health_min"                                      "800 1000 1200 1400 2800 5600" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_chen_4"
       }
       "04"
@@ -59,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "10 20 30 40 80 120" //OAA
+        "damage_bonus"                                    "10 20 30 40 80 160" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_chen_5"
         "CalculateSpellDamageTooltip"                     "0"
       }

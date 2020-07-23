@@ -27,11 +27,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80.0 60.0 40.0 40.0 40.0" //OAA
+    "AbilityCooldown"                                     "80 60 40 40 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 420 650 1500 2500"
+    "AbilityManaCost"                                     "200 420 650 890 1140"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -58,6 +58,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_kill"                                 "40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lion_8"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
@@ -68,7 +69,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "200 420 625 1400 2300"
+        "mana_cost_scepter"                               "200 420 625 900 1200"
         "RequiresScepter"                                 "1"
       }
       "06"
@@ -80,7 +81,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "60.0 40.0 20.0 20.0 20.0" //OAA
+        "cooldown_scepter"                                "60 40 20 20 20" //OAA
         "RequiresScepter"                                 "1"
       }
       "08"

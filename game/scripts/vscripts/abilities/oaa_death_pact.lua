@@ -1,8 +1,9 @@
 clinkz_death_pact_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_clinkz_death_pact_oaa", "abilities/oaa_death_pact.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_clinkz_death_pact_effect_oaa", "abilities/oaa_death_pact.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 function clinkz_death_pact_oaa:OnSpellStart()
 	local caster = self:GetCaster()
@@ -15,18 +16,12 @@ function clinkz_death_pact_oaa:OnSpellStart()
 	-- kill the target
 	target:Kill( self, caster )
 
-	-- apply the standard death pact modifier ( does nothing but display duration )
-	-- ( and animation too )
-	caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact", {
-		duration = duration,
-	} )
+  -- Apply the modifier that just displays duration and visual effects
+  caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_effect_oaa", {duration = duration} )
 
 	-- apply the new modifier which actually provides the stats
 	-- then set its stack count to the amount of health the target had
-	local mod = caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_oaa", {
-		duration = duration,
-		stacks = targetHealth,
-	} )
+	caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_oaa", {duration = duration, stacks = targetHealth} )
 
 	-- play the sounds
 	caster:EmitSound( "Hero_Clinkz.DeathPact.Cast" )
@@ -38,11 +33,9 @@ function clinkz_death_pact_oaa:OnSpellStart()
 	ParticleManager:ReleaseParticleIndex( part )
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_clinkz_death_pact_oaa = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_clinkz_death_pact_oaa:IsHidden()
 	return true
@@ -55,8 +48,6 @@ end
 function modifier_clinkz_death_pact_oaa:IsPurgable()
 	return false
 end
-
---------------------------------------------------------------------------------
 
 function modifier_clinkz_death_pact_oaa:OnCreated( event )
 	local parent = self:GetParent()
@@ -72,23 +63,34 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 		self:SetStackCount( event.stacks )
 	end
 
-	-- get out values
-	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" ) * 0.01
+	-- get KV variables
+	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" )
 	local healthMax = spell:GetSpecialValueFor( "health_gain_max" )
-	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" ) * 0.01
+	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" )
 	local damageMax = spell:GetSpecialValueFor( "damage_gain_max" )
+
+  if IsServer() then
+    -- Talent that increases hp and dmg gain
+    local talent = parent:FindAbilityByName("special_bonus_unique_clinkz_8")
+    if talent then
+      if talent:GetLevel() > 0 then
+        healthPct = healthPct + talent:GetSpecialValueFor("value")
+        damagePct = damagePct + talent:GetSpecialValueFor("value2")
+      end
+    end
+  end
 
 	-- retrieve the stack count
 	local targetHealth = self:GetStackCount()
 
 	-- make sure the resulting buffs don't exceed the caps
-	self.health = targetHealth * healthPct
+	self.health = targetHealth * healthPct * 0.01
 
 	if healthMax > 0 then
 		self.health = math.min( healthMax, self.health )
 	end
 
-	self.damage = targetHealth * damagePct
+	self.damage = targetHealth * damagePct * 0.01
 
 	if damageMax > 0 then
 		self.damage = math.min( damageMax, self.health )
@@ -100,11 +102,9 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 
 		-- add the added health
 		parent:SetHealth( self.parentHealth + self.health )
-		self.parentHealth = 0
+		--self.parentHealth = 0
 	end
 end
-
---------------------------------------------------------------------------------
 
 function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 	local parent = self:GetParent()
@@ -120,23 +120,34 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 		self:SetStackCount( event.stacks )
 	end
 
-	-- get out values
-	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" ) * 0.01
+	-- get KV variables
+	local healthPct = spell:GetSpecialValueFor( "health_gain_pct" )
 	local healthMax = spell:GetSpecialValueFor( "health_gain_max" )
-	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" ) * 0.01
+	local damagePct = spell:GetSpecialValueFor( "damage_gain_pct" )
 	local damageMax = spell:GetSpecialValueFor( "damage_gain_max" )
+
+  if IsServer() then
+    -- Talent that increases hp and dmg gain
+    local talent = parent:FindAbilityByName("special_bonus_unique_clinkz_8")
+    if talent then
+      if talent:GetLevel() > 0 then
+        healthPct = healthPct + talent:GetSpecialValueFor("value")
+        damagePct = damagePct + talent:GetSpecialValueFor("value2")
+      end
+    end
+  end
 
 	-- retrieve the stack count
 	local targetHealth = self:GetStackCount()
 
 	-- make sure the resulting buffs don't exceed the caps
-	self.health = targetHealth * healthPct
+	self.health = targetHealth * healthPct * 0.01
 
 	if healthMax > 0 then
 		self.health = math.min( healthMax, self.health )
 	end
 
-	self.damage = targetHealth * damagePct
+	self.damage = targetHealth * damagePct * 0.01
 
 	if damageMax > 0 then
 		self.damage = math.min( damageMax, self.health )
@@ -148,11 +159,9 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 
 		-- add the added health
 		parent:SetHealth( self.parentHealth + self.health )
-		self.parentHealth = 0
+		--self.parentHealth = 0
 	end
 end
-
---------------------------------------------------------------------------------
 
 function modifier_clinkz_death_pact_oaa:DeclareFunctions()
 	local funcs = {
@@ -163,14 +172,34 @@ function modifier_clinkz_death_pact_oaa:DeclareFunctions()
 	return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_clinkz_death_pact_oaa:GetModifierBaseAttack_BonusDamage( event )
 	return self.damage
 end
 
---------------------------------------------------------------------------------
-
 function modifier_clinkz_death_pact_oaa:GetModifierExtraHealthBonus( event )
 	return self.health
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_clinkz_death_pact_effect_oaa = class( ModifierBaseClass )
+
+function modifier_clinkz_death_pact_effect_oaa:IsHidden()
+	return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:IsDebuff()
+	return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:IsPurgable()
+	return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:GetEffectName()
+  return "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+end
+
+function modifier_clinkz_death_pact_effect_oaa:GetEffectAttachType()
+  return PATTACH_POINT_FOLLOW
 end

@@ -28,11 +28,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "75"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 200 275 475 675"
+    "AbilityManaCost"                                     "75 125 175 225 275"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "3"
+        "images_count"                                    "1 2 3 4 4"
       }
       "02"
       {
@@ -52,12 +52,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "-60 0 60 120 180" //OAA
+        "outgoing_damage"                                 "0 0 0 25 50"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "40 100 160 220 280" //OAA
+        "outgoing_damage_tooltip"                         "100 100 100 125 150"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
@@ -83,7 +83,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "25"
+        "magic_resistance"                                "0"
       }
     }
   }

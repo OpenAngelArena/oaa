@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "135 140 145 150 200 250"
+    "AbilityManaCost"                                     "120 130 140 150 200 250"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 160 240 320 720 1120"
+        "damage"                                          "100 175 250 325 650 975"
       }
       "02"
       {
@@ -55,30 +55,24 @@
         "jump_damage_reduction_pct"                       "8"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03" // this is not precentage based attack damage reduction
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_attack_damage_reduction"                    "20 25 30 35 70 140"
+        "attack_damage_reduction"                         "10 18 26 34 42 50"
         "LinkedSpecialBonus"                              "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_attack_damage_reduction"                   "10 20 30 40 300 600" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "10.0"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "440"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "jump_delay"                                      "0.25"

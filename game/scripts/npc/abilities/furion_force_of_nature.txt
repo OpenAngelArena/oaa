@@ -2,7 +2,7 @@
 {
   //=================================================================================================================
   // Furion: Force of Nature, Nature's Call
-  // OAA version that spawns stronger treants for levels 5 and 6
+  // OAA version that spawns stronger treants
   //=================================================================================================================
   "furion_force_of_nature"
   {
@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "150 225 300 375 450 550"
+        "area_of_effect"                                  "150 225 300 375 450 525"
       }
       "02"
       {
@@ -60,7 +60,7 @@
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "06"
+      "06" // same as treant_health_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_hp_bonus"                                 "550 700 900 1200 1800 2700"

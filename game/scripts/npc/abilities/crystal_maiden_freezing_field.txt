@@ -45,7 +45,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "835"
+        "radius"                                          "810"
       }
       "02"
       {
@@ -90,13 +90,13 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 250 390 810 1230" //OAA
+        "damage"                                          "110 250 390 810 1510" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_delay"                                   "2"
+        "scepter_delay"                                   "1.75"
         "RequiresScepter"                                 "1"
       }
     }

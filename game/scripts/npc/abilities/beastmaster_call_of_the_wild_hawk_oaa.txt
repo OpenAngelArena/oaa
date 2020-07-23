@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "120"
+        "duration"                                        "60"
       }
       "02"
       {
@@ -55,6 +55,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hawk_vision_tooltip"                             "600 700 800 900 1350 1800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_5"
       }
     }
   }

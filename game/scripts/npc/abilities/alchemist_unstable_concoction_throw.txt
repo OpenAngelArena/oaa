@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -53,7 +54,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "150 220 290 360 800 1200"
+        "max_damage"                                      "150 220 290 360 720 1440"
+        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_2"
       }
       "06"
       {
@@ -68,7 +70,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "midair_explosion_radius"                         "200"
+        "midair_explosion_radius"                         "250"
       }
       "09"
       {

@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"winter_wyvern_winters_curse"
+  "winter_wyvern_winters_curse"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -12,16 +12,17 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
+
     "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.3"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80"
+    "AbilityCooldown"                                     "90"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +56,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0 4.75 5.5 5.5 5.5"
-        "LinkedSpecialBonus"  "special_bonus_unique_winter_wyvern_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_3"
       }
     }
   }

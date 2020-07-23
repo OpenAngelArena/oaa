@@ -15,8 +15,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCooldown"                                     "4"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -24,14 +22,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_min"                                        "120"
+        "chance"                                          "30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_max"                                        "140 170 200 230 260 290"
+        "crit_min"                                        "120"
       }
       "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_max"                                        "140 170 200 230 260 290"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "lifesteal"                                       "25 40 55 70 85 100"
