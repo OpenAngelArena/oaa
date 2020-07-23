@@ -13,8 +13,10 @@ function item_ghost_king_bar:OnSpellStart()
   -- Apply Basic Dispel (its before applying actual effect on purpose!)
   caster:Purge(false, true, false, false, false)
 
-  -- Apply Ghost King Bar debuff to caster
-	caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
+  -- Apply Ghost King Bar debuff to caster (but only if he doesnt have spell immunity)
+  if not caster:IsMagicImmune() then
+	  caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
+  end
 
   -- Emit Activation sound
 	caster:EmitSound("DOTA_Item.GhostScepter.Activate")
