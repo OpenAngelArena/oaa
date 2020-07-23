@@ -1,24 +1,33 @@
 "DOTAAbilities"
 {
-  "visage_summon_familiars"
+  //=================================================================================================================
+  // Visage: Summon Familiars (OAA rework)
+  //=================================================================================================================
+  "visage_summon_familiars_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5483"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8614"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_visage_summon_familiars.lua"
+    "AbilityTextureName"                                  "visage_summon_familiars"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90"  //OAA, for Picking Screen
+    "AbilityCooldown"                                     "90"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"  // level 5 familiar never spawns
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
         "familiar_hp"                                     "500 600 700 1400 2100"
@@ -53,7 +62,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_scepter_total_familiars"                 "3"
+        "total_familiars"                                 "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_total_familiars"                         "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_visage_6"
         "RequiresScepter"                                 "1"
       }
