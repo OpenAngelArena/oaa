@@ -3,7 +3,7 @@
 //=============================================================================
 "DOTA_Tooltip_Ability_item_sonic"                                               "Sonic"
 "DOTA_Tooltip_Ability_item_recipe_sonic"                                        "Sonic Recipe"
-"DOTA_Tooltip_Ability_item_sonic_Description"                                   "<h1>Active: Sonic Flight</h1> Grants %speed_bonus%%% bonus movement speed, %vision_bonus%%% bonus vision, flying movement, makes you unslowable and removes movement speed limit. Lasts %duration% seconds."
+"DOTA_Tooltip_Ability_item_sonic_Description"                                   "<h1>Active: Sonic Flight</h1> Grants %speed_bonus%%% bonus movement speed, %vision_bonus%%% bonus vision, flying movement, makes you unslowable and unrootable and removes movement speed limit. Lasts %duration% seconds."
 "DOTA_Tooltip_Ability_item_sonic_bonus_movement_speed"                          "+$move_speed"
 "DOTA_Tooltip_Ability_item_sonic_bonus_damage_melee"                            "+$damage"
 "DOTA_Tooltip_Ability_item_sonic_bonus_armor"                                   "+$armor"
@@ -29,4 +29,4 @@
 "DOTA_Tooltip_Ability_item_sonic_3_Lore"                                        "#{DOTA_Tooltip_Ability_item_sonic_Lore}"
 
 "dota_tooltip_modifier_sonic_fly"                                               "Sonic Flight"
-"dota_tooltip_modifier_sonic_fly_Description"                                   "Flying, unslowable, bonus movement speed and bonus vision range."
+"dota_tooltip_modifier_sonic_fly_Description"                                   "Flying, unslowable, unrootable, bonus movement speed and bonus vision range."

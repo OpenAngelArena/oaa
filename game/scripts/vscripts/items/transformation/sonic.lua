@@ -44,6 +44,8 @@ function modifier_sonic_fly:CheckState()
     [MODIFIER_STATE_FLYING] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_UNSLOWABLE] = true,
+    [MODIFIER_STATE_ROOTED] = false,
+    [MODIFIER_STATE_TETHERED] = false,
   }
   return state
 end
