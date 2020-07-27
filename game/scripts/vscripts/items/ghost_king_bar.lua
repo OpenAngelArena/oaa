@@ -4,22 +4,22 @@ LinkLuaModifier("modifier_item_ghost_king_bar_passive", "items/ghost_king_bar.lu
 LinkLuaModifier("modifier_item_ghost_king_bar_active", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_ghost_king_bar:GetIntrinsicModifierName()
-	return "modifier_item_ghost_king_bar_passive"
+  return "modifier_item_ghost_king_bar_passive"
 end
 
 function item_ghost_king_bar:OnSpellStart()
-	local caster = self:GetCaster()
+  local caster = self:GetCaster()
 
   -- Apply Basic Dispel (its before applying actual effect on purpose!)
   caster:Purge(false, true, false, false, false)
 
   -- Apply Ghost King Bar debuff to caster (but only if he doesnt have spell immunity)
   if not caster:IsMagicImmune() then
-	  caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
+    caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
   end
 
   -- Emit Activation sound
-	caster:EmitSound("DOTA_Item.GhostScepter.Activate")
+  caster:EmitSound("DOTA_Item.GhostScepter.Activate")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -27,19 +27,19 @@ end
 modifier_item_ghost_king_bar_passive = class(ModifierBaseClass)
 
 function modifier_item_ghost_king_bar_passive:IsHidden()
-	return true
+  return true
 end
 
 function modifier_item_ghost_king_bar_passive:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_item_ghost_king_bar_passive:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_item_ghost_king_bar_passive:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_ghost_king_bar_passive:OnCreated()
@@ -71,15 +71,15 @@ function modifier_item_ghost_king_bar_passive:DeclareFunctions()
 end
 
 function modifier_item_ghost_king_bar_passive:GetModifierBonusStats_Strength()
-	return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_ghost_king_bar_passive:GetModifierBonusStats_Agility()
-	return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agility")
+  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agility")
 end
 
 function modifier_item_ghost_king_bar_passive:GetModifierBonusStats_Intellect()
-	return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -87,15 +87,15 @@ end
 modifier_item_ghost_king_bar_active = class(ModifierBaseClass)
 
 function modifier_item_ghost_king_bar_active:IsHidden()
-	return false
+  return false
 end
 
 function modifier_item_ghost_king_bar_active:IsDebuff()
-	return true
+  return true
 end
 
 function modifier_item_ghost_king_bar_active:IsPurgable()
-	return true
+  return true
 end
 
 function modifier_item_ghost_king_bar_active:OnCreated()
@@ -104,15 +104,15 @@ function modifier_item_ghost_king_bar_active:OnCreated()
     self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
   end
 
-	self:StartIntervalThink(FrameTime())
+  self:StartIntervalThink(FrameTime())
 end
 
 function modifier_item_ghost_king_bar_active:OnIntervalThink()
   local parent = self:GetParent()
-	-- To prevent invicibility:
+  -- To prevent invicibility:
   if parent:IsMagicImmune() then
-		self:Destroy()
-	end
+    self:Destroy()
+  end
 end
 
 function modifier_item_ghost_king_bar_active:DeclareFunctions()
