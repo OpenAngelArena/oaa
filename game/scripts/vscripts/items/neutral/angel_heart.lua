@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_item_angel_heart_passive", "items/angel_heart.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_angel_heart_passive", "items/neutral/angel_heart.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_angel_heart = class(ItemBaseClass)
 

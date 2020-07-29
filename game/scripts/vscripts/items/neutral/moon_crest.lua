@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_item_moon_crest_passive", "items/moon_crest.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_moon_crest_passive", "items/neutral/moon_crest.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_moon_crest = class(ItemBaseClass)
 
