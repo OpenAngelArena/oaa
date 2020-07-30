@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Ethereal Blade 5
+  // Recipe: Ghost King Bar 3
   //=================================================================================================================
-  "item_recipe_ethereal_blade_5"
+  "item_recipe_ghost_king_bar_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3145"    // unique ID
+    "ID"                                                  "8619"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,41 +20,38 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ethereal_blade_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemResult"                                          "item_ghost_king_bar_3"
+
     "ItemRequirements"
     {
-      "01"                                                "item_ethereal_blade_4;item_upgrade_core_4"
-      "02"                                                "item_ghost_king_bar_2;item_upgrade_core_4"
+      "01"                                                "item_ghost_king_bar_2;item_upgrade_core_4"
+      "02"                                                "item_ethereal_blade_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Ethereal Blade 5
+  // Ghost King Bar 3
   //=================================================================================================================
-  "item_ethereal_blade_5"
+  "item_ghost_king_bar_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3149"    // unique ID
-    "BaseClass"                                           "item_ethereal_blade"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "FightRecapLevel"                                     "1"
-    "AbilityTextureName"                                  "custom/ethereal_blade_5"
+    "ID"                                                  "8620"    // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/ghost_king_bar.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/ghoststaff_5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "20.0"
     "AbilitySharedCooldown"                               "ethereal"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -62,7 +60,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "eb 5;ethereal blade 5;eblade 5"
+    "ItemAliases"                                         "gkb 3;ghost king bar 3;ghost staff 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -72,52 +70,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "40 45 50 55 60"
+        "bonus_agility"                                   "50 55 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 13 16 20 24"
+        "bonus_strength"                                  "20 25 30"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 13 16 20 24"
+        "bonus_intellect"                                 "20 25 30"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_slow"                             "-80"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0 5.0 6.0"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blast_agility_multiplier"                        "1.5"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage_base"                               "125 150 200 275 375"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_ally"                                   "4.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ethereal_damage_bonus"                           "-40 -50 -60 -70 -80"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1275"
+        "ethereal_damage_bonus"                           "-60"
       }
     }
   }

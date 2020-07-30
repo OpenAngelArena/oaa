@@ -97,7 +97,10 @@ local exempt_item_table = {
   item_far_sight = true,
   item_far_sight_2 = true,
   item_far_sight_3 = true,
-  item_far_sight_4 = true
+  item_far_sight_4 = true,
+  item_ghost_king_bar = true,
+  item_ghost_king_bar_2 = true,
+  item_ghost_king_bar_3 = true
 }
 
 
