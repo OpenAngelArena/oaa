@@ -9,7 +9,7 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
-    "vscripts"                                            "units/ai_simple.lua"
+    "vscripts"                                            "units/ai_roshan.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
