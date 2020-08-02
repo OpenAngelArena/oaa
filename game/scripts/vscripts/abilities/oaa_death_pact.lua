@@ -18,7 +18,7 @@ function clinkz_death_pact_oaa:OnSpellStart()
   local target = self:GetCursorTarget()
   local duration = self:GetSpecialValueFor( "duration" )
 
-  -- get the target's max health
+  -- get the target's current health
   local targetHealth = target:GetHealth()
 
   -- kill the target
