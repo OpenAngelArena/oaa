@@ -6,6 +6,13 @@ function item_stonework_pendant:GetIntrinsicModifierName()
   return "modifier_item_stonework_pendant_passive"
 end
 
+function item_stonework_pendant:IsMuted()
+  local caster = self:GetCaster()
+  if not caster:IsHero() then
+    return true
+  end
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_stonework_pendant_passive = class(ModifierBaseClass)
@@ -29,7 +36,7 @@ function modifier_item_stonework_pendant_passive:OnCreated()
   end
   self.bonus_hp = parent:GetMaxMana()
   self.bonus_hp_regen = parent:GetManaRegen()
-  if IsServer() then
+  if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus()
   end
   self:StartIntervalThink(0.5)
@@ -44,7 +51,7 @@ function modifier_item_stonework_pendant_passive:OnRefresh()
   end
   self.bonus_hp = parent:GetMaxMana()
   self.bonus_hp_regen = parent:GetManaRegen()
-  if IsServer() then
+  if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus()
   end
 end
@@ -53,7 +60,7 @@ function modifier_item_stonework_pendant_passive:OnIntervalThink()
   local parent = self:GetParent()
   self.bonus_hp = self.bonus_hp + parent:GetMaxMana()
   self.bonus_hp_regen = self.bonus_hp_regen + parent:GetManaRegen()
-  if IsServer() then
+  if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus()
   end
 end
@@ -69,7 +76,7 @@ function modifier_item_stonework_pendant_passive:DeclareFunctions()
   }
 end
 
-function modifier_item_stonework_pendant:GetModifierHealthBonus()
+function modifier_item_stonework_pendant_passive:GetModifierHealthBonus()
   if self.bonus_hp then
     return self.bonus_hp
   end
