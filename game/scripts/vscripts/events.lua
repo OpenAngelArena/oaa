@@ -65,14 +65,6 @@ function GameMode:OnNPCSpawned(keys)
   local npc = EntIndexToHScript(keys.entindex)
   DecorateNPC(npc)
 
-  -- Replace Silencer's int steal with a custom modifier
-  if npc:GetUnitName() == "npc_dota_hero_silencer" then
-    LinkLuaModifier("modifier_oaa_int_steal", "modifiers/modifier_oaa_int_steal.lua", LUA_MODIFIER_MOTION_NONE)
-    Timers:CreateTimer(function()
-      npc:RemoveModifierByName("modifier_silencer_int_steal")
-      npc:AddNewModifier(npc, npc:FindAbilityByName("silencer_glaives_of_wisdom_oaa"), "modifier_oaa_int_steal", {})
-    end)
-  end
   --[[ -- legacy armor formula
   if npc.GetPhysicalArmorValue then
     LinkLuaModifier("modifier_legacy_armor", "modifiers/modifier_legacy_armor.lua", LUA_MODIFIER_MOTION_NONE)
