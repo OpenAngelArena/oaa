@@ -1,7 +1,6 @@
 //=============================================================================
 // Underlord Dark Rift
 //=============================================================================
-
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa"                          "Dark Rift"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Description"              "CHANNELED - After channeling for %abilitychanneltime% seconds, Underlord teleports to the target location, stunning and damaging enemies in a radius."
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Lore"                     "The wicked know no rest; to and fro they go, reaping desolation anew before old flames burn out."
@@ -18,3 +17,6 @@
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_Lore"                         "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_Lore}"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_radius"                       "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_radius}"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_teleport_delay"               "CHANNEL DURATION:"
+
+"DOTA_Tooltip_modifier_underlord_dark_rift_oaa_stun"                            "Dark Rift"
+"DOTA_Tooltip_modifier_underlord_dark_rift_oaa_stun_Description"                "Stunned."
