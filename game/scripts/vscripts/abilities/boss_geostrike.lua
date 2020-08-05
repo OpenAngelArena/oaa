@@ -117,7 +117,7 @@ function modifier_boss_geostrike_debuff:GetModifierMoveSpeedBonus_Percentage()
     return self.movement_slow or self:GetAbility():GetSpecialValueFor("move_speed_slow")
   end
 
-  return -20
+  return -50
 end
 
 function modifier_boss_geostrike_debuff:GetModifierAttackSpeedBonus_Constant()
