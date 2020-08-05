@@ -3,13 +3,13 @@ abyssal_underlord_cancel_dark_rift_oaa = class( AbilityBaseClass )
 --------------------------------------------------------------------------------
 
 function abyssal_underlord_cancel_dark_rift_oaa:IsStealable()
-	return true
+  return false
 end
 
 --------------------------------------------------------------------------------
 
 function abyssal_underlord_cancel_dark_rift_oaa:ProcsMagicStick()
-	return false
+  return false
 end
 
 --------------------------------------------------------------------------------
@@ -21,8 +21,8 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
   local destination = caster.original_cast_location
   local radius = self:GetSpecialValueFor("radius")
 
-	-- play modified gesture
-	caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_4 )
+  -- play modified gesture
+  caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_4 )
 
   -- Destroy all trees around the caster and around the destination if destination exists
   if destination then
@@ -71,6 +71,10 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
     ParticleManager:SetParticleControl(part2, 2, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(part2, 5, caster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(part2)
+	
+    -- play teleportation sounds
+    caster:EmitSound("Hero_AbyssalUnderlord.DarkRift.Aftershock")
+    EmitSoundOnLocationWithCaster(destination, "Hero_AbyssalUnderlord.DarkRift.Aftershock", caster)
   end
 
 	-- Remove particles
