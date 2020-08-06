@@ -9,10 +9,11 @@ function Spawn( entityKeyValues )
   if not thisEntity or not IsServer() then
     return
   end
-  thisEntity:SetContextThink("SimpleBossThink", SimpleBossThink, 1)
+  thisEntity.slam_ability = thisEntity:FindAbilityByName("roshan_slam")
+  thisEntity:SetContextThink("RoshanThink", RoshanThink, 1)
 end
 
-function SimpleBossThink()
+function RoshanThink()
   if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
     return 1
   end
@@ -63,7 +64,7 @@ function SimpleBossThink()
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
         Position = nearest_enemy:GetAbsOrigin(),
-        Queue = 0,
+        Queue = false,
       })
     end
     thisEntity.aggro_target = nearest_enemy
@@ -143,19 +144,27 @@ function SimpleBossThink()
       if not thisEntity:GetAggroTarget() or thisEntity:IsIdle() then
         thisEntity.aggro_target = nil
       end
-      -- OLD: if not thisEntity.aggro_target:IsAttackingEntity(thisEntity) then
-      -- OLD: thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
     else
       -- Check HP of the boss and if its able to attack
       local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
       local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
-      if current_hp_pct < aggro_hp_pct then -- not thisEntity:IsOutOfGame() and not thisEntity:IsDisarmed() then
+      if current_hp_pct < aggro_hp_pct then
         AttackNearestTarget(thisEntity)
       end
 
       if not thisEntity.aggro_target then
         thisEntity.state = SIMPLE_AI_STATE_LEASH
       end
+    end
+
+    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    if thisEntity.slam_ability and thisEntity.slam_ability:IsFullyCastable() and #enemies > 2 then
+      ExecuteOrderFromTable({
+        UnitIndex = thisEntity:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+        AbilityIndex = thisEntity.slam_ability:entindex(),
+        Queue = false,
+      })
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
     -- Actual leashing

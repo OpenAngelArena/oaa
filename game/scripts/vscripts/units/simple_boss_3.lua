@@ -18,7 +18,7 @@ local function Think(state, target)
     end
   end
 
-  if not ABILITY_tidebringer:IsActivated() then
+  if ABILITY_tidebringer then
     ExecuteOrderFromTable({
       UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE,
@@ -42,5 +42,5 @@ function Spawn(entityKeyValues) --luacheck: ignore Spawn
   print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
   thisEntity:SetContextThink('SimpleBoss3Think', partial(Think, thisEntity), 1)
 
-  ABILITY_tidebringer  = thisEntity:FindAbilityByName('boss_tidebringer')
+  ABILITY_tidebringer = thisEntity:FindAbilityByName('boss_tidebringer')
 end
