@@ -81,8 +81,10 @@ function modifier_ogre_seer_ignite_debuff:OnCreated()
   if ability and not ability:IsNull() then
     damage_per_second = ability:GetSpecialValueFor("burn_damage")
     interval = ability:GetSpecialValueFor("damage_interval")
-    damage_type = ability:GetAbilityDamageType()
     self.slow = ability:GetSpecialValueFor("slow_movement_speed_pct")
+    if IsServer() then
+      damage_type = ability:GetAbilityDamageType()
+    end
   end
   self.damage_per_interval = damage_per_second*interval
   local caster = self:GetCaster()
@@ -104,7 +106,7 @@ function modifier_ogre_seer_ignite_debuff:OnIntervalThink()
   local parent = self:GetParent()
   local damage_type = DAMAGE_TYPE_MAGICAL
   local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
+  if ability and not ability:IsNull() and IsServer() then
     damage_type = ability:GetAbilityDamageType()
   end
   local caster = self:GetCaster()
