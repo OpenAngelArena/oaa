@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Simple Boss 5 Tier 5 Version
+  // Simple Cleave Boss Tier 5
   //=================================================================================
   "npc_dota_boss_simple_5_tier5"
   {
@@ -20,9 +20,10 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_great_cleave"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
+    "Ability2"                                            "boss_unslowable_attack_speed"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_cliffwalk"
+    "Ability5"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -34,11 +35,11 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "15000"    // Damage range min.
     "AttackDamageMax"                                     "16000"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "2.0"      // Speed of attack.
+    "AttackRate"                                          "2.0"    // BAT
+    "BaseAttackSpeed"                                     "100"    // Attack Speed
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "128"    // Range within a target can be attacked.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounty
     //----------------------------------------------------------------
@@ -66,13 +67,11 @@
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

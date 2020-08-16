@@ -18,7 +18,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "0"
+    "HasScepterUpgrade"                                   "1" //OAA
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,13 +36,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "intellect_damage_pct"                            "25 45 65 85 105 125" // OAA, for picking screen tooltip
+        "intellect_damage_pct"                            "20 40 60 80 100 120" // OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_silencer_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "int_steal"                                       "0" //OAA, for picking screen tooltip
+        "int_steal"                                       "1 1 2 2 3 4" //OAA, for picking screen tooltip
       }
       "03"
       {

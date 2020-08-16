@@ -5,7 +5,6 @@
   //=================================================================================================================
   "boss_regen"
   {
-
     "ID"                                                  "9905"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss_regen.lua"
@@ -13,14 +12,11 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
-
     "MaxLevel"                                            "1"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "1"
-	
-	
-    "AbilityCooldown"                                     "5.0"
 
+    "AbilityCooldown"                                     "5.0"
 
     "AbilitySpecial"
     {
@@ -49,7 +45,6 @@
         "var_type"                                        "FIELD_FLOAT"
         "health_degen_rate"                               "1.0"
       }
-      
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
