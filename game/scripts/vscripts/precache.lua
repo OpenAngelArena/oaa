@@ -21,13 +21,13 @@ g_UnitPrecache = {
   "npc_dota_hero_sohei",
   "npc_dota_hero_electrician",
   "dota_fountain",
-  "npc_azazel_tower_watch",
+  --"npc_azazel_tower_watch",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
-  "npc_dota_boss_simple_3",
+  --"npc_dota_boss_simple_3",
   "npc_dota_boss_simple_5",
-  "npc_dota_boss_simple_6",
-  "npc_dota_boss_simple_7",
+  --"npc_dota_boss_simple_6",
+  --"npc_dota_boss_simple_7",
 
   "npc_dota_boss_twin",
   "npc_dota_boss_twin_dumb",
@@ -47,8 +47,8 @@ g_UnitPrecache = {
   "npc_dota_creature_temple_guardian",
   "npc_dota_creature_temple_guardian_spawner",
 
-  "npc_dota_creature_small_lycosidae",
-  "npc_dota_creature_spider_boss",
+  --"npc_dota_creature_small_lycosidae",
+  --"npc_dota_creature_spider_boss",
   "npc_dota_boss_spiders",
   "npc_dota_boss_swiper",
   "npc_dota_boss_wanderer_1",
@@ -80,7 +80,7 @@ g_ParticlePrecache = {
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
   "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
   -- Vector targetting
-  "particles/ui_mouseactions/range_finder_cone.vpcf",
+  --"particles/ui_mouseactions/range_finder_cone.vpcf",
 }
 
 g_ParticleFolderPrecache = {

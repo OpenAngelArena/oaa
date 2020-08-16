@@ -7,23 +7,6 @@ STAT_UTILITIES_VERSION = "0.2"
 ]]
 
 ------------------------------
--- Game Functions     --
-------------------------------
-
--- Number of times roshan was killed
-function GetRoshanKills()
-    local total_rosh_kills = 0
-    for playerID = 0, DOTA_MAX_PLAYERS do
-        if PlayerResource:IsValidPlayerID(playerID) then
-            local roshan_kills_player = PlayerResource:GetRoshanKills(playerID)
-            total_rosh_kills = total_rosh_kills + roshan_kills_player
-        end
-    end
-
-    return total_rosh_kills
-end
-
-------------------------------
 -- Player Functions    --
 ------------------------------
 

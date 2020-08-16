@@ -68,14 +68,14 @@ function Precache( context )
 
   -- precache all hero econ folders
   -- this makes immortals and stuff work
-  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
-  for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
-    if value == 1 then
-      local hero = string.sub(key, 15)
+  -- local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
+  -- for key,value in pairs(LoadKeyValues('scripts/npc/herolist.txt')) do
+    -- if value == 1 then
+      -- local hero = string.sub(key, 15)
       -- PrecacheResource("particle_folder", "particles/econ/items/" .. hero, context)
       -- PrecacheResource("model_folder", "particles/heroes/" .. hero, context)
-    end
-  end
+    -- end
+  -- end
 
   -- Particles can be precached individually or by folder
   -- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
