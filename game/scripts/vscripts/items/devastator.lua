@@ -35,7 +35,7 @@ function item_devastator:OnSpellStart()
 	self.devastator_speed = self.devastator_speed * ( self.devastator_distance / ( self.devastator_distance - self.devastator_width_initial ) )
 
   local info = {
-    EffectName = "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf",
+    EffectName = "particles/items/devastator/devastator_active.vpcf",
     Ability = self,
     vSpawnOrigin = self:GetCaster():GetOrigin(),
     fStartRadius = self.devastator_width_initial,
@@ -58,7 +58,7 @@ end
 
 -- Impact of the projectile
 function item_devastator:OnProjectileHit( hTarget, vLocation )
-  if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) then
+  if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) and ( not hTarget:IsAttackImmune() ) then
     local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration)
 
     -- Apply the slow debuff always
@@ -90,7 +90,7 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
       attacker = self:GetCaster(),
       damage = self.devastator_damage,
       damage_type = DAMAGE_TYPE_PHYSICAL,
-      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
       ability = self
     }
 
