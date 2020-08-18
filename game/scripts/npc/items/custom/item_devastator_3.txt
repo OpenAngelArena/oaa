@@ -93,48 +93,46 @@
         "var_type"                                        "FIELD_INTEGER"
         "devastator_speed"                                "1200"
       }
-
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_width_initial"                        "275"
+        "devastator_width_initial"                        "200"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_width_end"                            "200"
       }
-
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_distance"                             "600"
+        "devastator_distance"                             "800"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "100 200 300 400 500"
+        "devastator_damage"                               "200 400 600 800 1000"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "09"
+      "09" // like Solar Crest
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_movespeed_reduction"                  "-20"
+        "devastator_movespeed_reduction"                  "-10 -20 -30 -40 -50"
       }
-      "10"
+      "10" // like Solar Crest
       {
         "var_type"                                        "FIELD_FLOAT"
-        "devastator_movespeed_reduction_duration"         "5.0"
+        "devastator_movespeed_reduction_duration"         "7.0"
       }
       "11" // better than desolator, similar to solar crest
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_armor_reduction"                      "-7 -10 -14 -19 -25"
       }
-      "12"
+      "12" // like Desolator and Solar Crest
       {
         "var_type"                                        "FIELD_FLOAT"
-        "devastator_armor_reduction_duration"             "5.0"
+        "devastator_armor_reduction_duration"             "7.0"
       }
     }
   }

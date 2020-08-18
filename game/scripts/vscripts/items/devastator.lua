@@ -9,7 +9,6 @@ item_devastator_3 = item_devastator
 item_devastator_4 = item_devastator
 item_devastator_5 = item_devastator
 
-
 function item_devastator:OnSpellStart()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
 	self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
@@ -18,7 +17,6 @@ function item_devastator:OnSpellStart()
 	self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" )
 	self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" )
 	self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
-	self.devastator_corruption_duration = self:GetSpecialValueFor( "corruption_duration" )
 
 	-- Re enable if the item should have any sound
 	-- EmitSoundOn( "Hero_Lina.DragonSlave.Cast", self:GetCaster() )
@@ -36,20 +34,22 @@ function item_devastator:OnSpellStart()
 
 	self.devastator_speed = self.devastator_speed * ( self.devastator_distance / ( self.devastator_distance - self.devastator_width_initial ) )
 
-	local info = {
-		-- replace with the correct particles
-
-		EffectName = "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf",
-		Ability = self,
-		vSpawnOrigin = self:GetCaster():GetOrigin(),
-		fStartRadius = self.devastator_width_initial,
-		fEndRadius = self.devastator_width_end,
-		vVelocity = vDirection * self.devastator_speed,
-		fDistance = self.devastator_distance,
-		Source = self:GetCaster(),
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	}
+  local info = {
+    EffectName = "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf",
+    Ability = self,
+    vSpawnOrigin = self:GetCaster():GetOrigin(),
+    fStartRadius = self.devastator_width_initial,
+    fEndRadius = self.devastator_width_end,
+    vVelocity = vDirection * self.devastator_speed,
+    fDistance = self.devastator_distance,
+    Source = self:GetCaster(),
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+    iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    --bReplaceExisting = false,
+    --bDeleteOnHit = false,
+    --bProvidesVision = false,
+  }
 
 	ProjectileManager:CreateLinearProjectile( info )
 	-- Re enable if the item should have sound
