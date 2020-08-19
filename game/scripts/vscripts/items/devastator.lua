@@ -10,6 +10,7 @@ item_devastator_4 = item_devastator
 item_devastator_5 = item_devastator
 
 function item_devastator:OnSpellStart()
+  local caster = self:GetCaster()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
   self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
   self.devastator_width_end = self:GetSpecialValueFor( "devastator_width_end" )
@@ -19,7 +20,7 @@ function item_devastator:OnSpellStart()
   self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
 
   -- Sound
-  self:GetCaster():EmitSound("Item_Desolator.Target")
+  caster:EmitSound("Item_Desolator.Target")
 
 	local vPos = nil
 	if self:GetCursorTarget() then
@@ -28,7 +29,7 @@ function item_devastator:OnSpellStart()
 		vPos = self:GetCursorPosition()
 	end
 
-	local vDirection = vPos - self:GetCaster():GetOrigin()
+	local vDirection = vPos - caster:GetOrigin()
 	vDirection.z = 0.0
 	vDirection = vDirection:Normalized()
 
@@ -37,12 +38,12 @@ function item_devastator:OnSpellStart()
   local info = {
     EffectName = "particles/items/devastator/devastator_active.vpcf",
     Ability = self,
-    vSpawnOrigin = self:GetCaster():GetOrigin(),
+    vSpawnOrigin = caster:GetOrigin(),
     fStartRadius = self.devastator_width_initial,
     fEndRadius = self.devastator_width_end,
     vVelocity = vDirection * self.devastator_speed,
-    fDistance = self.devastator_distance,
-    Source = self:GetCaster(),
+    fDistance = self.devastator_distance + caster:GetCastRangeBonus(),
+    Source = caster,
     iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
     iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
     iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
