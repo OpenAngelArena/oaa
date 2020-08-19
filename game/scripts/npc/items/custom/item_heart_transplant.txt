@@ -47,7 +47,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "700"
     "AbilityCooldown"                                     "0.1"
     "AbilitySharedCooldown"                               "transplant"
     //"AbilityChannelTime"                                  "7.0"
@@ -122,7 +122,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_max_range"                            "700"
+        "transplant_max_range"                            "1000"
       }
       "10" // same as Solar Crest
       {
