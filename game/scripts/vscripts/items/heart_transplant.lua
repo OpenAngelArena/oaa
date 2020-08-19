@@ -55,43 +55,21 @@ function item_heart_transplant:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_heart_transplant_debuff", {})
 end
 
--- function item_heart_transplant:OnChannelFinish(bInterrupted)
-  -- local caster = self:GetCaster()
-
-  -- if not caster or caster:IsNull() then
-    -- return
-  -- end
-
-  -- if self.transferred_buff and not self.transferred_buff:IsNull() then
-    -- self.transferred_buff:Destroy()
-  -- end
-
-  -- caster:RemoveModifierByName("modifier_item_heart_transplant_debuff")
-
-  -- local cooldown = 5
-  -- if caster:IsRangedAttacker() then
-    -- cooldown = self:GetSpecialValueFor("cooldown_ranged")
-  -- else
-    -- cooldown = self:GetSpecialValueFor("cooldown_melee")
-  -- end
-
-  -- -- Start cooldown unaffected by cooldown reductions when channel is finished or interrupted
-  -- self:StartCooldown(cooldown)
--- end
-
 function item_heart_transplant:TransplantEnd(caster)
-  -- Remove debuff from the caster
-  caster:RemoveModifierByName("modifier_item_heart_transplant_debuff")
+  if IsServer() then
+	-- Remove debuff from the caster
+    caster:RemoveModifierByName("modifier_item_heart_transplant_debuff")
 
-  local cooldown = 5
-  if caster:IsRangedAttacker() then
-    cooldown = self:GetSpecialValueFor("cooldown_ranged")
-  else
-    cooldown = self:GetSpecialValueFor("cooldown_melee")
+    local cooldown = 5
+    if caster:IsRangedAttacker() then
+      cooldown = self:GetSpecialValueFor("cooldown_ranged")
+    else
+      cooldown = self:GetSpecialValueFor("cooldown_melee")
+    end
+
+    -- Start cooldown unaffected by cooldown reductions
+    self:StartCooldown(cooldown)
   end
-
-  -- Start cooldown unaffected by cooldown reductions
-  self:StartCooldown(cooldown)
 end
 
 item_heart_transplant_2 = item_heart_transplant
@@ -128,6 +106,9 @@ function modifier_item_heart_transplant:OnCreated()
     self.str = ability:GetSpecialValueFor("bonus_strength")
     self.hp = ability:GetSpecialValueFor("bonus_health")
     self.regen = ability:GetSpecialValueFor("health_regen_pct")
+    self.t_str = ability:GetSpecialValueFor("transplant_bonus_strength")
+    self.t_hp = ability:GetSpecialValueFor("transplant_bonus_health")
+    self.t_regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
   end
 end
 
@@ -138,15 +119,28 @@ function modifier_item_heart_transplant:OnRefresh()
     self.str = ability:GetSpecialValueFor("bonus_strength")
     self.hp = ability:GetSpecialValueFor("bonus_health")
     self.regen = ability:GetSpecialValueFor("health_regen_pct")
+    self.t_str = ability:GetSpecialValueFor("transplant_bonus_strength")
+    self.t_hp = ability:GetSpecialValueFor("transplant_bonus_health")
+    self.t_regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
   end
 end
 
 function modifier_item_heart_transplant:GetModifierBonusStats_Strength()
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+  local parent = self:GetParent()
+  local bonus_str = self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+  if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_str then
+    return bonus_str - self.t_str
+  end
+  return bonus_str
 end
 
 function modifier_item_heart_transplant:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+  local parent = self:GetParent()
+  local bonus_hp = self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+  if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_hp then
+    return bonus_hp - self.t_hp
+  end
+  return bonus_hp
 end
 
 -- Prevent stacking with other heart transplants and other hearts
@@ -158,12 +152,27 @@ if IsServer() then
     local isFirstHeartTransplantModifier = parent:FindModifierByName(self:GetName()) == self
 
     if not parent:IsIllusion() and not parentHasHeart and isFirstHeartTransplantModifier then
-      return self.regen or ability:GetSpecialValueFor("health_regen_pct")
+      local bonus_regen = self.regen or ability:GetSpecialValueFor("health_regen_pct")
+      if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_regen then
+        return bonus_regen - self.t_regen
+      end
+      return bonus_regen
     end
 
     return 0
   end
 end
+
+-- function modifier_item_heart_transplant:OnTakeDamage(event)
+  -- local parent = self:GetParent()
+  -- local ability = self:GetAbility()
+
+  -- if event.damage > 0 and event.unit == parent and event.attacker ~= parent and not event.attacker:IsNeutralUnitType() and not event.attacker:IsOAABoss() then
+    -- if ability.transferred_buff and not ability.transferred_buff:IsNull() then
+      -- ability.transferred_buff:Destroy()
+    -- end
+  -- end
+-- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -183,12 +192,7 @@ end
 
 function modifier_item_heart_transplant_debuff:OnCreated()
   local parent = self:GetParent()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
-  end
+
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus()
   end
@@ -196,12 +200,6 @@ end
 
 function modifier_item_heart_transplant_debuff:OnRefresh()
   local parent = self:GetParent()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
-  end
 
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus()
@@ -215,51 +213,6 @@ function modifier_item_heart_transplant_debuff:OnDestroy()
     parent:CalculateStatBonus()
   end
 end
-
-function modifier_item_heart_transplant_debuff:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
-    --MODIFIER_EVENT_ON_TAKEDAMAGE,
-  }
-end
-
-function modifier_item_heart_transplant_debuff:GetModifierBonusStats_Strength()
-  local parent = self:GetParent()
-  if self.str and parent:IsHero() then
-    return -self.str
-  end
-
-  return 0
-end
-
-function modifier_item_heart_transplant_debuff:GetModifierHealthBonus()
-  if self.hp then
-    return -self.hp
-  end
-
-  return 0
-end
-
-function modifier_item_heart_transplant_debuff:GetModifierHealthRegenPercentage()
-  if self.regen then
-    return -self.regen
-  end
-
-  return 0
-end
-
--- function modifier_item_heart_transplant_debuff:OnTakeDamage(event)
-  -- local parent = self:GetParent()
-  -- local ability = self:GetAbility()
-
-  -- if event.damage > 0 and event.unit == parent and event.attacker ~= parent and not event.attacker:IsNeutralUnitType() and not event.attacker:IsOAABoss() then
-    -- if ability.transferred_buff and not ability.transferred_buff:IsNull() then
-      -- ability.transferred_buff:Destroy()
-    -- end
-  -- end
--- end
 
 ---------------------------------------------------------------------------------------------------
 
