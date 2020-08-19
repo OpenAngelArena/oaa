@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Roshan tier 5 Tier 5 Version
-//=================================================================================
+  //=================================================================================
+  // Roshan Tier 5
+  //=================================================================================
   "npc_dota_boss_tier_1_tier5"
   {
     // General
@@ -36,11 +36,11 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "4250"    // Damage range min.
     "AttackDamageMax"                                     "4500"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "0.2"      // Speed of attack.
+    "AttackRate"                                          "0.2"    // BAT
+    "BaseAttackSpeed"                                     "200"    // Attack Speed
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "228"    // Range within a target can be attacked.
+    "AttackAcquisitionRange"                              "250"    // Range within a target can be acquired.
+    "AttackRange"                                         "250"    // Range within a target can be attacked.
 
     // Bounty
     //----------------------------------------------------------------
@@ -58,7 +58,7 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
     "MovementSpeed"                                       "420"    // Speed
-    "MovementTurnRate"                                    "0.8"    // Turning rate.
+    "MovementTurnRate"                                    "1.0"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
@@ -68,13 +68,11 @@
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

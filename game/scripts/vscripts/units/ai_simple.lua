@@ -3,7 +3,7 @@ local SIMPLE_AI_STATE_AGGRO = 1
 local SIMPLE_AI_STATE_LEASH = 2
 
 local SIMPLE_BOSS_LEASH_SIZE = BOSS_LEASH_SIZE or 1200
-local SIMPLE_BOSS_AGGRO_HP_PERCENT = 98
+local SIMPLE_BOSS_AGGRO_HP_PERCENT = 99
 
 function Spawn( entityKeyValues )
   if not thisEntity or not IsServer() then
@@ -149,7 +149,7 @@ function SimpleBossThink()
       -- Check HP of the boss and if its able to attack
       local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
       local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
-      if current_hp_pct < aggro_hp_pct and not thisEntity:IsOutOfGame() and not thisEntity:IsDisarmed() then
+      if current_hp_pct < aggro_hp_pct then -- not thisEntity:IsOutOfGame() and not thisEntity:IsDisarmed() then
         AttackNearestTarget(thisEntity)
       end
 

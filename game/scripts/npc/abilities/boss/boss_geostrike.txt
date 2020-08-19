@@ -1,27 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Simple Boss Geostrike
+  // Simple Boss: Geostrike
   //=================================================================================================================
   "boss_geostrike"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8432"
-    "BaseClass"                                           "meepo_geostrike"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss_geostrike.lua"
+    "AbilityTextureName"                                  "meepo_geostrike"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilitySound"                                        "Hero_Meepo.Geostrike"
+
     "MaxLevel"                                            "1"
-
-    "AbilityDamage"                                       "40"
-
-    "AbilityDuration"                                     "2"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportBonus"                         "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,12 +24,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-20"
+        "move_speed_slow"                                 "-50"
       }
       "02"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-50"
+      }
+      "03"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip"                                "2.0"
+        "duration"                                        "2.0"
       }
     }
   }
