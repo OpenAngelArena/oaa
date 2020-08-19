@@ -11,15 +11,15 @@ item_devastator_5 = item_devastator
 
 function item_devastator:OnSpellStart()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
-	self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
-	self.devastator_width_end = self:GetSpecialValueFor( "devastator_width_end" )
-	self.devastator_distance = self:GetSpecialValueFor( "devastator_distance" )
-	self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" )
-	self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" )
-	self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
+  self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
+  self.devastator_width_end = self:GetSpecialValueFor( "devastator_width_end" )
+  self.devastator_distance = self:GetSpecialValueFor( "devastator_distance" )
+  self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" )
+  self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" )
+  self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
 
-	-- Re enable if the item should have any sound
-	-- EmitSoundOn( "Hero_Lina.DragonSlave.Cast", self:GetCaster() )
+  -- Sound
+  self:GetCaster():EmitSound("Item_Desolator.Target")
 
 	local vPos = nil
 	if self:GetCursorTarget() then
@@ -51,9 +51,7 @@ function item_devastator:OnSpellStart()
     --bProvidesVision = false,
   }
 
-	ProjectileManager:CreateLinearProjectile( info )
-	-- Re enable if the item should have sound
-	-- EmitSoundOn( "Hero_Lina.DragonSlave", self:GetCaster() )
+  ProjectileManager:CreateLinearProjectile( info )
 end
 
 -- Impact of the projectile
