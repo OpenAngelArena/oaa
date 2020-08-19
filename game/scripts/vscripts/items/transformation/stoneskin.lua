@@ -102,7 +102,9 @@ function modifier_item_stoneskin_stone_armor:IsPurgable()
 end
 
 function modifier_item_stoneskin_stone_armor:OnCreated()
-  self:GetParent():EmitSound("Hero_EarthSpirit.Petrify")
+  if IsServer() then
+    self:GetParent():EmitSound("Hero_EarthSpirit.Petrify")
+  end
 end
 
 function modifier_item_stoneskin_stone_armor:DeclareFunctions()
@@ -138,7 +140,7 @@ end
 function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  local chance = 25
+  local chance = 30
   if ability and not ability:IsNull() then
     chance = ability:GetSpecialValueFor("stone_block_chance")
   end
