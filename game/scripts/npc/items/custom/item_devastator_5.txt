@@ -68,6 +68,10 @@
     "ItemAliases"                                         "devastator 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "precache"
+    {
+      "particle"                                          "particles/items/devastator/devastator_active.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -112,7 +116,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "200 400 600 800 1000"
+        "devastator_damage"                               "100 200 400 700 1000"
       }
       "09"
       {
