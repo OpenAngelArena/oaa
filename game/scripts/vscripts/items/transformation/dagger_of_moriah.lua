@@ -7,16 +7,97 @@ item_dagger_of_moriah = class(TransformationBaseClass)
 require('libraries/timers')
 
 LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_dagger_of_moriah_passives", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
 function item_dagger_of_moriah:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+  return "modifier_item_dagger_of_moriah_passives" --"modifier_generic_bonus"
 end
 
 function item_dagger_of_moriah:GetTransformationModifierName()
   return "modifier_item_dagger_of_moriah_sangromancy"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_dagger_of_moriah_passives = class(ModifierBaseClass)
+
+function modifier_item_dagger_of_moriah_passives:IsHidden()
+  return true
+end
+function modifier_item_dagger_of_moriah_passives:IsDebuff()
+  return false
+end
+function modifier_item_dagger_of_moriah_passives:IsPurgable()
+  return false
+end
+
+function modifier_item_dagger_of_moriah_passives:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_dagger_of_moriah_passives:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp_per_intellect")
+  end
+end
+
+function modifier_item_dagger_of_moriah_passives:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp_per_intellect")
+  end
+end
+
+function modifier_item_dagger_of_moriah_passives:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+  }
+end
+
+function modifier_item_dagger_of_moriah_passives:GetModifierBonusStats_Strength()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_passives:GetModifierBonusStats_Agility()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_passives:GetModifierBonusStats_Intellect()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_passives:GetModifierConstantHealthRegen()
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
+function modifier_item_dagger_of_moriah_passives:GetModifierConstantManaRegen()
+  return self.mp_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_item_dagger_of_moriah_passives:GetModifierSpellAmplify_Percentage()
+  local parent = self:GetParent()
+  local spell_amp_per_int = self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp_per_intellect")
+  if parent:IsHero() then
+    local int = parent:GetIntellect()
+    return int * spell_amp_per_int
+  end
+
+  return 0
 end
 
 --------------------------------------------------------------------------------
