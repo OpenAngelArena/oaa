@@ -74,12 +74,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "100"
+        "sangromancy_self_damage"                         "100 75"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_bonus_damage_from_others"            "50"
+        "sangromancy_bonus_damage_from_others"            "50 25"
       }
       "04"
       {
@@ -96,7 +96,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "bonus_mana_regen"                                "3.0 4.0"
       }
-      "07"
+	  "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spell_amp_per_intellect"                         "0.08"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"
