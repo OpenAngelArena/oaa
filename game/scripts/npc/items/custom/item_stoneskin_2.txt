@@ -78,12 +78,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "100 150"
+        "bonus_intellect"                                 "90 120"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_move_speed"                                "250"
+        "hp_regen_amp"                                    "25"
       }
       "04"
       {
@@ -93,9 +93,19 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_resist"                                    "10 15"
+        "stone_magic_resist"                              "20"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_status_resist"                             "30"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_block_chance"                              "30"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"
