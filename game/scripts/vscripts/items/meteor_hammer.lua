@@ -184,5 +184,9 @@ function modifier_item_meteor_hammer_damage_over_time:IsDebuff()
   return true
 end
 
+function modifier_item_meteor_hammer_damage_over_time:IsPurgable()
+  return not self:GetParent():IsOAABoss()
+end
+
 -----------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------
