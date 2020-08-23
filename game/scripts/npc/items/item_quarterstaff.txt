@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   "item_quarterstaff"
   {
@@ -22,12 +22,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10"
+        "bonus_speed"                                     "10"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_speed"                                     "10"
+        "bonus_damage"                                    "10"
       }
     }
   }

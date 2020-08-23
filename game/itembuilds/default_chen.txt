@@ -1,0 +1,54 @@
+"itembuilds"
+{
+  "author"   "Valve"
+  "hero"     "npc_dota_hero_chen"
+  "Title"    "Recommended items for Chen"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"   "item_boots"
+      "item"   "item_flask"
+      "item"   "item_magic_wand"
+    }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"   "item_ring_of_basilius"
+      "item"   "item_ward_stack"
+      "item"   "item_headdress"
+      "item"   "item_bracer"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"   "item_guardian_greaves"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"   "item_vladmir"
+      "item"   "item_helm_of_the_dominator_2"
+      "item"   "item_ultimate_scepter"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"   "item_ancient_janggo"
+      "item"   "item_holy_locket"
+      "item"   "item_necronomicon_3"
+      "item"   "item_pipe"
+      "item"   "item_lotus_orb"
+      "item"   "item_sheepstick_4"
+      "item"   "item_heart"
+      "item"   "item_regen_crystal_1"
+      "item"   "item_heart_transplant"
+      "item"   "item_lucience"
+      "item"   "item_spirit_vessel"
+      "item"   "item_solar_crest"
+      "item"   "item_octarine_core"
+      "item"   "item_azazel_summon_fighter"
+    }
+  }
+}

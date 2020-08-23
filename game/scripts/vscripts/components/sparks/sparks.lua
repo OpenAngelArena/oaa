@@ -30,9 +30,37 @@ function Sparks:Init()
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
   CustomGameEventManager:RegisterListener('select_spark', partial(Sparks.OnSelectSpark, Sparks))
 
+  GameEvents:OnHeroInGame(Sparks.SelectDefaultSpark)
+  GameEvents:OnGameInProgress(Sparks.EnsureHeroSparks)
+  Duels.onEnd(Sparks.EnsureHeroSparks)
+
   Timers:CreateTimer(1, function()
     return Sparks:DecreaseCooldowns()
   end)
+end
+
+function Sparks.EnsureHeroSparks ()
+  Sparks:CheckSparkOnHeroes()
+end
+
+function Sparks.SelectDefaultSpark (hero)
+  if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
+  local playerId = hero:GetPlayerOwnerID()
+  if Sparks.data.hasSpark[playerId] then
+    return
+  end
+  if hero:IsTempestDouble() or hero:IsClone() then
+    return
+  end
+
+  Sparks:OnSelectSpark('asdf', {
+    PlayerID = playerId,
+    spark = 'gpm',
+    skipCooldown = true
+  })
+  Sparks:CheckSparkOnHeroEntity(hero)
 end
 
 function Sparks:DecreaseCooldowns ()
@@ -59,12 +87,12 @@ function Sparks:DecreaseCooldowns ()
 end
 
 function Sparks:OnSelectSpark (eventId, keys)
-  -- Debug:EnableDebugging()
-  DebugPrint(eventId)
-  DebugPrintTable(keys)
-
   local playerId = keys.PlayerID
   local player = PlayerResource:GetPlayer(playerId)
+  if not player then
+    return
+  end
+
   local spark = keys.spark
 
   if Sparks.data.cooldowns[playerId] and Sparks.data.cooldowns[playerId] > 0 then
@@ -83,7 +111,9 @@ function Sparks:OnSelectSpark (eventId, keys)
   end
 
   Sparks.data.hasSpark[playerId] = spark
-  Sparks.data.cooldowns[playerId] = 60
+  if not keys.skipCooldown then
+    Sparks.data.cooldowns[playerId] = 60
+  end
   Sparks.data[player:GetTeam()][spark] = Sparks.data[player:GetTeam()][spark] + 1
 
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
@@ -91,7 +121,32 @@ function Sparks:OnSelectSpark (eventId, keys)
   Sparks:CheckSparkOnHero(playerId)
 end
 
+function Sparks:CheckSparkOnHeroes ()
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+    if not Sparks.data.hasSpark[playerId] then
+      Sparks:OnSelectSpark("asdf", {
+        PlayerID = playerId,
+        spark = 'gpm',
+        skipCooldown = true
+      })
+    end
+
+    Sparks:CheckSparkOnHero(playerId)
+  end)
+end
+
 function Sparks:CheckSparkOnHero (playerId)
+  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  return Sparks:CheckSparkOnHeroEntity(hero)
+end
+
+function Sparks:CheckSparkOnHeroEntity (hero)
+  if not hero then
+    Debug:EnableDebugging()
+    DebugPrint('This player has no hero!')
+    return
+  end
+  local playerId = hero:GetPlayerOwnerID()
   local spark = Sparks.data.hasSpark[playerId]
   if not spark then
     Debug:EnableDebugging()
@@ -102,12 +157,6 @@ function Sparks:CheckSparkOnHero (playerId)
   if not player then
     Debug:EnableDebugging()
     DebugPrint('This player has no player!')
-    return
-  end
-  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-  if not hero then
-    Debug:EnableDebugging()
-    DebugPrint('This player has no hero!')
     return
   end
 
@@ -130,7 +179,17 @@ function Sparks:CheckSparkOnHero (playerId)
   end
   local modifierName = self:ModifierName(spark)
 
-  hero:AddNewModifier(hero, nil, modifierName, {})
+  if hero:IsAlive() then
+    hero:AddNewModifier(hero, nil, modifierName, {})
+  else
+    Timers:CreateTimer(0.1, function()
+      if hero:IsAlive() then
+        hero:AddNewModifier(hero, nil, modifierName, {})
+      else
+        return 0.1
+      end
+    end)
+  end
 end
 
 function Sparks:ModifierName (spark)

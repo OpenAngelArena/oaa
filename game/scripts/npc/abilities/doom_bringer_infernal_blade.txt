@@ -25,7 +25,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16 12 8 4 4 4"
     "AbilityManaCost"                                     "40"
-    "AbilityCastRange"                                    "175"
+    "AbilityCastRange"                                    "200"
     "AbilityCastPoint"                                    "0.0"
 
     // Special
@@ -40,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "burn_damage_pct"                                 "1.25 2.5 3.75 5 6.25 7.5"
+        "burn_damage_pct"                                 "1.25 2.5 3.75 5 5.5 6"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_1"
       }
       "03"

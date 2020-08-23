@@ -71,7 +71,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_slow_duration"                         "1.5"
+        "knockback_slow_duration"                         "2"
       }
       "08"
       {
@@ -81,18 +81,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_vs_heroes"                          "25"
+        "bonus_damage_vs_heroes"                          "35"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "2"
-        "RequiresScepter"                                 "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "1.4"
+        "scepter_cooldown"                                "3.5"
         "RequiresScepter"                                 "1"
       }
     }

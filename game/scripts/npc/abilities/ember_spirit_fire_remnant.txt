@@ -25,6 +25,8 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
+    "AbilityCharges"                                      "3"
+    "AbilityChargeRestoreTime"                            "25" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,50 +43,45 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "AbilityChargeRestoreTime"                        ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_5"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "25.0" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_5"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 250 400 850 1300" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 250 400 700 1300" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "450"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "45.0"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_range_multiplier"                        "3"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_speed_multiplier"                        "2"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_max_charges"                             "5"
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_mana_cost"                               "25"

@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: satanic_core (Based on Satanic)
@@ -44,7 +44,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
-    "AbilitySharedCooldown"                               "satanic"
+    "AbilitySharedCooldown"                               "satanic_core"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18900"
+    "ItemCost"                                            "18100"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 2"
@@ -68,22 +68,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "40 55 75"
+        "bonus_strength"                                  "50 75 100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "40 55 75"
+        "bonus_intelligence"                              "45 70 100"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "650 1000 1500"
+        "bonus_health"                                    "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "650 1000 1500"
+        "bonus_mana"                                      "675 875 1125"
       }
       "05"
       {
@@ -93,12 +93,12 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "13 14 15"
+        "creep_lifesteal"                                 "15 20 25"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_hero_spell_lifesteal"                     "150"
+        "unholy_hero_spell_lifesteal"                     "200"
       }
       "08"
       {
@@ -109,6 +109,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resist"                             "10 15 20"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resist"                              "10 12 14"
       }
     }
   }

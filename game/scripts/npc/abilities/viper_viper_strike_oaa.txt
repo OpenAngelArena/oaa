@@ -37,7 +37,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 250 550 875"
+    "AbilityManaCost"                                     "125 175 250 350 475"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 145 230 485 655"
+        "damage"                                          "80 160 240 480 720"
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_2"
       }
       "03"
@@ -96,32 +96,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "charge_restore_time"                             "30.0"
-      }
-    }
-  }
-
-  // maybe this shouldn't go here?
-  // but then again where else would it
-  //=================================================================================================================
-  // Ability: Special Bonus
-  //=================================================================================================================
-  "special_bonus_unique_viper_3_oaa"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"             "special_bonus_undefined"
-    "ID"                    "86819"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"           "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                  "FIELD_INTEGER"
-        "value"                     "1"
       }
     }
   }

@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 10 9"
+    "AbilityCooldown"                                     "13 12 11 10 9 8"
     "AbilityDuration"                                     "0.6875"
 
     // Cost
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "60"
+        "movement_slow"                                   "75"
       }
       "06"
       {
@@ -87,7 +87,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "basic_slow_duration"                             "0.75"
+        "basic_slow_duration"                             "0.9"
       }
     }
   }

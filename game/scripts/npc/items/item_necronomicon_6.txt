@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Necronomicon 6
@@ -40,8 +40,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "17850"
+    "AbilityManaCost"                                     "150"
+    "ItemCost"                                            "17550"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 6;necro 6"
@@ -56,12 +56,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 36 54 70 86"
+        "bonus_strength"                                  "6 12 18 36 54 70 86"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2 2.5 3.0 4.0 5.5 7.5 10.0"
+        "bonus_mana_regen"                                "2.0 2.5 3.0 3.25 3.75 4.5 5.5"
       }
       "03"
       {
@@ -76,7 +76,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "warrior_damage_tooltip"                          "75 100 125 180 250 380 550"
+        "warrior_damage_tooltip"                          "48 62 78 120 160 240 350"
       }
       "06"
       {
@@ -106,7 +106,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "archer_damage_tooltip"                           "60 90 120 175 250 380 550"
+        "archer_damage_tooltip"                           "37 57 75 110 160 240 350"
       }
       "12"
       {

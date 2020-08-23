@@ -8,13 +8,11 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "7319"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -23,11 +21,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110"
+    "AbilityCooldown"                                     "90"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 275 325"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "4 5 6 7 8"
+        "count"                                           "8" //OAA
       }
       "04"
       {
@@ -56,7 +54,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_percent"                                  "24 26 28 30 32"
+        "damage_percent"                                  "30"
       }
       "07" // 06
       {

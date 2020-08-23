@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Devastator
@@ -68,6 +68,10 @@
     "ItemAliases"                                         "devastator 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "precache"
+    {
+      "particle"                                          "particles/items/devastator/devastator_active.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -87,45 +91,42 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "corruption_duration"                             "5.0"
+        "corruption_duration"                             "7.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_speed"                                "1200"
       }
-
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_width_initial"                        "275"
+        "devastator_width_initial"                        "200"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_width_end"                            "200"
       }
-
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_distance"                             "600"
+        "devastator_distance"                             "800"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "100 200 300 400 500"
-        "CalculateSpellDamageTooltip"                     "0"
+        "devastator_damage"                               "100 200 400 700 1000"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_movespeed_reduction"                  "-20"
+        "devastator_movespeed_reduction"                  "-10 -20 -30 -40 -50"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "devastator_movespeed_reduction_duration"         "5.0"
+        "devastator_movespeed_reduction_duration"         "7.0"
       }
       "11"
       {
@@ -135,7 +136,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "devastator_armor_reduction_duration"             "5.0"
+        "devastator_armor_reduction_duration"             "7.0"
       }
     }
   }

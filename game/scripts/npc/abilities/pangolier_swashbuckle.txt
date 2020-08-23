@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"              "0.0"
-    "AbilityCastRange"              "1000"
+    "AbilityCastRange"              "900"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,12 +36,12 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "dash_range"            "1000"
+        "dash_range"            "900"
       }
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "range"                 "900"
+        "range"                 "1000"
         "LinkedSpecialBonus"    "special_bonus_unique_pangolier_7"
       }
       "05"
@@ -75,17 +75,6 @@
       {
         "var_type"              "FIELD_INTEGER"
         "strikes"               "4"
-      }
-      "09"
-      {
-        "var_type"              "FIELD_INTEGER"
-        "max_charges"           "2"
-      }
-      "10"
-      {
-        "var_type"               "FIELD_INTEGER"
-        "charge_restore_time"    "20 16 12 8"
-        "LinkedSpecialBonus"     "special_bonus_unique_pangolier_4"
       }
     }
   }

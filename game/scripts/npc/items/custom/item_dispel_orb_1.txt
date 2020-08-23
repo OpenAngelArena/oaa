@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: dispel_orb_1
@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9000"
+    "ItemCost"                                            "8950"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Dispel orb;purge crystal"
@@ -86,12 +86,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.75 7.25 9.75"
+        "bonus_mana_regen"                                "4.75 5.5 6.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "500 700 1000"
+        "bonus_mana"                                      "500 700 950"
       }
       "05"
       {

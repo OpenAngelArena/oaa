@@ -1,6 +1,6 @@
 modifier_felfrost = class( ModifierBaseClass )
 
-FELFROST_DURATION = 8 -- reset upon being applied
+FELFROST_DURATION = 5 -- reset upon being applied
 
 FELFROST_ARMOR_BASE = 0 -- armor loss just by having the debuff
 FELFROST_ARMOR_PERSTACK = -1 -- armor loss based on stack count

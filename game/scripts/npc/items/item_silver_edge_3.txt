@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Silver Edge 3
@@ -45,7 +45,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "10550"
+    "ItemCost"                                            "11100"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,42 +64,67 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 33 36 40 45"
+        "bonus_attack_speed"                              "45 50 55 60 65"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "15 19 24 30 38"
+        "bonus_strength"                                  "12 17 27 42 62"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "windwalk_duration"                               "14.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "windwalk_movement_speed"                         "25 30 35 40 45"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.5 1.75 2.25 3.0 4.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "windwalk_fade_time"                              "0.3"
+        "windwalk_duration"                               "14.0"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "windwalk_bonus_damage"                           "175 265 400 600 800"
+        "windwalk_movement_speed"                         "25 30 35 40 45"
       }
       "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "windwalk_fade_time"                              "0.3"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "windwalk_bonus_damage"                           "175 265 400 600 800"
+      }
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "backstab_reduction"                              "-50"
       }
-      "09"
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "backstab_duration"                               "4"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "100"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.8"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "echo_cooldown"                                   "5.0"
       }
     }
   }

@@ -38,7 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hero_damage"                               "40 80 120 160 270 550"
+        "bonus_hero_damage"                               "40 80 120 160 320 640"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -56,7 +56,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "18 14 10 6 6 6"  //OAA, Valve has it wrong
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_4"
       }
     }
   }

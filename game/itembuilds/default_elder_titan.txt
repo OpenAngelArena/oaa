@@ -3,45 +3,45 @@
 	"author"		"Valve"
 	"hero"			"npc_dota_hero_elder_titan"
 	"Title"			"Recommended items for Elder Titan."
-	
+
 	"Items"
-	{		
+	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
-			"item"		"item_arcane_origin"
+			"item"		"item_quelling_blade"
 			"item"		"item_boots"
-			"item"		"item_stout_shield"
+			"item"		"item_flask"
 			"item"		"item_enchanted_mango"
 		}
-		
+
 		"#DOTA_Item_Build_Early_Game"
 		{
 			"item"		"item_ward_stack"
-			"item"		"item_medallion_of_courage"
-			"item"		"item_greater_arcane_boots"
+			"item"    "item_magic_wand"
+			"item"		""
 			"item"		"item_solar_crest"
-			"item"		"item_mekansm"
+			"item"		""
 		}
-		
+
 		"#DOTA_Item_Build_Mid_Items"
 		{
-			"item"		"item_greater_guardian_greaves"
+			"item"		""
 			"item"		"item_ultimate_scepter"
 			"item"		"item_sphere"
-			"item"		"item_lotus_orb"	
+			"item"		"item_lotus_orb"
 		}
-		
+
 		"#DOTA_Item_Build_Late_Items"
 		{
-			
-			"item"		"item_greater_guardian_greaves_4"
+
+			"item"		""
 			"item"		"item_aeon_disk_4"
-		}	
-		
-		
+		}
+
 		"#DOTA_Item_Build_Luxury"
 		{
-			"item"		"item_pipe"
+			"item"    "item_abyssal_blade_3"
+      "item"		"item_pipe"
 			"item"		"item_vladmir"
 			"item"		"item_veil_of_discord"
 			"item"		"item_assault"

@@ -1,10 +1,10 @@
 "DOTAAbilities"
 {
-//=================================================================================================================
-// Dark Willow: Bramble Maze
-//=================================================================================================================
-"dark_willow_bramble_maze"
-{
+  //=================================================================================================================
+  // Dark Willow: Bramble Maze
+  //=================================================================================================================
+  "dark_willow_bramble_maze"
+  {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                            "6339"                                                      // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -15,6 +15,7 @@
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"               "1"
+
     "MaxLevel"                      "6"
 
     // Casting
@@ -28,57 +29,57 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "100 120 140 160 200 250"
+    "AbilityManaCost"               "100 120 140 160 200 240"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-        "01"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "placement_range"       "500"
-        }
-        "02"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "placement_count"           "8"
-        }
-        "03"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "placement_duration"        "15"
-        }
-        "04"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "latch_duration"        "1.0 1.5 2.0 2.5 3.0 3.5"
-        }
-        "05"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "latch_range"       "90"
-        }
-        "06"
-        {
-            "var_type"              "FIELD_INTEGER"
-            "latch_damage"          "125 150 175 200 520 760"
-        }
-        "07"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "latch_creation_interval"       "0.075"
-        }
-        "08"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "latch_creation_delay"      "0.1"
-        }
-        "09"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "initial_creation_delay"        "0.5"
-        }
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "placement_range"       "500"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "placement_count"           "8"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "placement_duration"        "15"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "latch_duration"        "1.0 1.5 2.0 2.5 3.0 3.5"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "latch_range"       "90"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "latch_damage"          "125 150 175 200 400 800"
+      }
+      "07"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "latch_creation_interval"       "0.075"
+      }
+      "08"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "latch_creation_delay"      "0.1"
+      }
+      "09"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "initial_creation_delay"        "0.5"
+      }
     }
-}
+  }
 }

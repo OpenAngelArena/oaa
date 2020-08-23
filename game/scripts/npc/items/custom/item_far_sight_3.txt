@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Far Sight
@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "127005"    // unique ID
+    "ID"                                                  "8606"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                             "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                         "custom/recipe/recipe_4"
@@ -35,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                      "127006"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                      "8607"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
@@ -58,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "13575"
+    "ItemCost"                                            "13500"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -82,29 +82,24 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 5 9 14"
+        "bonus_armor"                                     "2 3 5 8"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "15 30 45 60"
+        "bonus_str"                                       "15 30 45 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "15 30 45 60"
+        "bonus_int"                                       "15 30 45 60"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "15 30 45 60"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "reveal_radius"                                   "900"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "reveal_duration"                                 "10.0"

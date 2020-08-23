@@ -29,10 +29,12 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "70 60 50 40 30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 450 700"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,20 +43,10 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "90 80 70 50 30"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "700"
         "RequiresScepter"                                 "1"
       }
-      "04"
+      "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration"                                "2"

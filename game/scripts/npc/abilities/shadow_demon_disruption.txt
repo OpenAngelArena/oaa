@@ -52,12 +52,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_damage"                        "-70.0 -55.0 -40.0 -25.0 -15.0 0.0"
+        "illusion_outgoing_damage"                        "-70.0 -55.0 -40.0 -25.0 -10.0 5.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_tooltip"                       "30.0 45.0 60.0 75.0 85.0 100.0"
+        "illusion_outgoing_tooltip"                       "30.0 45.0 60.0 75.0 90.0 105.0"
       }
       "05"
       {
@@ -73,7 +73,18 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "27.0 24.0 21.0 18.0 18.0 18.0"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_7"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_bounty_base"                            "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_bounty_growth"                          "2"
       }
     }
   }

@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Aeon Disk
@@ -37,7 +37,7 @@
     "ItemBaseLevel"                                       "1"
     "ItemAliases"         "ad;aeon disk"
 
-    "AbilityCooldown"       "115.0 95.0 75.0 55.0 35.0"
+    "AbilityCooldown"       "105.0 95.0 75.0 55.0 35.0"
     "AbilitySharedCooldown"                               "combobreaker"
     "AbilityTextureName"                                  "custom/combo_breaker"
 
@@ -53,7 +53,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "300 600 900 1200 1500"
+        "bonus_mana"                                      "300 400 550 750 1000"
       }
       "03"
       {

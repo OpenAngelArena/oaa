@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Manta Style 3
@@ -44,7 +44,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
-    "ItemCost"                                            "9700"
+    "ItemCost"                                            "9600"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -58,17 +58,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 30 40"
+        "bonus_strength"                                  "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "26 32 44 62 86"
+        "bonus_agility"                                   "26 31 41 56 76"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 20 30 40"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "04"
       {
@@ -78,7 +78,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35 40"
+        "bonus_movement_speed"                            "8 10 12 14 16"
       }
       "06"
       {
@@ -93,12 +93,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-67"
+        "images_do_damage_percent_melee"                  "-67 -62 -57 -52 -47"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee"                   "33"
+        "tooltip_damage_outgoing_melee"                   "33 38 43 48 53"
       }
       "10"
       {
@@ -113,12 +113,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-72"
+        "images_do_damage_percent_ranged"                 "-72 -67 -62 -57 -52"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged"                  "28"
+        "tooltip_damage_outgoing_ranged"                  "28 33 38 43 48"
       }
       "14"
       {

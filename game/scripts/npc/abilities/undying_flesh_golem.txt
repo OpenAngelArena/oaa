@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
+    "AbilityCooldown"                                     "100" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +38,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "15 45 75 135 215" //OAA
+        "damage_amp"                                      "25 30 35 40 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "5"
+        "slow_duration"                                   "6"
       }
       "04"
       {
@@ -53,17 +53,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30"
+        "duration"                                        "40"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "spawn_rate"                                      "3 2.5 2 2 2"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "zombie_radius"                                   "400"
+        "movement_bonus"                                  "30"
       }
     }
   }

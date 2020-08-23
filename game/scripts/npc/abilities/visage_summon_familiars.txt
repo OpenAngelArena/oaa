@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"  //OAA
+    "AbilityCooldown"                                     "90"  //OAA, for Picking Screen
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,12 +31,12 @@
       "01"  // level 5 familiar never spawns
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_hp"                                     "500 600 700 1450 2200"
+        "familiar_hp"                                     "500 600 700 1400 2100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_armor"                                  "0 1 2 7 12"
+        "familiar_armor"                                  "0 1 2 4 7"
       }
       "03"
       {
@@ -47,7 +47,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_attack_damage"                          "20 40 60 140 230"
+        "familiar_attack_damage"                          "20 40 60 120 240"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"

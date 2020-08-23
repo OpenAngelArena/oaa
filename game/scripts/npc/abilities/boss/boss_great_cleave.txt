@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Great Cleave
+  // Simple Boss: Great Cleave
   //=================================================================================================================
   "boss_great_cleave"
   {
@@ -25,17 +25,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "300"
+        "cleave_ending_width"                             "360"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "570"
+        "cleave_distance"                                 "700"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "great_cleave_damage"                             "66"
+        "great_cleave_damage"                             "70"
       }
     }
   }

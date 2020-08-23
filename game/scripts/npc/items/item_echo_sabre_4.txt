@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Echo Sabre 4
@@ -43,15 +43,16 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.5"
+    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.6"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "15575"
+    "ItemCost"                                            "15500"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "echo sabre 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
@@ -65,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 40 60"
+        "bonus_damage"                                    "15 35 65 105 155"
       }
       "02"
       {
@@ -75,37 +76,32 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 35 65 105 155"
+        "bonus_attack_speed"                              "10 15 20 25 30"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.25 1.75 2.25 3.0 4.0"
+        "bonus_mana_regen"                                "1.25 1.5 2.0 2.75 3.75"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_damage"                                     "0"
+        "movement_slow"                                   "100"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "100"
+        "attack_speed_slow"                               "0"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "0"
-      }
-      "09"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5" //OAA
+        "slow_duration"                                   "0.8"
       }
     }
   }

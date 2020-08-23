@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Vladimir
@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "450"
+    "ItemCost"            "600"
     "ItemShopTags"          ""
 
     // Recipe
@@ -21,14 +21,13 @@
     "ItemResult"          "item_vladmir"
     "ItemRequirements"
     {
-      "01"            "item_ring_of_basilius;item_buckler;item_lifesteal"
+      "01"            "item_ring_of_basilius;item_lifesteal;item_blades_of_attack"
     }
   }
 
   //=================================================================================================================
   // Vladimir
   //=================================================================================================================
-
   "item_vladmir"
   {
     // General
@@ -43,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2300"
+    "ItemCost"            "2375"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering;vlads"
@@ -56,27 +55,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_aura"                                 "1.5 2.5 4.0 6.0 7.5"
+        "mana_regen_aura"                                 "2.0 2.25 2.75 3.5 4.5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_aura"                                      "3 5 8 12 17"
+        "lifesteal_aura"                                  "15 25 35 45 55"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "20 25 30 35 40" //OAA
+        "damage_aura"                                     "18 28 38 48 58"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "6 10 25 40 55"
       }
     }
   }

@@ -6,7 +6,7 @@
   "treant_leech_seed"
   {
     "ID"                                                  "5435"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -14,6 +14,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "400"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -22,11 +23,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 19 16 13 12 11"
+    "AbilityCooldown"                                     "18 16 14 12 11 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,28 +36,23 @@
      "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_interval"                                 "0.5"
+        "damage_interval"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leech_damage"                                    "15 30 45 60 160 260"
+        "leech_damage"                                    "16 32 48 64 128 256"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-18 -24 -30 -36 -42 -48"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5"
+        "movement_slow"                                   "-8 -14 -20 -26 -32 -38"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700"
+        "radius"                                          "650"
       }
       "06"
       {
@@ -66,7 +62,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "550"
+        "projectile_speed"                                "450"
       }
     }
   }

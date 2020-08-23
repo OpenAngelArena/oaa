@@ -1,7 +1,6 @@
 //=============================================================================
 // Mirana Sacred Arrow
 //=============================================================================
-
 "DOTA_Tooltip_ability_mirana_arrow_oaa"                            "#{DOTA_Tooltip_ability_mirana_arrow}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                "#{DOTA_Tooltip_ability_mirana_arrow_Description}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Lore"                       "#{DOTA_Tooltip_ability_mirana_arrow_Lore}"
@@ -12,3 +11,6 @@
 "DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_max_stun"             "#{DOTA_Tooltip_ability_mirana_arrow_arrow_max_stun}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_bonus_damage"         "#{DOTA_Tooltip_ability_mirana_arrow_arrow_bonus_damage}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_vision"               "ARROW VISION RADIUS:"
+"DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_pierce_count"         "ARROW PIERCE COUNT:"
+
+"DOTA_Tooltip_ability_mirana_arrow_arrow_pierce_count"             "#{DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_pierce_count}"

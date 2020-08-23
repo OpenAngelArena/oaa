@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 250 375 625 1250"
+    "AbilityManaCost"                                     "125 250 375 500 625"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_outgoing"                         "-30 0 30 60 90" //OAA
+        "replica_damage_outgoing"                         "-30 0 30 90 150" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing"                                "70 100 130 160 190" //OAA
+        "tooltip_outgoing"                                "70 100 130 190 250" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_7"
       }
       "04"
       {
@@ -81,7 +82,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.75"
+        "slow_duration"                                   "1"
       }
       "10"
       {

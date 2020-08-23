@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Holy Locket 2
@@ -36,12 +36,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                          "8550"
     "BaseClass"                   "item_holy_locket"
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
     "AbilityTextureName"          "custom/holy_locket_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "4400"
+    "ItemCost"                    "4000"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemAliases"                 "holy locket 2"
@@ -50,7 +52,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13.0"
     "AbilitySharedCooldown"                               "magicwand"
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "500 600 700 800 900"
+    "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "2"
@@ -62,17 +65,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 400 650 1150 2000"
+        "bonus_health"                                    "250 500 1000 1500 2500"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "325 650 975 1300 1625"
+        "bonus_mana"                                      "325 425 575 775 1025"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen"                                    "4 10 16 23 30"
+        "health_regen"                                    "4.5 10 16 23 30"
       }
       "04"
       {
@@ -92,7 +95,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3 10 25 40 55"
+        "bonus_all_stats"                                 "3 10 15 20 25"
       }
       "08"
       {

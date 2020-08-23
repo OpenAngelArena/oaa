@@ -11,8 +11,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 85 90 95 100 110"
+    "AbilityManaCost"                                     "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -56,24 +56,34 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "40 80 120 160 360 560" //OAA
+        "axe_damage"                                      "40 70 100 130 260 390" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10"
+        "duration"                                        "12"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_amp"                                      "6 8 10 12 15 18"
+        "damage_amp"                                      "6 8 10 12 14 16"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cooldown"                                "0"
         "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "min_throw_duration"                              "0.4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_throw_duration"                              "1.0"
       }
     }
   }

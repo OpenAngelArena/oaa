@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Rod of Atos 2
@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 75 150 225 300"
-    "ItemCost"                                            "4250"
+    "ItemCost"                                            "4225"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "rod of atos 2;atos 2"
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 40 60 80 105"
+        "bonus_intellect"                                 "20 30 45 65 90"
       }
       "02"
       {

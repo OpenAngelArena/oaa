@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 250 350"
+    "AbilityManaCost"                                     "120 130 140 150 300 450"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,6 +50,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movespeed_bonus_pct"                             "12 14 16 18 20 22"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_6"
       }
       "03"
       {
@@ -60,17 +61,18 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "100 200 300 400 800 1200"
+        "max_damage"                                      "100 200 300 400 800 1600"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_5"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_stun"                                        "2.0 2.6 3.2 3.8 4.4 5.0" //OAA
+        "max_stun"                                        "2.0 2.5 3.0 3.5 4.0 4.5" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_tick"                                 "5 7 9 11 22 33"
+        "damage_per_tick"                                 "5 7 9 11 22 44"
       }
       "07"
       {
@@ -80,7 +82,7 @@
       "08" // damage_per_tick divided by tick_rate
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tick_dps_tooltip"                                "25 35 45 55 110 165"
+        "tick_dps_tooltip"                                "25 35 45 55 110 220"
       }
     }
   }

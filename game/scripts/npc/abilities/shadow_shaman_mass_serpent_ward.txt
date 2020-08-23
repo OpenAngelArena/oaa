@@ -35,7 +35,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 350 600 1200 1800"
+    "AbilityManaCost"                                     "200 350 600 950 1400"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_tooltip"                                  "60 160 260 460 760" //OAA
+        "damage_tooltip"                                  "60 160 260 460 860" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
         "CalculateSpellDamageTooltip"                     "0"
       }

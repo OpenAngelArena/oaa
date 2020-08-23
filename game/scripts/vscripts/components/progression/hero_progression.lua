@@ -4,11 +4,26 @@ if HeroProgression == nil then
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
-  Debug:EnableDebugging()
-  local player = EntIndexToHScript(keys.player)
-  local playerLevel = PlayerResource:GetLevel(player:GetPlayerID())
+  --Debug:EnableDebugging()
+  -- dota_player_gained_level:
+  --"player_id"
+  --"level"
+  --"hero_entindex"
+  local playerID = keys.player_id or keys.PlayerID -- just in case Valve randomly changes it again
+  local player
+  if keys.player then
+    player = EntIndexToHScript(keys.player)
+  else
+    player = PlayerResource:GetPlayer(playerID)
+  end
+  local hero
+  if keys.hero_entindex then
+    hero = EntIndexToHScript(keys.hero_entindex)
+  else
+    hero = player:GetAssignedHero()
+  end
   local level = keys.level
-  local hero = player:GetAssignedHero()
+  local playerLevel = PlayerResource:GetLevel(playerID)
 
   -- Skip processing if the level of the unit is reported as less than the player level
   -- This is to prevent levelling of illusions from causing repeated processing on main hero
@@ -19,10 +34,10 @@ GameEvents:OnPlayerLevelUp(function(keys)
 --  HeroProgression:ReduceStatGain(hero, level)
   HeroProgression:ProcessAbilityPointGain(hero, level)
 end)
-GameEvents:OnNPCSpawned(function(keys)
-  local npc = EntIndexToHScript(keys.entindex)
+-- GameEvents:OnNPCSpawned(function(keys)
+  -- local npc = EntIndexToHScript(keys.entindex)
 --  HeroProgression:ReduceIllusionStats(npc)
-end)
+-- end)
 
 function HeroProgression:RegisterCustomLevellingPatterns()
   self.customLevellingPatterns['npc_dota_hero_invoker'] = (function(level)
@@ -181,20 +196,14 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
 end
 
 function HeroProgression:ProcessAbilityPointGain(hero, level)
-  DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
-  --[[
-  if not self:ShouldGetAnAbilityPoint(hero, level) then
-    DebugPrint('...taken it away! (had ' .. hero:GetAbilityPoints() .. ' ability points)')
-    hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
-  end
-  ]]
+  --DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
   --[[ -- ability points are not spent automatically on the talents at 30
   if level == 30 then
     hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
   end
   ]]
   if self:ShouldGetAnAbilityPoint(hero, level) and level > 25 then
-    DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
+    --DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
   end
 end

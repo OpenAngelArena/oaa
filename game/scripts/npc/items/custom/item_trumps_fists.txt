@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Blade of Judecca 1
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18500"
+    "ItemCost"                                            "18300"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps fists;covfefe;blade of judecca"
@@ -77,12 +77,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "1000 1250"
+        "bonus_mana"                                      "700 950"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-50 -75"
+        "heal_prevent_percent"                            "60 85"
       }
       "06"
       {

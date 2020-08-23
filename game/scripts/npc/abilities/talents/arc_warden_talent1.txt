@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Spark Wraith Damage
+  //=================================================================================================================
+  "special_bonus_unique_arc_warden"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"6287"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"500" //OAA
+        "ad_linked_ability"			"arc_warden_spark_wraith"
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      "item_arcane_origin"
+            "item"      ""
             "item"      "item_wraith_band"
             "item"      "item_flask"
             "item"      "item_enchanted_mango"
@@ -18,49 +18,46 @@
 
         "#DOTA_Item_Build_Early_Game"
         {
-            "item"      "item_greater_arcane_boots"
-            "item"      "item_desolator"
+            "item"      "item_magic_wand"
+            "item"      ""
         }
 
         "#DOTA_Item_Build_Mid_Items"
         {
-            "item"      "item_satanic"
-            "item"      "item_black_king_bar"
-            "item"      "item_greater_crit"
+            "item"      ""
+            "item"      ""
+            "item"      ""
             "item"      "item_sange_and_yasha"
         }
 
         "#DOTA_Item_Build_Late_Items"
         {
-            "item"      "item_greater_guardian_greaves_4"
-            "item"      "item_desolator_5"
-            "item"      "item_satanic_5"
-            "item"      "item_black_king_bar_5"
-            "item"      "item_greater_crit_5"
-            "item"      "item_sange_and_yasha_5"
+            "item"      "item_desolator"
+            "item"      "item_greater_crit"
+            "item"      "item_satanic"
+            "item"      "item_bloodthorn"
         }
         "#DOTA_Item_Build_Luxury"
         {
-            "item"    "item_monkey_king_bar_5"
-            "item"    "item_butterfly_5"
-            "item"    "item_helm_of_the_dominator_5"
-            "item"    "item_skadi_5"
-            "item"    "item_trumps_fists_2"
-            "item"    "item_hurricane_pike_5"
-            "item"    "item_sphere_5"
-            "item"    "item_silver_edge_5"
-            "item"    "item_nullifier_5"
-            "item"    "item_bloodthorn_5"
-            "item"    "item_manta_5"
-            "item"    "item_enrage_crystal_3"
-            "item"    "item_sheepstick_5"
-            "item"    "item_blink_5"
-            "item"    "item_yasha_and_kaya_5"
-            "item"    "item_ethereal_blade_5"
-            "item"    "item_veil_of_discord_5"
-            "item"    "item_octarine_core_5"
-            "item"    "item_ultimate_scepter_5"
-            "item"    "item_refresher_5"
+            "item"    "item_black_king_bar_1"
+            "item"    "item_monkey_king_bar"
+            "item"    "item_butterfly"
+            "item"    "item_hurricane_pike"
+            "item"    "item_skadi"
+            "item"    "item_trumps_fists"
+            "item"    ""
+            "item"    "item_sphere"
+            "item"    "item_silver_edge"
+            "item"    "item_nullifier"
+            "item"    "item_manta"
+            "item"    "item_enrage_crystal_1"
+            "item"    "item_sheepstick_4"
+            "item"    "item_yasha_and_kaya"
+            "item"    "item_ethereal_blade"
+            "item"    "item_veil_of_discord"
+            "item"    "item_octarine_core"
+            "item"    "item_ultimate_scepter"
+            "item"    "item_refresher_4"
         }
     }
 }

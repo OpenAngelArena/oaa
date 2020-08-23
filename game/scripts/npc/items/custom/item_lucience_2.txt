@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Lucience 2
@@ -48,7 +48,7 @@
     "ItemBaseLevel"                                       "2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14900"
+    "ItemCost"                                            "14475"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 2;lucio 2"
@@ -69,12 +69,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "25 40 55"
+        "bonus_all_stats"                                 "15 20 25"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen_bonus"                                     "70 140 280"
+        "regen_bonus"                                     "70 140 210"
       }
       "03"
       {

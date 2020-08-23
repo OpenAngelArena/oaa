@@ -38,7 +38,7 @@ function BountyRunePick:Filter(filter_table)
     enemy_team = DOTA_TEAM_GOODGUYS
   else
     print("Invalid team picked up the rune")
-	return false
+    return false
   end
 
   -- Player team IDs iterators
@@ -69,7 +69,10 @@ function BountyRunePick:Filter(filter_table)
   end)
 
   local gold_diff = (EnemyTeamGold - AlliedTeamGold) / (EnemyTeamGold + AlliedTeamGold)
-  local xp_diff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP)
+  local xp_diff = 0
+  if (EnemyTeamXP + AlliedTeamXP) > 0 then
+    xp_diff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP)
+  end
   local gold_difference = math.max(0, gold_diff)
   local xp_difference = math.max(0, xp_diff)
 

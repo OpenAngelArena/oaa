@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Kaya and Sange 2
@@ -71,22 +71,27 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "20 21 22 23 24"
+        "status_resistance"                               "18 19 20 21 22"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 18 22 28 34"
+        "mana_regen_multiplier"                           "30 40 50 60 70"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "12 16 20 24 28"
+        "spell_amp"                                       "16 20 24 28 32"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "30 32 34 36 38"
+        "hp_regen_amp"                                    "26 28 30 32 34"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_lifesteal_amp"                             "26 28 30 32 34"
       }
     }
   }

@@ -106,7 +106,7 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
           ability = self.ability
         }
         -- Is the enemy a boss?
-        if enemy:FindAbilityByName( "boss_resistance" ) then
+        if enemy:IsOAABoss() then
           damage.damage = self.impact_damage_bosses
         else
           damage.damage = self.impact_damage
@@ -182,6 +182,10 @@ end
 
 function modifier_item_meteor_hammer_damage_over_time:IsDebuff()
   return true
+end
+
+function modifier_item_meteor_hammer_damage_over_time:IsPurgable()
+  return not self:GetParent():IsOAABoss()
 end
 
 -----------------------------------------------------------------------------------------------------------------------

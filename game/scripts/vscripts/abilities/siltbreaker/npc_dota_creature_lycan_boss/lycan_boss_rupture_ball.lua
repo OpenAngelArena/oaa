@@ -27,7 +27,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function  lycan_boss_rupture_ball:GetPlaybackRateOverride()
+function lycan_boss_rupture_ball:GetPlaybackRateOverride()
 	return 0.3
 end
 
@@ -78,8 +78,8 @@ end
 
 function lycan_boss_rupture_ball:OnProjectileHit( hTarget, vLocation )
 	if IsServer() then
-		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) and hTarget:GetUnitName() then
-		  hTarget:EmitSound("Lycan.RuptureBall.Impact");
+		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
+		  hTarget:EmitSound("Lycan.RuptureBall.Impact")
 
 			hTarget:AddNewModifier( self:GetCaster(), self, "modifier_bloodseeker_rupture", { duration = self:GetSpecialValueFor( "duration" ) } )
 		end

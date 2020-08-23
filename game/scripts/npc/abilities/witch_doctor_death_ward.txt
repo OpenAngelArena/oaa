@@ -45,24 +45,19 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces"                                         "0"
+        "attack_range_tooltip"                            "700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_range_tooltip"                            "700"
-        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
+        "bounce_radius"                                   "650"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounces_scepter"                                 "4"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bounce_radius"                                   "650"
+        "scepter_lifesteal"                               "10"
         "RequiresScepter"                                 "1"
       }
     }

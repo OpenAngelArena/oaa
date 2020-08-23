@@ -54,7 +54,7 @@ end
 function modifier_alpha_critical_strike_aura_oaa_applier:GetAuraEntityReject(hEntity)
   local caster = self:GetCaster()
   -- Dont provide the aura effect to hero creeps when caster (owner of this aura) cannot be controlled
-  if hEntity ~= caster and hEntity:IsConsideredHero() and not caster:IsControllableByAnyPlayer() then
+  if hEntity ~= caster and hEntity:GetUnitName() ~= "npc_dota_neutral_custom_small_wolf" and not caster:IsControllableByAnyPlayer() then
     return true
   end
   return false

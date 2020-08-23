@@ -48,12 +48,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "total_duration"                                  "1.8"
+        "total_duration"                                  "1.4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tick_count"                                      "6"
+        "tick_count"                                      "5"
       }
       "05"
       {
@@ -63,12 +63,12 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "projectile_duration"                             "0.5"
+        "projectile_speed"                                "1200"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "avalanche_damage"                                "75 150 225 300 600 900"
+        "avalanche_damage"                                "75 150 225 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_tiny"
       }
     }

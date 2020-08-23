@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Vampire
@@ -46,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "2.0"
+    "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "vampire"
 
     "MaxUpgradeLevel"                                     "2"
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18300"
+    "ItemCost"                                            "18800"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"
@@ -69,32 +69,52 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "75 100"
+        "bonus_strength"                                  "70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "150 225"
+        "bonus_damage"                                    "100 125"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resistance"                         "25 30"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "40 45"
+        "bonus_attack_speed"                              "40 50"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "175 250"
+        "bonus_night_vision"                              "400 600"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second_pct"                           "8"
+        "lifesteal_percent"                               "40 45"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
+        "active_lifesteal_percent"                        "215 225"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second_pct"                           "8"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
         "ticks_per_second"                                "4"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
     }
     "precache"

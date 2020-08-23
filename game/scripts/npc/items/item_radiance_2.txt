@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Radiance 2
@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4000"
+    "ID"                                                  "8478"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -34,7 +34,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4004"
+    "ID"                                                  "8570"
     "BaseClass"                                           "item_radiance"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "custom/radiance_2"
@@ -58,12 +58,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "65 80 100 125 160"
+        "bonus_damage"                                    "60 80 110 150 200"
       }
-      "03" //has to be wrong in this case else dota will get confused
+      "03" // 02
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_damage"                                     "60 90 150 240 360" 
+        "aura_damage"                                     "60 90 150 240 360"
       }
       "04"
       {

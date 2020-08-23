@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Power Treads 4
@@ -45,7 +45,7 @@
     "AbilityTextureName"                                  "custom/greater_power_treads_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34000"
+    "ItemCost"                                            "33925"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads 4;power treads 4;treads 4"
@@ -61,12 +61,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35"
+        "bonus_movement_speed"                            "50 55 60 65"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "15 25 40 60"
+        "bonus_stat"                                      "20 30 45 65"
       }
       "03"
       {
@@ -76,12 +76,22 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_damage"                                    "10 30 60 100"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "all_stats"                                       "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "12 14 16 18"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_spell_amp"                                 "8 12 16 20"
       }
     }
   }

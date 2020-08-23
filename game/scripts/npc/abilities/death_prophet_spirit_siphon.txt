@@ -15,9 +15,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
     "HasScepterUpgrade"                                   "1"
 
     // Casting
@@ -28,10 +30,12 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "1 2 3 4 5 6"
+    "AbilityChargeRestoreTime"                            "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,16 +66,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "siphon_buffer"                                   "250"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "1 2 3 4 5 6"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "30" //OAA
       }
     }
   }

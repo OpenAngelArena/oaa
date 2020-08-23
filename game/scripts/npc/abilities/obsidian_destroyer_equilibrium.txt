@@ -30,23 +30,23 @@
       "02"
       {
         "var_type"                                  "FIELD_INTEGER"
-        "mana_restore"                              "20 30 40 50 55 60"
+        "mana_restore"                              "20 25 30 35 40 45" //OAA
       }
       "03"
       {
         "var_type"                                  "FIELD_INTEGER"
-        "movement_slow"                             "11 22 33 44 55 66"
+        "movement_slow"                             "20 30 40 50 60 70"
         "LinkedSpecialBonus"                        "special_bonus_unique_outworld_devourer_2"
       }
       "04"
       {
         "var_type"                                  "FIELD_FLOAT"
-        "slow_duration"                             "1.75"
+        "slow_duration"                             "2"
       }
       "05"
       {
         "var_type"                                  "FIELD_FLOAT"
-        "duration"                                  "6"
+        "duration"                                  "8"
       }
     }
   }

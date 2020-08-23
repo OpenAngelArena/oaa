@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Lotus Orb 3
@@ -44,7 +44,7 @@
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "lotus"
     "AbilityCastRange"                                    "900 1200 1500 1800 2100"
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "175"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9000"
+    "ItemCost"                                            "8950"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 3;lotus orb 3"
@@ -76,12 +76,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.0 4.75 5.75 7.25 9.75"
+        "bonus_mana_regen"                                "4.0 4.25 4.75 5.5 6.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 500 700 1000"
+        "bonus_mana"                                      "250 350 500 700 950"
       }
       "05"
       {

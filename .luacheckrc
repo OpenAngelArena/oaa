@@ -2826,6 +2826,7 @@ read_globals = { -- these globals can only be accessed.
 "FORCE_PICKED_HERO",
 "DotProduct",
 "GetDedicatedServerKey",
+"GetDedicatedServerKeyV2",
 "sha256",
 "TEN_V_TEN_KILL_LIMIT",
 "NORMAL_KILL_LIMIT",
@@ -2837,11 +2838,15 @@ read_globals = { -- these globals can only be accessed.
 "PreventGettingStuck",
 "MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE",
 "MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING",
+"MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT",
+"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT_UNIQUE",
 "MODIFIER_STATE_UNSLOWABLE",
 "AddAnimationTranslate",
 "BOSS_WANDERER_SPAWN_START",
 "BOSS_WANDERER_RESPAWN",
-"AbilityKV"
+"AbilityKV",
+"VectorTarget",
+"KILL_LIMIT_INCREASE"
 }
 
 ignore = {

@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Sange and Yasha 5
@@ -71,22 +71,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "20 21 22 23 24"
+        "status_resistance"                               "18 19 20 21 22"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "16 26 36 46 56"
+        "bonus_attack_speed"                              "16 21 26 31 36"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
+        "movement_speed_percent_bonus"                    "10 12 14 16 18"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "30 32 34 36 38"
+        "hp_regen_amp"                                    "26 28 30 32 34"
       }
     }
   }

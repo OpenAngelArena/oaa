@@ -12,7 +12,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -24,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 80 110 140 240 340"
+    "AbilityManaCost"                                     "50 80 110 140 170 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,6 +46,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "9 10 11 12 13 14"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_8"
       }
     }
   }

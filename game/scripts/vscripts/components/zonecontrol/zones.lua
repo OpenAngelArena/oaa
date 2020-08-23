@@ -226,8 +226,10 @@ function ZoneControl:EnforceRules (state)
     return
   end
 
-  for playerId = 0,19 do
-    ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+  for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    if PlayerResource:IsValidPlayerID(playerId) then
+      ZoneControl:EnforceRulesOnPlayerId(state, playerId)
+    end
   end
 end
 
@@ -256,7 +258,7 @@ function ZoneControl:EnforceRulesOnPlayerId (state, playerId)
 
     iter(playerAdditionalUnits)
       :filter(function (unit)
-        return unit:GetPlayerOwnerID() == hero:GetPlayerOwnerID() and unit:HasMovementCapability()
+        return unit:GetPlayerOwnerID() == hero:GetPlayerOwnerID() and unit:HasMovementCapability() and (not unit:IsCourier())
       end)
       :foreach(function (unit)
         ZoneControl:EnforceRulesOnEntity(state, playerId, unit)

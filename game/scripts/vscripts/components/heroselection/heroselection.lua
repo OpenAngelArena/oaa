@@ -192,7 +192,7 @@ function HeroSelection:BuildBottlePass()
   local special_arcanas = {}
   HeroSelection.SelectedBottle = {}
   HeroSelection.SelectedArcana = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
 
     if SPECIAL_BOTTLES[steamid] then
@@ -914,7 +914,7 @@ function HeroSelection:GetSteamAccountID(playerID)
 end
 
 function HeroSelection:ForceAssignHeroes()
-	for nPlayerID = 0, ( DOTA_MAX_TEAM_PLAYERS - 1 ) do
+	for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		local hPlayer = PlayerResource:GetPlayer( nPlayerID )
 		if hPlayer and not PlayerResource:HasSelectedHero( nPlayerID ) then
 			hPlayer:MakeRandomHeroSelection()

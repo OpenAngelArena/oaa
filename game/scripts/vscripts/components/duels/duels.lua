@@ -26,6 +26,7 @@ Duels.onEnd = DuelEndEvent.listen
 function Duels:Init ()
   DebugPrint('Init duels')
   self.currentDuel = nil
+  self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
   GameEvents:OnHeroDied(function (keys)
@@ -104,7 +105,7 @@ function Duels:Init ()
   Duels.nextDuelTime = HudTimer:GetGameTime() + INITIAL_DUEL_DELAY -1
   Timers:CreateTimer(INITIAL_DUEL_DELAY - DUEL_START_WARN_TIME -1, function ()
   --HudTimer:At(INITIAL_DUEL_DELAY, function ()
-    self:StartDuel({
+    Duels:StartDuel({
       players = 0,
       firstDuel = true,
       timeout = FIRST_DUEL_TIMEOUT
@@ -230,6 +231,9 @@ function Duels:StartDuel(options)
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
+    self.allowExperienceGain = 0
+  else
+    self.allowExperienceGain = 2
   end
   Timers:RemoveTimer('EndDuel')
   self.currentDuel = DUEL_IS_STARTING
@@ -276,47 +280,49 @@ function Duels:SplitDuelPlayers(options)
   local goodPlayers = {}
   local badPlayers = {}
 
-  for playerId = 0,19 do
-    local player = PlayerResource:GetPlayer(playerId)
-    if player ~= nil then
-      if player:GetAssignedHero() then
-        if player:GetTeam() == DOTA_TEAM_BADGUYS then
-          badPlayers[badPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
-          badPlayers[badPlayerIndex].id = playerId
-          -- used to generate keynames like badEnd1
-          -- not used in dota apis
-          badPlayers[badPlayerIndex].team = 'bad'
-          badPlayerIndex = badPlayerIndex + 1
-          validBadPlayerIndex = validBadPlayerIndex + 1
+  for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    if PlayerResource:IsValidPlayerID(playerId) then
+      local player = PlayerResource:GetPlayer(playerId)
+      if player ~= nil and not player:IsNull() then
+        if player:GetAssignedHero() then
+          if player:GetTeam() == DOTA_TEAM_BADGUYS then
+            badPlayers[badPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
+            badPlayers[badPlayerIndex].id = playerId
+            -- used to generate keynames like badEnd1
+            -- not used in dota apis
+            badPlayers[badPlayerIndex].team = 'bad'
+            badPlayerIndex = badPlayerIndex + 1
+            validBadPlayerIndex = validBadPlayerIndex + 1
 
-        elseif player:GetTeam() == DOTA_TEAM_GOODGUYS then
-          goodPlayers[goodPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
-          goodPlayers[goodPlayerIndex].id = playerId
-          goodPlayers[goodPlayerIndex].team = 'good'
-          goodPlayerIndex = goodPlayerIndex + 1
-          validGoodPlayerIndex = validGoodPlayerIndex + 1
+          elseif player:GetTeam() == DOTA_TEAM_GOODGUYS then
+            goodPlayers[goodPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
+            goodPlayers[goodPlayerIndex].id = playerId
+            goodPlayers[goodPlayerIndex].team = 'good'
+            goodPlayerIndex = goodPlayerIndex + 1
+            validGoodPlayerIndex = validGoodPlayerIndex + 1
+          end
+
+          HeroState.ResetState(player:GetAssignedHero())
         end
-
-        HeroState.ResetState(player:GetAssignedHero())
-      end
-    else
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-      local function CreateDisonnectedPlayer ()
-        return {
-          assignable = false
-        }
-      end
-      if hero ~= nil then
-        if PlayerResource:GetTeam(playerId) == DOTA_TEAM_BADGUYS then
-          badPlayers[badPlayerIndex] = CreateDisonnectedPlayer()
-          badPlayers[badPlayerIndex].id = playerId
-          badPlayers[badPlayerIndex].team = 'bad'
-          badPlayerIndex = badPlayerIndex + 1
-        elseif PlayerResource:GetTeam(playerId) == DOTA_TEAM_GOODGUYS then
-          goodPlayers[goodPlayerIndex] = CreateDisonnectedPlayer()
-          goodPlayers[goodPlayerIndex].id = playerId
-          goodPlayers[goodPlayerIndex].team = 'good'
-          goodPlayerIndex = goodPlayerIndex + 1
+      else
+        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+        local function CreateDisonnectedPlayer ()
+          return {
+            assignable = false
+          }
+        end
+        if hero ~= nil then
+          if PlayerResource:GetTeam(playerId) == DOTA_TEAM_BADGUYS then
+            badPlayers[badPlayerIndex] = CreateDisonnectedPlayer()
+            badPlayers[badPlayerIndex].id = playerId
+            badPlayers[badPlayerIndex].team = 'bad'
+            badPlayerIndex = badPlayerIndex + 1
+          elseif PlayerResource:GetTeam(playerId) == DOTA_TEAM_GOODGUYS then
+            goodPlayers[goodPlayerIndex] = CreateDisonnectedPlayer()
+            goodPlayers[goodPlayerIndex].id = playerId
+            goodPlayers[goodPlayerIndex].team = 'good'
+            goodPlayerIndex = goodPlayerIndex + 1
+          end
         end
       end
     end
@@ -328,7 +334,13 @@ function Duels:SplitDuelPlayers(options)
   validBadPlayerIndex = validBadPlayerIndex - 1
 
   -- split up players, put them in the duels
-  local maxPlayers = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+  local maxPlayers = 0
+  if not options.forceAllPlayers then
+    validGoodPlayerIndex = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+    validBadPlayerIndex = math.min(validGoodPlayerIndex, validBadPlayerIndex)
+  end
+
+  maxPlayers = math.max(validGoodPlayerIndex, validBadPlayerIndex)
 
   DebugPrint('Max players per team for this duel ' .. maxPlayers)
 
@@ -350,13 +362,18 @@ function Duels:SplitDuelPlayers(options)
     playerSplitOffset = maxPlayers - playerSplitOffset
   end
 
-  if options.isFinalDuel or HeroSelection.isCM then
+  if options.isFinalDuel or HeroSelection.isCM or options.forceAllPlayers then
     playerSplitOffset = 0
+    if Duels.allowExperienceGain ~= 2 then
+      Duels.allowExperienceGain = 1
+    end
   end
 
   return
   {
     MaxPlayers = maxPlayers,
+    MaxGoodPlayers = validGoodPlayerIndex,
+    MaxBadPlayers = validBadPlayerIndex,
     PlayerSplitOffset = playerSplitOffset,
     GoodPlayers = goodPlayers,
     BadPlayers = badPlayers,
@@ -383,38 +400,31 @@ function Duels:ActuallyStartDuel(options)
 end
 
 function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
-
   local spawn1 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_1'):GetAbsOrigin()
   local spawn2 = Entities:FindByName(nil, 'duel_' .. tostring(arenaIndex) .. '_spawn_2'):GetAbsOrigin()
 
   local goodGuy = self:GetUnassignedPlayer(playerSplit.GoodPlayers, playerSplit.GoodPlayerIndex)
   local badGuy = self:GetUnassignedPlayer(playerSplit.BadPlayers, playerSplit.BadPlayerIndex)
-  local goodPlayer = PlayerResource:GetPlayer(goodGuy.id)
-  local badPlayer = PlayerResource:GetPlayer(badGuy.id)
-  local goodHero = goodPlayer:GetAssignedHero()
-  local badHero = badPlayer:GetAssignedHero()
 
+  local function spawnHeroForGuy(guy, spawn)
+    local player = PlayerResource:GetPlayer(guy.id)
+    local hero = player:GetAssignedHero()
+    guy.duelNumber = duelNumber
+    self.zones[arenaIndex].addPlayer(guy.id)
 
-  DebugPrint('Spawning Hero ' .. goodHero:GetUnitName() .. ' and ' .. badHero:GetUnitName() .. ' on Arena ' .. tostring(arenaIndex) .. ' duelNumber ' .. tostring(duelNumber) )
-  goodGuy.duelNumber = duelNumber
-  badGuy.duelNumber = duelNumber
+    SafeTeleportAll(hero, spawn, 250)
+    MoveCameraToPlayer(hero)
+    hero:Stop()
+    hero:SetRespawnsDisabled(true)
+  end
 
-  SafeTeleportAll(goodHero, spawn1, 250)
-  SafeTeleportAll(badHero, spawn2, 250)
+  if goodGuy then
+    spawnHeroForGuy(goodGuy, spawn1)
+  end
 
-  self.zones[arenaIndex].addPlayer(goodGuy.id)
-  self.zones[arenaIndex].addPlayer(badGuy.id)
-
-  MoveCameraToPlayer(goodHero)
-  MoveCameraToPlayer(badHero)
-
-  -- stop player action
-  goodHero:Stop()
-  badHero:Stop()
-
-  -- disable respawn
-  goodHero:SetRespawnsDisabled(true)
-  badHero:SetRespawnsDisabled(true)
+  if badGuy then
+    spawnHeroForGuy(badGuy, spawn2)
+  end
 end
 
 function Duels:PreparePlayersToStartDuel(options, playerSplit)
@@ -440,8 +450,8 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
   self.currentDuel = {
     goodLiving1 = playerSplit.PlayerSplitOffset,
     badLiving1 = playerSplit.PlayerSplitOffset,
-    goodLiving2 = playerSplit.MaxPlayers - playerSplit.PlayerSplitOffset,
-    badLiving2 = playerSplit.MaxPlayers - playerSplit.PlayerSplitOffset,
+    goodLiving2 = playerSplit.MaxGoodPlayers - playerSplit.PlayerSplitOffset,
+    badLiving2 = playerSplit.MaxBadPlayers - playerSplit.PlayerSplitOffset,
     duelEnd1 = playerSplit.PlayerSplitOffset == 0,
     duelEnd2 = playerSplit.MaxPlayers == playerSplit.PlayerSplitOffset,
     badPlayers = playerSplit.BadPlayers,
@@ -463,7 +473,7 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
     Timers:CreateTimer('EndDuel', {
       endTime = options.timeout,
       callback = function()
-        self:TimeoutDuel()
+        Duels:TimeoutDuel()
       end
     })
   end
@@ -484,13 +494,19 @@ function Duels:SpawnPlayersOnArenas(playerSplit, arenaIndex1, arenaIndex2)
 end
 
 function Duels:GetUnassignedPlayer (group, max)
-  while true do
-    local playerIndex = RandomInt(1, max)
-    if group[playerIndex].assignable and group[playerIndex].assigned == nil then
-      group[playerIndex].assigned = true
-      return group[playerIndex]
+  local options = {}
+  for _,player in pairs(group) do
+    if not player.assigned and player.assignable and _ <= max then
+      table.insert(options, player)
     end
   end
+  if #options < 1 then
+    return nil
+  end
+
+  local playerIndex = RandomInt(1, #options)
+  options[playerIndex].assigned = true
+  return options[playerIndex]
 end
 
 function Duels:TimeoutDuel ()
@@ -504,7 +520,7 @@ function Duels:TimeoutDuel ()
 
   for i = 0,(DUEL_END_COUNTDOWN - 1) do
     Timers:CreateTimer(i, function ()
-      if self.currentDuel == nil then
+      if Duels.currentDuel == nil then
         return
       end
       Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
@@ -514,7 +530,7 @@ function Duels:TimeoutDuel ()
   Timers:CreateTimer('EndDuel', {
     endTime = DUEL_END_COUNTDOWN,
     callback = function()
-      self:EndDuel()
+      Duels:EndDuel()
     end
   })
 end
@@ -572,7 +588,7 @@ function Duels:EndDuel ()
 
   Timers:CreateTimer(0.1, function ()
     DebugPrint('Sending all players back!')
-    self:AllPlayers(currentDuel, function (state)
+    Duels:AllPlayers(currentDuel, function (state)
       local player = PlayerResource:GetPlayer(state.id)
       if player == nil then -- disconnected!
         return

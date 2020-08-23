@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Blade Mail 5
@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "35200"
+    "ItemCost"                                            "35050"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 5;blade mail 5;blademail 5"
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "22 45 75 115 165"
+        "bonus_damage"                                    "28 48 78 118 168"
       }
       "02"
       {
@@ -75,12 +75,27 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 20 30 40 50"
+        "bonus_intellect"                                 "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_reflection_constant"                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_reflection_pct"                          "20"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_reflection_pct"                           "80 90 100 110 120"
       }
     }
   }

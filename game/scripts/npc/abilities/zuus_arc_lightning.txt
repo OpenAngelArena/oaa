@@ -10,6 +10,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -32,7 +33,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arc_damage"                                      "70 95 120 145 245 345"
+        "arc_damage"                                      "75 100 125 150 250 350"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus_2"
       }
       "02"
@@ -43,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "jump_count"                                      "5 7 9 15 22 50"
+        "jump_count"                                      "5 7 9 15 20 40"
       }
       "04"
       {

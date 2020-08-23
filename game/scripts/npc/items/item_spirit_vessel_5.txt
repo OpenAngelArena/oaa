@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Spirit Vessel 5
@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "35965"
+    "ItemCost"                        "35940"
     "ItemAliases"                     "sv 5;spirit vessel 5"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -64,64 +64,59 @@
       "01"
       {
         "var_type"                    "FIELD_INTEGER"
-        "bonus_health"                "250 500 750 1250 2000"
+        "bonus_health"                "250 500 1000 1500 2500"
       }
       "02"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_movement_speed"        "20 25 30 35 40"
+        "var_type"                    "FIELD_FLOAT"
+        "bonus_mana_regen"            "1.5 1.75 2.25 3.0 4.0"
       }
       "03"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "bonus_mana_regen"            "1.5 2.0 2.5 4.0 6.0"
+        "var_type"                    "FIELD_INTEGER"
+        "bonus_all_stats"             "2 10 15 20 25"
       }
       "04"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_all_stats"             "2 10 25 40 55"
+        "var_type"                    "FIELD_FLOAT"
+        "bonus_armor"                 "2 3 5 8 12"
       }
       "05"
-      {
-        "var_type"                    "FIELD_FLOAT"
-        "bonus_armor"                 "2 4 7 11 16"
-      }
-      "06"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_radius"                 "1400"
       }
-      "07"
+      "06"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_initial_charge"         "2"
       }
-      "08"
+      "07"
       {
         "var_type"                    "FIELD_INTEGER"
         "soul_additional_charges"     "1"
       }
+      "08"
+      {
+        "var_type"                    "FIELD_INTEGER"
+        "soul_heal_amount"            "40 55 75 100 130"
+      }
       "09"
       {
         "var_type"                    "FIELD_INTEGER"
-        "soul_heal_amount"            "30 55 75 95 105"
+        "soul_damage_amount"          "35 50 70 95 125"
       }
       "10"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "soul_damage_amount"          "25 40 65 100 145"
-      }
-      "11"
       {
         "var_type"                    "FIELD_FLOAT"
         "duration"                    "8.0"
       }
-      "12"
+      "11"
       {
         "var_type"                    "FIELD_INTEGER"
-        "hp_regen_reduction_enemy"    "60 70 80 90 100"
+        "hp_regen_reduction_enemy"    "45 50 55 60 65"
       }
-      "13"
+      "12"
       {
         "var_type"                    "FIELD_FLOAT"
         "enemy_hp_drain"              "4"
