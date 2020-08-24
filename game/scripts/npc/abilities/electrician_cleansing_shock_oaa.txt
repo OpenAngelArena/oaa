@@ -54,7 +54,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "40 60 80 80 80"
+        "slow"                                            "40 60 80 85 90"
       }
       "04"
       {
@@ -80,7 +80,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "summon_illusion_damage_scepter"                  "1000"
+        "summon_illusion_damage_scepter"                  "1000 2000 3000 6000 9000"
         "RequiresScepter"                                 "1"
       }
     }
