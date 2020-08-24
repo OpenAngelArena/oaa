@@ -21,9 +21,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_shivas_guard_4"
+
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
+      "02"                                                "item_blade_mail_3;item_upgrade_core_3"
     }
   }
 
@@ -52,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "225"
-    "ItemCost"                                            "17850"
+    "ItemCost"                                            "15050"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
