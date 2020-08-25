@@ -16,9 +16,6 @@ function TransformationBaseClass:GetAbilityTextureName()
   return baseName .. activeName
 end
 
---function TransformationBaseClass:OnDestroy()
---end
-
 function TransformationBaseClass:OnSpellStart()
   --self.isTransformation = true
   local caster = self:GetCaster()
