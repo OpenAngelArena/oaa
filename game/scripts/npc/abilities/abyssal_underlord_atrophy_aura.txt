@@ -32,13 +32,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_pct"                            "7 18 29 40 45 50" //OAA
+        "damage_reduction_pct"                            "10 20 30 40 45 50" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_from_creep"                         "4 5 6 7 14 28"
+        "bonus_damage_from_creep"                         "2 4 6 8 16 32"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
