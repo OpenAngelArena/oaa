@@ -1,6 +1,7 @@
 ﻿sohei_flurry_of_blows = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_special_bonus_unique_flurry_of_blows_radius", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
 
 ---------------------------------------------------------------------------------------------------
 
@@ -82,8 +83,25 @@ end
 
 function sohei_flurry_of_blows:GetAOERadius()
   local caster = self:GetCaster()
+  local radius = self:GetSpecialValueFor("flurry_radius")
+  if IsServer() then
+    -- Check for talent that increases radius (server side)
+    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+    if talent and talent:GetLevel() > 0 then
+      radius = radius + talent:GetSpecialValueFor("value")
+      if not caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") then
+        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_flurry_of_blows_radius", {})
+      end
+    else
+      caster:RemoveModifierByName("modifier_special_bonus_unique_flurry_of_blows_radius")
+    end
+  else
+    if caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") and caster.special_bonus_unique_flurry_of_blows_radius then
+      radius = radius + caster.special_bonus_unique_flurry_of_blows_radius
+    end
+  end
 
-  return self:GetSpecialValueFor( "flurry_radius" ) + caster:FindTalentValue( "special_bonus_sohei_fob_radius" )
+  return radius
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -151,7 +169,7 @@ function modifier_sohei_flurry_self:OnIntervalThink()
 
     for _,unit in pairs(units) do
       if unit and not unit:IsNull() and not caster:IsDisarmed() then
-        caster:PerformAttack(unit, true, true, true, false, bUseProjectile, false, false)
+        caster:PerformAttack(unit, true, true, true, false, bUseProjectile, false, true)
       end
     end
 
@@ -285,3 +303,33 @@ end
     end
   end
 ]]
+
+-- Modifier on caster used for talent that improve Flurry of Blows radius
+modifier_special_bonus_unique_flurry_of_blows_radius = class(ModifierBaseClass)
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:RemoveOnDeath()
+  return false
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:OnCreated()
+  if not IsServer() then
+    local parent = self:GetParent()
+    local talent = self:GetAbility()
+    parent.special_bonus_unique_flurry_of_blows_radius = talent:GetSpecialValueFor("value")
+  end
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:OnDestroy()
+  local parent = self:GetParent()
+  if parent and parent.special_bonus_unique_flurry_of_blows_radius then
+    parent.special_bonus_unique_flurry_of_blows_radius = nil
+  end
+end

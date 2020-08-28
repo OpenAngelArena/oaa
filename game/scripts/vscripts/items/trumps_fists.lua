@@ -109,10 +109,15 @@ end
 
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
   local funcs = {
-    MODIFIER_EVENT_ON_HEALTH_GAINED
+    --MODIFIER_PROPERTY_DISABLE_HEALING,
+    MODIFIER_EVENT_ON_HEALTH_GAINED,
   }
   return funcs
 end
+
+--function modifier_item_trumps_fists_frostbite:GetDisableHealing()
+  --return 1
+--end
 -- Old heal prevention that decays over time
 --[[
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
@@ -131,6 +136,7 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   end
 end
 ]]
+
 -- Deals damage every time a unit gains hp; damage is equal to percent of gained hp;
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then

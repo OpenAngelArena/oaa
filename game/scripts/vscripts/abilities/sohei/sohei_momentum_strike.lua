@@ -32,7 +32,7 @@ function sohei_momentum_strike:OnSpellStart()
     Ability = self,
     EffectName = projectile_name,
     vSpawnOrigin = caster:GetAbsOrigin(),
-    fDistance = projectile_distance,
+    fDistance = projectile_distance + caster:GetCastRangeBonus(),
     fStartRadius = projectile_width,
     fEndRadius = projectile_width,
     bHasFrontalCone = false,

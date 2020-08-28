@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heavens_halberd_3;item_upgrade_core_3"
-      "02"                                                "item_echo_sabre_3;item_upgrade_core_3"
+      //"02"                                                "item_echo_sabre_3;item_upgrade_core_3"
     }
   }
 
@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15500"
+    "ItemCost"                                            "16850"
     "ItemIsNeutralDrop"                                   "0"
     "ItemPurchasable"                                     "1"
     "ItemShopTags"                                        "str;damage"
