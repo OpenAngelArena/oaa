@@ -12,7 +12,7 @@
     "ScriptFile"                                          "abilities/oaa_death_pact.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityTextureName"                                  "clinkz_death_pact"
@@ -24,12 +24,13 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400"
-    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85"
+    "AbilityCooldown"                                     "80 70 60 60 60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,21 +49,24 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "health_gain_pct"                                 "40 60 80 100 120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_8"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_gain_pct"                                 "4.0 6.0 8.0 10.0 14.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_gain_pct"                                 "4 6 8 10 14"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_8"
+        "LinkedSpecialBonusField"                         "value2"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_gain_max"                                 "750 1050 1350 1750 3250"
+        "health_gain_max"                                 "1000 1500 2000 2500 3000"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_gain_max"                                 "75 105 135 175 325"
+        "damage_gain_max"                                 "100 150 200 250 300"
       }
     }
   }

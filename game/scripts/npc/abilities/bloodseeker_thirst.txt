@@ -33,24 +33,34 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 45 60 75 90 105"
+        "hero_kill_heal"                                  "12 18 24 30 36 42"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_bonus_pct"                                   "25"
+        "creep_kill_heal"                                 "8 12 16 20 24 28"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "visibility_threshold_pct"                        "25"
+        "half_bonus_aoe"                                  "300"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "invis_threshold_pct"                             "25"
+        "max_bonus_pct"                                   "25"
       }
       "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "visibility_threshold_pct"                        "25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "invis_threshold_pct"                             "25"
+      }
+      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "linger_duration"                                 "4.0"

@@ -31,7 +31,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "counter_duration"                                "10"
+        "counter_duration"                                "7 8 9 10 11 12"
       }
       "03"
       {
@@ -41,13 +41,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 90 120 150 225 300"
+        "bonus_damage"                                    "40 70 100 130 260 390"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_2"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal"                                       "15 30 45 60 70 80"
+        "lifesteal"                                       "15 30 45 60 75 90"
       }
       "06"
       {

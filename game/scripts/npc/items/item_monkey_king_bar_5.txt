@@ -41,7 +41,7 @@
     "AbilityTextureName"                                  "custom/monkey_king_bar_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37650"
+    "ItemCost"                                            "37850"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb 5;monkey king bar 5"
@@ -58,7 +58,7 @@
 			"01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "42 62 102 162 242"
+        "bonus_damage"                                    "42 62 92 132 182"
       }
       "02"
       {
@@ -73,7 +73,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "100 130 200 290 400"
+        "bonus_chance_damage"                             "100 130 190 280 400"
       }
     }
   }

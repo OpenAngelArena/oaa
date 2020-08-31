@@ -43,7 +43,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
-    "AbilitySharedCooldown"                               "satanic"
+    "AbilitySharedCooldown"                               "satanic_core"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -64,12 +64,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // like bonus_intelligence
+      "01" // total hp should be the same as Octarine Core 3-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 45 70"
+        "bonus_strength"                                  "50 75 100"
       }
-      "02" // like Octarine Core intelligence at levels 2-4
+      "02" // like Octarine Core bonus intelligence at levels 3-5
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_intelligence"                              "45 70 100"
@@ -77,19 +77,19 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "650 1000 1500"
+        "bonus_health"                                    "0"
       }
-      "04"
+      "04" // like Octarine Core bonus mana at levels 3-5
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "675 875 1125"
       }
-      "05" // name needs to be the same as in octarine core
+      "05" // kv name needs to be the same as in octarine core
       {
         "var_type"                                        "FIELD_INTEGER"
         "hero_lifesteal"                                  "35"
       }
-      "06" // name needs to be the same as in octarine core
+      "06" // kv name needs to be the same as in octarine core
       {
         "var_type"                                        "FIELD_FLOAT"
         "creep_lifesteal"                                 "15 20 25"
@@ -113,6 +113,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_status_resist"                             "10 15 20"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resist"                              "10 12 14"
       }
     }
   }

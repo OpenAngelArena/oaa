@@ -37,10 +37,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "900"
       }
-      "02"
+      "02" // max number of webs on the map without scepter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "5 7 9 11 13 15" //OAA
+        "count"                                           "4 6 8 10 12 14" //OAA
       }
       "03"
       {
@@ -50,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed"                                 "20 35 50 65 80 95"
+        "bonus_movespeed"                                 "25 35 45 55 65 75"
       }
       "05"
       {
@@ -61,7 +61,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed_scepter"                         "30 50 70 90 110 130"
+        "bonus_movespeed_scepter"                         "35 50 65 80 95 110"
         "RequiresScepter"                                 "1"
       }
       "07"

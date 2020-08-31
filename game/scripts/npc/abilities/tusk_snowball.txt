@@ -29,7 +29,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "21 20 19 18 18 18"
 
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
@@ -41,19 +40,19 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snowball_damage"                                 "80 120 160 200 350 600"
-        "LinkedSpecialBonus"    "special_bonus_unique_tusk_2"
+        "snowball_damage"                                 "80 120 160 200 400 600"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tusk_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "snowball_speed"                                  "600 625 650 675 680 690"
-        "LinkedSpecialBonus"    "special_bonus_unique_tusk_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tusk_3"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snowball_damage_bonus"                           "20 30 40 50 100 150"
+        "snowball_damage_bonus"                           "20 40 60 80 160 240"
       }
       "04"
       {

@@ -57,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "17650"
+    "ItemCost"                                            "17850"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -126,7 +126,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "170 210 290 410 570"
+        "chain_damage"                                    "170 220 320 470 670"
       }
       "13"
       {

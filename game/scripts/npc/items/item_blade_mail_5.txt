@@ -25,6 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_4;item_upgrade_core_4"
+      "02"                                                "item_shivas_guard_4;item_upgrade_core_4"
+      "03"                                                "item_stoneskin;item_upgrade_core_4"
     }
   }
 
@@ -70,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 10 14 19 25"
+        "bonus_armor"                                     "6 9 13 18 24"
       }
       "03"
       {

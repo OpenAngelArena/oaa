@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "60"
+        "movement_slow"                                   "75"
       }
       "06"
       {
@@ -88,6 +88,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "basic_slow_duration"                             "0.9"
+        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_6"
       }
     }
   }

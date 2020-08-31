@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 145 190 235 500 750"
+    "AbilityManaCost"                                     "80 120 160 200 400 600"
     "AbilityCooldown"                                     "0"
 
     // Special
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "6 8 10 12 13 14"
+        "mana_pool_damage_pct"                            "7.5 9 10.5 12 13 14"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
       "02"

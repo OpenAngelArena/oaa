@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5504"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -25,23 +25,23 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_modifier"                                 "-70 -55 -40 -25 -15 -10"
+        "damage_modifier"                                 "-50 -40 -30 -20 -15 -10"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_modifier_tooltip"                         "30 45 60 75 85 90"
+        "damage_modifier_tooltip"                         "50 60 70 80 85 90"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_count"                                     "3"
+        "arrow_count"                                     "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_medusa_2"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "split_shot_bonus_range"                          "100"
+        "split_shot_bonus_range"                          "150"
       }
     }
   }

@@ -33,8 +33,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "95" //OAA
-    "AttackDamageMax"                                     "105" //OAA
+    "AttackDamageMin"                                     "110" //OAA
+    "AttackDamageMax"                                     "110" //OAA
     "AttackRate"                                          "1.5"
     "AttackAnimationPoint"                                "0.4"
     "AttackAcquisitionRange"                              "600"
@@ -57,7 +57,7 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "2800" //OAA
     "StatusHealthRegen"                                   "2"
-    "StatusMana"                                          "850" //OAA
+    "StatusMana"                                          "900"
     "StatusManaRegen"                                     "1.5"
 
     // Vision

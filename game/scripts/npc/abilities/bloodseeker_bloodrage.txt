@@ -8,9 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5015"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -23,9 +23,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
 
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "25"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 6 6"
+    "AbilityCooldown"                                     "14 12 10 8 7 6"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -42,39 +46,23 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "9 10 11 12 13 14"
+        "duration"                                        "8"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_increase_outgoing_pct"                    "12 18 24 30 36 42"
-        "CalculateSpellDamageTooltip"                     "0"
+        "attack_speed"                                    "50 80 110 140 170 200"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_increase_incoming_pct"                    "10 14 18 22 26 30"
-        "CalculateSpellDamageTooltip"                     "0"
+        "spell_amp"                                       "15 20 25 30 35 40"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_pct"                                "10 15 20 25 35 45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_creep_pct"                          "10 15 20 25 35 45"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_aoe"                                "300"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_bonus_share_percent"                      "50"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_pct"                                      "2.2" //OAA, there is no need to scale this Valve...
       }
     }
   }

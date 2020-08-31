@@ -13,8 +13,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastRange"                                    "750"
-    "AbilityCastPoint"                                    "0.6"
+    "AbilityCastRange"                                    "600 625 650 675 700 725"
+    "AbilityCastPoint"                                    "0.5"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "radius"                                          "400 430 460 490 520 550"
       }
       "02"
       {
@@ -52,7 +52,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "wave_damage"                                     "25 40 55 70 140 280"
-        "LinkedSpecialBonus"      "special_bonus_unique_underlord_2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_2"
       }
       "05"
       {
@@ -82,8 +82,8 @@
       }
       "10"
       {
-        "var_type"            "FIELD_FLOAT"
-        "building_damage"       "33"
+        "var_type"                                        "FIELD_FLOAT"
+        "building_damage"                                 "33"
       }
     }
   }

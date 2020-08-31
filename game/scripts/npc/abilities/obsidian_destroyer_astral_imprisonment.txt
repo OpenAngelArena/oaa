@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5392"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
@@ -23,11 +23,11 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "4.0"
-    "AbilityCooldown"                                     "18 16 14 12 10 10" //OAA
+    "AbilityCooldown"                                     "18 16 14 12 11 10" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "225 300 375 450 525 600"
+    "AbilityCastRange"                                    "300 350 400 450 500 550"
     "AbilityCastPoint"                                    "0.25"
 
     // Cost
@@ -67,7 +67,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time_scepter"                     "18 16 14 12 10 10" //OAA
+        "charge_restore_time_scepter"                     "18 16 14 12 11 10" //OAA, same as AbilityCooldown
         "RequiresScepter"                                 "1"
       }
       "06"
