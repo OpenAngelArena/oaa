@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard;item_upgrade_core"
+      "02"                                                "item_blade_mail;item_upgrade_core"
     }
   }
 
@@ -52,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
-    "ItemCost"                                            "6350"
+    "ItemCost"                                            "3550"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -93,7 +94,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_speed"                            "-40 -45 -50 -65 -85"
+        "blast_movement_speed"                            "-40 -45 -50 -55 -60"
       }
       "07"
       {
