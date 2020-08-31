@@ -30,7 +30,6 @@ function azazel_summon:OnSpellStart()
     GridNav:DestroyTreesAroundPoint(summon_position, 128, false)
     caster.azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
     caster.azazel_summon:SetControllableByPlayer(caster:GetPlayerID(), true)
-    --caster.azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
 
     -- Level up any relevant abilities
     if string.find(summon_name, "farmer") then
@@ -42,24 +41,44 @@ function azazel_summon:OnSpellStart()
       caster.azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
     end
 
+    -- Fix stats of summons
+    local summon_hp = self:GetSpecialValueFor("summon_health")
+    local summon_dmg = self:GetSpecialValueFor("summon_damage")
+    local summon_armor = self:GetSpecialValueFor("summon_armor")
+    local summon_ms = self:GetSpecialValueFor("summon_ms")
+
+    -- HP
+    if summon_hp and summon_hp > 0 then
+      caster.azazel_summon:SetBaseMaxHealth(summon_hp)
+      caster.azazel_summon:SetMaxHealth(summon_hp)
+      caster.azazel_summon:SetHealth(summon_hp)
+    end
+
+    -- DAMAGE
+    if summon_dmg and summon_dmg > 0 then
+      caster.azazel_summon:SetBaseDamageMin(summon_dmg)
+      caster.azazel_summon:SetBaseDamageMax(summon_dmg)
+    end
+
+    -- ARMOR
+    if summon_armor and summon_armor > 0 then
+      caster.azazel_summon:SetPhysicalArmorBaseValue(summon_armor)
+    end
+
+    -- Movement speed
+    if summon_ms and summon_ms > 0 then
+      caster.azazel_summon:SetBaseMoveSpeed(summon_ms)
+    end
+
     self:SpendCharge()
   end
 end
 
 --------------------------------------------------------------------------------
 
-item_azazel_summon_farmer_1 = azazel_summon
-item_azazel_summon_farmer_2 = azazel_summon
-item_azazel_summon_farmer_3 = azazel_summon
-item_azazel_summon_farmer_4 = azazel_summon
-item_azazel_summon_scout_1 = azazel_summon
-item_azazel_summon_scout_2 = azazel_summon
-item_azazel_summon_scout_3 = azazel_summon
-item_azazel_summon_scout_4 = azazel_summon
-item_azazel_summon_tank_1 = azazel_summon
-item_azazel_summon_tank_2 = azazel_summon
-item_azazel_summon_tank_3 = azazel_summon
-item_azazel_summon_tank_4 = azazel_summon
+item_azazel_summon_farmer = azazel_summon
+item_azazel_summon_scout = azazel_summon
+item_azazel_summon_tank = azazel_summon
 item_azazel_summon_fighter = azazel_summon
 
 --------------------------------------------------------------------------------
