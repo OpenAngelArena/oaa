@@ -34,7 +34,8 @@ function modifier_sonic_fly:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
-    MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
+    MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+    MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
   }
 end
@@ -58,6 +59,10 @@ end
 
 function modifier_sonic_fly:GetModifierIgnoreMovespeedLimit()
   return 1
+end
+
+function modifier_sonic_fly:GetModifierAttackSpeedReductionPercentage()
+  return 0
 end
 
 --function modifier_sonic_fly:GetModifierStatusResistanceStacking()

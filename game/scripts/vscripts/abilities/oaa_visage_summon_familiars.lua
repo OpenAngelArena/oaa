@@ -60,23 +60,22 @@ function visage_summon_familiars_oaa:OnSpellStart()
     if stoneFormAbility then
       stoneFormAbility:SetLevel(abilityLevel)
     end
-    -- Add some built-in modifier
-	familiar:AddNewModifier(caster, self, "modifier_visage_summon_familiars_damage_charge", {})
 
-    -- Fix stats of familiars above level 3
-    if abilityLevel > 3 then
-      -- HP
-      familiar:SetBaseMaxHealth(familiar_hp)
-      familiar:SetMaxHealth(familiar_hp)
-      familiar:SetHealth(familiar_hp)
+    -- Add built-in modifier that handles flying and other stuff
+    familiar:AddNewModifier(caster, self, "modifier_visage_summon_familiars_damage_charge", {})
 
-      -- DAMAGE
-      familiar:SetBaseDamageMin(familiar_dmg)
-      familiar:SetBaseDamageMax(familiar_dmg)
+    -- Fix stats of familiars
+    -- HP
+    familiar:SetBaseMaxHealth(familiar_hp)
+    familiar:SetMaxHealth(familiar_hp)
+    familiar:SetHealth(familiar_hp)
 
-      -- ARMOR
-      familiar:SetPhysicalArmorBaseValue(familiar_armor)
-    end
+    -- DAMAGE
+    familiar:SetBaseDamageMin(familiar_dmg)
+    familiar:SetBaseDamageMax(familiar_dmg)
+
+    -- ARMOR
+    familiar:SetPhysicalArmorBaseValue(familiar_armor)
 
     -- Set Familiar movement speed
     familiar:SetBaseMoveSpeed(familiar_speed)

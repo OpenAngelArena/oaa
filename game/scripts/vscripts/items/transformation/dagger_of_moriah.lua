@@ -6,20 +6,174 @@ item_dagger_of_moriah = class(TransformationBaseClass)
 
 require('libraries/timers')
 
-LinkLuaModifier( "modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_stacking_stats", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_non_stacking_stats", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 function item_dagger_of_moriah:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_dagger_of_moriah:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_dagger_of_moriah_stacking_stats",
+    "modifier_item_dagger_of_moriah_non_stacking_stats"
+  }
 end
 
 function item_dagger_of_moriah:GetTransformationModifierName()
   return "modifier_item_dagger_of_moriah_sangromancy"
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+modifier_item_dagger_of_moriah_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_dagger_of_moriah_stacking_stats:IsHidden()
+  return true
+end
+function modifier_item_dagger_of_moriah_stacking_stats:IsDebuff()
+  return false
+end
+function modifier_item_dagger_of_moriah_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+  end
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+  end
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+  }
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:GetModifierBonusStats_Strength()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:GetModifierBonusStats_Agility()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:GetModifierBonusStats_Intellect()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:GetModifierConstantHealthRegen()
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
+function modifier_item_dagger_of_moriah_stacking_stats:GetModifierConstantManaRegen()
+  return self.mp_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+
+---------------------------------------------------------------------------------------------------
+-- Parts of Dagger of Moriah that should NOT stack with other Daggers of Moriah
+
+modifier_item_dagger_of_moriah_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:OnCreated()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp_per_intellect")
+  end
+
+  if parent:IsRealHero() then
+    self.int = parent:GetIntellect()
+  end
+
+  if IsServer() and parent:IsRealHero() then
+    parent:CalculateStatBonus()
+  end
+
+  self:StartIntervalThink(0.5)
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:OnRefresh()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp_per_intellect")
+  end
+
+  if parent:IsRealHero() then
+    self.int = parent:GetIntellect()
+  end
+
+  if IsServer() and parent:IsRealHero() then
+    parent:CalculateStatBonus()
+  end
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:OnIntervalThink()
+  local parent = self:GetParent()
+
+  if parent:IsRealHero() then
+    self.int = parent:GetIntellect()
+  end
+
+  if IsServer() and parent:IsRealHero() then
+    parent:CalculateStatBonus()
+  end
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+  }
+end
+
+function modifier_item_dagger_of_moriah_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  local spell_amp_per_int = self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp_per_intellect")
+  if self.int and spell_amp_per_int then
+    return spell_amp_per_int * self.int
+  end
+
+  return 0
+end
+
+---------------------------------------------------------------------------------------------------
 
 modifier_item_dagger_of_moriah_sangromancy = class(ModifierBaseClass)
 

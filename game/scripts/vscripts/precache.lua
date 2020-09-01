@@ -13,6 +13,7 @@ g_ItemPrecache = {
   "item_dispel_orb_1",
   "item_reflection_shard_1",
   "item_heart_transplant",
+  "item_devastator_3",
 }
 
 g_UnitPrecache = {

@@ -9,19 +9,18 @@ item_devastator_3 = item_devastator
 item_devastator_4 = item_devastator
 item_devastator_5 = item_devastator
 
-
 function item_devastator:OnSpellStart()
+  local caster = self:GetCaster()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
-	self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
-	self.devastator_width_end = self:GetSpecialValueFor( "devastator_width_end" )
-	self.devastator_distance = self:GetSpecialValueFor( "devastator_distance" )
-	self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" )
-	self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" )
-	self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
-	self.devastator_corruption_duration = self:GetSpecialValueFor( "corruption_duration" )
+  self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
+  self.devastator_width_end = self:GetSpecialValueFor( "devastator_width_end" )
+  self.devastator_distance = self:GetSpecialValueFor( "devastator_distance" )
+  self.devastator_damage = self:GetSpecialValueFor( "devastator_damage" )
+  self.devastator_movespeed_reduction_duration = self:GetSpecialValueFor( "devastator_movespeed_reduction_duration" )
+  self.devastator_armor_reduction_duration = self:GetSpecialValueFor( "devastator_armor_reduction_duration" )
 
-	-- Re enable if the item should have any sound
-	-- EmitSoundOn( "Hero_Lina.DragonSlave.Cast", self:GetCaster() )
+  -- Sound
+  caster:EmitSound("Item_Desolator.Target")
 
 	local vPos = nil
 	if self:GetCursorTarget() then
@@ -30,35 +29,35 @@ function item_devastator:OnSpellStart()
 		vPos = self:GetCursorPosition()
 	end
 
-	local vDirection = vPos - self:GetCaster():GetOrigin()
+	local vDirection = vPos - caster:GetOrigin()
 	vDirection.z = 0.0
 	vDirection = vDirection:Normalized()
 
 	self.devastator_speed = self.devastator_speed * ( self.devastator_distance / ( self.devastator_distance - self.devastator_width_initial ) )
 
-	local info = {
-		-- replace with the correct particles
+  local info = {
+    EffectName = "particles/items/devastator/devastator_active.vpcf",
+    Ability = self,
+    vSpawnOrigin = caster:GetOrigin(),
+    fStartRadius = self.devastator_width_initial,
+    fEndRadius = self.devastator_width_end,
+    vVelocity = vDirection * self.devastator_speed,
+    fDistance = self.devastator_distance + caster:GetCastRangeBonus(),
+    Source = caster,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+    iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    --bReplaceExisting = false,
+    --bDeleteOnHit = false,
+    --bProvidesVision = false,
+  }
 
-		EffectName = "particles/units/heroes/hero_lina/lina_spell_dragon_slave.vpcf",
-		Ability = self,
-		vSpawnOrigin = self:GetCaster():GetOrigin(),
-		fStartRadius = self.devastator_width_initial,
-		fEndRadius = self.devastator_width_end,
-		vVelocity = vDirection * self.devastator_speed,
-		fDistance = self.devastator_distance,
-		Source = self:GetCaster(),
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-	}
-
-	ProjectileManager:CreateLinearProjectile( info )
-	-- Re enable if the item should have sound
-	-- EmitSoundOn( "Hero_Lina.DragonSlave", self:GetCaster() )
+  ProjectileManager:CreateLinearProjectile( info )
 end
 
 -- Impact of the projectile
 function item_devastator:OnProjectileHit( hTarget, vLocation )
-  if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) then
+  if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) and ( not hTarget:IsAttackImmune() ) then
     local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration)
 
     -- Apply the slow debuff always
@@ -90,7 +89,7 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
       attacker = self:GetCaster(),
       damage = self.devastator_damage,
       damage_type = DAMAGE_TYPE_PHYSICAL,
-      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
       ability = self
     }
 

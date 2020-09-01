@@ -1,4 +1,6 @@
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_oaa_dagon_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_oaa_dagon_non_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon = class(ItemBaseClass)
 item_dagon_2 = item_dagon
@@ -9,7 +11,6 @@ item_dagon_6 = item_dagon
 item_dagon_7 = item_dagon
 item_dagon_8 = item_dagon
 item_dagon_9 = item_dagon
-
 
 function item_dagon:OnSpellStart()
   local caster = self:GetCaster()
@@ -31,11 +32,11 @@ function item_dagon:OnSpellStart()
   ParticleManager:SetParticleControl(particle, 2, Vector(particleThickness))
   ParticleManager:ReleaseParticleIndex(particle)
 
+  -- Sound on caster
+  caster:EmitSound(soundCaster)
 
-  caster:EmitSound("DOTA_Item.Dagon.Activate")
-  if level >= 5 then
-    target:EmitSound("DOTA_Item.Dagon5.Target")
-  end
+  -- Sound on target
+  target:EmitSound(soundTarget)
 
   -- Don't do anything if target has Linken's effect
   if target:TriggerSpellAbsorb(self) then
@@ -58,5 +59,106 @@ function item_dagon:OnSpellStart()
 end
 
 function item_dagon:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_dagon:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_oaa_dagon_stacking_stats",
+    "modifier_item_oaa_dagon_non_stacking_stats"
+  }
+end
+
+---------------------------------------------------------------------------------------------------
+-- Parts of Dagon that should stack with other Dagons (stats)
+
+modifier_item_oaa_dagon_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_oaa_dagon_stacking_stats:IsHidden()
+  return true
+end
+function modifier_item_oaa_dagon_stacking_stats:IsDebuff()
+  return false
+end
+function modifier_item_oaa_dagon_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_oaa_dagon_stacking_stats:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_oaa_dagon_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+  end
+end
+
+function modifier_item_oaa_dagon_stacking_stats:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+  end
+end
+
+function modifier_item_oaa_dagon_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+  }
+end
+
+function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Strength()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Agility()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Intellect()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+---------------------------------------------------------------------------------------------------
+-- Parts of Dagon that should NOT stack with other Dagons
+
+modifier_item_oaa_dagon_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_oaa_dagon_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_oaa_dagon_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_oaa_dagon_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_oaa_dagon_non_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+  end
+end
+
+function modifier_item_oaa_dagon_non_stacking_stats:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+  end
+end
+
+function modifier_item_oaa_dagon_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+  }
+end
+
+function modifier_item_oaa_dagon_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
 end

@@ -45,7 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
-    "AbilitySharedCooldown"                               "satanic"
+    "AbilitySharedCooldown"                               "satanic_core"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 45 70"
+        "bonus_strength"                                  "50 75 100"
       }
       "02"
       {
@@ -78,7 +78,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "650 1000 1500"
+        "bonus_health"                                    "0"
       }
       "04"
       {
@@ -114,6 +114,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_status_resist"                             "10 15 20"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resist"                              "10 12 14"
       }
     }
   }

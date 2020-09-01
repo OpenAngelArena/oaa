@@ -73,23 +73,13 @@
       }
       "07" // unused
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "splash_damage_pct"                               "10 15 20 25 45 65"
-      }
-      "08" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "240"
-      }
-      "09" // unused
-      {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "900"
       }
-      "10"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "self_multiplier"                                 "2"
+        "self_multiplier"                                 "75"
       }
     }
   }
