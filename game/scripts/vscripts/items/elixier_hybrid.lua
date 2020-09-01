@@ -147,9 +147,9 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
       return
     end
 
-    -- Don't proc on damage from attacks (we use OnAttackLanded for that); 
-	-- it also prevents procing on itself (prevents infinite loop)
-	-- because source of proc damage is nil
+    -- Don't proc on damage from attacks (we use OnAttackLanded for that);
+    -- it also prevents procing on itself (prevents infinite loop)
+    -- because source of proc damage is nil
     if not event.inflictor then
       return
     end
