@@ -14,6 +14,11 @@ function azazel_summon:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 
+    -- Prevent use on Spirit Bear and other non-hero units with inventory
+    if not caster:IsRealHero() then
+      return
+    end
+
     caster:EmitSound("DOTA_Item.Necronomicon.Activate")
 
     -- Destroy any existing summons tied to this caster
@@ -28,17 +33,17 @@ function azazel_summon:OnSpellStart()
 
     -- Summon the creature
     GridNav:DestroyTreesAroundPoint(summon_position, 128, false)
-    caster.azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
-    caster.azazel_summon:SetControllableByPlayer(caster:GetPlayerID(), true)
+    local azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
+    azazel_summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 
     -- Level up any relevant abilities
     if string.find(summon_name, "farmer") then
-      caster.azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
+      azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
     elseif string.find(summon_name, "scout") then
-      caster.azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
-      caster.azazel_summon:AddNewModifier(caster.azazel_summon, self, "modifier_azazel_summon_scout_innate", {})
+      azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
+      azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_scout_innate", {})
     elseif string.find(summon_name, "fighter") then
-      caster.azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
+      azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
     end
 
     -- Fix stats of summons
@@ -49,26 +54,28 @@ function azazel_summon:OnSpellStart()
 
     -- HP
     if summon_hp and summon_hp > 0 then
-      caster.azazel_summon:SetBaseMaxHealth(summon_hp)
-      caster.azazel_summon:SetMaxHealth(summon_hp)
-      caster.azazel_summon:SetHealth(summon_hp)
+      azazel_summon:SetBaseMaxHealth(summon_hp)
+      azazel_summon:SetMaxHealth(summon_hp)
+      azazel_summon:SetHealth(summon_hp)
     end
 
     -- DAMAGE
     if summon_dmg and summon_dmg > 0 then
-      caster.azazel_summon:SetBaseDamageMin(summon_dmg)
-      caster.azazel_summon:SetBaseDamageMax(summon_dmg)
+      azazel_summon:SetBaseDamageMin(summon_dmg)
+      azazel_summon:SetBaseDamageMax(summon_dmg)
     end
 
     -- ARMOR
     if summon_armor and summon_armor > 0 then
-      caster.azazel_summon:SetPhysicalArmorBaseValue(summon_armor)
+      azazel_summon:SetPhysicalArmorBaseValue(summon_armor)
     end
 
     -- Movement speed
     if summon_ms and summon_ms > 0 then
-      caster.azazel_summon:SetBaseMoveSpeed(summon_ms)
+      azazel_summon:SetBaseMoveSpeed(summon_ms)
     end
+
+    caster.azazel_summon = azazel_summon
 
     self:SpendCharge()
   end

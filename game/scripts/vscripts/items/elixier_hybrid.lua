@@ -109,6 +109,7 @@ end
 function modifier_elixier_hybrid_trigger:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
   return funcs
 end
@@ -116,8 +117,8 @@ end
 function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
   if IsServer() then
     local parent = self:GetParent()
-    local ability = self:GetAbility()
-    local unit = event.unit
+    --local ability = self:GetAbility() -- always nil, probably because its a consumable item, thx Valve
+    local unit = event.unit -- damaged unit
 
     -- Do nothing if attacker doesn't have this buff
     if parent ~= event.attacker then
@@ -146,21 +147,20 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
       return
     end
 
-    -- Don't proc on itself
-    if ability == event.inflictor then
+    -- Don't proc on damage from attacks (we use OnAttackLanded for that); 
+	-- it also prevents procing on itself (prevents infinite loop)
+	-- because source of proc damage is nil
+    if not event.inflictor then
       return
     end
 
     -- Create a damage table for proc damage
     local damage_table = {}
     damage_table.attacker = parent
-    damage_table.ability = ability
-    damage_table.damage = 200
     damage_table.victim = unit
-    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
 
     -- Set damage, damage type and overhead alert for the proc damage
-    local overhead_alert = OVERHEAD_ALERT_DAMAGE
+    local overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
     if damage_type == DAMAGE_TYPE_PHYSICAL then
       damage_table.damage = self.magic_damage
       damage_table.damage_type = DAMAGE_TYPE_MAGICAL
@@ -174,5 +174,32 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
 
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, unit, damage_dealt, parent:GetPlayerOwner())
+  end
+end
+
+function modifier_elixier_hybrid_trigger:OnAttackLanded(event)
+  if IsServer() then
+    local parent = self:GetParent()
+    local target = event.target -- attacked unit
+
+    -- Do nothing if attacker doesn't have this buff
+    if parent ~= event.attacker then
+      return
+    end
+
+	-- Don't continue if target doesn't exist or if target is about to be deleted
+    if not target or target:IsNull() then
+      return
+    end
+
+	-- Create a damage table for proc damage
+    local damage_table = {}
+    damage_table.attacker = parent
+    damage_table.victim = target
+    damage_table.damage = self.magic_damage
+    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+
+    local damage_dealt = ApplyDamage(damage_table)
+    SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage_dealt, parent:GetPlayerOwner())
   end
 end
