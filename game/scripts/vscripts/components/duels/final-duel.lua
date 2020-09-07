@@ -125,6 +125,6 @@ function FinalDuel:EndDuelHandler (currentDuel)
   self.goodCanWin = false
   self.badCanWin = false
 
-  local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]
+  local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]  -- this is 10; if you want to change put: PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
   PointsManager:IncreaseLimit(addToLimit)
 end
