@@ -1,18 +1,20 @@
 "DOTAUnits"
 {
 //=================================================================================
-// Azazel's Farmer 4
+// Azazel's Farmer
 //=================================================================================
-  "npc_dota_azazel_summon_farmer_4"
+  "npc_dota_azazel_summon_farmer"
   {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_b.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Spawnlord"
-    "Level"                                               "4"
-    "ModelScale"                                          "1.1"
+    "Level"                                               "1"
+    "ModelScale"                                          "0.8"
     "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
     "UnitLabel"                                           "azazel_farmer"
 
     // Abilities
@@ -30,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "2400"    // Damage range min.
-    "AttackDamageMax"                                     "2400"    // Damage range max.
+    "AttackDamageMin"                                     "300"    // Damage range min.
+    "AttackDamageMax"                                     "300"    // Damage range max.
     "AttackRate"                                          "2.0"    // Speed of attack.
     "AttackAnimationPoint"                                "0.83"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -58,7 +60,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "8000"    // Base health.
+    "StatusHealth"                                        "2000"    // Base health.
     "StatusHealthRegen"                                   "0"      // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.

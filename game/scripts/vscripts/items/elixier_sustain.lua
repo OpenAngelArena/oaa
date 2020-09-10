@@ -8,9 +8,9 @@ LinkLuaModifier("modifier_elixier_sustain_trigger", "items/elixier_sustain.lua",
 
 --------------------------------------------------------------------------------
 
-item_elixier_sustain_1 = class(ItemBaseClass)
+item_elixier_sustain = class(ItemBaseClass)
 
-function item_elixier_sustain_1:OnSpellStart()
+function item_elixier_sustain:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 
@@ -29,12 +29,6 @@ function item_elixier_sustain_1:OnSpellStart()
     self:SpendCharge()
   end
 end
-
---------------------------------------------------------------------------------
-
-item_elixier_sustain_2 = item_elixier_sustain_1
-item_elixier_sustain_3 = item_elixier_sustain_1
-item_elixier_sustain_4 = item_elixier_sustain_1
 
 --------------------------------------------------------------------------------
 
@@ -58,7 +52,7 @@ end
 
 function modifier_elixier_sustain_active:OnCreated()
   if IsServer() then
-    self.regen = self:GetAbility():GetSpecialValueFor("bonus_regen")
+    self.regen = self:GetAbility():GetSpecialValueFor("bonus_hp_regen")
     self.dmg_reduction = self:GetAbility():GetSpecialValueFor("bonus_dmg_reduction")
     self:SetStackCount(self.regen)
     self:StartIntervalThink(0.03)
@@ -68,7 +62,7 @@ end
 function modifier_elixier_sustain_active:OnIntervalThink()
   if IsServer() then
     local caster = self:GetParent()
-    if caster:IsStunned() then
+    if caster:IsStunned() or caster:IsHexed() then
       if not caster:HasModifier("modifier_elixier_sustain_trigger") then
         caster:AddNewModifier(caster, self:GetAbility(), "modifier_elixier_sustain_trigger", {dmg_reduction = self.dmg_reduction})
       end

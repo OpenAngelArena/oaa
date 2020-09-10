@@ -1,44 +1,44 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Elixier - Burst 2
+  // Recipe: Elixier - Burst
   //=================================================================================================================
-  "item_recipe_elixier_burst_2"
+  "item_recipe_elixier_burst"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "10005"
+    "ID"                                    "7551"
     "BaseClass"                             "item_datadriven"
-    "AbilityTextureName"                    "custom/recipe/recipe_2"
+    "AbilityTextureName"                    "custom/recipe/recipe_1"
     "Model"                                 "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "1"
     "SecretShop"                            "1"
     "ItemShopTags"                          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                            "1"
-    "ItemResult"                            "item_elixier_burst_2"
-    "ItemRequirements"  // OAA
+    "ItemResult"                            "item_elixier_burst"
+    "ItemRequirements" // OAA
     {
-      "01"                                  "item_upgrade_core_2"
+      "01"                                  "item_upgrade_core"
     }
   }
 
   //=================================================================================================================
-  // Elixier - Burst 2
+  // Elixier - Burst
   //=================================================================================================================
-  "item_elixier_burst_2"
+  "item_elixier_burst"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "10006"
+    "ID"                                    "7552"
     "BaseClass"                             "item_lua"
     "ScriptFile"                            "items/elixier_burst.lua"
-    "AbilityTextureName"                    "custom/elixier_burst_2"
+    "AbilityTextureName"                    "custom/elixier_burst_4"
     "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
     // Stats
@@ -48,12 +48,10 @@
     "AbilitySharedCooldown"                 "elixier"
     "AbilityCooldown"                       "60.0"
     "AbilityManaCost"                       "0"
-    "MaxUpgradeLevel"                       "4"
-    "ItemBaseLevel"                         "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "1"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
@@ -85,17 +83,17 @@
       "01"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_ms"                          "40 80 120 160"
+        "bonus_ms"                          "50"
       }
       "02"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_as"                          "250"
+        "bonus_as"                          "400"
       }
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_attacks"                     "4 6 8 10"
+        "bonus_attacks"                     "5"
       }
       "04"
       {

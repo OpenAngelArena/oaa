@@ -1,63 +1,61 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Elixier - Sustain 3
+  // Recipe: Azazel Summon - Scout
   //=================================================================================================================
-  "item_recipe_elixier_sustain_3"
+  "item_recipe_azazel_summon_scout"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "10023"
+    "ID"                                    "7556"
     "BaseClass"                             "item_datadriven"
     "AbilityTextureName"                    "custom/recipe/recipe_3"
     "Model"                                 "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "1"
     "SecretShop"                            "1"
     "ItemShopTags"                          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                            "1"
-    "ItemResult"                            "item_elixier_sustain_3"
-    "ItemRequirements"  // OAA
+    "ItemResult"                            "item_azazel_summon_scout"
+    "ItemRequirements" // OAA
     {
       "01"                                  "item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Elixier - Sustain 3
+  // Azazel Summon - Scout
   //=================================================================================================================
-  "item_elixier_sustain_3"
+  "item_azazel_summon_scout"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "10024"
+    "ID"                                    "7557"
     "BaseClass"                             "item_lua"
-    "ScriptFile"                            "items/elixier_sustain.lua"
-    "AbilityTextureName"                    "custom/elixier_sustain_3"
+    "ScriptFile"                            "items/azazel_summon.lua"
+    "AbilityTextureName"                    "custom/azazel_summon_scout"
     "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                      "0"
     "AbilityCastPoint"                      "0.0"
-    "AbilitySharedCooldown"                 "elixier"
-    "AbilityCooldown"                       "60.0"
+    "AbilitySharedCooldown"                 "azazel_summon"
+    "AbilityCooldown"                       "1.0"
     "AbilityManaCost"                       "0"
-    "MaxUpgradeLevel"                       "4"
-    "ItemBaseLevel"                         "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "1"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
-    "ItemAliases"                           "elixier, elixir, sustain, sustainability"
+    "ItemAliases"                           "summon, scout, azazel"
     "ItemStackable"                         "0"
     "ItemPermanent"                         "0"
     "ItemInitialCharges"                    "1"
@@ -66,7 +64,7 @@
     "ItemPurchasable"                       "1"
     "ItemSellable"                          "0"
     "SecretShop"                            "1"
-    "SecretShopType"                        "Elixirs"
+    "SecretShopType"                        "Summons"
     "IsTempestDoubleClonable"               "0"
 
     // Precache
@@ -74,8 +72,6 @@
     "precache"
     {
       "soundfile"                           "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
-      "particle"                            "particles/generic_gameplay/rune_regeneration.vpcf"
-      "particle"                            "particles/generic_gameplay/rune_regeneration_sparks.vpcf"
     }
 
     // Special
@@ -85,17 +81,27 @@
       "01"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_regen"                       "20 30 40 50"
+        "summon_health"                     "4000"
       }
       "02"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_dmg_reduction"               "20 30 40 50"
+        "summon_armor"                      "0"
       }
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_duration"                    "60"
+        "summon_ms"                         "400"
+      }
+      "04"
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_damage"                     "0"
+      }
+      "05" // needs to be changed on the unit as well
+      {
+        "var_type"                          "FIELD_INTEGER"
+        "summon_vision"                     "1200"
       }
     }
   }
