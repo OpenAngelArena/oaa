@@ -2,7 +2,7 @@ LinkLuaModifier( "modifier_core_shrine", "abilities/misc/core_shrine.lua", LUA_M
 
 core_guy_score_limit = class(AbilityBaseClass)
 
-function core_guy_score_limit:GetIntrinsicModifierName ()
+function core_guy_score_limit:GetIntrinsicModifierName()
   return "modifier_core_shrine"
 end
 
@@ -13,8 +13,9 @@ function core_guy_score_limit:OnSpellStart()
   self.timesUsed = self.timesUsed + 1
 
   if IsServer() then
-    print("Trying to increase score limit!")
-    PointsManager:IncreaseLimit(KILL_LIMIT_INCREASE)
+    --print("Trying to increase score limit!")
+    local scoreLimitIncrease = PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
+    PointsManager:IncreaseLimit(scoreLimitIncrease)
   end
 end
 
