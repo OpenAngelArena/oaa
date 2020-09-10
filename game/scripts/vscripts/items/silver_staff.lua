@@ -10,7 +10,7 @@ end
 function item_silver_staff:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
-  
+
   -- Don't do anything if target has Linken's effect
   if target:TriggerSpellAbsorb(self) then
     return
@@ -170,7 +170,7 @@ function modifier_item_silver_staff_debuff:OnIntervalThink()
   local parent = self:GetParent()
   local caster = self:GetCaster()
   local ability = self:GetAbility()
-  
+
   -- Don't do damage to bosses
   if parent:IsOAABoss() then
     return
