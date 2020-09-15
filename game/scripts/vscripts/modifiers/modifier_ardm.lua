@@ -20,33 +20,33 @@ function modifier_ardm:ReplaceHero ()
 
   Debug:EnableDebugging()
   local heroXp = parent:GetCurrentXP()
-  local heroLevel = parent:GetLevel()
+  --local heroLevel = parent:GetLevel()
   DebugPrint('Hero was level ' .. heroLevel .. ' with xp ' .. heroXp)
 
   Timers:CreateTimer(0, function()
-    PlayerResource:ReplaceHeroWith(playerId, self.hero, currentDotaGold, 0)
+    PlayerResource:ReplaceHeroWith(playerId, self.hero, currentDotaGold, heroXp)
     local newHero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-    while newHero:GetLevel() < heroLevel do
-      newHero:HeroLevelUp(false)
-      local level = newHero:GetLevel()
-      AbilityLevels:CheckAbilityLevels({
-        level = level,
-        player = PlayerResource:GetPlayer(playerId):entindex(),
-        selectedEntity = newHero:entindex()
-      })
-      HeroProgression:ReduceStatGain(newHero, level)
-      HeroProgression:ProcessAbilityPointGain(newHero, level)
-    end
+    -- while newHero:GetLevel() < heroLevel do
+      -- newHero:HeroLevelUp(false)
+      -- local level = newHero:GetLevel()
+      -- AbilityLevels:CheckAbilityLevels({
+        -- level = level,
+        -- player = PlayerResource:GetPlayer(playerId):entindex(),
+        -- selectedEntity = newHero:entindex()
+      -- })
+      -- HeroProgression:ReduceStatGain(newHero, level)
+      -- HeroProgression:ProcessAbilityPointGain(newHero, level)
+    -- end
 
-    newHero:AddExperience(heroXp, DOTA_ModifyXP_Unspecified, false, true)
+    --newHero:AddExperience(heroXp, DOTA_ModifyXP_Unspecified, false, true)
 
-    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-      local item = newHero:GetItemInSlot(i)
-      if item then
-        newHero:RemoveItem(item)
-      end
-    end
+    -- for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+      -- local item = newHero:GetItemInSlot(i)
+      -- if item then
+        -- newHero:RemoveItem(item)
+      -- end
+    -- end
 
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = items[i]
@@ -55,7 +55,7 @@ function modifier_ardm:ReplaceHero ()
       end
     end
 
-    UTIL_Remove(parent)
+    --UTIL_Remove(parent)
   end)
 end
 
