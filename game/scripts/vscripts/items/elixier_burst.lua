@@ -9,9 +9,9 @@ LinkLuaModifier("modifier_elixier_burst_bonus", "items/elixier_burst.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
-item_elixier_burst_1 = class(ItemBaseClass)
+item_elixier_burst = class(ItemBaseClass)
 
-function item_elixier_burst_1:OnSpellStart()
+function item_elixier_burst:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 
@@ -31,12 +31,6 @@ function item_elixier_burst_1:OnSpellStart()
     self:SpendCharge()
   end
 end
-
---------------------------------------------------------------------------------
-
-item_elixier_burst_2 = item_elixier_burst_1
-item_elixier_burst_3 = item_elixier_burst_1
-item_elixier_burst_4 = item_elixier_burst_1
 
 --------------------------------------------------------------------------------
 

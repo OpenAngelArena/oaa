@@ -34,9 +34,9 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 3
+NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT - equal to 3 x number of players + actual KILL_LIMIT_INCREASE (for 5v5 its 40; for 3v3 its 24 etc.)
 TEN_V_TEN_KILL_LIMIT = 2
-KILL_LIMIT_INCREASE = 10
+KILL_LIMIT_INCREASE = 1                   -- Actual KILL_LIMIT_INCREASE is equal to number of players (for 10v10 map its 1/2 of the number of players)
 
 -- poop wards
 POOP_WARD_DURATION = 360

@@ -37,10 +37,20 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_range"                              "125"
       }
-      "03"
+      "03" // melee only
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range_melee"                        "75"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_cast_range"                                "125"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_projectile_speed"                   "600"
       }
     }
   }

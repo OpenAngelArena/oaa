@@ -1,44 +1,44 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Elixier - Burst 4
+  // Recipe: Elixier - Hybrid
   //=================================================================================================================
-  "item_recipe_elixier_burst_4"
+  "item_recipe_elixier_hybrid"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "10009"
+    "ID"                                    "7553"
     "BaseClass"                             "item_datadriven"
-    "AbilityTextureName"                    "custom/recipe/recipe_4"
+    "AbilityTextureName"                    "custom/recipe/recipe_3"
     "Model"                                 "models/props_gameplay/recipe.mdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "1"
     "SecretShop"                            "1"
     "ItemShopTags"                          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                            "1"
-    "ItemResult"                            "item_elixier_burst_4"
-    "ItemRequirements"   // OAA
+    "ItemResult"                            "item_elixier_hybrid"
+    "ItemRequirements" // OAA
     {
-      "01"                                  "item_upgrade_core_4"
+      "01"                                  "item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Elixier - Burst 4
+  // Elixier - Hybrid
   //=================================================================================================================
-  "item_elixier_burst_4"
+  "item_elixier_hybrid"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "10010"
+    "ID"                                    "7554"
     "BaseClass"                             "item_lua"
-    "ScriptFile"                            "items/elixier_burst.lua"
-    "AbilityTextureName"                    "custom/elixier_burst_4"
+    "ScriptFile"                            "items/elixier_hybrid.lua"
+    "AbilityTextureName"                    "custom/elixier_hybrid_4"
     "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
     // Stats
@@ -48,16 +48,14 @@
     "AbilitySharedCooldown"                 "elixier"
     "AbilityCooldown"                       "60.0"
     "AbilityManaCost"                       "0"
-    "MaxUpgradeLevel"                       "4"
-    "ItemBaseLevel"                         "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "1"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
-    "ItemAliases"                           "elixier, elixir, burst"
+    "ItemAliases"                           "elixier, elixir, hybrid"
     "ItemStackable"                         "0"
     "ItemPermanent"                         "0"
     "ItemInitialCharges"                    "1"
@@ -74,8 +72,8 @@
     "precache"
     {
       "soundfile"                           "soundevents/game_sounds_heroes/game_sounds_items.vsndevts"
-      "particle"                            "particles/items/elixiers/elixier_burst.vpcf"
-      "particle"                            "particles/items/elixiers/elixier_burst_lesser.vpcf"
+      "particle"                            "particles/items/elixiers/elixier_hybrid.vpcf"
+      "particle"                            "particles/items/elixiers/elixier_hybrid_lesser.vpcf"
     }
 
     // Special
@@ -85,27 +83,22 @@
       "01"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_ms"                          "40 80 120 160"
+        "bonus_mana_regen"                  "10"
       }
       "02"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_as"                          "250"
+        "bonus_magic_damage"                "200"
       }
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_attacks"                     "4 6 8 10"
+        "bonus_physical_damage"             "300"
       }
       "04"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_duration"                    "10"
-      }
-      "05"
-      {
-        "var_type"                          "FIELD_INTEGER"
-        "total_duration"                    "60"
+        "bonus_duration"                    "60"
       }
     }
   }
