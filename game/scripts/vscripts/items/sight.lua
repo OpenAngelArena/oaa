@@ -11,16 +11,14 @@ function item_far_sight:GetIntrinsicModifierName()
   return "modifier_item_far_sight"
 end
 
-if IsServer() then
-  function item_far_sight:OnSpellStart()
-    local caster = self:GetCaster()
-    local target = self:GetCursorPosition()
-    local casterTeam = caster:GetTeam()
-    local revealDuration = self:GetSpecialValueFor("reveal_duration")
+function item_far_sight:OnSpellStart()
+  local caster = self:GetCaster()
+  local target = self:GetCursorPosition()
+  local casterTeam = caster:GetTeamNumber()
+  local revealDuration = self:GetSpecialValueFor("reveal_duration")
 
-    AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
-    local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
-  end
+  AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
+  local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
 end
 
 item_far_sight_2 = item_far_sight
@@ -89,16 +87,20 @@ function modifier_item_far_sight_true_sight:IsAura()
   return true
 end
 
-if IsServer() then
-  function modifier_item_far_sight_true_sight:OnCreated()
-    self.revealRadius = self:GetAbility():GetSpecialValueFor("reveal_radius")
-
-    if IsServer() then
-      self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
-      ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
-      ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(self.revealRadius, 0, 0) )
-    end
+function modifier_item_far_sight_true_sight:OnCreated()
+  local ability = self:GetAbility()
+  local radius = 900
+  if ability and not ability:IsNull() then
+    radius = ability:GetSpecialValueFor("reveal_radius")
   end
+
+  if IsServer() then
+    self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
+    ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
+  end
+
+  self.revealRadius = radius
 end
 
 function modifier_item_far_sight_true_sight:GetModifierAura()
@@ -114,7 +116,7 @@ function modifier_item_far_sight_true_sight:GetAuraSearchTeam()
 end
 
 function modifier_item_far_sight_true_sight:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_OTHER)
+  return DOTA_UNIT_TARGET_ALL
 end
 
 function modifier_item_far_sight_true_sight:GetAuraSearchFlags()
@@ -123,8 +125,15 @@ end
 
 function modifier_item_far_sight_true_sight:OnDestroy()
   if IsServer() then
-    ParticleManager:DestroyParticle( self.nFXIndex , false)
-    ParticleManager:ReleaseParticleIndex( self.nFXIndex )
-    UTIL_Remove(self:GetParent())
+    if self.nFXIndex then
+      ParticleManager:DestroyParticle( self.nFXIndex , false)
+      ParticleManager:ReleaseParticleIndex( self.nFXIndex )
+    end
+
+    -- Thinkers are supposed to remove themselves when they expire but lets make sure
+    local parent = self:GetParent()
+    if parent and not parent:IsNull() then
+      UTIL_Remove(parent)
+    end
   end
 end
