@@ -27,7 +27,7 @@ require('precache')
 
 require('libraries/keyvalues')
 -- DotaStats
-require("statcollection/init")
+--require("statcollection/init")
 
 function Precache( context )
 --[[
