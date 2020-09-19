@@ -111,6 +111,7 @@ test('KV Values', function (t) {
         }
       }
     }
+    /*
     // short signed (-32767, 32767)
     console.log('items/abilities with potentially bad ID if unique ID is short signed type:');
     for (iter = 10000; iter < 9999999; iter++) {
@@ -128,7 +129,7 @@ test('KV Values', function (t) {
           }
         }
       }
-    }
+    } */
     t.end();
   });
 });
