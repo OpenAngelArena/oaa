@@ -76,37 +76,40 @@ function modifier_ogre_seer_ignite_debuff:OnCreated()
   local damage_per_second = 400
   local interval = 0.2
   local damage_type = DAMAGE_TYPE_MAGICAL
-  self.slow = -30
+  local slow = -30
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     damage_per_second = ability:GetSpecialValueFor("burn_damage")
     interval = ability:GetSpecialValueFor("damage_interval")
-    self.slow = ability:GetSpecialValueFor("slow_movement_speed_pct")
+    slow = ability:GetSpecialValueFor("slow_movement_speed_pct")
     if IsServer() then
       damage_type = ability:GetAbilityDamageType()
     end
   end
   self.damage_per_interval = damage_per_second*interval
-  local caster = self:GetCaster()
-  if caster and not caster:IsNull() then
-    -- Creating the damage table
-    local damage_table = {}
-    damage_table.attacker = caster
-    damage_table.damage_type = damage_type
-    damage_table.ability = ability
-    damage_table.victim = parent
-    damage_table.damage = self.damage_per_interval
-    -- Apply damage on creation
-    ApplyDamage(damage_table)
+  self.slow = slow
+  if IsServer() then
+    local caster = self:GetCaster()
+    if caster and not caster:IsNull() then
+      -- Creating the damage table
+      local damage_table = {}
+      damage_table.attacker = caster
+      damage_table.damage_type = damage_type
+      damage_table.ability = ability
+      damage_table.victim = parent
+      damage_table.damage = self.damage_per_interval
+      -- Apply damage on creation
+      ApplyDamage(damage_table)
+    end
+    self:StartIntervalThink(interval)
   end
-  self:StartIntervalThink(interval)
 end
 
 function modifier_ogre_seer_ignite_debuff:OnIntervalThink()
   local parent = self:GetParent()
   local damage_type = DAMAGE_TYPE_MAGICAL
   local ability = self:GetAbility()
-  if ability and not ability:IsNull() and IsServer() then
+  if ability and not ability:IsNull() then
     damage_type = ability:GetAbilityDamageType()
   end
   local caster = self:GetCaster()
