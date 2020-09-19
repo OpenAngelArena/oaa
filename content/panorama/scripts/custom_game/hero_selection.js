@@ -125,7 +125,10 @@ function init () {
   changeHilariousLoadingText();
   UpdateBottleList();
 
-  EnableChatWindow();
+  // I will figure out how to fix chat in captain's mode some other time
+  if (currentMap !== 'captains_mode') {
+    EnableChatWindow();
+  }
 
   $('#ARDMLoading').style.opacity = 0;
 }
