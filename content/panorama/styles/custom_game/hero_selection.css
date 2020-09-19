@@ -16,13 +16,13 @@
   visibility: visible;
 }
 
-#ChatPlaceholder {
-  width: 600px;
-  height: 700px;
-  vertical-align: bottom;
-  horizontal-align: left;
-  margin-bottom: 20px;
-}
+/* #ChatPlaceholder { */
+  /* width: 600px; */
+  /* height: 700px; */
+  /* vertical-align: bottom; */
+  /* horizontal-align: left; */
+  /* margin-bottom: 20px; */
+/* } */
 
 /*
 ARDM Loading screen
@@ -538,6 +538,11 @@ RadioButton.Disabled:selected {
   vertical-align: bottom;
   /*height: 80%;*/
 }
+
+/* DOTAChat#HudChat .ChatLine { */
+	/* width:  420px; */
+	/* max-width: 420px; */
+/* } */
 
 #ChatLinesOverlay {
   background-color: transparent;

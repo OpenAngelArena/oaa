@@ -189,7 +189,7 @@
               <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
             </Button>
           </Panel>
-          <Panel id="ChatPlaceholder" />
+          <!-- <Panel id="ChatPlaceholder" /> -->
           <Panel id="CMHeroPreview" hittest="false" />
           <Panel class="BottlePassSelection">
             <Label id="BottlePassSelectionTitle" text="#BottlePassSelection"/>
