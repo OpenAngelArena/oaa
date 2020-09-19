@@ -21,7 +21,7 @@ function modifier_ardm:ReplaceHero ()
   Debug:EnableDebugging()
   local heroXp = parent:GetCurrentXP()
   --local heroLevel = parent:GetLevel()
-  DebugPrint('Hero was level ' .. heroLevel .. ' with xp ' .. heroXp)
+  --DebugPrint('Hero was level ' .. heroLevel .. ' with xp ' .. heroXp)
 
   Timers:CreateTimer(0, function()
     PlayerResource:ReplaceHeroWith(playerId, self.hero, currentDotaGold, heroXp)
