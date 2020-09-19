@@ -9,7 +9,10 @@ if IsServer() then
   end
 
   function modifier_oaa_scan_thinker:OnDestroy()
-    UTIL_Remove(self:GetParent())
+    local parent = self:GetParent()
+    if parent and not parent:IsNull() then
+      UTIL_Remove(parent)
+    end
   end
 
   function modifier_oaa_scan_thinker:OnIntervalThink()
@@ -23,7 +26,7 @@ if IsServer() then
       900,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_NONE,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
       FIND_ANY_ORDER,
       false
     )
