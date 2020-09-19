@@ -18,12 +18,12 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
   return networth
 
   -- Alternate way of calculating networth:
-  local playerID = hero:GetPlayerOwnerID()
-  local playerNetworth = PlayerResource:GetNetWorth(playerID)
+  -- local playerID = hero:GetPlayerOwnerID()
+  -- local playerNetworth = PlayerResource:GetNetWorth(playerID)
 
-  if playerNetworth then
-    return playerNetworth
-  end
+  -- if playerNetworth then
+    -- return playerNetworth
+  -- end
 end
 
 function CDOTA_BaseNPC_Hero:ModifyGold (playerID, goldAmmt, reliable, nReason)
