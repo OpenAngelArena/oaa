@@ -172,7 +172,6 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'rankedData' && data != null) {
     UpdatedRankedPickState(data);
   } else if (key === 'herolist' && data != null) {
-
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
