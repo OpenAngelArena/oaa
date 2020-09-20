@@ -171,3 +171,7 @@ end
 function modifier_azazel_summon_scout_innate:GetAuraSearchType()
   return DOTA_UNIT_TARGET_ALL
 end
+
+function modifier_azazel_summon_scout_innate:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end

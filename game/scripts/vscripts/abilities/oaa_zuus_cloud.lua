@@ -285,7 +285,7 @@ function modifier_zuus_bolt_true_sight:GetAuraSearchTeam()
 end
 
 function modifier_zuus_bolt_true_sight:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO , DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
+  return DOTA_UNIT_TARGET_ALL
 end
 
 function modifier_zuus_bolt_true_sight:GetAuraSearchFlags()
