@@ -68,6 +68,5 @@ function modifier_xpm_thinker:GetXPMForPlayer( playerID )
     else
       return 0
     end
-
   end
 end

@@ -551,10 +551,10 @@ function EnableChatWindow () {
   radiantTeamPanel.style.visibility = 'collapse';
   var direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
   direTeamPanel.style.visibility = 'collapse';
-  var Header = pregamePanel.FindChildTraverse('Header');
-  Header.style.visibility = 'collapse';
-  var Minimap = pregamePanel.FindChildTraverse('PreMinimapContainer');
-  Minimap.style.visibility = 'collapse';
+  var headerPanel = pregamePanel.FindChildTraverse('Header');
+  headerPanel.style.visibility = 'collapse';
+  var minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
+  minimapPanel.style.visibility = 'collapse';
 }
 
 function UpdatePreviews (data) {
