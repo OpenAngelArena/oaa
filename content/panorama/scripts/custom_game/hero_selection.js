@@ -547,6 +547,8 @@ function EnableChatWindow () {
   contentPanel.style.visibility = 'collapse';
   var backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
   backgroundPanel.style.visibility = 'collapse';
+  var backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
+  backgroundDashboardPanel.style.visibility = 'collapse';
   var radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
   radiantTeamPanel.style.visibility = 'collapse';
   var direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
