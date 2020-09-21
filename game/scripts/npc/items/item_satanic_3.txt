@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_satanic_3"
   {
-
     "ID"                                                  "3159"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
@@ -17,6 +16,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_2;item_upgrade_core_2"
+      "02"                                                "item_mask_of_madness_2;item_upgrade_core_2"
     }
   }
 
