@@ -214,10 +214,10 @@ function GameMode:_CaptureGameMode()
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )
-
     mode:SetDaynightCycleDisabled( DISABLE_DAY_NIGHT_CYCLE )
     mode:SetKillingSpreeAnnouncerDisabled( DISABLE_KILLING_SPREE_ANNOUNCER )
     mode:SetStickyItemDisabled( DISABLE_STICKY_ITEM )
+    mode:SetForceRightClickAttackDisabled(true)
 
     self:OnFirstPlayerLoaded()
   end
