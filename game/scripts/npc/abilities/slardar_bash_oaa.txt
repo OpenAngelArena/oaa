@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "1.65"
+    "AbilityCooldown"                                     "8.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,12 +35,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance"                                          "25"
+        "chance"                                          "100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 100 150 200 400 600"
+        "bonus_damage"                                    "50 100 150 200 400 800"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar_2"
       }
       "03"
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_cooldown"                                "1.65"
+        "tooltip_cooldown"                                "8.0"
       }
     }
   }

@@ -33,7 +33,7 @@
     "AbilityTextureName"                                  "custom/silver_edge_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "28.0"
     "AbilitySharedCooldown"                               "shadow_blade"
 
     // Spicy Parameters
@@ -59,12 +59,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40 50 70 100 140"
+        "bonus_damage"                                    "40 60 90 130 180"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "45 50 55 60 65"
+        "bonus_attack_speed"                              "45 55 65 75 85"
       }
       "03"
       {
@@ -99,7 +99,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "windwalk_bonus_damage"                           "175 265 400 600 800"
+        "windwalk_bonus_damage"                           "175 275 375 475 575"
       }
       "10"
       {

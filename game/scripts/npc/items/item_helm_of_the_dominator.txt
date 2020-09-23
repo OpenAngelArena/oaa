@@ -77,7 +77,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "1500 3000 6000 12000 24000"
+        "health_min"                                      "1000 3000 6000 12000 24000"
       }
       "05"
       {
@@ -103,6 +103,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "creep_bonus_mp_regen"                            "4"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_armor"                               "4 5 6 7 8"
       }
     }
   }

@@ -13,7 +13,7 @@ function item_ghost_king_bar:OnSpellStart()
   -- Apply Basic Dispel (its before applying actual effect on purpose!)
   caster:Purge(false, true, false, false, false)
 
-  -- Apply Ghost King Bar debuff to caster (but only if he doesnt have spell immunity)
+  -- Apply Ghost King Bar buff to caster (but only if he doesnt have spell immunity)
   if not caster:IsMagicImmune() then
     caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
   end
@@ -91,11 +91,11 @@ function modifier_item_ghost_king_bar_active:IsHidden()
 end
 
 function modifier_item_ghost_king_bar_active:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_item_ghost_king_bar_active:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_ghost_king_bar_active:OnCreated()
