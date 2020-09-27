@@ -75,18 +75,18 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "300 400 500"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_mana_to_hp_regen"                            "2 2.5 3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen_amp"                             "75"
+        "active_hp_regen"                                 "500"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_mana_to_hp_regen"                            "3"
+        "active_hp_regen_amp"                             "100"
       }
       "06"
       {
