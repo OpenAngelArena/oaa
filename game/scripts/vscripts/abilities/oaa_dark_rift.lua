@@ -40,7 +40,7 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
 
   local radius = self:GetSpecialValueFor( "radius" )
   self.originSecond = GetGroundPosition( Vector(pos.x, pos.y, 0), caster)
-  
+
   -- Remove particles of the previous spell instance in case of refresher
   if caster.partPortal1 then
     ParticleManager:DestroyParticle( caster.partPortal1, false )
@@ -52,7 +52,7 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
     ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
     caster.partPortal2 = nil
   end
-  
+
   -- Remove stored location of the previous spell instance in case of refresher
   caster.original_cast_location = nil
 
@@ -71,7 +71,7 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   -- play cast sounds
   caster:EmitSound( "Hero_AbyssalUnderlord.DarkRift.Cast" )
   --EmitSoundOnLocationWithCaster( self.originSecond, "Hero_AbyssalUnderlord.DarkRift.Cast", caster )
-  -- EmitSoundOnLocationWithCaster needs to be replaced with EmitSound on invisible thinker/dummy entity 
+  -- EmitSoundOnLocationWithCaster needs to be replaced with EmitSound on invisible thinker/dummy entity
   -- and StopSound when portals close, otherwise its annoying
 
   -- Store the location of the caster on the caster itself for the sub ability
@@ -84,7 +84,7 @@ end
 
 function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
   local caster = self:GetCaster()
-  
+
   -- Stop sound in all cases when channeling finishes
   caster:StopSound( "Hero_AbyssalUnderlord.DarkRift.Cast" )
 

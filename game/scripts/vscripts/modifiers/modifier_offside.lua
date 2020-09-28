@@ -167,7 +167,7 @@ function modifier_offside:OnIntervalThink()
     2000,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NONE,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_ANY_ORDER,
     false) or nil
 
@@ -186,7 +186,7 @@ function modifier_offside:OnIntervalThink()
     attacker = defenders,
     damage = (h * ((0.15 * ((stackCount - 10)^2 + 10 * (stackCount - 10)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
-    damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
     ability = nil
   }
 

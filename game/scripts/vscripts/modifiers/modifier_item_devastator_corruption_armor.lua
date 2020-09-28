@@ -9,7 +9,9 @@ function modifier_item_devastator_corruption_armor:IsPurgable()
 end
 
 function modifier_item_devastator_corruption_armor:OnCreated()
-  self:StartIntervalThink(0.1)
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
 end
 
 function modifier_item_devastator_corruption_armor:OnIntervalThink()

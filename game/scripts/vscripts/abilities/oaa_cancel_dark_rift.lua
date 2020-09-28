@@ -71,7 +71,7 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
     ParticleManager:SetParticleControl(part2, 2, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(part2, 5, caster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(part2)
-	
+
     -- play teleportation sounds
     caster:EmitSound("Hero_AbyssalUnderlord.DarkRift.Aftershock")
     EmitSoundOnLocationWithCaster(destination, "Hero_AbyssalUnderlord.DarkRift.Aftershock", caster)

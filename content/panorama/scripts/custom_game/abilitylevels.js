@@ -51,14 +51,15 @@ function CheckLevelUpBubbles (data) {
 }
 
 function CheckLevelUpOnSelectionChange (data) {
-  var player = Players.GetLocalPlayer();
-  var selectedEntity = Players.GetSelectedEntities(player)[0];
-
+  var playerID = Players.GetLocalPlayer();
+  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (selectedEntity !== undefined) {
-    var level = Entities.GetLevel(selectedEntity);
-    GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
-      selectedEntity: selectedEntity,
-      level: level
-    });
+    if (Entities.GetPlayerOwnerID(selectedEntity) === playerID && Entities.IsRealHero(selectedEntity)) {
+      var level = Entities.GetLevel(selectedEntity);
+      GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
+        selectedEntity: selectedEntity,
+        level: level
+      });
+    }
   }
 }

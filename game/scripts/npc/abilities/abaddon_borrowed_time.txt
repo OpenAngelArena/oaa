@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
+    "AbilityCooldown"                                     "60 55 50 45 40" //OAA, for picking screen tooltip
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "4.0 5.0 6.0 7.0 8.0"	//OAA
+        "duration_scepter"                                "4.0 5.0 6.0 7.0 8.0"	//OAA, for picking screen tooltip
         "RequiresScepter"                                 "1"
       }
       "04"
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "redirect_range_scepter"                          "900" //OAA
+        "redirect_range_scepter"                          "900" //OAA, for picking screen tooltip
         "RequiresScepter"                                 "1"
       }
     }
