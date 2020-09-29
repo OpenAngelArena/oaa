@@ -175,7 +175,7 @@ function modifier_item_regen_crystal_active:OnCreated()
   end
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.hp_regen = = ability:GetSpecialValueFor("active_hp_regen")
+    self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
     self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
   end
 end
@@ -183,7 +183,7 @@ end
 function modifier_item_regen_crystal_active:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.hp_regen = = ability:GetSpecialValueFor("active_hp_regen")
+    self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
     self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
   end
 end
