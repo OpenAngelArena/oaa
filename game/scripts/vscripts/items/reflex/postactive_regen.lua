@@ -97,7 +97,7 @@ end
 function modifier_item_regen_crystal_non_stacking_stats:OnCreated()
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  local max_mana_to_hp_regen = 1
+  local max_mana_to_hp_regen = 3
   if ability and not ability:IsNull() then
     max_mana_to_hp_regen = ability:GetSpecialValueFor("max_mana_to_hp_regen")
   end
@@ -112,7 +112,7 @@ end
 function modifier_item_regen_crystal_non_stacking_stats:OnRefresh()
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  local max_mana_to_hp_regen = 1
+  local max_mana_to_hp_regen = 3
   if ability and not ability:IsNull() then
     max_mana_to_hp_regen = ability:GetSpecialValueFor("max_mana_to_hp_regen")
   end
@@ -131,7 +131,7 @@ function modifier_item_regen_crystal_non_stacking_stats:OnIntervalThink()
   end
 
   local ability = self:GetAbility()
-  local max_mana_to_hp_regen = 1
+  local max_mana_to_hp_regen = 3
   if ability and not ability:IsNull() then
     max_mana_to_hp_regen = ability:GetSpecialValueFor("max_mana_to_hp_regen")
   end
