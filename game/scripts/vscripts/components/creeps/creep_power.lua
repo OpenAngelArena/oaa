@@ -13,11 +13,11 @@ function CreepPower:GetBasePowerForMinute (minute)
   if minute > 0 then
     values = {
       minute,                                                                                                           -- minute
-      (24 * ((minute/100) ^ 2) + 2 * (minute/100)) + 1,                                                                 -- hp
+      (24 * ((minute/100) ^ 2) + 1.5 * (minute/100)) + 1,                                                               -- hp
       (30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,                                                                 -- mana
-      (48 * ((minute/100) ^ 2) + 5 * (minute/100)) + 1,                                                                 -- damage
+      (48 * ((minute/100) ^ 2) + 4.5 * (minute/100)) + 1,                                                               -- damage
       (minute / 6) + 1,                                                                                                 -- armor
-      (17 * (minute/100)) + 1,                                                                                          -- gold
+      (9 * (minute/100)) + 1,                                                                                           -- gold
       ((9 * minute ^ 2 + 17 * minute + 607)/607) * 2/3                                                                  -- xp
     }
   end
