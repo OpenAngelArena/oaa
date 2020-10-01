@@ -41,18 +41,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "50 75 100 125 175 325" //OAA
+        "base_damage"                                     "50 75 100 125 250 500" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_multiplier"                                 "1.0 1.5 2.0 2.5 3.5 6.5" //OAA
+        "mana_multiplier"                                 "1.0 1.25 1.5 1.75 2.0 2.25" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_3"
       }
-      "04"
+      "04" // Max mana percentage as negative mana regen
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "-0.6 -1.2 -1.8 -2.4 -4.2 -7.2" //OAA
+        "mana_regen"                                      "-0.6 -1.0 -1.4 -1.8 -2.2 -2.6" //OAA
       }
       "05"
       {
