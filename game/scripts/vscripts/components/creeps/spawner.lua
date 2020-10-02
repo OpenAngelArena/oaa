@@ -206,8 +206,8 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   creepHandle:SetHealth(math.ceil(targetHealth))
 
   --MANA
-  creepHandle:SetMaxMana(math.ceil(creepProperties[MANA_ENUM]))
-  creepHandle:SetMana(math.ceil(creepProperties[MANA_ENUM]))
+  --creepHandle:SetMaxMana(math.ceil(creepProperties[MANA_ENUM]))
+  --creepHandle:SetMana(math.ceil(creepProperties[MANA_ENUM]))
 
   --DAMAGE
   creepHandle:SetBaseDamageMin(math.ceil(creepProperties[DAMAGE_ENUM]))
