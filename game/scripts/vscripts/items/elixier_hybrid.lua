@@ -135,6 +135,11 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
       return
     end
 
+	-- Don't continue if damage has Reflection flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+      return
+    end
+
     -- Don't continue if unit doesn't exist or if unit is about to be deleted
     if not unit or unit:IsNull() then
       return
@@ -151,6 +156,12 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
     -- it also prevents procing on itself (prevents infinite loop)
     -- because source of proc damage is nil
     if not event.inflictor then
+      return
+    end
+
+    -- Don't proc on Sticky Napalm because Sticky Napalm procs on any damage
+    -- it prevents infinite damage loop (proc on damage proc)
+    if event.inflictor:GetName() == "batrider_sticky_napalm" then
       return
     end
 
