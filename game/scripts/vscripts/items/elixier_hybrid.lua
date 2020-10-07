@@ -47,8 +47,8 @@ function modifier_elixier_hybrid_active:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_hybrid_active:GetAbilityTextureName()
-  return "custom/elixier_hybrid_1"
+function modifier_elixier_hybrid_active:GetTexture()
+  return "custom/elixier_hybrid_2"
 end
 
 function modifier_elixier_hybrid_active:OnCreated()
@@ -95,8 +95,8 @@ function modifier_elixier_hybrid_trigger:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_hybrid_trigger:GetAbilityTextureName()
-  return "custom/elixier_hybrid_1"
+function modifier_elixier_hybrid_trigger:GetTexture()
+  return "custom/elixier_hybrid_2"
 end
 
 function modifier_elixier_hybrid_trigger:OnCreated(keys)

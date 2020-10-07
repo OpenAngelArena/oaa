@@ -46,8 +46,8 @@ function modifier_elixier_sustain_active:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_sustain_active:GetAbilityTextureName()
-  return "custom/elixier_sustain_1"
+function modifier_elixier_sustain_active:GetTexture()
+  return "custom/elixier_sustain_2"
 end
 
 function modifier_elixier_sustain_active:OnCreated()
@@ -99,8 +99,8 @@ function modifier_elixier_sustain_trigger:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_sustain_trigger:GetAbilityTextureName()
-  return "custom/elixier_sustain_1"
+function modifier_elixier_sustain_trigger:GetTexture()
+  return "custom/elixier_sustain_2"
 end
 
 function modifier_elixier_sustain_trigger:OnCreated(keys)
