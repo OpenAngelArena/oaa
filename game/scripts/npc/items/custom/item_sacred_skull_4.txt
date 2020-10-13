@@ -1,62 +1,61 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Bloodstone 4
+  // Recipe: A Sacred Skull 4
   //=================================================================================================================
-  "item_recipe_bloodstone_4"
+  "item_recipe_sacred_skull_4"
   {
-
-    "ID"                                                  "3126"      // unique ID
+    "ID"                                                  "8495"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "ItemCost"                                            "8000"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodstone_4"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "ItemResult"                                          "item_sacred_skull_4"
+
     "ItemRequirements"
     {
-      "01"                                                "item_bloodstone_3;item_upgrade_core_3"
-      "02"                                                "item_sacred_skull_2;item_upgrade_core_3"
+      "01"                                                "item_sacred_skull_3;item_upgrade_core_4"
+      "02"                                                "item_bloodstone_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Bloodstone 4
+  // A Sacred Skull 4
   //=================================================================================================================
-  "item_bloodstone_4"
+  "item_sacred_skull_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3130"      // unique ID
+    "ID"                                                  "8496"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/bloodstone.lua"
+    "ScriptFile"                                          "items/sacred_skull.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/purpleskull_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "85"
-    "AbilitySharedCooldown"                               "bloodstone"
-    "AbilityTextureName"                                  "custom/bloodstone_4"
+    "AbilityCooldown"                                     "15"
+    "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "sacred_skull"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
-    "UpgradesItems"                                       "item_bloodstone_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18250"
+    "ItemCost"                                            "38250"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bs 4;bloodstone 4"
-    "ItemDisplayCharges"                                  "1"
+    "ItemAliases"                                         "ass 4;sacred skull 4"
+
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "AllowedInBackpack"                                   "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,82 +64,82 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 850 1275 1700 2125"
+        "bonus_health"                                    "850 1275 1700 2125"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 525 675 875 1125"
+        "bonus_mana"                                      "525 675 875 1125"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 24 32 48 72"
+        "bonus_intellect"                                 "24 32 48 72"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "10"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.5 4.0 4.75 5.75"
       }
       "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 12 16 20 24"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "100 125 150 175 200"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "regen_per_charge"                                "0.2 0.25 0.3 0.35 0.4"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "amp_per_charge"                                  "0.35 0.4 0.45 0.5 0.55"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "death_charges"                                   "3"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "kill_charges"                                    "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_range"                                    "1600"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "initial_charges_tooltip"                         "14"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_percentage"                            "30"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "restore_duration"                                "2.0"
-      }
-      "15"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_health_regen"                              "0"
       }
-      "16"
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "10 12 14 16"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "20 24 28 32"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_regen_multiplier"                           "125 150 175 200"
+      }
+      "09" // Current health as self damage
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_cost"                                     "50"
+      }
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
+        "damage_per_missing_hp"                           "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_per_missing_hp"                             "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "effect_radius"                                   "500"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_heal_base"                                 "500"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_heal_radius"                               "1200"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_vision_radius"                             "1200"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_vision_duration"                           "10"
       }
     }
   }
