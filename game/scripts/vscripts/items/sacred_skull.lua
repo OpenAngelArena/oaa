@@ -17,7 +17,74 @@ end
 
 function item_sacred_skull:OnSpellStart()
   local caster = self:GetCaster()
+  local damage_table = {}
+  damage_table.attacker = caster
+  damage_table.damage_type = DAMAGE_TYPE_PURE
+  damage_table.ability = self
 
+  if not caster:IsInvulnerable() then
+    local current_hp = caster:GetHealth()
+    local current_hp_as_dmg = self:GetSpecialValueFor("health_cost")
+    damage_table.damage = current_hp * current_hp_as_dmg * 0.01
+    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS)
+    damage_table.victim = caster
+    ApplyDamage(damage_table)
+    -- Particle
+    ParticleManager:CreateParticle("particles/arena/items_fx/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  end
+
+  -- Explosion particle
+  ParticleManager:CreateParticle("particles/arena/items_fx/vermillion_robe_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+
+  local caster_team = caster:GetTeamNumber()
+  local caster_location = caster:GetAbsOrigin()
+  local radius = self:GetSpecialValueFor("effect_radius")
+  local target_units = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+
+	local enemies = FindUnitsInRadius(
+    caster_team,
+    caster_location,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    target_units,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_ANY_ORDER,
+    false
+  )
+  local allies = FindUnitsInRadius(
+    caster_team,
+    caster_location,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    target_units,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  -- Calculate damage and heal
+  local dmg_per_missing_hp = self:GetSpecialValueFor("damage_per_missing_hp")
+  local heal_per_missing_hp = self:GetSpecialValueFor("heal_per_missing_hp")
+  local missing_hp = caster:GetMaxHealth() - caster:GetHealth()
+  damage_table.damage = missing_hp * dmg_per_missing_hp
+  local heal_amount = missing_hp * heal_per_missing_hp
+
+  -- Damage enemies
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      damage_table.victim = enemy
+      ApplyDamage(damage_table)
+    end
+  end
+
+  -- Heal allies (but not caster)
+  for _, ally in pairs(allies) do
+    if ally and not ally:IsNull() and ally ~= caster then
+      ally:Heal(heal_amount, self)
+    end
+  end
 end
 
 -- upgrades
@@ -126,10 +193,13 @@ function modifier_item_sacred_skull_stacking_stats:OnDeath(event)
     return
   end
 
-  local healAmount = ability:GetSpecialValueFor("death_heal_base") + caster:GetMaxHealth() * 0.5
-  local heroes = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
+  local caster_team = caster:GetTeamNumber()
+  local death_location = caster:GetAbsOrigin()
+
+  local heal_amount = ability:GetSpecialValueFor("death_heal_base") + caster:GetMaxHealth() * 0.5
+  local units = FindUnitsInRadius(
+    caster_team,
+    death_location,
     nil,
     ability:GetSpecialValueFor("death_heal_radius"),
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
@@ -139,10 +209,15 @@ function modifier_item_sacred_skull_stacking_stats:OnDeath(event)
     false
   )
 
-  heroes = iter(heroes)
-  heroes:each(function (hero)
-    hero:Heal(healAmount, ability)
+  units = iter(units)
+  units:each(function (unit)
+    unit:Heal(heal_amount, ability)
   end)
+
+  -- Add vision at death location
+  local vision_radius = ability:GetSpecialValueFor("death_vision_radius")
+  local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
+  AddFOWViewer(caster_team, death_location, vision_radius, vision_duration, false)
 end
 
 -------------------------------------------------------------------------
