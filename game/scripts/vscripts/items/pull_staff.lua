@@ -1,5 +1,6 @@
 
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pull_staff_active_buff", "items/pull_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 item_pull_staff = class(ItemBaseClass)
 
@@ -15,6 +16,19 @@ function item_pull_staff:CastFilterResultTarget(target)
     return UF_FAIL_CUSTOM
   end
 
+  local forbidden_modifiers = { 
+    "modifier_enigma_black_hole_pull",
+    "modifier_faceless_void_chronosphere_freeze",
+    "modifier_legion_commander_duel",
+    "modifier_batrider_flaming_lasso",
+    "modifier_disruptor_kinetic_field",
+  }
+  for _, modifier in pairs(forbidden_modifiers) do
+    if target:HasModifier(modifier) then
+	  return UF_FAIL_CUSTOM
+	end
+  end
+
   return defaultFilterResult
 end
 
@@ -22,6 +36,21 @@ function item_pull_staff:GetCustomCastErrorTarget(target)
   local caster = self:GetCaster()
   if target == caster then
     return "#dota_hud_error_cant_cast_on_self"
+  end
+  if target:HasModifier("modifier_enigma_black_hole_pull") then
+    return "#oaa_hud_error_pull_staff_black_hole"
+  end
+  if target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+    return "#oaa_hud_error_pull_staff_chronosphere"
+  end
+  if target:HasModifier("modifier_legion_commander_duel") then
+    return "#oaa_hud_error_pull_staff_duel"
+  end
+  if target:HasModifier("modifier_batrider_flaming_lasso") then
+    return "#oaa_hud_error_pull_staff_lasso"
+  end
+  if target:HasModifier("modifier_disruptor_kinetic_field") then
+    return "#oaa_hud_error_pull_staff_kinetic_field"
   end
 end
 
@@ -77,7 +106,12 @@ function item_pull_staff:OnSpellStart()
   -- Sound
   target:EmitSound("DOTA_Item.ForceStaff.Activate")
 
-  -- Actual Effect
+  -- Interrupt existing motion controllers (it should also interrupt existing instances of pull staff)
+  if target:IsCurrentlyHorizontalMotionControlled() then
+    target:InterruptMotionControllers(false)
+  end
+
+  -- Actual effect
   target:AddNewModifier(caster, self, "modifier_pull_staff_active_buff", {
     distance = distance,
     speed = speed,
@@ -118,9 +152,6 @@ end
 if IsServer() then
   function modifier_pull_staff_active_buff:OnCreated(event)
     local parent = self:GetParent()
-    if parent:IsCurrentlyHorizontalMotionControlled() then
-      parent:InterruptMotionControllers(false)
-    end
 
     -- Data sent with AddNewModifier
     self.direction = Vector(event.direction_x, event.direction_y, 0)
@@ -170,11 +201,3 @@ if IsServer() then
     end
   end
 end
-
---function modifier_pull_staff_active_buff:GetEffectName()
-  --return "particles/units/heroes/hero_earth_spirit/espirit_geomagentic_grip_target.vpcf"
---end
-
---function modifier_pull_staff_active_buff:GetEffectAttachType()
-  --return PATTACH_ABSORIGIN_FOLLOW
---end
