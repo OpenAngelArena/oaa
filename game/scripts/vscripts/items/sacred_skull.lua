@@ -81,7 +81,8 @@ function item_sacred_skull:OnSpellStart()
   -- Calculate damage and heal
   local dmg_per_missing_hp = self:GetSpecialValueFor("damage_per_missing_hp")
   local heal_per_missing_hp = self:GetSpecialValueFor("heal_per_missing_hp")
-  local missing_hp = caster:GetMaxHealth() - caster:GetHealth()
+  local max_hp = caster:GetMaxHealth()
+  local missing_hp = 100*(max_hp - caster:GetHealth())/max_hp
   damage_table.damage = missing_hp * dmg_per_missing_hp
   local heal_amount = missing_hp * heal_per_missing_hp
 

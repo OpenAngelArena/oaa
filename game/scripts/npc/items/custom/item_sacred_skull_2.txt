@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15"
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "sacred_skull"
 
     // Spicy Parameters
@@ -110,12 +110,12 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_missing_hp"                           "1"
+        "damage_per_missing_hp"                           "10 20 30 40"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_per_missing_hp"                             "1"
+        "heal_per_missing_hp"                             "10 20 30 40"
       }
       "12"
       {
@@ -140,7 +140,7 @@
       "16"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "death_vision_duration"                           "10"
+        "death_vision_duration"                           "30"
       }
     }
   }
