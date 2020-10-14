@@ -16,7 +16,7 @@ function item_pull_staff:CastFilterResultTarget(target)
     return UF_FAIL_CUSTOM
   end
 
-  local forbidden_modifiers = { 
+  local forbidden_modifiers = {
     "modifier_enigma_black_hole_pull",
     "modifier_faceless_void_chronosphere_freeze",
     "modifier_legion_commander_duel",
