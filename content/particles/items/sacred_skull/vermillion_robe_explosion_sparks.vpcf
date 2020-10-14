@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf27:version{36c3961f-02a4-4c52-bf8f-6e3147d7d142} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -55,16 +55,6 @@
 			_class = "C_INIT_RandomRotation"
 		},
 		{
-			_class = "C_INIT_RandomYawFlip"
-		},
-		{
-			_class = "C_INIT_InitialVelocityNoise"
-			m_flNoiseScale = 4.0
-			m_flNoiseScaleLoc = 2.0
-			m_vecOutputMin = [ -64.0, -64.0, -64.0 ]
-			m_vecOutputMax = [ 64.0, 64.0, 64.0 ]
-		},
-		{
 			_class = "C_INIT_RandomRadius"
 			m_flRadiusMax = 12.0
 			m_flRadiusMin = 6.0
@@ -79,26 +69,47 @@
 			m_nAlphaMin = 64
 		},
 		{
+			_class = "C_INIT_CreateFromParentParticles"
+		},
+		{
+			_class = "C_INIT_RandomYawFlip"
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_flNoiseScale = 4.0
+			m_flNoiseScaleLoc = 2.0
+			m_vecOutputMin = [ -64.0, -64.0, -64.0 ]
+			m_vecOutputMax = [ 64.0, 64.0, 64.0 ]
+		},
+		{
 			_class = "C_INIT_InitialVelocityNoise"
 			m_vecOutputMax = [ 164.0, 164.0, 164.0 ]
 			m_vecOutputMin = [ -164.0, -164.0, -164.0 ]
 			m_flNoiseScaleLoc = 1.0
 			m_bLocalSpace = true
 		},
-		{
-			_class = "C_INIT_CreateFromParentParticles"
-		},
 	]
 	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 120.0
-			m_nScaleControlPointField = -1
 			m_flOpEndFadeOutTime = 1.0
-			m_flEmissionDuration = 1.0
-			m_flEmissionScale = 1.0
-			m_bScalePerParticle = true
+			m_flScalePerParentParticle = 1.0
+			m_flEmissionDuration = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+			m_flStartTime = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.0
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 120.0
+			}
 		},
 	]
 	m_ForceGenerators = 
@@ -109,4 +120,7 @@
 			m_MaxForce = [ 60.0, 60.0, 60.0 ]
 		},
 	]
+	m_PreEmissionOperators = [  ]
+	m_nBehaviorVersion = 10
+	m_nFirstMultipleOverride_BackwardCompat = 5
 }

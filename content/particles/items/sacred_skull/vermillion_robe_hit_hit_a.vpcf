@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf27:version{36c3961f-02a4-4c52-bf8f-6e3147d7d142} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -16,10 +16,28 @@
 			m_hTexture = resource:"materials/particle/sparks/sparks.vtex"
 			m_flLengthFadeInTime = 0.5
 			m_bIgnoreDT = true
-			m_flRadiusScale = 0.5
 			m_flFinalTextureScaleV = -1.0
 			m_flFinalTextureOffsetV = 1.0
-			m_vEndTrailTintFactor = [ 1.0, 0.5, 0.5, 0.5 ]
+			m_flRadiusTaper = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+			m_flRadiusScale = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.5
+			}
+			m_vecTailColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL"
+				m_vLiteralValue = [ 1.0, 0.5, 0.5 ]
+			}
+			m_flTailAlphaScale = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.5
+			}
 		},
 	]
 	m_Operators = 
@@ -77,18 +95,18 @@
 			m_nAlphaMin = 32
 		},
 		{
-			_class = "C_INIT_InitialVelocityNoise"
-			m_vecOutputMax = [ 0.0, 0.0, -1000.0 ]
-			m_vecOutputMin = [ 0.0, 0.0, -2000.0 ]
-			m_nControlPointNumber = 1
-		},
-		{
 			_class = "C_INIT_RandomTrailLength"
 			m_flMaxLength = 2.0
 			m_flMinLength = 0.5
 		},
 		{
 			_class = "C_INIT_CreateOnModel"
+			m_nControlPointNumber = 1
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_vecOutputMax = [ 0.0, 0.0, -1000.0 ]
+			m_vecOutputMin = [ 0.0, 0.0, -2000.0 ]
 			m_nControlPointNumber = 1
 		},
 		{
@@ -101,6 +119,16 @@
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
+			m_flStartTime = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.0
+			}
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 100.0
+			}
 		},
 	]
 	m_ForceGenerators = 
@@ -111,4 +139,7 @@
 			m_nControlPointNumber = 1
 		},
 	]
+	m_PreEmissionOperators = [  ]
+	m_nBehaviorVersion = 10
+	m_nFirstMultipleOverride_BackwardCompat = 6
 }

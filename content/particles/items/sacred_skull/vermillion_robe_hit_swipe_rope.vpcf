@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf27:version{36c3961f-02a4-4c52-bf8f-6e3147d7d142} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -62,6 +62,15 @@
 			m_flRadiusMax = 75.0
 		},
 		{
+			_class = "C_INIT_CreateSequentialPathV2"
+			m_flNumToAssign = 16.0
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 4
+				m_nStartControlPointNumber = 3
+			}
+		},
+		{
 			_class = "C_INIT_RemapScalar"
 			m_flInputMin = 0.09
 			m_flInputMax = 0.1
@@ -72,28 +81,19 @@
 		},
 		{
 			_class = "C_INIT_RemapScalar"
-			m_bScaleInitialRange = true
 			m_flOutputMax = 0.0
 			m_flOutputMin = 1.0
 			m_flInputMax = 0.075
 			m_flInputMin = 0.065
 			m_bDisableOperator = true
-		},
-		{
-			_class = "C_INIT_CreateSequentialPath"
-			m_flNumToAssign = 16.0
-			m_PathParams = 
-			{
-				m_nEndControlPointNumber = 4
-				m_nStartControlPointNumber = 3
-			}
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
 		},
 		{
 			_class = "C_INIT_RemapParticleCountToScalar"
 			m_nFieldOutput = 7
 			m_nInputMin = 1
 			m_nInputMax = 5
-			m_bScaleInitialRange = true
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
 		},
 		{
 			_class = "C_INIT_RemapParticleCountToScalar"
@@ -102,21 +102,37 @@
 			m_nInputMax = 12
 			m_flOutputMin = 1.0
 			m_flOutputMax = 0.0
-			m_bScaleInitialRange = true
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
 		},
 	]
 	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmitRate = 200.0
-			m_flEmissionDuration = 0.075
+			m_flEmissionDuration = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.075
+			}
+			m_flStartTime = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.0
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 200.0
+			}
 		},
 	]
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/arena/items_fx/vermillion_robe_hit_swipe_flash.vpcf"
+			m_ChildRef = resource:"particles/items/sacred_skull/vermillion_robe_hit_swipe_flash.vpcf"
 		},
 	]
+	m_PreEmissionOperators = [  ]
+	m_nBehaviorVersion = 10
+	m_nFirstMultipleOverride_BackwardCompat = 3
 }

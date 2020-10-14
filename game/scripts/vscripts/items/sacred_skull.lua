@@ -4,6 +4,13 @@ LinkLuaModifier("modifier_item_sacred_skull_non_stacking_stats", "items/sacred_s
 
 item_sacred_skull = class(ItemBaseClass)
 
+function item_sacred_skull:Precache(context)
+  PrecacheResource("particle", "particles/items/sacred_skull/vermillion_robe_hit.vpcf", context)
+  PrecacheResource("particle", "particles/items/sacred_skull/vermillion_robe_explosion.vpcf", context)
+  PrecacheResource("particle", "particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts", context)
+end
+
 function item_sacred_skull:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
@@ -19,22 +26,29 @@ function item_sacred_skull:OnSpellStart()
   local caster = self:GetCaster()
   local damage_table = {}
   damage_table.attacker = caster
-  damage_table.damage_type = DAMAGE_TYPE_PURE
   damage_table.ability = self
 
   if not caster:IsInvulnerable() then
     local current_hp = caster:GetHealth()
     local current_hp_as_dmg = self:GetSpecialValueFor("health_cost")
     damage_table.damage = current_hp * current_hp_as_dmg * 0.01
-    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS)
+    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    damage_table.damage_type = DAMAGE_TYPE_PURE
     damage_table.victim = caster
     ApplyDamage(damage_table)
-    -- Particle
-    ParticleManager:CreateParticle("particles/arena/items_fx/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    -- Hit Particle
+    local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:DestroyParticle(particle, false)
+    ParticleManager:ReleaseParticleIndex(particle)
   end
 
   -- Explosion particle
-  ParticleManager:CreateParticle("particles/arena/items_fx/vermillion_robe_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  local particle_boom = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:DestroyParticle(particle_boom, false)
+  ParticleManager:ReleaseParticleIndex(particle_boom)
+  
+  -- Sound
+  caster:EmitSound("Hero_Jakiro.LiquidFire")
 
   local caster_team = caster:GetTeamNumber()
   local caster_location = caster:GetAbsOrigin()
@@ -74,6 +88,13 @@ function item_sacred_skull:OnSpellStart()
   -- Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
+      -- Hit particle
+      local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+      ParticleManager:DestroyParticle(particle, false)
+      ParticleManager:ReleaseParticleIndex(particle)
+      -- Damage
+      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
       damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
@@ -82,6 +103,11 @@ function item_sacred_skull:OnSpellStart()
   -- Heal allies (but not caster)
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() and ally ~= caster then
+      -- Heal particle
+      local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
+      --ParticleManager:DestroyParticle(particle, false)
+      --ParticleManager:ReleaseParticleIndex(particle)
+      -- Healing
       ally:Heal(heal_amount, self)
     end
   end
