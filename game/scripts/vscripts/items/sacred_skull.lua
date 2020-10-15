@@ -46,7 +46,7 @@ function item_sacred_skull:OnSpellStart()
   local particle_boom = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:DestroyParticle(particle_boom, false)
   ParticleManager:ReleaseParticleIndex(particle_boom)
-  
+
   -- Sound
   caster:EmitSound("Hero_Jakiro.LiquidFire")
 
