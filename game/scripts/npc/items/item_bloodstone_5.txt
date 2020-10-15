@@ -17,6 +17,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone_4;item_upgrade_core_4"
+      "02"                                                "item_sacred_skull_3;item_upgrade_core_4"
     }
   }
 
@@ -63,7 +64,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 650 1175 1875 2700"
+        "bonus_health"                                    "425 850 1275 1700 2125"
       }
       "02"
       {
