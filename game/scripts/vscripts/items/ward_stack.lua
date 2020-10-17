@@ -81,10 +81,10 @@ if IsServer() then
     if caster[wardType .. 'Count'] == 0 then
       self:ToggleType()
     end
-    self.mod:OnWardTypeUpdate()
+    if self.mod then
+      self.mod:OnWardTypeUpdate()
+    end
     EmitSoundOnLocationForAllies(target, "DOTA_Item.ObserverWard.Activate", caster)
-
-    -- ward
   end
 
   function item_ward_stack:ToggleType ()
@@ -173,20 +173,37 @@ item_ward_stack_5 = item_ward_stack
 local WARD_INTERVAL = 0.2
 modifier_item_ward_stack_sentries = class(ModifierBaseClass)
 
-function modifier_item_ward_stack_sentries:OnCreated (keys)
-  local wardStack = self:GetAbility()
-  self.wardStack = wardStack
-  self.wasMaxed = false
+function modifier_item_ward_stack_sentries:IsHidden ()
+  return true
+end
 
+function modifier_item_ward_stack_sentries:IsPurgable ()
+  return false
+end
+
+function modifier_item_ward_stack_sentries:WardName ()
+  return "sentry"
+end
+
+function modifier_item_ward_stack_sentries:OnCreated (keys)
   if not IsServer() or self:GetParent():IsIllusion() then
     return
   end
+  local wardStack = self:GetAbility()
+  local wardName = self:WardName()
+  if wardStack and not wardStack:IsNull() then
+    self.wardStack = wardStack
+    self.rechargeTime = wardStack:GetSpecialValueFor(wardName .. '_recharge')
+    self.maxWards = wardStack:GetSpecialValueFor(wardName .. '_max')
+    self.wardStack[wardName .. "IntervalCount"] = wardStack[wardName .. "IntervalCount"] or 0
+  end
+
+  self.wasMaxed = false
 
   self:StartIntervalThink(WARD_INTERVAL)
-  self.wardStack[self:WardName() .. "IntervalCount"] = self.wardStack[self:WardName() .. "IntervalCount"] or 0
-
-  --DebugPrint('Init ' .. self:WardName() .. ' with ' .. self:GetStackCount() .. '/' .. self.wardStack[self:WardName() .. "IntervalCount"])
 end
+
+modifier_item_ward_stack_sentries.OnRefresh = modifier_item_ward_stack_sentries.OnCreated
 
 function modifier_item_ward_stack_sentries:OnDestroy ()
   if IsServer() then
@@ -197,17 +214,12 @@ function modifier_item_ward_stack_sentries:OnDestroy ()
   end
 end
 
-function modifier_item_ward_stack_sentries:IsHidden ()
-  return true
+function modifier_item_ward_stack_sentries:GetIntervalCount ()
+  return self.rechargeTime or self:GetAbility():GetSpecialValueFor(self:WardName() .. '_recharge')
 end
 
-function modifier_item_ward_stack_sentries:GetIntervalCount ()
-  local count =  self:GetAbility():GetSpecialValueFor(self:WardName() .. '_recharge')
-  return count
-end
 function modifier_item_ward_stack_sentries:GetMaxStack ()
-  local count = self:GetAbility():GetSpecialValueFor(self:WardName() .. '_max')
-  return count
+  return self.maxWards or self:GetAbility():GetSpecialValueFor(self:WardName() .. '_max')
 end
 
 function modifier_item_ward_stack_sentries:OnIntervalThink ()
@@ -219,6 +231,10 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
   local currentStack = caster[self:WardName() .. "Count"] or 0
   local localStack = self:GetStackCount()
   local ability = self:GetAbility()
+
+  if not ability or ability:IsNull() then
+    ability = self.wardStack
+  end
 
   if localStack ~= currentStack then
     self:SetStackCount(currentStack)
@@ -248,19 +264,21 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
     return
   end
 
-  -- DebugPrint('Increasing interval from ' .. self.wardStack[intervalCount] .. ' to ' .. (self.wardStack[intervalCount] + WARD_INTERVAL))
-  self.wardStack[intervalCount] = self.wardStack[intervalCount] + WARD_INTERVAL
+  if ability and not ability:IsNull() then
+    -- DebugPrint('Increasing interval from ' .. self.wardStack[intervalCount] .. ' to ' .. (self.wardStack[intervalCount] + WARD_INTERVAL))
+    ability[intervalCount] = ability[intervalCount] + WARD_INTERVAL
 
-  if self.wardStack[intervalCount] > maxCount then
-    self.wardStack[intervalCount] = 0
-    currentStack = currentStack + 1
-    caster[self:WardName() .. "Count"] = currentStack
-    self:SetStackCount(currentStack)
-    caster:RemoveModifierByName(modifierCharger)
-    if ability.mod then
-      ability.mod:OnWardTypeUpdate()
+    if ability[intervalCount] > maxCount then
+      ability[intervalCount] = 0
+      currentStack = currentStack + 1
+      caster[self:WardName() .. "Count"] = currentStack
+      self:SetStackCount(currentStack)
+      caster:RemoveModifierByName(modifierCharger)
+      if ability.mod then
+        ability.mod:OnWardTypeUpdate()
+      end
+      self.wasMaxed = false
     end
-    self.wasMaxed = false
   end
 
   local isCharging = caster:HasModifier(modifierCharger)
@@ -276,66 +294,64 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
     return
   end
 
+  local chargeDuration = self:GetIntervalCount() - WARD_INTERVAL
+  if ability and not ability:IsNull() then
+    chargeDuration = self:GetIntervalCount() - ability[intervalCount]
+  end
+
   --DebugPrint('Adding new charger!')
-  self.charger = caster:AddNewModifier(caster, ability, modifierCharger, { duration = self:GetIntervalCount() - self.wardStack[intervalCount] } )
+  self.charger = caster:AddNewModifier(caster, ability, modifierCharger, { duration = chargeDuration } )
 end
 
-modifier_item_ward_stack_sentries.OnRefresh = modifier_item_ward_stack_sentries.OnCreated
+
 modifier_item_ward_stack_observers = class(modifier_item_ward_stack_sentries)
 
-function modifier_item_ward_stack_sentries:IsPurgable ()
-  return false
+function modifier_item_ward_stack_observers:IsHidden ()
+  return true
 end
 
 function modifier_item_ward_stack_observers:IsPurgable ()
   return false
 end
 
-function modifier_item_ward_stack_sentries:IsHidden ()
-  return true
-end
-function modifier_item_ward_stack_observers:IsHidden ()
-  return true
-end
-
 function modifier_item_ward_stack_observers:WardName ()
   return "observer"
 end
-function modifier_item_ward_stack_sentries:WardName ()
-  return "sentry"
-end
+
+---------------------------------------------------------------------------------------------------
+-- Recharger modifiers
 
 modifier_sentry_ward_recharger = class(ModifierBaseClass)
 
+function modifier_sentry_ward_recharger:IsHidden ()
+  return false
+end
+
+function modifier_sentry_ward_recharger:IsPurgable ()
+  return false
+end
+
+function modifier_sentry_ward_recharger:WardName ()
+  return "sentry"
+end
+
 function modifier_sentry_ward_recharger:OnCreated (keys)
   local caster = self:GetCaster()
-  local wardStack = self:GetAbility()
-  self.wardStack = wardStack
 
   if IsServer() then
     self:SetStackCount(caster[self:WardName() .. "Count"] or 0)
   end
 end
 
-function modifier_sentry_ward_recharger:IsHidden ()
-  return false
-end
+modifier_sentry_ward_recharger.OnRefresh = modifier_sentry_ward_recharger.OnCreated
 
 function modifier_sentry_ward_recharger:GetTexture ()
   return "item_ward_" .. self:WardName()
 end
 
-modifier_sentry_ward_recharger.OnRefresh = modifier_sentry_ward_recharger.OnCreated
 modifier_observer_ward_recharger = class(modifier_sentry_ward_recharger)
 
-function modifier_observer_ward_recharger:WardName ()
-  return "observer"
-end
-function modifier_sentry_ward_recharger:WardName ()
-  return "sentry"
-end
-
-function modifier_sentry_ward_recharger:IsPurgable ()
+function modifier_observer_ward_recharger:IsHidden ()
   return false
 end
 
@@ -343,38 +359,15 @@ function modifier_observer_ward_recharger:IsPurgable ()
   return false
 end
 
+function modifier_observer_ward_recharger:WardName ()
+  return "observer"
+end
+
 --------------------------------------------------------------------------
 -- modifier_item_ward_stack
 --------------------------------------------------------------------------
 
 modifier_item_ward_stack = class(ModifierBaseClass) -- AuraProviderBaseClass
-
-function modifier_item_ward_stack:OnCreated(keys)
-  self.BaseClass.OnCreated(self, keys)
-
-  self:OnWardTypeUpdate()
-end
-
-function modifier_item_ward_stack:OnWardTypeUpdate ()
-  local item = self:GetAbility()
-  item.mod = self
-  if IsServer() then
-    item:Setup()
-    local caster = self:GetCaster()
-    local count = item.wardType or WARD_TYPE_OBSERVER
-    if caster.observerCount == 0 and caster.sentryCount > 0 then
-      count = WARD_TYPE_SENTRY_ONLY
-    end
-    if caster.sentryCount == 0 and caster.observerCount > 0 then
-      count = WARD_TYPE_OBSERVER_ONLY
-    end
-    if caster.sentryCount == 0 and caster.observerCount == 0 then
-      count = WARD_TYPE_NONE
-    end
-
-    self:SetStackCount(count)
-  end
-end
 
 function modifier_item_ward_stack:IsHidden()
   return true
@@ -392,17 +385,56 @@ function modifier_item_ward_stack:IsAura()
   return true
 end
 
+function modifier_item_ward_stack:OnCreated(keys)
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.radius = ability:GetSpecialValueFor("aura_radius")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.hp = ability:GetSpecialValueFor("bonus_health")
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+  end
+  if not self:GetParent():IsIllusion() then
+    self:OnWardTypeUpdate()
+  end
+end
+
+modifier_item_ward_stack.OnRefresh = modifier_item_ward_stack.OnCreated
+
+function modifier_item_ward_stack:OnWardTypeUpdate ()
+  local count = WARD_TYPE_OBSERVER
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    ability.mod = self
+    count = ability.wardType or WARD_TYPE_OBSERVER
+    if IsServer() then
+      ability:Setup()
+    end
+  end
+
+  if IsServer() then
+    local caster = self:GetCaster()
+
+    if caster.observerCount == 0 and caster.sentryCount > 0 then
+      count = WARD_TYPE_SENTRY_ONLY
+    end
+    if caster.sentryCount == 0 and caster.observerCount > 0 then
+      count = WARD_TYPE_OBSERVER_ONLY
+    end
+    if caster.sentryCount == 0 and caster.observerCount == 0 then
+      count = WARD_TYPE_NONE
+    end
+
+    self:SetStackCount(count)
+  end
+end
+
 -- aura stuff
 --function modifier_item_ward_stack:GetAuraStackingType()
   --return AURA_TYPE_NON_STACKING
 --end
 
---function modifier_item_ward_stack:IsAuraActiveOnDeath()
-  --return true
---end
-
 function modifier_item_ward_stack:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor('aura_radius')
+  return self.radius or 1200
 end
 
 function modifier_item_ward_stack:GetAttributes()
@@ -437,13 +469,13 @@ function modifier_item_ward_stack:DeclareFunctions ()
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS
-    --MODIFIER_PROPERTY_MANA_BONUS
+    MODIFIER_PROPERTY_HEALTH_BONUS,
+    --MODIFIER_PROPERTY_MANA_BONUS,
   }
 end
 
 function modifier_item_ward_stack:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
 
 --function modifier_item_ward_stack:GetModifierPhysicalArmorBonus()
@@ -451,7 +483,7 @@ end
 --end
 
 function modifier_item_ward_stack:GetModifierHealthBonus()
-  return self:GetAbility():GetSpecialValueFor('bonus_health')
+  return self.hp or self:GetAbility():GetSpecialValueFor('bonus_health')
 end
 
 --function modifier_item_ward_stack:GetModifierManaBonus()
@@ -459,19 +491,19 @@ end
 --end
 
 function modifier_item_ward_stack:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor('bonus_all_stats')
+  return self.stats or self:GetAbility():GetSpecialValueFor('bonus_all_stats')
 end
 
 function modifier_item_ward_stack:GetModifierBonusStats_Agility()
-  return self:GetAbility():GetSpecialValueFor('bonus_all_stats')
+  return self.stats or self:GetAbility():GetSpecialValueFor('bonus_all_stats')
 end
 
 function modifier_item_ward_stack:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor('bonus_all_stats')
+  return self.stats or self:GetAbility():GetSpecialValueFor('bonus_all_stats')
 end
 
 --------------------------------------------------------------------------
--- modifier_item_ward_stack_aura
+-- modifier_item_ward_stack_aura (Aura effect)
 --------------------------------------------------------------------------
 
 modifier_item_ward_stack_aura = class(ModifierBaseClass) -- AuraEffectBaseClass
@@ -491,7 +523,7 @@ function modifier_item_ward_stack_aura:GetModifierConstantManaRegen()
 end
 
 function modifier_item_ward_stack_aura:IsHidden()
-  return true
+  return false
 end
 
 function modifier_item_ward_stack_aura:IsDebuff()
@@ -500,4 +532,8 @@ end
 
 function modifier_item_ward_stack_aura:IsPurgable()
   return false
+end
+
+function modifier_item_ward_stack_aura:GetTexture()
+  return "item_ward_dispenser"
 end
