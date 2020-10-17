@@ -304,7 +304,9 @@ end
   end
 ]]
 
--- Modifier on caster used for talent that improve Flurry of Blows radius
+---------------------------------------------------------------------------------------------------
+
+-- Modifier on caster used for talent that improves Flurry of Blows radius
 modifier_special_bonus_unique_flurry_of_blows_radius = class(ModifierBaseClass)
 
 function modifier_special_bonus_unique_flurry_of_blows_radius:IsHidden()

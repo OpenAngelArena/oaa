@@ -2,6 +2,7 @@ electrician_cleansing_shock = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_electrician_cleansing_shock_ally", "abilities/electrician/electrician_cleansing_shock.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_electrician_cleansing_shock_enemy", "abilities/electrician/electrician_cleansing_shock.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier( "modifier_special_bonus_unique_electrician_cleansing_shock_pierce", "abilities/electrician/electrician_cleansing_shock.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -12,8 +13,20 @@ function electrician_cleansing_shock:CastFilterResultTarget(target)
   if default_result == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     local caster = self:GetCaster()
     -- Talent that allows to target Spell Immune units
-    if caster:HasTalent("special_bonus_electrician_shock_spell_immunity") then
-      return UF_SUCCESS
+    if IsServer() then
+      local talent = caster:FindAbilityByName("special_bonus_electrician_shock_spell_immunity")
+      if talent and talent:GetLevel() > 0 then
+        if not caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
+          caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_electrician_cleansing_shock_pierce", {})
+        end
+        return UF_SUCCESS
+      else
+        caster:RemoveModifierByName("modifier_special_bonus_unique_electrician_cleansing_shock_pierce")
+      end
+    else
+      if caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
+        return UF_SUCCESS
+      end
     end
   end
 
@@ -312,4 +325,21 @@ end
 
 function modifier_electrician_cleansing_shock_enemy:GetModifierMoveSpeedBonus_Percentage( event )
 	return -self.moveSpeed
+end
+
+---------------------------------------------------------------------------------------------------
+
+-- Modifier on caster used for talent that allows piercing spell immunity
+modifier_special_bonus_unique_electrician_cleansing_shock_pierce = class(ModifierBaseClass)
+
+function modifier_special_bonus_unique_electrician_cleansing_shock_pierce:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_unique_electrician_cleansing_shock_pierce:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_unique_electrician_cleansing_shock_pierce:RemoveOnDeath()
+  return false
 end

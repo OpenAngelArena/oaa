@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_ogre_magi_channelled_bloodlust", "modifiers/modifier_
 function ogre_magi_channelled_bloodlust_tier5:OnSpellStart()
 	if IsServer() then
 		local hTarget = self:GetCursorTarget()
-    if hTarget ~= nil then
+    if hTarget then
       local caster = self:GetCaster()
 			self.hTarget = hTarget
 			self.hTarget:AddNewModifier( caster, self, "modifier_ogre_magi_channelled_bloodlust", { duration = -1 } )
@@ -34,7 +34,7 @@ function ogre_magi_channelled_bloodlust_tier5:OnChannelFinish( bInterrupted )
 			self:StartCooldown( self:GetSpecialValueFor( "interrupted_cooldown" ) )
 		end
 
-		if self.hTarget ~= nil then
+		if self.hTarget then
 			local hMyBuff = self.hTarget:FindModifierByNameAndCaster( "modifier_ogre_magi_channelled_bloodlust", caster )
 			if hMyBuff then
 				hMyBuff:Destroy()

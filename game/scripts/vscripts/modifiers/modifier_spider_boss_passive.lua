@@ -42,7 +42,7 @@ function modifier_spider_boss_passive:OnTakeDamage( params )
 	if IsServer() then
 		local hAttacker = params.attacker
 		local hVictim = params.unit
-		if hAttacker ~= nil and hVictim ~= nil and hVictim == self:GetParent() then
+		if hAttacker and hVictim and hVictim == self:GetParent() then
 			if hVictim:FindModifierByName( "modifier_provide_vision" ) == nil then
 				DebugPrint( "Provide Vision" )
 				hVictim:AddNewModifier( hAttacker, self:GetAbility(), "modifier_provide_vision", { duration = -1 } )

@@ -99,22 +99,22 @@ end
 
 function modifier_sohei_wholeness_of_body_buff:OnCreated()
   local ability = self:GetAbility()
-  self.magic_resistance = ability:GetTalentSpecialValueFor("bonus_magic_resistance")
-  self.damageheal = ability:GetTalentSpecialValueFor("damage_taken_heal") / 100
+  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
+  self.damageheal = ability:GetSpecialValueFor("damage_taken_heal") / 100
   self.endHeal = 0
 end
 
 function modifier_sohei_wholeness_of_body_buff:OnRefresh()
   local ability = self:GetAbility()
-  self.magic_resistance = ability:GetTalentSpecialValueFor("bonus_magic_resistance")
-  self.damageheal = ability:GetTalentSpecialValueFor("damage_taken_heal") / 100
+  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
+  self.damageheal = ability:GetSpecialValueFor("damage_taken_heal") / 100
 end
 
 function modifier_sohei_wholeness_of_body_buff:OnDestroy()
   if IsServer() then
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local heal_amount = self.endHeal + ability:GetTalentSpecialValueFor("post_heal")
+    local heal_amount = self.endHeal + ability:GetSpecialValueFor("post_heal")
 
     parent:Heal(heal_amount, ability)
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, heal_amount, nil)
