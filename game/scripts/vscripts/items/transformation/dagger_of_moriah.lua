@@ -4,8 +4,6 @@
 ---
 item_dagger_of_moriah = class(TransformationBaseClass)
 
-require('libraries/timers')
-
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_dagger_of_moriah_stacking_stats", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
@@ -27,6 +25,8 @@ end
 function item_dagger_of_moriah:GetTransformationModifierName()
   return "modifier_item_dagger_of_moriah_sangromancy"
 end
+
+item_dagger_of_moriah_2 = item_dagger_of_moriah
 
 ---------------------------------------------------------------------------------------------------
 
@@ -93,7 +93,6 @@ end
 function modifier_item_dagger_of_moriah_stacking_stats:GetModifierConstantManaRegen()
   return self.mp_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
-
 
 ---------------------------------------------------------------------------------------------------
 -- Parts of Dagger of Moriah that should NOT stack with other Daggers of Moriah
@@ -284,4 +283,6 @@ function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
   end
 end
 
-item_dagger_of_moriah_2 = item_dagger_of_moriah
+function modifier_item_dagger_of_moriah_sangromancy:GetTexture()
+  return "custom/dagger_of_moriah_2_active"
+end

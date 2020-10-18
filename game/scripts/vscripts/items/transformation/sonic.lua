@@ -68,3 +68,7 @@ end
 --function modifier_sonic_fly:GetModifierStatusResistanceStacking()
   --return self:GetAbility():GetSpecialValueFor("status_resist")
 --end
+
+function modifier_sonic_fly:GetTexture()
+  return "custom/sonic_3_active"
+end

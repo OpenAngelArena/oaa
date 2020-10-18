@@ -206,3 +206,7 @@ end
 function modifier_item_regen_crystal_active:GetModifierHPRegenAmplify_Percentage()
   return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("active_hp_regen_amp")
 end
+
+function modifier_item_regen_crystal_active:GetTexture()
+  return "custom/regen_crystal_1"
+end

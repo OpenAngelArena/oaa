@@ -35,14 +35,21 @@ function modifier_boss_carapace_crystals_passive:RemoveOnDeath()
 end
 
 ------------------------------------------------------------------------------------
-
-function modifier_boss_carapace_crystals_passive:OnDeath()
-	for _,crystal in pairs(self.crystals) do
-		if crystal.particle then
-			ParticleManager:DestroyParticle(crystal.particle, true)
-		end
-	end
-	return true
+if IsServer()
+  function modifier_boss_carapace_crystals_passive:OnDeath(event)
+    if event.unit == self:GetParent() then
+      if self.crystals then
+        for _, crystal in pairs(self.crystals) do
+          if crystal then
+            if crystal.particle then
+              ParticleManager:DestroyParticle(crystal.particle, true)
+              ParticleManager:ReleaseParticleIndex(crystal.particle)
+            end
+          end
+        end
+      end
+    end
+  end
 end
 
 ------------------------------------------------------------------------------------

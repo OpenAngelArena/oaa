@@ -4,8 +4,6 @@
 LinkLuaModifier( "modifier_item_preemptive_damage_reduction", "items/reflex/preemptive_damage_block.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
-require('libraries/timers')
-
 ------------------------------------------------------------------------
 
 item_reduction_orb_1 = class(ItemBaseClass)
@@ -32,14 +30,11 @@ function item_reduction_orb_1:OnSpellStart()
     local amountToHeal = spell.damageTaken * damageToHealPercent / 100
     caster:Heal(amountToHeal, spell)
   end)
-
-  return true
 end
 
 function item_reduction_orb_1:ProcsMagicStick ()
   return false
 end
-
 
 ------------------------------------------------------------------------
 
@@ -100,5 +95,9 @@ function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Per
 end
 
 function modifier_item_preemptive_damage_reduction:GetModifierModelScale()
-  return -30
+  return -40
+end
+
+function modifier_item_preemptive_damage_reduction:GetTexture()
+  return "custom/reduction_orb_3"
 end
