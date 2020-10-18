@@ -136,17 +136,7 @@ function modifier_item_sacred_skull_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_sacred_skull_stacking_stats:OnRefreshed()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_int = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
-  end
-end
+modifier_item_sacred_skull_stacking_stats.OnRefresh = modifier_item_sacred_skull_stacking_stats.OnCreated
 
 function modifier_item_sacred_skull_stacking_stats:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE

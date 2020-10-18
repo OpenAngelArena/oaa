@@ -4,7 +4,6 @@ LinkLuaModifier("modifier_item_ward_stack_sentries", "items/ward_stack.lua", LUA
 LinkLuaModifier("modifier_item_ward_stack_aura", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sentry_ward_recharger", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_observer_ward_recharger", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier('modifier_ward_invisibility', 'modifiers/modifier_ward_invisibility.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_ward_stack = class(ItemBaseClass)
