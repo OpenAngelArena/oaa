@@ -23,14 +23,15 @@ function SlimeBossThink()
 		return 2.0
 	end
 
-	if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-		thisEntity.bInitialized = true
-		thisEntity.bHasAgro = false
-		thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
-		thisEntity:SetIdleAcquire(false)
-		thisEntity:SetAcquisitionRange(0)
-	end
+  if not thisEntity.bInitialized then
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.bHasAgro = false
+    thisEntity.BossTier = thisEntity.BossTier or 2
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    thisEntity.bInitialized = true
+  end
 
 	local enemies = FindUnitsInRadius(
 		thisEntity:GetTeamNumber(),

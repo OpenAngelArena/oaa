@@ -35,7 +35,7 @@ function modifier_boss_carapace_crystals_passive:RemoveOnDeath()
 end
 
 ------------------------------------------------------------------------------------
-if IsServer()
+if IsServer() then
   function modifier_boss_carapace_crystals_passive:OnDeath(event)
     if event.unit == self:GetParent() then
       if self.crystals then

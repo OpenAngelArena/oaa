@@ -105,16 +105,17 @@ function SpidersThink()
 
   if not thisEntity.bInitialized then
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-    thisEntity.bInitialized = true
     thisEntity.vPath = {}
     for i=1,13 do
       table.insert(thisEntity.vPath, thisEntity:GetOrigin() + PointOnCircle(thisEntity.roamRadius, 360 / 12 * i))
     end
     thisEntity.vPathPoint = 0
     thisEntity.bHasAgro = false
+    thisEntity.BossTier = thisEntity.BossTier or 3
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
+    thisEntity.bInitialized = true
   end
 
   local enemies = FindUnitsInRadius(
@@ -128,7 +129,7 @@ function SpidersThink()
     false
   )
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > (thisEntity.BossTier or 1) * BOSS_AGRO_FACTOR
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then

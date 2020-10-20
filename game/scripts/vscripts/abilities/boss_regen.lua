@@ -34,10 +34,13 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen:OnCreated( event )
-	local spell = self:GetAbility()
+  if not IsServer() then
+    return
+  end
+  local spell = self:GetAbility()
   if spell and not spell:IsNull() then
-	  spell.paused = false
-	  self:StartIntervalThink( spell:GetSpecialValueFor( "regen_interval" ) )
+    spell.paused = false
+    self:StartIntervalThink( spell:GetSpecialValueFor( "regen_interval" ) )
   end
 end
 
@@ -166,14 +169,13 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen_degen:OnCreated( event )
-	local spell = self:GetAbility()
-
-	self:StartIntervalThink( spell:GetSpecialValueFor( "degen_interval" ) )
-end
-
-
-function modifier_boss_regen_degen:OnRefresh( event )
-	--self:OnCreated( event )
+  if not IsServer() then
+    return
+  end
+  local spell = self:GetAbility()
+  if spell and not spell:IsNull() then
+    self:StartIntervalThink( spell:GetSpecialValueFor( "degen_interval" ) )
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -182,6 +184,9 @@ if IsServer() then
 	function modifier_boss_regen_degen:OnIntervalThink()
 		local parent = self:GetParent()
 		local spell = self:GetAbility()
+		if not spell or spell:IsNull() then
+			self:Destroy()
+		end
 		local interval = spell:GetSpecialValueFor( "degen_interval" )
 
 		if spell.paused then
@@ -225,7 +230,11 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen_degen:OnTooltip( event )
-	local spell = self:GetAbility()
+  local spell = self:GetAbility()
+	
+  if not spell or spell:IsNull() then
+    return 1
+  end
 
-	return spell:GetSpecialValueFor( "health_degen_rate" )
+  return spell:GetSpecialValueFor( "health_degen_rate" )
 end
