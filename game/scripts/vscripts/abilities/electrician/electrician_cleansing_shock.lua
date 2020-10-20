@@ -6,31 +6,35 @@ LinkLuaModifier( "modifier_special_bonus_unique_electrician_cleansing_shock_pier
 
 --------------------------------------------------------------------------------
 
--- CastFilterResultTarget runs on client side first
+-- CastFilterResultTarget is not called on a Server at all?
 function electrician_cleansing_shock:CastFilterResultTarget(target)
   local default_result = self.BaseClass.CastFilterResultTarget(self, target)
 
   if default_result == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     local caster = self:GetCaster()
     -- Talent that allows to target Spell Immune units
-    if IsServer() then
-      local talent = caster:FindAbilityByName("special_bonus_electrician_shock_spell_immunity")
-      if talent and talent:GetLevel() > 0 then
-        if not caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
-          caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_electrician_cleansing_shock_pierce", {})
-        end
-        return UF_SUCCESS
-      else
-        caster:RemoveModifierByName("modifier_special_bonus_unique_electrician_cleansing_shock_pierce")
-      end
-    else
-      if caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
-        return UF_SUCCESS
-      end
+    if caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
+      return UF_SUCCESS
     end
   end
 
   return default_result
+end
+
+if IsServer() then
+  function electrician_cleansing_shock:OnHeroCalculateStatBonus()
+    local caster = self:GetCaster()
+    --print("[CHATTERJEE CLEANSING CHOCK] OnHeroCalculateStatBonus on Server")
+    -- Check for talent that allows targetting spell immune
+    local talent = caster:FindAbilityByName("special_bonus_electrician_shock_spell_immunity")
+    if talent and talent:GetLevel() > 0 then
+      if not caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
+        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_electrician_cleansing_shock_pierce", {})
+      end
+    else
+      caster:RemoveModifierByName("modifier_special_bonus_unique_electrician_cleansing_shock_pierce")
+    end
+  end
 end
 
 function electrician_cleansing_shock:OnSpellStart()

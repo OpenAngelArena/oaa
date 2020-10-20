@@ -43,13 +43,17 @@ if IsServer() then
   function sohei_flurry_of_blows:OnSpellStart()
     local caster = self:GetCaster()
     local target_loc = self:GetCursorPosition()
-    local flurry_radius = self:GetAOERadius()
+    local flurry_radius = self:GetSpecialValueFor("flurry_radius")
     --local max_attacks = self:GetSpecialValueFor("max_attacks")
     --local max_duration = self:GetSpecialValueFor( "max_duration" )
     --local attack_interval = self:GetSpecialValueFor("attack_interval")
     local delay = self:GetSpecialValueFor("delay")
     local bonus_damage = self:GetSpecialValueFor("bonus_damage")
-
+	
+    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+    if talent and talent:GetLevel() > 0 then
+      flurry_radius = flurry_radius + talent:GetSpecialValueFor("value")
+    end
     -- Emit sound
     caster:EmitSound( "Hero_EmberSpirit.FireRemnant.Cast" )
 
@@ -79,26 +83,28 @@ if IsServer() then
     -- Give vision over the area
     AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, delay + 0.1, false)
   end
-end
-
-function sohei_flurry_of_blows:GetAOERadius()
-  local caster = self:GetCaster()
-  local radius = self:GetSpecialValueFor("flurry_radius")
-  if IsServer() then
-    -- Check for talent that increases radius (server side)
+  
+  function sohei_flurry_of_blows:OnHeroCalculateStatBonus()
+    local caster = self:GetCaster()
+    --print("[SOHEI FLURRY OF BLOWS] OnHeroCalculateStatBonus on Server")
+    -- Check for talent that increases radius
     local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
     if talent and talent:GetLevel() > 0 then
-      radius = radius + talent:GetSpecialValueFor("value")
       if not caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") then
         caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_flurry_of_blows_radius", {})
       end
     else
       caster:RemoveModifierByName("modifier_special_bonus_unique_flurry_of_blows_radius")
     end
-  else
-    if caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") and caster.special_bonus_unique_flurry_of_blows_radius then
-      radius = radius + caster.special_bonus_unique_flurry_of_blows_radius
-    end
+  end
+end
+
+-- GetAOERadius is not called on a Server at all?
+function sohei_flurry_of_blows:GetAOERadius()
+  local caster = self:GetCaster()
+  local radius = self:GetSpecialValueFor("flurry_radius")
+  if caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") and caster.special_bonus_unique_flurry_of_blows_radius then
+    radius = radius + caster.special_bonus_unique_flurry_of_blows_radius
   end
 
   return radius

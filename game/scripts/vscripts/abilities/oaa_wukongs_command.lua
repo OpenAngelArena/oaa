@@ -59,6 +59,19 @@ if IsServer() then
     end
   end
   ]]
+  function monkey_king_wukongs_command_oaa:OnHeroCalculateStatBonus()
+    local caster = self:GetCaster()
+    --print("[MONKEY KING WUKONGS COMMAND] OnHeroCalculateStatBonus on Server")
+    -- Check for talent that increases radius
+    local talent = caster:FindAbilityByName("special_bonus_unique_monkey_king_6")
+    if talent and talent:GetLevel() > 0 then
+      if not caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") then
+        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_monkey_king_ring", {})
+      end
+    else
+      caster:RemoveModifierByName("modifier_special_bonus_unique_monkey_king_ring")
+    end
+  end
 end
 
 --[[
@@ -197,24 +210,13 @@ function monkey_king_wukongs_command_oaa:OnAbilityPhaseInterrupted()
   end
 end
 
+-- GetAOERadius is not called on a Server at all?
 function monkey_king_wukongs_command_oaa:GetAOERadius()
   local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("second_radius")
   local talent_radius = 0
-  if IsServer() then
-    local talent = caster:FindAbilityByName("special_bonus_unique_monkey_king_6")
-    if talent and talent:GetLevel() > 0 then
-      if not caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") then
-        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_monkey_king_ring", {})
-      end
-      talent_radius = talent:GetSpecialValueFor("value")
-    else
-      caster:RemoveModifierByName("modifier_special_bonus_unique_monkey_king_ring")
-    end
-  else
-    if caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") and caster.special_bonus_unique_monkey_king_extra_ring then
-      talent_radius = caster.special_bonus_unique_monkey_king_extra_ring
-    end
+  if caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") and caster.special_bonus_unique_monkey_king_extra_ring then
+    talent_radius = caster.special_bonus_unique_monkey_king_extra_ring
   end
 
   return math.max(talent_radius, radius)
