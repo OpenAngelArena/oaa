@@ -44,11 +44,11 @@ if IsServer() then
       MinimapEvent(parentTeam, parent, parentLoc.x, parentLoc.y, DOTA_MINIMAP_EVENT_RADAR, 1)
     end
 
-    for _, unit in pairs(units) do
+    units:each(function(unit)
       if unit then
         unit:AddNewModifier(parent, nil, "modifier_oaa_scan_debuff", {duration = 1.0})
       end
-    end
+    end)
   end
 end
 
