@@ -43,7 +43,7 @@ function modifier_item_martyrs_mail_passive:GetAttributes()
 end
 
 function modifier_item_martyrs_mail_passive:OnCreated()
-	local ability = self:GetAbility()
+  local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_damage = ability:GetSpecialValueFor( "bonus_damage" )
     self.bonus_armor = ability:GetSpecialValueFor( "bonus_armor" )
@@ -91,39 +91,47 @@ function modifier_item_martyrs_mail_martyr_active:IsPurgable()
 end
 
 function modifier_item_martyrs_mail_martyr_active:IsAura()
-	return true
+  return true
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetModifierAura()
-	return "modifier_item_martyrs_mail_martyr_aura"
+  return "modifier_item_martyrs_mail_martyr_aura"
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraEntityReject( hEntity )
-	return self:GetCaster() == hEntity
+  return self:GetCaster() == hEntity
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraRadius()
-	return self.martyr_heal_aoe or 900
+  return self.martyr_heal_aoe or 900
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraSearchType()
-	return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
 function modifier_item_martyrs_mail_martyr_active:DeclareFunctions()
-	local funcs = {
-		MODIFIER_EVENT_ON_TAKEDAMAGE,
-	}
-	return funcs
+  local funcs = {
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+  }
+  return funcs
 end
 
 function modifier_item_martyrs_mail_martyr_active:OnCreated()
-	self.martyr_heal_aoe = self:GetAbility():GetSpecialValueFor( "martyr_heal_aoe" )
+  local ability = self:GetAbility()
+  local radius = 900
+  if ability and not ability:IsNull() then
+    radius = ability:GetSpecialValueFor("martyr_heal_aoe")
+  end
+
+  self.martyr_heal_aoe = radius
 end
+
+modifier_item_martyrs_mail_martyr_active.OnRefresh = modifier_item_martyrs_mail_martyr_active.OnCreated
 
 function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 	if IsServer() then

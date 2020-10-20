@@ -12,7 +12,6 @@ function item_sonic:GetTransformationModifierName()
 end
 
 item_sonic_2 = item_sonic
-item_sonic_3 = item_sonic
 
 ---------------------------------------------------------------------------------------------------
 
