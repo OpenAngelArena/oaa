@@ -9,7 +9,7 @@ function modifier_boss_twin_twin_empathy_buff:OnCreated()
   local ability = self:GetAbility()
   local interval = 2
   if ability and not ability:IsNull() then
-    local interval = ability:GetSpecialValueFor("heal_timer")
+    interval = ability:GetSpecialValueFor("heal_timer")
   end
   self:StartIntervalThink(interval)
   self.interval = interval
@@ -40,12 +40,12 @@ function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
       end
     end
   end
-  
+
   local ability = self:GetAbility()
   if not ability or ability:IsNull() then
     return
   end
-  
+
   if self.interval ~= ability:GetSpecialValueFor("heal_timer") then
     self:StartIntervalThink(ability:GetSpecialValueFor("heal_timer"))
   end

@@ -49,7 +49,7 @@ if IsServer() then
     --local attack_interval = self:GetSpecialValueFor("attack_interval")
     local delay = self:GetSpecialValueFor("delay")
     local bonus_damage = self:GetSpecialValueFor("bonus_damage")
-	
+
     local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
     if talent and talent:GetLevel() > 0 then
       flurry_radius = flurry_radius + talent:GetSpecialValueFor("value")
@@ -83,7 +83,7 @@ if IsServer() then
     -- Give vision over the area
     AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, delay + 0.1, false)
   end
-  
+
   function sohei_flurry_of_blows:OnHeroCalculateStatBonus()
     local caster = self:GetCaster()
     --print("[SOHEI FLURRY OF BLOWS] OnHeroCalculateStatBonus on Server")

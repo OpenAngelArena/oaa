@@ -231,7 +231,6 @@ end
 
 function modifier_boss_regen_degen:OnTooltip( event )
   local spell = self:GetAbility()
-	
   if not spell or spell:IsNull() then
     return 1
   end
