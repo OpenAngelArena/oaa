@@ -50,15 +50,15 @@
     // Special-----------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // first 3 values must be the same as Rod of Atos
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 30 40"
+        "bonus_strength"                                  "10 20 35 40 50"
       }
-      "02"
+      "02" // first 3 values must be the same as Meteor Hammer
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 20 30 40"
+        "bonus_agility"                                   "10 15 25 40 50"
       }
       "03" // first 3 values must be the same as Eul's Scepter or Rod of Atos
       {
