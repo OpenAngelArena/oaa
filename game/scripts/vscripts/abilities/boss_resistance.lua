@@ -41,6 +41,9 @@ function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
 end
 
 function modifier_boss_resistance:OnTakeDamage(keys)
+  if not IsServer() then
+    return
+  end
   local parent = self:GetParent()
   if not keys.attacker or not keys.unit or keys.unit ~= parent then
     return

@@ -77,12 +77,12 @@ function modifier_offside:IsDebuff()
 end
 
 function modifier_offside:ReleaseParticles()
-  if self.stackParticle ~= nil then
+  if self.stackParticle then
     ParticleManager:DestroyParticle(self.stackParticle, false)
     ParticleManager:ReleaseParticleIndex( self.stackParticle )
   end
 
-  if self.BloodOverlay ~= nil then
+  if self.BloodOverlay then
     ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
     ParticleManager:DestroyParticle(self.BloodOverlay, false)
     ParticleManager:ReleaseParticleIndex( self.BloodOverlay )
@@ -105,11 +105,11 @@ function modifier_offside:DrawParticles()
         DebugPrint("Create Blood Overlay Alpha =" ..alpha)
       end
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
-    elseif self.BloodOverlay ~= nil and not isInOffside then
+    elseif self.BloodOverlay and not isInOffside then
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
     end
 
-    if self.stackParticle ~= nil then
+    if self.stackParticle then
       ParticleManager:DestroyParticle(self.stackParticle, false)
     end
     self.stackParticle = ParticleManager:CreateParticleForPlayer( "particles/dungeon_overhead_timer_colored.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner() )

@@ -2,11 +2,17 @@
 
 modifier_boss_twin_twin_empathy_buff = class(AbilityBaseClass)
 
---This may need to be in the abil not the mod
 function modifier_boss_twin_twin_empathy_buff:OnCreated()
+  if not IsServer() then
+    return
+  end
+  local ability = self:GetAbility()
   local interval = 2
+  if ability and not ability:IsNull() then
+    interval = ability:GetSpecialValueFor("heal_timer")
+  end
   self:StartIntervalThink(interval)
-  return true
+  self.interval = interval
 end
 
 function modifier_boss_twin_twin_empathy_buff:IsHidden()
@@ -25,13 +31,22 @@ function modifier_boss_twin_twin_empathy_buff:OnIntervalThink()
   local master = self:GetCaster()
   local twin = self:GetParent()
 
-	if twin:IsAlive() and master:IsAlive() then
-	  if twin:GetHealth() < master:GetHealth() then
-      twin:SetHealth(master:GetHealth())
-    elseif twin:GetHealth() > master:GetHealth() then
-      master:SetHealth(twin:GetHealth())
+  if twin and master and not twin:IsNull() and not master:IsNull() then
+    if twin:IsAlive() and master:IsAlive() then
+      if twin:GetHealth() < master:GetHealth() then
+        twin:SetHealth(master:GetHealth())
+      elseif twin:GetHealth() > master:GetHealth() then
+        master:SetHealth(twin:GetHealth())
+      end
     end
   end
 
-  self:StartIntervalThink(self:GetAbility():GetSpecialValueFor( "heal_timer" ))
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  if self.interval ~= ability:GetSpecialValueFor("heal_timer") then
+    self:StartIntervalThink(ability:GetSpecialValueFor("heal_timer"))
+  end
 end

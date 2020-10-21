@@ -11,6 +11,10 @@ function boss_slime_shake:GetPlaybackRateOverride()
 	return 2.0
 end
 
+function boss_slime_shake:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_firestorm_wave.vpcf", context)
+end
+
 ------------------------------------------------------------------------------------
 
 local function RandomPointInsideCircle(x, y, radius, minLength)

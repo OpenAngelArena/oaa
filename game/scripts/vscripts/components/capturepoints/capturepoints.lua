@@ -97,19 +97,19 @@ function CapturePoints:MinimapPing()
   for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     if PlayerResource:IsValidPlayerID(playerId) then
       local player = PlayerResource:GetPlayer(playerId)
-      if player ~= nil and not player:IsNull() then
+      if player and not player:IsNull() then
         if player:GetAssignedHero() then
           if player:GetTeam() == DOTA_TEAM_BADGUYS then
             MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.left.x, CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
             Timers:CreateTimer(3.2, function ()
-              if player ~= nil and not player:IsNull() then
+              if player and not player:IsNull() then
                 MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.right.x, CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
               end
             end)
           else
             MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x, CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
             Timers:CreateTimer(3.2, function ()
-              if player ~= nil and not player:IsNull() then
+              if player and not player:IsNull() then
                 MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x, CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
               end
             end)
@@ -163,7 +163,7 @@ function CapturePoints:ScheduleCapture()
       Timers:CreateTimer(15, function ()
         CapturePoints:StartCapture("red")
       end)
-      if CapturePoints.unlistenDuel ~= nil then
+      if CapturePoints.unlistenDuel then
         local unlisten = CapturePoints.unlistenDuel
         unlisten()
         CapturePoints.unlistenDuel = nil

@@ -1,7 +1,3 @@
--- Modifiers for problematic talents
-LinkLuaModifier("modifier_special_bonus_unique_monkey_king_armor", "abilities/oaa_wukongs_command.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_unique_monkey_king_ring", "abilities/oaa_wukongs_command.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- Taken from bb template
 if AbilityLevels == nil then
     DebugPrint ( 'creating new ability level requirement object.' )
@@ -134,9 +130,7 @@ function AbilityLevels:SetTalents(hero)
     )
 
     local problematic_talents ={
-      {"special_bonus_unique_monkey_king_4", "modifier_special_bonus_unique_monkey_king_armor"},
-      {"special_bonus_unique_monkey_king_6", "modifier_special_bonus_unique_monkey_king_ring"},
-      {"special_bonus_unique_hero_name", "modifier_special_bonus_unique_hero_name"}
+      {"special_bonus_unique_hero_name", "modifier_special_bonus_unique_hero_name"},
     }
 
     if claim then
@@ -225,10 +219,7 @@ function AbilityLevels:GetTalentModifier(name)
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
-    special_bonus_sohei_wholeness_allycast = "modifier_special_bonus_sohei_wholeness_allycast",
-    special_bonus_unique_monkey_king_4 = "modifier_special_bonus_unique_monkey_king_armor",
-    special_bonus_unique_monkey_king_6 = "modifier_special_bonus_unique_monkey_king_ring",
-    special_bonus_unique_undying_reincarnation = "modifier_special_bonus_reincarnation"
+    special_bonus_unique_undying_reincarnation = "modifier_special_bonus_reincarnation",
   }
 
   if exceptionBonuses[name] then

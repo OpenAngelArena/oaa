@@ -38,12 +38,13 @@ function OgreTankBossThink()
 		return 1
 	end
 
-	if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-    thisEntity.bInitialized = true
+  if not thisEntity.bInitialized then
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
+    thisEntity.BossTier = thisEntity.BossTier or 3
     SpawnAllies()
-	end
+    thisEntity.bInitialized = true
+  end
 
   local enemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),

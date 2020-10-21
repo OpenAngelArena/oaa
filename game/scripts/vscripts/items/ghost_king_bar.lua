@@ -22,6 +22,9 @@ function item_ghost_king_bar:OnSpellStart()
   caster:EmitSound("DOTA_Item.GhostScepter.Activate")
 end
 
+item_ghost_king_bar_2 = item_ghost_king_bar
+item_ghost_king_bar_3 = item_ghost_king_bar
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_ghost_king_bar_passive = class(ModifierBaseClass)
@@ -146,7 +149,10 @@ function modifier_item_ghost_king_bar_active:GetStatusEffectName()
   return "particles/status_fx/status_effect_ghost.vpcf"
 end
 
----------------------------------------------------------------------------------------------------
+function modifier_item_ghost_king_bar_active:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
 
-item_ghost_king_bar_2 = item_ghost_king_bar
-item_ghost_king_bar_3 = item_ghost_king_bar
+function modifier_item_ghost_king_bar_active:GetTexture()
+  return "custom/ghoststaff_5"
+end

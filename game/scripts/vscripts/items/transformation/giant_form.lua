@@ -15,6 +15,8 @@ function item_giant_form:GetTransformationModifierName()
   return "modifier_item_giant_form_grow"
 end
 
+item_giant_form_2 = item_giant_form
+
 --------------------------------------------------------------------------------
 
 modifier_item_giant_form_grow = class(ModifierBaseClass)
@@ -217,6 +219,6 @@ if IsServer() then
   end
 end
 
---------------------------------------------------------------------------------
-
-item_giant_form_2 = item_giant_form
+function modifier_item_giant_form_grow:GetTexture()
+  return "custom/giant_form_2_active"
+end

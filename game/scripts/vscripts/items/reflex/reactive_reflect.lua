@@ -32,6 +32,12 @@ function item_reflection_shard_1:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_reactive_reflect", {duration = duration})
 end
 
+function item_reflection_shard_1:ProcsMagicStick()
+  return false
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_item_reactive_reflect = class(ModifierBaseClass)
 
 function modifier_item_reactive_reflect:IsHidden()
@@ -47,11 +53,13 @@ function modifier_item_reactive_reflect:IsPurgable()
 end
 
 function modifier_item_reactive_reflect:OnCreated(event)
-  if IsServer() and self.nPreviewFX == nil then
+  if IsServer() then
     local parent = self:GetParent()
     parent:EmitSound("Hero_Antimage.Counterspell.Cast")
-    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    --self.reflect_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+    if self.nPreviewFX == nil then
+      self.nPreviewFX = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      --self.nPreviewFX = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+    end
 
     if parent.stored_reflected_spells == nil then
       parent.stored_reflected_spells = {}
@@ -158,7 +166,7 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       return nil
     end
 
-    -- Check if the parent already has reflected ability
+    -- Check if the parent already has the reflected ability
     local old = false
     for _,ability in pairs(parent.stored_reflected_spells) do
       if ability and not ability:IsNull() then
@@ -201,6 +209,9 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     reflect_ability:SetLevel(ability_level)       -- Set level to be the same as the level of the original ability
     parent:SetCursorCastTarget(target)            -- Set the target for the spell.
     reflect_ability:OnSpellStart()                -- Cast the spell.
-
   end
+end
+
+function modifier_item_reactive_reflect:GetTexture()
+  return "custom/reflection_shard_3"
 end

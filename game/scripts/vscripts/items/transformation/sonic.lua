@@ -12,7 +12,6 @@ function item_sonic:GetTransformationModifierName()
 end
 
 item_sonic_2 = item_sonic
-item_sonic_3 = item_sonic
 
 ---------------------------------------------------------------------------------------------------
 
@@ -68,3 +67,7 @@ end
 --function modifier_sonic_fly:GetModifierStatusResistanceStacking()
   --return self:GetAbility():GetSpecialValueFor("status_resist")
 --end
+
+function modifier_sonic_fly:GetTexture()
+  return "custom/sonic_3_active"
+end

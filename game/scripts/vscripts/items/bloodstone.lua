@@ -48,7 +48,7 @@ function modifier_item_bloodstone_stacking_stats:OnCreated()
     self:Setup(true)
   end
 end
-function modifier_item_bloodstone_stacking_stats:OnRefreshed()
+function modifier_item_bloodstone_stacking_stats:OnRefresh()
   if IsServer() then
     self:Setup()
   end

@@ -136,17 +136,7 @@ function modifier_item_sacred_skull_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_sacred_skull_stacking_stats:OnRefreshed()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_int = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
-  end
-end
+modifier_item_sacred_skull_stacking_stats.OnRefresh = modifier_item_sacred_skull_stacking_stats.OnCreated
 
 function modifier_item_sacred_skull_stacking_stats:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
@@ -200,51 +190,53 @@ function modifier_item_sacred_skull_stacking_stats:GetModifierMagicalResistanceB
   return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 end
 
-function modifier_item_sacred_skull_stacking_stats:OnDeath(event)
-  local caster = self:GetCaster()
-  local dead = event.unit
-  local ability = self:GetAbility()
+if IsServer() then
+  function modifier_item_sacred_skull_stacking_stats:OnDeath(event)
+    local caster = self:GetCaster()
+    local dead = event.unit
+    local ability = self:GetAbility()
 
-  -- If dead unit is not the caster then dont continue
-  if dead ~= caster then
-    return
+    -- If dead unit is not the caster then dont continue
+    if dead ~= caster then
+      return
+    end
+
+    -- Check if dead unit is nil or its about to be deleted
+    if not dead or dead:IsNull() then
+      return
+    end
+
+    -- Check if caster is a real hero
+    if not caster:IsRealHero() or caster:IsTempestDouble() then
+      return
+    end
+
+    local caster_team = caster:GetTeamNumber()
+    local death_location = caster:GetAbsOrigin()
+
+    local heal_amount = ability:GetSpecialValueFor("death_heal_base") + caster:GetMaxHealth() * 0.5
+    local units = FindUnitsInRadius(
+      caster_team,
+      death_location,
+      nil,
+      ability:GetSpecialValueFor("death_heal_radius"),
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    units = iter(units)
+    units:each(function (unit)
+      unit:Heal(heal_amount, ability)
+    end)
+
+    -- Add vision at death location
+    local vision_radius = ability:GetSpecialValueFor("death_vision_radius")
+    local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
+    AddFOWViewer(caster_team, death_location, vision_radius, vision_duration, false)
   end
-
-  -- Check if dead unit is nil or its about to be deleted
-  if not dead or dead:IsNull() then
-    return
-  end
-
-  -- Check if caster is a real hero
-  if not caster:IsRealHero() or caster:IsTempestDouble() then
-    return
-  end
-
-  local caster_team = caster:GetTeamNumber()
-  local death_location = caster:GetAbsOrigin()
-
-  local heal_amount = ability:GetSpecialValueFor("death_heal_base") + caster:GetMaxHealth() * 0.5
-  local units = FindUnitsInRadius(
-    caster_team,
-    death_location,
-    nil,
-    ability:GetSpecialValueFor("death_heal_radius"),
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
-
-  units = iter(units)
-  units:each(function (unit)
-    unit:Heal(heal_amount, ability)
-  end)
-
-  -- Add vision at death location
-  local vision_radius = ability:GetSpecialValueFor("death_vision_radius")
-  local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
-  AddFOWViewer(caster_team, death_location, vision_radius, vision_duration, false)
 end
 
 -------------------------------------------------------------------------

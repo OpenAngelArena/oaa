@@ -76,7 +76,7 @@ function modifier_boss_slime_split_passive:OnTakeDamage(keys)
 						UnitIndex = caster:entindex(),
 						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 						AbilityIndex = shakeAbility:entindex(),
-          })
+                    })
 					caster:AddNewModifier(caster, shakeAbility, "modifier_invulnerable", {})
 					Timers:CreateTimer(shakeAbility:GetChannelTime(), function ()
 						self.readyToDie = true
@@ -94,16 +94,18 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_slime_split_passive:OnDeath(keys)
-	if IsServer() then
-		local caster = self:GetParent()
-		if keys.unit:entindex() == caster:entindex() then
-			local unitName = caster:GetUnitName()
-			caster:SetClones(
-        self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),
-        self:CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0)))
-			caster:AddNoDraw()
-		end
-	end
+  if IsServer() then
+    local caster = self:GetParent()
+    if keys.unit:entindex() == caster:entindex() then
+      local unitName = caster:GetUnitName()
+      if caster.SetClones then
+	    caster:SetClones(
+          self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),
+          self:CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0)))
+      end
+      caster:AddNoDraw()
+    end
+  end
 end
 
 ------------------------------------------------------------------------------------

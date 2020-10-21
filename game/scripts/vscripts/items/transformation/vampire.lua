@@ -16,6 +16,7 @@ function item_vampire:GetTransformationModifierName()
 end
 
 item_vampire_2 = item_vampire
+
 --------------------------------------------------------------------------------
 
 modifier_item_vampire = class(ModifierBaseClass)
@@ -247,4 +248,8 @@ function vampire:lifesteal(event, spell, parent, amount)
       DebugPrint('Not lifestealing from ' .. tostring(target:GetName()))
     end
   end
+end
+
+function modifier_item_vampire_active:GetTexture()
+  return "custom/vampire_2_active"
 end

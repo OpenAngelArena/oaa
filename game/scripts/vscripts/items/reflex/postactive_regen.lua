@@ -54,13 +54,7 @@ function modifier_item_regen_crystal_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_regen_crystal_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-  end
-end
+modifier_item_regen_crystal_stacking_stats.OnRefresh = modifier_item_regen_crystal_stacking_stats.OnCreated
 
 function modifier_item_regen_crystal_stacking_stats:DeclareFunctions()
   return {
@@ -126,7 +120,7 @@ end
 function modifier_item_regen_crystal_non_stacking_stats:OnIntervalThink()
   local parent = self:GetParent()
   if not self.bonus_hp_regen then
-    self:ForceRefresh()
+    self:OnRefresh()
     return
   end
 
@@ -137,7 +131,7 @@ function modifier_item_regen_crystal_non_stacking_stats:OnIntervalThink()
   end
   local max_mana = parent:GetMaxMana()
   if self.bonus_hp_regen ~= max_mana*max_mana_to_hp_regen/100 then
-    self:ForceRefresh()
+    self:OnRefresh()
   end
 end
 
@@ -211,4 +205,8 @@ end
 
 function modifier_item_regen_crystal_active:GetModifierHPRegenAmplify_Percentage()
   return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("active_hp_regen_amp")
+end
+
+function modifier_item_regen_crystal_active:GetTexture()
+  return "custom/regen_crystal_1"
 end

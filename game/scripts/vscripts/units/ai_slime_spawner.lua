@@ -39,7 +39,7 @@ function SlimeSpawnerThink()
 	end
 
 	thisEntity.bossHandle1 = CreateUnitByName('npc_dota_boss_slime', thisEntity:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
-	thisEntity.bossHandle1.BossTier = thisEntity.BossTier
+	thisEntity.bossHandle1.BossTier = thisEntity.BossTier or 2
 	thisEntity.bossHandle1.SetClones = SetClones
 
 	for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do

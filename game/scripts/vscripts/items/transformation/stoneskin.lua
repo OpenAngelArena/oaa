@@ -2,7 +2,6 @@ item_stoneskin = class(TransformationBaseClass)
 
 LinkLuaModifier("modifier_item_stoneskin", "items/transformation/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_stoneskin_stone_armor", "items/transformation/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_stoneskin:GetIntrinsicModifierName()
   return "modifier_item_stoneskin" --"modifier_generic_bonus"
@@ -13,7 +12,9 @@ function item_stoneskin:GetTransformationModifierName()
 end
 
 item_stoneskin_2 = item_stoneskin
+
 ------------------------------------------------------------------------
+
 modifier_item_stoneskin = class(ModifierBaseClass)
 
 function modifier_item_stoneskin:IsHidden()
@@ -165,8 +166,8 @@ function modifier_item_stoneskin_stone_armor:GetStatusEffectName()
   return "particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
 end
 
-function modifier_item_stoneskin_stone_armor:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA
+function modifier_item_stoneskin_stone_armor:StatusEffectPriority()
+  return MODIFIER_PRIORITY_ULTRA
 end
 
 -- function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_Absolute()
@@ -178,3 +179,7 @@ end
   -- end
   -- return self:GetAbility():GetSpecialValueFor("stone_move_speed")
 -- end
+
+function modifier_item_stoneskin_stone_armor:GetTexture()
+  return "custom/stoneskin_2_active"
+end

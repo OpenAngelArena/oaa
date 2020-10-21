@@ -11,6 +11,13 @@ function boss_slime_jump:GetPlaybackRateOverride()
 	return 0.1
 end
 
+function boss_slime_jump:Precache(context)
+  PrecacheResource("particle", "particles/econ/items/invoker/invoker_ti6/invoker_deafening_blast_glyphs_shadow_ti6.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts", context)
+end
+
 ------------------------------------------------------------------------------------
 
 function boss_slime_jump:FindTargets(position)
