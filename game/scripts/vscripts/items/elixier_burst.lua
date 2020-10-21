@@ -48,8 +48,8 @@ function modifier_elixier_burst_active:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_burst_active:GetAbilityTextureName()
-  return "custom/elixier_burst_1"
+function modifier_elixier_burst_active:GetTexture()
+  return "custom/elixier_burst_2"
 end
 
 function modifier_elixier_burst_active:OnCreated(keys)
@@ -77,8 +77,8 @@ function modifier_elixier_burst_trigger:IsHidden() return false end
 function modifier_elixier_burst_trigger:IsPurgable() return false end
 function modifier_elixier_burst_trigger:IsDebuff() return false end
 
-function modifier_elixier_burst_trigger:GetAbilityTextureName()
-  return "custom/elixier_burst_1"
+function modifier_elixier_burst_trigger:GetTexture()
+  return "custom/elixier_burst_2"
 end
 
 function modifier_elixier_burst_trigger:OnCreated(keys)
@@ -122,8 +122,8 @@ function modifier_elixier_burst_bonus:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_burst_bonus:GetAbilityTextureName()
-  return "custom/elixier_burst_1"
+function modifier_elixier_burst_bonus:GetTexture()
+  return "custom/elixier_burst_2"
 end
 
 function modifier_elixier_burst_bonus:OnCreated(keys)

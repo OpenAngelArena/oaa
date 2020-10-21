@@ -52,14 +52,14 @@
     "Effect"                                              "particles/generic_gameplay/dropped_item.vpcf"
     "AbilityCastAnimation"                                "ACT_DOTA_IDLE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "CastFilterRejectCaster"                              "1"
     "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "600 700 800 900"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "pull"
@@ -69,7 +69,6 @@
     "AbilityManaCost"                                     "25"
     "ItemCost"                                            "7175"
 
-    "ItemKillable"                                        "0"
     "ItemSellable"                                        "1"
     "ItemPurchasable"                                     "1"
     "ItemDroppable"                                       "1"
@@ -121,17 +120,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1500"
+        "speed"                                           "1200"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
+        "tooltip_range"                                   "600 700 800 900"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "500 600 700 800"
+        "distance"                                        "600 700 800 900"
       }
     }
   }
