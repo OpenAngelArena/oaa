@@ -77,15 +77,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_intellect"                                 "10 25 45 70 100"
       }
-      "02" // it should be the same as Rod of Atos
+      "02" // it should be the same or better than Rod of Atos; better than Sheepstick (Scythe of Vyse)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 25 35 45 55"
+        "bonus_strength"                                  "10 25 45 70 100"
       }
-      "03" // it should be the same as Rod of Atos
+      "03" // it should be the same or worse than Rod of Atos; same or better than Sheepstick (Scythe of Vyse)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 25 35 45 55"
+        "bonus_agility"                                   "10 15 25 40 60"
       }
       "04"
       {
