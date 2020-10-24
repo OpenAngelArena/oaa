@@ -86,7 +86,7 @@ function modifier_item_bloodstone_stacking_stats:Setup(created)
       when item is added, above flow executes
 
     ]]
-    self.charges = ability:GetCurrentCharges()
+    self.charges = ability:GetCurrentCharges() -- ability can be nil
     local needsSetCharges = false
 
     if self.charges == 0 then
