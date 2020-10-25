@@ -32,7 +32,7 @@ function CoreGuyThink ()
     local item = thisEntity:GetItemInSlot(itemIndex)
     if item then
       local itemName = item:GetName()
-      print(string.sub(itemName, 0, 17))
+      --print(string.sub(itemName, 0, 17))
       if string.sub(itemName, 0, 17) ~= "item_upgrade_core" then
         thisEntity:DropItemAtPositionImmediate(item, thisEntity:GetAbsOrigin())
       else
@@ -53,9 +53,9 @@ function CoreGuyThink ()
 
   local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
   if cooldown > 0 and thisEntity.corePoints > 0 then
-    print("before: " .. cooldown)
+    print("cooldown before putting core: " .. cooldown)
     cooldown = cooldown - (thisEntity.corePoints * 20)
-    print("after: " .. cooldown)
+    print("cooldown after putting core: " .. cooldown)
     thisEntity.ability:EndCooldown()
     if cooldown > 0 then
       thisEntity.ability:StartCooldown(cooldown)

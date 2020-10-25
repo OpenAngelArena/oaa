@@ -1,5 +1,3 @@
-require('libraries/timers')
-
 LinkLuaModifier("modifier_item_lucience_aura_handler", "items/lucience.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_lucience_regen_aura", "items/lucience.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_lucience_movespeed_aura", "items/lucience.lua", LUA_MODIFIER_MOTION_NONE)

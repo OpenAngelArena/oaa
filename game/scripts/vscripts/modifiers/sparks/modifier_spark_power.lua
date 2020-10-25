@@ -16,6 +16,10 @@ function modifier_spark_power:RemoveOnDeath()
   return false
 end
 
+function modifier_spark_power:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_spark_power:AllowIllusionDuplicate()
   return true
 end

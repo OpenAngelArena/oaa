@@ -2,7 +2,7 @@
 Sparks = Components:Register('Sparks', COMPONENT_STRATEGY)
 
 function Sparks:Init()
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   DebugPrint("Sparks:Init running!")
 
   LinkLuaModifier("modifier_spark_cleave", "modifiers/sparks/modifier_spark_cleave.lua", LUA_MODIFIER_MOTION_NONE)
@@ -96,17 +96,17 @@ function Sparks:OnSelectSpark (eventId, keys)
   local spark = keys.spark
 
   if Sparks.data.cooldowns[playerId] and Sparks.data.cooldowns[playerId] > 0 then
-    DebugPrint('Spark changing on cooldown!')
+    --DebugPrint('Spark changing on cooldown!')
     return
   end
 
   if spark ~= "gpm" and spark ~= "midas" and spark ~= "power" and spark ~= "cleave" then
-    DebugPrint('Invalid spark selection, what is a "' .. spark .. '"')
+    --DebugPrint('Invalid spark selection, what is a "' .. spark .. '"')
     return
   end
   local oldSpark = Sparks.data.hasSpark[playerId]
   if oldSpark then
-    DebugPrint('They are changing their spark ' .. oldSpark .. ' to ' .. spark)
+    --DebugPrint('They are changing their spark ' .. oldSpark .. ' to ' .. spark)
     Sparks.data[player:GetTeam()][oldSpark] = Sparks.data[player:GetTeam()][oldSpark] - 1
   end
 
@@ -149,8 +149,8 @@ function Sparks:CheckSparkOnHeroEntity (hero)
   local playerId = hero:GetPlayerOwnerID()
   local spark = Sparks.data.hasSpark[playerId]
   if not spark then
-    Debug:EnableDebugging()
-    DebugPrint('This player has not selected a spark!')
+    --Debug:EnableDebugging()
+    --DebugPrint('This player has not selected a spark!')
     return
   end
   local player = PlayerResource:GetPlayer(playerId)

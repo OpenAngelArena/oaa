@@ -54,9 +54,13 @@ function modifier_item_bloodstone_stacking_stats:OnRefresh()
   end
 end
 function modifier_item_bloodstone_stacking_stats:Setup(created)
+  local modifier = self
   local ability = self:GetAbility()
   local caster = self:GetCaster()
-  local initial_charges = ability:GetSpecialValueFor("initial_charges_tooltip")
+  local initialCharges = 14
+  if ability and not ability:IsNull() then
+    initialCharges = ability:GetSpecialValueFor("initial_charges_tooltip")
+  end
 
   -- destroy happens after create when upgrading, and also item doesn't have half of it's abilities yet
   Timers:CreateTimer(0.1, function()
@@ -86,35 +90,39 @@ function modifier_item_bloodstone_stacking_stats:Setup(created)
       when item is added, above flow executes
 
     ]]
-    self.charges = ability:GetCurrentCharges()
+    local ability = modifier:GetAbility()
+    if not ability or ability:IsNull() then
+      return
+    end
+    modifier.charges = ability:GetCurrentCharges()
     local needsSetCharges = false
 
-    if self.charges == 0 then
+    if modifier.charges == 0 then
       -- freshly upgraded bloodstone, find stored charges
       if caster.storedCharges then
         -- stored charges found
-        self.charges = caster.storedCharges
+        modifier.charges = caster.storedCharges
         caster.storedCharges = nil
         needsSetCharges = true
         ability.addedCharges = true
       else
         if not caster.surplusCharges then
-          caster.surplusCharges = initial_charges
+          caster.surplusCharges = initialCharges
         end
         DebugPrint('I have an upgraded bloodstone without stored charges... is it ' .. caster.surplusCharges .. '?')
-        self.charges = initial_charges
-        caster.surplusCharges = math.min(initial_charges, caster.surplusCharges)
+        modifier.charges = initialCharges
+        caster.surplusCharges = math.min(initialCharges, caster.surplusCharges)
         needsSetCharges = true
       end
     end
 
     if created and ability.addedCharges then
-      if self.charges > caster.surplusCharges then
-        DebugPrint('It looks like charges got duplicated, truncating ' .. self.charges .. ' to ' .. caster.surplusCharges)
-        self.charges = caster.surplusCharges
+      if modifier.charges > caster.surplusCharges then
+        DebugPrint('It looks like charges got duplicated, truncating ' .. modifier.charges .. ' to ' .. caster.surplusCharges)
+        modifier.charges = caster.surplusCharges
         needsSetCharges = true
       end
-      caster.surplusCharges = caster.surplusCharges - self.charges
+      caster.surplusCharges = caster.surplusCharges - modifier.charges
       if caster.surplusCharges > 0 then
         DebugPrint('I think theres a bloodstone in a stash somewhere ' .. caster.surplusCharges)
       end
@@ -123,10 +131,10 @@ function modifier_item_bloodstone_stacking_stats:Setup(created)
     end
 
     if needsSetCharges then
-      ability:SetCurrentCharges(self.charges)
+      ability:SetCurrentCharges(modifier.charges)
     end
 
-    if caster.storedCharges == self.charges then
+    if caster.storedCharges == modifier.charges then
       caster.storedCharges = nil
       return
     end
