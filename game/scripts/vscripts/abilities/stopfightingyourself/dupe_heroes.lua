@@ -1,8 +1,4 @@
-
-require('libraries/timers')
-
 LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/stopfightingyourself/dupe_heroes.lua", LUA_MODIFIER_MOTION_NONE)
-
 
 boss_stopfightingyourself_dupe_heroes = class(AbilityBaseClass)
 

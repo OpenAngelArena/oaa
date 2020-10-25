@@ -13,16 +13,14 @@ function item_greater_tranquil_boots:GetAbilityTextureName()
 		return baseName
 	end
 
-	local brokeName = ""
+	-- local brokeName = ""
 
-	if self.tranqMod and not self.tranqMod:IsNull() and self.tranqMod:GetRemainingTime() > 0 then
-		brokeName = "_active"
-	end
+	-- if self:GetCaster():HasModifier("modifier_greater_tranquils_broken_debuff") then
+		-- brokeName = "_active"
+	-- end
 
-	return baseName .. brokeName
+	-- return baseName .. brokeName
 end
-
---------------------------------------------------------------------------------
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
 	return "modifier_item_greater_tranquil_boots" -- "modifier_intrinsic_multiplexer"
@@ -57,15 +55,11 @@ function item_greater_tranquil_boots:OnSpellStart()
   target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_debuff", {duration = duration})
 end
 
---------------------------------------------------------------------------------
-
--- used for various checks to accomodate for origin
--- ( or any future changes that make them unbreakable or something )
 function item_greater_tranquil_boots:IsBreakable()
 	return self:GetSpecialValueFor("break_time") > 0
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_item_greater_tranquil_boots = class(ModifierBaseClass)
 
@@ -85,57 +79,18 @@ function modifier_item_greater_tranquil_boots:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_greater_tranquil_boots:DestroyOnExpire()
-	return false
-end
-
 function modifier_item_greater_tranquil_boots:OnCreated( event )
 	local spell = self:GetAbility()
-
-	spell.tranqMod = self
-
-	if IsServer() then
-		if spell:IsBreakable() then
-			local cdRemaining = spell:GetCooldownTimeRemaining()
-			-- Break for any remaining duration (e.g. if item was dropped and picked up)
-			-- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
-			if cdRemaining > 0 then
-				self:SetDuration( cdRemaining, true )
-			end
-		end
-	end
-
-	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
-	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
-	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
-	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+  if spell and not spell:IsNull() then
+	  self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
+	  --self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
+	  self.armor = spell:GetSpecialValueFor( "bonus_armor" )
+	  self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+  end
 end
 
---------------------------------------------------------------------------------
+modifier_item_greater_tranquil_boots.OnRefresh = modifier_item_greater_tranquil_boots.OnCreated
 
-function modifier_item_greater_tranquil_boots:OnRefresh( event )
-	local spell = self:GetAbility()
-
-	spell.tranqMod = self
-
-	if IsServer() then
-		if spell:IsBreakable() then
-			local cdRemaining = spell:GetCooldownTimeRemaining()
-			-- Break for any remaining duration (e.g. if item was dropped and picked up)
-			-- Have to check for 0 because setting duration to 0 apparently destroys the modifier even with DestroyOnExpire false
-			if cdRemaining > 0 then
-				self:SetDuration( cdRemaining, true )
-			end
-		end
-	end
-
-	self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
-	self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
-	self.armor = spell:GetSpecialValueFor( "bonus_armor" )
-	self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
-end
-
---------------------------------------------------------------------------------
 --[[ Old checking distance traveled and modifying charges accordingly (part of Naturalize)
 if IsServer() then
 	function modifier_item_greater_tranquil_boots:OnIntervalThink()
@@ -190,78 +145,65 @@ function modifier_item_greater_tranquil_boots:DeclareFunctions()
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		--MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 
 	return funcs
 end
 
---------------------------------------------------------------------------------
+-- if IsServer() then
+  -- function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
+    -- local parent = self:GetParent()
+    -- local attacker = event.attacker
+    -- local attacked_unit = event.target
 
-if IsServer() then
-  function modifier_item_greater_tranquil_boots:OnAttackLanded( event )
-    local parent = self:GetParent()
-    local attacker = event.attacker
-    local attacked_unit = event.target
+    -- if attacked_unit == parent then
+      -- local spell = self:GetAbility()
 
-    if attacked_unit == parent then
-      local spell = self:GetAbility()
+      -- --Break Tranquils only in the following cases:
+      -- --old 1. If the parent attacked a hero
+      -- --old 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
+      -- --((attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer())))
+      -- --new 1: if the parent was attacked by a real hero (not an illusion and not a hero creep or boss)
 
-      -- Break Tranquils only in the following cases:
-      -- old 1. If the parent attacked a hero
-      -- old 2. If the parent was attacked by a hero, boss, hero creep or a player-controlled creep.
-      -- ((attacker == parent and attacked_unit:IsHero()) or (attacked_unit == parent and (attacker:IsConsideredHero() or attacker:IsControllableByAnyPlayer())))
-      --
-      -- new 1: if the parent was attacked by a real hero (not an illusion and not a hero creep or boss)
-      if spell:IsBreakable() and attacker:IsRealHero() then
-        spell:UseResources(false, false, true)
-
-        local cdRemaining = spell:GetCooldownTimeRemaining()
-        if cdRemaining > 0 then
-          self:SetDuration( cdRemaining, true )
-        end
-      end
-    end
-	end
-end
-
---------------------------------------------------------------------------------
+      -- if spell:IsBreakable() and attacker:IsRealHero() then
+        -- spell:UseResources(false, false, true)
+        -- local cdRemaining = spell:GetCooldownTimeRemaining()
+        -- if cdRemaining > 0 then
+          -- parent:AddNewModifier(parent, spell, "modifier_greater_tranquils_broken_debuff", {duration = cdRemaining})
+        -- end
+      -- end
+    -- end
+	-- end
+-- end
 
 function modifier_item_greater_tranquil_boots:GetModifierMoveSpeedBonus_Special_Boots()
-	local spell = self:GetAbility()
-
-	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
-		return self.moveSpd
-	end
-
-	return self.moveSpdBroken
+	-- local spell = self:GetAbility()
+	-- if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
+		-- return self.moveSpd
+	-- end
+	-- return self.moveSpdBroken
+  return self.moveSpd
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_greater_tranquil_boots:GetModifierPhysicalArmorBonus()
 	return self.armor
 end
 
---------------------------------------------------------------------------------
-
 function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen()
-	local spell = self:GetAbility()
-
-	if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
-		return self.healthRegen
-	end
-
-	return 0
+	-- local spell = self:GetAbility()
+	-- if self:GetRemainingTime() <= 0 or not spell:IsBreakable() then
+		-- return self.healthRegen
+	-- end
+	-- return 0
+  return self.healthRegen
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 --[[ Old Tranquils effect
 LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 modifier_item_greater_tranquil_boots_sap = class(ModifierBaseClass)
-
---------------------------------------------------------------------------------
 
 function modifier_item_greater_tranquil_boots_sap:IsHidden()
 	return true
@@ -274,8 +216,6 @@ end
 function modifier_item_greater_tranquil_boots_sap:IsPurgable()
 	return false
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
 	function modifier_item_greater_tranquil_boots_sap:OnCreated( event )
@@ -335,9 +275,18 @@ end
 
 function modifier_greater_tranquils_tranquilize_debuff:OnCreated()
   local parent = self:GetParent()
-  local attack_slow = self:GetAbility():GetSpecialValueFor("melee_attack_speed_slow")
+  local ability = self:GetAbility()
+  local attack_slow = -700
+  local attack_range = -500
+  if ability and not ability:IsNull() then
+    attack_slow = ability:GetSpecialValueFor("melee_attack_speed_slow")
+    attack_range = ability:GetSpecialValueFor("ranged_bonus_attack_range")
+  end
   if parent:IsRangedAttacker() or parent:IsOAABoss() then
     attack_slow = 0
+  end
+  if not parent:IsRangedAttacker() then
+    attack_range = 0
   end
   if IsServer() then
     -- Attack Speed Slow is reduced with Status Resistance
@@ -345,7 +294,11 @@ function modifier_greater_tranquils_tranquilize_debuff:OnCreated()
   else
     self.attack_slow = attack_slow
   end
+
+  self.attack_range = attack_range
 end
+
+modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranquils_tranquilize_debuff.OnCreated
 
 function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
   local funcs = {
@@ -360,11 +313,7 @@ function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBon
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackRangeBonus()
-  local ability = self:GetAbility()
-  if ability and self:GetParent():IsRangedAttacker() then
-    return ability:GetSpecialValueFor("ranged_bonus_attack_range")
-  end
-  return 0
+  return self.attack_range
 end
 
 item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)

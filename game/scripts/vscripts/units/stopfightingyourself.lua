@@ -1,5 +1,3 @@
-require('libraries/timers')
-
 local GLOBAL_origin = nil
 local ABILITY_dupe_heroes = nil
 
