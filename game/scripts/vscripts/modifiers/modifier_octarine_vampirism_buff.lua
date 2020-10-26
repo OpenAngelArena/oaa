@@ -25,22 +25,16 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_octarine_vampirism_buff:OnCreated( kv )
-	self.hero_lifesteal = self:GetAbility():GetSpecialValueFor( "hero_lifesteal" )
-	self.creep_lifesteal = self:GetAbility():GetSpecialValueFor( "creep_lifesteal" )
-
-	self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_hero_spell_lifesteal" )
-	self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_creep_spell_lifesteal" )
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.hero_lifesteal = ability:GetSpecialValueFor( "hero_lifesteal" )
+    self.creep_lifesteal = ability:GetSpecialValueFor( "creep_lifesteal" )
+    self.hero_spellsteal_unholy = ability:GetSpecialValueFor( "unholy_hero_spell_lifesteal" )
+    self.creep_spellsteal_unholy = ability:GetSpecialValueFor( "unholy_creep_spell_lifesteal" )
+  end
 end
 
---------------------------------------------------------------------------------
-
-function modifier_octarine_vampirism_buff:OnRefresh( kv )
-	self.hero_lifesteal = self:GetAbility():GetSpecialValueFor( "hero_lifesteal" )
-	self.creep_lifesteal = self:GetAbility():GetSpecialValueFor( "creep_lifesteal" )
-
-	self.hero_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_hero_spell_lifesteal" )
-	self.creep_spellsteal_unholy = self:GetAbility():GetSpecialValueFor( "unholy_creep_spell_lifesteal" )
-end
+modifier_octarine_vampirism_buff.OnRefresh = modifier_octarine_vampirism_buff.OnCreated
 
 --------------------------------------------------------------------------------
 
@@ -50,8 +44,11 @@ end
 
 --------------------------------------------------------------------------------
 function modifier_octarine_vampirism_buff:OnTakeDamage(params)
-	local hero = self:GetParent()
-	local isFirstVampModifier = hero:FindModifierByName(self:GetName()) == self
+  if not IsServer() then
+    return
+  end
+  local hero = self:GetParent()
+  local isFirstVampModifier = hero:FindModifierByName(self:GetName()) == self
 
 	local function IsItemOctarine(item)
 		-- Compare the full name because we don't want to include Octarine Core 2
@@ -60,7 +57,7 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
 	local items = map(partial(hero.GetItemInSlot, hero), range(0, 5))
 	local heroHasOctarine = any(IsItemOctarine, items)
 
-	-- Don't do anything if hero is Broken, self isn't the first spell vamp modifier, or hero has a level 1 Octarine Core
+	-- Don't do anything if self isn't the first spell vamp modifier, or hero has a level 1 Octarine Core
 	-- in their inventory
 	if not isFirstVampModifier or heroHasOctarine then
 		return

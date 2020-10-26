@@ -51,16 +51,19 @@ function modifier_oaa_glaives_of_wisdom:RemoveOnDeath()
 end
 
 function modifier_oaa_glaives_of_wisdom:OnCreated()
-  if IsServer() then
-    if not self.procRecords then
-      self.procRecords = {}
-    end
+  if not IsServer() then
+    return
+  end
+  if not self.procRecords then
+    self.procRecords = {}
   end
 
   local parent = self:GetParent()
   local ability = self:GetAbility()
   -- Add Silencer's permanent int steal custom modifier
-  parent:AddNewModifier(parent, ability, "modifier_oaa_int_steal", {})
+  if not parent:HasModifier("modifier_oaa_int_steal") then
+    parent:AddNewModifier(parent, ability, "modifier_oaa_int_steal", {})
+  end
 end
 
 modifier_oaa_glaives_of_wisdom.OnRefresh = modifier_oaa_glaives_of_wisdom.OnCreated
