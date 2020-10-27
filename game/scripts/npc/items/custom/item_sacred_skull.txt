@@ -57,6 +57,14 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
+    "precache"
+    {
+      "particle"                                          "particles/items/sacred_skull/vermillion_robe_hit.vpcf"
+      "particle"                                          "particles/items/sacred_skull/vermillion_robe_explosion.vpcf"
+      "particle"                                          "particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+    }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -124,7 +132,7 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "death_heal_base"                                 "500"
+        "death_heal_base"                                 "300"
       }
       "14"
       {
