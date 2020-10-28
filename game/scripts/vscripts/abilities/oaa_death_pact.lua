@@ -79,11 +79,13 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 
   if IsServer() then
     -- Talent that increases hp and dmg gain
-    local talent = parent:FindAbilityByName("special_bonus_unique_clinkz_8")
+    local talent = parent:FindAbilityByName("special_bonus_clinkz_death_pact_oaa")
     if talent then
       if talent:GetLevel() > 0 then
         healthPct = healthPct + talent:GetSpecialValueFor("value")
         damagePct = damagePct + talent:GetSpecialValueFor("value2")
+        healthMax = healthMax + talent:GetSpecialValueFor("value3")
+        damageMax = damageMax + talent:GetSpecialValueFor("value4")
       end
     end
   end
@@ -135,11 +137,13 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 
   if IsServer() then
     -- Talent that increases hp and dmg gain
-    local talent = parent:FindAbilityByName("special_bonus_unique_clinkz_8")
+    local talent = parent:FindAbilityByName("special_bonus_clinkz_death_pact_oaa")
     if talent then
       if talent:GetLevel() > 0 then
         healthPct = healthPct + talent:GetSpecialValueFor("value")
         damagePct = damagePct + talent:GetSpecialValueFor("value2")
+        healthMax = healthMax + talent:GetSpecialValueFor("value3")
+        damageMax = damageMax + talent:GetSpecialValueFor("value4")
       end
     end
   end
