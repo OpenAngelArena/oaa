@@ -88,9 +88,9 @@ function Baneling:FindBestBlastLocation()
       end
     end
   end
-  if bestLocation then
+  --if bestLocation then
     --print(tostring(bestLocation) .. " has the best unit count of " .. bestCount)
-  end
+  --end
   local hpPercent = entity:GetHealth() / entity:GetMaxHealth()
   if bestCount <= (countEnemies(entity_location) * hpPercent) then
     --print('Blasting off now!')

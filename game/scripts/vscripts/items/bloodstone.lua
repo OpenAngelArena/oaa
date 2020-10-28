@@ -90,7 +90,7 @@ function modifier_item_bloodstone_stacking_stats:Setup(created)
       when item is added, above flow executes
 
     ]]
-    local ability = modifier:GetAbility()
+    ability = modifier:GetAbility()
     if not ability or ability:IsNull() then
       return
     end
