@@ -59,7 +59,7 @@ end
 function modifier_item_stonework_pendant_passive:OnIntervalThink()
   local parent = self:GetParent()
   self.bonus_hp = self.bonus_hp + parent:GetMaxMana()
-  self.bonus_hp_regen = self.bonus_hp_regen + parent:GetManaRegen()
+  self.bonus_hp_regen = parent:GetManaRegen()
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus()
   end
@@ -69,7 +69,6 @@ function modifier_item_stonework_pendant_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_PROPERTY_SPELLS_REQUIRE_HP,
@@ -95,14 +94,6 @@ end
 function modifier_item_stonework_pendant_passive:GetModifierManaBonus()
   if self.bonus_hp then
     return -self.bonus_hp
-  end
-
-  return 0
-end
-
-function modifier_item_stonework_pendant_passive:GetModifierConstantManaRegen()
-	if self.bonus_hp_regen then
-    return -self.bonus_hp_regen
   end
 
   return 0
