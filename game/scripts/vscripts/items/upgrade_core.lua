@@ -15,8 +15,6 @@ end
 --------------------------------------------------------------------------------
 
 function item_upgrade_core:IsStillInInventory()
-	local caster = self:GetCaster()
-
 	if self and IsValidEntity( self ) and self:GetItemState() == 1 then
 		return true
 	end
@@ -27,6 +25,7 @@ end
 --------------------------------------------------------------------------------
 
 function item_upgrade_core:OnSpellStart()
+
 end
 
 --------------------------------------------------------------------------------
@@ -73,6 +72,15 @@ function item_upgrade_core:OnChannelFinish( interrupted )
 			item:SetPurchaser( purchaser )
 		end
 	end
+end
+
+--------------------------------------------------------------------------------
+
+function item_upgrade_core:IsMuted()
+  local caster = self:GetCaster()
+  if caster:IsCourier() then
+    return true
+  end
 end
 
 --------------------------------------------------------------------------------

@@ -4,13 +4,6 @@ LinkLuaModifier("modifier_item_sacred_skull_non_stacking_stats", "items/sacred_s
 
 item_sacred_skull = class(ItemBaseClass)
 
-function item_sacred_skull:Precache(context)
-  PrecacheResource("particle", "particles/items/sacred_skull/vermillion_robe_hit.vpcf", context)
-  PrecacheResource("particle", "particles/items/sacred_skull/vermillion_robe_explosion.vpcf", context)
-  PrecacheResource("particle", "particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", context)
-  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts", context)
-end
-
 function item_sacred_skull:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
@@ -32,7 +25,7 @@ function item_sacred_skull:OnSpellStart()
     local current_hp = caster:GetHealth()
     local current_hp_as_dmg = self:GetSpecialValueFor("health_cost")
     damage_table.damage = current_hp * current_hp_as_dmg * 0.01
-    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
     damage_table.damage_type = DAMAGE_TYPE_PURE
     damage_table.victim = caster
     ApplyDamage(damage_table)
@@ -106,10 +99,11 @@ function item_sacred_skull:OnSpellStart()
     if ally and not ally:IsNull() and ally ~= caster then
       -- Heal particle
       local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
-      --ParticleManager:DestroyParticle(particle, false)
-      --ParticleManager:ReleaseParticleIndex(particle)
+      ParticleManager:DestroyParticle(particle, false)
+      ParticleManager:ReleaseParticleIndex(particle)
       -- Healing
       ally:Heal(heal_amount, self)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
     end
   end
 end
@@ -192,12 +186,12 @@ end
 
 if IsServer() then
   function modifier_item_sacred_skull_stacking_stats:OnDeath(event)
-    local caster = self:GetCaster()
+    local parent = self:GetParent()
     local dead = event.unit
     local ability = self:GetAbility()
 
-    -- If dead unit is not the caster then dont continue
-    if dead ~= caster then
+    -- If dead unit is not the parent then dont continue
+    if dead ~= parent then
       return
     end
 
@@ -206,20 +200,27 @@ if IsServer() then
       return
     end
 
-    -- Check if caster is a real hero
-    if not caster:IsRealHero() or caster:IsTempestDouble() then
+    -- Check if parent is a real hero
+    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
       return
     end
 
-    local caster_team = caster:GetTeamNumber()
-    local death_location = caster:GetAbsOrigin()
+    local parent_team = parent:GetTeamNumber()
+    local death_location = parent:GetAbsOrigin()
 
-    local heal_amount = ability:GetSpecialValueFor("death_heal_base") + caster:GetMaxHealth() * 0.5
+    local heal_amount = 300 + parent:GetMaxHealth()
+    local heal_radius = 1200
+
+    if ability and not ability:IsNull() then
+      heal_amount = ability:GetSpecialValueFor("death_heal_base") + parent:GetMaxHealth()
+      heal_radius = ability:GetSpecialValueFor("death_heal_radius")
+    end
+
     local units = FindUnitsInRadius(
-      caster_team,
+      parent_team,
       death_location,
       nil,
-      ability:GetSpecialValueFor("death_heal_radius"),
+      heal_radius,
       DOTA_UNIT_TARGET_TEAM_FRIENDLY,
       bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
       DOTA_UNIT_TARGET_FLAG_NONE,
@@ -227,15 +228,22 @@ if IsServer() then
       false
     )
 
-    units = iter(units)
-    units:each(function (unit)
-      unit:Heal(heal_amount, ability)
-    end)
+    for _, ally in pairs(units) do
+      if ally and not ally:IsNull() then
+        -- Heal particle
+        local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
+        ParticleManager:DestroyParticle(particle, false)
+        ParticleManager:ReleaseParticleIndex(particle)
+        -- Healing
+        ally:Heal(heal_amount, ability)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+      end
+    end
 
     -- Add vision at death location
-    local vision_radius = ability:GetSpecialValueFor("death_vision_radius")
-    local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
-    AddFOWViewer(caster_team, death_location, vision_radius, vision_duration, false)
+    --local vision_radius = ability:GetSpecialValueFor("death_vision_radius")
+    --local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
+    --AddFOWViewer(caster_team, death_location, vision_radius, vision_duration, false)
   end
 end
 

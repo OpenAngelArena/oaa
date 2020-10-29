@@ -17,19 +17,9 @@ end
 function item_reduction_orb_1:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
-  local damageToHealPercent = self:GetSpecialValueFor("damage_as_healing")
-  local spell = self
 
   -- for damage-to-heal
-  spell.damageTaken = 0
-  local modifier caster:AddNewModifier(caster, spell, 'modifier_item_preemptive_damage_reduction', {
-    duration = duration
-  })
-
-  Timers:CreateTimer(duration, function ()
-    local amountToHeal = spell.damageTaken * damageToHealPercent / 100
-    caster:Heal(amountToHeal, spell)
-  end)
+  caster:AddNewModifier(caster, self, 'modifier_item_preemptive_damage_reduction', { duration = duration })
 end
 
 function item_reduction_orb_1:ProcsMagicStick ()
@@ -50,6 +40,34 @@ end
 
 function modifier_item_preemptive_damage_reduction:IsPurgable()
   return false
+end
+
+function modifier_item_preemptive_damage_reduction:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.damageheal = ability:GetSpecialValueFor("damage_as_healing") / 100
+    self.damageReduction = ability:GetSpecialValueFor( "damage_reduction" )
+  end
+  self.endHeal = 0
+end
+
+function modifier_item_preemptive_damage_reduction:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.damageheal = ability:GetSpecialValueFor("damage_as_healing") / 100
+    self.damageReduction = ability:GetSpecialValueFor( "damage_reduction" )
+  end
+end
+
+function modifier_item_preemptive_damage_reduction:OnDestroy()
+  if IsServer() then
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local amountToHeal = self.endHeal
+
+    parent:Heal(amountToHeal, ability)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, amountToHeal, nil)
+  end
 end
 
 function modifier_item_preemptive_damage_reduction:DeclareFunctions()
@@ -87,11 +105,10 @@ function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Per
     basher_tested: false
     fail_type: 0
   ]]
-  local spell = self:GetAbility()
 
-  spell.damageTaken = spell.damageTaken + event.damage
+  self.endHeal = self.endHeal + event.original_damage * self.damageheal
 
-  return spell:GetSpecialValueFor( "damage_reduction" ) * -1
+  return self.damageReduction * -1
 end
 
 function modifier_item_preemptive_damage_reduction:GetModifierModelScale()

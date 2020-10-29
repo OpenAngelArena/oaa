@@ -135,6 +135,6 @@ function modifier_generic_projectile:OnIntervalThink()
 
         onLandedCallback()
 
-        print("Projectile done")
+        --print("Projectile done")
     end
 end

@@ -129,11 +129,5 @@ function modifier_item_far_sight_true_sight:OnDestroy()
       ParticleManager:DestroyParticle( self.nFXIndex , false)
       ParticleManager:ReleaseParticleIndex( self.nFXIndex )
     end
-
-    -- Thinkers are supposed to remove themselves when they expire but lets make sure
-    local parent = self:GetParent()
-    if parent and not parent:IsNull() then
-      UTIL_Remove(parent)
-    end
   end
 end

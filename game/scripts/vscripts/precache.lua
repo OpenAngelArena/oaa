@@ -1,19 +1,25 @@
 g_ItemPrecache = {
   "item_bubble_orb_1",
-  "item_stoneskin",
-  "item_greater_phase_boots",
-  "item_greater_power_treads",
-  "item_greater_tranquil_boots",
-  "item_dagon",
-  "item_vampire",
-  "item_regen_crystal_1",
-  "item_trumps_fists",
-  "item_enrage_crystal_1",
   "item_dagger_of_moriah",
-  "item_dispel_orb_1",
-  "item_reflection_shard_1",
-  "item_heart_transplant",
   "item_devastator_3",
+  "item_dispel_orb_1",
+  "item_elixier_burst",
+  "item_elixier_hybrid",
+  "item_elixier_sustain",
+  "item_enrage_crystal_1",
+  "item_far_sight",
+  "item_giant_form",
+  "item_heart_transplant",
+  "item_lucience",
+  "item_pull_staff",
+  "item_reflection_shard_1",
+  "item_regen_crystal_1",
+  "item_sacred_skull",
+  "item_stoneskin",
+  "item_trumps_fists",
+  "item_vampire",
+  --"item_greater_tranquil_boots",
+  "item_dagon",
 }
 
 g_UnitPrecache = {
@@ -80,21 +86,23 @@ g_ParticlePrecache = {
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf",
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
   "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
-  -- Vector targetting
-  --"particles/ui_mouseactions/range_finder_cone.vpcf",
 }
 
 g_ParticleFolderPrecache = {
   "particles/capture_point_ring",
   --"particles/econ/items", -- Precache all hero cosmetics
   "particles/items",
-  "particles/items/dispel_orb",
   "particles/items/dagger_of_moriah",
+  "particles/items/devastator",
+  "particles/items/dispel_orb",
+  "particles/items/elixiers",
   "particles/items/enrage_crystal",
-  "particles/items/regen_crystal",
-  "particles/items/vampire",
-  "particles/items/reflection_shard",
   "particles/items/heart_transplant",
+  "particles/items/reflection_shard",
+  "particles/items/regen_crystal",
+  "particles/items/sacred_skull",
+  "particles/items/trumps_fists",
+  "particles/items/vampire",
   "particles/hero/electrician",
 }
 
@@ -106,4 +114,5 @@ g_SoundPrecache = {
   "soundevents/music/music.vsndevts",
   "soundevents/game_sounds_creeps.vsndevts",
   "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts",
+  "soundevents/game_sounds_items.vsndevts",
 }

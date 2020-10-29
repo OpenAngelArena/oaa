@@ -29,6 +29,19 @@ function modifier_sonic_fly:IsPurgable()
   return true
 end
 
+function modifier_sonic_fly:OnCreated()
+  local ability = self:GetAbility()
+
+  if ability and not ability:IsNull() then
+    ability.mod = self
+
+    self.vision = ability:GetSpecialValueFor("vision_bonus")
+    self.speed = ability:GetSpecialValueFor("speed_bonus")
+  end
+end
+
+modifier_sonic_fly.OnRefresh = modifier_sonic_fly.OnCreated
+
 function modifier_sonic_fly:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
@@ -49,11 +62,11 @@ function modifier_sonic_fly:CheckState()
 end
 
 function modifier_sonic_fly:GetBonusVisionPercentage()
-  return self:GetAbility():GetSpecialValueFor("vision_bonus")
+  return self.vision or self:GetAbility():GetSpecialValueFor("vision_bonus")
 end
 
 function modifier_sonic_fly:GetModifierMoveSpeedBonus_Percentage()
-  return self:GetAbility():GetSpecialValueFor("speed_bonus")
+  return self.speed or self:GetAbility():GetSpecialValueFor("speed_bonus")
 end
 
 function modifier_sonic_fly:GetModifierIgnoreMovespeedLimit()

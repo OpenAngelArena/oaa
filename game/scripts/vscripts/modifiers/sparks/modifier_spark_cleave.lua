@@ -16,6 +16,10 @@ function modifier_spark_cleave:RemoveOnDeath()
   return false
 end
 
+function modifier_spark_cleave:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_spark_cleave:GetTexture()
   return "custom/spark_cleave"
 end

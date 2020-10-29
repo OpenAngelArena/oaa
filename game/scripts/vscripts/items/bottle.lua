@@ -78,11 +78,7 @@ function item_infinite_bottle:OnSpellStart()
 
   caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 
-  if self:GetCurrentCharges() - 1 <= 0 then
-    caster:RemoveItem(self)
-  else
-    self:SetCurrentCharges(self:GetCurrentCharges() - 1)
-  end
+  self:SpendCharge()
 end
 
 function item_infinite_bottle:GetAbilityTextureName()
@@ -101,7 +97,7 @@ end
 
 --------------------------------------------------------------------------------
 
-Debug:EnableDebugging()
+--Debug:EnableDebugging()
 
 modifier_bottle_texture_tracker = class(ModifierBaseClass)
 
