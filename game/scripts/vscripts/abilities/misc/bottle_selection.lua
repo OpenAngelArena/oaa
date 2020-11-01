@@ -52,6 +52,7 @@ function modifier_bottle_selection:CheckState()
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
   }
 
   return state
@@ -82,4 +83,3 @@ function modifier_bottle_selection:OnOrder( params )
 
 	return 0
 end
------------------------------------------------------------------------

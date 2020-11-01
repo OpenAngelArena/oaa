@@ -43,7 +43,17 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "2.0" // OAA, for picking screen tooltip
+        "teleport_delay"                                  "1.5" // OAA, for picking screen tooltip
+      }
+      "03" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2.0 2.25 2.5 2.75 3.0"
+      }
+      "04" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "250 450 650 1250 1850"
       }
     }
   }

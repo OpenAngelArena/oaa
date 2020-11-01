@@ -41,13 +41,14 @@ function OgreSeerThink()
   end
 
   if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-    thisEntity.bInitialized = true
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.hOgreBoss = FindOgreBoss()
+    thisEntity.BossTier = thisEntity.BossTier or 5
+    thisEntity.bInitialized = true
   end
 
   if thisEntity.hOgreBoss == nil or not thisEntity.hOgreBoss:IsAlive() then

@@ -1,26 +1,26 @@
 LinkLuaModifier( "modifier_temple_guardian_statue", "modifiers/modifier_temple_guardian_statue", LUA_MODIFIER_MOTION_NONE )
 
 function Spawn( entityKeyValues )
-	if not IsServer() then
-		return
-	end
+  if not IsServer() then
+    return
+  end
 
-	if thisEntity == nil then
-		return
-	end
+  if thisEntity == nil then
+    return
+  end
 
-	thisEntity.bIsEnraged = false
+  thisEntity.bIsEnraged = false
 
-	thisEntity.HammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_smash" )
-	thisEntity.HammerThrowAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_throw" )
-	thisEntity.PurificationAbility = thisEntity:FindAbilityByName( "temple_guardian_purification" )
-	thisEntity.WrathAbility = thisEntity:FindAbilityByName( "temple_guardian_wrath" )
+  thisEntity.HammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_smash" )
+  thisEntity.HammerThrowAbility = thisEntity:FindAbilityByName( "temple_guardian_hammer_throw" )
+  thisEntity.PurificationAbility = thisEntity:FindAbilityByName( "temple_guardian_purification" )
+  thisEntity.WrathAbility = thisEntity:FindAbilityByName( "temple_guardian_wrath" )
 
-	thisEntity.RageHammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash" )
-	thisEntity.RageHammerSmashAbility:SetHidden( false )
+  thisEntity.RageHammerSmashAbility = thisEntity:FindAbilityByName( "temple_guardian_rage_hammer_smash" )
+  thisEntity.RageHammerSmashAbility:SetHidden( false )
   thisEntity:StartGesture( ACT_DOTA_CAST_ABILITY_7 )
 
-	thisEntity:SetContextThink( "TempleGuardianThink", TempleGuardianThink, 1 )
+  thisEntity:SetContextThink( "TempleGuardianThink", TempleGuardianThink, 1 )
 end
 
 function TempleGuardianThink()
@@ -37,11 +37,12 @@ function TempleGuardianThink()
   end
 
   if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-    thisEntity.bInitialized = true
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
+    thisEntity.BossTier = thisEntity.BossTier or 4
     thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
-	end
+    thisEntity.bInitialized = true
+  end
 
   local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
 

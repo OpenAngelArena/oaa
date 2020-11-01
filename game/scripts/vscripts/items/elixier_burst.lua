@@ -9,9 +9,9 @@ LinkLuaModifier("modifier_elixier_burst_bonus", "items/elixier_burst.lua", LUA_M
 
 --------------------------------------------------------------------------------
 
-item_elixier_burst_1 = class(ItemBaseClass)
+item_elixier_burst = class(ItemBaseClass)
 
-function item_elixier_burst_1:OnSpellStart()
+function item_elixier_burst:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 
@@ -34,12 +34,6 @@ end
 
 --------------------------------------------------------------------------------
 
-item_elixier_burst_2 = item_elixier_burst_1
-item_elixier_burst_3 = item_elixier_burst_1
-item_elixier_burst_4 = item_elixier_burst_1
-
---------------------------------------------------------------------------------
-
 modifier_elixier_burst_active = class(ModifierBaseClass)
 
 function modifier_elixier_burst_active:IsHidden() return false end
@@ -54,8 +48,8 @@ function modifier_elixier_burst_active:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_burst_active:GetAbilityTextureName()
-  return "custom/elixier_burst_1"
+function modifier_elixier_burst_active:GetTexture()
+  return "custom/elixier_burst_2"
 end
 
 function modifier_elixier_burst_active:OnCreated(keys)
@@ -83,8 +77,8 @@ function modifier_elixier_burst_trigger:IsHidden() return false end
 function modifier_elixier_burst_trigger:IsPurgable() return false end
 function modifier_elixier_burst_trigger:IsDebuff() return false end
 
-function modifier_elixier_burst_trigger:GetAbilityTextureName()
-  return "custom/elixier_burst_1"
+function modifier_elixier_burst_trigger:GetTexture()
+  return "custom/elixier_burst_2"
 end
 
 function modifier_elixier_burst_trigger:OnCreated(keys)
@@ -128,8 +122,8 @@ function modifier_elixier_burst_bonus:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_elixier_burst_bonus:GetAbilityTextureName()
-  return "custom/elixier_burst_1"
+function modifier_elixier_burst_bonus:GetTexture()
+  return "custom/elixier_burst_2"
 end
 
 function modifier_elixier_burst_bonus:OnCreated(keys)

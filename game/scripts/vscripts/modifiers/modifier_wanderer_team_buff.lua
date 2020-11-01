@@ -38,22 +38,22 @@ if IsServer() then
   end
 end
 
--- +20% cdr, movement speed, attack damage.
+-- +20% movement speed, attack damage.
 function modifier_wanderer_team_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
+    --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE
+    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
     -- MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
   }
 end
 
-function modifier_wanderer_team_buff:GetModifierPercentageCooldownStacking ()
-  if self:GetStackCount() > 1000 then
-    return 0
-  end
-  return 20
-end
+-- function modifier_wanderer_team_buff:GetModifierPercentageCooldownStacking ()
+  -- if self:GetStackCount() > 1000 then
+    -- return 0
+  -- end
+  -- return 20
+-- end
 
 function modifier_wanderer_team_buff:GetModifierBaseDamageOutgoing_Percentage ()
 -- function modifier_wanderer_team_buff:GetModifierPreAttack_BonusDamage ()

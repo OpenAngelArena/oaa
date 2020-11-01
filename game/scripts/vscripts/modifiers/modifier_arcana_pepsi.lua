@@ -39,7 +39,6 @@ function modifier_arcana_pepsi:DeclareFunctions()
 end
 
 function modifier_arcana_pepsi:OnCreated()
-
   if IsServer() then
     local parent = self:GetParent()
     self.Glow = ParticleManager:CreateParticle( "particles/hero/sohei/arcana/pepsi/pepsi_flare_core.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )

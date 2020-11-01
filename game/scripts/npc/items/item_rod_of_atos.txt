@@ -67,15 +67,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_intellect"                                 "20 30 45 65 90"
       }
-      "02"
+      "02" // it should be better than Sheepstick (Scythe of Vyse) but worse than Meteor Hammer
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 25 35 45 55"
+        "bonus_strength"                                  "10 20 35 55 80"
       }
-      "03"
+      "03" // it should be better than Sheepstick (Scythe of Vyse) and better than Meteor Hammer
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 25 35 45 55"
+        "bonus_agility"                                   "10 20 35 55 80"
       }
       "04"
       {

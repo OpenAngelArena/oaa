@@ -65,6 +65,10 @@ function modifier_spark_gpm:RemoveOnDeath()
   return false
 end
 
+function modifier_spark_gpm:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_spark_gpm:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOOLTIP

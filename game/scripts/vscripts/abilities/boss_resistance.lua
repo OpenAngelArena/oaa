@@ -41,6 +41,9 @@ function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
 end
 
 function modifier_boss_resistance:OnTakeDamage(keys)
+  if not IsServer() then
+    return
+  end
   local parent = self:GetParent()
   if not keys.attacker or not keys.unit or keys.unit ~= parent then
     return
@@ -50,21 +53,23 @@ function modifier_boss_resistance:OnTakeDamage(keys)
   keys.attacker:AddNewModifier(parent, self:GetAbility(), "modifier_boss_truesight", {duration = revealDuration})
 end
 
-function modifier_boss_resistance:GetModifierPhysicalArmorBonus()
-  local parent = self:GetParent()
-  if self.checkArmor then
-    return 0
-  else
-    self.checkArmor = true
-    local base_armor = parent:GetPhysicalArmorBaseValue()
-    local current_armor = parent:GetPhysicalArmorValue(false)
-    self.checkArmor = false
-    local min_armor = base_armor - 20
-    if current_armor < min_armor then
-      return min_armor - current_armor
+if IsServer() then
+  function modifier_boss_resistance:GetModifierPhysicalArmorBonus()
+    local parent = self:GetParent()
+    if self.checkArmor then
+      return 0
+    else
+      self.checkArmor = true
+      local base_armor = parent:GetPhysicalArmorBaseValue()
+      local current_armor = parent:GetPhysicalArmorValue(false)
+      self.checkArmor = false
+      local min_armor = base_armor - 20
+      if current_armor < min_armor then
+        return min_armor - current_armor
+      end
     end
+    return 0
   end
-  return 0
 end
 
 function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)

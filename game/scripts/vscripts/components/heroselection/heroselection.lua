@@ -199,13 +199,7 @@ function HeroSelection:BuildBottlePass()
       special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
       HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
     end
-    if SPECIAL_ARCANAS[steamid] then
-      special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}
-      table.insert(special_arcanas[playerID].Arcanas, 'RockElectrician')
-      if SPECIAL_BOTTLES[steamid] then
-        table.insert(special_arcanas[playerID].Arcanas, 'PepsiSohei')
-      end
-    end
+    special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}}
   end
 
   -- Populate table with playerIds and list of bottles/arcanas for players

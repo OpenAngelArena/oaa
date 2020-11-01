@@ -77,12 +77,12 @@ function modifier_offside:IsDebuff()
 end
 
 function modifier_offside:ReleaseParticles()
-  if self.stackParticle ~= nil then
+  if self.stackParticle then
     ParticleManager:DestroyParticle(self.stackParticle, false)
     ParticleManager:ReleaseParticleIndex( self.stackParticle )
   end
 
-  if self.BloodOverlay ~= nil then
+  if self.BloodOverlay then
     ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
     ParticleManager:DestroyParticle(self.BloodOverlay, false)
     ParticleManager:ReleaseParticleIndex( self.BloodOverlay )
@@ -105,11 +105,11 @@ function modifier_offside:DrawParticles()
         DebugPrint("Create Blood Overlay Alpha =" ..alpha)
       end
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
-    elseif self.BloodOverlay ~= nil and not isInOffside then
+    elseif self.BloodOverlay and not isInOffside then
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
     end
 
-    if self.stackParticle ~= nil then
+    if self.stackParticle then
       ParticleManager:DestroyParticle(self.stackParticle, false)
     end
     self.stackParticle = ParticleManager:CreateParticleForPlayer( "particles/dungeon_overhead_timer_colored.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetParent():GetPlayerOwner() )
@@ -167,7 +167,7 @@ function modifier_offside:OnIntervalThink()
     2000,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NONE,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_ANY_ORDER,
     false) or nil
 
@@ -186,7 +186,7 @@ function modifier_offside:OnIntervalThink()
     attacker = defenders,
     damage = (h * ((0.15 * ((stackCount - 10)^2 + 10 * (stackCount - 10)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
-    damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_REFLECTION,
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
     ability = nil
   }
 

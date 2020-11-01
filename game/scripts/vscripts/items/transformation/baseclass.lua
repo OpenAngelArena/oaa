@@ -49,6 +49,10 @@ function TransformationBaseClass:OnSpellStart()
   --end
 end
 
+function TransformationBaseClass:ProcsMagicStick()
+  return false
+end
+
 if IsServer() then
   function TransformationBaseClass:EndOthers()
     local caster = self:GetCaster()

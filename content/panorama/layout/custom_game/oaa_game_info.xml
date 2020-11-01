@@ -27,11 +27,11 @@
         <Label id="BossesText" html="true" text="#game_info_bosses" />
         <Image id="BossesImage" src="file://{images}/custom_game/game_info/bosses.psd" />
       </Panel>
+      <!--
       <Panel id="FarmingCoreRow" class="InfoRow">
         <Image id="FarmingCoreImage" src="file://{images}/custom_game/game_info/farming_core.psd" />
         <Label id="FarmingCoreText" html="true" text="#game_info_farming_core" />
       </Panel>
-      <!--
       <Panel id="ReflexCoreRow" class="InfoRow">
         <Label id="ReflexCoreText" html="true" text="#game_info_reflex_core" />
         <Image id="ReflexCoreImage" src="file://{images}/custom_game/game_info/reflex_core.psd" />

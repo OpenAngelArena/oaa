@@ -68,6 +68,17 @@ function modifier_item_refresher_oaa:IsPurgable()
   return false
 end
 
+function modifier_item_refresher_oaa:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
+    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
+    self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+  end
+end
+
+modifier_item_refresher_oaa.OnRefresh = modifier_item_refresher_oaa.OnCreated
+
 function modifier_item_refresher_oaa:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
@@ -81,13 +92,13 @@ function modifier_item_refresher_oaa:DeclareFunctions()
 end
 
 function modifier_item_refresher_oaa:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor('bonus_health_regen')
+  return self.bonus_hp_regen or self:GetAbility():GetSpecialValueFor('bonus_health_regen')
 end
 
 function modifier_item_refresher_oaa:GetModifierHealthBonus()
-  return self:GetAbility():GetSpecialValueFor('bonus_health')
+  return self.bonus_health or self:GetAbility():GetSpecialValueFor('bonus_health')
 end
 
 function modifier_item_refresher_oaa:GetModifierManaBonus()
-  return self:GetAbility():GetSpecialValueFor('bonus_mana')
+  return self.bonus_mana or self:GetAbility():GetSpecialValueFor('bonus_mana')
 end

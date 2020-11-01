@@ -30,7 +30,7 @@ function Duels:Init ()
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
   GameEvents:OnHeroDied(function (keys)
-    self:CheckDuelStatus(keys)
+    Duels:CheckDuelStatus(keys)
   end)
 
   GameEvents:OnPlayerReconnect(function (keys)
@@ -44,7 +44,7 @@ function Duels:Init ()
     local playerID = keys.PlayerID
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-      if hero and not self.currentDuel then
+      if hero and not Duels.currentDuel then
         hero:SetRespawnsDisabled(false)
         if hero:IsAlive() then
           hero:RemoveModifierByName("modifier_out_of_duel")
@@ -54,11 +54,11 @@ function Duels:Init ()
         end
       end
 
-      if not self:IsActive() then
+      if not Duels:IsActive() then
         return
       end
 
-      local player = self:PlayerForDuel(playerID)
+      local player = Duels:PlayerForDuel(playerID)
       if not player or not player.assigned or not player.duelNumber then
         -- player is not in a duel, they can just chill tf out
         return
@@ -69,7 +69,7 @@ function Duels:Init ()
       player.disconnected = false
       hero:RemoveModifierByName("modifier_out_of_duel")
 
-      self:UnCountPlayerDeath(player)
+      Duels:UnCountPlayerDeath(player)
     end
   end)
 
@@ -84,11 +84,11 @@ function Duels:Init ()
         hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
       end
 
-      if not self:IsActive() then
+      if not Duels:IsActive() then
         return
       end
 
-      local player = self:PlayerForDuel(playerID)
+      local player = Duels:PlayerForDuel(playerID)
       if not player or not player.assigned or not player.duelNumber then
         -- player is not in a duel, they can just chill tf out
         return
@@ -98,7 +98,7 @@ function Duels:Init ()
         return
       end
 
-      self:CountPlayerDeath(player)
+      Duels:CountPlayerDeath(player)
     end
   end)
 
@@ -227,7 +227,7 @@ function Duels:StartDuel(options)
     DebugPrint ('There is already a duel running')
     return
   end
-  self.wasCanceled = false;
+  self.wasCanceled = false
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
@@ -242,7 +242,7 @@ function Duels:StartDuel(options)
   Notifications:TopToAll({text="#duel_imminent_warning", duration=math.min(DUEL_START_WARN_TIME, 5.0), replacement_map={seconds_to_duel = DUEL_START_WARN_TIME}})
   for index = 0,(DUEL_START_COUNTDOWN - 1) do
     Timers:CreateTimer(DUEL_START_WARN_TIME - DUEL_START_COUNTDOWN + index, function ()
-      if self.wasCanceled then
+      if Duels.wasCanceled then
         return
       end
       Notifications:TopToAll({text=(DUEL_START_COUNTDOWN - index), duration=1.0})
@@ -250,18 +250,18 @@ function Duels:StartDuel(options)
   end
 
   Timers:CreateTimer(DUEL_START_WARN_TIME, function ()
-    if self.wasCanceled then
+    if Duels.wasCanceled then
       return
     end
     Notifications:TopToAll({text="#duel_start", duration=3.0, style={color="red", ["font-size"]="110px"}})
-    for _, zone in ipairs(self.zones) do
+    for _, zone in ipairs(Duels.zones) do
       ZoneCleaner:CleanZone(zone)
     end
-    self:ActuallyStartDuel(options)
+    Duels:ActuallyStartDuel(options)
   end)
 end
 
-function Duels:CancelDuel ()
+function Duels:CancelDuel()
   if self.currentDuel == DUEL_IS_STARTING and self.wasCanceled == false then
     self.wasCanceled = true
     Notifications:TopToAll({text="DUEL CANCELED", duration=3.0, style={color="red", ["font-size"]="110px"}})
@@ -410,7 +410,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     local player = PlayerResource:GetPlayer(guy.id)
     local hero = player:GetAssignedHero()
     guy.duelNumber = duelNumber
-    self.zones[arenaIndex].addPlayer(guy.id)
+    Duels.zones[arenaIndex].addPlayer(guy.id)
 
     SafeTeleportAll(hero, spawn, 250)
     MoveCameraToPlayer(hero)

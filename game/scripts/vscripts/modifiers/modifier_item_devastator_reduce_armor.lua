@@ -10,18 +10,19 @@ function modifier_item_devastator_reduce_armor:IsPurgable()
   return true
 end
 
-if IsServer() then
-  function modifier_item_devastator_reduce_armor:OnCreated()
+
+function modifier_item_devastator_reduce_armor:OnCreated()
+  if IsServer() then
     self:StartIntervalThink(0.1)
   end
+end
 
-  function modifier_item_devastator_reduce_armor:OnIntervalThink()
-    local parent = self:GetParent()
-    -- We assume that devastator active has a better armor reduction than the desolator armor reduction
-    -- Remove the desolator debuff to prevent stacking armor reductions
-    if parent:HasModifier("modifier_desolator_buff") then
-      parent:RemoveModifierByName("modifier_desolator_buff")
-    end
+function modifier_item_devastator_reduce_armor:OnIntervalThink()
+  local parent = self:GetParent()
+  -- We assume that devastator active has a better armor reduction than the desolator armor reduction
+  -- Remove the desolator debuff to prevent stacking armor reductions
+  if parent:HasModifier("modifier_desolator_buff") then
+    parent:RemoveModifierByName("modifier_desolator_buff")
   end
 end
 

@@ -17,3 +17,7 @@ function item_enrage_crystal_1:OnSpellStart()
   local nIndex = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:ReleaseParticleIndex( nIndex )
 end
+
+function item_enrage_crystal_1:ProcsMagicStick()
+  return false
+end

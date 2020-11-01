@@ -16,6 +16,10 @@ function modifier_spark_midas:RemoveOnDeath()
   return false
 end
 
+function modifier_spark_midas:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_spark_midas:GetTexture()
   return "custom/spark_midas"
 end

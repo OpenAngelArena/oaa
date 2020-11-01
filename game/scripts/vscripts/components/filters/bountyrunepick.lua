@@ -13,7 +13,7 @@ function BountyRunePick:Filter(filter_table)
   local vanilla_gold_bounty = filter_table.gold_bounty
   local playerID = filter_table.player_id_const
   local vanilla_xp_bounty = filter_table.xp_bounty
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
 
   -- Game time in seconds:
   local game_time = HudTimer:GetGameTime()

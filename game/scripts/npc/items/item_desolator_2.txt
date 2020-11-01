@@ -24,6 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_desolator;item_upgrade_core"
+      "02"                                                "item_bfury;item_upgrade_core"
     }
   }
 
@@ -60,7 +61,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 140 200"
+        "bonus_damage"                                    "50 70 100 140 190"
       }
       "02"
       {

@@ -64,15 +64,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // total hp should be the same as Octarine Core 3-5
+      "01" // total hp should be the same or higher than Octarine Core 3-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "50 75 100"
+        "bonus_strength"                                  "65 85 110"
       }
       "02" // like Octarine Core bonus intelligence at levels 3-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "45 70 100"
+        "bonus_intelligence"                              "25 40 60"
       }
       "03"
       {

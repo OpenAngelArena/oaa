@@ -1,5 +1,3 @@
-require('libraries/timers')
-
 LinkLuaModifier("modifier_boss_charger_charge", "abilities/charger/boss_charger_charge.lua", LUA_MODIFIER_MOTION_BOTH) --- BATHS HEAVY IMPORTED
 LinkLuaModifier("modifier_boss_charger_pillar_debuff", "abilities/charger/modifier_boss_charger_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PARTH WEVY IMPARTAYT
 LinkLuaModifier("modifier_boss_charger_hero_pillar_debuff", "abilities/charger/modifier_boss_charger_hero_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PITH YEVY IMPARTIAL

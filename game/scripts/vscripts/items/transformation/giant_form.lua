@@ -15,6 +15,8 @@ function item_giant_form:GetTransformationModifierName()
   return "modifier_item_giant_form_grow"
 end
 
+item_giant_form_2 = item_giant_form
+
 --------------------------------------------------------------------------------
 
 modifier_item_giant_form_grow = class(ModifierBaseClass)
@@ -36,17 +38,20 @@ function modifier_item_giant_form_grow:GetEffectName()
 end
 
 function modifier_item_giant_form_grow:OnCreated( event )
-  local spell = self:GetAbility()
-  local parent = self:GetParent()
+  local ability = self:GetAbility()
 
-  spell.mod = self
+  if ability and not ability:IsNull() then
+    ability.mod = self
 
-  self.atkRange = spell:GetSpecialValueFor( "giant_attack_range" )
-  self.castRange = spell:GetSpecialValueFor( "giant_cast_range" )
-  self.atkDmg = spell:GetSpecialValueFor( "giant_damage_bonus" )
-  self.atkSpd = spell:GetSpecialValueFor( "giant_atkspd_bonus" )
-  self.splashRadius = spell:GetSpecialValueFor( "giant_aoe" )
-  self.splashDmg = spell:GetSpecialValueFor( "giant_splash" )
+    self.atkRange = ability:GetSpecialValueFor("giant_attack_range")
+    self.castRange = ability:GetSpecialValueFor("giant_cast_range")
+    self.atkDmg = ability:GetSpecialValueFor("giant_damage_bonus")
+    self.atkRate = ability:GetSpecialValueFor("giant_attack_rate")
+    self.splashRadius = ability:GetSpecialValueFor("giant_aoe")
+    self.splashDmg = ability:GetSpecialValueFor("giant_splash")
+    self.moveSpeed = ability:GetSpecialValueFor("giant_move_speed")
+    self.scale = ability:GetSpecialValueFor("giant_scale")
+  end
 end
 
 modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
@@ -78,33 +83,21 @@ end
 
 function modifier_item_giant_form_grow:GetModifierPreAttack_BonusDamage( event )
   local spell = self:GetAbility()
-
   return self.atkDmg or spell:GetSpecialValueFor( "giant_damage_bonus" )
 end
 
 function modifier_item_giant_form_grow:GetModifierFixedAttackRate( event )
   local spell = self:GetAbility()
-
-  return spell:GetSpecialValueFor( "giant_attack_rate" )
+  return self.atkRate or spell:GetSpecialValueFor( "giant_attack_rate" )
 end
 
 function modifier_item_giant_form_grow:GetModifierAttackRangeBonus( event )
   local spell = self:GetAbility()
-  local parent = self:GetParent()
-
-  if not spell then
-    if not self:IsNull() then
-      self:Destroy()
-    end
-    return
-  end
-
-  return spell:GetSpecialValueFor( "giant_attack_range" )
+  return self.atkRange or spell:GetSpecialValueFor( "giant_attack_range" )
 end
 
 function modifier_item_giant_form_grow:GetModifierCastRangeBonus( event )
   local spell = self:GetAbility()
-
   return self.castRange or spell:GetSpecialValueFor( "giant_cast_range" )
 end
 
@@ -114,19 +107,12 @@ end
 
 function modifier_item_giant_form_grow:GetModifierMoveSpeed_Absolute()
   local spell = self:GetAbility()
-
-  if not spell then
-    if not self:IsNull() then
-      self:Destroy()
-    end
-    return
-  end
-
-  return spell:GetSpecialValueFor("giant_move_speed")
+  return self.moveSpeed or spell:GetSpecialValueFor("giant_move_speed")
 end
 
 function modifier_item_giant_form_grow:GetModifierModelScale()
-  return self:GetAbility():GetSpecialValueFor("giant_scale")
+  local spell = self:GetAbility()
+  return self.scale or spell:GetSpecialValueFor("giant_scale")
 end
 
 if IsServer() then
@@ -153,6 +139,9 @@ if IsServer() then
       local spell = self:GetAbility()
       local targetOrigin = target:GetAbsOrigin()
 
+      if not spell or spell:IsNull() then
+        return
+      end
       -- set the targeting requirements for the actual targets
       targetTeam = spell:GetAbilityTargetTeam()
       targetType = spell:GetAbilityTargetType()
@@ -196,13 +185,12 @@ if IsServer() then
       -- iterate through all targets
       for k, unit in pairs( units ) do
         -- inflict damage
-        -- DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION prevents spell amp and spell lifesteal
         ApplyDamage( {
           victim = unit,
           attacker = self:GetCaster(),
           damage = damage,
           damage_type = DAMAGE_TYPE_PHYSICAL,
-          damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
           ability = self,
         } )
       end
@@ -217,6 +205,6 @@ if IsServer() then
   end
 end
 
---------------------------------------------------------------------------------
-
-item_giant_form_2 = item_giant_form
+function modifier_item_giant_form_grow:GetTexture()
+  return "custom/giant_form_2_active"
+end

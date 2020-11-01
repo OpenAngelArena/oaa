@@ -45,9 +45,11 @@ function modifier_boss_shielder_shielded_buff:OnPhaseChanged(level)
   foreach(partial(self.CreateParticle, self), levelsToCreate)
 end
 
-function modifier_boss_shielder_shielded_buff:OnDeath(keys)
-  if keys.unit == self:GetParent() then
-    foreach(partial(self.DestroyParticle, self), range(3))
+if IsServer() then
+  function modifier_boss_shielder_shielded_buff:OnDeath(keys)
+    if keys.unit == self:GetParent() then
+      foreach(partial(self.DestroyParticle, self), range(3))
+    end
   end
 end
 

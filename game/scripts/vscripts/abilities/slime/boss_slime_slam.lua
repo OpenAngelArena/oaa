@@ -6,6 +6,12 @@ boss_slime_slam = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
+function boss_slime_slam:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context)
+end
+
 function boss_slime_slam:OnAbilityPhaseStart()
 	if IsServer() then
 		local caster = self:GetCaster()

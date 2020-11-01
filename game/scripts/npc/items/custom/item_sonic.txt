@@ -8,14 +8,18 @@
     "ID"                  "8513"
     "BaseClass"           "item_datadriven"
     "Model"               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"  "custom/recipe/recipe_3"
+    "AbilityTextureName"  "custom/recipe/recipe_4"
     "ItemCost"                                            "8000"
     "ItemShopTags"        ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_sonic"
     "ItemRequirements"
     {
-      "01"                "item_greater_phase_boots_2;item_upgrade_core_3"
+      "01"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
+      "02"                                                "item_greater_power_treads_2;item_upgrade_core_3"
+      "03"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
+      "04"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
+      "05"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
     }
   }
 
@@ -70,7 +74,7 @@
       "05" // sonic active percentage movement speed bonus
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "30 35"
+        "speed_bonus"                                     "35 40"
       }
       "06" // sonic active percentage vision bonus
       {

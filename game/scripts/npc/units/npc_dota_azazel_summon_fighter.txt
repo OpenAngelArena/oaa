@@ -1,5 +1,8 @@
 "DOTAUnits"
 {
+//=================================================================================
+// Azazel's Fighter
+//=================================================================================
   "npc_dota_azazel_summon_fighter"
   {
     // General
@@ -9,6 +12,8 @@
     "SoundSet"                                            "n_creep_Ranged"
 
     "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "CanBeDominated"                                      "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -24,14 +29,14 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "25"        // Physical protection.
-    "MagicalResistance"                                   "75"        // Magical protection.
+    "MagicalResistance"                                   "40"        // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"                                     "1000"       // Damage range min.
     "AttackDamageMax"                                     "1000"       // Damage range max.
-    "AttackRate"                                          "1"
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"                                "0.6"
     "AttackAcquisitionRange"                              "700"
     "AttackRange"                                         "700"       // Range within a target can be attacked.
@@ -53,15 +58,15 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "270"
+    "MovementSpeed"                                       "320"
     "MovementTurnRate"                                    "1"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "40000"
-    "StatusHealthRegen"                                   "0.5"
-    "StatusMana"                                          "400"
-    "StatusManaRegen"                                     "1.0"
+    "StatusHealthRegen"                                   "1.0"
+    "StatusMana"                                          "0"
+    "StatusManaRegen"                                     "0.0"
 
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
@@ -71,5 +76,7 @@
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "800"      // Range of vision during day light.
     "VisionNighttimeRange"                                "800"      // Range of vision at night time.
+
+    "HasInventory"                                        "0"
   }
 }

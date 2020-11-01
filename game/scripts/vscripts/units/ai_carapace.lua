@@ -21,14 +21,15 @@ function CarapaceBossThink()
 		return 1
 	end
 
-	if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-		thisEntity.bInitialized = true
-		thisEntity.bHasAgro = false
-		thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
-		thisEntity:SetIdleAcquire(false)
-		thisEntity:SetAcquisitionRange(0)
-	end
+  if not thisEntity.bInitialized then
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+    thisEntity.bHasAgro = false
+    thisEntity.BossTier = thisEntity.BossTier or 2
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
+    thisEntity:SetIdleAcquire(false)
+    thisEntity:SetAcquisitionRange(0)
+    thisEntity.bInitialized = true
+  end
 
 	local enemies = FindUnitsInRadius(
 		thisEntity:GetTeamNumber(),
@@ -41,7 +42,7 @@ function CarapaceBossThink()
 		false
 	)
 
-	local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > (thisEntity.BossTier or 1) * BOSS_AGRO_FACTOR
+	local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
 	local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
 	if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then

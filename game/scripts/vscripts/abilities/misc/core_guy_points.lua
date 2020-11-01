@@ -1,3 +1,4 @@
+LinkLuaModifier( "modifier_core_shrine", "abilities/misc/core_shrine.lua", LUA_MODIFIER_MOTION_NONE )
 
 core_guy_points = class(AbilityBaseClass)
 
@@ -6,7 +7,7 @@ function core_guy_points:GetIntrinsicModifierName ()
 end
 
 function core_guy_points:OnSpellStart()
-  local caster = self:GetCaster();
+  local caster = self:GetCaster()
 
   self.timesUsed = self.timesUsed or 1
   self.timesUsed = self.timesUsed + 1
@@ -17,5 +18,5 @@ function core_guy_points:OnSpellStart()
 end
 
 function core_guy_points:GetCooldown()
-  return (self.timesUsed or 1) * 5 * 10
+  return (self.timesUsed or 1) * 50
 end

@@ -78,7 +78,9 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 					ParticleManager:SetParticleControlEnt(impact, 1, v, PATTACH_POINT, "attach_hitloc", v:GetAbsOrigin(), true)
 					ParticleManager:ReleaseParticleIndex(impact)
 
-					EmitSoundOn("Hero_Broodmother.SpawnSpiderlingsImpact", v)
+          if v and not v:IsNull() and v:IsAlive() then
+            v:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
+          end
 				end,
 				onDiedCallback = function ()
           ParticleManager:DestroyParticle(indicator, true)

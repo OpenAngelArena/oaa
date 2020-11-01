@@ -34,12 +34,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1 1.1 1.2 1.3 1.4 1.5" //OAA, for picking screen tooltip
+        "duration"                                        "1.0 1.1 1.2 1.3 1.4 1.5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_count"                                    "1" //OAA
+        "attack_count"                                    "1" //OAA, for picking screen tooltip
       }
       "04" //OAA, for picking screen tooltip
       {

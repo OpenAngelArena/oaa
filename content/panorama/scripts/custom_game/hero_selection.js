@@ -125,6 +125,11 @@ function init () {
   changeHilariousLoadingText();
   UpdateBottleList();
 
+  // I will figure out how to fix chat in captain's mode some other time
+  if (currentMap !== 'captains_mode') {
+    EnableChatWindow();
+  }
+
   $('#ARDMLoading').style.opacity = 0;
 }
 
@@ -170,10 +175,6 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'rankedData' && data != null) {
     UpdatedRankedPickState(data);
   } else if (key === 'herolist' && data != null) {
-    // do not move chat for ardm
-    if (currentMap !== 'ardm') {
-      MoveChatWindow();
-    }
     var strengthholder = FindDotaHudElement('StrengthHeroes');
     var agilityholder = FindDotaHudElement('AgilityHeroes');
     var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
@@ -399,11 +400,6 @@ function onPlayerStatChange (table, key, data) {
       // spammy
       // $.Msg('Timer mode ' + data.mode);
     } else {
-      // CM Hides the chat on last pick, before selecting plyer hero
-      // ARDM don't have pick screen chat
-      if (currentMap !== 'ardm' && currentMap !== 'captains_mode') {
-        ReturnChatWindow();
-      }
       HideStrategy();
     }
   }
@@ -543,29 +539,24 @@ function FillTopBarPlayer (TeamContainer) {
   }
 }
 
-function MoveChatWindow () {
-  var vanillaChat = FindDotaHudElement('HudChat');
-  vanillaChat.SetHasClass('ChatExpanded', true);
-  vanillaChat.SetHasClass('Active', true);
-  vanillaChat.style.y = '0px';
-  vanillaChat.hittest = true;
-  vanillaChat.SetParent(FindDotaHudElement('ChatPlaceholder'));
-}
-
-function ReturnChatWindow () {
-  var vanillaChat = FindDotaHudElement('HudChat');
-  var vanillaChatParent = FindDotaHudElement('HUDElements');
-
-  if (vanillaChat.GetParent() !== vanillaChatParent) {
-    // Remove focus before change parent
-    vanillaChatParent.SetFocus();
-    vanillaChat.SetParent(vanillaChatParent);
-    vanillaChat.style.y = '-240px';
-    vanillaChat.hittest = false;
-    vanillaChat.style.visibility = 'visible';
-    vanillaChat.SetHasClass('ChatExpanded', false);
-    vanillaChat.SetHasClass('Active', false);
-  }
+function EnableChatWindow () {
+  var pregamePanel = FindDotaHudElement('PreGame');
+  pregamePanel.style.zIndex = 10;
+  pregamePanel.style.backgroundColor = 'transparent';
+  var contentPanel = pregamePanel.FindChildTraverse('MainContents');
+  contentPanel.style.visibility = 'collapse';
+  var backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
+  backgroundPanel.style.visibility = 'collapse';
+  var backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
+  backgroundDashboardPanel.style.visibility = 'collapse';
+  var radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
+  radiantTeamPanel.style.visibility = 'collapse';
+  var direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
+  direTeamPanel.style.visibility = 'collapse';
+  var headerPanel = pregamePanel.FindChildTraverse('Header');
+  headerPanel.style.visibility = 'collapse';
+  var minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
+  minimapPanel.style.visibility = 'collapse';
 }
 
 function UpdatePreviews (data) {
@@ -622,7 +613,6 @@ function ReloadCMStatus (data) {
   var currentPickData = data['order'][currentPick];
 
   if (data['currentstage'] === data['totalstages']) {
-    ReturnChatWindow();
     FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
     Object.keys(data['order']).forEach(function (nkey) {
       var obj = data['order'][nkey];

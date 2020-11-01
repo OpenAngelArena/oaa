@@ -183,7 +183,7 @@ end
 
 if IsServer() then
   function modifier_sohei_momentum_strike_knockback:OnCreated( event )
-    -- Movement parameters
+    -- Movement parameters (not available on the client)
     self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1
     self.speed = event.speed

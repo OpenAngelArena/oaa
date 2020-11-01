@@ -2,7 +2,6 @@
 -- defines modifier_item_preemptive_purge
 LinkLuaModifier( "modifier_item_preemptive_purge", "items/reflex/preemptive_purge.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------
 
@@ -14,10 +13,8 @@ end
 
 function item_dispel_orb_1:OnSpellStart()
   local caster = self:GetCaster()
-  local mod = caster:AddNewModifier(caster, self, 'modifier_item_preemptive_purge', {
-    duration = self:GetSpecialValueFor( "duration" )
-  })
-  return true
+  -- Apply modifier that dispels OnIntervalThink
+  caster:AddNewModifier(caster, self, 'modifier_item_preemptive_purge', { duration = self:GetSpecialValueFor( "duration" ) })
 end
 
 function item_dispel_orb_1:ProcsMagicStick ()
@@ -45,13 +42,6 @@ function modifier_item_preemptive_purge:IsPurgable()
   return false
 end
 
-function modifier_item_preemptive_purge:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
-  }
-end
-
-
 function modifier_item_preemptive_purge:OnCreated()
   local interval = self:GetAbility():GetSpecialValueFor( "tick_interval" )
   self:StartIntervalThink( interval )
@@ -65,7 +55,7 @@ end
 
 function modifier_item_preemptive_purge:OnDestroy()
   if IsServer() then
-    if self.nFXIndex ~= nil then
+    if self.nFXIndex then
       ParticleManager:DestroyParticle( self.nFXIndex, true )
       ParticleManager:ReleaseParticleIndex( self.nFXIndex )
     end
@@ -90,4 +80,8 @@ function modifier_item_preemptive_purge:OnIntervalThink()
       ParticleManager:ReleaseParticleIndex( burstEffect )
     end
   end
+end
+
+function modifier_item_preemptive_purge:GetTexture()
+  return "custom/dispel_orb_3"
 end

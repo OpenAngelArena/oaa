@@ -27,6 +27,7 @@
       "03"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
       "04"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
       "05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
+      "06"                                                "item_sonic;item_upgrade_core_4"
     }
   }
 
@@ -96,12 +97,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "20 25 30 35"
+        "phase_movement_speed"                            "25 30 35 40"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "10 15 20 25"
+        "phase_movement_speed_range"                      "15 20 25 30"
       }
       "09"
       {

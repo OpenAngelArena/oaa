@@ -70,26 +70,26 @@ function modifier_lycan_boss_claw_attack:OnIntervalThink()
 
 		local vForward = parent:GetForwardVector()
 		parent:SetOrigin( parent:GetOrigin() + vForward * 10 )
-		if self.attachAttack1 ~= nil then
+		if self.attachAttack1 then
 			self.vLocation1 = parent:GetAttachmentOrigin( self.attachAttack1 )
 			--DebugDrawCircle( self.vLocation1, Vector( 0, 255, 0 ), 255, self.damage_radius, false, 1.0 )
 			local enemies1 = FindUnitsInRadius( parent:GetTeamNumber(), self.vLocation1, self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
 			if #enemies1 > 0 then
 				for _,enemy in pairs( enemies1 ) do
-					if enemy ~= nil and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+					if enemy and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
 						self:TryToHitTarget( enemy )
 					end
 				end
 			end
 		end
 
-		if self.attachAttack2 ~= nil then
+		if self.attachAttack2 then
 			self.vLocation2 = parent:GetAttachmentOrigin( self.attachAttack2 )
 			--DebugDrawCircle( self.vLocation2, Vector( 0, 0, 255 ), 255, self.damage_radius, false, 1.0 )
 			local enemies2 = FindUnitsInRadius( parent:GetTeamNumber(), self.vLocation2, self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
 			if #enemies2 > 0 then
 				for _,enemy in pairs( enemies2 ) do
-					if enemy ~= nil and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+					if enemy and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
 						self:TryToHitTarget( enemy )
 					end
 				end
@@ -100,7 +100,7 @@ function modifier_lycan_boss_claw_attack:OnIntervalThink()
 		local enemies3 = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
 		if #enemies3 > 0 then
 			for _,enemy in pairs( enemies3 ) do
-				if enemy ~= nil and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+				if enemy and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
 					self:TryToHitTarget( enemy )
 				end
 			end
