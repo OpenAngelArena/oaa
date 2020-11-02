@@ -21,7 +21,7 @@
     "Ability2"                                            ""
     "Ability3"                                            "boss_resistance"
     "Ability4"                                            "boss_cliffwalk"
-    "Ability5"          								  "boss_regen"
+    "Ability5"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -60,18 +60,16 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "2500" // Base health
-    "StatusHealthRegen"                                   "3.5"  // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"  // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

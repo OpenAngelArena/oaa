@@ -1,11 +1,10 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Boss tier 4 - Killer Tomato
-//=================================================================================
+  //=================================================================================
+  // Boss tier 4 - Killer Tomato
+  //=================================================================================
   "npc_dota_boss_tier_4"
   {
-
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl" // Model.
@@ -40,6 +39,7 @@
     "AttackRange"                                         "128"       // Range within a target can be attacked.
     "ProjectileModel"                                     ""          // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"         // Speed of projectile.
+
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "4000"         // Experience earn.
@@ -67,7 +67,7 @@
     // Creature data
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
 
@@ -85,5 +85,4 @@
 
     "HasInventory"                                        "1"
   }
-
 }
