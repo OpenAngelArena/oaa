@@ -38,7 +38,7 @@
     "ArmorPhysical"                                       "40"        // Physical protection.
     "MagicalResistance"                                   "-50"       // Magical protection.
 
-    	// Bounty
+    // Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					  "5000"
 		"BountyGoldMin"				"0"
@@ -71,14 +71,14 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				  "16000"
-		"StatusHealthRegen"			"55" // they can spam heal bombs for effective 500 hp/s heals
+		"StatusHealthRegen"			"0" // they can spam heal bombs for effective 500 hp/s heals
 		"StatusMana"				    "5000"
 		"StatusManaRegen"			  "30"
 
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1300"
-		"VisionNighttimeRange"	"1300"
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
 
 		// Team
 		//----------------------------------------------------------------

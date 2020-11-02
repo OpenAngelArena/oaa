@@ -18,7 +18,7 @@
     "Ability1"                                            "boss_stopfightingyourself_dupe_items"
     "Ability2"                                            "boss_resistance"
     "Ability3"                                            "boss_cliffwalk"
-    "Ability4"          								  "boss_regen"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -70,7 +70,6 @@
       //Makes it only have 75% remaining of applied crowd control
       "DisableResistance"                                 "25.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

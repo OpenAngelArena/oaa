@@ -1,6 +1,6 @@
 "DOTAUnits"
 {
-    //=================================================================================
+  //=================================================================================
 	// Creature: Ogre Tank Boss
 	// Zones: darkforest_rescue
 	//=================================================================================
@@ -20,7 +20,6 @@
     "ConsideredHero"    "1"
     "IsAncient"         "1"
     "IsBossMonster"     "1"
-
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -69,14 +68,14 @@
 		// Status
 		//----------------------------------------------------------------
     "StatusHealth"                                        "16000"        // Base health.
-    "StatusHealthRegen"                                   "5.0"         // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"         // Health regeneration rate.
 		"StatusMana"				"1000"
 		"StatusManaRegen"			"5"
 
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1200"
-		"VisionNighttimeRange"		"1200"
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
 
 		// Team
 		//----------------------------------------------------------------
@@ -104,7 +103,7 @@
 			}
 
 			"DefaultState"				"Invade"
-			"DisableResistance"			"50.0"
+			"DisableResistance"			"80.0"
 		}
 
     "precache"
