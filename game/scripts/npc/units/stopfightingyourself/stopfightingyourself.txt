@@ -58,13 +58,12 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "20000"             // Base health
-    "StatusHealthRegen"                                   "10"                // Health regeneration rate. -- effectively 100 because boss resists
+    "StatusHealth"                                        "15000"             // Base health
+    "StatusHealthRegen"                                   "0"                // Health regeneration rate.
     "StatusMana"                                          "500"               // Base mana.
     "StatusManaRegen"                                     "10"                // Mana regeneration rate.
 
     // Creature data
-    //
     "Creature"
     {
       //Makes it only have 75% remaining of applied crowd control

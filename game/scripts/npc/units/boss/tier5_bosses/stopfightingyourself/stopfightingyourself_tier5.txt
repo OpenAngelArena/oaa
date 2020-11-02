@@ -28,8 +28,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1000"              // Damage range min.
-    "AttackDamageMax"                                     "1000"              // Damage range max.
+    "AttackDamageMin"                                     "1100"              // Damage range min.
+    "AttackDamageMax"                                     "1100"              // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.9"               // Speed of attack.
     "AttackAnimationPoint"                                "0.0"               // Normalized time in animation cycle to attack.
@@ -64,11 +64,10 @@
     "StatusManaRegen"                                     "10"                // Mana regeneration rate.
 
     // Creature data
-    //
     "Creature"
     {
       //Makes it only have 75% remaining of applied crowd control
-      "DisableResistance"                                 "25.0"
+      "DisableResistance"                                 "50.0"
     }
 
     // Team
