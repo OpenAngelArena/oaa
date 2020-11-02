@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 2
+  // Boss tier 2 - Slime
   //=================================================================================
   "npc_dota_boss_slime"
   {
@@ -23,8 +23,8 @@
     "Ability4"                                            "boss_slime_split"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_cliffwalk"
-    "Ability7"          								  "boss_regen"
-		"Ability8"                                            "siltbreaker_boss_protection"
+    "Ability7"                                            "boss_regen"
+    "Ability8"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
@@ -63,16 +63,16 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2500"    // Base health
-    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusHealth"                                        "2500"    // Base health (Total HP of the boss because of the split is x3)
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "2500"    // Base mana.
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
     "Creature"
     {
-        //Makes it only have 50% remaining of applied crowd control
-        "DisableResistance"                                 "50.0"
+      // Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
     }
 
     // Team
@@ -97,16 +97,16 @@
 
   "npc_dota_creature_slime_spawner"
   {
-    "vscripts"                          "units/ai_slime_spawner.lua"
+    "vscripts"                                            "units/ai_slime_spawner.lua"
 
-    "BaseClass"                         "npc_dota_creature"
-    "Model"                               "models/development/invisiblebox.vmdl"
-    "AttackCapabilities"            "DOTA_UNIT_CAP_NO_ATTACK"
-    "VisionDaytimeRange"            "0"
-    "VisionNighttimeRange"        "0"
-    "UnitRelationshipClass"       "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-    "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_NONE"
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/development/invisiblebox.vmdl"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "VisionDaytimeRange"                                  "0"
+    "VisionNighttimeRange"                                "0"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"
 
-    "Ability1"                          "out_of_game"
+    "Ability1"                                            "out_of_game"
   }
 }

@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Simple Boss 2
+  // Simple Boss 2 - Bear Boss
   //=================================================================================
   "npc_dota_boss_simple_2"
   {
@@ -61,18 +61,16 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "7500" // Base health
-    "StatusHealthRegen"                                   "3.5"  // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"  // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------
