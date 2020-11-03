@@ -135,10 +135,15 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     local target = kv.ability:GetCaster()
     local ability_level = kv.ability:GetLevel()
     local ability_behaviour = kv.ability:GetBehavior()
+    if type(ability_behaviour) == 'userdata' then
+      ability_behaviour = tonumber(tostring(ability_behaviour))
+    end
 
     local exception_list = {
       ["rubick_spell_steal"] = true,
-      --["legion_commander_duel"] = true, -- uncomment this if Duel becomes buggy
+      ["morphling_replicate"] = true,
+      --["grimstroke_soul_chain"] = true, -- uncomment this if Grimstroke Soul Bind becomes buggy
+      --["legion_commander_duel"] = true, -- uncomment this if Legion Commander's Duel becomes buggy
     }
 
     -- Do not reflect allied spells for any reason
