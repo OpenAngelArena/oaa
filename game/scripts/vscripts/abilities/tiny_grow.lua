@@ -18,10 +18,6 @@ function tiny_grow_oaa:GetIntrinsicModifierName()
   return "modifier_tiny_grow_oaa"
 end
 
-function tiny_grow_oaa:GetBehavior ()
-  return DOTA_ABILITY_BEHAVIOR_PASSIVE
-end
-
 function tiny_grow_oaa:OnUpgrade()
   if IsServer() then
     if self:GetCaster():GetUnitName() == "npc_dota_hero_tiny" then

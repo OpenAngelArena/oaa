@@ -7,10 +7,6 @@ function boss_resistance:GetIntrinsicModifierName()
   return "modifier_boss_resistance"
 end
 
-function boss_resistance:GetBehavior()
-  return DOTA_ABILITY_BEHAVIOR_PASSIVE
-end
-
 -----------------------------------------------------------------------------------------
 
 modifier_boss_resistance = class(ModifierBaseClass)
