@@ -235,6 +235,10 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
 
+    if not caster or caster:IsNull() then
+      return {}
+    end
+
     -- Only reveal when within reveal_max_distance of boss
     if (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() <= self.maxRevealDist then
       return {
@@ -261,6 +265,11 @@ end
 function modifier_boss_truesight:IsHidden()
   local parent = self:GetParent()
   local caster = self:GetCaster()
+
+  if not caster or caster:IsNull() then
+    return true
+  end
+
   return (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self.maxRevealDist
 end
 
