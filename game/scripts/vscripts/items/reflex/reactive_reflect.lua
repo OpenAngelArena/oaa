@@ -151,7 +151,7 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       return nil
     end
 
-    -- If this is a reflected ability from other Reflection shard, do nothing 
+    -- If this is a reflected ability from other Reflection shard, do nothing
     -- (reflecting reflected spells should not be possible)
     if kv.ability.reflected_spell then
       return nil
@@ -172,7 +172,7 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       end
     end
 
-    -- If target has reflecting modifiers do nothing to prevent infinite loops 
+    -- If target has reflecting modifiers do nothing to prevent infinite loops
     -- (reflecting reflected spells should not be possible)
     if found then
       return nil

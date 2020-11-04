@@ -2728,6 +2728,7 @@ read_globals = { -- these globals can only be accessed.
 "DOTA_UNIT_ORDER_HOLD_POSITION",
 "DOTA_UNIT_ORDER_DROP_ITEM",
 "DOTA_ModifyGold_Buyback",
+"DOTA_ModifyGold_BountyRune",
 "DOTA_HEROPICK_STATE_AP_SELECT",
 "ACT_RANGE_ATTACK_THROW",
 "DOTA_UNIT_ORDER_MOVE_ITEM",
