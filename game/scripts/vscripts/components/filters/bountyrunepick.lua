@@ -92,7 +92,7 @@ function BountyRunePick:Filter(filter_table)
     if hero then
       if xp_reward > 0 then
         hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
-        SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_MANA_ADD, hero, xp_reward, nil)
+        SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_XP, hero, xp_reward, nil)
       end
       -- Check for Alchemist Greevil's Greed bounty rune gold multiplier
       local alchemist_ability = hero:FindAbilityByName("alchemist_goblins_greed")
