@@ -15,6 +15,9 @@ end
 local function UseAbility(ability, caster, target, maxRange)
   local randomPosition = RandomVector(maxRange) + caster:GetAbsOrigin()
   local behavior = ability:GetBehavior()
+  if type(behavior) == 'userdata' then
+    behavior = tonumber(tostring(behavior))
+  end
 
   -- Ability's behavior is
   if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0 then --luacheck: ignore

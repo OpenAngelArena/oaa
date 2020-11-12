@@ -14,7 +14,3 @@ end
 function boss_shielder_shield:GetIntrinsicModifierName()
   return "modifier_boss_shielder_shielded_buff"
 end
-
-function boss_shielder_shield:GetBehavior ()
-  return DOTA_ABILITY_BEHAVIOR_PASSIVE
-end

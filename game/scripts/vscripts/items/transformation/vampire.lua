@@ -29,7 +29,17 @@ function modifier_item_vampire:OnCreated(keys)
   if not self.procRecords then
     self.procRecords = {}
   end
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_dmg = ability:GetSpecialValueFor("bonus_damage")
+    self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resistance")
+    self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+    self.bonus_night_vision = ability:GetSpecialValueFor("bonus_night_vision")
+  end
 end
+
+modifier_item_vampire.OnRefresh = modifier_item_vampire.OnCreated
 
 function modifier_item_vampire:DeclareFunctions()
   local funcs = {
@@ -46,27 +56,27 @@ function modifier_item_vampire:DeclareFunctions()
 end
 
 function modifier_item_vampire:GetModifierPreAttack_BonusDamage()
-  return self:GetAbility():GetSpecialValueFor("bonus_damage")
+  return self.bonus_dmg or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_vampire:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_strength")
+  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_vampire:GetModifierStatusResistanceStacking()
   if not self:GetParent():HasModifier( "modifier_item_vampire_active" ) then
-    return self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
+    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
   else
     return 0
   end
 end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
-  return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+  return self.bonus_attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_item_vampire:GetBonusNightVision()
-  return self:GetAbility():GetSpecialValueFor("bonus_night_vision")
+  return self.bonus_night_vision or self:GetAbility():GetSpecialValueFor("bonus_night_vision")
 end
 
 -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
@@ -108,10 +118,16 @@ function modifier_item_vampire_active:OnCreated()
     if not self.procRecords then
       self.procRecords = {}
     end
-    self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
-    self:GetParent():EmitSound("Vampire.Activate.Begin")
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local interval = 1/4
+    if ability and not ability:IsNull() then
+      interval = 1 / ability:GetSpecialValueFor("ticks_per_second")
+    end
+    self:StartIntervalThink(interval)
+    parent:EmitSound("Vampire.Activate.Begin")
     if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     end
   end
 end

@@ -135,10 +135,15 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     local target = kv.ability:GetCaster()
     local ability_level = kv.ability:GetLevel()
     local ability_behaviour = kv.ability:GetBehavior()
+    if type(ability_behaviour) == 'userdata' then
+      ability_behaviour = tonumber(tostring(ability_behaviour))
+    end
 
     local exception_list = {
       ["rubick_spell_steal"] = true,
-      --["legion_commander_duel"] = true, -- uncomment this if Duel becomes buggy
+      ["morphling_replicate"] = true,
+      --["grimstroke_soul_chain"] = true, -- uncomment this if Grimstroke Soul Bind becomes buggy
+      --["legion_commander_duel"] = true, -- uncomment this if Legion Commander's Duel becomes buggy
     }
 
     -- Do not reflect allied spells for any reason
@@ -146,13 +151,30 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       return nil
     end
 
-    -- If this is a reflected ability from other Reflection shard, do nothing (reflecting reflected spells should not be possible)
+    -- If this is a reflected ability from other Reflection shard, do nothing
+    -- (reflecting reflected spells should not be possible)
     if kv.ability.reflected_spell then
       return nil
     end
 
-    -- If target has reflecting modifiers (lotus orb or reflection shard) do nothing to prevent looping (reflecting reflected spells should not be possible)
-    if target:HasModifier("modifier_item_lotus_orb_active") or target:HasModifier("modifier_item_reactive_reflect") then
+    local reflecting_modifiers = {
+      "modifier_item_lotus_orb_active", -- Lotus Orb active
+      "modifier_item_reactive_reflect", -- Reflection Shard active
+      "modifier_item_mirror_shield",    -- Mirror Shield
+      "modifier_antimage_counterspell", -- Anti-Mage Counter Spell active
+    }
+    -- Check for reflecting modifiers
+    local found = false
+    for i = 1, #reflecting_modifiers do
+      if target:HasModifier(reflecting_modifiers[i]) then
+        found = true
+        break
+      end
+    end
+
+    -- If target has reflecting modifiers do nothing to prevent infinite loops
+    -- (reflecting reflected spells should not be possible)
+    if found then
       return nil
     end
 

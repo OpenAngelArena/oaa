@@ -41,17 +41,23 @@ modifier_item_satanic_core = class(ModifierBaseClass)
 function modifier_item_satanic_core:IsHidden()
   return true
 end
---[[
+
 function modifier_item_satanic_core:OnCreated()
-  self.lifesteal_percent = self:GetAbility():GetSpecialValueFor("hero_lifesteal")
-  self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor("unholy_hero_spell_lifesteal")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    --self.lifesteal_percent = ability:GetSpecialValueFor("hero_lifesteal")
+    --self.unholy_lifesteal_percent = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
+    self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_int = ability:GetSpecialValueFor("bonus_intelligence")
+    self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
+    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
+    self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
+    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
+  end
 end
 
-function modifier_item_satanic_core:OnRefresh()
-  self.lifesteal_percent = self:GetAbility():GetSpecialValueFor("hero_lifesteal")
-  self.unholy_lifesteal_percent = self:GetAbility():GetSpecialValueFor("unholy_hero_spell_lifesteal")
-end
-]]
+modifier_item_satanic_core.OnRefresh = modifier_item_satanic_core.OnCreated
+
 function modifier_item_satanic_core:IsPurgable()
   return false
 end
@@ -70,27 +76,27 @@ function modifier_item_satanic_core:DeclareFunctions()
 end
 
 function modifier_item_satanic_core:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_strength")
+  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_satanic_core:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_intelligence")
+  return self.bonus_int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
 end
 
 function modifier_item_satanic_core:GetModifierHealthBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_health")
+  return self.bonus_hp or self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
 function modifier_item_satanic_core:GetModifierManaBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_mana")
+  return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
 function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
-  return self:GetAbility():GetSpecialValueFor("bonus_status_resist")
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
 end
 
 function modifier_item_satanic_core:GetModifierMagicalResistanceBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
+  return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
 end
 
 --[[
@@ -122,6 +128,15 @@ function modifier_satanic_core_unholy:IsPurgable()
   return true
 end
 
+function modifier_satanic_core_unholy:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.tooltip = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
+  end
+end
+
+modifier_satanic_core_unholy.OnRefresh = modifier_satanic_core_unholy.OnCreated
+
 function modifier_satanic_core_unholy:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOOLTIP
@@ -129,7 +144,7 @@ function modifier_satanic_core_unholy:DeclareFunctions()
 end
 
 function modifier_satanic_core_unholy:OnTooltip()
-  return self:GetAbility():GetSpecialValueFor("unholy_hero_spell_lifesteal")
+  return self.tooltip
 end
 
 function modifier_satanic_core_unholy:GetEffectName()
