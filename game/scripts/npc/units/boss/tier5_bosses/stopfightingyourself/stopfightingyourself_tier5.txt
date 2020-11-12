@@ -18,18 +18,18 @@
     "Ability1"                                            "boss_stopfightingyourself_dupe_items"
     "Ability2"                                            "boss_resistance"
     "Ability3"                                            "boss_cliffwalk"
-    "Ability4"          								  "boss_regen"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "40"               // Physical protection.
-    "MagicalResistance"                                   "-50"               // Magical protection (percentage).
+    "ArmorPhysical"                                       "43"               // Physical protection.
+    "MagicalResistance"                                   "-50"              // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1000"              // Damage range min.
-    "AttackDamageMax"                                     "1000"              // Damage range max.
+    "AttackDamageMin"                                     "1100"              // Damage range min.
+    "AttackDamageMax"                                     "1100"              // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.9"               // Speed of attack.
     "AttackAnimationPoint"                                "0.0"               // Normalized time in animation cycle to attack.
@@ -58,19 +58,17 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"             // Base health
-    "StatusHealthRegen"                                   "10"                // Health regeneration rate. -- effectively 100 because boss resists
+    "StatusHealth"                                        "16000"             // Base health
+    "StatusHealthRegen"                                   "0"                 // Health regeneration rate.
     "StatusMana"                                          "500"               // Base mana.
     "StatusManaRegen"                                     "10"                // Mana regeneration rate.
 
     // Creature data
-    //
     "Creature"
     {
       //Makes it only have 75% remaining of applied crowd control
-      "DisableResistance"                                 "25.0"
+      "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

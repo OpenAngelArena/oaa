@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Boss tier 2 Tier 5 Version
-//=================================================================================
+  //=================================================================================
+  // Twin Boss (ranged) Tier 5 Version
+  //=================================================================================
   "npc_dota_boss_twin_dumb_tier5"
   {
     // General
@@ -25,7 +25,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "40"      // Physical protection.
+    "ArmorPhysical"                                       "43"      // Physical protection.
     "MagicalResistance"                                   "-50"     // Magical protection (percentage).
 
     // Attack
@@ -61,16 +61,15 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "17500"    // Base health
-    "StatusHealthRegen"                                   "30.5"    // Health regeneration rate.
+    "StatusHealth"                                        "16000"    // Base health
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
 

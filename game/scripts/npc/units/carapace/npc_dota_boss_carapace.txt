@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 2
+  // Boss tier 2 - Weaver Boss
   //=================================================================================
   "npc_dota_boss_carapace"
   {
@@ -22,7 +22,7 @@
     "Ability2"                                            "boss_carapace_crystals"
     "Ability3"                                            "boss_resistance"
     "Ability4"                                            "boss_cliffwalk"
-    "Ability5"          								  "boss_regen"
+    "Ability5"                                            "boss_regen"
     "Ability6"                                            "siltbreaker_boss_protection"
 
     // Armor
@@ -62,40 +62,39 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "4000"    // Base health
-    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusHealth"                                        "5000"    // Base health
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "2500"    // Base mana.
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-        //Makes it only have 50% remaining of applied crowd control
-        "DisableResistance"                                 "50.0"
-        "AttachWearables"
+      // Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
+      "AttachWearables"
+      {
+        "Wearable1"
         {
-            "Wearable1"
-            {
-                "ItemDef"           "280"
-            }
-            "Wearable2"
-            {
-                "ItemDef"           "278"
-            }
-            "Wearable3"
-            {
-                "ItemDef"           "277"
-            }
-            "Wearable4"
-            {
-                "ItemDef"           "585"
-            }
-            "Wearable5"
-            {
-                "ItemDef"           "279"
-            }
+          "ItemDef"           "280"
         }
+        "Wearable2"
+        {
+          "ItemDef"           "278"
+        }
+        "Wearable3"
+        {
+          "ItemDef"           "277"
+        }
+        "Wearable4"
+        {
+          "ItemDef"           "585"
+        }
+        "Wearable5"
+        {
+          "ItemDef"           "279"
+        }
+      }
     }
 
     // Team
