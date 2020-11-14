@@ -12,7 +12,7 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "0"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "0" //OAA, we have different Aghs effect
+        "radius_scepter"                                  "350"
         "RequiresScepter"                                 "1"
       }
     }
