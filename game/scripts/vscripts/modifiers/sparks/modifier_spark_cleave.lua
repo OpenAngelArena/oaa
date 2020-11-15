@@ -42,6 +42,10 @@ function modifier_spark_cleave:OnAttackLanded(keys)
     return
   end
 
+  if keys.no_attack_cooldown then
+    return
+  end
+
   -- To prevent crashes:
   if not target then
     return
