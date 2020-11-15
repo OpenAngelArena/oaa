@@ -1,7 +1,8 @@
 faceless_void_time_lock_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier("modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_time_lock_time_frozen", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faceless_void_time_walk_scepter_proc_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faceless_void_chronosphere_scepter_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -41,7 +42,6 @@ function modifier_faceless_void_time_lock_oaa:DeclareFunctions()
   local funcs = {
     --MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL, -- old time lock
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_EVENT_ON_ABILITY_EXECUTED, --MODIFIER_EVENT_ON_ABILITY_FULLY_CAST; --MODIFIER_EVENT_ON_ORDER,
     MODIFIER_EVENT_ON_MODIFIER_ADDED,
   }
 
@@ -251,71 +251,7 @@ if IsServer() then
     end)
   end
 
-  -- Scepter Time Walk - Check when Time Walk is cast by listening to this event
-  -- alternative OnAbilityFullyCast;
-  -- OnOrder is probably too early;
-  function modifier_faceless_void_time_lock_oaa:OnAbilityExecuted(event)
-    local parent = self:GetParent()
-    local ability = event.ability
-
-    -- Check if parent (owner/caster) executed the ability
-    if parent ~= event.unit then
-      return
-    end
-
-    -- Check if parent has Aghanim Scepter
-    if not parent:HasScepter() then
-      return
-    end
-
-    -- Check if executed ability exists
-    if not ability or ability:IsNull() then
-      return
-    end
-
-    -- Check if parent has Time Walk
-    local time_walk_ability = parent:FindAbilityByName("faceless_void_time_walk")
-    if not time_walk_ability then
-      return
-    end
-
-    -- Check if executed ability is Time Walk
-    if ability ~= time_walk_ability then
-      return
-    end
-
-    -- Check if cursor position exists
-    local cast_position = ability:GetCursorPosition()
-    if not cast_position then
-      print("TIME WALK cast position is nil")
-      cast_position = parent:GetAbsOrigin()
-    end
-
-    -- Get radius
-    local radius = time_walk_ability:GetSpecialValueFor("radius_scepter")
-
-    -- Find enemies in radius (ignore spell immune enemies on purpose)
-    local enemies = FindUnitsInRadius(
-      parent:GetTeamNumber(),
-      cast_position,
-      nil,
-      radius,
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
-      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-      DOTA_UNIT_TARGET_FLAG_NONE,
-      FIND_ANY_ORDER,
-      false
-    )
-
-    for _, enemy in pairs(enemies) do
-      if enemy and not enemy:IsNull() then
-        if not enemy:IsMagicImmune() and not enemy:IsAttackImmune() and not parent:IsDisarmed() and not enemy:IsInvulnerable() then
-          self:ApplyTimeLock(ability, enemy)
-        end
-      end
-    end
-  end
-
+  -- Scepter effects: Time Walk applies AoE Time Lock and Chronosphere applies Frozen Time modifier
   function modifier_faceless_void_time_lock_oaa:OnModifierAdded(event)
     local parent = self:GetParent()
 
@@ -324,80 +260,173 @@ if IsServer() then
       return
     end
 
-    print("OnModifierAdded")
-    print(event)
-    for k, v in pairs(event) do
-      print(k, v)
+	-- Unit that gained a modifier
+	local unit = event.unit
+	
+	if parent == unit then
+      local time_walk_modifier = parent:FindModifierByName("modifier_faceless_void_time_walk")
+	  if not time_walk_modifier then
+        return
+	  end
+	  local remaining_duration = time_walk_modifier:GetRemainingTime()
+	  parent:AddNewModifier(parent, nil, "modifier_faceless_void_time_walk_scepter_proc_oaa", {duration = remaining_duration})
+	end
+
+    -- If the unit is not actually a unit but its an entity that can gain modifiers
+	if unit.HasModifier == nil then
+      return
+    end
+	
+    -- If the unit is the same team as parent don't continue
+    if unit:GetTeamNumber() == parent:GetTeamNumber() then
+      return
     end
 
-     -- Custom Scepter debuff during Chronosphere
-    --if parent:HasScepter() then
-      --target:AddNewModifier(parent, ability, "modifier_time_lock_time_frozen", {duration = duration})
-    --end
+    -- Apply scepter debuff with first tick of Chronosphere
+	if unit:HasModifier("modifier_faceless_void_chronosphere_freeze") and not unit:HasModifier("modifier_faceless_void_chronosphere_scepter_oaa") then
+	  local chrono_ability = parent:FindAbilityByName("faceless_void_chronosphere")
+      if not chrono_ability then
+        return
+      end
+	  local chrono_duration = chrono_ability:GetLevelSpecialValueFor("duration", chrono_ability:GetLevel()-1)
+      unit:AddNewModifier(parent, nil, "modifier_faceless_void_chronosphere_scepter_oaa", {duration = chrono_duration})
+    end
   end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
-modifier_time_lock_time_frozen = class(ModifierBaseClass)
+modifier_faceless_void_time_walk_scepter_proc_oaa = class(ModifierBaseClass)
 
-function modifier_time_lock_time_frozen:IsHidden()
-	return true
-end
-
-function modifier_time_lock_time_frozen:IsDebuff()
-	return true
-end
-
-function modifier_time_lock_time_frozen:IsStunDebuff()
+function modifier_faceless_void_time_walk_scepter_proc_oaa:IsHidden()
   return true
 end
 
-function modifier_time_lock_time_frozen:IsPurgable()
-	return false
+function modifier_faceless_void_time_walk_scepter_proc_oaa:IsDebuff()
+  return false
 end
 
-function modifier_time_lock_time_frozen:CheckState()
-	local state = {
-		[MODIFIER_STATE_EVADE_DISABLED] = true,
-	}
-
-	return state
+function modifier_faceless_void_time_walk_scepter_proc_oaa:IsPurgable()
+  return false
 end
 
-function modifier_time_lock_time_frozen:DeclareFunctions()
+function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
+  local parent = self:GetParent()
+
+  if not IsServer() then
+    return
+  end
+
+  -- Get Time Lock ability and modifier
+  local time_lock_ability = parent:FindAbilityByName("faceless_void_time_lock_oaa")
+  local time_lock_modifier = parent:FindModifierByName("modifier_faceless_void_time_lock_oaa")
+
+  -- Check if Time Lock exists
+  -- It doesnt exist in some edge cases: maybe when Morphling is morphed into Faceless Void
+  -- and morphs back into Morphling after using Time Walk
+  if not time_lock_ability or not time_lock_modifier then
+	return
+  end
+
+  -- Get Time Walk ability
+  local time_walk_ability = parent:FindAbilityByName("faceless_void_time_walk")
+
+  -- Check if Time Walk exists
+  -- This shouldn't be possible but checking just in case dota is weird
+  if not time_walk_ability then
+	return
+  end
+
+  -- Get cast position
+  local cast_position = parent:GetAbsOrigin()
+  --print("Cast Position is: "..tostring(cast_position))
+
+  -- Get radius
+  local radius = time_walk_ability:GetSpecialValueFor("radius_scepter")
+
+  -- Find enemies in radius (ignore spell immune enemies on purpose)
+  local enemies = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    cast_position,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+  
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      if not enemy:IsMagicImmune() and not enemy:IsAttackImmune() and not parent:IsDisarmed() and not enemy:IsInvulnerable() then
+        time_lock_modifier:ApplyTimeLock(time_lock_ability, enemy)
+      end
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_faceless_void_chronosphere_scepter_oaa = class(ModifierBaseClass)
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsHidden()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsDebuff()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsStunDebuff()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsPurgable()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_EVADE_DISABLED] = true,
+  }
+
+  return state
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_DISABLE_HEALING,
   }
   return funcs
 end
 
-function modifier_time_lock_time_frozen:GetDisableHealing()
+function modifier_faceless_void_chronosphere_scepter_oaa:GetDisableHealing()
   return 1
 end
 
 if IsServer() then
-  function modifier_time_lock_time_frozen:OnCreated()
+  function modifier_faceless_void_chronosphere_scepter_oaa:OnCreated()
     local parent = self:GetParent()
     self:CooldownFreeze(parent)
     self:StartIntervalThink(0.1)
   end
 
-  function modifier_time_lock_time_frozen:OnIntervalThink()
+  function modifier_faceless_void_chronosphere_scepter_oaa:OnIntervalThink()
     local parent = self:GetParent()
     self:CooldownFreeze(parent)
   end
 end
 
-function modifier_time_lock_time_frozen:CooldownFreeze(target)
-	-- Adds 0.1 second to the current cooldown to every spell off cooldown
-	for i = 0, target:GetAbilityCount()-1 do
-		local target_ability = target:GetAbilityByIndex(i)
-		if target_ability then
-			local cd = target_ability:GetCooldownTimeRemaining()
-			if cd > 0 then
-				target_ability:StartCooldown(cd + 0.1)
-			end
-		end
-	end
+function modifier_faceless_void_chronosphere_scepter_oaa:CooldownFreeze(target)
+  -- Adds 0.1 second to the current cooldown to every spell off cooldown
+  for i = 0, target:GetAbilityCount()-1 do
+    local target_ability = target:GetAbilityByIndex(i)
+    if target_ability then
+      local cd = target_ability:GetCooldownTimeRemaining()
+        if cd > 0 then
+          target_ability:StartCooldown(cd + 0.1)
+        end
+    end
+  end
 end
