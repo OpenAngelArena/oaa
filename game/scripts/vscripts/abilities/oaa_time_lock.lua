@@ -260,35 +260,35 @@ if IsServer() then
       return
     end
 
-	-- Unit that gained a modifier
-	local unit = event.unit
-	
-	if parent == unit then
+    -- Unit that gained a modifier
+    local unit = event.unit
+
+    if parent == unit then
       local time_walk_modifier = parent:FindModifierByName("modifier_faceless_void_time_walk")
-	  if not time_walk_modifier then
+      if not time_walk_modifier then
         return
-	  end
-	  local remaining_duration = time_walk_modifier:GetRemainingTime()
-	  parent:AddNewModifier(parent, nil, "modifier_faceless_void_time_walk_scepter_proc_oaa", {duration = remaining_duration})
-	end
+      end
+      local remaining_duration = time_walk_modifier:GetRemainingTime()
+      parent:AddNewModifier(parent, nil, "modifier_faceless_void_time_walk_scepter_proc_oaa", {duration = remaining_duration})
+    end
 
     -- If the unit is not actually a unit but its an entity that can gain modifiers
-	if unit.HasModifier == nil then
+    if unit.HasModifier == nil then
       return
     end
-	
+
     -- If the unit is the same team as parent don't continue
     if unit:GetTeamNumber() == parent:GetTeamNumber() then
       return
     end
 
     -- Apply scepter debuff with first tick of Chronosphere
-	if unit:HasModifier("modifier_faceless_void_chronosphere_freeze") and not unit:HasModifier("modifier_faceless_void_chronosphere_scepter_oaa") then
-	  local chrono_ability = parent:FindAbilityByName("faceless_void_chronosphere")
+    if unit:HasModifier("modifier_faceless_void_chronosphere_freeze") and not unit:HasModifier("modifier_faceless_void_chronosphere_scepter_oaa") then
+      local chrono_ability = parent:FindAbilityByName("faceless_void_chronosphere")
       if not chrono_ability then
         return
       end
-	  local chrono_duration = chrono_ability:GetLevelSpecialValueFor("duration", chrono_ability:GetLevel()-1)
+      local chrono_duration = chrono_ability:GetLevelSpecialValueFor("duration", chrono_ability:GetLevel()-1)
       unit:AddNewModifier(parent, nil, "modifier_faceless_void_chronosphere_scepter_oaa", {duration = chrono_duration})
     end
   end
@@ -325,7 +325,7 @@ function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
   -- It doesnt exist in some edge cases: maybe when Morphling is morphed into Faceless Void
   -- and morphs back into Morphling after using Time Walk
   if not time_lock_ability or not time_lock_modifier then
-	return
+    return
   end
 
   -- Get Time Walk ability
@@ -334,7 +334,7 @@ function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
   -- Check if Time Walk exists
   -- This shouldn't be possible but checking just in case dota is weird
   if not time_walk_ability then
-	return
+    return
   end
 
   -- Get cast position
@@ -356,7 +356,7 @@ function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
     FIND_ANY_ORDER,
     false
   )
-  
+
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       if not enemy:IsMagicImmune() and not enemy:IsAttackImmune() and not parent:IsDisarmed() and not enemy:IsInvulnerable() then
