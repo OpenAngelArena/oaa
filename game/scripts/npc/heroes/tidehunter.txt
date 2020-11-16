@@ -7,6 +7,10 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability12"   "special_bonus_magic_resistance_15" // replaces special_bonus_mp_regen_3
+    "Ability10"                                           "special_bonus_mp_regen_3" // replaces special_bonus_movement_speed_15
+
+    "Ability12"                                           "special_bonus_movement_speed_15" // replaces special_bonus_mp_regen_3
+
+    "Ability14"                                           "special_bonus_magic_resistance_20" // replaces special_bonus_unique_tidehunter_4
   }
 }

@@ -108,6 +108,7 @@ end
 
 function BossProtectionFilter:Init()
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(self, "ModifierGainedFilter"))
+  LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifier_tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function BossProtectionFilter:ModifierGainedFilter(keys)
@@ -120,11 +121,17 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
   local parent = EntIndexToHScript(keys.entindex_parent_const)
   local ability = EntIndexToHScript(keys.entindex_ability_const)
 
-  keys.parentName = parent:GetName()
-  keys.casterName = caster:GetName()
-  keys.abilityName = ability:GetName()
+  local abilityName = ability:GetName()
+  local modifierName = keys.name_const
 
-  if parent:IsOAABoss() and BossProtectionFilter.ProblematicSpells[keys.abilityName] then
+  if parent:IsOAABoss() and BossProtectionFilter.ProblematicSpells[abilityName] then
+    return false
+  end
+
+  -- Anchor Smash override
+  if parent:IsOAABoss() and abilityName == "tidehunter_anchor_smash" and modifierName == "modifier_tidehunter_anchor_smash" then
+    local duration = keys.duration
+    parent:AddNewModifier(caster, ability, "modifier_tidehunter_anchor_smash_oaa_boss", {duration = duration})
     return false
   end
 
@@ -136,20 +143,20 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
   --DevPrintTable(keys)
 
   -- protected boss should never be bashed or silenced
-  if keys.name_const == 'modifier_bashed'
-      or BossProtectionFilter.UniqueBashSpell[keys.abilityName]
-      or BossProtectionFilter.SilenceSpells[keys.abilityName]
-      or BossProtectionFilter.SilenceItems[keys.abilityName] then
+  if modifierName == 'modifier_bashed'
+      or BossProtectionFilter.UniqueBashSpell[abilityName]
+      or BossProtectionFilter.SilenceSpells[abilityName]
+      or BossProtectionFilter.SilenceItems[abilityName] then
     return false
   end
 
   -- if boss has active protection block all stuns
   if parent:HasModifier("modifier_siltbreaker_boss_protection") then
-    if keys.name_const == 'modifier_stunned'
-        or BossProtectionFilter.UniqueStunSpells[keys.abilityName]
-        or BossProtectionFilter.UniqueStunItems[keys.abilityName]
-        or BossProtectionFilter.HexSpells[keys.abilityName]
-        or BossProtectionFilter.HexItems[keys.abilityName] then
+    if modifierName == 'modifier_stunned'
+        or BossProtectionFilter.UniqueStunSpells[abilityName]
+        or BossProtectionFilter.UniqueStunItems[abilityName]
+        or BossProtectionFilter.HexSpells[abilityName]
+        or BossProtectionFilter.HexItems[abilityName] then
       return false
     end
   end
