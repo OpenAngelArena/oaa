@@ -577,9 +577,11 @@ function Duels:EndDuel ()
     return
   end
 
-  for playerId = 0,19 do
-    for _, zone in ipairs(self.zones) do
-      zone.removePlayer(playerId, false)
+  for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    if PlayerResource:IsValidPlayerID(playerId) then
+      for _, zone in ipairs(self.zones) do
+        zone.removePlayer(playerId, false)
+      end
     end
   end
 
@@ -610,16 +612,18 @@ function Duels:EndDuel ()
 
       HeroState.RestoreState(hero, state)
       MoveCameraToPlayer(hero)
-      HeroState.PurgeDuelHighgroundBuffs(hero)
+      HeroState.PurgeDuelHighgroundBuffs(hero) -- needed to remove undispellable Highground buffs
     end)
     -- Remove Modifier
-    for playerId = 0,19 do
-      local player = PlayerResource:GetPlayer(playerId)
-      if player then
-        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+      if PlayerResource:IsValidPlayerID(playerId) then
+        local player = PlayerResource:GetPlayer(playerId)
+        if player then
+          local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-        if hero ~= nil then
-          hero:RemoveModifierByName("modifier_out_of_duel")
+          if hero ~= nil then
+            hero:RemoveModifierByName("modifier_out_of_duel")
+          end
         end
       end
     end
@@ -629,10 +633,12 @@ end
 
 function Duels:AllPlayers(state, cb)
   if state == nil then
-    for playerId = 0,19 do
-      local player = PlayerResource:GetPlayer(playerId)
-      if player ~= nil then
-        cb(player)
+    for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+      if PlayerResource:IsValidPlayerID(playerId) then
+        local player = PlayerResource:GetPlayer(playerId)
+        if player ~= nil then
+          cb(player)
+        end
       end
     end
   else
