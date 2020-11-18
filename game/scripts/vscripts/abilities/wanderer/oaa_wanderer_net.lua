@@ -1,9 +1,11 @@
 wanderer_net = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_wanderer_net_cast", "abilities/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wanderer_net_target", "abilities/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wanderer_net_debuff", "abilities/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
 
 function wanderer_net:Precache(context)
+  PrecacheResource("particle", "particles/generic_gameplay/generic_has_quest.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_siren/siren_net.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_siren/siren_net_projectile.vpcf", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts", context)
@@ -21,6 +23,7 @@ function wanderer_net:OnSpellStart()
     return
   end
 
+  local speed = self:GetSpecialValueFor("projectile_speed")
   -- Tracking Projectile table
   local info = {
     Target = target,
@@ -28,7 +31,7 @@ function wanderer_net:OnSpellStart()
     Ability = self,
     bDodgeable = true,
     EffectName = "particles/units/heroes/hero_siren/siren_net_projectile.vpcf",
-    iMoveSpeed = self:GetSpecialValueFor("projectile_speed"),
+    iMoveSpeed = speed,
     --bProvidesVision = false,
     --bIsAttack = false,
     --bReplaceExisting = false,
@@ -36,7 +39,14 @@ function wanderer_net:OnSpellStart()
     --bVisibleToEnemies = true,
   }
 
-	ProjectileManager:CreateTrackingProjectile(info)
+  ProjectileManager:CreateTrackingProjectile(info)
+  
+  -- Calculate distance and max particle duration
+  local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
+  local particle_duration = distance/speed
+  
+  -- Apply the warning particle (with a modifier)
+  target:AddNewModifier(caster, self, "modifier_wanderer_net_target", {duration = particle_duration})
 
   -- Sound on cast
   caster:EmitSound("Hero_NagaSiren.Ensnare.Cast")
@@ -47,6 +57,9 @@ function wanderer_net:OnProjectileHit(target, location)
   if not target or target:IsNull() then
     return
   end
+
+  -- Remove warning particle
+  target:RemoveModifierByName("modifier_wanderer_net_target")
 
   -- Check for spell block
   if target:TriggerSpellAbsorb(self) then
@@ -62,7 +75,7 @@ function wanderer_net:OnProjectileHit(target, location)
 
   local duration = self:GetSpecialValueFor("duration")
 
-  -- Apply the debuff
+  -- Apply the actual debuff
   target:AddNewModifier(caster, self, "modifier_wanderer_net_debuff", {duration = duration})
 
   -- Interrupt (mini-stun)
@@ -101,7 +114,7 @@ function modifier_wanderer_net_cast:DeclareFunctions()
   return funcs
 end
 
-if IsServer()
+if IsServer() then
   function modifier_wanderer_net_cast:OnAbilityStart(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
@@ -215,6 +228,30 @@ if IsServer()
     end
   end
   ]]
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_wanderer_net_target = class(ModifierBaseClass)
+
+function modifier_wanderer_net_target:IsHidden()
+  return true
+end
+
+function modifier_wanderer_net_target:IsDebuff()
+  return false
+end
+
+function modifier_wanderer_net_target:IsPurgable()
+  return false
+end
+
+function modifier_wanderer_net_target:GetEffectName()
+  return "particles/generic_gameplay/generic_has_quest.vpcf"
+end
+
+function modifier_wanderer_net_target:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
 end
 
 ---------------------------------------------------------------------------------------------------

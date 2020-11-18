@@ -108,7 +108,9 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
         if player then
           hero_owner = player:GetAssignedHero()
         end
-        -- hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
+        if not hero_owner then
+          hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
+        end
         if hero_owner then
           if not hero_owner:IsMagicImmune() then
             self:ProcStickyBlood(caster, ability, hero_owner)
