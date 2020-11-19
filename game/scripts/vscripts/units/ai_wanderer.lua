@@ -21,6 +21,8 @@ function Spawn( entityKeyValues )
   thisEntity.retreatDelay = 6.0
   thisEntity.damageThreshold = 6.0
   thisEntity.hasSpawned = false
+  thisEntity.netAbility = thisEntity:FindAbilityByName("wanderer_net")
+  thisEntity.cleanseAbility = thisEntity:FindAbilityByName("wanderer_aoe_cleanse")
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
 
@@ -66,6 +68,8 @@ function WandererThink ()
   -- end
   if thisEntity.isAggro and not shouldAggro then
     -- giving up on aggro
+    thisEntity:Stop()
+    WalkTowardsSpot(thisEntity.aggroOrigin)
     thisEntity.aggroOrigin = nil
     thisEntity.isLeashing = false
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
@@ -124,7 +128,8 @@ function WandererThink ()
   else
     local nearbyEnemies = FindUnitsInRadius(
       thisEntity:GetTeamNumber(),
-      thisEntity:GetOrigin(), nil,
+      thisEntity:GetOrigin(),
+      nil,
       CLOSE_FOLLOW_RANGE,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
@@ -134,7 +139,8 @@ function WandererThink ()
     )
     local enemies = FindUnitsInRadius(
       thisEntity:GetTeamNumber(),
-      thisEntity:GetOrigin(), nil,
+      thisEntity:GetOrigin(),
+      nil,
       LONG_FOLLOW_RANGE,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
@@ -149,7 +155,7 @@ function WandererThink ()
       nearestEnemy = enemies[1]
     end
 
-    thisEntity:SetIdleAcquire(true)
+    --thisEntity:SetIdleAcquire(true)
     thisEntity:SetAcquisitionRange(128)
 
     if thisEntity:IsIdle() then
@@ -176,6 +182,33 @@ function WandererThink ()
           Position = thisEntity.aggroOrigin,
           Queue = 0,
         })
+      end
+    end
+	
+	if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
+      if thisEntity.netAbility and thisEntity.netAbility:IsFullyCastable() and nearestEnemy then
+        thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
+      end
+      if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
+	    local enemiesToCleanse = FindUnitsInRadius(
+          thisEntity:GetTeamNumber(),
+          thisEntity:GetAbsOrigin(),
+          nil,
+          1000,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_ALL,
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+          FIND_ANY_ORDER,
+          false
+        )
+        if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() and #enemiesToCleanse > 1 then
+          ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),
+            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+            AbilityIndex = thisEntity.cleanseAbility:entindex(),
+            Queue = false,
+          })
+        end
       end
     end
   end
