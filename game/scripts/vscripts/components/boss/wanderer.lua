@@ -48,6 +48,8 @@ function Wanderer:SpawnWanderer ()
   bossHandle:OnDeath(function ()
     self.nextSpawn = HudTimer:GetGameTime() + BOSS_WANDERER_RESPAWN
 
+    Notifications:BottomToAll({text=("#wanderer_slain_message"), duration=5.0})
+
     -- create capture point
     local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
     local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
