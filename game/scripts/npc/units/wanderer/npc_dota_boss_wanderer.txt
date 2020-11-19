@@ -8,7 +8,6 @@
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    // "Model"                                               "models/creeps/baby_rosh_halloween/baby_rosh_radiant/baby_rosh_radiant.vmdl"  // Model.
     "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
     "vscripts"                                            "units/ai_wanderer.lua"
     "SoundSet"                                            "Batrider"          // Name of sound set.
@@ -19,10 +18,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""
-    "Ability2"                                            ""
-    "Ability3"                                            ""
-    "Ability4"                                            ""
+    "Ability1"                                            "wanderer_net"
+    "Ability2"                                            "wanderer_aoe_cleanse"
+    "Ability3"                                            "wanderer_sticky_blood"
+    "Ability4"                                            "wanderer_point_aversion"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_regen"
 
@@ -34,8 +33,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "4000"    // Damage range min.
-    "AttackDamageMax"                                     "4200"    // Damage range max.
+    "AttackDamageMin"                                     "3500"    // Damage range min.
+    "AttackDamageMax"                                     "3500"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.0"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
@@ -69,19 +68,18 @@
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-        //Makes it only have 50% remaining of applied crowd control
-        "DisableResistance"                                 "50.0"
-        "AttachWearables" // Default npc_dota_hero_sven
-        {
-            "1" { "ItemDef" "375" } // Batrider's Head
-            "2" { "ItemDef" "376" } // Batrider's Cloak
-            "3" { "ItemDef" "377" } // Batrider's Belt
-            "4" { "ItemDef" "4557" } // Batrider's Mount
-            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
-        }
+      // Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
+      "AttachWearables"
+      {
+        "1" { "ItemDef" "375" } // Batrider's Head
+        "2" { "ItemDef" "376" } // Batrider's Cloak
+        "3" { "ItemDef" "377" } // Batrider's Belt
+        "4" { "ItemDef" "4557" } // Default Mount
+        "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+      }
     }
 
     // Team
@@ -104,15 +102,11 @@
     "MinimapIconSize"                                     "450"
   }
 
-
-
-
   "npc_dota_boss_wanderer_2"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    // "Model"                                               "models/creeps/baby_rosh_halloween/baby_rosh_radiant/baby_rosh_radiant.vmdl"  // Model.
     "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
     "vscripts"                                            "units/ai_wanderer.lua"
     "SoundSet"                                            "Batrider"          // Name of sound set.
@@ -123,10 +117,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""
-    "Ability2"                                            ""
-    "Ability3"                                            ""
-    "Ability4"                                            ""
+    "Ability1"                                            "wanderer_net"
+    "Ability2"                                            "wanderer_aoe_cleanse"
+    "Ability3"                                            "wanderer_sticky_blood"
+    "Ability4"                                            "wanderer_point_aversion"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_regen"
 
@@ -138,8 +132,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "7000"    // Damage range min.
-    "AttackDamageMax"                                     "7200"    // Damage range max.
+    "AttackDamageMin"                                     "6500"    // Damage range min.
+    "AttackDamageMax"                                     "6500"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.0"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
@@ -173,19 +167,18 @@
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-        //Makes it only have 50% remaining of applied crowd control
-        "DisableResistance"                                 "50.0"
-        "AttachWearables" // Default npc_dota_hero_sven
-        {
-            "1" { "ItemDef" "9376" } // Batrider's Head
-            "2" { "ItemDef" "9388" } // Batrider's Cloak
-            "3" { "ItemDef" "4815" } // Batrider's Belt
-            "4" { "ItemDef" "7494" } // Batrider's Mount
-            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
-        }
+      // Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
+      "AttachWearables"
+      {
+        "1" { "ItemDef" "9376" } // Batrider's Head
+        "2" { "ItemDef" "9388" } // Batrider's Cloak
+        "3" { "ItemDef" "4815" } // Batrider's Belt
+        "4" { "ItemDef" "9407" } // Snow Owl
+        "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+      }
     }
 
     // Team
@@ -208,15 +201,11 @@
     "MinimapIconSize"                                     "450"
   }
 
-
-
-
   "npc_dota_boss_wanderer_3"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    // "Model"                                               "models/creeps/baby_rosh_halloween/baby_rosh_radiant/baby_rosh_radiant.vmdl"  // Model.
     "Model"                                               "models/heroes/batrider/batrider.vmdl"  // Model.
     "vscripts"                                            "units/ai_wanderer.lua"
     "SoundSet"                                            "Batrider"          // Name of sound set.
@@ -227,10 +216,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""
-    "Ability2"                                            ""
-    "Ability3"                                            ""
-    "Ability4"                                            ""
+    "Ability1"                                            "wanderer_net"
+    "Ability2"                                            "wanderer_aoe_cleanse"
+    "Ability3"                                            "wanderer_sticky_blood"
+    "Ability4"                                            "wanderer_point_aversion"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_regen"
 
@@ -243,7 +232,7 @@
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "10000"    // Damage range min.
-    "AttackDamageMax"                                     "11000"    // Damage range max.
+    "AttackDamageMax"                                     "10000"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.0"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
@@ -277,19 +266,18 @@
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-        //Makes it only have 50% remaining of applied crowd control
-        "DisableResistance"                                 "50.0"
-        "AttachWearables" // Default npc_dota_hero_sven
-        {
-            "1" { "ItemDef" "4817" } // Batrider's Head
-            "2" { "ItemDef" "5145" } // Batrider's Cloak
-            "3" { "ItemDef" "7012" } // Batrider's Belt
-            "4" { "ItemDef" "9816" } // Batrider's Mount
-            "5" { "ItemDef" "8366" } // All Heroes' Default Pet
-        }
+      // Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
+      "AttachWearables"
+      {
+        "1" { "ItemDef" "4817" } // Batrider's Head
+        "2" { "ItemDef" "5145" } // Batrider's Cloak
+        "3" { "ItemDef" "7012" } // Batrider's Belt
+        "4" { "ItemDef" "9238" } // Manta Ray
+        "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+      }
     }
 
     // Team
