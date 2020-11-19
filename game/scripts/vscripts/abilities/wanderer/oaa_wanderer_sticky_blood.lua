@@ -127,10 +127,10 @@ function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability,
 
   -- Proc Particle
   local napalm_impact_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(napalm_impact_particle, 0, unit:GetAbsOrigin())
-	ParticleManager:SetParticleControl(napalm_impact_particle, 1, Vector(400, 0, 0))
-	ParticleManager:SetParticleControl(napalm_impact_particle, 2, caster:GetAbsOrigin())
-	ParticleManager:ReleaseParticleIndex(napalm_impact_particle)
+  ParticleManager:SetParticleControl(napalm_impact_particle, 0, unit:GetAbsOrigin())
+  ParticleManager:SetParticleControl(napalm_impact_particle, 1, Vector(400, 0, 0))
+  ParticleManager:SetParticleControl(napalm_impact_particle, 2, caster:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(napalm_impact_particle)
 
   -- Sound on unit
   EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "Hero_Batrider.StickyNapalm.Impact", caster)
@@ -160,7 +160,7 @@ end
 
 function modifier_wanderer_sticky_blood_debuff:OnCreated()
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.bonus_damage = ability:GetSpecialValueFor("damage_per_stack")
     self.move_speed_slow = ability:GetSpecialValueFor("movement_speed_pct")
     self.turn_speed_slow = ability:GetSpecialValueFor("turn_rate_pct")
@@ -177,7 +177,7 @@ end
 
 function modifier_wanderer_sticky_blood_debuff:OnRefresh()
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.bonus_damage = ability:GetSpecialValueFor("damage_per_stack")
     self.move_speed_slow = ability:GetSpecialValueFor("movement_speed_pct")
     self.turn_speed_slow = ability:GetSpecialValueFor("turn_rate_pct")

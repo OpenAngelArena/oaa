@@ -18,7 +18,7 @@ function wanderer_aoe_cleanse:OnAbilityPhaseStart()
 end
 
 function wanderer_aoe_cleanse:OnAbilityPhaseInterrupted()
-	if IsServer() then
+  if IsServer() then
     if self.nPreviewFX then
       ParticleManager:DestroyParticle(self.nPreviewFX, true)
       ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
@@ -114,7 +114,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
   EmitSoundOnLocationWithCaster(caster_location, "OgreTank.GroundSmash", caster)
 
   -- Particle
-  local smashParticle = ParticleManager:CreateParticle( "particles/test_particle/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, caster)
+  local smashParticle = ParticleManager:CreateParticle("particles/test_particle/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, caster)
   ParticleManager:SetParticleControl(smashParticle, 0, caster_location)
   ParticleManager:SetParticleControl(smashParticle, 1, Vector(radius, radius, radius))
   ParticleManager:ReleaseParticleIndex(smashParticle)
