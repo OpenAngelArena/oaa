@@ -59,7 +59,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
     local attacker = event.attacker
     local damage = event.damage
     local damaged_unit = event.unit
-    local caster = self:GetCaster() or self:GetParent()
+    local caster = self:GetParent() or self:GetCaster()
     local ability = self:GetAbility()
 
     -- Continue only if the caster/parent is the damaged unit
@@ -74,6 +74,11 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
 
     -- If caster or ability don't exist -> don't continue
     if not caster or caster:IsNull() or not ability or ability:IsNull() then
+      return
+    end
+
+    -- if Wanderer is not aggroed -> don't continue (It will continue if caster.isAggro is true or nil - intentional)
+    if caster.isAggro == false then
       return
     end
 
