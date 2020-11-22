@@ -40,11 +40,11 @@ function wanderer_net:OnSpellStart()
   }
 
   ProjectileManager:CreateTrackingProjectile(info)
-  
+
   -- Calculate distance and max particle duration
   local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
   local particle_duration = distance/speed
-  
+
   -- Apply the warning particle (with a modifier)
   target:AddNewModifier(caster, self, "modifier_wanderer_net_target", {duration = particle_duration})
 
