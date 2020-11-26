@@ -1,53 +1,53 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Reflection Shard 2
+  // Recipe: Reflection Shard 4
   //=================================================================================================================
-  "item_recipe_reflection_shard_2"
+  "item_recipe_reflection_shard_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3815"    // unique ID
+    "ID"                                                  "8505"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_reflection_shard_2"
+    "ItemResult"                                          "item_reflection_shard_4"
     "ItemRequirements"
     {
-      "01"                                                "item_reflection_shard_1;item_upgrade_core_2"
-      "02"                                                "item_sphere_2;item_upgrade_core_2"
-      "03"                                                "item_aeon_disk_2;item_upgrade_core_2"
+      "01"                                                "item_reflection_shard_3;item_upgrade_core_4"
+      "02"                                                "item_sphere_4;item_upgrade_core_4"
+      "03"                                                "item_aeon_disk_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Reflection Shard 2
+  // Reflection Shard 4
   //=================================================================================================================
-  "item_reflection_shard_2"
+  "item_reflection_shard_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3816"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8507"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityTextureName"                                  "custom/reflection_shard_2"
+    "AbilityTextureName"                                  "custom/reflection_shard_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "4"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "4"
 
     //"ItemInitialCharges"                                  "1 2 3"
     //"ItemRequiresCharges"                                 "1"
@@ -56,10 +56,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "9600"
+    "ItemCost"                                            "37600"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "reflect shard 2"
+    "ItemAliases"                                         "reflect shard 4"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 

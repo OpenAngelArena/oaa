@@ -6,6 +6,7 @@ LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua
 item_reflection_shard_1 = class(ItemBaseClass)
 item_reflection_shard_2 = item_reflection_shard_1
 item_reflection_shard_3 = item_reflection_shard_1
+item_reflection_shard_4 = item_reflection_shard_1
 
 function item_reflection_shard_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus" -- "modifier_charge_replenisher"

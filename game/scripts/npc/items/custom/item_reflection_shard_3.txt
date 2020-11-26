@@ -10,11 +10,11 @@
     "ID"                                                  "3819"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,9 +23,9 @@
     "ItemResult"                                          "item_reflection_shard_3"
     "ItemRequirements"
     {
-      "01"                                                "item_reflection_shard_2;item_upgrade_core_4"
-      "02"                                                "item_sphere_4;item_upgrade_core_4"
-      "03"                                                "item_aeon_disk_4;item_upgrade_core_4"
+      "01"                                                "item_reflection_shard_2;item_upgrade_core_3"
+      "02"                                                "item_sphere_3;item_upgrade_core_3"
+      "03"                                                "item_aeon_disk_3;item_upgrade_core_3"
     }
   }
 
@@ -46,7 +46,7 @@
     "AbilityCooldown"                                     "8"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
 
     //"ItemInitialCharges"                                  "1 2 3"
@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "37600"
+    "ItemCost"                                            "17600"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "reflect shard 3"
@@ -65,6 +65,19 @@
 
     "precache"
     {
+      "particle"                                          "particles/items/reflection_shard/reflection_shield.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_highlight1.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_plasma.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_rings.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_shield_cast.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_shield_end.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp_cast.vpcf"
+      "particle"                                          "particles/items/reflection_shard/reflection_shield_shell_warp_endcap.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_b.vpcf"
+      "particle"                                          "particles/items/reflection_shard/immunity_sphere_yellow_lincoln_b.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
     }
 
@@ -75,17 +88,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "40 55 70"
+        "bonus_all_stats"                                 "30 40 55 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "16 28 42"
+        "bonus_health_regen"                              "11 14 19 25"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.5 7.5 8.5"
+        "bonus_mana_regen"                                "5.25 5.75 6.5 7.5"
       }
       "04"
       {
