@@ -71,6 +71,7 @@ end
 
 item_lucience_2 = class(item_lucience)
 item_lucience_3 = class(item_lucience)
+item_lucience_4 = class(item_lucience)
 
 ------------------------------------------------------------------------
 
@@ -110,6 +111,7 @@ function modifier_item_lucience_aura_handler:OnCreated()
   if ability and not ability:IsNull() then
     ability.auraHandler = self
     self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
   end
 
   if IsServer() then
@@ -174,20 +176,25 @@ function modifier_item_lucience_aura_handler:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Agility()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats") or self.stats
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats") or self.stats
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats") or self.stats
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_lucience_aura_handler:GetModifierConstantManaRegen()
+  return self.bonus_mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
 ------------------------------------------------------------------------
@@ -277,7 +284,7 @@ end
 
 function modifier_item_lucience_regen_effect:OnCreated()
   local ability = self:GetAbility()
-  local hp_regen = 70
+  local hp_regen = 60
   --local regen_interval = 1/3
   if ability and not ability:IsNull() then
     hp_regen = ability:GetSpecialValueFor("regen_bonus")
@@ -293,7 +300,7 @@ end
 
 function modifier_item_lucience_regen_effect:OnRefresh()
   local ability = self:GetAbility()
-  local hp_regen = 70
+  local hp_regen = 60
   --local regen_interval = 1/3
   if ability and not ability:IsNull() then
     hp_regen = ability:GetSpecialValueFor("regen_bonus")
