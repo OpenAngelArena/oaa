@@ -397,6 +397,8 @@ function Duels:ActuallyStartDuel(options)
   self:SpawnPlayersOnArenas(split, smallArenaIndex, bigArenaIndex)
   self:PreparePlayersToStartDuel(options, split)
 
+  local gamemode = GameRules:GetGameModeEntity()
+  gamemode:SetTPScrollSlotItemOverride("item_dust")
 end
 
 function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
@@ -435,6 +437,8 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
+      local dust = CreateItem("item_dust", player, player)
+      hero:AddItem(dust)
     end
   end
   for _,player in ipairs(playerSplit.GoodPlayers) do
@@ -444,6 +448,8 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
+      local dust = CreateItem("item_dust", player, player)
+      hero:AddItem(dust)
     end
   end
 
@@ -585,6 +591,9 @@ function Duels:EndDuel ()
     end
   end
 
+  local gamemode = GameRules:GetGameModeEntity()
+  gamemode:SetTPScrollSlotItemOverride("item_tpscroll")
+
   local currentDuel = self.currentDuel
   self:CleanUpDuel()
 
@@ -613,6 +622,10 @@ function Duels:EndDuel ()
       HeroState.RestoreState(hero, state)
       MoveCameraToPlayer(hero)
       HeroState.PurgeDuelHighgroundBuffs(hero) -- needed to remove undispellable Highground buffs
+      -- Add tp scroll
+      --local tpscroll = CreateItem("item_tpscroll", player, player)
+      --hero:AddItem(tpscroll)
+      hero:AddItemByName("item_tpscroll")
     end)
     -- Remove Modifier
     for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
@@ -623,6 +636,8 @@ function Duels:EndDuel ()
 
           if hero ~= nil then
             hero:RemoveModifierByName("modifier_out_of_duel")
+            -- Add tp scroll
+            hero:AddItemByName("item_tpscroll")
           end
         end
       end
