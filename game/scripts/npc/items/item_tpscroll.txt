@@ -23,14 +23,18 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "90"
+    "ItemCost"                                            "1" //OAA
     "ItemShopTags"                                        "consumable;tutorial"
     "ItemQuality"                                         "consumable"
     "ItemAliases"                                         "tp;town portal scroll;teleport"
     "ItemStackable"                                       "1"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"                                       "0"
+    "ItemPermanent"                                       "1" //OAA
+    "ItemRequiresCharges"                                 "0" //OAA
+    "ItemDisplayCharges"                                  "0" //OAA
     "ItemInitialCharges"                                  "1"
+    "ItemKillable"                                        "0" //OAA
+    "ItemDroppable"                                       "0" //OAA
     "SideShop"                                            "0"
 
     // Special
