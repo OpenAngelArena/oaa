@@ -218,6 +218,7 @@ function GameMode:_CaptureGameMode()
     mode:SetKillingSpreeAnnouncerDisabled( DISABLE_KILLING_SPREE_ANNOUNCER )
     mode:SetStickyItemDisabled( DISABLE_STICKY_ITEM )
     mode:SetForceRightClickAttackDisabled(true)
+    mode:SetCustomBackpackSwapCooldown(3.0)
 
     self:OnFirstPlayerLoaded()
   end
