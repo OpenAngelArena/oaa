@@ -10,6 +10,7 @@
     "ID"                                                  "3185"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +22,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hand_of_midas_3"
-    "AbilityTextureName"                                  "item_recipe"
+
     "ItemRequirements"
     {
       "01"                                                "item_hand_of_midas_2"
@@ -74,12 +75,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "2.1 3 4"
+        "xp_multiplier"                                   "2 4 6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "160 350 550"
+        "bonus_gold"                                      "150 350 550"
       }
       "04"
       {

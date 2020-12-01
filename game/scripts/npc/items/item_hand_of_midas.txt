@@ -16,7 +16,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1750"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemAliases"                                         "hom"
 
@@ -24,7 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hand_of_midas_1"
-    "AbilityTextureName"                                  "item_recipe"
+
     "ItemRequirements"
     {
       "01"                                                "item_gloves"
@@ -59,7 +59,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "2200"
+    "ItemCost"                                            "1950"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas;midas"
@@ -77,12 +77,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "2.1 3 4"
+        "xp_multiplier"                                   "2 4 6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "160 350 550"
+        "bonus_gold"                                      "150 350 550"
       }
       "04"
       {
