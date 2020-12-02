@@ -75,13 +75,6 @@ DUEL_RUNE_TIMER = 30                    -- how long until the highground object 
 DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
--- Sparks
-SPARK_LEVEL_1_TIME = 0                  -- just a placeholder so the other names make more sense
-SPARK_LEVEL_2_TIME = 240                -- 4 minutes
-SPARK_LEVEL_3_TIME = 900                -- 15 minutes
-SPARK_LEVEL_4_TIME = 1500               -- 25 minutes
-SPARK_LEVEL_5_TIME = 2100               -- 35 minutes
-
 -- CapturePoints
 INITIAL_CAPTURE_POINT_DELAY = 660       -- how long after the clock hits 0 should the initial Capture Point start counting down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show

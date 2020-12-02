@@ -11,7 +11,7 @@
   <Panel class="SparkSelectionHolder" hittest='false'>
     <Button class='PopupButton' id="ChangeSpark" onactivate='OpenSparkSelection()'>
       <Label id='ChangeSparkCooldown' text='69'/>
-      <Label text='Change Spark'/>
+      <Label text='#spark_selection_button'/>
     </Button>
     <Panel id='SparkSelection'>
       <Panel class='TopLabel'>
@@ -29,10 +29,10 @@
               </Panel>
 
               <Panel class='TopLabel'>
-                <Label text='GPM'/>
+                <Label text='#spark_selection_gpm'/>
               </Panel>
               <Panel class='Description'>
-                <Label text='Gain additional gold passively over time'/>
+                <Label text='#spark_selection_gpm_desc'/>
               </Panel>
             </Panel>
             <Panel class='SparkPanel' id='midasPanel' onactivate='SelectSpark("midas")'>
@@ -41,10 +41,10 @@
               </Panel>
 
               <Panel class='TopLabel'>
-                <Label text='Midas'/>
+                <Label text='#spark_selection_midas'/>
               </Panel>
               <Panel class='Description'>
-                <Label text='One-shot creeps for bonus gold on a cooldown.'/>
+                <Label text='#spark_selection_midas_desc'/>
               </Panel>
             </Panel>
           </Panel>
@@ -60,13 +60,13 @@
               </Panel>
 
               <Panel class='TopLabel'>
-                <Label text='Power'/>
+                <Label text='#spark_selection_power'/>
               </Panel>
               <Panel class='Description'>
-                <Label text='Attacks deal additional pure damage to creeps.'/>
+                <Label text='#spark_selection_power_desc'/>
               </Panel>
               <Panel class='Description'>
-                <Label text='Gains bonus gold on creep kills.'/>
+                <Label text='#spark_selection_bonus_gold'/>
               </Panel>
             </Panel>
             <Panel class='SparkPanel' id='cleavePanel' onactivate='SelectSpark("cleave")'>
@@ -75,16 +75,16 @@
               </Panel>
 
               <Panel class='TopLabel'>
-                <Label text='Cleave'/>
+                <Label text='#spark_selection_cleave'/>
               </Panel>
               <Panel class='Description'>
-                <Label text='Attacks splinter to nearby creeps.'/>
+                <Label text='#spark_selection_cleave_desc'/>
               </Panel>
               <Panel class='Description'>
                 &nbsp;
               </Panel>
               <Panel class='Description'>
-                <Label text='Gains bonus gold on creep kills.'/>
+                <Label text='#spark_selection_bonus_gold'/>
               </Panel>
             </Panel>
           </Panel>

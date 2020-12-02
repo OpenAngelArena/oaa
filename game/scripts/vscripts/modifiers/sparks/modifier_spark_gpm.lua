@@ -6,15 +6,21 @@ end
 
 modifier_spark_gpm.OnRefresh = modifier_spark_gpm.OnCreated
 
---[[
 function modifier_spark_gpm:GetSparkLevel()
   local gameTime = HudTimer:GetGameTime()
 
-  if not SPARK_LEVEL_1_TIME then
-    return 1
-  end
+  local SPARK_LEVEL_2_TIME = 300                -- 5 minutes
+  local SPARK_LEVEL_3_TIME = 600                -- 10 minutes
+  local SPARK_LEVEL_4_TIME = 900                -- 15 minutes
+  local SPARK_LEVEL_5_TIME = 1500               -- 25 minutes
+  local SPARK_LEVEL_6_TIME = 2100               -- 35 minutes
+  local SPARK_LEVEL_7_TIME = 2700               -- 45 minutes
 
-  if gameTime > SPARK_LEVEL_5_TIME then
+  if gameTime > SPARK_LEVEL_7_TIME then
+    return 7
+  elseif gameTime > SPARK_LEVEL_6_TIME then
+    return 6
+  elseif gameTime > SPARK_LEVEL_5_TIME then
     return 5
   elseif gameTime > SPARK_LEVEL_4_TIME then
     return 4
@@ -26,7 +32,6 @@ function modifier_spark_gpm:GetSparkLevel()
 
   return 1
 end
-]]
 
 function modifier_spark_gpm:GetTexture()
   return "custom/spark_gpm"
@@ -42,22 +47,23 @@ function modifier_spark_gpm:OnIntervalThink()
   end
 
   local caster = self:GetParent()
-  local gpm = self:CalculateGPM()
 
   -- Don't give gold on illusions, Tempest Doubles, or Meepo clones, or during duels
   if caster:IsIllusion() or caster:IsTempestDouble() or caster:IsClone() or not Gold:IsGoldGenActive() then
     return
   end
 
+  local gpm = self:CalculateGPM()
   Gold:ModifyGold(caster:GetPlayerOwnerID(), math.ceil(gpm / 60), true, DOTA_ModifyGold_GameTick)
 
   self:SetStackCount(gpm)
 end
 
+-- Formula for GPM scaling
 function modifier_spark_gpm:CalculateGPM()
-  local gameTime = HudTimer:GetGameTime()
-  --local gpmChart = {500, 1800, 3200, 5500, 10000}
-  --local gpm = gpmChart[self:GetSparkLevel()]
+  local gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000}
+  local gpm = gpmChart[self:GetSparkLevel()]
+
   return math.floor(gpm)
 end
 
