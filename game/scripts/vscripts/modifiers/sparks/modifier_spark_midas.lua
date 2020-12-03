@@ -33,8 +33,8 @@ function modifier_spark_midas:OnCreated()
   -- Midas Spark variables
   self.max_charges = 400
   self.charges_needed_for_kill = 100
-  self.bonus_gold = {300, 1300, 2300, 4300, 8300} -- max allowed values: {400, 1500, 2600, 4500, 8300} - which is slightly less than gpm spark
-  self.bonus_xp = {0, 0, 0, 0, 0}
+  self.bonus_gold = {375, 750, 1500, 3000, 4500, 7500, 15000} -- gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000} * 3/4
+  self.bonus_xp = 25 -- 1/4
 end
 
 if IsServer() then
@@ -42,7 +42,7 @@ if IsServer() then
     local parent = self:GetParent()
 
     -- disable everything here for illusions or during duels / pre 0:00
-    if parent:IsIllusion() or not Gold:IsGoldGenActive() then
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or not Gold:IsGoldGenActive() then
       return
     end
 
@@ -61,15 +61,18 @@ function modifier_spark_midas:GetSparkLevel()
     gameTime = GameRules:GetDOTATime(false, false) - (self:GetStackCount() / 2)
   end
 
-  if not SPARK_LEVEL_1_TIME then
-    SPARK_LEVEL_1_TIME = 0
-    SPARK_LEVEL_2_TIME = 240
-    SPARK_LEVEL_3_TIME = 900
-    SPARK_LEVEL_4_TIME = 1500
-    SPARK_LEVEL_5_TIME = 2100
-  end
+  local SPARK_LEVEL_2_TIME = 300                -- 5 minutes
+  local SPARK_LEVEL_3_TIME = 600                -- 10 minutes
+  local SPARK_LEVEL_4_TIME = 900                -- 15 minutes
+  local SPARK_LEVEL_5_TIME = 1500               -- 25 minutes
+  local SPARK_LEVEL_6_TIME = 2100               -- 35 minutes
+  local SPARK_LEVEL_7_TIME = 2700               -- 45 minutes
 
-  if gameTime > SPARK_LEVEL_5_TIME then
+  if gameTime > SPARK_LEVEL_7_TIME then
+    return 7
+  elseif gameTime > SPARK_LEVEL_6_TIME then
+    return 6
+  elseif gameTime > SPARK_LEVEL_5_TIME then
     return 5
   elseif gameTime > SPARK_LEVEL_4_TIME then
     return 4
@@ -134,7 +137,7 @@ if IsServer() then
       local spark_level = self:GetSparkLevel()
 
       local bonus_gold = self.bonus_gold[spark_level]
-      local bonus_xp = self.bonus_xp[spark_level]
+      local bonus_xp = self.bonus_xp
 
       -- bonus gold
       Gold:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
@@ -142,7 +145,10 @@ if IsServer() then
 
       -- bonus experience
       if bonus_xp > 0 then
+        local XPBounty = target:GetDeathXP()
+        bonus_xp = bonus_xp * XPBounty / 100
         parent:AddExperience(bonus_xp, DOTA_ModifyXP_CreepKill, false, true)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, parent, bonus_xp, player)
       end
 
       -- particle
