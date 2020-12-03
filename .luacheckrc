@@ -2851,7 +2851,8 @@ read_globals = { -- these globals can only be accessed.
 "BOSS_WANDERER_RESPAWN",
 "AbilityKV",
 "VectorTarget",
-"KILL_LIMIT_INCREASE"
+"KILL_LIMIT_INCREASE",
+"DOTA_ITEM_TP_SCROLL"
 }
 
 ignore = {
