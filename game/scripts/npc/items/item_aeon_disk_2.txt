@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "5254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -15,10 +15,10 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
-    "ItemResult"          "item_aeon_disk_2"
+    "ItemResult"                                          "item_aeon_disk_2"
     "ItemRequirements"
     {
-      "01"                                                "item_aeon_disk;item_upgrade_core"
+      "01"                                                "item_sphere;item_upgrade_core"
     }
   }
 
@@ -29,17 +29,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"            "8400"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"     "item_aeon_disk"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "8400"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_aeon_disk"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "ItemCost"                                            "4600"
+    "ItemCost"                                            "6100"
     "ItemAliases"                                         "ad 2;aeon disk 2"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"       "105.0 95.0 75.0 55.0 35.0"
+    "AbilityCooldown"                                     "105.0 95.0 75.0 55.0 35.0"
     "AbilityTextureName"                                  "custom/combo_breaker_2"
 
     // Special

@@ -10,11 +10,11 @@
     "ID"                                                  "3556"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_reflection_shard_1"
     "ItemRequirements"
     {
-      "01"                                                "item_sphere_2;item_upgrade_core_2"
+      "01"                                                "item_sphere;item_upgrade_core"
     }
   }
 
@@ -44,7 +44,7 @@
     "AbilityCooldown"                                     "8"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
 
     //"ItemInitialCharges"                                  "1 2 3"
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "9600"
+    "ItemCost"                                            "6100"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "reflect shard 1"
@@ -83,20 +83,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // better than Linken's Sphere or like Eye of Skadi
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "40 55 70"
+        "bonus_all_stats"                                 "30 40 55 75"
       }
-      "02"
+      "02" // like Linken's Sphere
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "16 28 42"
+        "bonus_health_regen"                              "11 14 19 25"
       }
-      "03"
+      "03" // like Linken's Sphere
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.5 7.5 8.5"
+        "bonus_mana_regen"                                "5.25 5.75 6.5 7.5"
       }
       "04"
       {
