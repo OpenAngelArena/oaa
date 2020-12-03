@@ -42,6 +42,7 @@ function Wanderer:SpawnWanderer ()
   self.level = self.level + 1
 
   local bossHandle = CreateUnitByName("npc_dota_boss_wanderer_" .. math.min(3, self.level), Vector(0, 0, 0), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = self.level + 2
   self.wanderer = bossHandle
 
   -- reward handling
@@ -85,7 +86,6 @@ function Wanderer:SpawnWanderer ()
           end
         end
       end)
-
     end)
     -- Give the thinker some vision so that spectators can always see the capture point
     capturePointThinker:SetDayTimeVisionRange(1)

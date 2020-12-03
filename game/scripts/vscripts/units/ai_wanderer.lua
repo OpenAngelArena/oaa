@@ -6,7 +6,7 @@ local CLOSE_FOLLOW_RANGE = 300
 -- a-walks towards them
 local LONG_FOLLOW_RANGE = 1200
 -- the max range away from the spot they were aggroed from where they should walk
--- when this leash limit is hit, the boss walks back to where they were aggroed originalls
+-- when this leash limit is hit, the boss walks back to where they were aggroed originally
 -- then follows long follow range
 -- should be pretty high for stuff like sniper juggling
 local MAX_LEASH_DISTANCE = 2000
@@ -18,11 +18,10 @@ function Spawn( entityKeyValues )
     return
   end
 
-  thisEntity.retreatDelay = 6.0
-  thisEntity.damageThreshold = 6.0
   thisEntity.hasSpawned = false
   thisEntity.netAbility = thisEntity:FindAbilityByName("wanderer_net")
   thisEntity.cleanseAbility = thisEntity:FindAbilityByName("wanderer_aoe_cleanse")
+  thisEntity.BossTier = thisEntity.BossTier or 3
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
 
@@ -62,10 +61,10 @@ function WandererThink ()
     end
   end
 
+  -- Wanderer is aggroed if its health is below 95%
   local shouldAggro = hpPercent < 0.95
-  -- if not thisEntity.isAggro and shouldAggro then
-    -- is aggroing now from a non-aggro state
-  -- end
+
+  -- Check if Wanderer is aggroed but it shouldn't be aggroed
   if thisEntity.isAggro and not shouldAggro then
     -- giving up on aggro
     thisEntity:Stop()
@@ -75,9 +74,11 @@ function WandererThink ()
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
     thisEntity:RemoveModifierByName("modifier_wanderer_boss_buff")
   end
+
+  -- Check if Wanderer is not aggroed but it should be aggroed
   if not thisEntity.isAggro and shouldAggro then
-      thisEntity:Stop()
-      thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
+    thisEntity:Stop()
+    thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
   -- end pre assign stuff
@@ -86,21 +87,25 @@ function WandererThink ()
 
   -- start post assign stuff
 
+  -- Set aggro origin
   if thisEntity.isAggro and not thisEntity.aggroOrigin then
-      thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
+    thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
+  -- Visual effect
   if thisEntity.isAggro and not thisEntity:HasModifier("modifier_batrider_firefly") then
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_batrider_firefly", {
       duration = 99
     })
   end
+  -- Wanderer's buff with absolute movement speed etc.
   if thisEntity.isAggro and not thisEntity:HasModifier("modifier_wanderer_boss_buff") then
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_wanderer_boss_buff", {
       duration = 99
     })
   end
 
+  -- Leashing
   if thisEntity.aggroOrigin then
     local distanceFromOrigin = (thisEntity:GetAbsOrigin() - thisEntity.aggroOrigin):Length2D()
     local shouldLeash = distanceFromOrigin > MAX_LEASH_DISTANCE
@@ -184,13 +189,14 @@ function WandererThink ()
         })
       end
     end
-	
-	if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
+
+    -- Cast abilities if below 75% health
+    if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
       if thisEntity.netAbility and thisEntity.netAbility:IsFullyCastable() and nearestEnemy then
         thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
       end
       if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
-	    local enemiesToCleanse = FindUnitsInRadius(
+        local enemiesToCleanse = FindUnitsInRadius(
           thisEntity:GetTeamNumber(),
           thisEntity:GetAbsOrigin(),
           nil,
