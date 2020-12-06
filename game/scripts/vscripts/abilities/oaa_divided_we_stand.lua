@@ -7,7 +7,7 @@ function meepo_divided_we_stand_oaa:GetIntrinsicModifierName()
   return "modifier_meepo_divided_we_stand_oaa"
 end
   
------------------------------------------------------------------------------- (loves's WIP)
+------------------------------------------------------------------------------ 
 modifier_meepo_divided_we_stand_oaa = class(ModifierBaseClass)
 
 function modifier_meepo_divided_we_stand_oaa:IsHidden()
@@ -30,7 +30,7 @@ function modifier_meepo_divided_we_stand_oaa:GetModifierAura()
 end
 
 function modifier_meepo_divided_we_stand_oaa:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_ALLIES
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 function modifier_meepo_divided_we_stand_oaa:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)

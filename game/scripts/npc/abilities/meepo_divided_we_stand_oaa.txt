@@ -6,14 +6,15 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5433"					// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"				"ability_lua"
-		"ScriptFile"			"abilities/oaa_divided_we_stand.lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"ID"												  "5433"					// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"											  "ability_lua"
+		"ScriptFile"										  "abilities/oaa_divided_we_stand.lua"
+		"AbilityBehavior"									  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"										  "DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"                                  "meepo_divided_we_stand"
-		
-		
+		"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			
 		"MaxLevel" 					"5"
 		"LevelsBetweenUpgrades"		"7"
 		"RequiredLevel"			"4"
