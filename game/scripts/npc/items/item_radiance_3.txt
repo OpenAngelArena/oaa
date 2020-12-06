@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Radiance 3
@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4001"
+    "ID"                                                  "8571"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -34,7 +34,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4005"
+    "ID"                                                  "8572"
     "BaseClass"                                           "item_radiance"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "custom/radiance_3"
@@ -58,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 110 150 200"
+        "bonus_damage"                                    "60 80 120 180 260"
       }
       "03" // 02
       {

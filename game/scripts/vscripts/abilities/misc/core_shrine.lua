@@ -1,22 +1,21 @@
-LinkLuaModifier( "modifier_core_shrine", "abilities/misc/core_shrine.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_core_shrine_effect", "abilities/misc/core_shrine.lua", LUA_MODIFIER_MOTION_NONE )
 
-core_shrine = class(AbilityBaseClass)
-modifier_core_shrine = class(ModifierBaseClass)
+---------------------------------------------------------------------------------------------------
+
 modifier_core_shrine_effect = class(ModifierBaseClass)
 
 function modifier_core_shrine_effect:OnCreated()
   if IsServer() then
     if self:GetAbility():IsCooldownReady() then
       if self:GetAbility():GetName() == "core_guy_score_limit" then
-        print('Setting stack to 1')
+        --print('Setting stack to 1')
         self:SetStackCount(1)
       else
-        print('Setting stack to 2')
+        --print('Setting stack to 2')
         self:SetStackCount(2)
       end
     else
-      print('Setting stack to 0')
+      --print('Setting stack to 0')
       self:SetStackCount(0)
     end
   end
@@ -26,7 +25,7 @@ modifier_core_shrine_effect.OnRefresh = modifier_core_shrine_effect.OnCreated
 
 function modifier_core_shrine_effect:GetEffectName()
   local stackCount = self:GetStackCount()
-  print(stackCount)
+  --print(stackCount)
   if stackCount == 0 then
     return
   end
@@ -36,6 +35,10 @@ function modifier_core_shrine_effect:GetEffectName()
     return   "particles/misc/ruby_oaa_rays.vpcf"
   end
 end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_core_shrine = class(ModifierBaseClass)
 
 function modifier_core_shrine:OnCreated()
   if IsServer() then
@@ -63,12 +66,12 @@ function modifier_core_shrine:CheckEffectModifier()
     if self:GetAbility():IsCooldownReady() and not self.effectMod then
       local parent = self:GetParent()
       self:GetParent():RemoveModifierByName("modifier_core_shrine_effect")
-      print('applying modifier!')
+      --print('applying modifier!')
       self.effectMod = parent:AddNewModifier(parent, self:GetAbility(), "modifier_core_shrine_effect", {})
       self:StartIntervalThink(-1)
     elseif not self:GetAbility():IsCooldownReady() and self.effectMod then
       self.effectMod = nil
-      print('removing modifier!')
+      --print('removing modifier!')
       self:GetParent():RemoveModifierByName("modifier_core_shrine_effect")
       self:StartIntervalThink(1)
     end
@@ -82,8 +85,6 @@ function modifier_core_shrine:DeclareFunctions()
   }
   return funcs
 end
-
------------------------------------------------------------------------
 
 function modifier_core_shrine:CheckState()
   local state = {
@@ -112,7 +113,7 @@ function modifier_core_shrine:OnOrder( params )
       return
     end
 
-    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() then
+    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
       return
     end
 

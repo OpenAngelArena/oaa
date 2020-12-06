@@ -7,7 +7,7 @@ boss_spiders_cannonshot = class(AbilityBaseClass)
 ------------------------------------------------------------------------------------
 
 function boss_spiders_cannonshot:GetCastAnimation()
-	return ACT_DOTA_CAST_ABILITY_4
+	return ACT_DOTA_CAST_ABILITY_1
 end
 
 ------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_spiders_cannonshot:Explode(explosive)
-	local radius = 240
+	local radius = self:GetSpecialValueFor("radius")
 
 	local units = FindUnitsInRadius(
 		explosive:GetTeamNumber(),
@@ -57,7 +57,7 @@ function boss_spiders_cannonshot:Explode(explosive)
 		nil,
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_ALL,
+		bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_CLOSEST,
 		false
@@ -94,5 +94,5 @@ function boss_spiders_cannonshot:Explode(explosive)
 	ParticleManager:SetParticleControl(explosion, 3, explosive:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(explosion)
 
-	UTIL_Remove(explosive)
+	explosive:ForceKill(false)
 end

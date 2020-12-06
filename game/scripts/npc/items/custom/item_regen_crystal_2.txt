@@ -1,7 +1,7 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Postactive Reflex 4c
+  // Recipe: Regeneration Crystal 2
   //=================================================================================================================
   "item_recipe_regen_crystal_2"
   {
@@ -30,7 +30,7 @@
   }
 
   //=================================================================================================================
-  // Postactive Reflex 4c
+  // Regeneration Crystal 2
   //=================================================================================================================
   "item_regen_crystal_2"
   {
@@ -52,47 +52,55 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "75"
     "ItemCost"                                            "16800"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "regen crystal 4"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemAliases"                                         "regen crystal 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1300 2300 3200"
+        "bonus_health"                                    "1600 2100 2700"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "60 70 80"
+        "bonus_strength"                                  "40 60 80"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_health_regen"                             "500 650 800"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_mana_to_hp_regen"                            "3"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_hp_regen"                                 "500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_hp_regen_amp"                             "100"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "5"
       }
     }
 
-    // Special
+    // Precache
     //-------------------------------------------------------------------------------------------------------------
-    // "precache"
-    // {
-    //   "soundfile"                                    "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
-    //   "particle"                                     "particles/items3_fx/lotus_orb_shell_shield_cast.vpcf"
-    // }
+    "precache"
+    {
+      "particle"                                          "particles/items/regen_crystal/regen_ambient.vpcf"
+    }
   }
 }

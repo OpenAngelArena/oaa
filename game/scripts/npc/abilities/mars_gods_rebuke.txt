@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "65 70 75 80 110 150"
+    "AbilityManaCost"                                     "65 70 75 80 85 90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -81,18 +81,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_vs_heroes"                          "35"
+        "bonus_damage_vs_heroes"                          "25 30 35 40 80 160" //OAA
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "2"
-        "RequiresScepter"                                 "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "1.4"
+        "scepter_cooldown"                                "3.5"
         "RequiresScepter"                                 "1"
       }
     }

@@ -15,10 +15,10 @@
     "IsSummoned"                                          "1"
     "CanBeDominated"                                      "0"
     "UnitLabel"                                           "necrowarrior"
-    
+
     // Abilities
     //----------------------------------------------------------------
-    
+
     "Ability1"                                            "necronomicon_warrior_mana_burn"      // Ability 1.
     "Ability2"                                            "necronomicon_warrior_last_will"      // Ability 2.
     "Ability3"                                            "necronomicon_warrior_sight"      // Ability 3.
@@ -36,8 +36,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "170"    // Damage range min.
-    "AttackDamageMax"                                     "190"    // Damage range max.
+    "BaseAttackSpeed"                                     "111"
+    "AttackDamageMin"                                     "120"    // Damage range min.
+    "AttackDamageMax"                                     "120"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.75"    // Speed of attack.
     "AttackAnimationPoint"                                "0.56"    // Normalized time in animation cycle to attack.
@@ -70,7 +71,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "350"    // Speed
+    "MovementSpeed"                                       "390"    // Speed
     "MovementTurnRate"                                    "0.5"    // Turning rate.
 
     // Status
@@ -83,14 +84,14 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "1500"    // Range of vision during day light.
     "VisionNighttimeRange"                                "800"    // Range of vision at night time.
-  }  
-  
+  }
+
 }

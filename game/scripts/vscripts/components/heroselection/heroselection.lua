@@ -192,20 +192,14 @@ function HeroSelection:BuildBottlePass()
   local special_arcanas = {}
   HeroSelection.SelectedBottle = {}
   HeroSelection.SelectedArcana = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID)
 
     if SPECIAL_BOTTLES[steamid] then
       special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
       HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
     end
-    if SPECIAL_ARCANAS[steamid] then
-      special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = SPECIAL_ARCANAS[steamid]}
-      table.insert(special_arcanas[playerID].Arcanas, 'RockElectrician')
-      if SPECIAL_BOTTLES[steamid] then
-        table.insert(special_arcanas[playerID].Arcanas, 'PepsiSohei')
-      end
-    end
+    special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}}
   end
 
   -- Populate table with playerIds and list of bottles/arcanas for players
@@ -914,7 +908,7 @@ function HeroSelection:GetSteamAccountID(playerID)
 end
 
 function HeroSelection:ForceAssignHeroes()
-	for nPlayerID = 0, ( DOTA_MAX_TEAM_PLAYERS - 1 ) do
+	for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		local hPlayer = PlayerResource:GetPlayer( nPlayerID )
 		if hPlayer and not PlayerResource:HasSelectedHero( nPlayerID ) then
 			hPlayer:MakeRandomHeroSelection()

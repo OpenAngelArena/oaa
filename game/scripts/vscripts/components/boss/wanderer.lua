@@ -42,11 +42,14 @@ function Wanderer:SpawnWanderer ()
   self.level = self.level + 1
 
   local bossHandle = CreateUnitByName("npc_dota_boss_wanderer_" .. math.min(3, self.level), Vector(0, 0, 0), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = self.level + 2
   self.wanderer = bossHandle
 
   -- reward handling
   bossHandle:OnDeath(function ()
     self.nextSpawn = HudTimer:GetGameTime() + BOSS_WANDERER_RESPAWN
+
+    Notifications:BottomToAll({text=("#wanderer_slain_message"), duration=5.0})
 
     -- create capture point
     local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
@@ -83,7 +86,6 @@ function Wanderer:SpawnWanderer ()
           end
         end
       end)
-
     end)
     -- Give the thinker some vision so that spectators can always see the capture point
     capturePointThinker:SetDayTimeVisionRange(1)

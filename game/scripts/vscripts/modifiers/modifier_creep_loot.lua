@@ -19,12 +19,14 @@ function modifier_creep_loot:DeclareFunctions()
   }
 end
 
-function modifier_creep_loot:OnDeath(keys)
-  local parent = self:GetParent()
-  if keys.unit == parent then
-    local itemToDrop = CreepItemDrop:RandomDropItemName(self.locationString)
-    if itemToDrop ~= "" and itemToDrop ~= nil then
-      CreepItemDrop:CreateDrop(itemToDrop, parent:GetAbsOrigin())
+if IsServer() then
+  function modifier_creep_loot:OnDeath(keys)
+    local parent = self:GetParent()
+    if keys.unit == parent then
+      local itemToDrop = CreepItemDrop:RandomDropItemName(self.locationString)
+      if itemToDrop and itemToDrop ~= "" then
+        CreepItemDrop:CreateDrop(itemToDrop, parent:GetAbsOrigin())
+      end
     end
   end
 end

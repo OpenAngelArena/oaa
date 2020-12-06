@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Armlet
@@ -43,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2380"
+    "ItemCost"                                            "2475"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "armlet of mordiggian;armlet"
@@ -61,7 +61,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 30 35 40 45"
+        "bonus_attack_speed"                              "25 35 45 55 65"
       }
       "03"
       {

@@ -5,7 +5,7 @@
   //=================================================================================================================
   "boss_spiders_spidershot"
   {
-    "ID"                            "922904"
+    "ID"                            "8573"
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
@@ -19,8 +19,6 @@
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"               "1"
 
-    // "AbilityCastAnimation"          "ACT_DOTA_CAST_REFRACTION"
-
     "MaxLevel"                      "1"
     "RequiredLevel"                 "1"
     "LevelsBetweenUpgrades"         "1"
@@ -33,7 +31,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"               "4"
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -82,6 +79,9 @@
 
     "precache"
     {
+      "particle"                    "particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf"
+      "particle"                    "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+      "particle"                    "particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf"
       "particle"                    "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf"
       "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
       "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"

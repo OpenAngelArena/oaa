@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Greater Boots of Travel 4
@@ -28,6 +28,7 @@
       "03"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
       "04"                                                "item_greater_power_treads_3;item_upgrade_core_4"
       "05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
+      "06"                                                "item_sonic;item_upgrade_core_4"
     }
   }
 
@@ -49,14 +50,15 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75 65 55 45"
+    "AbilityCooldown"                                     "30"
+
     "AbilitySharedCooldown"                               "travel"
-    "AbilityChannelTime"                                  "2.5 2.2 1.9 1.6"
+    "AbilityChannelTime"                                  "3.0 2.5 2.0 1.5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "34000"
+    "ItemCost"                                            "33925"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot 4;boots of travel 4;greater boots of travel 4"
@@ -74,7 +76,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "35 40 45 50"
+        "bonus_movement_speed"                            "130 140 150 160"
       }
     }
   }

@@ -42,7 +42,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "axe_width"                                       "100"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
@@ -56,8 +55,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "75"
-        "LinkedSpecialBonus"    "special_bonus_unique_troll_warlord_3"
+        "axe_damage"                                      "50 100 150 200 400 800" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_3"
       }
       "05"
       {
@@ -81,5 +80,4 @@
       }
     }
   }
-
 }

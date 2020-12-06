@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Dagger of Moriah
@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15050"
+    "ItemCost"                                            "14525"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -73,29 +73,39 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_spell_amp"                           "50 75"
+        "sangromancy_spell_amp"                           "75 100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sangromancy_self_damage"                         "100"
+        "sangromancy_self_damage"                         "100 75"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "25 40"
+        "sangromancy_bonus_damage_from_others"            "50 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "25 40"
+        "bonus_health_regen"                              "25 40"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.0 5.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "40 60"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.0 4.0"
+      }
+	  "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spell_amp_per_intellect"                         "0.08"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"

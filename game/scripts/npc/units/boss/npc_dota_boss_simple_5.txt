@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Simple Boss 5
+  // Simple Cleave Boss Tier 1
   //=================================================================================
   "npc_dota_boss_simple_5"
   {
@@ -20,9 +20,10 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_great_cleave"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
+    "Ability2"                                            "boss_unslowable_attack_speed"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_cliffwalk"
+    "Ability5"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -34,8 +35,8 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "1000"    // Damage range min.
     "AttackDamageMax"                                     "1250"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "2.0"      // Speed of attack.
+    "AttackRate"                                          "2.0"    // BAT
+    "BaseAttackSpeed"                                     "75"     // Attack Speed
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -61,18 +62,16 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "2500"    // Base health
-    "StatusHealthRegen"                                   "3.5"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

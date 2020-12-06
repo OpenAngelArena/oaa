@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Azazel Fighter
@@ -6,16 +6,17 @@
   "item_recipe_azazel_summon_fighter"
   {
     "ID"                            "8558"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "item_datadriven"
+    "AbilityTextureName"            "custom/recipe/recipe_4"
     "Model"                         "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                      "100"
+
+    "ItemCost"                      "1"
+    "SecretShop"                    "1"
+    "ItemShopTags"                  ""
+
     "ItemRecipe"                    "1"
     "ItemResult"                    "item_azazel_summon_fighter"
-    "AbilityTextureName"            "custom/recipe/recipe_4"
-    "SecretShop"                    "1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                          "item_upgrade_core_4"
     }
@@ -40,19 +41,22 @@
     "ItemInitialCharges"            "1"
     "ItemRequiresCharges"           "1"
 
-    "ItemStackable"                 "1"
-    "ItemCost"                      "100"
+    "ItemStackable"                 "0"
+    "ItemCost"                      "1"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                  "consumable"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "summon, fighter, azazel"
+    "ItemKillable"                  "1"
+    "ItemPurchasable"               "1"
+    "ItemSellable"                  "0"
     "SecretShop"                    "1"
     "SecretShopType"                "Summons"
     "IsTempestDoubleClonable"       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial" // these are for a tooltip only, if you want to change them, change npc_dota_azazel_summon_fighter too
+    "AbilitySpecial"
     {
       "01"
       {
@@ -67,29 +71,24 @@
       "03"
       {
         "var_type"                  "FIELD_INTEGER"
-        "summon_ms"                 "270"
+        "summon_ms"                 "320"
       }
       "04"
-      {
-        "var_type"                  "FIELD_FLOAT"
-        "summon_bat"                "1.0"
-      }
-      "05"
       {
         "var_type"                  "FIELD_INTEGER"
         "summon_damage"             "1000"
       }
-      "06"
+      "05" // needs to be changed on the unit as well
       {
         "var_type"                  "FIELD_INTEGER"
         "summon_vision"             "800"
       }
-      "07" // seconds
+      "06" // seconds
       {
         "var_type"                  "FIELD_INTEGER"
         "summon_duration"           "300"
       }
-      "08" // minutes
+      "07" // minutes
       {
         "var_type"                  "FIELD_INTEGER"
         "summon_duration_tooltip"   "5"

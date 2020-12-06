@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Linkens Sphere 3
@@ -24,6 +24,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere_2;item_upgrade_core_2"
+      "02"                                                "item_reflection_shard_1;item_upgrade_core_2"
+      "03"                                                "item_aeon_disk_2;item_upgrade_core_2"
     }
   }
 
@@ -48,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10050"
+    "ItemCost"                                            "9600"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
@@ -76,7 +78,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 6.0 7.5 9.0 11.0"
+        "bonus_mana_regen"                                "5.0 5.25 5.75 6.5 7.5"
       }
       "04"
       {

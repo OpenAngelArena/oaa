@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Sonic 2
@@ -8,15 +8,19 @@
     "ID"                  "8515"
     "BaseClass"           "item_datadriven"
     "Model"               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"  "custom/recipe/recipe_4"
+    "AbilityTextureName"  "custom/recipe/recipe_5"
     "ItemCost"            "20000"
     "ItemShopTags"        ""
     "ItemRecipe"          "1"
     "ItemResult"          "item_sonic_2"
     "ItemRequirements"
     {
-      "01"                "item_sonic;item_upgrade_core_4"
-	  "02"                "item_greater_phase_boots_3;item_upgrade_core_4"
+      "01"                                                "item_sonic;item_upgrade_core_4"
+      "02"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
+      "03"                                                "item_greater_power_treads_3;item_upgrade_core_4"
+      "04"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
+      "05"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
+      "06"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
     }
   }
 
@@ -27,7 +31,7 @@
   {
     "ID"                    "8516"
     "BaseClass"             "item_lua"
-    "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"    "custom/sonic_3"
     "AbilitySharedCooldown" "sonic"
     "ScriptFile"            "items/transformation/sonic.lua"
@@ -40,7 +44,7 @@
     "ItemBaseLevel"         "2"
     "UpgradesItems"         "item_sonic_2"
 
-    "ItemCost"              "34000"
+    "ItemCost"              "33925"
     "ItemShopTags"          "sonic"
     "ItemQuality"           ""
     "ItemAliases"           "sonic"
@@ -51,27 +55,27 @@
       "01" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25"
+        "bonus_movement_speed"                            "60 65"
       }
       "02" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "68 108"
+        "bonus_damage_melee"                              "108 158"
       }
       "03" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "68 108"
+        "bonus_damage_range"                              "108 158"
       }
       "04" // phase boots parameter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "8 11"
+        "bonus_armor"                                     "10 14"
       }
       "05" // sonic active percentage movement speed bonus
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "30"
+        "speed_bonus"                                     "35 40"
       }
       "06" // sonic active percentage vision bonus
       {

@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Greater Recipe: Phase Boots 4
@@ -27,6 +27,7 @@
       "03"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
       "04"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
       "05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
+      "06"                                                "item_sonic;item_upgrade_core_4"
     }
   }
 
@@ -49,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34000"
+    "ItemCost"                                            "33925"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots 4;phase boots 4;phase 4"
@@ -66,7 +67,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "15 20 25 30"
+        "bonus_movement_speed"                            "50 55 60 65"
       }
       "02"
       {
@@ -96,12 +97,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "22 27 32 37"
+        "phase_movement_speed"                            "25 30 35 40"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "10 15 20 25"
+        "phase_movement_speed_range"                      "15 20 25 30"
       }
       "09"
       {

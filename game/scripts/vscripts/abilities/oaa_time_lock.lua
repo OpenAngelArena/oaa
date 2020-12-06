@@ -1,7 +1,8 @@
 faceless_void_time_lock_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier("modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_time_lock_time_frozen", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faceless_void_time_walk_scepter_proc_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_faceless_void_chronosphere_scepter_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -39,11 +40,12 @@ end
 
 function modifier_faceless_void_time_lock_oaa:DeclareFunctions()
   local funcs = {
-  --MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL, -- old time lock
-  MODIFIER_EVENT_ON_ATTACK_LANDED,
-}
+    --MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL, -- old time lock
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_MODIFIER_ADDED,
+  }
 
-return funcs
+  return funcs
 end
 
 --------------------------------------------------------------------------------
@@ -149,6 +151,12 @@ if IsServer() then
       return
     end
 
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
     -- Don't affect buildings, wards and invulnerable units.
     if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
       return
@@ -169,140 +177,256 @@ if IsServer() then
       -- Reset failure count
       self:SetStackCount(0)
 
-      -- Calculate duration
-      local duration = ability:GetSpecialValueFor("duration")
-
-      -- Creeps have a different duration
-      if not target:IsHero() then
-        duration = ability:GetSpecialValueFor("duration_creep")
-      end
-
-      -- Duration with status resistance in mind
-      duration = target:GetValueChangedByStatusResistance(duration)
-
-      -- Apply built-in stun modifier
-      target:AddNewModifier(parent, ability, "modifier_faceless_void_timelock_freeze", {duration = duration})
-
-      -- Custom Scepter debuff
-      if parent:HasScepter() then
-        target:AddNewModifier(parent, ability, "modifier_time_lock_time_frozen", {duration = duration})
-      end
-
-      -- Sound of Time Lock stun
-      target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
-
-      -- Start cooldown respecting cooldown reductions
-      ability:UseResources(true, true, true)
-
-      -- Calculate bonus damage
-      local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-      local talent = parent:FindAbilityByName("special_bonus_unique_faceless_void_3")
-
-      if talent and talent:GetLevel() > 0 then
-        bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
-      end
-
-      -- Damage table
-      local damage_table = {}
-      damage_table.attacker = parent
-      damage_table.damage_type = ability:GetAbilityDamageType()
-      damage_table.ability = ability
-      damage_table.damage = bonus_damage
-      damage_table.victim = target
-
-      -- Apply bonus damage
-      ApplyDamage(damage_table)
-
-      -- Prepare for the second attack
-      local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf", PATTACH_CUSTOMORIGIN, nil)
-      ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin() )
-      ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin() )
-      ParticleManager:SetParticleControlEnt(particle, 2, parent, PATTACH_CUSTOMORIGIN, "attach_hitloc", target:GetAbsOrigin(), true)
-      ParticleManager:ReleaseParticleIndex(particle)
-
-      -- Second attack
-      -- Delay is hard-coded in normal dota to 0.33 seconds as per the particle constraints
-      local delay = ability:GetSpecialValueFor("second_attack_delay") or 0.33
-      Timers:CreateTimer(delay, function()
-        if target:IsAlive() then
-          -- Perform the second attack (can trigger attack modifiers)
-          if parent:HasScepter() then
-            parent:PerformAttack(target, false, true, true, false, false, false, true)
-          else
-            parent:PerformAttack(target, false, true, true, false, false, false, false)
-          end
-          -- Emit sound again
-          target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
-        end
-      end)
+      self:ApplyTimeLock(ability, target)
     else
       -- Increment number of failures
       self:SetStackCount(prngMult)
     end
   end
+
+  function modifier_faceless_void_time_lock_oaa:ApplyTimeLock(ability, target)
+    if not ability then
+      ability = self:GetAbility()
+    end
+    if not target then
+      return
+    end
+    local parent = self:GetParent()
+    -- Calculate duration
+    local duration = ability:GetSpecialValueFor("duration")
+
+    -- Creeps have a different duration
+    if not target:IsHero() then
+      duration = ability:GetSpecialValueFor("duration_creep")
+    end
+
+    -- Duration with status resistance in mind
+    duration = target:GetValueChangedByStatusResistance(duration)
+
+    -- Apply built-in stun modifier
+    target:AddNewModifier(parent, ability, "modifier_faceless_void_timelock_freeze", {duration = duration})
+
+    -- Sound of Time Lock stun
+    target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
+
+    -- Start cooldown respecting cooldown reductions
+    ability:UseResources(true, true, true)
+
+    -- Calculate bonus damage
+    local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    local talent = parent:FindAbilityByName("special_bonus_unique_faceless_void_3")
+
+    if talent and talent:GetLevel() > 0 then
+      bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
+    end
+
+    -- Damage table
+    local damage_table = {}
+    damage_table.attacker = parent
+    damage_table.damage_type = ability:GetAbilityDamageType()
+    damage_table.ability = ability
+    damage_table.damage = bonus_damage
+    damage_table.victim = target
+
+    -- Apply bonus damage
+    ApplyDamage(damage_table)
+
+    -- Prepare for the second attack
+    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin() )
+    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin() )
+    ParticleManager:SetParticleControlEnt(particle, 2, parent, PATTACH_CUSTOMORIGIN, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(particle)
+
+    -- Second attack
+    -- Delay is hard-coded in normal dota to 0.33 seconds as per the particle constraints
+    local delay = ability:GetSpecialValueFor("second_attack_delay") or 0.33
+    Timers:CreateTimer(delay, function()
+      if target:IsAlive() and not target:IsNull() then
+        -- Perform the second attack (can trigger attack modifiers)
+        parent:PerformAttack(target, false, true, true, false, false, false, false)
+        -- Emit sound again
+        target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
+      end
+    end)
+  end
+
+  -- Scepter effects: Time Walk applies AoE Time Lock and Chronosphere applies Frozen Time modifier
+  function modifier_faceless_void_time_lock_oaa:OnModifierAdded(event)
+    local parent = self:GetParent()
+
+    -- Check if parent has Aghanim Scepter
+    if not parent:HasScepter() then
+      return
+    end
+
+    -- Unit that gained a modifier
+    local unit = event.unit
+
+    if parent == unit then
+      local time_walk_modifier = parent:FindModifierByName("modifier_faceless_void_time_walk")
+      if not time_walk_modifier then
+        return
+      end
+      local remaining_duration = time_walk_modifier:GetRemainingTime()
+      parent:AddNewModifier(parent, nil, "modifier_faceless_void_time_walk_scepter_proc_oaa", {duration = remaining_duration})
+    end
+
+    -- If the unit is not actually a unit but its an entity that can gain modifiers
+    if unit.HasModifier == nil then
+      return
+    end
+
+    -- If the unit is the same team as parent don't continue
+    if unit:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
+
+    -- Apply scepter debuff with first tick of Chronosphere
+    if unit:HasModifier("modifier_faceless_void_chronosphere_freeze") and not unit:HasModifier("modifier_faceless_void_chronosphere_scepter_oaa") then
+      local chrono_ability = parent:FindAbilityByName("faceless_void_chronosphere")
+      if not chrono_ability then
+        return
+      end
+      local chrono_duration = chrono_ability:GetLevelSpecialValueFor("duration", chrono_ability:GetLevel()-1)
+      unit:AddNewModifier(parent, nil, "modifier_faceless_void_chronosphere_scepter_oaa", {duration = chrono_duration})
+    end
+  end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
-modifier_time_lock_time_frozen = class(ModifierBaseClass)
+modifier_faceless_void_time_walk_scepter_proc_oaa = class(ModifierBaseClass)
 
-function modifier_time_lock_time_frozen:IsHidden()
-	return true
-end
-
-function modifier_time_lock_time_frozen:IsDebuff()
-	return true
-end
-
-function modifier_time_lock_time_frozen:IsStunDebuff()
+function modifier_faceless_void_time_walk_scepter_proc_oaa:IsHidden()
   return true
 end
 
-function modifier_time_lock_time_frozen:IsPurgable()
-	return true
+function modifier_faceless_void_time_walk_scepter_proc_oaa:IsDebuff()
+  return false
 end
 
-function modifier_time_lock_time_frozen:CheckState()
-	local state = {
-		[MODIFIER_STATE_EVADE_DISABLED] = true,
-	}
-
-	return state
+function modifier_faceless_void_time_walk_scepter_proc_oaa:IsPurgable()
+  return false
 end
 
-function modifier_time_lock_time_frozen:DeclareFunctions()
+function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
+  local parent = self:GetParent()
+
+  if not IsServer() then
+    return
+  end
+
+  -- Get Time Lock ability and modifier
+  local time_lock_ability = parent:FindAbilityByName("faceless_void_time_lock_oaa")
+  local time_lock_modifier = parent:FindModifierByName("modifier_faceless_void_time_lock_oaa")
+
+  -- Check if Time Lock exists
+  -- It doesnt exist in some edge cases: maybe when Morphling is morphed into Faceless Void
+  -- and morphs back into Morphling after using Time Walk
+  if not time_lock_ability or not time_lock_modifier then
+    return
+  end
+
+  -- Get Time Walk ability
+  local time_walk_ability = parent:FindAbilityByName("faceless_void_time_walk")
+
+  -- Check if Time Walk exists
+  -- This shouldn't be possible but checking just in case dota is weird
+  if not time_walk_ability then
+    return
+  end
+
+  -- Get cast position
+  local cast_position = parent:GetAbsOrigin()
+  --print("Cast Position is: "..tostring(cast_position))
+
+  -- Get radius
+  local radius = time_walk_ability:GetSpecialValueFor("radius_scepter")
+
+  -- Find enemies in radius (ignore spell immune enemies on purpose)
+  local enemies = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    cast_position,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      if not enemy:IsMagicImmune() and not enemy:IsAttackImmune() and not parent:IsDisarmed() and not enemy:IsInvulnerable() then
+        time_lock_modifier:ApplyTimeLock(time_lock_ability, enemy)
+      end
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_faceless_void_chronosphere_scepter_oaa = class(ModifierBaseClass)
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsHidden()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsDebuff()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsStunDebuff()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:IsPurgable()
+  return true
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_EVADE_DISABLED] = true,
+  }
+
+  return state
+end
+
+function modifier_faceless_void_chronosphere_scepter_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_DISABLE_HEALING,
   }
   return funcs
 end
 
-function modifier_time_lock_time_frozen:GetDisableHealing()
+function modifier_faceless_void_chronosphere_scepter_oaa:GetDisableHealing()
   return 1
 end
 
 if IsServer() then
-  function modifier_time_lock_time_frozen:OnCreated()
+  function modifier_faceless_void_chronosphere_scepter_oaa:OnCreated()
     local parent = self:GetParent()
     self:CooldownFreeze(parent)
     self:StartIntervalThink(0.1)
   end
 
-  function modifier_time_lock_time_frozen:OnIntervalThink()
+  function modifier_faceless_void_chronosphere_scepter_oaa:OnIntervalThink()
     local parent = self:GetParent()
     self:CooldownFreeze(parent)
   end
 end
 
-function modifier_time_lock_time_frozen:CooldownFreeze(target)
-	-- Adds 0.1 second to the current cooldown to every spell off cooldown
-	for i = 0, target:GetAbilityCount()-1 do
-		local target_ability = target:GetAbilityByIndex(i)
-		if target_ability then
-			local cd = target_ability:GetCooldownTimeRemaining()
-			if cd > 0 then
-				target_ability:StartCooldown(cd + 0.1)
-			end
-		end
-	end
+function modifier_faceless_void_chronosphere_scepter_oaa:CooldownFreeze(target)
+  -- Adds 0.1 second to the current cooldown to every spell off cooldown
+  for i = 0, target:GetAbilityCount()-1 do
+    local target_ability = target:GetAbilityByIndex(i)
+    if target_ability then
+      local cd = target_ability:GetCooldownTimeRemaining()
+        if cd > 0 then
+          target_ability:StartCooldown(cd + 0.1)
+        end
+    end
+  end
 end

@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Creed of Omniscience - neutral tier 3 item
+  //=================================================================================================================
+  "item_creed_of_omniscience"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8626" // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/neutral/creed_of_omniscience.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/creed_of_omniscience"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+
+    "ItemIsNeutralDrop"                                   "1"
+    "ItemPurchasable"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp_regen"                                  "30"
+      }
+      "02" // ranged only
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range"                              "125"
+      }
+      "03" // melee only
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range_melee"                        "75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cast_range"                                "125"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_projectile_speed"                   "600"
+      }
+    }
+  }
+}

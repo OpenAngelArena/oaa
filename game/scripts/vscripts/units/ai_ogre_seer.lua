@@ -32,22 +32,23 @@ end
 --------------------------------------------------------------------------------
 
 function OgreSeerThink()
-	if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
-		return -1
-	end
+  if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
+    return -1
+  end
 
-	if GameRules:IsGamePaused() == true then
-		return 1
+  if GameRules:IsGamePaused() == true then
+    return 1
   end
 
   if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-    thisEntity.bInitialized = true
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.hOgreBoss = FindOgreBoss()
+    thisEntity.BossTier = thisEntity.BossTier or 3
+    thisEntity.bInitialized = true
   end
 
   if thisEntity.hOgreBoss == nil or not thisEntity.hOgreBoss:IsAlive() then

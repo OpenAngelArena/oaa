@@ -34,8 +34,9 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 50
-TEN_V_TEN_KILL_LIMIT = 80
+NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = NORMAL_KILL_LIMIT x number of players + 10 (5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16)
+TEN_V_TEN_KILL_LIMIT = 2
+KILL_LIMIT_INCREASE = 1                   -- Actual KILL_LIMIT_INCREASE is equal to number of players (for 10v10 map its 1/2 of the number of players)
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -74,19 +75,12 @@ DUEL_RUNE_TIMER = 30                    -- how long until the highground object 
 DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
--- Sparks
-SPARK_LEVEL_1_TIME = 0                  -- just a placeholder so the other names make more sense
-SPARK_LEVEL_2_TIME = 240                -- 4 minutes
-SPARK_LEVEL_3_TIME = 900                -- 15 minutes
-SPARK_LEVEL_4_TIME = 1500               -- 25 minutes
-SPARK_LEVEL_5_TIME = 2100               -- 35 minutes
-
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 600       -- how long after the clock hits 0 should the initial Capture Point start counting down
+INITIAL_CAPTURE_POINT_DELAY = 660       -- how long after the clock hits 0 should the initial Capture Point start counting down
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
-CAPTURE_INTERVAL = 600                  -- time from CapturePoint beginning until next CapturePoint begins
+CAPTURE_INTERVAL = 480                  -- time from CapturePoint beginning until next CapturePoint begins
 CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
 
 -- Bosses
@@ -103,8 +97,8 @@ INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spaw
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 CREEP_BOUNTY_SHARE_RADIUS = 1500        -- the radius in which creep bounty is shared with allies
-CREEP_BOUNTY_SHARE_PERCENT = 35         -- the percentage of the creep's bounty that's given to shared allies
-CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 15  -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
+CREEP_BOUNTY_SHARE_PERCENT = 40         -- the percentage of the creep's bounty that's given to shared allies
+CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 25  -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
 CREEP_BOUNTY_BONUS_PERCENT_POWER = 30   -- the bonus percentage of the creep's bounty that's given to those that kill with Power Spark
 
 -- Player
@@ -136,11 +130,11 @@ USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP w
 
 -- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
 -- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
-HERO_XP_BOUNTY_BASE = 20             -- 40 in normal dota
-HERO_XP_BOUNTY_STREAK_BASE = 50      -- 400 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
+HERO_XP_BOUNTY_BASE = 100            -- 100 in normal dota
+HERO_XP_BOUNTY_STREAK_BASE = 50      -- lvl * 30 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
 HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- 200 in normal dota
-HERO_XP_BOUNTY_STREAK_MAX = 850      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
-HERO_XP_BONUS_FACTOR = 0.07          -- 0.13 in normal dota
+HERO_XP_BOUNTY_STREAK_MAX = 800      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
+HERO_XP_BONUS_FACTOR = 0.13          -- 0.13 in normal dota
 HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
 
 -- Bounty runes
@@ -203,25 +197,25 @@ XP_PER_LEVEL_TABLE = {
 	1080,
 	1680,
 	2300,
-	2940,
-	3600,
-	4280,
-	5080,
-	5900,
-	6740,
-	7640,
-	8865,
-	10115,
-	11390,
-	12690,
-	14015,
-	15415,
-	16905,
-	18505,
-	20405,
-	22605,
-	25105,
-	27800,
+	2980,
+	3730,
+	4620,
+	5550,
+	6520,
+	7530,
+	8850,
+	9800,
+	11000,
+	12330,
+	13630,
+	14955,
+	16455,
+	18000,
+	19645,
+	21405,
+	23600,
+	25950,
+	28545,
 }
 for i = #XP_PER_LEVEL_TABLE + 1, MAX_LEVEL do
   XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + (300 * ( i - 15 ))

@@ -67,7 +67,10 @@ var GlyphScanContainer = /** @class */ (function () {
     this.GlyphTooltip.BLoadLayoutSnippet('DotaCustomTooltipGlyph');
     this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseover' /* ON_MOUSE_OVER */, function () {
       _this.GlyphTooltip.SetHasClass('Hidden', false);
-      FindDotaHudElement('DOTAHUDGlyphTooltip').visible = false;
+      var gl = FindDotaHudElement('DOTAHUDGlyphTooltip');
+      if (gl) {
+        gl.visible = false;
+      }
     });
     this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseout' /* ON_MOUSE_OUT */, function () {
       _this.GlyphTooltip.SetHasClass('Hidden', true);

@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Boss tier 2 Tier 5 Version
-//=================================================================================
+  //=================================================================================
+  // Twin Boss (melee) Tier 5 Version
+  //=================================================================================
   "npc_dota_boss_twin_tier5"
   {
     // General
@@ -21,18 +21,18 @@
     "Ability1"                                            "boss_twin_twin_empathy"
     "Ability2"                                            "boss_resistance"
     "Ability3"                                            "boss_cliffwalk"
-    "Ability4"          								  "boss_regen"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "40"      // Physical protection.
+    "ArmorPhysical"                                       "43"      // Physical protection.
     "MagicalResistance"                                   "-50"     // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "6000"    // Damage range min.
-    "AttackDamageMax"                                     "6500"    // Damage range max.
+    "AttackDamageMin"                                     "5000"    // Damage range min.
+    "AttackDamageMax"                                     "5500"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
@@ -59,19 +59,17 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "20000"    // Base health
-    "StatusHealthRegen"                                   "30.5"    // Health regeneration rate.
+    "StatusHealth"                                        "16000"    // Base health
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

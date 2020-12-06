@@ -3,10 +3,19 @@ boss_spiders_spider_cold_combustion = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_boss_spiders_spider_cold_combustion", "abilities/spiders/boss_spiders_spider_cold_combustion.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_felfrost", "modifiers/modifier_felfrost.lua", LUA_MODIFIER_MOTION_NONE )
 
-local function Boom(parent, spell)
-    local damage = spell:GetSpecialValueFor( "damage" )
-    local radius = spell:GetSpecialValueFor( "radius" )
-    local damageType = spell:GetAbilityDamageType()
+function boss_spiders_spider_cold_combustion:OnSpellStart()
+  self:Boom(self:GetCaster())
+end
+
+function boss_spiders_spider_cold_combustion:GetIntrinsicModifierName()
+	return "modifier_boss_spiders_spider_cold_combustion"
+end
+
+function boss_spiders_spider_cold_combustion:Boom(parent)
+  if parent and not parent:IsNull() then
+    local damage = self:GetSpecialValueFor( "damage" )
+    local radius = self:GetSpecialValueFor( "radius" )
+    local damageType = self:GetAbilityDamageType()
     local originParent = parent:GetAbsOrigin()
 
     -- grab all enemies in radius
@@ -16,7 +25,7 @@ local function Boom(parent, spell)
       nil,
       radius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      bit.bor( DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_CREEP ),
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
       DOTA_UNIT_TARGET_FLAG_NONE,
       FIND_ANY_ORDER,
       false
@@ -31,11 +40,11 @@ local function Boom(parent, spell)
         damage = damage,
         damage_type = damageType,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
-        ability = spell,
+        ability = self,
       } )
 
       -- apply felfrost and increase its stack count
-      local mod = unit:AddNewModifier( parent, spell, "modifier_felfrost", {} )
+      local mod = unit:AddNewModifier( parent, self, "modifier_felfrost", {} )
 
       if mod then
         mod:IncrementStackCount()
@@ -55,14 +64,6 @@ local function Boom(parent, spell)
       parent:ForceKill(false)
     end
   end
---------------------------------------------------------------------------------
-
-function boss_spiders_spider_cold_combustion:OnSpellStart()
-  Boom(self:GetCaster(), self)
-end
-
-function boss_spiders_spider_cold_combustion:GetIntrinsicModifierName()
-	return "modifier_boss_spiders_spider_cold_combustion"
 end
 
 --------------------------------------------------------------------------------
@@ -105,7 +106,9 @@ if IsServer() then
 
     if event.unit == parent then
       local spell = self:GetAbility()
-      Boom(parent, spell)
+      if spell and not spell:IsNull() then
+        spell:Boom(parent)
+      end
     end
   end
 end

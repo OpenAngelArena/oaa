@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Blade Mail 4
@@ -25,6 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_blade_mail_3;item_upgrade_core_3"
+      "02"                                                "item_shivas_guard_3;item_upgrade_core_3"
     }
   }
 
@@ -53,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "15200"
+    "ItemCost"                                            "15050"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 4;blade mail 4;blademail 4"
@@ -66,7 +67,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "28 45 75 115 165"
+        "bonus_damage"                                    "28 48 88 148 228"
       }
       "02"
       {
@@ -76,12 +77,27 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 20 30 40 50"
+        "bonus_intellect"                                 "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_reflection_constant"                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_reflection_pct"                          "20"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_reflection_pct"                           "80 90 100 110 120"
       }
     }
   }

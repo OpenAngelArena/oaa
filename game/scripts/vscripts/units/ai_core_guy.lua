@@ -20,6 +20,7 @@ function CoreGuyThink ()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bInitialized = true
     thisEntity.ability = thisEntity:FindAbilityByName("core_guy_score_limit") or thisEntity:FindAbilityByName("core_guy_points")
+    thisEntity.ability:StartCooldown(thisEntity.ability:GetCooldownTime())
     thisEntity.corePoints = 0
   end
 
@@ -31,7 +32,7 @@ function CoreGuyThink ()
     local item = thisEntity:GetItemInSlot(itemIndex)
     if item then
       local itemName = item:GetName()
-      print(string.sub(itemName, 0, 17))
+      --print(string.sub(itemName, 0, 17))
       if string.sub(itemName, 0, 17) ~= "item_upgrade_core" then
         thisEntity:DropItemAtPositionImmediate(item, thisEntity:GetAbsOrigin())
       else
@@ -52,15 +53,15 @@ function CoreGuyThink ()
 
   local cooldown = thisEntity.ability:GetCooldownTimeRemaining()
   if cooldown > 0 and thisEntity.corePoints > 0 then
-    print("before: " .. cooldown)
-    cooldown = cooldown - (thisEntity.corePoints * 15)
-    print("after: " .. cooldown)
+    print("cooldown before putting core: " .. cooldown)
+    cooldown = cooldown - (thisEntity.corePoints * 20)
+    print("cooldown after putting core: " .. cooldown)
     thisEntity.ability:EndCooldown()
     if cooldown > 0 then
       thisEntity.ability:StartCooldown(cooldown)
       thisEntity.corePoints = 0
     else
-      thisEntity.corePoints = math.ceil(0 - cooldown) / 15
+      thisEntity.corePoints = math.ceil(0 - cooldown) / 20
     end
   end
 

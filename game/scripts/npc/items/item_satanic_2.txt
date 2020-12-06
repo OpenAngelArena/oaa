@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Satanic 2
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6800"
+    "ItemCost"                                            "7300"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic 2"
@@ -64,7 +64,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 50 75 100 125"
+        "bonus_damage"                                    "25 35 55 85 125"
       }
       "04"
       {
@@ -89,7 +89,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "10 15 20 25 30" //OAA
+        "status_resistance"                               "22 24 26 28 30" //OAA
 			}
     }
   }

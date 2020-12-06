@@ -6,7 +6,7 @@ local CLOSE_FOLLOW_RANGE = 300
 -- a-walks towards them
 local LONG_FOLLOW_RANGE = 1200
 -- the max range away from the spot they were aggroed from where they should walk
--- when this leash limit is hit, the boss walks back to where they were aggroed originalls
+-- when this leash limit is hit, the boss walks back to where they were aggroed originally
 -- then follows long follow range
 -- should be pretty high for stuff like sniper juggling
 local MAX_LEASH_DISTANCE = 2000
@@ -18,9 +18,10 @@ function Spawn( entityKeyValues )
     return
   end
 
-  thisEntity.retreatDelay = 6.0
-  thisEntity.damageThreshold = 6.0
   thisEntity.hasSpawned = false
+  thisEntity.netAbility = thisEntity:FindAbilityByName("wanderer_net")
+  thisEntity.cleanseAbility = thisEntity:FindAbilityByName("wanderer_aoe_cleanse")
+  thisEntity.BossTier = thisEntity.BossTier or 3
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
 
@@ -60,20 +61,24 @@ function WandererThink ()
     end
   end
 
+  -- Wanderer is aggroed if its health is below 95%
   local shouldAggro = hpPercent < 0.95
-  -- if not thisEntity.isAggro and shouldAggro then
-    -- is aggroing now from a non-aggro state
-  -- end
+
+  -- Check if Wanderer is aggroed but it shouldn't be aggroed
   if thisEntity.isAggro and not shouldAggro then
     -- giving up on aggro
+    thisEntity:Stop()
+    WalkTowardsSpot(thisEntity.aggroOrigin)
     thisEntity.aggroOrigin = nil
     thisEntity.isLeashing = false
     thisEntity:RemoveModifierByName("modifier_batrider_firefly")
     thisEntity:RemoveModifierByName("modifier_wanderer_boss_buff")
   end
+
+  -- Check if Wanderer is not aggroed but it should be aggroed
   if not thisEntity.isAggro and shouldAggro then
-      thisEntity:Stop()
-      thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
+    thisEntity:Stop()
+    thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
   -- end pre assign stuff
@@ -82,21 +87,25 @@ function WandererThink ()
 
   -- start post assign stuff
 
+  -- Set aggro origin
   if thisEntity.isAggro and not thisEntity.aggroOrigin then
-      thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
+    thisEntity.aggroOrigin = thisEntity:GetAbsOrigin()
   end
 
+  -- Visual effect
   if thisEntity.isAggro and not thisEntity:HasModifier("modifier_batrider_firefly") then
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_batrider_firefly", {
       duration = 99
     })
   end
+  -- Wanderer's buff with absolute movement speed etc.
   if thisEntity.isAggro and not thisEntity:HasModifier("modifier_wanderer_boss_buff") then
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_wanderer_boss_buff", {
       duration = 99
     })
   end
 
+  -- Leashing
   if thisEntity.aggroOrigin then
     local distanceFromOrigin = (thisEntity:GetAbsOrigin() - thisEntity.aggroOrigin):Length2D()
     local shouldLeash = distanceFromOrigin > MAX_LEASH_DISTANCE
@@ -124,7 +133,8 @@ function WandererThink ()
   else
     local nearbyEnemies = FindUnitsInRadius(
       thisEntity:GetTeamNumber(),
-      thisEntity:GetOrigin(), nil,
+      thisEntity:GetOrigin(),
+      nil,
       CLOSE_FOLLOW_RANGE,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
@@ -134,7 +144,8 @@ function WandererThink ()
     )
     local enemies = FindUnitsInRadius(
       thisEntity:GetTeamNumber(),
-      thisEntity:GetOrigin(), nil,
+      thisEntity:GetOrigin(),
+      nil,
       LONG_FOLLOW_RANGE,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
@@ -149,7 +160,7 @@ function WandererThink ()
       nearestEnemy = enemies[1]
     end
 
-    thisEntity:SetIdleAcquire(true)
+    --thisEntity:SetIdleAcquire(true)
     thisEntity:SetAcquisitionRange(128)
 
     if thisEntity:IsIdle() then
@@ -176,6 +187,34 @@ function WandererThink ()
           Position = thisEntity.aggroOrigin,
           Queue = 0,
         })
+      end
+    end
+
+    -- Cast abilities if below 75% health
+    if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
+      if thisEntity.netAbility and thisEntity.netAbility:IsFullyCastable() and nearestEnemy then
+        thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
+      end
+      if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
+        local enemiesToCleanse = FindUnitsInRadius(
+          thisEntity:GetTeamNumber(),
+          thisEntity:GetAbsOrigin(),
+          nil,
+          1000,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_ALL,
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+          FIND_ANY_ORDER,
+          false
+        )
+        if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() and #enemiesToCleanse > 1 then
+          ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),
+            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+            AbilityIndex = thisEntity.cleanseAbility:entindex(),
+            Queue = false,
+          })
+        end
       end
     end
   end
@@ -220,8 +259,8 @@ function WalkTowardsSpot (spot)
   })
 end
 
-local FIRST_MIN_X = 1600
-local FIRST_MIN_Y = 1900
+local FIRST_MIN_X = 600
+local FIRST_MIN_Y = 600
 
 function GetNextWanderLocation (startPosition)
   local maxY = FIRST_MIN_Y
@@ -230,8 +269,13 @@ function GetNextWanderLocation (startPosition)
   local minX = 0
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-  if scoreDiff < 10 then
+  if scoreDiff < 5 then
     isGoodLead = RandomInt(0, 1) == 0
+  end
+
+  if scoreDiff > 5 then
+    maxX = 1600
+    maxY = 1900
   end
   if scoreDiff > 10 then
     maxY = 4000
@@ -257,7 +301,7 @@ function GetNextWanderLocation (startPosition)
       nextPosition.x = 0 - nextPosition.x
     end
     isValidPosition = true
-    if (nextPosition - startPosition):Length2D() < 2000 then
+    if scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 2000 then
       isValidPosition = false
     elseif IsNearWell(nextPosition) then
       isValidPosition = false

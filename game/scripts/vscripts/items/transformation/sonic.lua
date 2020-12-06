@@ -12,7 +12,6 @@ function item_sonic:GetTransformationModifierName()
 end
 
 item_sonic_2 = item_sonic
-item_sonic_3 = item_sonic
 
 ---------------------------------------------------------------------------------------------------
 
@@ -30,11 +29,25 @@ function modifier_sonic_fly:IsPurgable()
   return true
 end
 
+function modifier_sonic_fly:OnCreated()
+  local ability = self:GetAbility()
+
+  if ability and not ability:IsNull() then
+    ability.mod = self
+
+    self.vision = ability:GetSpecialValueFor("vision_bonus")
+    self.speed = ability:GetSpecialValueFor("speed_bonus")
+  end
+end
+
+modifier_sonic_fly.OnRefresh = modifier_sonic_fly.OnCreated
+
 function modifier_sonic_fly:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
-    MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
+    MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+    MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
   }
 end
@@ -49,17 +62,25 @@ function modifier_sonic_fly:CheckState()
 end
 
 function modifier_sonic_fly:GetBonusVisionPercentage()
-  return self:GetAbility():GetSpecialValueFor("vision_bonus")
+  return self.vision or self:GetAbility():GetSpecialValueFor("vision_bonus")
 end
 
 function modifier_sonic_fly:GetModifierMoveSpeedBonus_Percentage()
-  return self:GetAbility():GetSpecialValueFor("speed_bonus")
+  return self.speed or self:GetAbility():GetSpecialValueFor("speed_bonus")
 end
 
 function modifier_sonic_fly:GetModifierIgnoreMovespeedLimit()
   return 1
 end
 
+function modifier_sonic_fly:GetModifierAttackSpeedReductionPercentage()
+  return 0
+end
+
 --function modifier_sonic_fly:GetModifierStatusResistanceStacking()
   --return self:GetAbility():GetSpecialValueFor("status_resist")
 --end
+
+function modifier_sonic_fly:GetTexture()
+  return "custom/sonic_3_active"
+end

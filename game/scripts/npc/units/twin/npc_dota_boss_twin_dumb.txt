@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Boss tier 2
-//=================================================================================
+  //=================================================================================
+  // Boss tier 2 - Twin (ranged)
+  //=================================================================================
   "npc_dota_boss_twin_dumb"
   {
     // General
@@ -21,7 +21,7 @@
     //----------------------------------------------------------------
     "Ability1"                                            "boss_resistance"
     "Ability2"                                            "boss_cliffwalk"
-    "Ability3"          								  "boss_regen"
+    "Ability3"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -37,7 +37,7 @@
     "AttackRate"                                          "0.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "960"    // Range within a target can be attacked.
+    "AttackRange"                                         "600"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/items2_fx/necronomicon_archer_projectile.vpcf"
     "ProjectileSpeed"                                     "1000"
 
@@ -61,16 +61,15 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "3500"    // Base health
-    "StatusHealthRegen"                                   "3.5"    // Health regeneration rate.
+    "StatusHealth"                                        "3750"    // Base health
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
 

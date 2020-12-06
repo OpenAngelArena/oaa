@@ -1,5 +1,3 @@
-require("libraries/timers")
-
 alpha_wolf_invisibility_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_alpha_invisibility_oaa_buff", "abilities/neutrals/oaa_alpha_wolf_invisibility.lua", LUA_MODIFIER_MOTION_NONE)

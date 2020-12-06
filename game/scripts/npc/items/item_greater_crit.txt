@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Daedalus
@@ -43,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5330"
+    "ItemCost"                                            "5150"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus;crit"
@@ -57,7 +57,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "88 100 140 200 280"
+        "bonus_damage"                                    "80 100 140 200 280" //OAA
       }
       "02"
       {
@@ -68,11 +68,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "crit_multiplier"                                 "175 205 235 265 295" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "75 105 135 165 195" //OAA, unused in tooltip
       }
     }
   }

@@ -1,12 +1,10 @@
 item_stoneskin = class(TransformationBaseClass)
 
-require( "libraries/Timers" )
---LinkLuaModifier("modifier_item_stoneskin", "items/transformation/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_stoneskin", "items/transformation/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_stoneskin_stone_armor", "items/transformation/stoneskin.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_stoneskin:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+  return "modifier_item_stoneskin" --"modifier_generic_bonus"
 end
 
 function item_stoneskin:GetTransformationModifierName()
@@ -14,8 +12,62 @@ function item_stoneskin:GetTransformationModifierName()
 end
 
 item_stoneskin_2 = item_stoneskin
+
 ------------------------------------------------------------------------
---modifier_item_stoneskin = class(ModifierBaseClass)
+
+modifier_item_stoneskin = class(ModifierBaseClass)
+
+function modifier_item_stoneskin:IsHidden()
+  return true
+end
+function modifier_item_stoneskin:IsDebuff()
+  return false
+end
+function modifier_item_stoneskin:IsPurgable()
+  return false
+end
+
+function modifier_item_stoneskin:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_stoneskin:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.int = ability:GetSpecialValueFor("bonus_intellect")
+    self.armor = ability:GetSpecialValueFor("bonus_armor")
+    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+  end
+end
+
+function modifier_item_stoneskin:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.int = ability:GetSpecialValueFor("bonus_intellect")
+    self.armor = ability:GetSpecialValueFor("bonus_armor")
+    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+  end
+end
+
+function modifier_item_stoneskin:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+  }
+end
+
+function modifier_item_stoneskin:GetModifierPhysicalArmorBonus()
+  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_item_stoneskin:GetModifierBonusStats_Intellect()
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
+function modifier_item_stoneskin:GetModifierHPRegenAmplify_Percentage()
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
 
 -- function modifier_item_stoneskin:OnStackCountChanged(numOldStacks)
 --   -- Echo stack count to a property on the item so that it can be checked for
@@ -47,17 +99,21 @@ function modifier_item_stoneskin_stone_armor:IsDebuff()
 end
 
 function modifier_item_stoneskin_stone_armor:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_stoneskin_stone_armor:OnCreated()
-  self:GetParent():EmitSound("Hero_EarthSpirit.Petrify")
+  if IsServer() then
+    self:GetParent():EmitSound("Hero_EarthSpirit.Petrify")
+  end
 end
 
 function modifier_item_stoneskin_stone_armor:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_AVOID_DAMAGE,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE
   }
 end
@@ -67,7 +123,7 @@ function modifier_item_stoneskin_stone_armor:GetModifierPhysicalArmorBonus()
     if not self:IsNull() then
       self:Destroy()
     end
-    return
+    return 0
   end
   return self:GetAbility():GetSpecialValueFor("stone_armor")
 end
@@ -77,17 +133,41 @@ function modifier_item_stoneskin_stone_armor:GetModifierMagicalResistanceBonus()
     if not self:IsNull() then
       self:Destroy()
     end
-    return
+    return 0
   end
-  return self:GetAbility():GetSpecialValueFor("stone_resist")
+  return self:GetAbility():GetSpecialValueFor("stone_magic_resist")
+end
+
+function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local chance = 30
+  if ability and not ability:IsNull() then
+    chance = ability:GetSpecialValueFor("stone_block_chance")
+  end
+  if event.ranged_attack == true and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK and RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1, parent) == true then
+    return 1
+  end
+
+  return 0
+end
+
+function modifier_item_stoneskin_stone_armor:GetModifierStatusResistanceStacking()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return 0
+  end
+  return self:GetAbility():GetSpecialValueFor("stone_status_resist")
 end
 
 function modifier_item_stoneskin_stone_armor:GetStatusEffectName()
   return "particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
 end
 
-function modifier_item_stoneskin_stone_armor:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA
+function modifier_item_stoneskin_stone_armor:StatusEffectPriority()
+  return MODIFIER_PRIORITY_ULTRA
 end
 
 -- function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_Absolute()
@@ -99,3 +179,7 @@ end
   -- end
   -- return self:GetAbility():GetSpecialValueFor("stone_move_speed")
 -- end
+
+function modifier_item_stoneskin_stone_armor:GetTexture()
+  return "custom/stoneskin_2_active"
+end

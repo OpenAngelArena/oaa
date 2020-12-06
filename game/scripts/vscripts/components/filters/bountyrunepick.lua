@@ -13,7 +13,7 @@ function BountyRunePick:Filter(filter_table)
   local vanilla_gold_bounty = filter_table.gold_bounty
   local playerID = filter_table.player_id_const
   local vanilla_xp_bounty = filter_table.xp_bounty
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
 
   -- Game time in seconds:
   local game_time = HudTimer:GetGameTime()
@@ -29,7 +29,12 @@ function BountyRunePick:Filter(filter_table)
   -- Hero that picked up the rune
   local hero_with_rune = PlayerResource:GetSelectedHeroEntity(playerID)
   -- Team that picked up the rune
-  local allied_team = hero_with_rune:GetTeamNumber()
+  local allied_team
+  if hero_with_rune then
+    allied_team = hero_with_rune:GetTeamNumber()
+  else
+    print("Invalid unit picked up the bounty rune!")
+  end
 
   local enemy_team
   if allied_team == DOTA_TEAM_GOODGUYS then
@@ -37,8 +42,8 @@ function BountyRunePick:Filter(filter_table)
   elseif allied_team == DOTA_TEAM_BADGUYS then
     enemy_team = DOTA_TEAM_GOODGUYS
   else
-    print("Invalid team picked up the rune")
-	return false
+    print("Invalid team picked up the bounty rune!")
+    return false
   end
 
   -- Player team IDs iterators
@@ -69,19 +74,39 @@ function BountyRunePick:Filter(filter_table)
   end)
 
   local gold_diff = (EnemyTeamGold - AlliedTeamGold) / (EnemyTeamGold + AlliedTeamGold)
-  local xp_diff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP)
+  local xp_diff = 0
+  if (EnemyTeamXP + AlliedTeamXP) > 0 then
+    xp_diff = (EnemyTeamXP - AlliedTeamXP) / (EnemyTeamXP + AlliedTeamXP)
+  end
   local gold_difference = math.max(0, gold_diff)
   local xp_difference = math.max(0, xp_diff)
 
   local gold_reward = (BOUNTY_RUNE_INITIAL_TEAM_GOLD*game_time*(1 + (1 - (1 - gold_difference)*(1 - gold_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
   local xp_reward = (BOUNTY_RUNE_INITIAL_TEAM_XP*game_time*(1 + (1 - (1 - xp_difference)*(1 - xp_difference))*game_time/12)) - (10 * (game_time)/(game_time+0.3))
+  --gold_reward = math.max(vanilla_gold_bounty, gold_reward)
   xp_reward = math.ceil(xp_reward)
 
   allied_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
 
-    if hero and xp_reward > 0 then
-      hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
+    if hero then
+      if xp_reward > 0 then
+        hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
+        SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_XP, hero, xp_reward, nil)
+      end
+      -- Check for Alchemist Greevil's Greed bounty rune gold multiplier
+      local alchemist_ability = hero:FindAbilityByName("alchemist_goblins_greed")
+      if alchemist_ability then
+        local alchemist_ability_level = alchemist_ability:GetLevel()
+        if alchemist_ability_level > 0 then
+          local multiplier = alchemist_ability:GetLevelSpecialValueFor("bounty_multiplier", alchemist_ability_level-1)
+          if multiplier > 1 then
+            local bonus_gold = (multiplier-1)*gold_reward
+            Gold:ModifyGold(playerid, bonus_gold, true, DOTA_ModifyGold_BountyRune)
+            SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_GOLD, hero, bonus_gold, nil)
+          end
+        end
+      end
     end
   end)
 

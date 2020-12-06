@@ -28,13 +28,14 @@ function LycanBossThink()
   end
 
   if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
-    thisEntity.bInitialized = true
+    thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
-    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
+    thisEntity.BossTier = thisEntity.BossTier or 3
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
-	end
+    thisEntity.bInitialized = true
+  end
 
   local hEnemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),

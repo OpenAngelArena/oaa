@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Giant Form 2
@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37600"
+    "ItemCost"                                            "37525"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,17 +64,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "35 50"
+        "bonus_agility"                                   "50 70"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "27 42"
+        "bonus_strength"                                  "50 70"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "160 170"
+        "base_attack_range"                               "170 180"
       }
       "04"
       {
@@ -84,7 +84,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_damage_bonus"                              "300 450"
+        "giant_damage_bonus"                              "400 500"
       }
       "06"
       {
@@ -104,12 +104,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_splash"                                    "100"
+        "giant_splash"                                    "150"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_move_speed"                                "250"
+        "giant_move_speed"                                "290"
       }
       "11"
       {

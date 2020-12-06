@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Linkens Sphere
@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "900"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5050"
+    "ItemCost"                                            "4600"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;linken's sphere;linkens"
@@ -74,7 +74,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 6.0 7.5 9.0 11.0"
+        "bonus_mana_regen"                                "5.0 5.25 5.75 6.5 7.5"
       }
       "04"
       {

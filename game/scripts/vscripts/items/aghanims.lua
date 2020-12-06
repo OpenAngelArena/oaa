@@ -1,8 +1,5 @@
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_aghanims_talents", "items/aghanims.lua", LUA_MODIFIER_MOTION_NONE)
--- Modifiers for problematic talents
-LinkLuaModifier("modifier_special_bonus_unique_monkey_king_armor", "abilities/oaa_wukongs_command.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_unique_monkey_king_ring", "abilities/oaa_wukongs_command.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_aghanims_scepter_2 = class(ItemBaseClass)
 
@@ -139,10 +136,8 @@ function modifier_item_aghanims_talents:SetTalents(tree)
       'Trying to update talent but talent choice was let through!'
     )
 
-    local problematic_talents ={
-      {"special_bonus_unique_monkey_king_4", "modifier_special_bonus_unique_monkey_king_armor"},
-      {"special_bonus_unique_monkey_king_6", "modifier_special_bonus_unique_monkey_king_ring"},
-      {"special_bonus_unique_hero_name", "modifier_special_bonus_unique_hero_name"}
+    local problematic_talents = {
+      {"special_bonus_unique_hero_name", "modifier_special_bonus_unique_hero_name"},
     }
 
     if claim then

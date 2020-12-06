@@ -62,12 +62,12 @@ local function SaveState(hero)
     items = {},
     modifiers = {},
     offsidesStacks = 0,
-    hp = hero:GetHealth(),
-    mana = hero:GetMana(),
+    hp = hero:GetHealthPercent(), -- hero:GetHealth(),
+    mana = hero:GetManaPercent(), -- hero:GetMana(),
     assignable = true -- basically just for clearer code
   }
 
-  -- If hero is dead during start of the duel, make his saved location his foutain area
+  -- If hero is dead during start of the duel, make his saved location his fountain area
   if not hero:IsAlive() then
     local fountainTriggerZone = Entities:FindByName(nil, "fountain_" .. GetShortTeamName(hero:GetTeam()) .. "_trigger")
     if fountainTriggerZone then
@@ -107,8 +107,11 @@ end
 local function RestoreState(hero, state)
   SafeTeleportAll(hero, state.location, 150)
 
-  hero:SetHealth(math.max(1, state.hp))
-  hero:SetMana(state.mana)
+  local hp = state.hp * hero:GetMaxHealth() -- this can be 0 if hero was dead during SaveState
+  if hp < 1 then hp = hero:GetMaxHealth() end -- restore to full hp if hp is 0, prevents Zeus ult abuse for example
+  local mana = state.mana * hero:GetMaxMana()
+  hero:SetHealth(math.max(1, hp)) -- I left math.max just in case I forgot about some interaction to prevent SetHealth(0) aka permadeath
+  hero:SetMana(mana)
 
   -- Restore ability cooldowns
   for name, abilityState in pairs(state.abilities) do
@@ -126,6 +129,12 @@ local function RestoreState(hero, state)
       item:StartCooldown(itemState.cooldown)
     end
   end
+
+  -- Disjoint disjointable projectiles
+  ProjectileManager:ProjectileDodge(hero)
+
+  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+  hero:AbsolutePurge()
 
   -- Restore offside stacks if hero had any
   if state.offsidesStacks > 0 then

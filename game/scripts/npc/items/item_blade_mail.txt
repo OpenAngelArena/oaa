@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Blade Mail
@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
-      "01"                                                "item_broadsword;item_chainmail;item_robe"
+      "01"                                                "item_broadsword;item_chainmail"
     }
   }
 
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "2200"
+    "ItemCost"                                            "2050"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
@@ -63,7 +63,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "28 45 75 115 165"
+        "bonus_damage"                                    "28 48 88 148 228"
       }
       "02"
       {
@@ -73,12 +73,27 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 20 30 40 50"
+        "bonus_intellect"                                 "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_reflection_constant"                     "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_reflection_pct"                          "20"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_reflection_pct"                           "80 90 100 110 120"
       }
     }
   }

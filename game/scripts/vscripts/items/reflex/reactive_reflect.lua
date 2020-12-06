@@ -6,6 +6,7 @@ LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua
 item_reflection_shard_1 = class(ItemBaseClass)
 item_reflection_shard_2 = item_reflection_shard_1
 item_reflection_shard_3 = item_reflection_shard_1
+item_reflection_shard_4 = item_reflection_shard_1
 
 function item_reflection_shard_1:GetIntrinsicModifierName()
   return "modifier_generic_bonus" -- "modifier_charge_replenisher"
@@ -32,6 +33,12 @@ function item_reflection_shard_1:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_reactive_reflect", {duration = duration})
 end
 
+function item_reflection_shard_1:ProcsMagicStick()
+  return false
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_item_reactive_reflect = class(ModifierBaseClass)
 
 function modifier_item_reactive_reflect:IsHidden()
@@ -47,11 +54,13 @@ function modifier_item_reactive_reflect:IsPurgable()
 end
 
 function modifier_item_reactive_reflect:OnCreated(event)
-  if IsServer() and self.nPreviewFX == nil then
+  if IsServer() then
     local parent = self:GetParent()
     parent:EmitSound("Hero_Antimage.Counterspell.Cast")
-    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    --self.reflect_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+    if self.nPreviewFX == nil then
+      self.nPreviewFX = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      --self.nPreviewFX = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+    end
 
     if parent.stored_reflected_spells == nil then
       parent.stored_reflected_spells = {}
@@ -127,10 +136,15 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     local target = kv.ability:GetCaster()
     local ability_level = kv.ability:GetLevel()
     local ability_behaviour = kv.ability:GetBehavior()
+    if type(ability_behaviour) == 'userdata' then
+      ability_behaviour = tonumber(tostring(ability_behaviour))
+    end
 
     local exception_list = {
       ["rubick_spell_steal"] = true,
-      --["legion_commander_duel"] = true, -- uncomment this if Duel becomes buggy
+      ["morphling_replicate"] = true,
+      --["grimstroke_soul_chain"] = true, -- uncomment this if Grimstroke Soul Bind becomes buggy
+      --["legion_commander_duel"] = true, -- uncomment this if Legion Commander's Duel becomes buggy
     }
 
     -- Do not reflect allied spells for any reason
@@ -138,13 +152,30 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       return nil
     end
 
-    -- If this is a reflected ability from other Reflection shard, do nothing (reflecting reflected spells should not be possible)
+    -- If this is a reflected ability from other Reflection shard, do nothing
+    -- (reflecting reflected spells should not be possible)
     if kv.ability.reflected_spell then
       return nil
     end
 
-    -- If target has reflecting modifiers (lotus orb or reflection shard) do nothing to prevent looping (reflecting reflected spells should not be possible)
-    if target:HasModifier("modifier_item_lotus_orb_active") or target:HasModifier("modifier_item_reactive_reflect") then
+    local reflecting_modifiers = {
+      "modifier_item_lotus_orb_active", -- Lotus Orb active
+      "modifier_item_reactive_reflect", -- Reflection Shard active
+      "modifier_item_mirror_shield",    -- Mirror Shield
+      "modifier_antimage_counterspell", -- Anti-Mage Counter Spell active
+    }
+    -- Check for reflecting modifiers
+    local found = false
+    for i = 1, #reflecting_modifiers do
+      if target:HasModifier(reflecting_modifiers[i]) then
+        found = true
+        break
+      end
+    end
+
+    -- If target has reflecting modifiers do nothing to prevent infinite loops
+    -- (reflecting reflected spells should not be possible)
+    if found then
       return nil
     end
 
@@ -158,7 +189,7 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
       return nil
     end
 
-    -- Check if the parent already has reflected ability
+    -- Check if the parent already has the reflected ability
     local old = false
     for _,ability in pairs(parent.stored_reflected_spells) do
       if ability and not ability:IsNull() then
@@ -201,6 +232,9 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     reflect_ability:SetLevel(ability_level)       -- Set level to be the same as the level of the original ability
     parent:SetCursorCastTarget(target)            -- Set the target for the spell.
     reflect_ability:OnSpellStart()                -- Cast the spell.
-
   end
+end
+
+function modifier_item_reactive_reflect:GetTexture()
+  return "custom/reflection_shard_3"
 end

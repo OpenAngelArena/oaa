@@ -42,7 +42,7 @@ function item_hand_of_midas_1:OnSpellStart()
   if player then
     -- Overhead gold amount popup
     SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, target, bonusGold, player)
-    -- If the Hand of Midas user is a Spirit Bear or Arc Warden Temepest Double:
+    -- If the Hand of Midas user is a Spirit Bear or Arc Warden Tempest Double:
     if not caster:IsHero() or caster:IsTempestDouble() then
       caster = player:GetAssignedHero()
     end
@@ -57,7 +57,7 @@ function item_hand_of_midas_1:OnSpellStart()
   end
 
   -- Giving only bonus gold as reliable gold to the player that used Hand of Midas
-  PlayerResource:ModifyGold(playerID, bonusGold, true, DOTA_ModifyGold_CreepKill)
+  Gold:ModifyGold(playerID, bonusGold, true, DOTA_ModifyGold_CreepKill)
 
   --target:SetDeathXP(0)           -- setting this to 0 will mess up OAA Mud Golems
   --target:SetMinimumGoldBounty(0) -- setting this to 0 will mess up OAA Mud Golems

@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 230 340"
+    "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,11 +46,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "250"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "24 46 68 90 190 290"
+        "damage_per_second"                               "24 46 68 90 180 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer"
       }
       "03"

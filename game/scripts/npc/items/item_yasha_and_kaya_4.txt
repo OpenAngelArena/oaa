@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Yasha and Kaya 4
@@ -37,7 +37,6 @@
     "ID"                            "8547"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                     "item_yasha_and_kaya"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"            "custom/yasha_and_kaya_4"
 
     // Stats
@@ -59,7 +58,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-       "01"
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_agility"                                   "16 24 32 48 72"
@@ -77,17 +76,22 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "16 18 22 28 34"
+        "mana_regen_multiplier"                           "30 40 50 60 70"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "20 25 30 35 40" //OAA
+        "movement_speed_percent_bonus"                    "10 12 14 16 18"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "12 16 20 24 28"
+        "spell_amp"                                       "16 20 24 28 32"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_lifesteal_amp"                             "26 28 30 32 34"
       }
     }
   }

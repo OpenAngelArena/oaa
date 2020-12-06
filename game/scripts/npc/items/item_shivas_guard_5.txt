@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Shiva's Guard 5
@@ -21,10 +21,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_shivas_guard_5"
+
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_4;item_upgrade_core_4"
       "02"                                                "item_stoneskin;item_upgrade_core_4"
+      "03"                                                "item_blade_mail_4;item_upgrade_core_4"
     }
   }
 
@@ -40,17 +42,20 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/shivas_guard_5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "shivas"
+    "AbilityCastRange"                                    "900"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "225"
-    "ItemCost"                                            "37750"
+    "ItemCost"                                            "35050"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,7 +69,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "30 45 70 100 150"
+        "bonus_intellect"                                 "30 45 65 90 120"
       }
       "02"
       {
@@ -89,7 +94,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_speed"                            "-40 -45 -50 -65 -85"
+        "blast_movement_speed"                            "-40 -45 -50 -55 -60"
       }
       "07"
       {
@@ -105,6 +110,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "blast_speed"                                     "350"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_degen_aura"                             "25"
       }
     }
   }

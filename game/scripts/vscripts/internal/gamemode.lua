@@ -214,10 +214,12 @@ function GameMode:_CaptureGameMode()
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )
-
     mode:SetDaynightCycleDisabled( DISABLE_DAY_NIGHT_CYCLE )
     mode:SetKillingSpreeAnnouncerDisabled( DISABLE_KILLING_SPREE_ANNOUNCER )
-    mode:SetStickyItemDisabled( DISABLE_STICKY_ITEM )
+    mode:SetStickyItemDisabled(false)
+    mode:SetForceRightClickAttackDisabled(true)
+    mode:SetCustomBackpackSwapCooldown(3.0)
+    mode:SetDefaultStickyItem("item_flask")
 
     self:OnFirstPlayerLoaded()
   end

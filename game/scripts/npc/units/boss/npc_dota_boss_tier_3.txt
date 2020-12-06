@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
   //=================================================================================
-// Boss tier 3
-//=================================================================================
+  // Boss tier 3
+  //=================================================================================
   "npc_dota_boss_tier_3"
   {
     // General
@@ -14,7 +14,6 @@
     "Level"                                               "75"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
-
 
     // Abilities
     //----------------------------------------------------------------
@@ -39,7 +38,6 @@
     "AttackRange"                                         "120"       // Range within a target can be attacked.
     "ProjectileModel"                                     ""          // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"         // Speed of projectile.
-
 
     // Attributes
     //----------------------------------------------------------------
@@ -72,15 +70,14 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "15000"        // Base health.
-    "StatusHealthRegen"                                   "50.0"         // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"         // Health regeneration rate.
     "StatusMana"                                          "0"       // Base mana.
     "StatusManaRegen"                                     "0"           // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
 

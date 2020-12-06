@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Shiva's Guard
@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "750"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -37,17 +37,20 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/shivas_guard_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "shivas"
+    "AbilityCastRange"                                    "900"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "4750"
+    "ItemCost"                                            "4850"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
@@ -63,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "30 45 70 100 150"
+        "bonus_intellect"                                 "30 45 65 90 120"
       }
       "02"
       {
@@ -88,7 +91,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_speed"                            "-40 -45 -50 -65 -85"
+        "blast_movement_speed"                            "-40 -45 -50 -55 -60"
       }
       "07"
       {
@@ -104,6 +107,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "blast_speed"                                     "350"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_degen_aura"                             "25"
       }
     }
   }

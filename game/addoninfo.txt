@@ -1,28 +1,48 @@
-"AddonInfo"
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	"TeamCount" 	      "3"
-	"maps"	            "oaa oaa_winter captains_mode 10v10 ardm"
-	"IsPlayable"	      "1"
-  "PenaltiesEnabled"  "0"
-  "EnablePickRules"   "1"
-  "oaa"
-  {
-    "MaxPlayers"      "10"
-  }
-  "ardm"
-  {
-    "MaxPlayers"      "10"
-  }
-  "captains_mode"
-  {
-    "MaxPlayers"      "10"
-  }
-  "10v10"
-  {
-    "MaxPlayers"      "20"
-  }
-  "oaa_winter"
-  {
-    "MaxPlayers"      "10"
-  }
+	TeamCount = 3
+	maps =
+	[
+		"oaa",
+		"oaa_winter",
+		"captains_mode",
+		"10v10",
+	]
+	IsPlayable = 1
+	PenaltiesEnabled = false
+	EnablePickRules = 1
+	map_options =
+	[
+		{
+			MaxPlayers = 10
+			map = "oaa_winter"
+		},
+		{
+			MaxPlayers = 20
+			map = "10v10"
+		},
+		{
+			MaxPlayers = 10
+			map = "captains_mode"
+		},
+		{
+			MaxPlayers = 10
+			map = "oaa"
+		},
+	]
+	HideInTools = false
+	IsTemplate = false
+	CheckAFKPlayers = false
+	DefaultMap = "oaa"
+	Default_Keys = [  ]
+	DisableIK = true
+	EventGame = false
+	hero_picker =
+	{
+	}
+	HeroGuidesSupported = true
+	ForceDefaultGuide = true
+	MinimalPrecache = false
+	MinPlayers = 1
+	MaxPlayers = 10
 }

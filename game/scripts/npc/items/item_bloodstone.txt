@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Bloodstone
@@ -37,7 +37,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "90"
+    "AbilityCooldown"                                     "85"
     "AbilitySharedCooldown"                               "bloodstone"
     "AbilityTextureName"                                  "custom/bloodstone"
 
@@ -65,12 +65,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 650 1175 1875 2750"
+        "bonus_health"                                    "425 850 1275 1700 2125"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 650 1175 1875 2750"
+        "bonus_mana"                                      "425 525 675 875 1125"
       }
       "03"
       {
@@ -80,7 +80,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "12 15 18 21 24"
+        "manacost_reduction"                              "10"
       }
       "05"
       {
@@ -90,7 +90,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "200 225 250 275 300"
+        "mana_regen_multiplier"                           "100 125 150 175 200"
       }
       "07"
       {

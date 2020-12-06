@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Hand of Midas 2
@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2000"
+    "ItemCost"                                            "2250"
     "ItemShopTags"                                        ""
     "ItemAliases"                                         "hom"
 
@@ -22,6 +22,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hand_of_midas_2"
+
     "ItemRequirements"
     {
       "01"                                                "item_hand_of_midas_1"
@@ -56,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "4250"
+    "ItemCost"                                            "4200"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas 2;midas 2"
@@ -74,12 +75,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "1.85 3 4"
+        "xp_multiplier"                                   "2 4 6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "160 350 550"
+        "bonus_gold"                                      "150 350 550"
       }
       "04"
       {

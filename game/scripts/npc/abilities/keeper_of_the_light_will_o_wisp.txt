@@ -7,33 +7,34 @@
   {
     "ID"                                                  "7316"
     "AbilityBehavior"				                              "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			                          "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				                            "SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			                          "SPELL_DISPELLABLE_YES"
-		"AbilityType"					                                "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"			                          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"				                            "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"			                          "SPELL_DISPELLABLE_YES"
+    "AbilityType"					                                "DOTA_ABILITY_TYPE_ULTIMATE"
+
     "MaxLevel"                                            "5"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				                            "0.1"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"				                            "0.1"
 
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				                              "80" //OAA
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"				                              "90" //OAA
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"                                     "250 350 450 550 650"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250 350 450 550 650"
 
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"                                    "800"
+    // Cast Range
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -44,6 +45,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "725"
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_6"
       }
       "03"
       {

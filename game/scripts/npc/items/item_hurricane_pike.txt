@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Hurricane Pike
@@ -42,7 +42,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "23.0"
     "AbilitySharedCooldown"                               "force"
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "4600"
+    "ItemCost"                                            "4525"
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "fs;force staff;hurricane pike;pike"
@@ -81,7 +81,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 17 27 42 62" //OAA
+        "bonus_strength"                                  "15 20 30 45 65"
       }
       "05"
       {

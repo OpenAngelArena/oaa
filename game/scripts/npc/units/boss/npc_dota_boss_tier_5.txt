@@ -1,11 +1,10 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Boss tier 5
-//=================================================================================
+  //=================================================================================
+  // Boss tier 5
+  //=================================================================================
   "npc_dota_boss_tier_5"
   {
-
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/creeps/neutral_creeps/n_creep_vulture_b/n_creep_vulture_b.vmdl"  // Model.
@@ -16,10 +15,8 @@
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
 
-
     // Abilities
     //----------------------------------------------------------------
-
     "Ability1"                                            "boss_resistance"
     "Ability2"                                            "boss_cliffwalk"
     "Ability3"          								  "boss_regen"
@@ -37,9 +34,10 @@
     "AttackRate"                                          "0.625"     // Speed of attack.
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "800"       // Range within a target can be acquired.
-    "AttackRange"                                         "120"       // Range within a target can be attacked.
+    "AttackRange"                                         "128"       // Range within a target can be attacked.
     "ProjectileModel"                                     ""          // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"         // Speed of projectile.
+
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "0"         // Experience earn.
@@ -60,15 +58,14 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "33750"        // Base health.
-    "StatusHealthRegen"                                   "100.0"     // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"     // Health regeneration rate.
     "StatusMana"                                          "0"         // Base mana.
     "StatusManaRegen"                                     "0"         // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
 
@@ -86,5 +83,4 @@
 
     "HasInventory"                                        "1"
   }
-
 }

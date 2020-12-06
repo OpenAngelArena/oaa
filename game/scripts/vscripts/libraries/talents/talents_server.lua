@@ -1,3 +1,4 @@
+-- HasTalent(...) will return true on the server (or client) only when OnPlayerLearnedAbility event happens, this event doesnt happen for talents gained with aghs
 function CDOTA_BaseNPC:HasTalent(talentName)
 	return (self:HasAbility(talentName) and self:FindAbilityByName(talentName):GetLevel() > 0)
 end
@@ -33,6 +34,7 @@ function CDOTA_Modifier_Lua:GetTalentSpecialValueFor(value)
 	return self:GetAbility():GetTalentSpecialValueFor(value)
 end
 
+-- Doesnt work well with OAA Aghanims
 function CDOTA_BaseNPC:FindTalentValue(talentName, value)
 	if self:HasAbility(talentName) then
 		return self:FindAbilityByName(talentName):GetSpecialValueFor(value or "value")

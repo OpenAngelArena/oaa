@@ -22,16 +22,21 @@ function modifier_item_trumps_fists_passive:IsPurgable()
 end
 
 function modifier_item_trumps_fists_passive:OnCreated(kv)
-  self.bonus_all_stats = self:GetAbility():GetSpecialValueFor( "bonus_all_stats" )
-  self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
-  self.bonus_health = self:GetAbility():GetSpecialValueFor( "bonus_health" )
-  self.bonus_mana = self:GetAbility():GetSpecialValueFor( "bonus_mana" )
-  self.heal_prevent_duration = self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_all_stats = ability:GetSpecialValueFor( "bonus_all_stats" )
+    self.bonus_damage = ability:GetSpecialValueFor( "bonus_damage" )
+    self.bonus_health = ability:GetSpecialValueFor( "bonus_health" )
+    self.bonus_mana = ability:GetSpecialValueFor( "bonus_mana" )
+    self.heal_prevent_duration = ability:GetSpecialValueFor( "heal_prevent_duration" )
+  end
 
   if IsServer() then
     self:GetCaster():ChangeAttackProjectile()
   end
 end
+
+modifier_item_trumps_fists_passive.OnRefresh = modifier_item_trumps_fists_passive.OnCreated
 
 function modifier_item_trumps_fists_passive:OnDestroy()
   if IsServer() then
@@ -80,7 +85,7 @@ function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
   if IsServer() then
     local attacker = kv.attacker
     local target = kv.target
-    if attacker == self:GetParent() and not attacker:IsIllusion() and not target:IsMagicImmune() then
+    if attacker == self:GetParent() and not attacker:IsIllusion() then
       local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
       target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = debuff_duration } )
     end
@@ -94,8 +99,8 @@ modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 function modifier_item_trumps_fists_frostbite:OnCreated()
   if IsServer() then
     self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
-    self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
-    self.health_fraction = 0
+    --self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+    --self.health_fraction = 0
   end
 end
 
@@ -103,13 +108,23 @@ function modifier_item_trumps_fists_frostbite:IsDebuff()
   return true
 end
 
+function modifier_item_trumps_fists_frostbite:IsPurgable()
+  return false
+end
+
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
   local funcs = {
-    MODIFIER_EVENT_ON_HEALTH_GAINED
+    --MODIFIER_PROPERTY_DISABLE_HEALING,
+    MODIFIER_EVENT_ON_HEALTH_GAINED,
   }
   return funcs
 end
 
+--function modifier_item_trumps_fists_frostbite:GetDisableHealing()
+  --return 1
+--end
+-- Old heal prevention that decays over time
+--[[
 function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
   if IsServer() then
     -- Check that event is being called for the unit that self is attached to
@@ -122,6 +137,29 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
 
       DebugPrint(desiredHP)
       kv.unit:SetHealth( desiredHP )
+    end
+  end
+end
+]]
+
+-- Deals damage every time a unit gains hp; damage is equal to percent of gained hp;
+function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
+  if IsServer() then
+    local unit = kv.unit
+    local caster = self:GetCaster()
+    if unit == self:GetParent() and kv.gain and not unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
+      if kv.gain > 0 then
+        local heal_to_damage = self.heal_prevent_percent / 100
+        local damage = kv.gain * heal_to_damage
+        local damage_table = {
+          victim = unit,
+          attacker = caster,
+          damage = damage,
+          damage_type = DAMAGE_TYPE_PURE,
+          ability = self:GetAbility()
+        }
+        ApplyDamage(damage_table)
+      end
     end
   end
 end

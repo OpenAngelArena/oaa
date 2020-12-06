@@ -9,7 +9,10 @@ if IsServer() then
   end
 
   function modifier_oaa_scan_thinker:OnDestroy()
-    UTIL_Remove(self:GetParent())
+    local parent = self:GetParent()
+    if parent and not parent:IsNull() then
+      UTIL_Remove(parent)
+    end
   end
 
   function modifier_oaa_scan_thinker:OnIntervalThink()
@@ -20,10 +23,10 @@ if IsServer() then
       parentTeam,
       parentLoc,
       nil,
-      900,
+      SCAN_REVEAL_RADIUS,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_NONE,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
       FIND_ANY_ORDER,
       false
     )
@@ -40,5 +43,30 @@ if IsServer() then
       EmitSoundOnLocationForAllies(parentLoc, "minimap_radar.cycle", parent)
       MinimapEvent(parentTeam, parent, parentLoc.x, parentLoc.y, DOTA_MINIMAP_EVENT_RADAR, 1)
     end
+
+    units:each(function(unit)
+      if unit then
+        unit:AddNewModifier(parent, nil, "modifier_oaa_scan_debuff", {duration = 1.0})
+      end
+    end)
   end
+end
+
+---------------------------------------------------------------------------------------------------
+modifier_oaa_scan_debuff = class(ModifierBaseClass)
+
+function modifier_oaa_scan_debuff:IsHidden()
+  return false
+end
+
+function modifier_oaa_scan_debuff:IsDebuff()
+  return true
+end
+
+function modifier_oaa_scan_debuff:IsPurgable()
+  return false
+end
+
+function modifier_oaa_scan_debuff:GetTexture()
+  return "custom/icon_scan_on_psd"
 end

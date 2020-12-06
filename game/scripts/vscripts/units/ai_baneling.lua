@@ -1,6 +1,14 @@
 local Baneling = class({})
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
+  if not IsServer() then
+    return
+  end
+
+  if thisEntity == nil then
+    return
+  end
+
   local newBaneling = Baneling()
   newBaneling:Init(thisEntity)
 end
@@ -9,7 +17,7 @@ function Baneling:Init(entity)
   -- thisEntity
   self.entity = entity
 
-  self.boom =  self.entity:FindAbilityByName("boss_spiders_spider_cold_combustion")
+  self.boom = self.entity:FindAbilityByName("boss_spiders_spider_cold_combustion")
 
   Timers:CreateTimer(1, function()
     return self:Think()
@@ -42,10 +50,12 @@ function Baneling:Think()
 end
 
 function Baneling:FindBestBlastLocation()
-  local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
-  local enemies = FindUnitsInRadius( self.entity:GetTeamNumber(), self.entity:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, 0, false )
+  local entity = self.entity
+  local entity_location = entity:GetAbsOrigin()
+  local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
+  local enemies = FindUnitsInRadius(entity:GetTeamNumber(), entity_location, nil, 1300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, 0, false)
   local locations = {}
-  local myLocation = self.entity:GetAbsOrigin()
+
   local radius = 350
   for _,hero in ipairs(enemies) do
     local location = hero:GetAbsOrigin()
@@ -78,11 +88,12 @@ function Baneling:FindBestBlastLocation()
       end
     end
   end
-
-  print(tostring(bestLocation) .. " has the best unit count of " .. bestCount)
-  local hpPercent = self.entity:GetHealth() / self.entity:GetMaxHealth()
-  if bestCount <= (countEnemies(myLocation) * hpPercent) then
-    print('Blasting off now!')
+  --if bestLocation then
+    --print(tostring(bestLocation) .. " has the best unit count of " .. bestCount)
+  --end
+  local hpPercent = entity:GetHealth() / entity:GetMaxHealth()
+  if bestCount <= (countEnemies(entity_location) * hpPercent) then
+    --print('Blasting off now!')
     return true
   end
   return bestLocation

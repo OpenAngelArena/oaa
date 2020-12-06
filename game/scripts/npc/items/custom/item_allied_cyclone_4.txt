@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Allied cyclone
@@ -59,8 +59,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175"
-    "ItemCost"                                            "35750"
+    "AbilityManaCost"                                     "350"
+    "ItemCost"                                            "35725"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "allied cyclone 4;allied euls 4"
@@ -73,12 +73,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 50 95 140"
+        "bonus_intellect"                                 "25 45 70 100"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.0 7.5 9.25 11.5"
+        "bonus_mana_regen"                                "5.25 5.75 9.0 10.0"
       }
       "03"
       {

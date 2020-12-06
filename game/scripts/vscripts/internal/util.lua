@@ -98,6 +98,9 @@ function DebugPrint(...)
   end
 
   local output = {...}
+  if not output[1] then
+    return
+  end
 
   local prefix, msg = string.match(output[1], "%[([^%]]*)%]%s*(.*)")
 

@@ -1,0 +1,56 @@
+"itembuilds"
+{
+  "author"      "Valve"
+  "hero"        "npc_dota_hero_antimage"
+  "Title"       "Recommended items for Anti-Mage"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"    "item_flask"
+      "item"    "item_quelling_blade"
+      "item"    "item_branches"
+    }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"    "item_magic_wand"
+      "item"    "item_wraith_band"
+      "item"    "item_yasha"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"    "item_skadi"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_manta"
+      "item"    "item_abyssal_blade_3"
+      "item"    "item_butterfly"
+      "item"    "item_satanic"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_monkey_king_bar"              // Situational
+      "item"    "item_trumps_fists"                 // Situational
+      "item"    "item_black_king_bar_1"
+      "item"    "item_sphere"                       // Defensive
+      "item"    "item_dispel_orb_1"                 // Defensive
+      "item"    "item_heart"                        // Defensive
+      "item"    "item_regen_crystal_1"              // Defensive
+      "item"    "item_ancient_janggo"
+      "item"    "item_lucience"
+      "item"    "item_bfury"                        // Traditional
+      "item"    "item_ethereal_blade"               // Magic
+      "item"    "item_yasha_and_kaya"               // Magic
+      "item"    "item_dagger_of_moriah"             // Magic/Meme
+      "item"    "item_ultimate_scepter"             // Meme
+      "item"    "item_lotus_orb"                    // Defensive/Meme
+      "item"    "item_reflection_shard_1"           // Meme
+    }
+  }
+}

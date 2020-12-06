@@ -2,8 +2,8 @@ LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
 
 LinkLuaModifier("modifier_scan_true_sight_thinker", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_scan_true_sight", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_scan_thinker", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_scan_debuff", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 
 if Glyph == nil then
   -- Debug:EnableDebugging()
@@ -84,7 +84,7 @@ function Glyph:SetWardCooldown(playerID, time)
   self.ward.cooldowns[playerID] = time
   CustomGameEventManager:Send_ServerToPlayer(player, "glyph_ward_cooldown", { cooldown = time, maxCooldown = self:GetWardCooldown() })
   Timers:CreateTimer(time, function ()
-    self.ward.cooldowns[playerID] = 0
+    Glyph.ward.cooldowns[playerID] = 0
   end)
 end
 
@@ -143,7 +143,7 @@ function Glyph:SetScanCooldown(playerID, time)
   self.scan.cooldowns[team] = time
   CustomGameEventManager:Send_ServerToTeam( team, "glyph_scan_cooldown", { cooldown = time, maxCooldown = self:GetScanCooldown() } )
   Timers:CreateTimer(time, function ()
-    self.scan.cooldowns[team] = 0
+    Glyph.scan.cooldowns[team] = 0
   end)
 end
 

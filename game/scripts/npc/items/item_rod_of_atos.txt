@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Rod of Atos
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 75 150 225 300"
+    "AbilityManaCost"                                     "50 75 100 125 150"
     "ItemCost"                                            "2750"
     "ItemShopTags"                                        "int;regen_health"
     "ItemQuality"                                         "rare"
@@ -65,17 +65,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 40 60 80 105"
+        "bonus_intellect"                                 "20 30 45 65 90"
       }
-      "02"
+      "02" // it should be better than Sheepstick (Scythe of Vyse) but worse than Meteor Hammer
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 25 35 45 55"
+        "bonus_strength"                                  "10 20 35 55 80"
       }
-      "03"
+      "03" // it should be better than Sheepstick (Scythe of Vyse) and better than Meteor Hammer
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 25 35 45 55"
+        "bonus_agility"                                   "10 20 35 55 80"
       }
       "04"
       {

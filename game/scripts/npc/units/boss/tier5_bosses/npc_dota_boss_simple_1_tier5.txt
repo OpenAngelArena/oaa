@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-//=================================================================================
-// Simple Boss 1 Tier 5 Version
-//=================================================================================
+  //=================================================================================
+  // Simple Boss 1 Tier 5 Version
+  //=================================================================================
   "npc_dota_boss_simple_1_tier5"
   {
     // General
@@ -34,8 +34,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "7900"    // Damage range min.
     "AttackDamageMax"                                     "8050"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "1.0"    // Speed of attack.
+    "AttackRate"                                          "1.0"    // BAT
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -66,13 +65,11 @@
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
     // Creature data
-
     "Creature"
     {
-      //Makes it only have 50% remaining of applied crowd control
+      // Makes it only have 50% remaining of applied crowd control
       "DisableResistance"                                 "50.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

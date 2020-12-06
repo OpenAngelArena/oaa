@@ -4,7 +4,15 @@ MMRShuffle = Components:Register('MMRShuffle', COMPONENT_TEAM_SELECT)
 function MMRShuffle:Init ()
   Debug:EnableDebugging()
   DebugPrint('MMR Shuffle init!')
+
+  if self.initialized then
+    print("MMRShuffle should be initialized only once -> preventing multiple times")
+    return nil
+  end
+
   CustomGameEventManager:RegisterListener('mmrShuffle', partial(Dynamic_Wrap(MMRShuffle, 'Shuffle'), MMRShuffle))
+
+  self.initialized = true
 end
 
 local fakeMMR = {}

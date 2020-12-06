@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Abyssal Underlord: Highway to Hell
+  // Abyssal Underlord: Dark Rift (OAA Rework)
   //=================================================================================================================
   "abyssal_underlord_dark_rift_oaa"
   {
@@ -11,21 +11,23 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_dark_rift.lua"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "abyssal_underlord_dark_rift"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "AbilityCastRange"                                    "5000"
-    "AbilityCastPoint"                                    "0.6"
+    "AbilityCastRange"                                    "1200 1400 1600 1800 2000"
+    "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityChannelTime"                                  "1.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,40 +35,30 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 150 225 375 600"
+    "AbilityManaCost"                                     "125 175 225 275 325"
 
 
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_range_tooltip"                              "5000"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250 300 350 400 450"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2.0 2.25 2.5 2.75 3.0"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "portal_duration"                                 "6.1 9.1 12.1 15.1 18.1"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "250 450 650 1250 1850"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "portal_duration_tooltip"                         "6.0 9.0 12.0 15.0 18.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "3.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "minimum_range"                                   "900.0"
+        "minimum_range"                                   "0.0"
       }
     }
 

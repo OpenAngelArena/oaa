@@ -12,12 +12,6 @@ function boss_stopfightingyourself_debuff_mirror:GetIntrinsicModifierName()
   return "modifier_boss_stopfightingyourself_debuff_mirror"
 end
 
-function boss_stopfightingyourself_debuff_mirror:GetBehavior()
-  return DOTA_ABILITY_BEHAVIOR_PASSIVE
-end
-
-
-
 modifier_boss_stopfightingyourself_debuff_mirror = class(ModifierBaseClass)
 
 function modifier_boss_stopfightingyourself_debuff_mirror:DeclareFunctions()

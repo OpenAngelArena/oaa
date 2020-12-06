@@ -10,7 +10,6 @@
 LinkLuaModifier("modifier_item_preemptive_bubble_aura_block", "items/reflex/preemptive_bubble.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_preemptive_bubble_block", "items/reflex/preemptive_bubble.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
-require('libraries/timers')
 
 ------------------------------------------------------------------------
 
@@ -43,6 +42,10 @@ function item_bubble_orb_1:OnSpellStart()
   end)
 end
 
+function item_bubble_orb_1:ProcsMagicStick()
+  return false
+end
+
 ------------------------------------------------------------------------
 
 modifier_item_preemptive_bubble_aura_block = class(ModifierBaseClass)
@@ -63,9 +66,9 @@ function modifier_item_preemptive_bubble_aura_block:IsPurgeException()
   return false
 end
 
-function modifier_item_preemptive_bubble_aura_block:IsAura()
-  return true
-end
+-- function modifier_item_preemptive_bubble_aura_block:IsAura()
+  -- return true
+-- end
 
 function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
   if IsServer() then
@@ -178,7 +181,7 @@ function modifier_item_preemptive_bubble_block:GetAttributes()
 end
 
 function modifier_item_preemptive_bubble_block:GetTexture()
-  return self:GetAbility():GetAbilityTextureName()
+  return "custom/bubble_orb_1"
 end
 
 function modifier_item_preemptive_bubble_block:OnCreated(keys)

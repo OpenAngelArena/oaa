@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Combo Breaker 4
@@ -18,8 +18,9 @@
     "ItemResult"                                          "item_aeon_disk_4"
     "ItemRequirements"
     {
-      "01"                                                "item_sphere_3;item_upgrade_core_3"
-      "02"                                                "item_reflection_shard_1;item_upgrade_core_3"
+      "01"                                                "item_aeon_disk_3;item_upgrade_core_3"
+      "02"                                                "item_sphere_3;item_upgrade_core_3"
+      "03"                                                "item_reflection_shard_2;item_upgrade_core_3"
     }
   }
 
@@ -36,11 +37,11 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "ItemCost"                                            "18050"
+    "ItemCost"                                            "17600"
     "ItemAliases"                                         "ad 4;aeon disk 4"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "115.0 95.0 75.0 55.0 35.0"
+    "AbilityCooldown"                                     "105.0 95.0 75.0 55.0 35.0"
     "AbilityTextureName"                                  "custom/combo_breaker_4"
 
     // Special
@@ -50,12 +51,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "300 700 1200 2000 2700"
+        "bonus_health"                                    "300 550 1050 1800 2800"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "300 600 900 1200 1500"
+        "bonus_mana"                                      "300 400 550 750 1000"
       }
       "03"
       {

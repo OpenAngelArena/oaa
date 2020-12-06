@@ -27,13 +27,13 @@ function Gold:Init()
 
   -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (it was tied to couriers in 7.23 but not anymore)
   LinkLuaModifier("modifier_oaa_passive_gpm", "components/gold/gold.lua", LUA_MODIFIER_MOTION_NONE)
-  Gold.hasPassiveGPM = {}
+  self.hasPassiveGPM = {}
   GameEvents:OnHeroInGame(Gold.HeroSpawn)
 end
 
 function Gold:GetState ()
   local state = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
     state[steamid] = self:GetGold(playerID)
   end
@@ -42,7 +42,7 @@ function Gold:GetState ()
 end
 
 function Gold:LoadState (state)
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
     if state[steamid] then
       self:SetGold(playerID, state[steamid])

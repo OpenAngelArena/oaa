@@ -42,6 +42,7 @@ function FinalDuel:Trigger (team)
   local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
   local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
   if goodPoints < limit and badPoints < limit then
+    self.needsFinalDuel = false
     return
   end
   self.needsFinalDuel = true
@@ -54,7 +55,8 @@ function FinalDuel:Trigger (team)
   Duels:StartDuel({
     players = 0,
     timeout = FINAL_DUEL_TIMEOUT,
-    isFinalDuel = true
+    isFinalDuel = true,
+    forceAllPlayers = true
   })
 end
 
@@ -96,7 +98,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
     if self.needsFinalDuel then
       -- a duel just ended and we need to trigger the final duel
       Timers:CreateTimer(10, function ()
-        self:Trigger()
+        FinalDuel:Trigger()
       end)
     end
     return
@@ -123,6 +125,6 @@ function FinalDuel:EndDuelHandler (currentDuel)
   self.goodCanWin = false
   self.badCanWin = false
 
-  local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]
+  local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]  -- this is 10; if you want to change put: PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
   PointsManager:IncreaseLimit(addToLimit)
 end

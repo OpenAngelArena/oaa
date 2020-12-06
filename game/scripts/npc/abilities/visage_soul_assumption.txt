@@ -11,6 +11,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -23,11 +24,11 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"                                     "135 140 145 150 155 160"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "1000"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,7 +68,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1375"
+        "radius"                                          "1500"
       }
       "08"
       {

@@ -1,6 +1,29 @@
 
-function CDOTA_BaseNPC_Hero:GetNetworth ()
-  return GetNetworth(self)
+function CDOTA_BaseNPC_Hero:GetNetworth()
+  if not IsServer() then
+    return 0
+  end
+
+  local hero = self
+  local networth = Gold:GetGold(hero)
+
+  -- Iterate over item slots adding up its gold cost
+  for i = 0, 15 do
+    local item = hero:GetItemInSlot(i)
+    if item then
+      networth = networth + item:GetCost()
+    end
+  end
+
+  return networth
+
+  -- Alternate way of calculating networth:
+  -- local playerID = hero:GetPlayerOwnerID()
+  -- local playerNetworth = PlayerResource:GetNetWorth(playerID)
+
+  -- if playerNetworth then
+    -- return playerNetworth
+  -- end
 end
 
 function CDOTA_BaseNPC_Hero:ModifyGold (playerID, goldAmmt, reliable, nReason)

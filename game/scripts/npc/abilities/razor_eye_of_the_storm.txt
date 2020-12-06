@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 400 600"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,35 +46,24 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_area_damage"                             "60 140 220 460 860" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor_4"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "passive_area_interval"                           "3"
-      }
-      "04"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "30.0"
       }
-      "05"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "strike_interval"                                 "0.7 0.6 0.5 0.4 0.4"
         "LinkedSpecialBonus"                              "special_bonus_unique_razor_2"
       }
-      "06"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "armor_reduction"                                 "1" // hardcoded
       }
-      "07"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 70 100 190 340" //OAA
+        "damage"                                          "60 90 120 210 360" //OAA
       }
     }
   }

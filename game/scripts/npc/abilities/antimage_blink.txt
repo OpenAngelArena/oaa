@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5004"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -19,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 12 9 6 6 6"
+    "AbilityCooldown"                                     "15 13 11 9 7 7" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +36,6 @@
         "blink_range"                                     "925 1000 1075 1150 1225 1300"
         "LinkedSpecialBonus"                              "special_bonus_unique_antimage_3"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"

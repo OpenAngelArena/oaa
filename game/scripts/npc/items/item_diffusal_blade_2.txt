@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Diffusal Blade 2
@@ -44,7 +44,7 @@
     "AbilityTextureName"                                  "custom/diffusal_blade_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "600 650 700 750 800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "diffusal"
@@ -79,17 +79,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "40 60 90 120 150"
+        "feedback_mana_burn"                              "40 60 90 130 180"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "16 24 48 64 80"
+        "feedback_mana_burn_illusion_melee"               "16 24 36 52 72"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_ranged"              "8 12 24 32 40"
+        "feedback_mana_burn_illusion_ranged"              "8 16 24 32 40"
       }
       "06"
       {

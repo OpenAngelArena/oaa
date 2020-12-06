@@ -36,8 +36,8 @@ function SaveLoadState:Init ()
   -- ChatCommand:LinkCommand("-save", function ()
     -- start auto-saving after beasts have spawned
     if not Duels:IsActive() and not PlayerConnection:IsAnyDisconnected() then
-      local data = self:GetState()
-      Bottlepass:StateSave(self:GetPlayerList(), data)
+      local data = SaveLoadState:GetState()
+      Bottlepass:StateSave(SaveLoadState:GetPlayerList(), data)
     end
 
     return SAVE_STATE_INTERVAL
@@ -68,7 +68,7 @@ function SaveLoadState:GetPlayerList ()
     dire = {}
   }
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local hero = PlayerResource:GetSelectedHeroName(playerID)
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 

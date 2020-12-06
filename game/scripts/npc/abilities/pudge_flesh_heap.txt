@@ -19,12 +19,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_regen"                                    "10 15 20 25 35 65" //OAA
+        "magic_resistance"                                "8 10 12 14 18 28"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "flesh_heap_strength_buff_amount"                 "1.0 1.5 2 2.5 3.0 3.5"
+        "flesh_heap_strength_buff_amount"                 "1.5 2 2.5 3.0 3.5 4.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_1"
       }
       "03"

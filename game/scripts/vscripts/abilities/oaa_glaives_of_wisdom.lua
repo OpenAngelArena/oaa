@@ -1,5 +1,10 @@
 LinkLuaModifier("modifier_oaa_glaives_of_wisdom", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_glaives_of_wisdom_fx", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_int_steal", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_glaives_buff_counter", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_glaives_buff", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_glaives_debuff_counter", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_glaives_debuff", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 
 silencer_glaives_of_wisdom_oaa = class(AbilityBaseClass)
 
@@ -7,17 +12,15 @@ function silencer_glaives_of_wisdom_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_glaives_of_wisdom"
 end
 
---[[
 function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
   local caster = self:GetCaster()
   if caster:HasScepter() and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     return UF_SUCCESS
-  else
-    return defaultResult
   end
+
+  return defaultResult
 end
-]]
 
 function silencer_glaives_of_wisdom_oaa:GetCastRange(location, target)
   return self:GetCaster():GetAttackRange()
@@ -48,10 +51,18 @@ function modifier_oaa_glaives_of_wisdom:RemoveOnDeath()
 end
 
 function modifier_oaa_glaives_of_wisdom:OnCreated()
-  if IsServer() then
-    if not self.procRecords then
-      self.procRecords = {}
-    end
+  if not IsServer() then
+    return
+  end
+  if not self.procRecords then
+    self.procRecords = {}
+  end
+
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  -- Add Silencer's permanent int steal custom modifier
+  if not parent:HasModifier("modifier_oaa_int_steal") then
+    parent:AddNewModifier(parent, ability, "modifier_oaa_int_steal", {})
   end
 end
 
@@ -81,11 +92,9 @@ function modifier_oaa_glaives_of_wisdom:OnAttackStart(event)
     return
   end
 
-  local target
-  if event.target == nil then
+  local target = event.target
+  if not target then
     return
-  else
-    target = event.target
   end
 
   -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
@@ -120,11 +129,9 @@ function modifier_oaa_glaives_of_wisdom:OnAttack(event)
     return
   end
 
-  local target
-  if event.target == nil then
+  local target = event.target
+  if not target then
     return
-  else
-    target = event.target
   end
 
   -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
@@ -180,7 +187,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
   end
 
   -- if target is nothing (nil), don't continue
-  if target == nil then
+  if not target then
     return
   end
 
@@ -194,7 +201,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
     local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
     local player = parent:GetPlayerOwner()
 
-    -- Check for +20% Glaive damage Talent
+    -- Bonus Glaives of Wisdom damage Talent
     if parent:HasLearnedAbility("special_bonus_unique_silencer_3") then
       bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
     end
@@ -202,6 +209,19 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
     --if parent:HasScepter() and target:IsSilenced() then
       --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
     --end
+
+    -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
+    if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
+      local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
+      local intStealAmount = ability:GetSpecialValueFor("int_steal")
+
+      if intStealAmount ~= 0 and intStealDuration ~= 0 then
+        target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
+        target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
+        parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
+        parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+      end
+    end
 
     local bonusDamage = parent:GetIntellect() * bonusDamagePct
 
@@ -252,4 +272,184 @@ end
 
 function modifier_oaa_glaives_of_wisdom_fx:GetAttackSound()
   return "Hero_Silencer.GlaivesOfWisdom"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_int_steal = class(ModifierBaseClass)
+
+function modifier_oaa_int_steal:IsPurgable()
+  return false
+end
+
+function modifier_oaa_int_steal:RemoveOnDeath()
+  return false
+end
+
+function modifier_oaa_int_steal:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH
+  }
+end
+
+if IsServer() then
+  function modifier_oaa_int_steal:OnDeath(keys)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local stealRange = ability:GetLevelSpecialValueFor("steal_range", math.max(1, ability:GetLevel()))
+    local stealAmount = ability:GetLevelSpecialValueFor("steal_amount", math.max(1, ability:GetLevel()))
+    local unit = keys.unit
+    local filterResult = UnitFilter(
+      unit,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_DEAD),
+      parent:GetTeamNumber()
+    )
+    local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
+
+    -- Check for +2 Int Steal Talent
+    if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
+      stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
+    end
+
+    if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
+      local oldIntellect = unit:GetBaseIntellect()
+      unit:SetBaseIntellect(math.max(1, oldIntellect - stealAmount))
+      unit:CalculateStatBonus()
+      local intellectDifference = oldIntellect - unit:GetBaseIntellect()
+      parent:ModifyIntellect(intellectDifference)
+      self:SetStackCount(self:GetStackCount() + intellectDifference)
+
+      local plusIntParticleName = "particles/units/heroes/hero_silencer/silencer_last_word_steal_count.vpcf"
+      local plusIntParticle = ParticleManager:CreateParticle(plusIntParticleName, PATTACH_OVERHEAD_FOLLOW, parent)
+      ParticleManager:SetParticleControl(plusIntParticle, 1, Vector(10 + intellectDifference, 0, 0))
+      ParticleManager:ReleaseParticleIndex(plusIntParticle)
+
+      local minusIntParticleName = "particles/units/heroes/hero_silencer/silencer_last_word_victim_count.vpcf"
+      local minusIntParticle = ParticleManager:CreateParticle(minusIntParticleName, PATTACH_OVERHEAD_FOLLOW, unit)
+      ParticleManager:SetParticleControl(minusIntParticle, 1, Vector(10 + intellectDifference, 0, 0))
+      ParticleManager:ReleaseParticleIndex(minusIntParticle)
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_glaives_buff_counter = class(ModifierBaseClass)
+
+function modifier_oaa_glaives_buff_counter:IsPurgable()
+  return false
+end
+
+function modifier_oaa_glaives_buff_counter:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOOLTIP
+  }
+end
+
+function modifier_oaa_glaives_buff_counter:OnTooltip()
+  return self:GetStackCount()
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_glaives_buff = class(ModifierBaseClass)
+
+function modifier_oaa_glaives_buff:IsPurgable()
+  return false
+end
+
+function modifier_oaa_glaives_buff:IsHidden()
+  return true
+end
+
+function modifier_oaa_glaives_buff:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_oaa_glaives_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+  }
+end
+
+function modifier_oaa_glaives_buff:OnCreated()
+  self.intStealAmount = self:GetAbility():GetSpecialValueFor("int_steal")
+  if IsServer() then
+    local counterMod = self:GetParent():FindModifierByName("modifier_oaa_glaives_buff_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() + self.intStealAmount)
+    end
+  end
+end
+
+if IsServer() then
+  function modifier_oaa_glaives_buff:OnDestroy()
+    local counterMod = self:GetParent():FindModifierByName("modifier_oaa_glaives_buff_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() - self.intStealAmount)
+    end
+  end
+end
+
+function modifier_oaa_glaives_buff:GetModifierBonusStats_Intellect()
+  return self.intStealAmount
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_glaives_debuff_counter = class(modifier_oaa_glaives_buff_counter)
+
+function modifier_oaa_glaives_debuff_counter:IsDebuff()
+  return true
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_glaives_debuff = class(ModifierBaseClass)
+
+function modifier_oaa_glaives_debuff:IsPurgable()
+  return false
+end
+
+function modifier_oaa_glaives_debuff:IsHidden()
+  return true
+end
+
+function modifier_oaa_glaives_debuff:IsDebuff()
+  return true
+end
+
+function modifier_oaa_glaives_debuff:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_oaa_glaives_debuff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+  }
+end
+
+function modifier_oaa_glaives_debuff:OnCreated()
+  self.intStealAmount = self:GetAbility():GetSpecialValueFor("int_steal")
+  if IsServer() then
+    local counterMod = self:GetParent():FindModifierByName("modifier_oaa_glaives_debuff_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() + self.intStealAmount)
+    end
+  end
+end
+
+if IsServer() then
+  function modifier_oaa_glaives_debuff:OnDestroy()
+    local counterMod = self:GetParent():FindModifierByName("modifier_oaa_glaives_debuff_counter")
+    if counterMod and not counterMod:IsNull() then
+      counterMod:SetStackCount(counterMod:GetStackCount() - self.intStealAmount)
+    end
+  end
+end
+
+function modifier_oaa_glaives_debuff:GetModifierBonusStats_Intellect()
+  return -self.intStealAmount
 end

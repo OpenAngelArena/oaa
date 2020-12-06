@@ -10,7 +10,6 @@ function lycan_boss_claw_attack_tier5:OnAbilityPhaseStart()
 		self.shapeshift_animation_time = self:GetSpecialValueFor( "shapeshift_animation_time" )
 		self.shapeshift_initial_delay = self:GetSpecialValueFor( "shapeshift_initial_delay" )
 
-
 		local bShapeshift = self:GetCaster():FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
 		if RandomInt( 0, 2 ) == 1 then
 			self:PlayClawAttackSpeech( bShapeshift )

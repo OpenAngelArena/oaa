@@ -43,12 +43,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-8 -13 -18 -23 -28"
+        "armor_reduction"                                 "-10 -13 -16 -20 -25" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18.0"
+        "duration"                                        "18"
       }
     }
   }

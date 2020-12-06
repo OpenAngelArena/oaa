@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 600 700 800 1100 1300"
+    "AbilityCastRange"                                    "500 600 700 800 900 1000"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -46,12 +46,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "15 30 45 60 135 210"
+        "damage_per_second"                               "15 30 45 60 120 180"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "search_radius"                                   "225"
+        "search_radius"                                   "150" //OAA
       }
       "04"
       {
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow_pct"                             "20 30 40 50 55 60"
+        "move_speed_slow_pct"                             "20 25 30 35 40 45" //OAA
       }
       "06"
       {

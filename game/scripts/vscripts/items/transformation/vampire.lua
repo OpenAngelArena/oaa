@@ -16,6 +16,7 @@ function item_vampire:GetTransformationModifierName()
 end
 
 item_vampire_2 = item_vampire
+
 --------------------------------------------------------------------------------
 
 modifier_item_vampire = class(ModifierBaseClass)
@@ -28,7 +29,17 @@ function modifier_item_vampire:OnCreated(keys)
   if not self.procRecords then
     self.procRecords = {}
   end
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_dmg = ability:GetSpecialValueFor("bonus_damage")
+    self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resistance")
+    self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+    self.bonus_night_vision = ability:GetSpecialValueFor("bonus_night_vision")
+  end
 end
+
+modifier_item_vampire.OnRefresh = modifier_item_vampire.OnCreated
 
 function modifier_item_vampire:DeclareFunctions()
   local funcs = {
@@ -37,6 +48,7 @@ function modifier_item_vampire:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
@@ -44,23 +56,27 @@ function modifier_item_vampire:DeclareFunctions()
 end
 
 function modifier_item_vampire:GetModifierPreAttack_BonusDamage()
-  return self:GetAbility():GetSpecialValueFor("bonus_damage")
+  return self.bonus_dmg or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_vampire:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_strength")
+  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_vampire:GetModifierStatusResistanceStacking()
   if not self:GetParent():HasModifier( "modifier_item_vampire_active" ) then
-    return self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
+    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
   else
     return 0
   end
 end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
-  return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+  return self.bonus_attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+end
+
+function modifier_item_vampire:GetBonusNightVision()
+  return self.bonus_night_vision or self:GetAbility():GetSpecialValueFor("bonus_night_vision")
 end
 
 -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
@@ -77,9 +93,7 @@ function modifier_item_vampire:OnTakeDamage( event )
     local parent = self:GetParent()
     local spell = self:GetAbility()
 
-    if not spell.mod then
-      vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
-    end
+    vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
   end
 end
 
@@ -104,10 +118,16 @@ function modifier_item_vampire_active:OnCreated()
     if not self.procRecords then
       self.procRecords = {}
     end
-    self:StartIntervalThink(1 / self:GetAbility():GetSpecialValueFor('ticks_per_second'))
-    self:GetParent():EmitSound("Vampire.Activate.Begin")
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local interval = 1/4
+    if ability and not ability:IsNull() then
+      interval = 1 / ability:GetSpecialValueFor("ticks_per_second")
+    end
+    self:StartIntervalThink(interval)
+    parent:EmitSound("Vampire.Activate.Begin")
     if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     end
   end
 end
@@ -140,7 +160,7 @@ function modifier_item_vampire_active:OnIntervalThink()
       attacker = parent,
       damage = damage,
       damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
       ability = spell,
     }
 
@@ -160,9 +180,10 @@ end
 
 function modifier_item_vampire_active:GetDisableHealing( kv )
   if IsServer() then
+    -- Don't disable healing during the night
     if not GameRules:IsDaytime() then
       return 0
-	end
+    end
     -- Check that event is being called for the unit that self is attached to
     if self.isVampHeal then
       return 0
@@ -216,8 +237,8 @@ function vampire:lifesteal(event, spell, parent, amount)
     local ufResult = UnitFilter(
       target,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
       parentTeam
     )
 
@@ -243,4 +264,8 @@ function vampire:lifesteal(event, spell, parent, amount)
       DebugPrint('Not lifestealing from ' .. tostring(target:GetName()))
     end
   end
+end
+
+function modifier_item_vampire_active:GetTexture()
+  return "custom/vampire_2_active"
 end

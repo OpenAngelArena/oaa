@@ -1,1 +1,1 @@
-require('components/startingitems/startingitems')
+--require('components/startingitems/startingitems')

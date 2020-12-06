@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Combo Breaker 5
@@ -19,8 +19,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_aeon_disk_4;item_upgrade_core_4"
-      "02"                                                "item_reflection_shard_2;item_upgrade_core_4"
-      "03"                                                "item_sphere_4;item_upgrade_core_4"
+      "02"                                                "item_sphere_4;item_upgrade_core_4"
+      "03"                                                "item_reflection_shard_3;item_upgrade_core_4"
     }
   }
 
@@ -37,11 +37,11 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
-    "ItemCost"                                            "38050"
+    "ItemCost"                                            "37600"
     "ItemAliases"                                         "ad 5;aeon disk 5"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "115.0 95.0 75.0 55.0 35.0"
+    "AbilityCooldown"                                     "105.0 95.0 75.0 55.0 35.0"
     "AbilityTextureName"                                  "custom/combo_breaker_5"
 
     // Special
@@ -51,12 +51,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "300 700 1200 2000 2700"
+        "bonus_health"                                    "300 550 1050 1800 2800"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "300 600 900 1200 1500"
+        "bonus_mana"                                      "300 400 550 750 1000"
       }
       "03"
       {

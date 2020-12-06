@@ -1,5 +1,3 @@
-require('libraries/timers')
-
 LinkLuaModifier("modifier_item_lucience_aura_handler", "items/lucience.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_lucience_regen_aura", "items/lucience.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_lucience_movespeed_aura", "items/lucience.lua", LUA_MODIFIER_MOTION_NONE)
@@ -73,6 +71,7 @@ end
 
 item_lucience_2 = class(item_lucience)
 item_lucience_3 = class(item_lucience)
+item_lucience_4 = class(item_lucience)
 
 ------------------------------------------------------------------------
 
@@ -84,10 +83,6 @@ end
 
 function modifier_item_lucience_aura_handler:IsPurgable()
   return false
-end
-
-function modifier_item_lucience_aura_handler:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_lucience_aura_handler:GetLuciences()
@@ -113,8 +108,11 @@ end
 
 function modifier_item_lucience_aura_handler:OnCreated()
   local ability = self:GetAbility()
-  ability.auraHandler = self
-  self.bonusDamage = ability:GetSpecialValueFor("bonus_damage")
+  if ability and not ability:IsNull() then
+    ability.auraHandler = self
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+  end
 
   if IsServer() then
     local parent = self:GetParent()
@@ -132,7 +130,7 @@ function modifier_item_lucience_aura_handler:OnCreated()
       return
     end
 
-    -- Delay adding the aura modifiers by a frame so that illusions won't always spawn with the regen aura
+    -- Delay adding the aura modifiers by a frame
     Timers:CreateTimer(function()
       item_lucience.RemoveLucienceAuras(parent)
       if ability:GetToggleState() then
@@ -149,7 +147,6 @@ modifier_item_lucience_aura_handler.OnRefresh = modifier_item_lucience_aura_hand
 function modifier_item_lucience_aura_handler:OnDestroy()
   if IsServer() then
     local parent = self:GetParent()
-
     local ability = self:GetAbility()
 
     -- If the owner has a higher level Lucience then don't do anything
@@ -170,28 +167,34 @@ function modifier_item_lucience_aura_handler:OnDestroy()
     end
   end
 end
+
 function modifier_item_lucience_aura_handler:GetAttributes()
-   return MODIFIER_ATTRIBUTE_MULTIPLE
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_lucience_aura_handler:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Agility()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_lucience_aura_handler:GetModifierConstantManaRegen()
+  return self.bonus_mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
 ------------------------------------------------------------------------
@@ -235,7 +238,7 @@ function modifier_item_lucience_regen_aura:GetAuraSearchTeam()
 end
 
 function modifier_item_lucience_regen_aura:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
 function modifier_item_lucience_regen_aura:GetModifierAura()
@@ -246,11 +249,11 @@ end
 
 modifier_item_lucience_movespeed_aura = class(modifier_item_lucience_regen_aura)
 
--- this is effectively repeated, but it's for the tooltip parser
-
+-- IsHidden is effectively repeated, but it's for the tooltip parser
 function modifier_item_lucience_movespeed_aura:IsHidden()
   return true
 end
+
 function modifier_item_lucience_movespeed_aura:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
@@ -271,21 +274,58 @@ end
 
 modifier_item_lucience_regen_effect = class(ModifierBaseClass)
 
-function modifier_item_lucience_regen_effect:OnCreated()
-  if IsServer() then
-    self.regenBonus = self:GetAbility():GetSpecialValueFor("regen_bonus")
-    self.healInterval = 1 / self:GetAbility():GetSpecialValueFor("heals_per_sec")
-
-    self:StartIntervalThink(self.healInterval)
-  end
+function modifier_item_lucience_regen_effect:IsHidden()
+  return false
 end
 
-modifier_item_lucience_regen_effect.OnRefresh = modifier_item_lucience_regen_effect.OnCreated
+function modifier_item_lucience_regen_effect:IsDebuff()
+  return false
+end
 
-function modifier_item_lucience_regen_effect:OnIntervalThink()
-  local parent = self:GetParent()
+function modifier_item_lucience_regen_effect:OnCreated()
+  local ability = self:GetAbility()
+  local hp_regen = 60
+  --local regen_interval = 1/3
+  if ability and not ability:IsNull() then
+    hp_regen = ability:GetSpecialValueFor("regen_bonus")
+    --regen_interval = 1 / ability:GetSpecialValueFor("heals_per_sec")
+  end
 
-  parent:Heal(self.regenBonus * self.healInterval, self:GetParent())
+  self.regen = hp_regen
+  --self.healInterval = regen_interval
+  --if IsServer() then
+    --self:StartIntervalThink(self.healInterval)
+  --end
+end
+
+function modifier_item_lucience_regen_effect:OnRefresh()
+  local ability = self:GetAbility()
+  local hp_regen = 60
+  --local regen_interval = 1/3
+  if ability and not ability:IsNull() then
+    hp_regen = ability:GetSpecialValueFor("regen_bonus")
+    --regen_interval = 1 / ability:GetSpecialValueFor("heals_per_sec")
+  end
+
+  self.regen = hp_regen
+  --self.healInterval = regen_interval
+end
+
+-- function modifier_item_lucience_regen_effect:OnIntervalThink()
+  -- local parent = self:GetParent()
+  -- local ability = self:GetAbility()
+
+  -- parent:Heal(self.regen * self.healInterval, ability)
+-- end
+
+function modifier_item_lucience_regen_effect:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+  }
+end
+
+function modifier_item_lucience_regen_effect:GetModifierConstantHealthRegen()
+  return self.regen
 end
 
 function modifier_item_lucience_regen_effect:GetEffectName()
@@ -304,12 +344,22 @@ end
 
 modifier_item_lucience_movespeed_effect = class(ModifierBaseClass)
 
+function modifier_item_lucience_movespeed_effect:IsHidden()
+  return false
+end
+
+function modifier_item_lucience_movespeed_effect:IsDebuff()
+  return false
+end
+
 function modifier_item_lucience_movespeed_effect:OnCreated()
-  if self:GetAbility() then
-    self.movespeedBonus = self:GetAbility():GetSpecialValueFor("speed_bonus")
-  else
-    self.movespeedBonus = 0
+  local ability = self:GetAbility()
+  local move_speed = 20
+  if ability and not ability:IsNull() then
+    move_speed = ability:GetSpecialValueFor("speed_bonus")
   end
+
+  self.movespeedBonus = move_speed
 end
 
 modifier_item_lucience_movespeed_effect.OnRefresh = modifier_item_lucience_movespeed_effect.OnCreated

@@ -113,6 +113,14 @@ function modifier_item_greater_guardian_greaves:GetAttributes()
 end
 
 function modifier_item_greater_guardian_greaves:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_ms = ability:GetSpecialValueFor("bonus_movement")
+    self.bonus_stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+  end
   if IsServer() then
     local parent = self:GetParent()
     -- Remove effect modifiers from units in radius to force refresh
@@ -120,7 +128,7 @@ function modifier_item_greater_guardian_greaves:OnCreated()
       parent:GetTeamNumber(),
       parent:GetAbsOrigin(),
       nil,
-      self:GetAbility():GetSpecialValueFor("aura_radius"),
+      self.aura_radius,
       DOTA_UNIT_TARGET_TEAM_FRIENDLY,
       bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
       DOTA_UNIT_TARGET_FLAG_NONE,
@@ -140,7 +148,7 @@ modifier_item_greater_guardian_greaves.OnRefresh = modifier_item_greater_guardia
 
 function modifier_item_greater_guardian_greaves:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -150,22 +158,22 @@ function modifier_item_greater_guardian_greaves:DeclareFunctions()
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Agility()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
-function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Percentage_Unique()
-  return self:GetAbility():GetSpecialValueFor("bonus_movement")
+function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
+  return self.bonus_ms or self:GetAbility():GetSpecialValueFor("bonus_movement")
 end
 function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_mana")
+  return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor")
+  return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 --------------------------------------------------------------------------
@@ -184,7 +192,7 @@ function modifier_item_greater_guardian_greaves:GetAuraSearchTeam()
 end
 
 function modifier_item_greater_guardian_greaves:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("aura_radius")
+  return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierAura()

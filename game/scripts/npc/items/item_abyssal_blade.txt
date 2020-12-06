@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Abyssal Blade
@@ -8,7 +8,7 @@
     "ID"                                                  "207"    // unique ID
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "1550"
+    "ItemCost"                                            "1750"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
@@ -28,7 +28,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "208"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityTextureName"                                  "custom/abyssal_blade"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "6650"
+    "ItemCost"                                            "6625"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "abyssal blade"
@@ -115,7 +115,7 @@
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_cooldown"                                   "2.3"
+        "bash_cooldown"                                   "2.5" //OAA
       }
       "12"
       {

@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Solar Crest
@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "400"
+    "ItemCost"                                            "450"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3900"
+    "ItemCost"                                            "3775"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -79,7 +79,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen_pct"                            "1.5 2.5 3.5 4.5 5.5"
+        "bonus_mana_regen_pct"                            "1.75 2.0 2.5 3.25 4.25"
       }
       "05"
       {

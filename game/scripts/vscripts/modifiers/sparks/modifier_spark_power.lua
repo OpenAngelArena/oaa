@@ -16,6 +16,10 @@ function modifier_spark_power:RemoveOnDeath()
   return false
 end
 
+function modifier_spark_power:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_spark_power:AllowIllusionDuplicate()
   return true
 end
@@ -108,27 +112,6 @@ function modifier_spark_power:OnIntervalThink()
     self:SetStackCount(self.bonus_damage)
   end
 end
---[[
-function modifier_spark_power:GetSparkLevel()
-  local gameTime = HudTimer:GetGameTime()
-
-  if not SPARK_LEVEL_1_TIME then
-    return 1
-  end
-
-  if gameTime > SPARK_LEVEL_5_TIME then
-    return 5
-  elseif gameTime > SPARK_LEVEL_4_TIME then
-    return 4
-  elseif gameTime > SPARK_LEVEL_3_TIME then
-    return 3
-  elseif gameTime > SPARK_LEVEL_2_TIME then
-    return 2
-  end
-
-  return 1
-end
-]]
 
 function modifier_spark_power:DeclareFunctions()
   return {

@@ -1,6 +1,7 @@
 ﻿sohei_flurry_of_blows = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_special_bonus_unique_flurry_of_blows_radius", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
 
 ---------------------------------------------------------------------------------------------------
 
@@ -42,13 +43,17 @@ if IsServer() then
   function sohei_flurry_of_blows:OnSpellStart()
     local caster = self:GetCaster()
     local target_loc = self:GetCursorPosition()
-    local flurry_radius = self:GetAOERadius()
+    local flurry_radius = self:GetSpecialValueFor("flurry_radius")
     --local max_attacks = self:GetSpecialValueFor("max_attacks")
     --local max_duration = self:GetSpecialValueFor( "max_duration" )
     --local attack_interval = self:GetSpecialValueFor("attack_interval")
-    local attack_interval = 1/caster:GetAttacksPerSecond()
-    local bonus_damage = self:GetSpecialValueFor( "bonus_damage" )
+    local delay = self:GetSpecialValueFor("delay")
+    local bonus_damage = self:GetSpecialValueFor("bonus_damage")
 
+    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+    if talent and talent:GetLevel() > 0 then
+      flurry_radius = flurry_radius + talent:GetSpecialValueFor("value")
+    end
     -- Emit sound
     caster:EmitSound( "Hero_EmberSpirit.FireRemnant.Cast" )
 
@@ -69,21 +74,40 @@ if IsServer() then
 
     -- Add a modifier that does actual spell effect
     caster:AddNewModifier( caster, self, "modifier_sohei_flurry_self", {
-      duration = attack_interval + 0.1,
+      duration = delay + 0.1,
       damage = bonus_damage,
       flurry_radius = flurry_radius,
       --attack_interval = attack_interval,
     } )
 
     -- Give vision over the area
-    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, attack_interval + 0.1, false)
+    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, delay + 0.1, false)
+  end
+
+  function sohei_flurry_of_blows:OnHeroCalculateStatBonus()
+    local caster = self:GetCaster()
+    --print("[SOHEI FLURRY OF BLOWS] OnHeroCalculateStatBonus on Server")
+    -- Check for talent that increases radius
+    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+    if talent and talent:GetLevel() > 0 then
+      if not caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") then
+        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_flurry_of_blows_radius", {})
+      end
+    else
+      caster:RemoveModifierByName("modifier_special_bonus_unique_flurry_of_blows_radius")
+    end
   end
 end
 
+-- GetAOERadius is not called on a Server at all?
 function sohei_flurry_of_blows:GetAOERadius()
   local caster = self:GetCaster()
+  local radius = self:GetSpecialValueFor("flurry_radius")
+  if caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") and caster.special_bonus_unique_flurry_of_blows_radius then
+    radius = radius + caster.special_bonus_unique_flurry_of_blows_radius
+  end
 
-  return self:GetSpecialValueFor( "flurry_radius" ) + caster:FindTalentValue( "special_bonus_sohei_fob_radius" )
+  return radius
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -151,7 +175,7 @@ function modifier_sohei_flurry_self:OnIntervalThink()
 
     for _,unit in pairs(units) do
       if unit and not unit:IsNull() and not caster:IsDisarmed() then
-        caster:PerformAttack(unit, true, true, true, false, bUseProjectile, false, false)
+        caster:PerformAttack(unit, true, true, true, false, bUseProjectile, false, true)
       end
     end
 
@@ -184,8 +208,8 @@ function modifier_sohei_flurry_self:OnCreated( event )
   -- self.positionGround = self.position - Vector( 0, 0, 200 )
 
   if IsServer() then
-    local attack_interval = 1/parent:GetAttacksPerSecond()
-    self:StartIntervalThink( attack_interval )
+    local delay = event.duration - 0.1
+    self:StartIntervalThink(delay)
   end
 
   -- if self:PerformFlurryBlow() then
@@ -285,3 +309,35 @@ end
     end
   end
 ]]
+
+---------------------------------------------------------------------------------------------------
+
+-- Modifier on caster used for talent that improves Flurry of Blows radius
+modifier_special_bonus_unique_flurry_of_blows_radius = class(ModifierBaseClass)
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:RemoveOnDeath()
+  return false
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:OnCreated()
+  if not IsServer() then
+    local parent = self:GetParent()
+    local talent = self:GetAbility()
+    parent.special_bonus_unique_flurry_of_blows_radius = talent:GetSpecialValueFor("value")
+  end
+end
+
+function modifier_special_bonus_unique_flurry_of_blows_radius:OnDestroy()
+  local parent = self:GetParent()
+  if parent and parent.special_bonus_unique_flurry_of_blows_radius then
+    parent.special_bonus_unique_flurry_of_blows_radius = nil
+  end
+end

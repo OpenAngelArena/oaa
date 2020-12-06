@@ -16,9 +16,6 @@ function TransformationBaseClass:GetAbilityTextureName()
   return baseName .. activeName
 end
 
---function TransformationBaseClass:OnDestroy()
---end
-
 function TransformationBaseClass:OnSpellStart()
   --self.isTransformation = true
   local caster = self:GetCaster()
@@ -50,6 +47,10 @@ function TransformationBaseClass:OnSpellStart()
     -- self.watcher = caster:AddNewModifier(caster, self, "modifier_transformation_item_watcher", {})
 
   --end
+end
+
+function TransformationBaseClass:ProcsMagicStick()
+  return false
 end
 
 if IsServer() then

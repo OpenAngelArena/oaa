@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Martyr's Mail 2
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "11000"
+    "ItemCost"                                            "10850"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mm 2;martyrs mail 2;martyrsmail 2"
@@ -67,17 +67,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 75 115 165"
+        "bonus_damage"                                    "48 88 148 228"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "9 13 18 24"
+        "bonus_armor"                                     "17 20 24 29"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 30 40 50"
+        "bonus_intellect"                                 "45 65 90 120"
       }
       "04"
       {
@@ -87,12 +87,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_aoe"                                 "700"
+        "martyr_heal_aoe"                                 "900"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_percent"                             "50 60 75 100"
+        "martyr_heal_percent"                             "100"
       }
     }
   }

@@ -71,7 +71,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "140 180 220 340 540"
+        "bonus_damage"                                    "120 175 230 460 920"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "1.0"
       }
     }
   }

@@ -46,7 +46,7 @@ function PlayerConnection:Init()
     self.disconnectedTime[keys.PlayerID] = nil
   end)
   Timers:CreateTimer(function()
-    return self:Think()
+    return PlayerConnection:Think()
   end)
   self.countdown = nil
 
@@ -237,7 +237,7 @@ function PlayerConnection:CheckAbandons ()
   local direAbandons = 0
   local radiantAbandons = 0
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local team = PlayerResource:GetTeam(playerID)
 
     if team == DOTA_TEAM_BADGUYS then

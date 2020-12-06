@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Butterfly
@@ -38,7 +38,7 @@
     "AbilityTextureName"                                  "custom/butterfly"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5475"
+    "ItemCost"                                            "5275"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly;butterfly"
@@ -56,17 +56,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 60 100 150" //OAA
+        "bonus_evasion"                                   "15 20 25 30 35" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "15 20 25 30 35" //OAA
+        "bonus_attack_speed"                              "10 15 20 25 30" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30" //OAA
+        "bonus_damage"                                    "10 30 60 100 150" //OAA
       }
     }
   }

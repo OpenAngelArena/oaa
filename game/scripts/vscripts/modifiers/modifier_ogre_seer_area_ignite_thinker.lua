@@ -41,13 +41,107 @@ function modifier_ogre_seer_area_ignite_thinker:OnIntervalThink()
 			return
 		end
 
-		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+    local parent = self:GetParent()
+		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 		for _,enemy in pairs( enemies ) do
 			if enemy ~= nil then
-				enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_ogre_magi_ignite", { duration = self.duration } )
+				enemy:AddNewModifier( parent, self:GetAbility(), "modifier_ogre_seer_ignite_debuff", { duration = self.duration } )
 			end
 		end
 	end
 end
 
 ----------------------------------------------------------------------------------------
+
+modifier_ogre_seer_ignite_debuff = class(ModifierBaseClass)
+
+function modifier_ogre_seer_ignite_debuff:IsHidden()
+  return true
+end
+
+function modifier_ogre_seer_ignite_debuff:IsPurgable()
+  return true
+end
+
+function modifier_ogre_seer_ignite_debuff:IsDebuff()
+  return true
+end
+
+function modifier_ogre_seer_ignite_debuff:DestroyOnExpire()
+  return true
+end
+
+function modifier_ogre_seer_ignite_debuff:OnCreated()
+  local parent = self:GetParent()
+  local damage_per_second = 400
+  local interval = 0.2
+  local damage_type = DAMAGE_TYPE_MAGICAL
+  local slow = -30
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    damage_per_second = ability:GetSpecialValueFor("burn_damage")
+    interval = ability:GetSpecialValueFor("damage_interval")
+    slow = ability:GetSpecialValueFor("slow_movement_speed_pct")
+    if IsServer() then
+      damage_type = ability:GetAbilityDamageType()
+    end
+  end
+  self.damage_per_interval = damage_per_second*interval
+  self.slow = slow
+  if IsServer() then
+    local caster = self:GetCaster()
+    if caster and not caster:IsNull() then
+      -- Creating the damage table
+      local damage_table = {}
+      damage_table.attacker = caster
+      damage_table.damage_type = damage_type
+      damage_table.ability = ability
+      damage_table.victim = parent
+      damage_table.damage = self.damage_per_interval
+      -- Apply damage on creation
+      ApplyDamage(damage_table)
+    end
+    self:StartIntervalThink(interval)
+  end
+end
+
+function modifier_ogre_seer_ignite_debuff:OnIntervalThink()
+  local parent = self:GetParent()
+  local damage_type = DAMAGE_TYPE_MAGICAL
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    damage_type = ability:GetAbilityDamageType()
+  end
+  local caster = self:GetCaster()
+  if caster and not caster:IsNull() then
+    -- Creating the damage table
+    local damage_table = {}
+    damage_table.attacker = caster
+    damage_table.damage_type = damage_type
+    damage_table.ability = ability
+    damage_table.victim = parent
+    damage_table.damage = self.damage_per_interval
+    -- Apply damage on interval
+    ApplyDamage(damage_table)
+  end
+end
+
+function modifier_ogre_seer_ignite_debuff:DeclareFunctions()
+  local func = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+
+  return func
+end
+
+function modifier_ogre_seer_ignite_debuff:GetModifierMoveSpeedBonus_Percentage()
+  return self.slow
+end
+
+function modifier_ogre_seer_ignite_debuff:GetTexture()
+  return "ogre_magi_ignite"
+end
+
+function modifier_ogre_seer_ignite_debuff:GetEffectName()
+  return "particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff.vpcf"
+end

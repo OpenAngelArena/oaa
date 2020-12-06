@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Linkens Sphere 5
@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere_4;item_upgrade_core_4"
-      "02"                                                "item_reflection_shard_2;item_upgrade_core_4"
+      "02"                                                "item_reflection_shard_3;item_upgrade_core_4"
       "03"                                                "item_aeon_disk_4;item_upgrade_core_4"
     }
   }
@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38050"
+    "ItemCost"                                            "37600"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 5;linken's sphere 5;linkens 5"
@@ -78,7 +78,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 6.0 7.5 9.0 11.0"
+        "bonus_mana_regen"                                "5.0 5.25 5.75 6.5 7.5"
       }
       "04"
       {

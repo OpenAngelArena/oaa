@@ -34,7 +34,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 130 170 290 490"
+    "AbilityManaCost"                                     "100 130 170 220 280"
 
     "AbilitySpecial"
     {
@@ -44,13 +44,15 @@
         "dismember_damage"                                "60 120 180 360 540" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
         "LinkedSpecialBonusField"                         "value"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "strength_damage"                                 "0.3 0.6 0.9 1.0 1.1"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
-        "LinkedSpecialBonusField"                         "value2"
+        "LinkedSpecialBonusField"                         "value"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"

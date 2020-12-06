@@ -14,13 +14,14 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5.0"
+    "AbilityCooldown"                                     "4.0"
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.4"
 
@@ -34,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "edge_damage"                                     "150 200 250 300 600 1000" //OAA
+        "edge_damage"                                     "150 200 250 300 600 1200" //OAA
       }
       "02"
       {

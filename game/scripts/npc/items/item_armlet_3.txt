@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Armlet 3
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7380"
+    "ItemCost"                                            "7475"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "armlet of mordiggian 3;armlet 3"
@@ -60,12 +60,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 15 25 40 60" //OAA
+        "bonus_damage"                                    "10 15 25 40 60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "25 30 35 40 45"
+        "bonus_attack_speed"                              "25 35 45 55 65"
       }
       "03"
       {
@@ -80,7 +80,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_damage"                             "30 35 45 60 80" //OAA
+        "unholy_bonus_damage"                             "30 35 45 60 80"
       }
       "06"
       {

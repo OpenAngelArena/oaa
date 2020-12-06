@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Mask of Madness
@@ -67,12 +67,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "20"
+        "lifesteal_percent"                               "25 30 35 40 45" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "110 130 150 170 190"
+        "berserk_bonus_attack_speed"                      "110 120 140 170 210"
       }
       "05"
       {

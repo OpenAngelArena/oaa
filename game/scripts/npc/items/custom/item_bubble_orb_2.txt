@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: bubble_orb_2
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37000"
+    "ItemCost"                                            "36950"
     "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bubble orb 2"
@@ -80,12 +80,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "7.25 9.75"
+        "bonus_mana_regen"                                "7.0 9.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-	      "bonus_mana"                                      "700 1000"
+	      "bonus_mana"                                      "700 950"
       }
       "05"
       {

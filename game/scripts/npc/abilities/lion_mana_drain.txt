@@ -47,7 +47,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_per_second"                                 "20 60 80 180 280 380" //OAA
+        "mana_per_second"                                 "20 60 100 140 240 340" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_lion_5"
       }
       "03"
@@ -63,7 +63,8 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "20 25 30 35 45 75"
+        "movespeed"                                       "20 25 30 35 40 45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_lion_6"
       }
     }
   }

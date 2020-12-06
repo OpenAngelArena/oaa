@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Abyssal Blade 2
@@ -28,7 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3112"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_abyssal_blade"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityTextureName"                                  "custom/abyssal_blade_2"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "8150"
+    "ItemCost"                                            "8125"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -115,7 +115,7 @@
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_cooldown"                                   "2.3"
+        "bash_cooldown"                                   "2.5"
       }
       "12"
       {

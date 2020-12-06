@@ -23,12 +23,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 14"
+    "AbilityCooldown"                                     "19 18 17 16 15 14"
     "AbilityDuration"                                     "3.11"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "40 120 200 280 560 840"
+    "AbilityDamage"                                       "60 150 240 330 660 990"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -71,12 +71,18 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_bonus_damage"                              "180 200 220 240 480 720" //OAA, for picking screen tooltip
+        "arrow_bonus_damage"                              "180 190 200 210 310 410" //OAA, for picking screen tooltip
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_vision"                                    "500"
+      }
+      "09" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_pierce_count"                              "0 1 1 2 3 4"
+        "LinkedSpecialBonus"                              "special_bonus_mirana_arrow_pierce"
       }
     }
   }

@@ -18,11 +18,11 @@
     "Ability1"                                            "boss_stopfightingyourself_dupe_items"
     "Ability2"                                            "boss_resistance"
     "Ability3"                                            "boss_cliffwalk"
-    "Ability4"          								  "boss_regen"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "40"               // Physical protection.
+    "ArmorPhysical"                                       "37"               // Physical protection.
     "MagicalResistance"                                   "-50"              // Magical protection (percentage).
 
     // Attack
@@ -58,19 +58,17 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "20000"             // Base health
-    "StatusHealthRegen"                                   "10"                // Health regeneration rate. -- effectively 100 because boss resists
+    "StatusHealth"                                        "15000"             // Base health
+    "StatusHealthRegen"                                   "0"                // Health regeneration rate.
     "StatusMana"                                          "500"               // Base mana.
     "StatusManaRegen"                                     "10"                // Mana regeneration rate.
 
     // Creature data
-    //
     "Creature"
     {
       //Makes it only have 75% remaining of applied crowd control
       "DisableResistance"                                 "25.0"
     }
-
 
     // Team
     //----------------------------------------------------------------

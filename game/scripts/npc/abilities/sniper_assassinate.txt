@@ -65,13 +65,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_stun_duration"                           "1.8"
+        "scepter_stun_duration"                           "1 1.25 1.5 1.55 1.6"
         "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cast_point"                              "1.0"
+        "scepter_cast_point"                              "0.5"
         "RequiresScepter"                                 "1"
       }
     }

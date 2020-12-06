@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Pull Staff
@@ -10,11 +10,11 @@
     "ID"                                                  "3340" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_pull_staff"
     "ItemRequirements"
     {
-      "01"                                                "item_force_staff;item_upgrade_core"
+      "01"                                                "item_force_staff;item_belt_of_strength;item_chainmail;item_sobi_mask"
     }
   }
 
@@ -51,14 +51,14 @@
     "Effect"                                              "particles/generic_gameplay/dropped_item.vpcf"
     "AbilityCastAnimation"                                "ACT_DOTA_IDLE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "CastFilterRejectCaster"                              "1"
     "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "500 600 700 800 900"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "pull"
@@ -66,9 +66,8 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3750"
+    "ItemCost"                                            "3350"
 
-    "ItemKillable"                                        "0"
     "ItemSellable"                                        "1"
     "ItemPurchasable"                                     "1"
     "ItemDroppable"                                       "1"
@@ -83,14 +82,13 @@
     "ItemPermanent"                                       "1"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "soundfile"                                         "soundevents/game_sounds_items.vsndevts"
       "particle"                                          "particles/econ/events/ti6/force_staff_ti6.vpcf"
       "particle"                                          "particles/status_fx/status_effect_forcestaff.vpcf"
     }
@@ -100,37 +98,42 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 30 45 60"
+        "bonus_intellect"                                 "10 25 45 70 100"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 30 45 60"
+        "bonus_strength"                                  "10 25 45 70 100"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "10 20 30 40"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "2.5 5.0 7.5 10.0 12.5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 4 6 8"
+        "bonus_armor"                                     "4 5 7 10 14"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1500"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.0 1.25 1.75 2.5 3.5"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "800"
+        "speed"                                           "1200"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "500 600 700 800"
+        "tooltip_range"                                   "500 600 700 800 900"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "distance"                                        "500 600 700 800 900"
       }
     }
   }

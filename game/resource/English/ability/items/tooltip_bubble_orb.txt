@@ -1,5 +1,5 @@
 //===============================================================================
-// Preemptive Reflex 3c
+// Bubble Orb
 //===============================================================================
 "DOTA_Tooltip_Ability_item_bubble_orb_1"                                            "Bubble Orb"
 "DOTA_Tooltip_Ability_item_bubble_orb_1_Description"                                "<h1>Active: Sanctum</h1> Creates a bubble for %duration% seconds that protects you from all spells and debuffs originating from the outside.<br><br>Radius: %radius%"
@@ -18,3 +18,6 @@
 "DOTA_Tooltip_Ability_item_bubble_orb_2_bonus_mana_regen"                           "#{DOTA_Tooltip_Ability_item_bubble_orb_1_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_bubble_orb_2_bonus_mana"                                 "#{DOTA_Tooltip_Ability_item_bubble_orb_1_bonus_mana}"
 "DOTA_Tooltip_Ability_item_bubble_orb_2_Lore"                                       "#{DOTA_Tooltip_Ability_item_bubble_orb_1_Lore}"
+
+"DOTA_Tooltip_modifier_item_preemptive_bubble_block"                                "Bubble Orb Protection"
+"DOTA_Tooltip_modifier_item_preemptive_bubble_block_Description"                    "Unit is protected from spells and debuffs originating from outside the bubble"

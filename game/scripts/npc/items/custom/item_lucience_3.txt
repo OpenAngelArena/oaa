@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Lucience 3
@@ -10,11 +10,11 @@
     "ID"                                                  "3330"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,8 +23,8 @@
     "ItemResult"                                          "item_lucience_3"
     "ItemRequirements"
     {
-      "01"                                                "item_lucience_2;item_upgrade_core_4"
-      "02"                                                "item_ancient_janggo_4;item_upgrade_core_4"
+      "01"                                                "item_lucience_2;item_upgrade_core_3"
+      "02"                                                "item_ancient_janggo_3;item_upgrade_core_3"
     }
   }
 
@@ -38,18 +38,20 @@
     "ID"                                                  "3333"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/lucience.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/lucience_3"
     "AbilityCooldown"                                     "1"
     "AbilityManaCost"                                     "0"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34900"
-    "ItemShopTags"                                        "damage"
+    "ItemCost"                                            "14475"
+    "ItemShopTags"                                        "str;agi;int;damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 3;lucio 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -61,6 +63,7 @@
       "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
       "particle"                                          "particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
     }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -68,24 +71,29 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "15 20 25"
+        "bonus_all_stats"                                 "10 15 20 25"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "regen_bonus"                                     "70 140 210"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.75 2.25 3.0 4.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "20 25 30"
+        "regen_bonus"                                     "60 90 150 240"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "speed_bonus"                                     "20 25 30 35"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "06" // unused KV
       {
         "var_type"                                        "FIELD_INTEGER"
         "heals_per_sec"                                   "3"

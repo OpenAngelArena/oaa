@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 60 75"
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,6 +42,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "abilitycastrange"                                ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_6"
       }
     }
   }

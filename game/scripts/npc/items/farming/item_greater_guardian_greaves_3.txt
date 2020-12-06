@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Greater Guardian Greaves 3
@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "14000"
+    "ItemCost"                                            "13925"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 3;guardian greaves 3;ggg 3"
@@ -72,62 +72,67 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "17 22 27 32"
+        "bonus_movement"                                  "55 60 65 70"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "350 550 850 1250"
+        "bonus_mana"                                      "350 500 700 950"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 15 20 25"
+        "bonus_armor"                                     "5 6 7 8"
       }
       "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 7 9 12"
-      }
-      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "aura_health_regen"                               "6 8.5 11 13.5"
       }
-      "07"
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_armor"                                      "4 5 6 7"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_health_regen_bonus"                         "20 24 28 32"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_armor_bonus"                                "10 11 12 13"
+        "aura_armor_bonus"                                "11 12 13 14"
       }
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_bonus_threshold"                            "20"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "1200"
       }
-      "11"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "replenish_health"                                "400 600 800 1000"
       }
-      "12"
+      "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "replenish_mana"                                  "300 400 550 750"
       }
-      "13"
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "replenish_radius"                                "1200"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "0"
       }
     }
   }

@@ -123,7 +123,7 @@ function statCollection:calcWinnersByTeam()
     local output = {}
     local winningTeam = self.winner
 
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
         if PlayerResource:IsValidPlayerID(playerID) then
             output[PlayerResource:GetSteamAccountID(playerID)] = PlayerResource:GetTeam(playerID) == winningTeam and '1' or '0'
         end
@@ -245,7 +245,7 @@ function statCollection:sendStage1()
 
     -- Workout who is hosting
     local hostID = 0
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
         if PlayerResource:IsValidPlayerID(playerID) then
             local player = PlayerResource:GetPlayer(playerID)
             if GameRules:PlayerHasCustomGameHostPrivileges(player) then
@@ -329,7 +329,7 @@ function statCollection:sendStage2()
 
     -- Build players array
     local players = {}
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
         if PlayerResource:IsValidPlayerID(playerID) then
             table.insert(players, {
                 playerName = PlayerResource:GetPlayerName(playerID),
@@ -399,7 +399,7 @@ function statCollection:sendStage3(winners, lastRound)
 
     -- Build players array
     local players = {}
-    for playerID = 0, DOTA_MAX_TEAM_PLAYERS do
+    for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
         if PlayerResource:IsValidPlayerID(playerID) then
             local steamID = PlayerResource:GetSteamAccountID(playerID)
 

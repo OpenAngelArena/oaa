@@ -1,0 +1,154 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: A Sacred Skull
+  //=================================================================================================================
+  "item_recipe_sacred_skull"
+  {
+    "ID"                                                  "8487"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_sacred_skull"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_bloodstone_1;item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // A Sacred Skull
+  //=================================================================================================================
+  "item_sacred_skull"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8488"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/sacred_skull.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/purpleskull_1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "15"
+    "AbilityManaCost"                                     "75"
+    "AbilitySharedCooldown"                               "sacred_skull"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_sacred_skull;item_sacred_skull_2;item_sacred_skull_3;item_sacred_skull_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "6750"
+    "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "ass;sacred skull"
+
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+    "precache"
+    {
+      "particle"                                          "particles/items/sacred_skull/vermillion_robe_hit.vpcf"
+      "particle"                                          "particles/items/sacred_skull/vermillion_robe_explosion.vpcf"
+      "particle"                                          "particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "850 1275 1700 2125"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "525 675 875 1125"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "24 32 48 72"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.5 4.0 4.75 5.75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "10 12 14 16"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp"                                       "20 24 28 32"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_regen_multiplier"                           "125 150 175 200"
+      }
+      "09" // Current health as self damage
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_cost"                                     "50"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_per_missing_hp"                           "10 20 30 40"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_per_missing_hp"                             "10 20 30 40"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "effect_radius"                                   "500"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_heal_base"                                 "300"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_heal_radius"                               "1200"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_vision_radius"                             "1200"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "death_vision_duration"                           "30"
+      }
+    }
+  }
+}

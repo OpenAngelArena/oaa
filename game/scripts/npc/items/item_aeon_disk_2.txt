@@ -1,4 +1,4 @@
-"DOTAItems"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Combo Breaker 2
@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "5254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5254"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.mdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -15,10 +15,10 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
-    "ItemResult"          "item_aeon_disk_2"
+    "ItemResult"                                          "item_aeon_disk_2"
     "ItemRequirements"
     {
-      "01"                                                "item_aeon_disk;item_upgrade_core"
+      "01"                                                "item_sphere;item_upgrade_core"
     }
   }
 
@@ -29,17 +29,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"            "8400"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"     "item_aeon_disk"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "8400"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_aeon_disk"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "ItemCost"                                            "4600"
+    "ItemCost"                                            "6100"
     "ItemAliases"                                         "ad 2;aeon disk 2"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"       "115.0 95.0 75.0 55.0 35.0"
+    "AbilityCooldown"                                     "105.0 95.0 75.0 55.0 35.0"
     "AbilityTextureName"                                  "custom/combo_breaker_2"
 
     // Special
@@ -49,12 +49,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "300 700 1200 2000 2700"
+        "bonus_health"                                    "300 550 1050 1800 2800"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "300 600 900 1200 1500"
+        "bonus_mana"                                      "300 400 550 750 1000"
       }
       "03"
       {
