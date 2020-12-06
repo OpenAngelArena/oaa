@@ -6,7 +6,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5433"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"5433"					// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/oaa_divided_we_stand.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"DisplayAdditionalHeroes"	"1"
@@ -14,7 +16,6 @@
 		"RequiredLevel"			"4"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
-		"HasScepterUpgrade"			"1"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -22,35 +23,20 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_clones"		"1 2 3 4 5" //OAA
+				"var_type" 							"FIELD_INTEGER"
+				"bonus_armor" 						"3 6 9 12 15"
 			}
+
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_share_percentage"		"20"
+				"var_type"							"FIELD_INTEGER"
+				"bonus_resist_pct"					"5 10 15 20 25"
 			}
+
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_share_percentage_scepter"		"100"
+				"var_type"                                        "FIELD_INTEGER"
+				"aura_radius"                                     "600"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"respawn"		"0.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_respawn"		"20"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_scepter_bonus_meepo"		"1"
-				"RequiresScepter"					"1"
-			}
-			
 		}
 	}
