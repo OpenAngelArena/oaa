@@ -16,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 750 1000 1250 1350 1450"
+    "AbilityCastRange"                                    "1000 1000 1000 1000 1250 1500" //OAA
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -34,7 +34,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0"
+        "duration"                                        "1.0 1.5 2.0 2.5 3.0 3.5" //OAA , the plan here is to eventually make durations stack not reset.
       }
       "02"
       {

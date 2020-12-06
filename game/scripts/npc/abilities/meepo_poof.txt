@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5431"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // Goal is to make poof a target ability with a 300-400ish cast range.
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -22,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 5 4"
+    "AbilityCooldown"                                     "12 10 8 6 4 4" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "80 80 80 80 160 240" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "poof_damage"       "70 90 110 130 240 400"
+        "poof_damage"       "70 90 110 130 260 490" //OAA
         "LinkedSpecialBonus"    "special_bonus_unique_meepo_2"
       }
     }
