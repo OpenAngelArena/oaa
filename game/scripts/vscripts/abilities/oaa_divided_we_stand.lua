@@ -73,11 +73,11 @@ function modifier_meepo_divided_we_stand_oaa_bonus_buff:DeclareFunctions()
 				
 				return funcs
 end
-function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierMagicalResistanceBonus( params )
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierMagicalResistanceBonus()
 	return self.bonus
 end				
 
-function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierPhysicalArmorBonus( params )
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierPhysicalArmorBonus()
 	return self.armor
 end
 ---------------------------------------------------------
