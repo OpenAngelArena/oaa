@@ -1,6 +1,6 @@
 "DOTAAbilities"
 
-
+{
 
 //=================================================================================================================
 	// Meepo: Ransack
@@ -14,6 +14,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilitySound"					"Hero_Meepo.Geostrike"
+		"MaxLevel" 						"6"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

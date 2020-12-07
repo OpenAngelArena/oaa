@@ -4,7 +4,14 @@
   // HERO: Meepo
   //=================================================================================================================
   "npc_dota_hero_meepo"
+
+
   {
+
     "Ability6"    "meepo_divided_we_stand_oaa" // replaces meepo ult
+	"AttributeStrengthGain"     "2.8"
+	"AttributeAgilityGain"      "2.8"
+	"AttributeIntelligenceGain" "2.6"
+
   }
 }
