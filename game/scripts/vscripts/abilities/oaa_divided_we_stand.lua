@@ -18,6 +18,10 @@ function modifier_meepo_divided_we_stand_oaa:IsDebuff()
 	return false
 end
 
+function modifier_meepo_divided_we_stand_oaa:RemoveOnDeath()
+  return false
+end
+
 function modifier_meepo_divided_we_stand_oaa:IsAura()
 	if self:GetParent():PassivesDisabled() then
     return false
@@ -73,6 +77,7 @@ function modifier_meepo_divided_we_stand_oaa_bonus_buff:DeclareFunctions()
 				
 				return funcs
 end
+
 function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierMagicalResistanceBonus()
 	return self.bonus
 end				

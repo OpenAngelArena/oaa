@@ -1,4 +1,7 @@
 "DOTAAbilities"
+
+{
+
 //=================================================================================================================
 // Meepo: Divided We Stand 
 //=================================================================================================================
@@ -6,7 +9,6 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"												  "5433"					// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"											  "ability_lua"
 		"ScriptFile"										  "abilities/oaa_divided_we_stand.lua"
 		"AbilityBehavior"									  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -43,3 +45,4 @@
 			}
 		}
 	}
+}
