@@ -38,6 +38,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
   local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("radius")
   local damage = self:GetSpecialValueFor("damage")
+  local hp_percent = self:GetSpecialValueFor("max_hp_percent")
 
   local caster_location = caster:GetAbsOrigin()
 
@@ -78,20 +79,24 @@ function wanderer_aoe_cleanse:OnSpellStart()
     false
   )
 
+  -- Damage table constants
+  local damage_table = {}
+  damage_table.attacker = caster
+  damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
+  damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+  damage_table.ability = self
+
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsInvulnerable() then
       -- Purge - Offensive Basic Dispel - removes buffs
       enemy:Purge(true, false, false, false, false)
       -- Apply knockback
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
-      -- Apply Damage
-      local damage_table = {}
+      -- Damage table variables
       damage_table.victim = enemy
-      damage_table.attacker = caster
-      damage_table.damage = damage
-      damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
-      damage_table.ability = self
+      -- Calculate damage
+      damage_table.damage = damage + enemy:GetMaxHealth() * hp_percent
+      -- Apply Damage
       ApplyDamage(damage_table)
     end
   end
