@@ -86,8 +86,8 @@ function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
     local attacker = kv.attacker
     local target = kv.target
     if attacker == self:GetParent() and not attacker:IsIllusion() then
-      local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
-      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = debuff_duration } )
+      --local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
+      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
     end
   end
 end
