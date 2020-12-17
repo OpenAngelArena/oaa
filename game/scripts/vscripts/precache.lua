@@ -7,7 +7,7 @@ g_ItemPrecache = {
   "item_elixier_hybrid",
   "item_elixier_sustain",
   "item_enrage_crystal_1",
-  "item_far_sight",
+--  "item_far_sight",
   "item_giant_form",
   "item_heart_transplant",
   "item_lucience",
