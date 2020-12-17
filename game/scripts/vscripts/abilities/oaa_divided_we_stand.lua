@@ -60,29 +60,29 @@ function  modifier_meepo_divided_we_stand_oaa_bonus_buff:IsPurgable()
 end
 
 function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnCreated()
-        self.bonus = self:GetAbility():GetSpecialValueFor("bonus_resist_pct")
-        self.armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
+        self.bonus = self:GetAbility():GetSpecialValueFor("bonus_dmg_reduction_pct")
+		self.cooldown = self:GetAbility():GetSpecialValueFor("bonus_cd_reduction")
 end
 
 function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnRefresh()
-        self.bonus = self:GetAbility():GetSpecialValueFor("bonus_resist_pct")
-        self.armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
+        self.bonus = self:GetAbility():GetSpecialValueFor("bonus_dmg_reduction_pct")
+		self.cooldown = self:GetAbility():GetSpecialValueFor("bonus_cd_reduction")
 end    	
 
 function modifier_meepo_divided_we_stand_oaa_bonus_buff:DeclareFunctions()
 		local funcs = {
-				MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-				MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+				MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+				MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
 				}
 				
 				return funcs
 end
 
-function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierMagicalResistanceBonus()
-	return self.bonus
-end				
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierIncomingDamage_Percentage()
+	return -self.bonus
+end			
 
-function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierPhysicalArmorBonus()
-	return self.armor
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierPercentageCooldown()
+	return self.cooldown
 end
 ---------------------------------------------------------

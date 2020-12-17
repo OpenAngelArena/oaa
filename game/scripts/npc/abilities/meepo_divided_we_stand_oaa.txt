@@ -28,16 +28,14 @@
 		{
 			"01"
 			{
-				"var_type" 							"FIELD_INTEGER"
-				"bonus_armor" 						"3 6 9 12 15"
+				"var_type" 										"FIELD_INTEGER"
+				"bonus_dmg_reduction_pct" 						"4 6 8 10 12"
 			}
-
 			"02"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_resist_pct"					"5 10 15 20 25"
-			}
-
+				"var_type" 										"FIELD_INTEGER"
+				"bonus_cd_reduction"			 				"5 6 7 8 9"
+			}	
 			"03"
 			{
 				"var_type"                                        "FIELD_INTEGER"
