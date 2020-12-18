@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 12 10 8 7 6"
+    "AbilityCooldown"                                     "14 12 10 8 8 8"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "50 80 110 140 170 200"
+        "attack_speed"                                    "60 90 120 150 180 210"
         "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_5"
       }
       "03"
@@ -62,7 +62,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_pct"                                      "2.2" //OAA, there is no need to scale this Valve...
+        "damage_pct"                                      "2" // there is no need to scale this Valve...
       }
     }
   }
