@@ -16,7 +16,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,6 +34,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "18 22 26 30 34"
+        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_6"
       }
       "02"
       {
