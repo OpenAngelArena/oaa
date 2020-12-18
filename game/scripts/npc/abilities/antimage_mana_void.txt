@@ -21,7 +21,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +48,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "mana_void_damage_per_mana"                       "0.8 0.95 1.1 1.25 1.4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_antimage_6"
       }
       "02"
       {
