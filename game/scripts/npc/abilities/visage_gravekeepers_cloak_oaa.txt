@@ -15,6 +15,10 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasShardUpgrade"                                     "1"
+
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -33,7 +37,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "recovery_time"                                   "6 5 4 3 3 3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_oaa_5"
       }
       "04"
       {

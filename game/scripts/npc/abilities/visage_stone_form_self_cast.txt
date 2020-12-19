@@ -1,26 +1,30 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Visage: Summon Familiars Stone Form
+  // Visage: Summon Familiars Stone Form Self Cast
   //=================================================================================================================
-  "visage_summon_familiars_stone_form"
-  {
+	"visage_stone_form_self_cast"
+	{
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5484"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "ID"                                                  "7116"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
 
-    "AbilityCastRange"                                    "160"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14.0"
+    "AbilityCooldown"                                     "0.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,5 +61,5 @@
         "hp_regen"                                        "150 175 200 300 400"
       }
     }
-  }
+	}
 }
