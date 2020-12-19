@@ -12,6 +12,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -21,15 +22,15 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 12 10 8 7.8 7.5"
+    "AbilityCooldown"                                     "14 12 10 8 7 6"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "70 80 90 100 350 600"
+    "AbilityDamage"                                       "70 80 90 100 200 400"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95 110 125 140 150 160"
+    "AbilityManaCost"                                     "95 110 125 140 155 170"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -67,7 +68,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_dot_damage"                                "10 30 50 70 140 215"
+        "blast_dot_damage"                                "10 30 50 70 140 280"
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_3"
       }
     }
