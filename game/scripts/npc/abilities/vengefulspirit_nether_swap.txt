@@ -12,6 +12,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
 
@@ -19,18 +20,16 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 850 1000 1300 1600"
+    "AbilityCastRange"                                    "800 950 1100 1250 1400"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "2"
-    "AbilityChargeRestoreTime"                            "70 60 50 40 30" //OAA
+    "AbilityCooldown"                                     "60 45 30 25 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +48,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "2"
+        "scepter_charge_reduction"                        "2"
         "RequiresScepter"                                 "1"
       }
     }
