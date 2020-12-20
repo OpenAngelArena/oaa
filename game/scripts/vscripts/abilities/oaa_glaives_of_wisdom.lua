@@ -316,7 +316,7 @@ if IsServer() then
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
       local oldIntellect = unit:GetBaseIntellect()
       unit:SetBaseIntellect(math.max(1, oldIntellect - stealAmount))
-      unit:CalculateStatBonus()
+      unit:CalculateStatBonus(true)
       local intellectDifference = oldIntellect - unit:GetBaseIntellect()
       parent:ModifyIntellect(intellectDifference)
       self:SetStackCount(self:GetStackCount() + intellectDifference)

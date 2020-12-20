@@ -123,7 +123,7 @@ function modifier_item_dagger_of_moriah_non_stacking_stats:OnCreated()
   end
 
   if IsServer() and parent:IsRealHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 
   self:StartIntervalThink(0.5)
@@ -141,7 +141,7 @@ function modifier_item_dagger_of_moriah_non_stacking_stats:OnRefresh()
   end
 
   if IsServer() and parent:IsRealHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -153,7 +153,7 @@ function modifier_item_dagger_of_moriah_non_stacking_stats:OnIntervalThink()
   end
 
   if IsServer() and parent:IsRealHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
