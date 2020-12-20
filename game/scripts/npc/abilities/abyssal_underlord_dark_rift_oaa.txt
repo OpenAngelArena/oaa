@@ -24,6 +24,8 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     "AbilityCastRange"                                    "1200 1400 1600 1800 2000"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
@@ -37,7 +39,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125 175 225 275 325"
 
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
@@ -59,6 +62,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "minimum_range"                                   "0.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay_scepter"                          "0.1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "40"
       }
     }
 
