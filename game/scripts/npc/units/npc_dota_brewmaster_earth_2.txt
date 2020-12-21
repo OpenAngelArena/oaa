@@ -21,13 +21,13 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"
     "Ability2"                                            "brewmaster_earth_spell_immunity"
     "Ability3"                                            "brewmaster_earth_pulverize"
-    "Ability4"                                            "brewmaster_thunder_clap"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "5" //OAA
+    "ArmorPhysical"                                       "7" //OAA
 
     // Attack
     //----------------------------------------------------------------
@@ -53,7 +53,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "3000" //OAA
-    "StatusHealthRegen"                                   "2"
+    "StatusHealthRegen"                                   "6" //OAA
     "StatusMana"                                          "600" //OAA
     "StatusManaRegen"                                     "2"
 
