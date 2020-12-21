@@ -8,12 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5567"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
+
+    "IsGrantedByShard"                                    "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,11 +21,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50.0"
+    "AbilityCooldown"                                     "30.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,22 +34,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sigil_radius"                                    "600"
+        "sigil_radius"                                    "650"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sigil_duration"                                  "30.0"
+        "sigil_duration"                                  "25.0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "10 15 20 25 30 35"
+        "move_slow"                                       "25" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_slow"                                     "30 40 50 60 110 160"
+        "attack_slow"                                     "60" //OAA
       }
 
     }
