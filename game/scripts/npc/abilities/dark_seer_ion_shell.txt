@@ -21,6 +21,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
@@ -45,7 +47,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250"
+        "radius"                                          "275"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_5"
       }
       "02"
@@ -63,6 +65,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "2"
       }
     }
   }

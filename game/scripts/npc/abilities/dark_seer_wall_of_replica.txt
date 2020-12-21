@@ -18,7 +18,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -83,6 +83,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_12"
       }
       "10"
       {
