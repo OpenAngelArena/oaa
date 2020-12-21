@@ -40,35 +40,40 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "arrow_count"                                     "12"
+        "wave_count"                                      "3"
       }
-      "02" // this is based on Drow's base damage
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_count_per_wave"                            "4"
+      }
+      "03" // this is based on Drow's base damage
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_damage_pct"                                "85 110 135 160 260 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_1"
       }
-      "03"
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "arrow_slow_duration"                             "1.25 2 2.75 3.5 4.25 5"
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_width"                                     "90"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_speed"                                     "1200"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "arrow_range_multiplier"                          "2"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_angle"                                     "50"
