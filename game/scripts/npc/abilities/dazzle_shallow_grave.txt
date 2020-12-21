@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550 700 850 1000 1150 1450"
+    "AbilityCastRange"                                    "700 800 900 1000 1100 1200"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
@@ -39,7 +39,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
+        "duration"                                        "4.25 4.5 4.75 5.0 5.25 5.5" //OAA
+      }
+      "02"	// used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "fx_halo_height"                                  "190 240 300 350"
       }
     }
   }
