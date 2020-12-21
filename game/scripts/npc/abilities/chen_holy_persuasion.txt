@@ -63,6 +63,17 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_chen_5"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "teleport_delay"                                  "6 5 4 3 2 1" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_chen_1"
+      }
     }
   }
 }
