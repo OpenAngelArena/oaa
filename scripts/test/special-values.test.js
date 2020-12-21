@@ -24,7 +24,7 @@ var stupidItemNames = [
 var itemsFound = {};
 var idsFound = {};
 var itemFileMap = {};
-var nextAvailableId = 8401;
+var nextAvailableId = 3500;
 var usedIDs = {};
 
 test('KV Values', function (t) {
