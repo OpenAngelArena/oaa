@@ -20,6 +20,8 @@
 
     "MaxLevel"                                            "5"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
@@ -46,13 +48,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "25 40 55 130 205"
+        "damage"                                          "25 40 55 110 220"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "deniable_pct"                                    "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "100.0"
       }
     }
   }

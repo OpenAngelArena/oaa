@@ -25,7 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "20" //OAA
+    "AbilityCooldown"                                     "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +44,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen"                                           "5 10 20 30 60 120" //OAA
+        "regen"                                           "5 10 15 20 40 80" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "creep_level"                                     "6" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hero_ability_steal_time"                         "99999"
       }
     }
   }
