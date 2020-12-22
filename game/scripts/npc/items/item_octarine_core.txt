@@ -6,14 +6,14 @@
   "item_recipe_octarine_core"
   {
     "ID"                                                  "228"    // unique ID
-    "ItemCost"                                            "0" //OAA
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_octarine_core"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements" //OAA
+    "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_voodoo_mask;item_soul_booster"
+      "01"                                                "item_aether_lens;item_soul_booster"
     }
   }
 
@@ -29,7 +29,7 @@
     "AbilityTextureName"                                  "custom/octarine_core_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4900" //OAA
+    "ItemCost"                                            "5475" //OAA
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mana;mb;octarine core"

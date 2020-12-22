@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_dagon"
     "ItemRequirements"
     {
-      "01"                                                "item_belt_of_strength;item_boots_of_elves;item_robe"
+      "01"                                                "item_staff_of_wizardry;item_crown"
     }
   }
 
@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120 140 160 180 200 210 220 230 240"
-    "ItemCost"                                            "2650"
+    "ItemCost"                                            "2750"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 1"

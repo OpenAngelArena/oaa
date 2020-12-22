@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "500"
+    "ItemCost"                    "475"
     "ItemShopTags"                ""
 
     // Recipe
@@ -20,7 +20,7 @@
     "ItemResult"                  "item_holy_locket"
     "ItemRequirements"
     {
-      "01"            "item_ring_of_tarrasque;item_energy_booster;item_magic_wand"
+      "01"                                                "item_headdress;item_fluffy_hat;item_energy_booster;item_magic_wand"
     }
   }
 

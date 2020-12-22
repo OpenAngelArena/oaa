@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1250"
+    "ItemCost"                                            "1550"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_pipe"
     "AbilityTextureName"                                  "item_recipe"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_hood_of_defiance;item_headdress"
     }
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3125"
+    "ItemCost"                                            "3425"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"

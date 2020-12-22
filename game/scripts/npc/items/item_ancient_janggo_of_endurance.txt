@@ -7,15 +7,15 @@
   {
     "ID"                                                  "184"    // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "550"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ancient_janggo"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_crown;item_sobi_mask;item_wind_lace"
-      "02"                                                "item_ancient_janggo"
+      "01"                                                "item_belt_of_strength;item_robe;item_wind_lace"
+      //"02"                                                "item_ancient_janggo"
     }
   }
 
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1475"
+    "ItemCost"                                            "1700"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance;drums"

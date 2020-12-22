@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "900"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_heart"
     "ItemRequirements"
     {
-      "01"                                                "item_ring_of_tarrasque;item_vitality_booster;item_reaver"
+      "01"                                                "item_vitality_booster;item_reaver"
     }
   }
 
@@ -38,13 +38,13 @@
     "AbilityTextureName"                                  "custom/heart"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0"
+    //"AbilityCooldown"                                     "7.0"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5400"
+    "ItemCost"                                            "4800"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"

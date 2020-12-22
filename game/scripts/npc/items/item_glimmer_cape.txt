@@ -11,16 +11,16 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
+    "ItemCost"            "450"
     "ItemShopTags"          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
     "ItemResult"          "item_glimmer_cape"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"            "item_shadow_amulet;item_cloak;item_gloves"
+      "01"            "item_shadow_amulet;item_cloak"
     }
   }
 
