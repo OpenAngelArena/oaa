@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 180 260 420 580" //OAA
+        "damage"                                          "100 180 260 500 900" //OAA
       }
       "02"
       {
@@ -65,25 +65,25 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "125 225 325 525 725" //OAA
+        "damage_scepter"                                  "125 225 325 625 1125" //OAA
         "RequiresScepter"                                 "1"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "1800"
-        "RequiresScepter"                                 "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "linger_duration"                                 "2"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration_scepter"                                "30"
+        "scepter_bonus_range"                             "400"
         "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "linger_duration"                                 "2"
+        "scepter_bonus_duration"                          "20"
+        "RequiresScepter"                                 "1"
       }
     }
   }
