@@ -41,6 +41,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "100 180 260 500 900" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_7"
       }
       "02"
       {
@@ -66,6 +67,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "125 225 325 625 1125" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_7"
         "RequiresScepter"                                 "1"
       }
       "07"

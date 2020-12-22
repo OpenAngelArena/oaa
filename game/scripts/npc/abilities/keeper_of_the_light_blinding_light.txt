@@ -13,8 +13,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
-    //"RequiredLevel"                                       "1"
-    //"LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -61,7 +59,7 @@
       "06" // 05
       {
         "var_type"                                        "FIELD_FLOAT"
-        "knockback_distance"                              "350"
+        "knockback_distance"                              "400"
       }
       "07" // 06
       {
