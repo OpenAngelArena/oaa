@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "280 420 680 1060 1560"
+    "AbilityManaCost"                                     "250 400 550 1000 1450"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -50,13 +50,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "600"
+        "cast_range_scepter"                              "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0.25"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_width"                                   "125"
       }
     }
   }
