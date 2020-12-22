@@ -68,23 +68,17 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "200 450 700 950 1200" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0.25"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "40 35 30 25 20" //OAA
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "splash_radius_scepter"                           "325"
