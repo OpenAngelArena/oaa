@@ -8,30 +8,30 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5251"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "200 300 400 500 550 600"
+    "AbilityCastRange"                                    "800"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "24 20 16 12 11 10"
+    "AbilityCooldown"                                     "25"
 
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140"
+    "AbilityManaCost"                                     "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,18 +40,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_steps"                                      "-70 -70 -60 -50 -30 -10 -10 -10"
+        "slow_steps"                                      "-70 -70 -60 -50 -30 -10 -10 -10" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "35"
+        "heal_percent"                                    "50"
         "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_tooltip"                                    "70"
+        "slow_tooltip"                                    "70" //OAA
       }
       "04"
       {
