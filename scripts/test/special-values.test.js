@@ -298,6 +298,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCastPoint',
     'AbilityChannelTime',
     'AbilityCooldown',
+    'AbilityDamage',
     'AbilityDuration',
     'AbilityManaCost',
     'AbilityUnitTargetType',
@@ -451,6 +452,7 @@ var keyWhiteList = [
   'CalculateSpellDamageTooltip',
   'levelkey',
   'RequiresScepter',
+  'RequiresShard',
   'ad_linked_ability',
   'linked_ad_abilities'
 ];
