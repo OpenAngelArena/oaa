@@ -20,9 +20,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hurricane_pike"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_force_staff*;item_dragon_lance"
+      "01"                                                "item_force_staff;item_dragon_lance"
     }
   }
 
@@ -50,7 +50,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "2350"
+    "ItemCost"                                            "4525"
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "fs;force staff;hurricane pike;pike"
