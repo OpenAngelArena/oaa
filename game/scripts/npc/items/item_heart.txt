@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "900"
+    "ItemCost"                                            "400" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -38,13 +38,12 @@
     "AbilityTextureName"                                  "custom/heart"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    //"AbilityCooldown"                                     "7.0"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4800"
+    "ItemCost"                                            "4300"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"
@@ -64,27 +63,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 1600 2000"
+        "bonus_health"                                    "400 800 1200 1600 2000" //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "50"
-      }
-      "04"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "1 1.5 2 2.5 3"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "7"
+        "health_regen_pct"                                "1.5 2 2.5 3 3.5" //OAA
       }
     }
   }

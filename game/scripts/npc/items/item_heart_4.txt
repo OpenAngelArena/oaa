@@ -41,9 +41,9 @@
     "BaseClass"                                           "item_heart"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/heart_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
 
@@ -73,23 +73,8 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "50"
-      }
-      "04"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "1 1.5 2 2.5 3"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "7"
+        "health_regen_pct"                                "1.5 2 2.5 3 3.5"
       }
     }
   }
