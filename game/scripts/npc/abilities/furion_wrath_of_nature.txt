@@ -28,7 +28,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.5"
 
-    "AbilityCooldown"                                     "85"
+    "AbilityCooldown"                                     "60" //OAA, for picking screen tooltip
     "AbilityManaCost"                                     "175 225 275 325 375"
 
     // Special
@@ -59,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "kill_damage"                                     "4 5 6 7 8"
+        "kill_damage"                                     "4 6 8 14 24" //OAA, for picking screen tooltip
       }
       "06"
       {
@@ -70,24 +70,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "135 230 325 610 895" // OAA, for picking screen tooltip
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_buffer"                                  "4"
-        "RequiresScepter"                                 "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_large_hp_bonus_tooltip"                   "1650 2100 2700 3600 5400 8100" //OAA, same as in Nature's Call
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_large_damage_bonus_tooltip"               "114 162 222 294 456 705" //OAA, same as in Nature's Call
         "RequiresScepter"                                 "1"
       }
     }
