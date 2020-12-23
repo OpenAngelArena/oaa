@@ -95,7 +95,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
       -- Damage table variables
       damage_table.victim = enemy
       -- Calculate damage
-      damage_table.damage = damage + enemy:GetMaxHealth() * hp_percent
+      damage_table.damage = damage + enemy:GetMaxHealth() * hp_percent * 0.01
       -- Apply Damage
       ApplyDamage(damage_table)
     end
