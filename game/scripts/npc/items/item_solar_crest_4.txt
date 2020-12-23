@@ -44,7 +44,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "12.0"
     "AbilitySharedCooldown"                               "medallion"
 
     // Item Info
@@ -96,7 +96,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "7"
+        "duration"                                        "12"
       }
     }
   }
