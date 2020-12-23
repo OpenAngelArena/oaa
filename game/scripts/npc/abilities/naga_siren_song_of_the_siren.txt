@@ -16,7 +16,7 @@
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -50,23 +50,23 @@
         "var_type"                                        "FIELD_FLOAT"
         "animation_rate"                                  "0.55"
       }
-      "04"
+      "04" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "regen_rate"                                      "10.0"
       }
-      "05"
+      "05" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "regen_rate_self"                                 "10.0"
       }
-      "06"
+      "06" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "regen_rate_tooltip_scepter"                      "10"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "07" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "100 80 60 50 50" //OAA

@@ -17,9 +17,11 @@
 
     "MaxLevel"                                            "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -51,6 +53,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "fake_ensnare_distance"                           "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range"                                   "400"
       }
     }
   }
