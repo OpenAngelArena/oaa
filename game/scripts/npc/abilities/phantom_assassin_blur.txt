@@ -9,6 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5192"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
 
@@ -17,6 +20,7 @@
     "AbilityCooldown"                                     "12" //OAA
 
     "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "600"
 
     "AbilityManaCost"                                     "50"
 
@@ -27,7 +31,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20 30 40 50 60 70"
+        "bonus_evasion"                                   "15 25 35 45 55 65"
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_3"
       }
       "02"
@@ -43,7 +47,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_duration"                                   "0.75"
+        "fade_duration"                                   "0.5"
       }
       "05"
       {
