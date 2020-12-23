@@ -72,6 +72,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "damage"                                          "40 80 120 240 440" //OAA
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "allied_cooldown"                                 "20"
+      }
     }
   }
 }

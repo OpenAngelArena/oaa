@@ -60,18 +60,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "mana_void_aoe_radius"                            "500"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown_increase"                       "100"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_ministun"                                "1.3"
-        "RequiresScepter"                                 "1"
-      }
     }
   }
 }
