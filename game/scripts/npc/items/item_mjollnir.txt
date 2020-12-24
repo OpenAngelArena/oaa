@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_mjollnir"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_maelstrom;item_hyperstone"
     }
@@ -118,7 +118,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_chance"                                    "25 26 27 28 30"
+        "chain_chance"                                    "30"
       }
       "12"
       {

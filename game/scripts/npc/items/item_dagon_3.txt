@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "198"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "120 140 160 180 200 210 220 230 240"
-    "ItemCost"                                            "5250"
+    "ItemCost"                                            "5350"
     "ItemShopTags"                                        "damage;int;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "dagon 3"

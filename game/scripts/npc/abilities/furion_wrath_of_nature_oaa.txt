@@ -32,7 +32,7 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
-    "AbilityCooldown"                                     "85"
+    "AbilityCooldown"                                     "60"
     "AbilityManaCost"                                     "175 225 275 325 375"
 
     // Special
@@ -74,7 +74,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "kill_damage"                                     "4 5 6 7 8"
+        "kill_damage"                                     "4 6 8 14 24"
       }
       "08"
       {

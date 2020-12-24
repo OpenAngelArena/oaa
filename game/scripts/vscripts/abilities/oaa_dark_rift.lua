@@ -26,6 +26,17 @@ function abyssal_underlord_dark_rift_oaa:OnUpgrade()
   end
 end
 
+function abyssal_underlord_dark_rift_oaa:GetCooldown(level)
+  local cooldown = self.BaseClass.GetCooldown(self, level)
+  local caster = self:GetCaster()
+
+  if caster:HasScepter() then
+    cooldown = self:GetSpecialValueFor("cooldown_scepter")
+  end
+
+  return cooldown
+end
+
 function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local originCaster = caster:GetAbsOrigin()
@@ -80,6 +91,13 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   -- Store particles indexes on caster itself
   caster.partPortal1 = partPortal1
   caster.partPortal2 = partPortal2
+end
+
+function abyssal_underlord_dark_rift_oaa:GetChannelTime()
+  if self:GetCaster():HasScepter() then
+    return self:GetSpecialValueFor("teleport_delay_scepter")
+  end
+  return self.BaseClass.GetChannelTime(self)
 end
 
 function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)

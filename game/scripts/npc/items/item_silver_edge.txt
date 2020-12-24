@@ -6,14 +6,14 @@
   "item_recipe_silver_edge"
   {
     "ID"                                                  "248"    // unique ID
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "1100"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_invis_sword;item_echo_sabre"
+      "01"                                                "item_invis_sword;item_oblivion_staff"
     }
   }
 
@@ -30,7 +30,7 @@
     "AbilityTextureName"                                  "custom/silver_edge_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "28.0" //OAA
+    "AbilityCooldown"                                     "28" //OAA
     "AbilitySharedCooldown"                               "shadow_blade"
 
     // Spicy Parameters
@@ -42,7 +42,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "6100"
+    "ItemCost"                                            "5600"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sb;invis;shadow blade;silver edge"
@@ -66,7 +66,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 17 27 42 62"
+        "bonus_strength"                                  "0"
       }
       "04"
       {
@@ -76,7 +76,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.5 1.75 2.25 3.0 4.0"
+        "bonus_mana_regen"                                "3.0 3.25 3.75 4.5 5.5"
       }
       "06"
       {
@@ -100,28 +100,8 @@
       }
       "10"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "backstab_reduction"                              "-50"
-      }
-      "11"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "backstab_duration"                               "4"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "100"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.8"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "echo_cooldown"                                   "5.0"
       }
     }
   }

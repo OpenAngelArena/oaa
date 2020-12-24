@@ -37,7 +37,7 @@ function modifier_item_stonework_pendant_passive:OnCreated()
   self.bonus_hp = parent:GetMaxMana()
   self.bonus_hp_regen = parent:GetManaRegen()
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
   self:StartIntervalThink(0.5)
 end
@@ -52,7 +52,7 @@ function modifier_item_stonework_pendant_passive:OnRefresh()
   self.bonus_hp = parent:GetMaxMana()
   self.bonus_hp_regen = parent:GetManaRegen()
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -61,7 +61,7 @@ function modifier_item_stonework_pendant_passive:OnIntervalThink()
   self.bonus_hp = self.bonus_hp + parent:GetMaxMana()
   self.bonus_hp_regen = parent:GetManaRegen()
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 

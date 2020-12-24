@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3888"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
@@ -107,12 +107,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_melee_active"                       "70 100 140 190 250"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
+        "block_damage_ranged_active"                      "70 100 140 190 250"
       }
       "11"
       {

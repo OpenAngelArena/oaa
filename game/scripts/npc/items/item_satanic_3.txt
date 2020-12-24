@@ -7,7 +7,7 @@
   {
     "ID"                                                  "3159"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10800"
+    "ItemCost"                                            "10050"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic 3"
@@ -84,13 +84,8 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "5.0"
+        "unholy_duration"                                 "6.0"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "22 24 26 28 30" //OAA
-			}
     }
   }
 }

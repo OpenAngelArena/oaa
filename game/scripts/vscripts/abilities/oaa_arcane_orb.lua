@@ -17,6 +17,14 @@ function obsidian_destroyer_arcane_orb_oaa:GetCastRange(location, target)
   return self:GetCaster():GetAttackRange()
 end
 
+function obsidian_destroyer_arcane_orb_oaa:GetManaCost(nLevel)
+  local caster = self:GetCaster() or self:GetOwner()
+  local mana_cost_percentage = self:GetSpecialValueFor("mana_cost_percentage")
+  local caster_current_mana = caster:GetMana()
+
+  return caster_current_mana*mana_cost_percentage/100
+end
+
 function obsidian_destroyer_arcane_orb_oaa:IsStealable()
 	return false
 end

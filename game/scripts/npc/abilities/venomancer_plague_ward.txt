@@ -37,7 +37,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_hp_tooltip"                                 "120 230 340 450 1075 1700"
+        "ward_hp_tooltip"                                 "120 230 340 450 900 1800"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
@@ -49,15 +49,15 @@
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "04" // For special bonus at level 25 (ward_hp_tooltip x 2)
+      "04" // For special bonus at level 25 (ward_hp_tooltip x 1.6)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_hp"                                         "240 460 680 900 2150 3400" //OAA, Valve has it wrong
+        "ward_hp"                                         "192 368 544 720 1440 2880" //OAA, Valve has it wrong
       }
-      "05" // For special bonus at level 25 (ward_damage_tooltip x 2)
+      "05" // For special bonus at level 25 (ward_damage_tooltip x 1.6)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_damage"                                     "26 44 62 80 280 480"
+        "ward_damage"                                     "20 35 50 64 224 384" //OAA, Valve has it wrong
       }
     }
   }

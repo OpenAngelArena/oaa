@@ -30,8 +30,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "100"
-    "AbilityCooldown"                                     "60" //OAA
+    "AbilityCastRange"                                    "175"
+    "AbilityCooldown"                                     "110 100 90 80 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -64,13 +64,18 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "grab_radius_scepter"                             "550"
+        "grab_radius_scepter"                             "600"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "20 60 100 220 420" //OAA
+        "damage"                                          "40 80 120 240 440" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "allied_cooldown"                                 "20"
       }
     }
   }

@@ -18,6 +18,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -69,6 +71,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "whirl_duration"                                  "3.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "4"
       }
     }
   }

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3133"      // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_3"
@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "custom/butterfly_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10275"
+    "ItemCost"                                            "10075"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly 3;butterfly 3"

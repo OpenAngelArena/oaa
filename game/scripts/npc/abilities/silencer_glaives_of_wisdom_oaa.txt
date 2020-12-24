@@ -22,6 +22,7 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "HasScepterUpgrade"                                   "1"
+    "HasShardUpgrade"                                     "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -69,6 +70,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "int_steal_duration"                              "10 20 30 40 50 60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_range"                              "600"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_count"                              "1"
       }
     }
   }

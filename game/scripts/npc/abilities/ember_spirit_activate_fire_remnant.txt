@@ -66,8 +66,13 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_mana_cost"                               "25"
+        "scepter_mana_cost"                               "75"
         "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_remnant_speed_pct"                         "300"
       }
     }
   }

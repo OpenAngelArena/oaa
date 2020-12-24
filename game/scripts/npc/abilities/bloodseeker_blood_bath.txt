@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5016"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5016" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -24,11 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12"
+    "AbilityCooldown"                                     "15 14 13 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "120 180 240 300 600 900"
+        "damage"                                          "120 160 200 240 480 960"
         "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_2"
       }
       "04"

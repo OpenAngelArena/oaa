@@ -15,7 +15,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
@@ -59,7 +59,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fiend_grip_damage"                               "100 200 300 600 900" //OAA
+        "fiend_grip_damage"                               "80 160 240 480 720" //OAA
       }
     }
   }

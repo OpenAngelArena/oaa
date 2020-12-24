@@ -32,8 +32,9 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_per_hit_pct"                                "1 1 2 2 3 4" //OAA
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_per_hit_pct"                                "1 1.5 2 2.5 3 3.5" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_antimage_7"
       }
       "04"
       {

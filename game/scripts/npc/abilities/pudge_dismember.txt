@@ -20,7 +20,7 @@
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -91,20 +91,14 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_regen_pct"                               "4"
-        "RequiresScepter"                                 "1"
+        "scepter_regen_pct"                               "6"
+        "RequiresShard"                                   "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "order_lock_duration"                             "3"
-        "RequiresScepter"                                 "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "11"
-        "RequiresScepter"                                 "1"
+        "RequiresShard"                                   "1"
       }
     }
   }

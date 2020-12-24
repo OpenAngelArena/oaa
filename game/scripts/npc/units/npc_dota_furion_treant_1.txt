@@ -36,7 +36,7 @@
     "AttackDamageMin"     "38"    // Damage range min.
     "AttackDamageMax"     "38"    // Damage range max.
     "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"        "1.75"    // Speed of attack.
+    "AttackRate"        "1.6"    // Speed of attack.
     "AttackAnimationPoint"    "0.467"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
     "AttackRange"       "100"   // Range within a target can be attacked.
@@ -57,7 +57,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-    "MovementSpeed"       "325"   // Speed
+    "MovementSpeed"                                       "300"   // Speed
     "MovementTurnRate"      "0.5"   // Turning rate.
 
     // Status

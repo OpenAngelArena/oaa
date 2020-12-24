@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3089"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "7050"
+    "ItemCost"                                            "7225"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 3;blade mail 3;blademail 3"

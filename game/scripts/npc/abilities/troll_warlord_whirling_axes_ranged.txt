@@ -20,6 +20,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
@@ -77,6 +79,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "axe_count"                                       "5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "4"
       }
     }
   }

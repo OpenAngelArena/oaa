@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8466"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "FightRecapLevel"                                     "2"
 
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "275"
+    "AbilityManaCost"                                     "300"
     "ItemCost"                                            "10000"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"

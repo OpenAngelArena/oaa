@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3658"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.25 1.5 2.0 2.75 3.75"
+        "bonus_mana_regen"                                "2.25 2.5 3.0 3.75 4.75"
       }
       "06"
       {

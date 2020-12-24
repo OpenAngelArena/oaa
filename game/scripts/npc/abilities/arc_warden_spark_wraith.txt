@@ -17,6 +17,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     "AbilityCastRange"                                    "2000"
     "AbilityCastPoint"                                    "0.3"
 
@@ -82,6 +84,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "move_speed_slow_pct"                             "100"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_bonus_duration"                          "0.0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_activation_delay"                        "3.0"
       }
     }
   }

@@ -56,45 +56,45 @@
         "CalculateSpellDamageTooltip"                     "0"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_3"
       }
-      "04" // damage_impact + damage_per_second x damage_duration
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_total_tooltip"                            "90 155 220 285 430 700" //OAA
-      }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "explosion_radius"                                "500"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "collision_radius"                                "100"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "0.5"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "1200"
       }
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "knockback_distance"                              "300"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "knockback_height"                                "100"
       }
-      "11"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "knockback_duration"                              "0.35"
+      }
+      "11" // OAA
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_total_tooltip"                            "90 155 220 285 430 700" // damage_impact + damage_per_second x damage_duration
       }
     }
   }

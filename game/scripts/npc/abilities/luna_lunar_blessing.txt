@@ -26,12 +26,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "15 20 25 30 35 40" //OAA
+        "bonus_damage"                                    "5 15 25 35 70 140"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "200 400 600 800 1000 1200"
+        "bonus_night_vision"                              "250 500 750 1000 1250 1500"
       }
     }
   }

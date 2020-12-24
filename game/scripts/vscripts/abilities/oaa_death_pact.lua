@@ -108,7 +108,7 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
 
   if IsServer() then
     -- apply the new health and such
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
 
     -- add the added health
     parent:SetHealth( self.parentHealth + self.health )
@@ -166,7 +166,7 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
 
   if IsServer() then
     -- apply the new health and such
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
 
     -- add the added health
     parent:SetHealth( self.parentHealth + self.health )

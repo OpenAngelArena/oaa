@@ -22,13 +22,14 @@
     "Ability1"                                            "brewmaster_storm_dispel_magic"
     "Ability2"                                            "brewmaster_storm_cyclone"
     "Ability3"                                            "brewmaster_storm_wind_walk"
-    "Ability4"                                            "brewmaster_cinder_brew"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "4" //OAA
+    "MagicalResistance"                                   "30" //OAA
 
     // Attack
     //----------------------------------------------------------------
@@ -55,8 +56,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1900" //OAA
-    "StatusHealthRegen"                                   "2"
+    "StatusHealth"                                        "1800" //OAA
+    "StatusHealthRegen"                                   "6" //OAA
     "StatusMana"                                          "900"
     "StatusManaRegen"                                     "1.5"
 

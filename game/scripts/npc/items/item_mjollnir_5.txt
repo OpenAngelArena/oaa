@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3095"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "37850"
+    "ItemCost"                                            "37975"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -120,7 +120,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_chance"                                    "25 26 27 28 30"
+        "chain_chance"                                    "30"
       }
       "12"
       {

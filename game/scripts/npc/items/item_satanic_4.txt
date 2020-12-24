@@ -5,10 +5,9 @@
   //=================================================================================================================
   "item_recipe_satanic_4"
   {
-
     "ID"                                                  "3160"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
@@ -47,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18800"
+    "ItemCost"                                            "18050"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic 4"
@@ -85,13 +84,8 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "5.0"
+        "unholy_duration"                                 "6.0"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "22 24 26 28 30" //OAA
-			}
     }
   }
 }

@@ -20,11 +20,15 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "brewmaster_fire_permanent_immolation"
-    "Ability2"                                            "brewmaster_drunken_brawler"
+    "Ability2"                                            "generic_hidden"
+    "Ability3"                                            "generic_hidden"
+    "Ability4"                                            "generic_hidden"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "6" //OAA
+    "ArmorPhysical"                                       "8" //OAA
 
     // Attack
     //----------------------------------------------------------------
@@ -50,7 +54,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "1500" //OAA
-    "StatusHealthRegen"                                   "4"
+    "StatusHealthRegen"                                   "6"
     "StatusMana"                                          "750"
     "StatusManaRegen"                                     "1.5"
 

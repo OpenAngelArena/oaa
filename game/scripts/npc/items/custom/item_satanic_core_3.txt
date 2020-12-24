@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3220"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38100"
+    "ItemCost"                                            "38475"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 3"

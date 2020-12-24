@@ -24,13 +24,13 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"    // Ability 1
     "Ability2"                                            "brewmaster_earth_spell_immunity"  // Ability 2
     "Ability3"                                            "brewmaster_earth_pulverize"    // Ability 3
-    "Ability4"                                            "brewmaster_thunder_clap"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"            // Ability 6
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "15"      // Physical protection.
+    "ArmorPhysical"                                       "43"      // Physical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -56,8 +56,8 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "15000"    // Base health.
-    "StatusHealthRegen"                                   "20"    // Health regeneration rate.
-    "StatusMana"                                          "1800"    // Base mana.
+    "StatusHealthRegen"                                   "28"    // Health regeneration rate.
+    "StatusMana"                                          "2400"    // Base mana.
     "StatusManaRegen"                                     "2"      // Mana regeneration rate.
 
     // Vision

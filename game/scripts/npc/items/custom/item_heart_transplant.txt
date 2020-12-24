@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3258"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
@@ -92,7 +92,7 @@
       "03" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "2.5 3"
+        "health_regen_pct"                                "3 3.5"
       }
       "04"
       {
@@ -117,7 +117,7 @@
       "08" // same as Heart lvls 3-4
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transplant_health_regen_pct"                     "2 2.5"
+        "transplant_health_regen_pct"                     "2.5 3"
       }
       "09"
       {

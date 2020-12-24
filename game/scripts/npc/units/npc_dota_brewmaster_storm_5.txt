@@ -25,13 +25,14 @@
     "Ability1"                                            "brewmaster_storm_dispel_magic"    // Ability 1
     "Ability2"                                            "brewmaster_storm_cyclone"      // Ability 2
     "Ability3"                                            "brewmaster_storm_wind_walk"    // Ability 3
-    "Ability4"                                            "brewmaster_cinder_brew"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"            // Ability 6
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "10"      // Physical protection.
+    "MagicalResistance"                                   "45"
 
     // Attack
     //----------------------------------------------------------------
@@ -58,8 +59,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"    // Base health.
-    "StatusHealthRegen"                                   "20"      // Health regeneration rate.
+    "StatusHealth"                                        "9000"    // Base health.
+    "StatusHealthRegen"                                   "28"      // Health regeneration rate.
     "StatusMana"                                          "1500"    // Base mana.
     "StatusManaRegen"                                     "1.5"    // Mana regeneration rate.
 

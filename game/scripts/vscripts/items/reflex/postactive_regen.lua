@@ -98,7 +98,7 @@ function modifier_item_regen_crystal_non_stacking_stats:OnCreated()
   local max_mana = parent:GetMaxMana()
   self.bonus_hp_regen = max_mana*max_mana_to_hp_regen/100
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
   self:StartIntervalThink(0.5)
 end
@@ -113,7 +113,7 @@ function modifier_item_regen_crystal_non_stacking_stats:OnRefresh()
   local max_mana = parent:GetMaxMana()
   self.bonus_hp_regen = max_mana*max_mana_to_hp_regen/100
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
