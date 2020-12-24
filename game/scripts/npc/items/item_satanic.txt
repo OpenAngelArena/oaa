@@ -62,7 +62,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 35 55 85 125"
+        "bonus_damage"                                    "25 35 55 85 125" //OAA
       }
       "04"
       {
@@ -72,7 +72,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "175 170 165 160 155" //OAA
+        "unholy_lifesteal_percent"                        "175 170 165 160 155"
       }
       "06"
       {
@@ -82,13 +82,8 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "5.0"
+        "unholy_duration"                                 "6.0"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "22 24 26 28 30" //OAA
-			}
     }
   }
 }
