@@ -60,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 15 25 40 60"
+        "bonus_damage"                                    "15 20 30 45 65"
       }
       "02"
       {
@@ -80,7 +80,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_damage"                             "30 35 45 60 80"
+        "unholy_bonus_damage"                             "35 40 50 65 85"
       }
       "06"
       {
@@ -97,17 +97,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "unholy_bonus_armor"                              "4 5 6 7 8"
       }
-      "09" // tick time is 0.11 seconds
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 8 11 15 20"
+        "unholy_health_drain_per_second"                  "50 75 105 140 180"
       }
       "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 73 100 136 182"
-      }
-      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "toggle_cooldown"                                 "0.036f"
