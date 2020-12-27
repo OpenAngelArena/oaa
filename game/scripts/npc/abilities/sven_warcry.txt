@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "32 28 24 20 16 16"
+    "AbilityCooldown"                                     "32 28 24 20 18 16"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,6 +35,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movespeed"                                       "8 12 16 20 24 28"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_6"
       }
       "02"
       {
@@ -50,6 +51,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_5"
       }
     }
   }

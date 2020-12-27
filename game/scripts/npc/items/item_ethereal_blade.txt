@@ -19,7 +19,7 @@
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ethereal_blade"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_eagle;item_ghost"
     }
@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "4500"
+    "ItemCost"                                            "4300"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"

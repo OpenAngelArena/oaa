@@ -53,7 +53,7 @@ function item_greater_power_treads:OnSpellStart()
 
     local caster = self:GetCaster()
 
-    caster:CalculateStatBonus()
+    caster:CalculateStatBonus(false)
   end
 end
 

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3245"      // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35050"
+    "ItemCost"                                            "35225"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian 2;stoneskin 2"

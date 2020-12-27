@@ -7,7 +7,7 @@
   {
     "ID"                                                  "3068"      // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
@@ -15,9 +15,9 @@
     "ItemResult"                                          "item_sheepstick_4"
     "ItemRequirements"
     {
-      "01"                                                "item_rod_of_atos_3;item_upgrade_core_3"
+      "01"                                                "item_gungir_3;item_upgrade_core_3"
       "02"                                                "item_meteor_hammer_3;item_upgrade_core_3"
-      "03"                                                "item_cyclone_3;item_upgrade_core_3"
+      "03"                                                "item_wind_waker_3;item_upgrade_core_3"
     }
   }
 
@@ -45,7 +45,7 @@
 
     // Item Info---------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250"
-    "ItemCost"                                            "15725"
+    "ItemCost"                                            "19150"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 4;sheepstick 4;scythe of vyse 4"

@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8508"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34475"
+    "ItemCost"                                            "34700"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 4;lucio 4"

@@ -36,12 +36,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20 40 60 80 180 280" //OAA
+        "damage_per_second"                               "20 40 60 80 160 320" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "4 7 10 13 16 19"
+        "movement_speed"                                  "3 6 9 12 15 18"
       }
       "03"
       {
@@ -67,7 +67,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_vision"                                    "200 400 600 800 900 900"
+        "bonus_vision"                                    "200 400 600 800 900 1000"
       }
     }
   }

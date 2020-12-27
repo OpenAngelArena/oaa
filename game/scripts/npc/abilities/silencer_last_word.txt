@@ -63,7 +63,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "600"
+        "scepter_radius"                                  "650"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "0"
         "RequiresScepter"                                 "1"
       }
     }

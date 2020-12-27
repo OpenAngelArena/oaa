@@ -81,6 +81,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "knockback_distance"                              "75"
       }
+      "10" // unused?
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "7"
+      }
     }
   }
 }

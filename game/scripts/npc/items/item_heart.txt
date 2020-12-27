@@ -8,12 +8,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "113"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "400" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_heart"
     "ItemRequirements"
     {
-      "01"                                                "item_ring_of_tarrasque;item_vitality_booster;item_reaver"
+      "01"                                                "item_vitality_booster;item_reaver"
     }
   }
 
@@ -38,13 +38,12 @@
     "AbilityTextureName"                                  "custom/heart"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5400"
+    "ItemCost"                                            "4300" //OAA
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"
@@ -64,27 +63,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 1600 2000"
+        "bonus_health"                                    "400 800 1200 1600 2000" //OAA
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "50"
-      }
-      "04"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "1 1.5 2 2.5 3"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "7"
+        "health_regen_pct"                                "1.5 2 2.5 3 3.5" //OAA
       }
     }
   }

@@ -13,7 +13,7 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_distance"                                    "250"
+        "min_distance"                                    "200"
       }
       "02"
       {

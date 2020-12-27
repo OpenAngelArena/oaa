@@ -23,8 +23,8 @@
     "ItemResult"                    "item_meteor_hammer_2"
     "ItemRequirements"
     {
-      "01"                                                "item_rod_of_atos;item_upgrade_core"
-      "02"                                                "item_cyclone;item_upgrade_core"
+      "01"                                                "item_gungir;item_upgrade_core"
+      "02"                                                "item_wind_waker;item_upgrade_core"
     }
   }
 
@@ -62,7 +62,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "4225"
+    "ItemCost"                      "7650"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 2;meteor hammer 2"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

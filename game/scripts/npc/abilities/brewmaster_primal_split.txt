@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16 18 20 20 20"
+        "duration"                                        "16 18 20 22 22"
       }
       "02"
       {
@@ -47,8 +47,14 @@
       }
       "03"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_bonus_duration"                          "20"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_movementspeed"                           "100"
+        "max_charges"                                     "2"
         "RequiresScepter"                                 "1"
       }
     }

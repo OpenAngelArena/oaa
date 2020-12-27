@@ -22,12 +22,16 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "brewmaster_fire_permanent_immolation"    // Ability 1
-    "Ability2"                                            "brewmaster_drunken_brawler"    // Ability 2
+    "Ability1"                                            "brewmaster_fire_permanent_immolation"
+    "Ability2"                                            "generic_hidden"
+    "Ability3"                                            "generic_hidden"
+    "Ability4"                                            "generic_hidden"
+    "Ability5"                                            "generic_hidden"
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "36"      // Physical protection.
+    "ArmorPhysical"                                       "40"      // Physical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -53,7 +57,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "5200"    // Base health.
-    "StatusHealthRegen"                                   "40"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "28"    // Health regeneration rate.
     "StatusMana"                                          "750"   // Base mana.
     "StatusManaRegen"                                     "1.5" // Mana regeneration rate.
 

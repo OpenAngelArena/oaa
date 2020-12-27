@@ -7,15 +7,15 @@
   {
     "ID"                                                  "184"    // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "550"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ancient_janggo"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_crown;item_sobi_mask;item_wind_lace"
-      "02"                                                "item_ancient_janggo"
+      "01"                                                "item_belt_of_strength;item_robe;item_wind_lace"
+      "02"                                                "item_belt_of_strength;item_robe;item_wind_lace"
     }
   }
 
@@ -47,13 +47,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1475"
+    "ItemCost"                                            "1700"
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance;drums"
     "ItemInitialCharges"                                  "322" //OAA
     "ItemDisplayCharges"                                  "1"
-    "ItemRequiresCharges"                                 "1"
+    //"ItemRequiresCharges"                                 "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -63,17 +63,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "20 25 30 35 40"
+        "aura_movement_speed"                             "20 25 30 35 40"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "4 10 15 20 25"
+        "bonus_str"                                       "6 10 15 20 25"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.5 1.75 2.25 3.0 4.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_int"                                       "6 10 15 20 25"
       }
       "04"
       {
@@ -94,6 +94,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "1200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charges_tooltip"                                 "322" //OAA
       }
     }
   }

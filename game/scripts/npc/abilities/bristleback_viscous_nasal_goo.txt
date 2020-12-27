@@ -57,6 +57,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "armor_per_stack"                                 "1.4 1.9 2.4 2.9 3.4 4.4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_4"
       }
       "05"
       {
@@ -82,8 +83,14 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "825"
+        "radius_scepter"                                  "950"
         "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stack_limit_scepter"                             "8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback"
       }
     }
   }

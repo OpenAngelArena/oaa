@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3613"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
@@ -44,7 +44,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "12.0"
     "AbilitySharedCooldown"                               "medallion"
 
     // Item Info
@@ -96,7 +96,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "7"
+        "duration"                                        "12"
       }
     }
   }

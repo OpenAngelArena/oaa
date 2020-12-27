@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5473"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_restore"                                    "80 160 240 320 640 1280"
+        "mana_restore"                                    "100 180 260 340 680 1360"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_2"
       }
       "02"
@@ -50,7 +50,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_reduction"                              "3 4 5 6 7 8"
       }
-      "03"
+      "03" // unused?
       {
         "var_type"                                        "FIELD_FLOAT"
         "mana_leak_pct"                                   "4.5 5 5.5 6.0 7 10"

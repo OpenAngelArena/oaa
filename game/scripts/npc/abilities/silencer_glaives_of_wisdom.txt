@@ -19,6 +19,7 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "HasScepterUpgrade"                                   "1" //OAA
+    "HasShardUpgrade"                                     "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +49,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "int_steal_duration"                              "10 20 30 40 50 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range"                                   "600"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bounce_count"                            "1"
       }
     }
   }

@@ -24,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 100 125 150 175 200"
 
     "AbilityDuration"                                     "3 4 5 6 6.5 7"
 
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_bonus"                            "15"
+        "movement_speed_bonus"                            "15 16 17 18 19 20"
       }
       "02"
       {

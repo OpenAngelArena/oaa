@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Illuminate bonus damage/heal talent
+  // Illuminate bonus damage talent
   //=================================================================================================================
   "special_bonus_unique_keeper_of_the_light"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "6217"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6217"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "500" // OAA
-        "ad_linked_ability"			"keeper_of_the_light_illuminate"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "400" // OAA
+        "ad_linked_ability"                               "keeper_of_the_light_illuminate"
       }
     }
   }

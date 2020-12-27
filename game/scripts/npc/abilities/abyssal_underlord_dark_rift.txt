@@ -21,6 +21,8 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
+    "HasScepterUpgrade"                                   "1"
+
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.6"
 
@@ -32,7 +34,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125 175 225 275 325"  //OAA, for picking screen tooltip
 
-
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
@@ -40,17 +43,22 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "400" // OAA, for picking screen tooltip
       }
-      "02"
+      "02" // cast point + channel duration
       {
         "var_type"                                        "FIELD_FLOAT"
         "teleport_delay"                                  "1.5" // OAA, for picking screen tooltip
       }
-      "03" //OAA, for picking screen tooltip
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_teleport_delay"                          "0.1" // OAA, for picking screen tooltip
+      }
+      "04" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "2.0 2.25 2.5 2.75 3.0"
       }
-      "04" //OAA, for picking screen tooltip
+      "05" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "250 450 650 1250 1850"

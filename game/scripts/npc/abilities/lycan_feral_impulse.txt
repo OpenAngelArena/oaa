@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=====================================================================================================
   // Lycan: Feral Impulse
   //=================================================================================================================
@@ -18,15 +17,10 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "14 26 38 50 62 74"
         "LinkedSpecialBonus"                              "special_bonus_unique_lycan_4"
       }
-      "03"
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_hp_regen"                                  "2 6 10 14 22 30" //OAA

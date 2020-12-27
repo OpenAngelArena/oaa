@@ -19,7 +19,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "16 20 24 28 32 36"
+        "burn_damage"                                     "16 20 24 28 56 84"
       }
       "02"
       {
@@ -52,18 +52,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "ministun_duration"                               "0.6"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ministun_duration_scepter"                       "1.75"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_duration_scepter"                           "6.0"
-        "RequiresScepter"                                 "1"
       }
     }
   }

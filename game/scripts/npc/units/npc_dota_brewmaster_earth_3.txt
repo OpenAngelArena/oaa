@@ -21,13 +21,13 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"
     "Ability2"                                            "brewmaster_earth_spell_immunity"
     "Ability3"                                            "brewmaster_earth_pulverize"
-    "Ability4"                                            "brewmaster_thunder_clap"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "7" //OAA
+    "ArmorPhysical"                                       "11" //OAA
 
     // Attack
     //----------------------------------------------------------------
@@ -53,8 +53,8 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "4500" //OAA
-    "StatusHealthRegen"                                   "2"
-    "StatusMana"                                          "1000" //OAA, so he could cast Thunder Clap lvl 6 multiple times
+    "StatusHealthRegen"                                   "10" //OAA
+    "StatusMana"                                          "800" //OAA
     "StatusManaRegen"                                     "2"
 
     // Vision

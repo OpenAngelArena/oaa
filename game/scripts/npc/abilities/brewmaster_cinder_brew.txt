@@ -40,11 +40,15 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "total_damage"                                    "75 150 225 300 600 1200"
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "03"
       {

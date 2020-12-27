@@ -19,6 +19,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
@@ -70,21 +72,10 @@
       }
       "07"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_distance"                                "2000"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_speed"                                   "1500"
-      }
-      "09"
-      {
         "var_type"                                        "FIELD_INTEGER"
         "pull_distance"                                   "150"
       }
-      "10"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "basic_slow_duration"                             "0.9"

@@ -17,7 +17,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -54,12 +54,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "700"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "targets_scepter"                                 "4"
-        "RequiresScepter"                                 "1"
       }
     }
   }

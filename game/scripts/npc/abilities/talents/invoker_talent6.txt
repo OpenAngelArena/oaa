@@ -18,13 +18,13 @@
       "01"
       {
         "var_type"					"FIELD_FLOAT"
-        "value"				"1.4" //OAA
+        "value"				"1.5" //OAA
         "ad_linked_ability"			"invoker_chaos_meteor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
       }
       "02"
       {
         "var_type"					"FIELD_INTEGER"
-        "value_tooltip"				"40" //OAA
+        "value_tooltip"				"50" //OAA
         "ad_linked_ability"			"invoker_chaos_meteor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
       }
     }

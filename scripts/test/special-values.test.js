@@ -24,7 +24,7 @@ var stupidItemNames = [
 var itemsFound = {};
 var idsFound = {};
 var itemFileMap = {};
-var nextAvailableId = 8401;
+var nextAvailableId = 3500;
 var usedIDs = {};
 
 test('KV Values', function (t) {
@@ -298,6 +298,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCastPoint',
     'AbilityChannelTime',
     'AbilityCooldown',
+    'AbilityDamage',
     'AbilityDuration',
     'AbilityManaCost',
     'AbilityUnitTargetType',
@@ -451,6 +452,7 @@ var keyWhiteList = [
   'CalculateSpellDamageTooltip',
   'levelkey',
   'RequiresScepter',
+  'RequiresShard',
   'ad_linked_ability',
   'linked_ad_abilities'
 ];

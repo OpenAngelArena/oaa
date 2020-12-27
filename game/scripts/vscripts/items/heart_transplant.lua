@@ -194,7 +194,7 @@ function modifier_item_heart_transplant_debuff:OnCreated()
   local parent = self:GetParent()
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -202,7 +202,7 @@ function modifier_item_heart_transplant_debuff:OnRefresh()
   local parent = self:GetParent()
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -210,7 +210,7 @@ function modifier_item_heart_transplant_debuff:OnDestroy()
   local parent = self:GetParent()
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -247,7 +247,7 @@ function modifier_item_heart_transplant_buff:OnCreated()
   end
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 
   self:StartIntervalThink(0.5)
@@ -263,7 +263,7 @@ function modifier_item_heart_transplant_buff:OnRefresh()
   end
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -304,7 +304,7 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
   end
 
   if parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 

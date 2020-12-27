@@ -60,7 +60,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "coil_initial_damage"                             "100 200 300 600 1100" //OAA
+        "coil_initial_damage"                             "125 275 425 875 1625" //OAA
       }
       "05"
       {
@@ -92,7 +92,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration_scepter"                      "1.8 3.0 4.5 4.75 5.0" //OAA
+        "coil_stun_duration_scepter"                      "2 3.25 4.5 4.75 5.0"
         "RequiresScepter"                                 "1"
       }
     }

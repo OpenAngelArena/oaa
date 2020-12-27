@@ -11,7 +11,7 @@
     "Model"                                               "models/heroes/venomancer/venomancer_ward.vmdl"  // Model.
     "SoundSet"                                            "Hero_VenomancerWard"          // Name of sound set.
     "Level"                                               "1"
-    "ModelScale"                                          "0.8"
+    "ModelScale"                                          "1.0"
     "SelectionGroup"                                      "Venomancer_Wards"
     "UnitLabel"                                           "plaguewards"
     "wearable"                                            "684"
@@ -61,7 +61,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1075"    // Base health.
+    "StatusHealth"                                        "900"    // Base health.
     "StatusHealthRegen"                                   "0.25"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.

@@ -24,7 +24,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0.15"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -88,6 +88,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "slow_health_percentage"                          "5"
       }
+      // "11" // npm test fails when this is uncommented
+      // {
+        // "var_type"                                        "FIELD_FLOAT"
+        // "castpoint_scepter"                               "0.1"
+        // "RequiresScepter"                                 "1"
+      // }
     }
   }
 }

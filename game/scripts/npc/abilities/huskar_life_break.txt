@@ -85,7 +85,13 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "taunt_duration"                                  "2.5"
+        "taunt_duration"                                  "3.0"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range_bonus"                                "300"
         "RequiresScepter"                                 "1"
       }
     }
