@@ -91,14 +91,18 @@ end
 function modifier_item_oaa_dagon_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_int")
+    self.str = ability:GetSpecialValueFor("bonus_str")
+    self.agi = ability:GetSpecialValueFor("bonus_agi")
   end
 end
 
 function modifier_item_oaa_dagon_stacking_stats:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_int")
+    self.str = ability:GetSpecialValueFor("bonus_str")
+    self.agi = ability:GetSpecialValueFor("bonus_agi")
   end
 end
 
@@ -111,15 +115,15 @@ function modifier_item_oaa_dagon_stacking_stats:DeclareFunctions()
 end
 
 function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Strength()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
 end
 
 function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Agility()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agi")
 end
 
 function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Intellect()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 
 ---------------------------------------------------------------------------------------------------
