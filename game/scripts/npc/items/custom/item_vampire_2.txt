@@ -40,8 +40,8 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/transformation/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/vampire_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

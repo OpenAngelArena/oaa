@@ -27,7 +27,6 @@
     }
   }
 
-
   //=================================================================================================================
   // Siege Mode
   //=================================================================================================================
@@ -43,9 +42,12 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/giant_form_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "16"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "17525"
