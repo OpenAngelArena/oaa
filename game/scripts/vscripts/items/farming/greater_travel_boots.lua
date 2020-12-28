@@ -1,8 +1,7 @@
-item_greater_travel_boots = class(ItemBaseClass)
-modifier_item_greater_travel_boots = class(ModifierBaseClass)
-
 --LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+
+item_greater_travel_boots = class(ItemBaseClass)
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
   return "modifier_item_greater_travel_boots" -- "modifier_intrinsic_multiplexer"
@@ -90,7 +89,7 @@ function item_greater_travel_boots:OnSpellStart()
 end
 
 function item_greater_travel_boots:OnChannelThink (delta)
-  if not self.targetEntity:IsAlive() then
+  if not self.targetEntity:IsAlive() or self:GetCaster():IsRooted() then
     self:EndChannel(true)
   end
 end
@@ -124,6 +123,10 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
 
+---------------------------------------------------------------------------------------------------
+
+modifier_item_greater_travel_boots = class(ModifierBaseClass)
+
 function modifier_item_greater_travel_boots:IsHidden()
   return true
 end
@@ -134,10 +137,6 @@ end
 
 function modifier_item_greater_travel_boots:IsPurgable()
   return false
-end
-
-function modifier_item_greater_travel_boots:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
@@ -159,4 +158,5 @@ item_greater_travel_boots_2 = class(item_greater_travel_boots)
 item_greater_travel_boots_3 = class(item_greater_travel_boots)
 item_greater_travel_boots_4 = class(item_greater_travel_boots)
 item_greater_travel_boots_5 = class(item_greater_travel_boots)
---item_travel_origin = class(item_greater_travel_boots)
+item_travel_boots_oaa = item_greater_travel_boots
+
