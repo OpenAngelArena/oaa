@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
-  "item_recipe_bloodstone"                                "REMOVED"
-  "item_bloodstone"                                       "REMOVED"
+  "item_recipe_bloodstone"                                "REMOVE"
+  "item_bloodstone"                                       "REMOVE"
 
   //=================================================================================================================
   // Recipe: Bloodstone
@@ -10,7 +10,7 @@
   {
     "ID"                                                  "3400"
     "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
