@@ -39,6 +39,7 @@
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/satanic_core_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -106,7 +107,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
+        "duration"                                        "6.0"
       }
       "10"
       {
@@ -116,7 +117,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resist"                              "10 12 14"
+        "bonus_magic_resist"                              "22 24 26"
       }
     }
   }
