@@ -83,9 +83,9 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
     return
   end
 
-	local damage = params.damage
-	local nHeroHeal = self.hero_spell_lifesteal
-	local nCreepHeal = self.creep_spell_lifesteal
+  local damage = params.damage
+  local nHeroHeal = self.hero_spell_lifesteal
+  local nCreepHeal = self.creep_spell_lifesteal
 
   if self.unholy_hero_spell_lifesteal and self.unholy_creep_spell_lifesteal and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
     nHeroHeal = self.unholy_hero_spell_lifesteal
