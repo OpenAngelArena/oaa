@@ -84,15 +84,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "675 875 1125"
       }
-      "05" // kv name needs to be the same as in octarine core
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_lifesteal"                                  "35"
+        "hero_spell_lifesteal"                            "35"
       }
-      "06" // kv name needs to be the same as in octarine core
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "15 20 25"
+        "creep_spell_lifesteal"                           "15 20 25"
       }
       "07"
       {

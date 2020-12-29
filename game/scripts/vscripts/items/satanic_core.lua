@@ -1,5 +1,5 @@
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_octarine_vampirism_buff", "modifiers/modifier_octarine_vampirism_buff.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_satanic_core", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -14,7 +14,7 @@ end
 function item_satanic_core:GetIntrinsicModifierNames()
   return {
     "modifier_item_satanic_core",
-    "modifier_octarine_vampirism_buff"
+    "modifier_item_spell_lifesteal_oaa"
   }
 end
 
@@ -104,7 +104,7 @@ function modifier_item_satanic_core:OnTakeDamage( kv )
   if IsServer() then
     local hCaster = self:GetParent()
     -- If there is no inflictor that means damage was dealt from an attack
-    -- So this is normal lifesteal; spell lifesteal is handled in modifier_octarine_vampirism_buff
+    -- So this is normal lifesteal; spell lifesteal is handled in modifier_item_spell_lifesteal_oaa
     if not kv.inflictor and kv.attacker == hCaster then
       local heal_percent = self.lifesteal_percent;
       if hCaster:HasModifier("modifier_satanic_core_unholy") then
