@@ -37,14 +37,17 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
   local damaged_unit = params.unit
   local ability = params.inflictor
 
+  -- Check if attacker exists
   if not attacker or attacker:IsNull() then
     return
   end
 
+  -- Check if attacker has this modifier
   if attacker ~= parent then
     return
   end
 
+  -- Check if damaged entity exists
   if not damaged_unit or damaged_unit:IsNull() then
     return
   end
@@ -54,6 +57,7 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
     return
   end
 
+  -- Check if entity is an item, rune or something weird
   if damaged_unit.GetUnitName == nil then
     return
   end
@@ -87,6 +91,7 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
   local nHeroHeal = self.hero_spell_lifesteal
   local nCreepHeal = self.creep_spell_lifesteal
 
+  -- Check for Satanic Core active spell lifesteal
   if self.unholy_hero_spell_lifesteal and self.unholy_creep_spell_lifesteal and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
     nHeroHeal = self.unholy_hero_spell_lifesteal
     nCreepHeal = self.unholy_creep_spell_lifesteal
@@ -102,14 +107,22 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
   for _, mod_name in pairs(kaya_modifiers) do
     local modifier = attacker:FindModifierByName(mod_name)
     if modifier then
-      spell_lifesteal_amp = modifier:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
+      local item = modifier:GetAbility()
+      if item then
+        -- Spell Lifesteal Amp from Kaya upgrades doesn't stack
+        spell_lifesteal_amp = item:GetSpecialValueFor("spell_lifesteal_amp")
+      end
     end
   end
   local paladin_sword_modifier = attacker:FindModifierByName("modifier_item_paladin_sword")
   if paladin_sword_modifier then
-    local bonus = paladin_sword_modifier:GetAbility():GetSpecialValueFor("bonus_amp")
-    if bonus then
-      spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-bonus)
+    local paladin_sword = paladin_sword_modifier:GetAbility()
+    if paladin_sword then
+      local bonus = paladin_sword:GetSpecialValueFor("bonus_amp")
+      if bonus then
+        -- Spell Lifesteal Amp stacks multiplicatively
+        spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-bonus)
+      end
     end
   end
 
