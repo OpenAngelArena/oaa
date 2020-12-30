@@ -41,24 +41,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8565" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_force_boots"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9.0"
+    "AbilityCastRange"                                    "750"
+    "AbilityCooldown"                                     "8.0"
     "AbilitySharedCooldown"                               "force"
+
+    "AbilityManaCost"                                     "75"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "33925" //OAA
+    "ItemCost"                                            "33925"
     "ItemShopTags"                                        "move_speed"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "fb; force boots"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-    "ItemIsNeutralDrop"                                   "0" //OAA
-    "ItemPurchasable"                                     "1" //OAA
+    "ItemIsNeutralDrop"                                   "0"
+    "ItemPurchasable"                                     "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
@@ -67,15 +72,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // same as Greater Boots of Travel max level
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "160" //OAA, same as Boots of Travel max level
+        "bonus_movement_speed"                            "160"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "600"
+        "push_length"                                     "750"
       }
       "03"
       {
