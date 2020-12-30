@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Eternal Shroud 5
   //=================================================================================================================
-  "item_recipe_eternal_shroud_5"
+  "item_recipe_eternal_shroud_oaa_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,10 +20,10 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"					"1"
-    "ItemResult"                                          "item_eternal_shroud_5"
+    "ItemResult"                                          "item_eternal_shroud_oaa_5"
     "ItemRequirements"
     {
-      "01"                                                "item_eternal_shroud_4;item_upgrade_core_4"
+      "01"                                                "item_eternal_shroud_oaa_4;item_upgrade_core_4"
       "02"                                                "item_satanic_core_2;item_upgrade_core_4"
     }
   }
@@ -31,13 +31,14 @@
   //=================================================================================================================
   // Eternal Shroud 5
   //=================================================================================================================
-  "item_eternal_shroud_5"
+  "item_eternal_shroud_oaa_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3535"
-    "BaseClass"                                           "item_eternal_shroud"
+    "BaseClass"                                           "item_lua"
     "AbilityTextureName"                                  "item_eternal_shroud"
+    "ScriptFile"                                          "items/eternal_shroud.lua"
     //"AbilityTextureName"                                  "custom/eternal_shroud_5"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
@@ -89,12 +90,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "20 22 24 26 28"
+        "hero_spell_lifesteal"                            "20 22 24 26 28"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "4 6 8 10 12"
+        "creep_spell_lifesteal"                           "4 6 8 10 12"
       }
     }
   }

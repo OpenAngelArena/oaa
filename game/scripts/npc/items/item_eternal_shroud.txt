@@ -1,41 +1,48 @@
 "DOTAAbilities"
 {
+  "item_recipe_eternal_shroud"                            "REMOVE"
+  "item_eternal_shroud"                                   "REMOVE"
+
   //=================================================================================================================
   // Recipe: Eternal Shroud
   //=================================================================================================================
-  "item_recipe_eternal_shroud"
+  "item_recipe_eternal_shroud_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "691"
-    "Model"							"models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "3536"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"1100"
-    "ItemShopTags"					""
+    "ItemCost"                                            "1100"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"					"1"
-    "ItemResult"					"item_eternal_shroud"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_eternal_shroud_oaa"
     "ItemRequirements"
     {
-      "01"						"item_voodoo_mask;item_hood_of_defiance"
+      "01"                                                "item_voodoo_mask;item_hood_of_defiance"
     }
   }
 
   //=================================================================================================================
   // Eternal Shroud
   //=================================================================================================================
-  "item_eternal_shroud"
+  "item_eternal_shroud_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "692"
+    "ID"                                                  "3537"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/eternal_shroud.lua"
+    "AbilityTextureName"                                  "item_eternal_shroud"
     //"AbilityTextureName"                                  "custom/eternal_shroud_1"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -44,10 +51,10 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"60.0"
+    "AbilityCooldown"                                     "60.0"
     "AbilitySharedCooldown"                               "eternal_shroud"
 
-    "AbilityManaCost"				"50"
+    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +63,6 @@
     "ItemQuality"					"epic"
     "ItemAliases"					"eternal shroud;es"
     "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"				"1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -85,12 +91,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "20 22 24 26 28"
+        "hero_spell_lifesteal"                            "20 22 24 26 28"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "4 6 8 10 12"
+        "creep_spell_lifesteal"                           "4 6 8 10 12"
       }
     }
   }

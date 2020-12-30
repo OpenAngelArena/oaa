@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Eternal Shroud 3
   //=================================================================================================================
-  "item_recipe_eternal_shroud_3"
+  "item_recipe_eternal_shroud_oaa_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,23 +20,24 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"					"1"
-    "ItemResult"                                          "item_eternal_shroud_3"
+    "ItemResult"                                          "item_eternal_shroud_oaa_3"
     "ItemRequirements"
     {
-      "01"                                                "item_eternal_shroud_2;item_upgrade_core_2"
+      "01"                                                "item_eternal_shroud_oaa_2;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
   // Eternal Shroud 3
   //=================================================================================================================
-  "item_eternal_shroud_3"
+  "item_eternal_shroud_oaa_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3527"
-    "BaseClass"                                           "item_eternal_shroud"
+    "BaseClass"                                           "item_lua"
     "AbilityTextureName"                                  "item_eternal_shroud"
+    "ScriptFile"                                          "items/eternal_shroud.lua"
     //"AbilityTextureName"                                  "custom/eternal_shroud_3"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
@@ -88,12 +89,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "20 22 24 26 28"
+        "hero_spell_lifesteal"                            "20 22 24 26 28"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "4 6 8 10 12"
+        "creep_spell_lifesteal"                           "4 6 8 10 12"
       }
     }
   }
