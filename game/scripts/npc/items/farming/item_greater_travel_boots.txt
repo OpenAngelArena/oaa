@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_greater_travel_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_travel_boots;item_upgrade_core"
+      "01"                                                "item_travel_boots_oaa;item_upgrade_core"
       "02"                                                "item_tranquil_boots;item_upgrade_core"
       "03"                                                "item_phase_boots;item_upgrade_core"
       "04"                                                "item_power_treads;item_upgrade_core"
@@ -41,7 +41,7 @@
     "ID"                                                  "3024"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_travel_boots.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
@@ -50,7 +50,6 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30"
-
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "3.0 2.5 2.0 1.5"
 
@@ -62,11 +61,9 @@
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
-
-    //"UpgradesItems"                                     "item_greater_travel_boots;item_greater_travel_boots_2;item_greater_travel_boots_3;item_greater_travel_boots_4"
-    //"UpgradeRecipe"                                     "item_recipe_greater_travel_boots"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
