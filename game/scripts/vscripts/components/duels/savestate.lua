@@ -62,8 +62,8 @@ local function SaveState(hero)
     items = {},
     modifiers = {},
     offsidesStacks = 0,
-    hp = hero:GetHealthPercent(), -- hero:GetHealth(),
-    mana = hero:GetManaPercent(), -- hero:GetMana(),
+    hpPercent = hero:GetHealth() / hero:GetMaxHealth(),
+    manaPercent = hero:GetMana() / hero:GetMaxMana(),
     assignable = true -- basically just for clearer code
   }
 
@@ -107,9 +107,14 @@ end
 local function RestoreState(hero, state)
   SafeTeleportAll(hero, state.location, 150)
 
-  local hp = state.hp * hero:GetMaxHealth() -- this can be 0 if hero was dead during SaveState
-  if hp < 1 then hp = hero:GetMaxHealth() end -- restore to full hp if hp is 0, prevents Zeus ult abuse for example
-  local mana = state.mana * hero:GetMaxMana()
+  local hpPercent = state.hpPercent / 100 -- it can be 0% but actual HP can be above 1 (hero not dead) during SaveState
+  local hp = state.hpPercent * hero:GetMaxHealth()
+  if hp <= 0 then
+    hp = hero:GetMaxHealth() -- restore to full hp if hp is 0, prevents Zeus ult abuse for example
+  end
+
+  local mana = state.manaPercent * hero:GetMaxMana()
+
   hero:SetHealth(math.max(1, hp)) -- I left math.max just in case I forgot about some interaction to prevent SetHealth(0) aka permadeath
   hero:SetMana(mana)
 
