@@ -67,11 +67,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "teleport_delay_scepter"                          "0.1"
+        "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "cooldown_scepter"                                "40"
+        "RequiresScepter"                                 "1"
       }
     }
 

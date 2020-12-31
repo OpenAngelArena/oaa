@@ -39,8 +39,8 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/transformation/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/vampire_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "100 140"
       }
-      "03" // same as Satanic 4-5
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_status_resistance"                         "28 30"
