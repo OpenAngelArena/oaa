@@ -1,7 +1,7 @@
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_eternal_shroud_oaa", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_eternal_shroud_oaa_barrier", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_eternal_shroud_oaa", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eternal_shroud_oaa_barrier", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 
 ---------------------------------------------------------------------------------------------------
 
@@ -119,21 +119,34 @@ function modifier_eternal_shroud_oaa_barrier:DeclareFunctions()
 end
 
 function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConstant(keys)
+  local parent = self:GetParent()
   if IsClient() then
     return self.barrier_health
   else
     if keys.damage_type == DAMAGE_TYPE_MAGICAL then
-      if keys.original_damage >= self.barrier_health then
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, self:GetParent(), self.barrier_health, nil)
+      local damage = keys.original_damage
 
+      -- Don't block more than remaining barrier hp
+      local block_amount = math.min(damage, self.barrier_health)
+
+      -- Magic Block visual effect
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+
+      -- Give mana to the parent, mana amount is equal to block amount
+      parent:GiveMana(block_amount)
+
+      -- Decrease barrier HP
+      self.barrier_health = self.barrier_health - block_amount
+
+      -- Destroy the modifier if barrier hp is reduced to 0
+      if self.barrier_health <= 0 then
         self:Destroy()
-        return self.barrier_health * (-1)
-      else
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, self:GetParent(), keys.original_damage, nil)
-        self.barrier_health = self.barrier_health - keys.original_damage
-        return keys.original_damage * (-1)
       end
+
+      return block_amount * (-1)
     end
+
+    return 0
   end
 end
 
