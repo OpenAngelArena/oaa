@@ -107,7 +107,6 @@ end
 local function RestoreState(hero, state)
   SafeTeleportAll(hero, state.location, 150)
 
-  local hpPercent = state.hpPercent / 100 -- it can be 0% but actual HP can be above 1 (hero not dead) during SaveState
   local hp = state.hpPercent * hero:GetMaxHealth()
   if hp <= 0 then
     hp = hero:GetMaxHealth() -- restore to full hp if hp is 0, prevents Zeus ult abuse for example
