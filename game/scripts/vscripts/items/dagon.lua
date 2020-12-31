@@ -2,17 +2,17 @@ LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_
 LinkLuaModifier("modifier_item_oaa_dagon_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_non_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_dagon = class(ItemBaseClass)
-item_dagon_2 = item_dagon
-item_dagon_3 = item_dagon
-item_dagon_4 = item_dagon
-item_dagon_5 = item_dagon
-item_dagon_6 = item_dagon
-item_dagon_7 = item_dagon
-item_dagon_8 = item_dagon
-item_dagon_9 = item_dagon
+item_dagon_oaa = class(ItemBaseClass)
+item_dagon_oaa_2 = item_dagon_oaa
+item_dagon_oaa_3 = item_dagon_oaa
+item_dagon_oaa_4 = item_dagon_oaa
+item_dagon_oaa_5 = item_dagon_oaa
+item_dagon_oaa_6 = item_dagon_oaa
+item_dagon_oaa_7 = item_dagon_oaa
+item_dagon_oaa_8 = item_dagon_oaa
+item_dagon_oaa_9 = item_dagon_oaa
 
-function item_dagon:OnSpellStart()
+function item_dagon_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
   local level = self:GetLevel()
@@ -58,11 +58,11 @@ function item_dagon:OnSpellStart()
   })
 end
 
-function item_dagon:GetIntrinsicModifierName()
+function item_dagon_oaa:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
 
-function item_dagon:GetIntrinsicModifierNames()
+function item_dagon_oaa:GetIntrinsicModifierNames()
   return {
     "modifier_item_oaa_dagon_stacking_stats",
     "modifier_item_oaa_dagon_non_stacking_stats"
@@ -91,14 +91,18 @@ end
 function modifier_item_oaa_dagon_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_int")
+    self.str = ability:GetSpecialValueFor("bonus_str")
+    self.agi = ability:GetSpecialValueFor("bonus_agi")
   end
 end
 
 function modifier_item_oaa_dagon_stacking_stats:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_int")
+    self.str = ability:GetSpecialValueFor("bonus_str")
+    self.agi = ability:GetSpecialValueFor("bonus_agi")
   end
 end
 
@@ -111,15 +115,15 @@ function modifier_item_oaa_dagon_stacking_stats:DeclareFunctions()
 end
 
 function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Strength()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
 end
 
 function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Agility()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agi")
 end
 
 function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Intellect()
-  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 
 ---------------------------------------------------------------------------------------------------
