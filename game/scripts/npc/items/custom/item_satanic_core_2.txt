@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_core;item_upgrade_core_3"
-      "02"                                                "item_octarine_core_3;item_upgrade_core_3"
+      "02"                                                "item_eternal_shroud_oaa_3;item_upgrade_core_3"
     }
   }
 
@@ -39,8 +39,9 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/satanic_core_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35.0"
@@ -48,14 +49,13 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_satanic_core_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18475"
+    "ItemCost"                                            "16250"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 2"
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25 40 60"
+        "bonus_intelligence"                              "0"
       }
       "03"
       {
@@ -83,17 +83,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "675 875 1125"
+        "bonus_mana"                                      "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_lifesteal"                                  "35"
+        "hero_spell_lifesteal"                            "35"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "15 20 25"
+        "creep_spell_lifesteal"                           "15 20 25"
       }
       "07"
       {
@@ -108,7 +108,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
+        "duration"                                        "6.0"
       }
       "10"
       {
@@ -118,7 +118,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resist"                              "10 12 14"
+        "bonus_magic_resist"                              "22 24 26"
       }
     }
   }

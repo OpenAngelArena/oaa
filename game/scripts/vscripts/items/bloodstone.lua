@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_bloodstone_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_bloodstone_non_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_item_bloodstone_charge_collector", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_bloodstone_1 = class(ItemBaseClass)
@@ -12,7 +13,8 @@ end
 function item_bloodstone_1:GetIntrinsicModifierNames()
   return {
     "modifier_item_bloodstone_stacking_stats",
-    "modifier_item_bloodstone_non_stacking_stats"
+    "modifier_item_bloodstone_non_stacking_stats",
+    "modifier_item_spell_lifesteal_oaa"
   }
 end
 
@@ -293,7 +295,7 @@ function modifier_item_bloodstone_non_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.mana_regen_amp = ability:GetSpecialValueFor("mana_regen_multiplier")
-    self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")
+    --self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")
   end
 end
 
@@ -303,7 +305,7 @@ function modifier_item_bloodstone_non_stacking_stats:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
-    MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING -- GetModifierPercentageManacostStacking
+    --MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING -- GetModifierPercentageManacostStacking
   }
 end
 
@@ -327,13 +329,13 @@ function modifier_item_bloodstone_non_stacking_stats:GetModifierSpellAmplify_Per
   return 0
 end
 
-function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
+--function modifier_item_bloodstone_non_stacking_stats:GetModifierPercentageManacostStacking()
   --local parent = self:GetParent()
   --if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") then
-  return self.manacost_reduction or self:GetAbility():GetSpecialValueFor("manacost_reduction")
+  --return self.manacost_reduction or self:GetAbility():GetSpecialValueFor("manacost_reduction")
   --end
   --return 0
-end
+--end
 
 --------------------------------------------------------------------------
 -- aura stuff
