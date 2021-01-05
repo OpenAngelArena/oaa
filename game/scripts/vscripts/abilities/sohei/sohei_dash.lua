@@ -1,9 +1,11 @@
-sohei_dash = class( AbilityBaseClass )
+sohei_dash = class(AbilityBaseClass)
 
---LinkLuaModifier( "modifier_sohei_dash_free_turning", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
---LinkLuaModifier( "modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier("modifier_sohei_dash_free_turning", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+--LinkLuaModifier("modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_dash_movement_ally", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+
 
 ---------------------------------------------------------------------------------------------------
 
@@ -111,9 +113,9 @@ function sohei_dash:OnSpellStart()
   -- Calculate duration
   local duration = distance / speed
 
-  caster:RemoveModifierByName( "modifier_sohei_dash_movement" )
-  caster:EmitSound( "Sohei.Dash" )
-  caster:StartGesture( ACT_DOTA_RUN )
+  caster:RemoveModifierByName("modifier_sohei_dash_movement")
+  caster:EmitSound("Sohei.Dash")
+  caster:StartGesture(ACT_DOTA_RUN)
 
   caster:AddNewModifier(caster, self, "modifier_sohei_dash_movement", {
     duration = duration,
@@ -335,7 +337,7 @@ end
 ---------------------------------------------------------------------------------------------------
 
 -- Dash movement modifier
-modifier_sohei_dash_movement = class( ModifierBaseClass )
+modifier_sohei_dash_movement = class(ModifierBaseClass)
 
 function modifier_sohei_dash_movement:IsDebuff()
   return false
@@ -373,7 +375,7 @@ function modifier_sohei_dash_movement:CheckState()
 end
 
 if IsServer() then
-  function modifier_sohei_dash_movement:OnCreated( event )
+  function modifier_sohei_dash_movement:OnCreated(event)
     -- Movement parameters
     local parent = self:GetParent()
     self.start_pos = parent:GetAbsOrigin()
@@ -400,9 +402,9 @@ if IsServer() then
 
     -- Trail particle
     local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
-    ParticleManager:SetParticleControl( trail_pfx, 0, self.start_pos )
-    ParticleManager:SetParticleControl( trail_pfx, 1, end_pos )
-    ParticleManager:ReleaseParticleIndex( trail_pfx )
+    ParticleManager:SetParticleControl(trail_pfx, 0, self.start_pos)
+    ParticleManager:SetParticleControl(trail_pfx, 1, end_pos)
+    ParticleManager:ReleaseParticleIndex(trail_pfx)
   end
 
   function modifier_sohei_dash_movement:OnDestroy()
@@ -476,18 +478,18 @@ if IsServer() then
     end
   end
 
-  function modifier_sohei_dash_movement:UpdateHorizontalMotion( parent, deltaTime )
+  function modifier_sohei_dash_movement:UpdateHorizontalMotion(parent, deltaTime)
     local parentOrigin = parent:GetAbsOrigin()
 
     local tickSpeed = self.speed * deltaTime
-    tickSpeed = math.min( tickSpeed, self.distance )
+    tickSpeed = math.min(tickSpeed, self.distance)
     local tickOrigin = parentOrigin + ( tickSpeed * self.direction )
 
-    parent:SetAbsOrigin( tickOrigin )
+    parent:SetAbsOrigin(tickOrigin)
 
     self.distance = self.distance - tickSpeed
 
-    GridNav:DestroyTreesAroundPoint( tickOrigin, self.width, false )
+    GridNav:DestroyTreesAroundPoint(tickOrigin, self.width, false)
   end
 
   function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
@@ -545,9 +547,9 @@ function modifier_sohei_dash_movement_ally:OnCreated(event)
 
   -- Trail particle
   local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
-  ParticleManager:SetParticleControl( trail_pfx, 0, self.start_pos )
-  ParticleManager:SetParticleControl( trail_pfx, 1, end_pos )
-  ParticleManager:ReleaseParticleIndex( trail_pfx )
+  ParticleManager:SetParticleControl(trail_pfx, 0, self.start_pos)
+  ParticleManager:SetParticleControl(trail_pfx, 1, end_pos)
+  ParticleManager:ReleaseParticleIndex(trail_pfx)
 end
 
 function modifier_sohei_dash_movement_ally:OnDestroy()
