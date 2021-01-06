@@ -362,11 +362,12 @@ end
 function modifier_sohei_dash_movement:CheckState()
   local state = {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR] = true
+    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
   }
 
   local caster = self:GetParent()
   if caster:HasShardOAA() then
+    state[MODIFIER_STATE_NO_HEALTH_BAR] = true
     state[MODIFIER_STATE_INVULNERABLE] = true
     state[MODIFIER_STATE_MAGIC_IMMUNE] = true
   end
@@ -483,7 +484,7 @@ if IsServer() then
 
     local tickSpeed = self.speed * deltaTime
     tickSpeed = math.min(tickSpeed, self.distance)
-    local tickOrigin = parentOrigin + ( tickSpeed * self.direction )
+    local tickOrigin = parentOrigin + (tickSpeed * self.direction)
 
     parent:SetAbsOrigin(tickOrigin)
 
