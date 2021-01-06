@@ -122,6 +122,31 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
     victim:Kill(self, caster)
   end
 
+  -- Check if caster has Momentum Strike learned, if not apply regular knockback
+  local momentum_strike = caster:FindAbilityByName("sohei_momentum_strike")
+  if momentum_strike and momentum_strike:GetLevel() > 0 then
+    -- Knockback parameters
+    local distance = momentum_strike:GetSpecialValueFor("knockback_distance")/2
+    local speed = momentum_strike:GetSpecialValueFor("knockback_speed")/2
+    local duration = distance / speed
+    local collision_radius = momentum_strike:GetSpecialValueFor("collision_radius")
+
+    local direction = -victim:GetForwardVector() -- victim:GetAbsOrigin() - position_in_front_of_them
+    direction.z = 0
+    direction = direction:Normalized()
+
+    -- Apply Momentum Strike Knockback to the enemy
+    victim:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
+    victim:AddNewModifier(caster, momentum_strike, "modifier_sohei_momentum_strike_knockback", {
+      duration = duration,
+      distance = distance,
+      speed = speed,
+      collision_radius = collision_radius,
+      direction_x = direction.x,
+      direction_y = direction.y,
+    })
+  end
+
   -- Calculate damage
   local caster_str = caster:GetStrength()
   local victim_str = victim:GetStrength()
@@ -223,15 +248,4 @@ end
 
 function modifier_sohei_quivering_palm_debuff:RemoveOnDeath()
   return true
-end
-
-function modifier_sohei_quivering_palm_debuff:GetEffectName()
-  if self:GetCaster():HasModifier('modifier_arcana_dbz') then
-    return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
-  end
-  return "particles/hero/sohei/knockback.vpcf"
-end
-
-function modifier_sohei_quivering_palm_debuff:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW --PATTACH_ABSORIGIN_FOLLOW
 end
