@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_sohei_quivering_palm_passive", "abilities/sohei/sohei_
 LinkLuaModifier("modifier_sohei_quivering_palm_debuff", "abilities/sohei/sohei_quivering_palm.lua", LUA_MODIFIER_MOTION_NONE)
 
 function sohei_quivering_palm:GetIntrinsicModifierName()
-	return "modifier_sohei_quivering_palm_passive"
+  return "modifier_sohei_quivering_palm_passive"
 end
 
 function sohei_quivering_palm:OnHeroCalculateStatBonus()

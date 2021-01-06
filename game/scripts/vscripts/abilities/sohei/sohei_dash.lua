@@ -102,7 +102,7 @@ function sohei_dash:OnSpellStart()
   local distance = (target_loc - caster_loc):Length2D()
   if distance > range then
     distance = range
-	end
+  end
 
   -- Calculate speed - its based on caster's movement speed
   local move_speed = caster:GetIdealSpeed()
