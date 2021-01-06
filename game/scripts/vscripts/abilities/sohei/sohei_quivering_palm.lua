@@ -40,6 +40,7 @@ function sohei_quivering_palm:OnSpellStart()
     --print("No enemy heroes on the map")
     self:EndCooldown()
     self:StartCooldown(1)
+    self:RefundManaCost()
     return
   end
 
@@ -56,6 +57,7 @@ function sohei_quivering_palm:OnSpellStart()
     --print("No heroes with the modifier")
     self:EndCooldown()
     self:StartCooldown(1)
+    self:RefundManaCost()
     return
   end
 
@@ -101,6 +103,7 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
     --print("No valid target")
     self:EndCooldown()
     self:StartCooldown(1)
+    self:RefundManaCost()
     return
   end
 
@@ -108,6 +111,7 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
     --print("No valid target")
     self:EndCooldown()
     self:StartCooldown(1)
+    self:RefundManaCost()
     return
   end
 
@@ -219,4 +223,15 @@ end
 
 function modifier_sohei_quivering_palm_debuff:RemoveOnDeath()
   return true
+end
+
+function modifier_sohei_quivering_palm_debuff:GetEffectName()
+  if self:GetCaster():HasModifier('modifier_arcana_dbz') then
+    return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
+  end
+  return "particles/hero/sohei/knockback.vpcf"
+end
+
+function modifier_sohei_quivering_palm_debuff:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW --PATTACH_ABSORIGIN_FOLLOW
 end
