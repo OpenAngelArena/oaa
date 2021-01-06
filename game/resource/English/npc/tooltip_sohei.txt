@@ -7,7 +7,7 @@
 "DOTA_Tooltip_Ability_sohei_dash_Lore"                                          "Takuan likes manipulating his movement for good unlike others."
 "DOTA_Tooltip_Ability_sohei_dash_Note0"                                         "Can be used to traverse over cliffs or through trees."
 "DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash without the Shard."
-"dota_tooltip_ability_sohei_dash_dash_speed"                                    "DASH MAX SPEED:"
+"DOTA_Tooltip_Ability_sohei_dash_dash_speed"                                    "DASH MAX SPEED:"
 "DOTA_Tooltip_Ability_sohei_dash_dash_width"                                    "DASH WIDTH:"
 "DOTA_Tooltip_Ability_sohei_dash_damage"                                        "DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_dash_move_speed_slow_pct"                           "%MOVE SPEED SLOW:"
@@ -59,9 +59,9 @@
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_Description"                        "Sohei briefly becomes rooted and invulnerable, and after a delay attacks every enemy unit in the targeted area of effect at the same time with bonus damage. Sohei can attack, use some abilities and items while Flurry of Blows is active."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_Lore"                               "Offensive ki feature created through meditation."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note0"                              "Targets are determined after a delay."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note1"                              "Flurry of Blows' delayed attack applies attack modifiers and has True Strike."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note2"                              "Flurry of Blows' delayed attack will not work if Sohei is disarmed."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note3"                              "Flurry of Blows' delayed attack can crit if a target is affected by Momentum Strike knockback."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note1"                              "Flurry of Blows delayed attack applies attack modifiers and has True Strike."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note2"                              "Flurry of Blows delayed attack will not work if Sohei is disarmed."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note3"                              "Flurry of Blows delayed attack can crit if a target is affected by Momentum Strike knockback."
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_attacks"                        "ATTACKS:"
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_attack_interval"                    "ATTACK INTERVAL:"
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"                       "MAX DURATION:"
@@ -77,7 +77,7 @@
 
 "DOTA_Tooltip_Ability_sohei_quivering_palm"                                     "Quivering Palm"
 "DOTA_Tooltip_Ability_sohei_quivering_palm_description"                         "When activated, last attacked hero by Sohei will be damaged based on the difference between the hero's strength and Sohei's. Can only affect heroes attacked in the last %max_duration% seconds. If there is no valid target, cooldown is reduced to 1 second."
-"DOTA_Tooltip_Ability_sohei_quivering_palm_Lore"                                "Takuan sets up lethal vibrations in someone’s body."
+"DOTA_Tooltip_Ability_sohei_quivering_palm_Lore"                                "Takuan sets up lethal vibrations in someone's body."
 "DOTA_Tooltip_Ability_sohei_quivering_palm_base_damage"                         "BASE DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                 "STRENGTH DIFFERENCE DAMAGE MULTIPLIER:"
 
@@ -114,4 +114,3 @@
 
 "DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback"                  "Wholeness of Body Knockback"
 "DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback_Description"      "Whenever Wholeness of Body is applied, push all nearby enemies with Momentum Strike knockback."
-
