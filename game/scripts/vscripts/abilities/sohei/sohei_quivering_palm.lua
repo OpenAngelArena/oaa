@@ -37,7 +37,8 @@ function sohei_quivering_palm:OnSpellStart()
   )
 
   if #heroes < 1 then
-    print("No enemy heroes on the map")
+    --print("No enemy heroes on the map")
+    self:EndCooldown()
     self:StartCooldown(1)
     return
   end
@@ -52,7 +53,8 @@ function sohei_quivering_palm:OnSpellStart()
   end
 
   if #heroes_with_modifier < 1 then
-    print("No heroes with the modifier")
+    --print("No heroes with the modifier")
+    self:EndCooldown()
     self:StartCooldown(1)
     return
   end
@@ -96,13 +98,15 @@ end
 
 function sohei_quivering_palm:QuiveringPalmEffect(victim)
   if not victim then
-    print("No valid target")
+    --print("No valid target")
+    self:EndCooldown()
     self:StartCooldown(1)
     return
   end
 
   if not victim:IsHero() then
-    print("No valid target")
+    --print("No valid target")
+    self:EndCooldown()
     self:StartCooldown(1)
     return
   end
