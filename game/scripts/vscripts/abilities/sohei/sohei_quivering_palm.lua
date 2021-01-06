@@ -117,9 +117,13 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
 
   local caster = self:GetCaster()
 
+  -- Sound
+  victim:EmitSound("Sohei.QuiveringPalm")
+
   -- Kill illusions
   if victim:IsIllusion() then
     victim:Kill(self, caster)
+    return
   end
 
   -- Check if caster has Momentum Strike learned, if not apply regular knockback
