@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5500"
+    "ItemCost"                                            "5610"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -72,17 +72,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "2 10 20 30 40"
+        "bonus_health_regen"                              "2 5 8 11 14"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "50 200 700 1200 1700"
+        "bonus_health"                                    "150 400 900 1650 2650"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "4 10 15 20 25"
+        "bonus_all_stats"                                 "0"
       }
       "04"
       {
