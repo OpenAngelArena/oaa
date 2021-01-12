@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6811"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6811"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,15 +17,15 @@
     {
       "01"
       {
-        "var_type"					"FIELD_FLOAT"
-        "value"				"1.5" //OAA
-        "ad_linked_ability"			"invoker_chaos_meteor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "1.5" //OAA
+        "ad_linked_ability"                               "invoker_chaos_meteor_ad"
       }
       "02"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value_tooltip"				"50" //OAA
-        "ad_linked_ability"			"invoker_chaos_meteor"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+        "var_type"                                        "FIELD_INTEGER"
+        "value_tooltip"                                   "50" //OAA
+        "ad_linked_ability"                               "invoker_chaos_meteor_ad"
       }
     }
   }
