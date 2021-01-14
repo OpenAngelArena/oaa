@@ -75,33 +75,33 @@
     {
       "01"
       {
-        "var_type"				"FIELD_INTEGER"
-        "bonus_movement_speed"	"30 35 40 45 50" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "30 35 40 45 50"
       }
       "02"
       {
-        "var_type"				"FIELD_FLOAT"
-        "bonus_mana_regen"		"6.0 6.25 6.75 7.5 8.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "6.0 6.25 6.75 7.5 8.5"
       }
       "03"
       {
-        "var_type"				"FIELD_INTEGER"
-        "bonus_intellect"		"35 50 70 95 125"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "35 45 60 80 105"
       }
       "04"
       {
-        "var_type"				"FIELD_FLOAT"
-        "cyclone_duration"		"2.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "cyclone_duration"                                "2.5"
       }
       "05"
       {
-        "var_type"				"FIELD_INTEGER"
-        "tooltip_drop_damage"	"50"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_drop_damage"                             "50"
       }
       "06"
       {
-        "var_type"				"FIELD_INTEGER"
-        "tornado_speed"	"360"
+        "var_type"                                        "FIELD_INTEGER"
+        "tornado_speed"                                   "360"
       }
     }
   }
