@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Mage Slayer
+  //=================================================================================================================
+  "item_recipe_mage_slayer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "597"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "600"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_mage_slayer"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_cloak;item_blade_of_alacrity;item_claymore"
+    }
+  }
+
+  //=================================================================================================================
+  // Mage Slayer
+  //=================================================================================================================
+  "item_mage_slayer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "598"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //"AbilityTextureName"                                  "custom/mage_slayer_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3400"
+    "ItemShopTags"                                        "agi;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "mage slayer 1;ms 1"
+
+    "ItemBaseLevel"                                       "1"
+    "MaxUpgradeLevel"                                     "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "20 22 24 26 28"
+      }
+      "02" // unused
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor_illusion"                    "20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "20 30 45 65 90"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 40 70 110 160"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp_debuff"                                "35 36 38 41 45"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4"
+      }
+    }
+  }
+}
