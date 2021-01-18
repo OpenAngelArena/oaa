@@ -41,6 +41,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/dagger_of_moriah_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -96,7 +97,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "bonus_mana_regen"                                "3.0 4.0"
       }
-	  "07"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "spell_amp_per_intellect"                         "0.08"

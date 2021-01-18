@@ -28,15 +28,16 @@
   //=================================================================================================================
   "item_sonic"
   {
-    "ID"                    "8514"
-    "BaseClass"             "item_lua"
-    "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"    "custom/sonic_2"
-    "AbilitySharedCooldown" "sonic"
-    "ScriptFile"            "items/transformation/sonic.lua"
+    "ID"                                                  "8514"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/transformation/sonic.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/sonic_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "16"
+    "AbilitySharedCooldown"                               "sonic"
     "AbilityCastPoint"      "0.0"
 
     "MaxUpgradeLevel"       "2"

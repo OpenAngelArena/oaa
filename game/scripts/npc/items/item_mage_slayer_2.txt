@@ -1,0 +1,92 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Mage Slayer 2
+  //=================================================================================================================
+  "item_recipe_mage_slayer_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3546"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_mage_slayer_2"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_mage_slayer;item_upgrade_core"
+      "02"                                                "item_diffusal_blade;item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Mage Slayer 2
+  //=================================================================================================================
+  "item_mage_slayer_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3547"
+    "BaseClass"                                           "item_mage_slayer"
+    "AbilityTextureName"                                  "item_mage_slayer"
+    //"AbilityTextureName"                                  "custom/mage_slayer_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4650"
+    "ItemShopTags"                                        "agi;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "mage slayer 2;ms 2"
+
+    "ItemBaseLevel"                                       "2"
+    "MaxUpgradeLevel"                                     "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "20 22 24 26 28"
+      }
+      "02" // unused
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor_illusion"                    "20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "20 30 45 65 90"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 40 70 110 160"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_amp_debuff"                                "35 36 38 41 45"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4"
+      }
+    }
+  }
+}

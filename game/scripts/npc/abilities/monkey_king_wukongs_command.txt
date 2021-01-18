@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 110 90 80 70"
+    "AbilityCooldown"                                     "110 100 90 80 70" //OAA
     "AbilityDuration"                                     "13.0"
 
     // Cost
@@ -107,7 +107,7 @@
       "14"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_spawn_interval"                          "3.5"
+        "scepter_spawn_interval"                          "4"
         "RequiresScepter"                                 "1"
       }
       "15"

@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_armlet_5"
   {
-
     "ID"                                                  "3862"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
@@ -89,7 +88,7 @@
       "07" // 0.1 hp regen per STR
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_strength"                           "25 35 50 70 100"
+        "unholy_bonus_strength"                           "25 35 50 70 95"
       }
       "08"
       {

@@ -209,6 +209,10 @@ if CDOTA_BaseNPC then
   function CDOTA_BaseNPC:IsOAABoss()
     return self:HasModifier("modifier_boss_resistance")
   end
+
+  function CDOTA_BaseNPC:HasShardOAA()
+    return self:HasModifier("modifier_item_aghanims_shard")
+  end
 end
 
 -- On Client:
@@ -229,5 +233,9 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsOAABoss()
     return self:HasModifier("modifier_boss_resistance")
+  end
+
+  function C_DOTA_BaseNPC:HasShardOAA()
+    return self:HasModifier("modifier_item_aghanims_shard")
   end
 end

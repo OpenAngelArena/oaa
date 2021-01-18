@@ -221,7 +221,7 @@ if IsServer() then
     -- Disruptor Field: npc_dota_thinker - modifier_disruptor_kinetic_field_thinker - duration: 3.80
 
     -- Check for phantom (thinkers) blockers (Fissure (modifier_earthshaker_fissure), Ice Shards (modifier_tusk_ice_shard) etc.)
-    local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, self.collision_radius)
+    local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
     for _, thinker in pairs(thinkers) do
       if thinker and thinker:IsPhantomBlocker() then
         self:SlowAndStun(parent, caster, ability)
@@ -240,7 +240,7 @@ if IsServer() then
     end
 
     -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
-    if GridNav:IsNearbyTree(tickOrigin, self.collision_radius, false) then
+    if GridNav:IsNearbyTree(tickOrigin, 120, false) then
       self:SlowAndStun(parent, caster, ability)
       GridNav:DestroyTreesAroundPoint(tickOrigin, self.collision_radius, false)
       self:Destroy()
@@ -248,7 +248,7 @@ if IsServer() then
     end
 
     -- Check for buildings (requires buildings lua library, otherwise it will return an error)
-    if #FindAllBuildingsInRadius(tickOrigin, self.collision_radius) > 0 or #FindCustomBuildingsInRadius(tickOrigin, self.collision_radius) > 0 then
+    if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
       self:SlowAndStun(parent, caster, ability)
       self:Destroy()
       return
@@ -260,7 +260,7 @@ if IsServer() then
         caster:GetTeamNumber(),
         tickOrigin,
         nil,
-        self.collision_radius,
+        parent:GetPaddedCollisionRadius(),
         DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_HERO,
         bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE),

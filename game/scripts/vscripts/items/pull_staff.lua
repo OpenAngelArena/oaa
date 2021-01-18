@@ -25,8 +25,8 @@ function item_pull_staff:CastFilterResultTarget(target)
   }
   for _, modifier in pairs(forbidden_modifiers) do
     if target:HasModifier(modifier) then
-	  return UF_FAIL_CUSTOM
-	end
+      return UF_FAIL_CUSTOM
+    end
   end
 
   return defaultFilterResult

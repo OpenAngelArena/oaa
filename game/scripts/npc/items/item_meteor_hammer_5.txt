@@ -76,27 +76,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 25 45 70 100"
+        "bonus_intellect"                                 "35 45 60 80 105"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 25 45 70 100"
+        "bonus_strength"                                  "12 22 42 72 112"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 25 40 60"
+        "bonus_agility"                                   "12 17 27 42 62"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.5 10.5 14.5 18.5 22.5"
+        "bonus_health_regen"                              "6 9 12 15 18"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 5.25 5.75 6.5 7.5"
+        "bonus_mana_regen"                                "6.0 6.25 6.75 7.5 8.5"
       }
       "06"
       {
@@ -136,12 +136,12 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_boss"                              "150 300 450 600 750"
+        "impact_damage_boss"                              "150 350 550 750 950"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "150 300 450 600 750"
+        "impact_damage"                                   "150 350 550 750 950"
       }
     }
     "precache"
