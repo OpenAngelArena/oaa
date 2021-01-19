@@ -220,7 +220,7 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
   -- someone else died or owner is reincarnating
   if caster ~= dead or caster:IsReincarnating() then
     -- Dead unit is an actually dead real enemy hero unit
-    if caster:GetTeamNumber() ~= dead:GetTeamNumber() and dead:IsRealHero() and not dead:IsTempestDouble() and not dead:IsReincarnating() then
+    if caster:GetTeamNumber() ~= dead:GetTeamNumber() and dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) then
       -- Charge gain
 
       local function IsItemBloodstone(item)

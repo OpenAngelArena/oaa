@@ -113,9 +113,15 @@ function HeroKillGold:HeroDeathHandler (keys)
   if killerTeam == killedTeam then
     return
   end
-  if killedHero:IsReincarnating() then
+
+  if killedHero:IsClone() then
+    killedHero = killedHero:GetCloneSource()
+  end
+
+  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() then
     return
   end
+
   if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
     return
   end

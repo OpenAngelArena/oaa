@@ -331,7 +331,7 @@ function FindHeroesInRadius (...)
   local units = FindUnitsInRadius(...)
 
   local function isHero (hero)
-    if hero.IsRealHero and hero:IsRealHero() and not hero:IsTempestDouble() then
+    if hero.IsRealHero and hero:IsRealHero() and not hero:IsTempestDouble() and not hero:IsClone() then
       return true
     end
     return false
