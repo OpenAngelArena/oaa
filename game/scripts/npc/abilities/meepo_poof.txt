@@ -9,24 +9,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5431"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY" // Goal is to make poof a target ability with a 300-400ish cast range.
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.0 1.0 1.0 1.0 0.75 0.5" //OAA
+    "AbilityCastPoint"                                    "1.5 1.5 1.5 1.5 1.0 0.75"
     "AbilityChannelTime"                                  "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 6 6" //OAA
+    "AbilityCooldown"                                     "12 10 8 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 80 80 80 120 200" //OAA
+    "AbilityManaCost"                                     "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,9 +41,9 @@
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "poof_damage"       "70 90 110 130 260 490" //OAA
-        "LinkedSpecialBonus"    "special_bonus_unique_meepo_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "poof_damage"                                     "70 90 110 130 260 390"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_2"
       }
     }
   }

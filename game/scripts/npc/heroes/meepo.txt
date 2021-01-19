@@ -4,20 +4,9 @@
   // HERO: Meepo
   //=================================================================================================================
   "npc_dota_hero_meepo"
-
-
   {
-    "Ability6"    "meepo_divided_we_stand_oaa" // replaces meepo ult
-	"Ability10"   "special_bonus_unique_meepo_2"
-	"Ability11"	  "special_bonus_attack_damage_15"
-	"Ability12"   "special_bonus_lifesteal_20"	
-	"Ability13"   "special_bonus_movement_speed_25"	
-	"Ability14"   "special_bonus_cleave_35"
-	"Ability15"   "special_bonus_hp_325"
-	"Ability16"   "special_bonus_attack_speed_100"
-	"AttributeStrengthGain"     "2.8"
-	"AttributeAgilityGain"      "2.8"
-	"AttributeIntelligenceGain" "2.6"
-
+    //"Ability1"                                            "meepo_earthbind_oaa" // replaces meepo_earthbind
+    "Ability5"                                            "meepo_divided_we_stand" // replaces generic_hidden
+    "Ability6"                                            "meepo_divided_we_stand_oaa" // replaces meepo_divided_we_stand
   }
 }

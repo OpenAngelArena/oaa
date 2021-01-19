@@ -1,46 +1,45 @@
 "DOTAAbilities"
-
 {
+  //=================================================================================================================
+  // Meepo: Divided We Stand (OAA version, main meepo and each clone has damage reduction aura that stacks with itself)
+  //=================================================================================================================
+  "meepo_divided_we_stand_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85433"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_divided_we_stand.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"                                  "meepo_divided_we_stand"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-//=================================================================================================================
-// Meepo: Divided We Stand 
-//=================================================================================================================
-	"meepo_divided_we_stand_oaa"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"											  "ability_lua"
-		"ScriptFile"										  "abilities/oaa_divided_we_stand.lua"
-		"AbilityBehavior"									  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"										  "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityTextureName"                                  "meepo_divided_we_stand"
-		"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-			
-		"MaxLevel" 					"5"
-		"LevelsBetweenUpgrades"		"7"
-		"RequiredLevel"			"4"
+    "MaxLevel"                                            "5"
+    "LevelsBetweenUpgrades"                               "7"
+    "RequiredLevel"                                       "4"
 
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type" 										"FIELD_INTEGER"
-				"bonus_dmg_reduction_pct" 						"4 6 8 10 12"
-			}
-			"02"
-			{
-				"var_type" 										"FIELD_INTEGER"
-				"bonus_cd_reduction"			 				"5 6 7 8 9"
-			}	
-			"03"
-			{
-				"var_type"                                        "FIELD_INTEGER"
-				"aura_radius"                                     "600"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_clones"                                  "1 2 3 3 3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_dmg_reduction_pct"                         "4 6 8 10 12"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "600"
+      }
+    }
+  }
 }
