@@ -26,15 +26,15 @@ function onQueryChange () {
 }
 
 function onGoldChange (table, data) {
-  var unit = Players.GetLocalPlayerPortraitUnit();
-  var localPlayerID = Game.GetLocalPlayerID();
-  var playerID = Entities.GetPlayerOwnerID(unit);
+  let unit = Players.GetLocalPlayerPortraitUnit();
+  let localPlayerID = Game.GetLocalPlayerID();
+  let playerID = Entities.GetPlayerOwnerID(unit);
 
   if (playerID === -1 || Entities.GetTeamNumber(unit) !== Players.GetTeam(localPlayerID)) {
     playerID = localPlayerID;
   }
 
-  var gold = data.gold[playerID];
+  let gold = data.gold[playerID];
 
   UpdateGoldHud(gold);
   UpdateGoldTooltip(gold);
