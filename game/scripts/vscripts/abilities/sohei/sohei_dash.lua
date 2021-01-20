@@ -436,7 +436,7 @@ if IsServer() then
     -- Dash with Shard heals allies
     if parent:HasShardOAA() then
       local do_sound = false
-      local allies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+      local allies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)
       for _,ally in pairs(allies) do
         if ally and not ally:IsNull() and ally ~= parent then
           do_sound = true
