@@ -16,6 +16,7 @@ end
 CustomNetTables:SetTableValue("info", "mode", { value = mode })
 CustomNetTables:SetTableValue("info", "datetime", { value = GetSystemDate() .. " " .. GetSystemTime() })
 
+require('libraries/gamerules')
 require('internal/vconsole')
 require('internal/eventwrapper')
 require('internal/util')
