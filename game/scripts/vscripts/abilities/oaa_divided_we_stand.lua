@@ -5,10 +5,6 @@ LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_bonus_buff", "abilities/oaa
 
 meepo_divided_we_stand_oaa = class(AbilityBaseClass)
 
-function meepo_divided_we_stand_oaa:Spawn()
-  self:RefreshMeepos()
-end
-
 function meepo_divided_we_stand_oaa:GetIntrinsicModifierName()
   return "modifier_meepo_divided_we_stand_oaa_bonus_buff"
 end
@@ -66,54 +62,54 @@ function meepo_divided_we_stand_oaa:OnUpgrade()
 
   -- Max level for vanilla ability is 3 -> check if its 3 already, if yes don't continue
   if vanilla_ability:GetLevel() == 3  or ability_level >= 4 then
-    --self:RefreshMeepos()
+    self:RefreshMeepos(caster)
     return
   end
 
   vanilla_ability:SetLevel(ability_level)
 
-  --self:RefreshMeepos()
+  self:RefreshMeepos(caster)
 end
 
-function meepo_divided_we_stand_oaa:RefreshMeepos()
+function meepo_divided_we_stand_oaa:RefreshMeepos(caster)
   if not IsServer() then
     return
   end
   
-  local caster = self:GetCaster()
-  -- Find ally heroes everywhere
-  local heroes = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
-    nil,
-    FIND_UNITS_EVERYWHERE,
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
+  local ability = self
 
-  -- Find all meepos (clones and meepo prime)
-  local meepos = {}
-  for _, hero in pairs(heroes) do
-    if hero and not hero:IsNull() then
-      if hero:GetUnitName() == "npc_dota_hero_meepo" and not hero:IsIllusion() then
-        table.insert(meepos, hero)
+  Timers:CreateTimer(0.5, function()
+    -- Find ally heroes everywhere
+    local heroes = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      caster:GetAbsOrigin(),
+      nil,
+      FIND_UNITS_EVERYWHERE,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    -- Find all meepos (clones and meepo prime)
+    local meepos = {}
+    for _, hero in pairs(heroes) do
+      if hero and not hero:IsNull() then
+        if hero:GetUnitName() == "npc_dota_hero_meepo" and not hero:IsIllusion() then
+          table.insert(meepos, hero)
+        end
       end
     end
-  end
 
-  for _, meepo in pairs(meepos) do
-    if meepo and not meepo:IsNull() then
-      local buff = meepo:FindModifierByName("modifier_meepo_divided_we_stand_oaa_bonus_buff")
-      if buff then
-        buff:ForceRefresh()
-      else
-        meepo:AddNewModifier(caster, self, "modifier_meepo_divided_we_stand_oaa_bonus_buff", {})
+    -- Adding the modifier to refresh
+    for _, meepo in pairs(meepos) do
+      if meepo and not meepo:IsNull() then
+        meepo:AddNewModifier(caster, ability, "modifier_meepo_divided_we_stand_oaa_bonus_buff", {})
       end
-	end
-  end
+    end
+
+  end)
 end
 
 ---------------------------------------------------------------------------------------------------
