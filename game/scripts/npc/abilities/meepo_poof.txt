@@ -14,10 +14,12 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.5"
+    "AbilityCastPoint"                                    "1.5 1.5 1.5 1.5 1.0 0.75"
     "AbilityChannelTime"                                  "0.0"
 
     // Time
@@ -39,9 +41,9 @@
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "poof_damage"       "70 90 110 130 240 400"
-        "LinkedSpecialBonus"    "special_bonus_unique_meepo_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "poof_damage"                                     "70 90 110 130 260 390"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_2"
       }
     }
   }

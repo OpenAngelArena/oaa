@@ -11,6 +11,12 @@ function RespawnManager:OnHeroKilled(keys)
   if killer then
     killerTeam = killer:GetTeam()
   end
+
+  -- For Meepo when a clone dies and not a primary meepo
+  if killed:IsClone() then
+    killed = killed:GetCloneSource()
+  end
+
   local respawnTime = RESPAWN_TIME_TABLE[killed:GetLevel()]
 
 

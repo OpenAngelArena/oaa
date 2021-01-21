@@ -59,7 +59,11 @@ function HeroKillXP:HeroDeathHandler(keys)
     return
   end
 
-  if killedHero:IsReincarnating() then
+  if killedHero:IsClone() then
+    killedHero = killedHero:GetCloneSource()
+  end
+
+  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() then
     return
   end
 
