@@ -2,7 +2,6 @@
 {
   "consumables"
   {
-    "item"                                                "item_tpscroll"
     "item"                                                "item_clarity"
     "item"                                                "item_faerie_fire"
     "item"                                                "item_smoke_of_deceit"
@@ -13,26 +12,35 @@
     "item"                                                "item_dust"
     "item"                                                "item_gem"
     "item"                                                "item_ring_of_basilius"
-    "item"                                                "item_magic_stick"
+    "item"                                                "item_magic_wand"
     "item"                                                "item_null_talisman"
     "item"                                                "item_wraith_band"
     "item"                                                "item_bracer"
+    "item"                                                "item_aghanims_shard"
   }
 
   "attributes"
   {
     "item"                                                "item_branches"
+
     "item"                                                "item_gauntlets"
     "item"                                                "item_slippers"
     "item"                                                "item_mantle"
+
     "item"                                                "item_circlet"
+
     "item"                                                "item_belt_of_strength"
     "item"                                                "item_boots_of_elves"
     "item"                                                "item_robe"
+
     "item"                                                "item_crown"
+
     "item"                                                "item_ogre_axe"
     "item"                                                "item_blade_of_alacrity"
     "item"                                                "item_staff_of_wizardry"
+
+    "item"                                                "item_ultimate_orb"
+
     "item"                                                "item_reaver"
     "item"                                                "item_eagle"
     "item"                                                "item_mystic_staff"
@@ -40,8 +48,8 @@
 
   "weapons_armor"
   {
-    "item"                                                "item_ring_of_protection"
     "item"                                                "item_quelling_blade"
+    "item"                                                "item_ring_of_protection"
     "item"                                                "item_infused_raindrop"
     "item"                                                "item_orb_of_venom"
     "item"                                                "item_blight_stone"
@@ -59,13 +67,12 @@
 
   "misc"
   {
-    "item"                                                "item_magic_wand"
-    "item"                                                "item_wind_lace"
     "item"                                                "item_ring_of_regen"
     "item"                                                "item_sobi_mask"
-    "item"                                                "item_boots"
+    "item"                                                "item_fluffy_hat"
+    "item"                                                "item_wind_lace"
     "item"                                                "item_cloak"
-    "item"                                                "item_ring_of_tarrasque"
+    "item"                                                "item_boots"
     "item"                                                "item_ring_of_health"
     "item"                                                "item_void_stone"
     "item"                                                "item_lifesteal"
@@ -73,7 +80,6 @@
     "item"                                                "item_shadow_amulet"
     "item"                                                "item_ghost"
     "item"                                                "item_blink"
-    //"item"                                                ""
   }
 
   "secretshop"
@@ -128,12 +134,13 @@
     "item"                                                "item_silver_staff"
     "item"                                                "item_pipe"
     "item"                                                "item_glimmer_cape_2"
-    //"item"                                                ""
+    "item"                                                "item_eternal_shroud"
+    "item"                                                "item_satanic_core"
     "item"                                                "item_pull_staff"
     "item"                                                "item_solar_crest"
     "item"                                                "item_necronomicon"
+//    "item"                                                "item_far_sight"
     "item"                                                "item_holy_locket"
-    //"item"                                                ""
   }
 
   "magics"
@@ -143,16 +150,16 @@
     "item"                                                "item_dagon"
     "item"                                                "item_bloodstone_1"
     "item"                                                "item_sacred_skull"
-    "item"                                                "item_aether_lens"
     "item"                                                "item_cyclone"
     "item"                                                "item_rod_of_atos"
+    "item"                                                "item_gungir"
+    "item"                                                "item_wind_waker"
     "item"                                                "item_meteor_hammer_2"
     "item"                                                "item_sheepstick_4"
-    "item"                                                "item_allied_cyclone_4"
     "item"                                                "item_octarine_core"
-    "item"                                                "item_satanic_core"
     "item"                                                "item_refresher_4"
     "item"                                                "item_ethereal_blade"
+    "item"                                                "item_ghost_king_bar"
   }
 
   "defense"
@@ -171,7 +178,6 @@
     "item"                                                "item_reflection_shard_1"
     "item"                                                "item_aeon_disk_2"
     "item"                                                "item_magic_lamp_1"
-    "item"                                                "item_ghost_king_bar"
   }
 
   "weapons"
@@ -189,8 +195,8 @@
     "item"                                                "item_heavens_halberd"
     "item"                                                "item_havoc_hammer_1"
     "item"                                                "item_silver_edge"
+    "item"                                                "item_witch_blade"
     "item"                                                "item_rapier"
-    //"item"                                                ""
   }
 
   "artifacts"
@@ -198,6 +204,7 @@
     "item"                                                "item_hurricane_pike"
     "item"                                                "item_giant_form"
     "item"                                                "item_diffusal_blade"
+    "item"                                                "item_mage_slayer"
     "item"                                                "item_butterfly"
     "item"                                                "item_skadi"
     "item"                                                "item_abyssal_blade_3"
