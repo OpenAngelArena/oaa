@@ -7,3 +7,7 @@
 function CDOTAGamerules:GetMaxTeamPlayers()
   return sum(map(partial(self.GetCustomGameTeamMaxPlayers, self), range(DOTA_TEAM_FIRST, DOTA_TEAM_CUSTOM_MAX)))
 end
+
+function CDOTAGamerules:GetMatchID()
+  return self:Script_GetMatchID()
+end

@@ -1,5 +1,7 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
+'use strict';
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     SelectHero: SelectHero,
@@ -267,7 +269,7 @@ function onPlayerStatChange (table, key, data) {
         });
       }
       Object.keys(data).forEach(function (nkey) {
-        var currentplayer = FindDotaHudElement(data[nkey].steamid);
+        let currentplayer = FindDotaHudElement(data[nkey].steamid);
         currentplayer.heroname = data[nkey].selectedhero;
         currentplayer.RemoveClass('PreviewHero');
 
@@ -595,7 +597,7 @@ function ReloadCMStatus (data) {
     return;
   }
   // reset all data for people, who lost it
-  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  let teamID = Players.GetTeam(Game.GetLocalPlayerID());
   stepsCompleted = {
     2: 0,
     3: 0
@@ -742,8 +744,8 @@ function UpdateBottlePassArcana (heroName) {
   }
   $('#ArcanaPanel').SetHasClass('HasArcana', true);
 
-  var selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
-  var selectedArcana = 'DefaultSet';
+  let selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
+  let selectedArcana = 'DefaultSet';
 
   if (selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined) {
     selectedArcana = selectedArcanas[playerID.toString()][heroName];
@@ -807,7 +809,7 @@ function UpdateBottlePassArcana (heroName) {
 function SelectArcana () {
   var arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
-    var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+    let selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
 
     var id = 'Scene' + ~~(Math.random() * 100);
     var preview = FindDotaHudElement('HeroPreview');
@@ -875,12 +877,12 @@ function CreateBottleRadioElement (id, isChecked) {
 }
 
 function SelectBottle () {
-  var bottleId = 0;
-  var btn = $('#Bottle0');
+  let bottleId = 0;
+  let btn = $('#Bottle0');
   if (btn != null) {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
-  var data = {
+  let data = {
     BottleId: bottleId
   };
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());

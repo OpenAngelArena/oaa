@@ -1,24 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Mass Serpent Ward
+  // Shadow Shaman: Mass Serpent Ward (OAA rework)
   //=================================================================================================================
-  "shadow_shaman_mass_serpent_ward"
+  "shadow_shaman_mass_serpent_ward_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5081"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "ID"                                                  "85081"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_shadow_shaman_mass_serpent_ward.lua"
+    "AbilityTextureName"                                  "shadow_shaman_mass_serpent_ward"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +30,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60" //OAA
+    "AbilityCooldown"                                     "60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +48,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_tooltip"                                  "60 160 260 460 860" //OAA
+        "damage_tooltip"                                  "60 160 260 460 860"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
         "CalculateSpellDamageTooltip"                     "0"
       }

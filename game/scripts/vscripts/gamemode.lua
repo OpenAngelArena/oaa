@@ -51,8 +51,6 @@ require('libraries/playerresource')
 require('libraries/basenpc')
 -- Extensions to CDOTA_BaseNPC_Hero
 require('libraries/basehero')
--- extension functions to GameRules
-require('libraries/gamerules')
 -- Pseudo-random distribution C constant calculator
 require('libraries/cfinder')
 -- Library for handling buildings (OAA custom or DOTA original)
