@@ -76,19 +76,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "splash_damage_percent"                           "75 75 75 115 115"
-		"LinkedSpecialBonus"			                  "special_bonus_unique_dragon_knight_6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_6"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -60"
-		"LinkedSpecialBonus"			                  "special_bonus_unique_dragon_knight_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "frost_bonus_attack_speed"                        "-40 -40 -40 -80 -80"
-		"LinkedSpecialBonus"			                  "special_bonus_unique_dragon_knight_5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "11"
       {
@@ -110,12 +110,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "model_scale"                                     "0 0 0 30 30"
       }
-      "15"
+      "15" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "rage_chance"                                     "40"
       }
-      "16"
+      "16" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "rage_duration"                                   "2.0"
