@@ -75,7 +75,7 @@ function meepo_divided_we_stand_oaa:RefreshMeepos(caster)
   if not IsServer() then
     return
   end
-  
+
   local ability = self
 
   Timers:CreateTimer(0.5, function()
@@ -404,7 +404,7 @@ end
 function modifier_meepo_divided_we_stand_oaa_bonus_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    --MODIFIER_PROPERTY_TOOLTIP,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
@@ -412,6 +412,6 @@ function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierIncomingDamag
   return -self.total_dmg_reduction
 end
 
---function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnTooltip()
-  --return self:GetStackCount()
---end
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnTooltip()
+  return self:GetStackCount()
+end
