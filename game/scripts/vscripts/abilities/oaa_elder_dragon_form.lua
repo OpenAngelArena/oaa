@@ -50,7 +50,7 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   else
     ability = self
   end
-  
+
   if level >= 5 and caster:HasScepter() then
     duration = -1
   end
