@@ -37,7 +37,23 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local level = self:GetLevel()
   local duration = self:GetSpecialValueFor("duration")
-  local ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form") or self
+  local ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
+
+  if ability then
+    if level >= 4 then
+      if caster:HasScepter() then
+        ability:SetLevel(3)
+      else
+        ability:SetLevel(4)
+      end
+    end
+  else
+    ability = self
+  end
+  
+  if level >= 5 and caster:HasScepter() then
+    duration = -1
+  end
 
   -- apply the standard dragon form modifier ( for movespeed and the model change )
   caster:AddNewModifier( caster, ability, "modifier_dragon_knight_dragon_form", { duration = duration, } )
@@ -84,54 +100,6 @@ function dragon_knight_elder_dragon_form_oaa:OnUpgrade()
   end
 
   vanilla_ability:SetLevel(ability_level)
-end
-
---[[ -- not needed because we do this in OnIntervalThink
-function dragon_knight_elder_dragon_form_oaa:OnHeroCalculateStatBonus()
-  if not IsServer() then
-    return
-  end
-
-  local caster = self:GetCaster()
-  if self:GetLevel() >= 5 and caster:HasScepter() then
-    self:PermanentDragonForm(caster)
-  end
-end
-]]
-
-function dragon_knight_elder_dragon_form_oaa:PermanentDragonForm(unit)
-  if not IsServer() then
-    return
-  end
-
-  local caster = unit
-  if not caster then
-    caster = self:GetCaster()
-  end
-
-  local vanilla_ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
-
-  -- Check if vanilla_ability exists; For Example: Dragon Form will not exist when stolen by Rubick
-  if not vanilla_ability then
-    return
-  end
-
-  local modifier = caster:FindModifierByName("modifier_dragon_knight_dragon_form")
-
-  -- Check if permanent dragon form is already applied, if yes, don't do it again
-  if modifier then
-    -- Dragon Form is applied, checking duration:
-    if modifier:GetDuration() == -1 then
-      -- Permanent Dragon Form is already applied -> don't do anything
-      return
-    end
-  end
-
-  caster:AddNewModifier(caster, vanilla_ability, "modifier_dragon_knight_dragon_form", {})
-  caster:AddNewModifier(caster, vanilla_ability, "modifier_dragon_knight_corrosive_breath", {})
-  caster:AddNewModifier(caster, vanilla_ability, "modifier_dragon_knight_splash_attack", {})
-  caster:AddNewModifier(caster, vanilla_ability, "modifier_dragon_knight_frost_breath", {})
-  caster:AddNewModifier(caster, self, "modifier_dragon_knight_max_level_oaa", {})
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -192,20 +160,27 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
   end
 
   if ability:GetLevel() >= 5 then
+    local modifier = parent:FindModifierByName("modifier_dragon_knight_dragon_form")
     if parent:HasScepter() then
-      ability:PermanentDragonForm(parent)
+      if not modifier then
+        ability:OnSpellStart()
+      else
+        if modifier:GetDuration() ~= -1 then
+          ability:OnSpellStart()
+        end
+      end
     else
       -- Parent doesn't have scepter -> indirectly check if parent dropped/sold his scepter
       -- by checking if has dragon form modifiers and by checking modifier durations
-      local modifier = parent:FindModifierByName("modifier_dragon_knight_dragon_form")
       if not modifier then
         -- Modifier doesn't exist and parent doesn't have scepter -> don't do anything
         return
-      end
-      if modifier:GetDuration() == -1 then
-        -- Duration of the modifier is -1 (infinite) but parent doesn't have scepter
-        -- Reapply Dragon Form modifiers to give them normal duration
-        ability:OnSpellStart()
+      else
+        if modifier:GetDuration() == -1 then
+          -- Duration of the modifier is -1 (infinite) but parent doesn't have scepter
+          -- Reapply Dragon Form modifiers to give them normal duration
+          ability:OnSpellStart()
+        end
       end
     end
   end
@@ -215,7 +190,6 @@ end
 function modifier_dragon_knight_elder_dragon_form_oaa:DeclareFunctions()
   local funcs = {
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
-    --MODIFIER_EVENT_ON_RESPAWN,
   }
 
   return funcs
@@ -272,21 +246,6 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnAttackLanded(event)
 end
 ]]
 
---[[ -- not needed because we do this in OnIntervalThink
-function modifier_dragon_knight_elder_dragon_form_oaa:OnRespawn(event)
-  if not IsServer() then
-    return
-  end
-
-  local parent = self:GetParent()
-  local ability = self:GetAbility() or parent:FindAbilityByName("dragon_knight_elder_dragon_form_oaa")
-
-  if event.unit == parent and ability:GetLevel() >= 5 and parent:HasScepter() then
-    ability:PermanentDragonForm(parent)
-  end
-end
-]]
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_dragon_knight_max_level_oaa = class(ModifierBaseClass)
@@ -304,7 +263,7 @@ function modifier_dragon_knight_max_level_oaa:IsPurgable()
 end
 
 function modifier_dragon_knight_max_level_oaa:RemoveOnDeath()
-	return true
+  return true
 end
 
 function modifier_dragon_knight_max_level_oaa:DeclareFunctions()
