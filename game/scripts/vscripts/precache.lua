@@ -19,7 +19,9 @@ g_ItemPrecache = {
   "item_trumps_fists",
   "item_vampire",
   --"item_greater_tranquil_boots",
-  "item_dagon",
+  --"item_travel_boots_oaa",
+  "item_dagon_oaa",
+  --"item_eternal_shroud_oaa",
 }
 
 g_UnitPrecache = {
