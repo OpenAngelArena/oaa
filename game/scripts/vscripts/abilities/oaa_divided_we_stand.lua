@@ -485,7 +485,15 @@ function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnIntervalThink()
     end
   else
     for _, boots in pairs(custom_boots) do
-      parent:RemoveItemByName(boots)
+      for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local item = parent:GetItemInSlot(item_slot)
+        if item then
+          if item:GetAbilityName() == boots then
+            parent:RemoveItem(item)
+			break
+          end
+        end
+      end
     end
   end
 
