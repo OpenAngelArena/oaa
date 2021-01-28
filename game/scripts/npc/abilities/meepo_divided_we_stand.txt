@@ -46,6 +46,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_respawn"                                 "20"
       }
+      "06" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_dmg_reduction_pct"                         "3 5 7 10 13"
+      }
     }
   }
 }
