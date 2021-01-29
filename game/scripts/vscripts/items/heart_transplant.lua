@@ -342,8 +342,7 @@ end
 
 function modifier_item_heart_transplant_buff:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()
-  local parentHasHeart = parent:HasModifier("modifier_item_heart")
-  if self.regen and not parent:IsIllusion() and not parentHasHeart then
+  if self.regen and not parent:IsIllusion() then
     return self.regen
   end
 
