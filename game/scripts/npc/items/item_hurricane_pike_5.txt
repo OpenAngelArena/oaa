@@ -24,7 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_hurricane_pike_4;item_upgrade_core_4"
-      "02"                                                "item_giant_form;item_upgrade_core_4"
+      "02"                                                "item_siege_mode;item_upgrade_core_4"
     }
   }
 
@@ -74,7 +74,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "2.5 5 10 15 30"
+        "bonus_health_regen"                              "2.5 6 9 12 15"
       }
       "03"
       {
