@@ -38,7 +38,7 @@ function modifier_item_giant_form_passive:OnCreated()
   if ability and not ability:IsNull() then
     self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_damage = ability::GetSpecialValueFor("bonus_damage")
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   end
 end
 
@@ -47,7 +47,7 @@ function modifier_item_giant_form_passive:OnRefresh()
   if ability and not ability:IsNull() then
     self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_damage = ability::GetSpecialValueFor("bonus_damage")
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   end
 end
 
@@ -109,7 +109,8 @@ end
 function modifier_item_giant_form_grow:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
+    --MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
@@ -125,8 +126,24 @@ function modifier_item_giant_form_grow:GetModifierModelScale()
   return self.scale or 50
 end
 
-function modifier_item_giant_form_grow:GetModifierAttackSpeedReductionPercentage()
-  return self.atkSpeed or 50
+--function modifier_item_giant_form_grow:GetModifierAttackSpeedReductionPercentage()
+  --return 50
+--end
+
+function modifier_item_giant_form_grow:GetModifierAttackSpeedBonus_Constant()
+  if not IsServer() then
+    return 0
+  end
+
+  local parent = self:GetParent()
+  if self.checkAttackSpeed then
+    return 0
+  else
+    self.checkAttackSpeed = true
+    local attack_speed = parent:GetAttackSpeed() * 100
+    self.checkAttackSpeed = false
+    return -attack_speed*0.01*self.atkSpeed
+  end
 end
 
 function modifier_item_giant_form_grow:OnAttackLanded(event)
@@ -210,21 +227,21 @@ function modifier_item_giant_form_grow:OnAttackLanded(event)
   damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
   damage_table.ability = ability
   damage_table.damage = actual_damage
-  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
-
-  -- iterate through all targets
-  for _, unit in pairs(units) do
-    if unit and not unit:IsNull() then
-      damage_table.victim = unit
-      ApplyDamage(damage_table)
-    end
-  end
-
+  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+  
   -- Show particle only if damage is above zero and only if there are units nearby
   if actual_damage > 0 and #units > 0 then
     local particle = ParticleManager:CreateParticle("particles/items/powertreads_splash.vpcf", PATTACH_POINT, target)
     ParticleManager:SetParticleControl(particle, 5, Vector(1, 0, splash_radius))
     ParticleManager:ReleaseParticleIndex(particle)
+  end
+
+  -- iterate through all targets
+  for k, unit in pairs(units) do
+    if unit and not unit:IsNull() then
+      damage_table.victim = unit
+      ApplyDamage(damage_table)
+    end
   end
 
   -- sound

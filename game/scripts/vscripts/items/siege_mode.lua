@@ -256,6 +256,7 @@ function modifier_item_siege_mode_active:OnDestroy()
   local parent = self:GetParent()
 
   if self.parentWasRanged then
+    parent:ChangeAttackProjectile()
     return
   end
 
@@ -316,11 +317,11 @@ function modifier_item_siege_mode_active:GetModifierMoveSpeed_Absolute()
 end
 
 function modifier_item_siege_mode_active:GetModifierProjectileSpeedBonus()
-  if not IsServer() then
+  local parent = self:GetParent()
+  if not IsServer() or parent:HasModifier("modifier_item_princes_knife") then
     return 0
   end
 
-  local parent = self:GetParent()
   if self.checkProjectileSpeed then
     return 0
   else
@@ -439,10 +440,10 @@ function modifier_item_siege_mode_active:OnAttackLanded(event)
   damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
   damage_table.ability = ability
   damage_table.damage = actual_damage
-  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
 
   -- iterate through all targets
-  for _, unit in pairs(units) do
+  for k, unit in pairs(units) do
     if unit and not unit:IsNull() then
       damage_table.victim = unit
       ApplyDamage(damage_table)
