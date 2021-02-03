@@ -3,6 +3,7 @@ item_greater_tranquil_boots = class(ItemBaseClass)
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_tranquilize_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -349,12 +350,17 @@ modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranq
 function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
   }
   return funcs
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBonus_Constant()
   return self.attack_slow
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:GetModifierProvidesFOWVision()
+  return 1
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:GetEffectName()

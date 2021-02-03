@@ -53,10 +53,11 @@ function item_bubble_orb_1:OnSpellStart()
       center_z = targetPoint.z,
       duration = 0.5,
       knockback_duration = 0.5,
+      knockback_distance = radius,
     }
   for _, enemy in pairs(enemies) do
-    if enemy and and not enemy:IsNull() then
-      modifierKnockback.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
+    if enemy and not enemy:IsNull() then
+      --modifierKnockback.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
       enemy:AddNewModifier(caster, self, "modifier_knockback", modifierKnockback)
     end
   end
@@ -75,7 +76,7 @@ function item_bubble_orb_1:OnSpellStart()
   )
 
   for _, ally in pairs(allies) do
-    if ally and and not ally:IsNull() then
+    if ally and not ally:IsNull() then
       ally:Purge(false, true, false, true, true)
     end
   end
