@@ -35,9 +35,21 @@ end
 
 modifier_elixier_hybrid_active = class(ModifierBaseClass)
 
-function modifier_elixier_hybrid_active:IsHidden() return false end
-function modifier_elixier_hybrid_active:IsPurgable() return false end
-function modifier_elixier_hybrid_active:IsDebuff() return false end
+function modifier_elixier_hybrid_active:IsHidden()
+  return false
+end
+
+function modifier_elixier_hybrid_active:IsPurgable()
+  return false
+end
+
+function modifier_elixier_hybrid_active:IsDebuff()
+  return false
+end
+
+function modifier_elixier_hybrid_active:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_hybrid_active:GetEffectName()
   return "particles/items/elixiers/elixier_hybrid_lesser.vpcf"
@@ -54,7 +66,6 @@ end
 function modifier_elixier_hybrid_active:OnCreated()
   if IsServer() then
     self.regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
-    --self.damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
     self:SetStackCount(self.regen)
   end
 end
@@ -83,9 +94,21 @@ end
 
 modifier_elixier_hybrid_trigger = class(ModifierBaseClass)
 
-function modifier_elixier_hybrid_trigger:IsHidden() return false end
-function modifier_elixier_hybrid_trigger:IsPurgable() return false end
-function modifier_elixier_hybrid_trigger:IsDebuff() return false end
+function modifier_elixier_hybrid_trigger:IsHidden()
+  return false
+end
+
+function modifier_elixier_hybrid_trigger:IsPurgable()
+  return false
+end
+
+function modifier_elixier_hybrid_trigger:IsDebuff()
+  return false
+end
+
+function modifier_elixier_hybrid_trigger:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_hybrid_trigger:GetEffectName()
   return "particles/items/elixiers/elixier_hybrid.vpcf"
@@ -100,9 +123,13 @@ function modifier_elixier_hybrid_trigger:GetTexture()
 end
 
 function modifier_elixier_hybrid_trigger:OnCreated(keys)
-  if IsServer() then
-    self.magic_damage = self:GetAbility():GetSpecialValueFor("bonus_magic_damage")
-    self.physical_damage = self:GetAbility():GetSpecialValueFor("bonus_physical_damage")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.magic_damage = ability:GetSpecialValueFor("bonus_magic_damage")
+    self.physical_damage = ability:GetSpecialValueFor("bonus_physical_damage")
+  else
+    self.magic_damage = 200
+    self.physical_damage = 300
   end
 end
 

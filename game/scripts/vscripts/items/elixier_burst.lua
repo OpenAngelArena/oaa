@@ -36,9 +36,21 @@ end
 
 modifier_elixier_burst_active = class(ModifierBaseClass)
 
-function modifier_elixier_burst_active:IsHidden() return false end
-function modifier_elixier_burst_active:IsPurgable() return false end
-function modifier_elixier_burst_active:IsDebuff() return false end
+function modifier_elixier_burst_active:IsHidden()
+  return false
+end
+
+function modifier_elixier_burst_active:IsPurgable()
+  return false
+end
+
+function modifier_elixier_burst_active:IsDebuff()
+  return false
+end
+
+function modifier_elixier_burst_active:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_burst_active:GetEffectName()
   return "particles/items/elixiers/elixier_burst_lesser.vpcf"
@@ -73,9 +85,21 @@ end
 
 modifier_elixier_burst_trigger = class(ModifierBaseClass)
 
-function modifier_elixier_burst_trigger:IsHidden() return false end
-function modifier_elixier_burst_trigger:IsPurgable() return false end
-function modifier_elixier_burst_trigger:IsDebuff() return false end
+function modifier_elixier_burst_trigger:IsHidden()
+  return false
+end
+
+function modifier_elixier_burst_trigger:IsPurgable()
+  return false
+end
+
+function modifier_elixier_burst_trigger:IsDebuff()
+  return false
+end
+
+function modifier_elixier_burst_trigger:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_burst_trigger:GetTexture()
   return "custom/elixier_burst_2"
