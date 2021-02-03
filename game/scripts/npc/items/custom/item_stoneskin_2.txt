@@ -89,24 +89,39 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_armor"                                     "75 90"
+        "heal_amp"                                        "25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_magic_resist"                              "20"
+        "lifesteal_amp"                                   "25"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_status_resist"                             "30"
+        "spell_lifesteal_amp"                             "25"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_block_chance"                              "50"
+        "stone_armor"                                     "75 90"
       }
       "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_magic_resist"                              "20"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_status_resist"                             "30"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_block_chance"                              "50"
+      }
+      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"

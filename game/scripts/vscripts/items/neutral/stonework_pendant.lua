@@ -167,7 +167,13 @@ function modifier_item_stonework_pendant_passive:OnTakeDamage(event)
     "modifier_item_yasha_and_kaya",
     "modifier_item_kaya_and_sange",
   }
+
+  local custom_modifiers = {
+    "modifier_item_stoneskin",
+  }
+
   local spell_lifesteal_amp = 0
+
   for _, mod_name in pairs(kaya_modifiers) do
     local modifier = attacker:FindModifierByName(mod_name)
     if modifier then
@@ -175,6 +181,17 @@ function modifier_item_stonework_pendant_passive:OnTakeDamage(event)
       if item then
         -- Spell Lifesteal Amp from Kaya upgrades doesn't stack
         spell_lifesteal_amp = item:GetSpecialValueFor("spell_lifesteal_amp")
+      end
+    end
+  end
+
+  for _, mod_name in pairs(custom_modifiers) do
+    local modifier = attacker:FindModifierByName(mod_name)
+    if modifier then
+      local ability = modifier:GetAbility()
+      if ability then
+        -- Spell Lifesteal Amp stacks multiplicatively
+        spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-ability:GetSpecialValueFor("spell_lifesteal_amp"))
       end
     end
   end
