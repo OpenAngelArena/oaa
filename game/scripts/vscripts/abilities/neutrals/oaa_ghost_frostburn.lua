@@ -77,8 +77,8 @@ function modifier_frostburn_oaa_effect:OnCreated()
     self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
     self.attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
   else
-    self.heal_prevent_percent = -35
-    self.attack_slow = -35
+    self.heal_prevent_percent = -25
+    self.attack_slow = -25
   end
   --self.duration = self:GetDuration()
   --self.health_fraction = 0
@@ -90,8 +90,8 @@ function modifier_frostburn_oaa_effect:OnRefresh()
     self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
     self.attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
   else
-    self.heal_prevent_percent = -35
-    self.attack_slow = -35
+    self.heal_prevent_percent = -25
+    self.attack_slow = -25
   end
 end
 
