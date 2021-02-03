@@ -77,7 +77,7 @@ function modifier_item_reactive_reflect:OnDestroy()
       ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
       self.nPreviewFX = nil
     end
-    for _,ability in pairs(parent.stored_reflected_spells) do
+    for _, ability in pairs(parent.stored_reflected_spells) do
       -- If this ability is not having active modifiers and its not channeling it can be removed
       if ability and not ability:IsNull() then
         if ability:NumModifiersUsingAbility() == 0 and not ability:IsChanneling() then
@@ -124,13 +124,6 @@ end
 function modifier_item_reactive_reflect:GetReflectSpell(kv)
   if IsServer() then
     local parent = self:GetParent()
-    parent:EmitSound("Hero_Antimage.Counterspell.Target")
-
-    local burst = ParticleManager:CreateParticle( "particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, parent)
-    Timers:CreateTimer(1.5, function()
-      ParticleManager:DestroyParticle( burst, false )
-      ParticleManager:ReleaseParticleIndex(burst)
-    end)
 
     local ability_name = kv.ability:GetAbilityName()
     local target = kv.ability:GetCaster()
@@ -199,6 +192,16 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
         end
       end
     end
+
+    -- Reflect Sound
+    parent:EmitSound("Hero_Antimage.Counterspell.Target")
+
+    -- Reflect particle
+    local burst = ParticleManager:CreateParticle("particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, parent)
+    Timers:CreateTimer(1.5, function()
+      ParticleManager:DestroyParticle(burst, false)
+      ParticleManager:ReleaseParticleIndex(burst)
+    end)
 
     local reflect_ability
     local parent_ability
