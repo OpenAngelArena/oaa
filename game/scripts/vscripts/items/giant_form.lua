@@ -228,7 +228,7 @@ function modifier_item_giant_form_grow:OnAttackLanded(event)
   damage_table.ability = ability
   damage_table.damage = actual_damage
   damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-  
+
   -- Show particle only if damage is above zero and only if there are units nearby
   if actual_damage > 0 and #units > 0 then
     local particle = ParticleManager:CreateParticle("particles/items/powertreads_splash.vpcf", PATTACH_POINT, target)

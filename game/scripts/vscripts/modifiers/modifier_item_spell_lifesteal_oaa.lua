@@ -35,7 +35,7 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
   local parent = self:GetParent()
   local attacker = params.attacker
   local damaged_unit = params.unit
-  local ability = params.inflictor
+  local inflictor = params.inflictor
 
   -- Check if attacker exists
   if not attacker or attacker:IsNull() then
@@ -68,7 +68,7 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
   end
 
   -- If there is no inflictor, damage is not dealt by a spell or item
-  if not ability or ability:IsNull() then
+  if not inflictor or inflictor:IsNull() then
     return
   end
 
