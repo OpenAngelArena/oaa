@@ -194,15 +194,13 @@ end
 
 function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   --HEALTH
-  local currentHealthMissing = creepHandle:GetMaxHealth() - creepHandle:GetHealth()
-  local targetHealth = creepProperties[HEALTH_ENUM]
+  local intendedMaxHealth = creepProperties[HEALTH_ENUM]
+  local currentHealthPercent = creepHandle:GetHealth() / creepHandle:GetMaxHealth()
+  local missingHealth = creepHandle:GetMaxHealth() - creepHandle:GetHealth()
+  local targetHealth = math.max(1, currentHealthPercent * intendedMaxHealth, intendedMaxHealth - missingHealth)
 
-  if currentHealthMissing > 0 then
-    targetHealth = math.max(1, creepProperties[HEALTH_ENUM] - currentHealthMissing)
-  end
-
-  creepHandle:SetBaseMaxHealth(math.ceil(creepProperties[HEALTH_ENUM]))
-  creepHandle:SetMaxHealth(math.ceil(creepProperties[HEALTH_ENUM]))
+  creepHandle:SetBaseMaxHealth(math.ceil(intendedMaxHealth))
+  creepHandle:SetMaxHealth(math.ceil(intendedMaxHealth))
   creepHandle:SetHealth(math.ceil(targetHealth))
 
   --MANA
