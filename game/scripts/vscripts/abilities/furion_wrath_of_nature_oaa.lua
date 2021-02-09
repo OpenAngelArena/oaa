@@ -246,7 +246,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
     local increase_per_bounce = (max_duration - min_duration) / number_of_bounces
     local root_duration = math.min(min_duration + increase_per_bounce * nTargetsHit, max_duration)
     local actual_duration = hTarget:GetValueChangedByStatusResistance(root_duration)
-    print("[WRATH OF NATURE OAA] Root duration is: "..actual_duration)
+    --print("[WRATH OF NATURE OAA] Root duration is: "..actual_duration)
 
     -- Apply root
     hTarget:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_scepter_root_oaa", {duration = actual_duration})
