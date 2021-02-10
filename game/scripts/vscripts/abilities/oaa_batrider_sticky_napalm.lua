@@ -113,7 +113,7 @@ end
 ]]
 
 function modifier_batrider_sticky_napalm_oaa_passive:OnOrder(event)
-	local parent = self:GetParent()
+  local parent = self:GetParent()
   if not IsServer() or event.unit ~= parent then
     return
   end
@@ -219,7 +219,7 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
   end
 
   local debuff = damaged_unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", caster)
-  
+
   -- Damaged unit has the debuff but not the same caster
   if not debuff or debuff:IsNull() then
     return
@@ -251,7 +251,7 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
   end
 
   -- Damage particle
-  local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, parent)
+  local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, caster)
   ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
 
   -- Apply damage
