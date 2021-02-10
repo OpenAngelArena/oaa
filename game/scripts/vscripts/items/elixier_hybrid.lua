@@ -155,13 +155,14 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
     -- Don't proc on damage from attacks (we use OnAttackLanded for that);
     -- it also prevents procing on itself (prevents infinite loop)
     -- because source of proc damage is nil
-    if not event.inflictor then
+    local inflictor = event.inflictor
+    if not inflictor then
       return
     end
 
     -- Don't proc on Sticky Napalm because Sticky Napalm procs on any damage
     -- it prevents infinite damage loop (proc on damage proc)
-    if event.inflictor:GetName() == "batrider_sticky_napalm" then
+    if inflictor:GetName() == "batrider_sticky_napalm" or inflictor:GetName() == "batrider_sticky_napalm_oaa" then
       return
     end
 
