@@ -1,7 +1,7 @@
 batrider_sticky_napalm_oaa = class(AbilityBaseClass)
 
-LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_passive", "abilities/oaa_batrider_sticky_napalm_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_debuff", "abilities/oaa_batrider_sticky_napalm_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_passive", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_debuff", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 
 --[[
 function batrider_sticky_napalm_oaa:Precache(context)
@@ -88,7 +88,7 @@ end
 function modifier_batrider_sticky_napalm_oaa_passive:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
-    MODIFIER_PROPERTY_DISABLE_TURNING,
+    --MODIFIER_PROPERTY_DISABLE_TURNING,
     MODIFIER_EVENT_ON_ORDER,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
@@ -103,12 +103,14 @@ function modifier_batrider_sticky_napalm_oaa_passive:GetModifierIgnoreCastAngle(
   return 1
 end
 
+--[[
 function modifier_batrider_sticky_napalm_oaa_passive:GetModifierDisableTurning()
   if not IsServer() or self.bActive == false then
     return
   end
   return 1
 end
+]]
 
 function modifier_batrider_sticky_napalm_oaa_passive:OnOrder(event)
 	local parent = self:GetParent()
@@ -148,6 +150,11 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
     return
   end
 
+  -- Don't continue if attacker is an illusion
+  if attacker:IsIllusion() then
+    return
+  end
+
   -- Don't continue if damaged_unit is deleted or he is about to be deleted
   if not damaged_unit or damaged_unit:IsNull() then
     return
@@ -180,8 +187,16 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
     ["item_orb_of_venom"] = true,
     ["item_orb_of_corrosion"] = true,
     ["item_radiance"] = true,
+    ["item_radiance_2"] = true,
+    ["item_radiance_3"] = true,
+    ["item_radiance_4"] = true,
+    ["item_radiance_5"] = true,
     ["item_urn_of_shadows"] = true,
     ["item_spirit_vessel"] = true,
+    ["item_spirit_vessel_2"] = true,
+    ["item_spirit_vessel_3"] = true,
+    ["item_spirit_vessel_4"] = true,
+    ["item_spirit_vessel_5"] = true,
     ["item_cloak_of_flames"] = true,
     ["item_trumps_fists"] = true,
     ["item_trumps_fists_2"] = true,
@@ -189,9 +204,10 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
     ["item_silver_staff_2"] = true,
   }
 
-  if inflictor then
-    print("Inflictor is: "..inflictor:GetName())
-  end
+  -- For debugging
+  --if inflictor then
+    --print("Inflictor is: "..inflictor:GetName())
+  --end
 
   if inflictor and non_trigger_inflictors[inflictor:GetName()] then
     return
@@ -203,6 +219,12 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
   end
 
   local debuff = damaged_unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", caster)
+  
+  -- Damaged unit has the debuff but not the same caster
+  if not debuff or debuff:IsNull() then
+    return
+  end
+
   local stack_count = debuff:GetStackCount()
 
   local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
