@@ -17,7 +17,7 @@ function lycan_feral_movement_oaa:OnHeroCalculateStatBonus()
     end
   else
     self:SetHidden(true)
-    self:SetLevel(0)
+    --self:SetLevel(0)
   end
 end
 
