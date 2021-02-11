@@ -46,7 +46,7 @@
 
     "AbilitySharedCooldown"         "nullify"
     "AbilityCooldown"       "11.0"
-    "AbilityCastRange"      "600 700 800 900 1000" //OAA
+    "AbilityCastRange"      "500 600 700 800 900" //OAA
     "AbilityManaCost"       "75"
 
     // Spicy Parameters
@@ -76,7 +76,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mute_duration"                                   "5.0"
+        "mute_duration"                                   "4.0 4.25 4.5 4.75 5.0" //OAA
       }
       "05"
       {

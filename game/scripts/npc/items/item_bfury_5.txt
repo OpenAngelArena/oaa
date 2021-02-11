@@ -18,6 +18,7 @@
       "01"                                                "item_bfury_4;item_upgrade_core_4"
       "02"                                                "item_desolator_4;item_upgrade_core_4"
       "03"                                                "item_devastator_4;item_upgrade_core_4"
+      "04"                                                "item_giant_form;item_upgrade_core_4"
     }
   }
 
@@ -62,7 +63,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "7.5 14.0 20.0 25.0 32.0"
+        "bonus_health_regen"                              "7.5 11 14 17 20"
       }
       "03"
       {

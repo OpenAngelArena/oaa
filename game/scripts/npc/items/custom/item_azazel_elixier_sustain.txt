@@ -46,7 +46,7 @@
     "AbilityCastRange"                      "0"
     "AbilityCastPoint"                      "0.0"
     "AbilitySharedCooldown"                 "elixier"
-    "AbilityCooldown"                       "60.0"
+    "AbilityCooldown"                       "1.0"
     "AbilityManaCost"                       "0"
 
     // Item Info
@@ -92,7 +92,7 @@
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_duration"                    "60"
+        "bonus_duration"                    "180"
       }
     }
   }

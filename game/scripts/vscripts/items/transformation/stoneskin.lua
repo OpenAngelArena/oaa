@@ -37,6 +37,9 @@ function modifier_item_stoneskin:OnCreated()
     self.int = ability:GetSpecialValueFor("bonus_intellect")
     self.armor = ability:GetSpecialValueFor("bonus_armor")
     self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    self.lifesteal_amp = ability:GetSpecialValueFor("lifesteal_amp")
+    self.heal_amp = ability:GetSpecialValueFor("heal_amp")
+    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
   end
 end
 
@@ -46,6 +49,9 @@ function modifier_item_stoneskin:OnRefresh()
     self.int = ability:GetSpecialValueFor("bonus_intellect")
     self.armor = ability:GetSpecialValueFor("bonus_armor")
     self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    self.lifesteal_amp = ability:GetSpecialValueFor("lifesteal_amp")
+    self.heal_amp = ability:GetSpecialValueFor("heal_amp")
+    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
   end
 end
 
@@ -54,6 +60,9 @@ function modifier_item_stoneskin:DeclareFunctions()
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -67,6 +76,18 @@ end
 
 function modifier_item_stoneskin:GetModifierHPRegenAmplify_Percentage()
   return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+function modifier_item_stoneskin:GetModifierHealAmplify_PercentageTarget()
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
+end
+
+function modifier_item_stoneskin:GetModifierLifestealRegenAmplify_Percentage()
+  return self.lifesteal_amp or self:GetAbility():GetSpecialValueFor("lifesteal_amp")
+end
+
+function modifier_item_stoneskin:GetModifierSpellLifestealRegenAmplify_Percentage()
+  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 end
 
 -- function modifier_item_stoneskin:OnStackCountChanged(numOldStacks)

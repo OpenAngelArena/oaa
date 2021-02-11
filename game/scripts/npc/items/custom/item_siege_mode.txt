@@ -1,72 +1,73 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Giant Form 2
+  // Recipe: Siege Mode
   //=================================================================================================================
-  "item_recipe_giant_form_2"
+  "item_recipe_siege_mode"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3347"
+    "ID"                                                  "3554"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_giant_form_2"
+    "ItemResult"                                          "item_siege_mode"
     "ItemRequirements"
     {
-      "01"                                                "item_giant_form;item_upgrade_core_4"
-      "02"                                                "item_desolator_4;item_upgrade_core_4"
-      "03"                                                "item_bfury_4;item_upgrade_core_4"
-      "04"                                                "item_devastator_4;item_upgrade_core_4"
+      "01"                                                "item_hurricane_pike_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Giant Form 2
+  // Siege Mode
   //=================================================================================================================
-  "item_giant_form_2"
+  "item_siege_mode"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3349"
+    "ID"                                                  "3555"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/giant_form.lua"
+    "ScriptFile"                                          "items/siege_mode.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityTextureName"                                  "custom/giant_form_2"
+    "AbilityTextureName"                                  "custom/siege_mode_1"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "75"
-    "AbilityCooldown"                                     "16"
+    "AbilityManaCost"                                     "0"
+    "AbilityCooldown"                                     "1.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36500"
+    "ItemCost"                                            "17525"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "giant form;giant"
+    "ItemAliases"                                         "siege mode;siege gun;siege"
+
     "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_siege_mode"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/items/powertreads_splash.vpcf"
+      "particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
+      "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
+      "particle"                                          "particles/base_attacks/ranged_tower_bad.vpcf"
     }
 
     // Special
@@ -76,47 +77,72 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "180 260"
+        "bonus_agility"                                   "50 70"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 40"
+        "bonus_strength"                                  "45 65"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "17 20"
+        "bonus_intellect"                                 "43 63"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_attack_damage"                             "300"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "12 15"
       }
-      "05"
+      "05" // ranged only
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_attack_speed_reduction"                    "50"
+        "bonus_attack_range"                              "170 180"
       }
-      "06"
+      "06" // ranged only (melee heroes become ranged)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_splash_radius"                             "700"
+        "siege_attack_range"                              "600"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_splash_damage"                             "150"
+        "siege_attack_damage"                             "500"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "giant_scale"                                     "50"
+        "siege_attack_rate"                               "0.7"
       }
       "09"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_cast_range"                                "0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_splash_radius"                             "300"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_splash_damage"                             "150"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_move_speed"                                "270"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "siege_projectile_speed"                          "700"
+      }
+      "14"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
+        "cooldown"                                        "12"
       }
     }
   }

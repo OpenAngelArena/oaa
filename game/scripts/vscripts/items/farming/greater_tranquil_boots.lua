@@ -3,9 +3,11 @@ item_greater_tranquil_boots = class(ItemBaseClass)
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_tranquilize_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
+--[[
 function item_greater_tranquil_boots:GetAbilityTextureName()
 	local baseName = self.BaseClass.GetAbilityTextureName( self )
 
@@ -13,14 +15,15 @@ function item_greater_tranquil_boots:GetAbilityTextureName()
 		return baseName
 	end
 
-	-- local brokeName = ""
+	local brokeName = ""
 
-	-- if self:GetCaster():HasModifier("modifier_greater_tranquils_broken_debuff") then
-		-- brokeName = "_active"
-	-- end
+	if self:GetCaster():HasModifier("modifier_greater_tranquils_broken_debuff") then
+		brokeName = "_active"
+	end
 
-	-- return baseName .. brokeName
+	return baseName .. brokeName
 end
+]]
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
 	return "modifier_item_greater_tranquil_boots" -- "modifier_intrinsic_multiplexer"
@@ -42,17 +45,64 @@ function item_greater_tranquil_boots:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- Don't do anything if target has Linken's effect
-  if target:TriggerSpellAbsorb(self) then
+  -- Create the projectile
+  local info = {
+    Target = target,
+    Source = caster,
+    Ability = self,
+    EffectName = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf",
+    bDodgeable = true,
+    bProvidesVision = true,
+    bVisibleToEnemies = true,
+    bReplaceExisting = false,
+    iMoveSpeed = 800,
+    iVisionRadius = 250,
+    iVisionTeamNumber = caster:GetTeamNumber(),
+  }
+  ProjectileManager:CreateTrackingProjectile(info)
+
+end
+
+function item_greater_tranquil_boots:OnProjectileHit(target, location)
+  local caster = self:GetCaster()
+
+  if not target or target:IsNull() then
     return
   end
 
   local duration = self:GetSpecialValueFor("tranquilize_duration")
-  -- Apply status resistance only if its a ranged hero
-  if target:IsRangedAttacker() then
-    duration = target:GetValueChangedByStatusResistance(duration)
+
+  if target:GetTeam() ~= caster:GetTeam() then
+    -- Don't do anything if target has Linken's effect
+    if target:TriggerSpellAbsorb(self) then
+      return
+    end
+
+    target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_debuff", {duration = duration})
+  else
+    target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_buff", {duration = duration})
   end
-  target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_debuff", {duration = duration})
+
+  local target_loc = target:GetAbsOrigin()
+  local r = 150
+  local c = math.sqrt(2) * 0.5 * r
+  local x_offset = { -r, -c, 0.0, c, r, c, 0.0, -c }
+  local y_offset = { 0.0, c, r, c, 0.0, -c, -r, -c }
+
+  local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, nil)
+  ParticleManager:SetParticleControl(nFXIndex, 0, target_loc)
+  ParticleManager:SetParticleControl(nFXIndex, 1, Vector(0.0, r, 0.0))
+  ParticleManager:ReleaseParticleIndex(nFXIndex)
+
+  for i = 1,8 do
+    CreateTempTree(target_loc + Vector(x_offset[i], y_offset[i], 0.0), duration)
+  end
+
+  for i = 1,8 do
+    ResolveNPCPositions(target_loc + Vector(x_offset[i], y_offset[i], 0.0), 64.0)
+  end
+
+  EmitSoundOnLocationWithCaster(target_loc, "Hero_Furion.Sprout", caster)
 end
 
 function item_greater_tranquil_boots:IsBreakable()
@@ -79,13 +129,13 @@ function modifier_item_greater_tranquil_boots:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_greater_tranquil_boots:OnCreated( event )
+function modifier_item_greater_tranquil_boots:OnCreated()
 	local spell = self:GetAbility()
   if spell and not spell:IsNull() then
-	  self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
-	  --self.moveSpdBroken = spell:GetSpecialValueFor( "broken_movement_speed" )
-	  self.armor = spell:GetSpecialValueFor( "bonus_armor" )
-	  self.healthRegen = spell:GetSpecialValueFor( "bonus_health_regen" )
+	  self.moveSpd = spell:GetSpecialValueFor("bonus_movement_speed")
+	  --self.moveSpdBroken = spell:GetSpecialValueFor("broken_movement_speed")
+	  self.armor = spell:GetSpecialValueFor("bonus_armor")
+	  self.healthRegen = spell:GetSpecialValueFor("bonus_health_regen")
   end
 end
 
@@ -199,6 +249,13 @@ function modifier_item_greater_tranquil_boots:GetModifierConstantHealthRegen()
   return self.healthRegen
 end
 
+function modifier_item_greater_tranquil_boots:CheckState()
+  local state = {
+    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
+  }
+  return state
+end
+
 ---------------------------------------------------------------------------------------------------
 --[[ Old Tranquils effect
 LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
@@ -270,32 +327,22 @@ function modifier_greater_tranquils_tranquilize_debuff:IsDebuff()
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:OnCreated()
   local parent = self:GetParent()
   local ability = self:GetAbility()
   local attack_slow = -700
-  local attack_range = -500
+
   if ability and not ability:IsNull() then
-    attack_slow = ability:GetSpecialValueFor("melee_attack_speed_slow")
-    attack_range = ability:GetSpecialValueFor("ranged_bonus_attack_range")
+    attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
   end
-  if parent:IsRangedAttacker() or parent:IsOAABoss() then
+  if parent:IsOAABoss() then
     attack_slow = 0
   end
-  if not parent:IsRangedAttacker() then
-    attack_range = 0
-  end
-  if IsServer() then
-    -- Attack Speed Slow is reduced with Status Resistance
-    self.attack_slow = parent:GetValueChangedByStatusResistance(attack_slow)
-  else
-    self.attack_slow = attack_slow
-  end
 
-  self.attack_range = attack_range
+  self.attack_slow = attack_slow
 end
 
 modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranquils_tranquilize_debuff.OnCreated
@@ -303,7 +350,7 @@ modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranq
 function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+    MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
   }
   return funcs
 end
@@ -312,8 +359,56 @@ function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBon
   return self.attack_slow
 end
 
-function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackRangeBonus()
-  return self.attack_range
+function modifier_greater_tranquils_tranquilize_debuff:GetModifierProvidesFOWVision()
+  return 1
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:GetEffectName()
+  return "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_greater_tranquils_tranquilize_buff = class(ModifierBaseClass)
+
+function modifier_greater_tranquils_tranquilize_buff:IsHidden()
+  return false
+end
+
+function modifier_greater_tranquils_tranquilize_buff:IsDebuff()
+  return false
+end
+
+function modifier_greater_tranquils_tranquilize_buff:IsPurgable()
+  return false
+end
+
+function modifier_greater_tranquils_tranquilize_buff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+  end
+end
+
+function modifier_greater_tranquils_tranquilize_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+  }
+end
+
+function modifier_greater_tranquils_tranquilize_buff:GetModifierHPRegenAmplify_Percentage()
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+function modifier_greater_tranquils_tranquilize_buff:CheckState()
+  local state = {
+    [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
+  }
+  return state
 end
 
 item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)
