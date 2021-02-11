@@ -31,8 +31,8 @@ CreepTypes = {
     -- 3 "hard camp"
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_custom_ghost",             800,    0,  40,   1.5,   45,  60}, -- expected gold is 90 and XP 120
-      {"npc_dota_neutral_custom_ghost",             800,    0,  40,   1.5,   45,  60}
+      {"npc_dota_neutral_custom_ghost",             800,    0,  35,   1.5,   45,  60}, -- expected gold is 90 and XP 120
+      {"npc_dota_neutral_custom_ghost",             800,    0,  35,   1.5,   45,  60}
     },
     {
       {"npc_dota_neutral_custom_centaur_khan",      800,  300,  50,   1.5,   45,  60},
