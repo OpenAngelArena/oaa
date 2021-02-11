@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70" //OAA
+    "AbilityCooldown"                                     "80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,10 +29,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // if Bite is overpowered set duration to 10 and decrease cooldown to 50
+      "01" // Bite is overpowered
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "22"
+        "duration"                                        "15" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_lycan_1"
       }
       "02"

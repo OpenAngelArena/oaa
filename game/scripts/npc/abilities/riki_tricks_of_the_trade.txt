@@ -27,7 +27,7 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 18 15 12 12 12"
+    "AbilityCooldown"                                     "20 18 16 14 14 14" //OAA
     "AbilityManaCost"                                     "50"
 
     // Special
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "70 80 90 100 110 120"
+        "damage_pct"                                      "75 80 85 90 95 100" //OAA
       }
       "04"
       {

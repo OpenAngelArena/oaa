@@ -62,7 +62,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "135 230 325 610 895"
+        "damage_scepter"                                  "150 250 350 650 1150"
         "RequiresScepter"                                 "1"
       }
       "06"
@@ -80,6 +80,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "kill_damage_duration"                            "50"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_min_root_duration"                       "1.6"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_max_root_duration"                       "3.4"
+        "RequiresScepter"                                 "1"
       }
     }
   }
