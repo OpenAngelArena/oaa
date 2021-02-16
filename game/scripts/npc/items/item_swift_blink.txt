@@ -10,19 +10,19 @@
 		"ID"							"607"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"            "custom/recipe/recipe_1"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1750"	
+		"ItemCost"						"1750"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_swift_blink"
-		"ItemRequirements"
+		"ItemRequirements" //OAA
 		{
-			"01"						"item_blink*;item_eagle"
+			"01"						"item_blink;item_eagle"
 		}
 	}
 
@@ -43,7 +43,7 @@
 		"AbilityCooldown"				"15.0"
 		"AbilityManaCost"				"0"
 		"AbilitySharedCooldown"			"blink"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"6800"
@@ -53,8 +53,8 @@
 
 		"ItemBaseLevel"                 "1"
     	"MaxUpgradeLevel"              	"5"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{

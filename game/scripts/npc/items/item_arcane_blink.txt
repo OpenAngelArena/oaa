@@ -10,19 +10,19 @@
 		"ID"							"606"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"            "custom/recipe/recipe_1"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1750"	
+		"ItemCost"						"1750"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_arcane_blink"
-		"ItemRequirements"
+		"ItemRequirements" //OAA
 		{
-			"01"						"item_blink*;item_mystic_staff"
+			"01"						"item_blink;item_mystic_staff"
 		}
 	}
 
@@ -43,18 +43,18 @@
 		"AbilityCooldown"				"15.0"
 		"AbilityManaCost"				"0"
 		"AbilitySharedCooldown"			"blink"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"6800"
 		"ItemShopTags"					"teleport"
 		"ItemQuality"					"component"
 		"ItemAliases"					"blink dagger"
-		
+
 		"ItemBaseLevel"                 "1"
     	"MaxUpgradeLevel"              	"5"
-		
-		// Special	
+
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -68,7 +68,7 @@
 				"var_type"				"FIELD_FLOAT"
 				"blink_damage_cooldown"	"3.0"
 			}
-			"03" 
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"blink_range_clamp"		"960"
