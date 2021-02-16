@@ -21,10 +21,13 @@ function item_far_sight:OnSpellStart()
   --AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
   --local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
 
-  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target, true, caster, caster, casterTeam)
+  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target, false, caster, caster, casterTeam)
   dummy:AddNewModifier(caster, self, "modifier_far_sight_dummy_stuff", {})
   dummy:AddNewModifier(caster, self, "modifier_item_far_sight_true_sight", {})
   dummy:AddNewModifier(caster, self, "modifier_kill", {duration = revealDuration})
+
+  dummy:MakeVisibleToTeam(DOTA_TEAM_GOODGUYS, revealDuration)
+  dummy:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, revealDuration)
 end
 
 item_far_sight_2 = item_far_sight
@@ -55,11 +58,54 @@ function modifier_item_far_sight_true_sight:OnCreated()
     self.revealRadius = 900
   end
 
-  -- if IsServer() then
-    -- self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
-    -- ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
-    -- ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
-  -- end
+  if IsServer() then
+    local parent = self:GetParent()
+    local parent_location = parent:GetAbsOrigin()
+    local parent_team = parent:GetTeamNumber()
+    local enemy_team = DOTA_TEAM_BADGUYS
+    if parent_team == enemy_team then
+      enemy_team = DOTA_TEAM_GOODGUYS
+    end
+
+	-- Old particle
+    --self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    --ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
+    --ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
+
+	-- New particles
+    local index1 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_green.vpcf", PATTACH_WORLDORIGIN, parent, parent_team)
+	ParticleManager:SetParticleControl(index1, 0, parent_location)
+	ParticleManager:SetParticleControl(index1, 1, Vector(self.revealRadius-100, 0, 0))
+
+	local index2 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_red.vpcf", PATTACH_WORLDORIGIN, parent, enemy_team)
+	ParticleManager:SetParticleControl(index2, 0, parent_location)
+	ParticleManager:SetParticleControl(index2, 1, Vector(self.revealRadius-100, 0, 0))
+
+    self.particle1 = index1
+    self.particle2 = index2
+  end
+end
+
+function modifier_item_far_sight_true_sight:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH,
+  }
+end
+
+function modifier_item_far_sight_true_sight:OnDeath(event)
+  if event.unit == self:GetParent() then
+    if self.particle1 then
+      ParticleManager:DestroyParticle(self.particle1, true)
+      ParticleManager:ReleaseParticleIndex(self.particle1)
+      self.particle1 = nil
+    end
+
+    if self.particle2 then
+      ParticleManager:DestroyParticle(self.particle2, true)
+      ParticleManager:ReleaseParticleIndex(self.particle2)
+      self.particle2 = nil
+    end
+  end
 end
 
 function modifier_item_far_sight_true_sight:GetModifierAura()
@@ -82,14 +128,16 @@ function modifier_item_far_sight_true_sight:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
 end
 
--- function modifier_item_far_sight_true_sight:OnDestroy()
-  -- if IsServer() then
-    -- if self.nFXIndex then
-      -- ParticleManager:DestroyParticle( self.nFXIndex , false)
-      -- ParticleManager:ReleaseParticleIndex( self.nFXIndex )
-    -- end
-  -- end
--- end
+function modifier_item_far_sight_true_sight:OnDestroy()
+  if self.particle1 then
+    ParticleManager:DestroyParticle(self.particle1, true)
+    ParticleManager:ReleaseParticleIndex(self.particle1)
+  end
+  if self.particle2 then
+    ParticleManager:DestroyParticle(self.particle2, true)
+    ParticleManager:ReleaseParticleIndex(self.particle2)
+  end
+end
 
 ---------------------------------------------------------------------------------------------------
 

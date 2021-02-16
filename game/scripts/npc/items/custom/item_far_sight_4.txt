@@ -67,7 +67,8 @@
 
     "precache"
     {
-      //"particle"                                          "particles/items/far_sight.vpcf"
+      "particle"                                          "particles/items/far_sight/far_sight_green.vpcf"
+      "particle"                                          "particles/items/far_sight/far_sight_red.vpcf"
     }
 
     // Special
@@ -97,7 +98,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "900"
+        "reveal_radius"                                   "800"
       }
       "06"
       {
