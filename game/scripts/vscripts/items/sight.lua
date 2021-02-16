@@ -55,7 +55,7 @@ function modifier_item_far_sight_true_sight:OnCreated()
   if ability and not ability:IsNull() then
     self.revealRadius = ability:GetSpecialValueFor("reveal_radius")
   else
-    self.revealRadius = 900
+    self.revealRadius = 800
   end
 
   if IsServer() then
@@ -67,19 +67,19 @@ function modifier_item_far_sight_true_sight:OnCreated()
       enemy_team = DOTA_TEAM_GOODGUYS
     end
 
-	-- Old particle
+	  -- Old particle
     --self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
     --ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
     --ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
 
-	-- New particles
+    -- New particles
     local index1 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_green.vpcf", PATTACH_WORLDORIGIN, parent, parent_team)
-	ParticleManager:SetParticleControl(index1, 0, parent_location)
-	ParticleManager:SetParticleControl(index1, 1, Vector(self.revealRadius-100, 0, 0))
+    ParticleManager:SetParticleControl(index1, 0, parent_location)
+    ParticleManager:SetParticleControl(index1, 1, Vector(self.revealRadius-100, 0, 0))
 
-	local index2 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_red.vpcf", PATTACH_WORLDORIGIN, parent, enemy_team)
-	ParticleManager:SetParticleControl(index2, 0, parent_location)
-	ParticleManager:SetParticleControl(index2, 1, Vector(self.revealRadius-100, 0, 0))
+    local index2 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_red.vpcf", PATTACH_WORLDORIGIN, parent, enemy_team)
+    ParticleManager:SetParticleControl(index2, 0, parent_location)
+    ParticleManager:SetParticleControl(index2, 1, Vector(self.revealRadius-100, 0, 0))
 
     self.particle1 = index1
     self.particle2 = index2
