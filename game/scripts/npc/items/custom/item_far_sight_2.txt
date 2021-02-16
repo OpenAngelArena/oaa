@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Far Sight
+  // Recipe: Far Sight 2
   //=================================================================================================================
   "item_recipe_far_sight_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8604"    // unique ID
+    "ID"                                                  "8604"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                             "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                         "custom/recipe/recipe_2"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                        "3500"
-    "ItemShopTags"                                 ""
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                      "1"
-    "ItemResult"                                      "item_far_sight_2"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_far_sight_2"
     "ItemRequirements"
     {
       "01"                                                "item_far_sight;item_upgrade_core_2"
@@ -29,16 +29,16 @@
   }
 
   //=================================================================================================================
-  // Far Sight
+  // Far Sight 2
   //=================================================================================================================
   "item_far_sight_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                      "8605"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_lua"
+    "ID"                                                  "8605"
+    "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sight.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityTextureName"                                  "custom/far_sight_2"
 
     // Stats
@@ -62,12 +62,12 @@
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
-    // "ItemDisassembleRule"                              "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
     {
-      "particle"                                          "particles/items/far_sight.vpcf"
+      //"particle"                                          "particles/items/far_sight.vpcf"
     }
 
     // Special
@@ -77,7 +77,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "15 30 45 60"
+        "bonus_health_regen"                              "5 8 11 14"
       }
       "02"
       {
@@ -87,12 +87,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "15 30 45 60"
+        "bonus_strength"                                  "15 30 45 60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "15 30 45 60"
+        "bonus_intellect"                                 "15 30 45 60"
       }
       "05"
       {
