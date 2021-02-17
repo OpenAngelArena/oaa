@@ -1,22 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Creed of Omniscience - neutral tier 3 item
+  // Stygian Desolator - neutral tier 5 item
   //=================================================================================================================
-  "item_creed_of_omniscience"
+  "item_stygian_desolator_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8626" // unique ID
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/creed_of_omniscience.lua"
+    "ID"                                                  "80292"
+    "BaseClass"                                           "item_desolator_2"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/creed_of_omniscience"
+    "AbilityTextureName"                                  "item_desolator_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
@@ -30,27 +28,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "30"
+        "bonus_damage"                                    "100"
       }
-      "02" // ranged only
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "100"
+        "corruption_armor"                                "-25"
       }
-      "03" // melee only
+      "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range_melee"                        "75"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "600"
+        "var_type"                                        "FIELD_FLOAT"
+        "corruption_duration"                             "7.0"
       }
     }
   }

@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Creed of Omniscience - neutral tier 3 item
+  // Telescope (OAA rework) - neutral tier 4 item
   //=================================================================================================================
-  "item_creed_of_omniscience"
+  "item_telescope_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8626" // unique ID
+    "ID"                                                  "80336"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/creed_of_omniscience.lua"
+    "ScriptFile"                                          "items/neutral/telescope.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/creed_of_omniscience"
+    "AbilityTextureName"                                  "item_spy_gadget"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -30,27 +30,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "30"
+        "bonus_vision"                                    "135"
       }
       "02" // ranged only
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "100"
+        "bonus_attack_range"                              "135"
       }
-      "03" // melee only
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range_melee"                        "75"
+        "bonus_cast_range"                                "135"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "600"
+        "aura_range"                                      "1200"
       }
     }
   }

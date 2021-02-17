@@ -1,17 +1,22 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Creed of Omniscience - neutral tier 3 item
+  // Trusty Shovel (OAA Rework) - neutral tier 1 item
   //=================================================================================================================
-  "item_creed_of_omniscience"
+  "item_trusty_shovel_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8626" // unique ID
+    "ID"                                                  "80356"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/creed_of_omniscience.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/creed_of_omniscience"
+    "ScriptFile"                                          "items/neutral/trusty_shovel.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityTextureName"                                  "item_trusty_shovel"
+
+    "AbilityCastRange"                                    "250"
+		"AbilityCooldown"                                     "45"
+		"AbilityCastPoint"                                    "0.1"
+		"AbilityChannelTime"                                  "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -30,27 +35,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "30"
+        "bonus_health"                                    "100"
       }
-      "02" // ranged only
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "100"
-      }
-      "03" // melee only
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range_melee"                        "75"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "600"
+        "bounty_rune_drop_chance"                         "15"
       }
     }
   }
