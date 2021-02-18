@@ -34,12 +34,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_dodge_chance"                         "10"
+        "bonus_evasion"                                   "35"
+      }
+	  "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_dodge_chance"                              "15"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_dodge_cooldown"                       "8"
+        "spell_dodge_cooldown"                            "8"
       }
       "03"
       {

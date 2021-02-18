@@ -32,11 +32,29 @@ function modifier_item_reflex_core_passive:IsPurgable()
   return false
 end
 
+function modifier_item_reflex_core_passive:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.evasion = ability:GetSpecialValueFor("bonus_evasion")
+  end
+end
+
+function modifier_item_reflex_core_passive:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.evasion = ability:GetSpecialValueFor("bonus_evasion")
+  end
+end
+
 function modifier_item_reflex_core_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSORB_SPELL,
-    MODIFIER_EVENT_ON_ATTACK,
+	MODIFIER_PROPERTY_EVASION_CONSTANT,
   }
+end
+
+function modifier_item_reflex_core_passive:GetModifierEvasion_Constant()
+  return self.evasion or self:GetAbility():GetSpecialValueFor("bonus_evasion")
 end
 
 function modifier_item_reflex_core_passive:GetAbsorbSpell(event)
@@ -61,7 +79,7 @@ function modifier_item_reflex_core_passive:GetAbsorbSpell(event)
     return
   end
 
-  local chance = ability:GetSpecialValueFor("projectile_dodge_chance")/100
+  local chance = ability:GetSpecialValueFor("spell_dodge_chance")/100
 
   -- Get number of failures
   local prngMult = self:GetStackCount() + 1
@@ -71,7 +89,7 @@ function modifier_item_reflex_core_passive:GetAbsorbSpell(event)
     self:SetStackCount(0)
 
     -- Start cooldown by adding a modifier
-    parent:AddNewModifier(parent, ability, "modifier_item_reflex_core_cooldown", {duration = ability:GetSpecialValueFor("projectile_dodge_cooldown")})
+    parent:AddNewModifier(parent, ability, "modifier_item_reflex_core_cooldown", {duration = ability:GetSpecialValueFor("spell_dodge_cooldown")})
 
     return 1
   else
@@ -80,57 +98,6 @@ function modifier_item_reflex_core_passive:GetAbsorbSpell(event)
   end
 end
 
-function modifier_item_reflex_core_passive:OnAttack(event)
-  if not IsServer() then
-    return
-  end
-
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
-
-  if not target or target:IsNull() then
-    return
-  end
-
-  if not ability or ability:IsNull() then
-    return
-  end
-
-  -- Continue only if attacked unit is the parent
-  if target ~= parent then
-    return
-  end
-
-  -- No need to dodge if parent is invulnerable
-  if parent:HasModifier("modifier_item_reflex_core_invulnerability") or parent:IsInvulnerable() then
-    return
-  end
-
-  -- Don't dodge if passive is on cooldown
-  if parent:HasModifier("modifier_item_reflex_core_cooldown") then
-    return
-  end
-
-  local chance = ability:GetSpecialValueFor("projectile_dodge_chance")/100
-
-  -- Get number of failures
-  local prngMult = self:GetStackCount() + 1
-
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
-    -- Reset failure count
-    self:SetStackCount(0)
-
-    -- Disjoint projectiles
-    ProjectileManager:ProjectileDodge(parent)
-
-    -- Start cooldown by adding a modifier
-    parent:AddNewModifier(parent, ability, "modifier_item_reflex_core_cooldown", {duration = ability:GetSpecialValueFor("projectile_dodge_cooldown")})
-  else
-    -- Increment number of failures
-    self:SetStackCount(prngMult)
-  end
-end
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_reflex_core_invulnerability = class(ModifierBaseClass)
