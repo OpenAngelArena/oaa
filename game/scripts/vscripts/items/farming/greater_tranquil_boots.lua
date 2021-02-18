@@ -55,7 +55,7 @@ function item_greater_tranquil_boots:OnSpellStart()
     bProvidesVision = true,
     bVisibleToEnemies = true,
     bReplaceExisting = false,
-    iMoveSpeed = 800,
+    iMoveSpeed = self:GetSpecialValueFor("projectile_speed"),
     iVisionRadius = 250,
     iVisionTeamNumber = caster:GetTeamNumber(),
   }
@@ -70,7 +70,8 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
     return
   end
 
-  local duration = self:GetSpecialValueFor("tranquilize_duration")
+  local debuff_duration = self:GetSpecialValueFor("slow_duration")
+  local buff_duration = self:GetSpecialValueFor("sprout_duration")
 
   if target:GetTeam() ~= caster:GetTeam() then
     -- Don't do anything if target has Linken's effect
@@ -78,9 +79,9 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
       return
     end
 
-    target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_debuff", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_debuff", {duration = debuff_duration})
   else
-    target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_buff", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_greater_tranquils_tranquilize_buff", {duration = buff_duration})
   end
 
   local target_loc = target:GetAbsOrigin()
@@ -95,7 +96,7 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
   ParticleManager:ReleaseParticleIndex(nFXIndex)
 
   for i = 1,8 do
-    CreateTempTree(target_loc + Vector(x_offset[i], y_offset[i], 0.0), duration)
+    CreateTempTree(target_loc + Vector(x_offset[i], y_offset[i], 0.0), buff_duration)
   end
 
   for i = 1,8 do
