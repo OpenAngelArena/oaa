@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Creed of Omniscience - neutral tier 3 item
+  // Demon Stone - neutral tier 2 item
   //=================================================================================================================
-  "item_creed_of_omniscience"
+  "item_demon_stone"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8626" // unique ID
+    "ID"                                                  "80290"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/creed_of_omniscience.lua"
+    "ScriptFile"                                          "items/neutral/demon_stone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/creed_of_omniscience"
+    "AbilityTextureName"                                  "item_philosophers_stone"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -30,27 +30,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "30"
+        "bonus_xpm"                                       "70"
       }
-      "02" // ranged only
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "100"
+        "bonus_mana"                                      "200"
       }
-      "03" // melee only
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range_melee"                        "75"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "600"
+        "bonus_damage"                                    "-300"
       }
     }
   }
