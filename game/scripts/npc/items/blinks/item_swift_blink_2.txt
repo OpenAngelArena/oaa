@@ -1,0 +1,114 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Swift Blink 2
+  //=================================================================================================================
+  "item_recipe_swift_blink_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3574"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_swift_blink_2"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_swift_blink;item_upgrade_core"
+      "02"                                                "item_arcane_blink;item_upgrade_core"
+      "03"                                                "item_overwhelming_blink;item_upgrade_core"
+    }
+  }
+
+  //=================================================================================================================
+  // Swift Blink 2
+  //=================================================================================================================
+  "item_swift_blink_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3575"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "BaseClass"                                           "item_swift_blink"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "15.0"
+    "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "blink"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_swift_blink_2;item_swift_blink_3;item_swift_blink_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8300"
+    "ItemShopTags"                                        "teleport"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "blink dagger;agi blink"
+    //"SideShop"                                          "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range"                                     "1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blink_damage_cooldown"                           "3.0"
+      }
+      "03" 
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range_clamp"                               "960"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_agility"                                   "25 35 50 70 100"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement"                                  "40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "50 60 75 95 120"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_damage"                             "50 60 75 95 120"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6"
+      }
+    }
+  }
+}
