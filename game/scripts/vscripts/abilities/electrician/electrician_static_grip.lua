@@ -8,11 +8,17 @@ LinkLuaModifier( "modifier_special_bonus_electrician_static_grip_non_channel", "
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
-	if self.modGrip and not self.modGrip:IsNull() then
-		return self.modGrip:GetDuration()
-	end
+  local caster = self:GetCaster()
+  -- Talent that makes Static Grip non-channel (pseudo-channel)
+  if caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
+    return 0
+  end
+	
+  if self.modGrip and not self.modGrip:IsNull() then
+    return self.modGrip:GetDuration()
+  end
 
-	return 0
+  return 0
 end
 
 function electrician_static_grip:GetBehavior()

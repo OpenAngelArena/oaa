@@ -162,7 +162,7 @@ if IsServer() then
     -- play sound
     parent:EmitSound( "Ability.static.start" )
 
-    -- cast animation
+    -- cast animation (needs FadeGesture some time after)
     --caster:StartGesture(ACT_DOTA_CAST_ABILITY_2)
 
     -- start thinking
@@ -226,7 +226,7 @@ if IsServer() then
       -- old particle
       --local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_POINT_FOLLOW, parent)
       -- new particle
-      local part = ParticleManager:CreateParticle("particles/item/mjollnir/static_lightning_bolt.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      local part = ParticleManager:CreateParticle("particles/items_fx/chain_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
       ParticleManager:SetParticleControlEnt(part, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
       ParticleManager:SetParticleControlEnt(part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parentOrigin, true)
       ParticleManager:ReleaseParticleIndex(part)

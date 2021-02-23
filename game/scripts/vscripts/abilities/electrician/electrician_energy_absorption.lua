@@ -98,7 +98,7 @@ function electrician_energy_absorption:OnSpellStart()
           mana_absorbed = mana_absorbed + mana_to_remove
         end
 
-        if target:IsRealHero() then
+        if target:IsRealHero() or target:IsOAABoss() then
           speed_absorbed = speed_absorbed + speed_absorb_heroes
         else
           speed_absorbed = speed_absorbed + speed_absorb_creeps
@@ -121,16 +121,16 @@ function electrician_energy_absorption:OnSpellStart()
         -- create a projectile that's just for visual effect
         -- would like to just have a particle here that hits the caster
         -- after like ~0.25 seconds
-        ProjectileManager:CreateTrackingProjectile( {
-          Ability = self,
-          Target = caster,
-          Source = target,
-          EffectName = "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf",
-          iMoveSpeed = caster:GetRangeToUnit( target ) / 0.25,
-          iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-          bDodgeable = false,
-          flExpireTime = GameRules:GetGameTime() + 10,
-        } )
+        -- ProjectileManager:CreateTrackingProjectile( {
+          -- Ability = self,
+          -- Target = caster,
+          -- Source = target,
+          -- EffectName = "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf",
+          -- iMoveSpeed = caster:GetRangeToUnit( target ) / 0.25,
+          -- iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+          -- bDodgeable = false,
+          -- flExpireTime = GameRules:GetGameTime() + 10,
+        -- } )
 
         -- Add a speed debuff
         target:AddNewModifier(caster, self, "modifier_electrician_energy_absorption_debuff", {duration = duration})
@@ -163,7 +163,7 @@ function electrician_energy_absorption:OnSpellStart()
           modifier:SetStackCount(math.min(mana_absorbed - missing_mana, self:GetSpecialValueFor("bonus_mana_cap")))
         end
       end
-      caster:CalculateStatBonus()
+      caster:CalculateStatBonus(true)
     end
 
     -- Grant mana to the caster (equal to absorbed mana)
@@ -175,7 +175,7 @@ function electrician_energy_absorption:OnSpellStart()
     -- give the speed modifier
     local speed_modifier = caster:AddNewModifier(caster, self, "modifier_electrician_energy_absorption", {duration = duration})
     speed_modifier:SetStackCount(speed_absorbed)
-	end
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
