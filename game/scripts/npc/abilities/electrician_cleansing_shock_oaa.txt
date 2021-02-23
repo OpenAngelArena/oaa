@@ -22,16 +22,17 @@
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "1"
+    "HasShardUpgrade"                                     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityCastRange"                                    "600"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0 8.0 6.0 5.0 4.0"
+    "AbilityCooldown"                                     "12 10 8 6 4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -81,6 +82,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "summon_illusion_damage_scepter"                  "1000 2000 3000 6000 9000"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_scepter"                               "0"
         "RequiresScepter"                                 "1"
       }
     }

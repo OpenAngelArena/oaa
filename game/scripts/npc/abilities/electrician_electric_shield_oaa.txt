@@ -66,11 +66,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "aura_damage"                                     "25 35 45 55 110 220"
+        "LinkedSpecialBonus"                              "special_bonus_electrician_electric_shield_damage"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_interval"                                   "0.2"
+        "aura_interval"                                   "0.25"
       }
     }
 

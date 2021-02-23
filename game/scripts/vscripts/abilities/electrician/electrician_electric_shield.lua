@@ -135,53 +135,63 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-	function modifier_electrician_electric_shield:OnCreated( event )
-		local parent = self:GetParent()
-		local spell = self:GetAbility()
+  function modifier_electrician_electric_shield:OnCreated(event)
+    local parent = self:GetParent()
+    local spell = self:GetAbility()
     local caster = self:GetCaster()
 
-		self:SetStackCount( event.shieldHP )
+    self:SetStackCount(event.shieldHP)
 
-		-- grab ability specials
-		local damageInterval = spell:GetSpecialValueFor( "aura_interval" )
-		self.shieldRate = spell:GetSpecialValueFor( "shield_damage_block" ) * 0.01
-		self.damageRadius =  spell:GetSpecialValueFor( "aura_radius" )
-		self.damagePerInterval = spell:GetSpecialValueFor( "aura_damage" ) * damageInterval
-		self.damageType = spell:GetAbilityDamageType()
+    -- grab ability specials
+    local damageInterval = spell:GetSpecialValueFor("aura_interval")
+    local damage_per_second = spell:GetSpecialValueFor("aura_damage")
+    -- Bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_electric_shield_damage")
+    if talent and talent:GetLevel() > 0 then
+      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+    end
+    self.shieldRate = spell:GetSpecialValueFor("shield_damage_block") * 0.01
+    self.damageRadius =  spell:GetSpecialValueFor("aura_radius")
+    self.damagePerInterval = damage_per_second * damageInterval
+    self.damageType = spell:GetAbilityDamageType()
 
-		-- create the shield particles
-		self.partShield = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_electric_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
-		ParticleManager:SetParticleControlEnt( self.partShield, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
+    -- create the shield particles
+    self.partShield = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_electric_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.partShield, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
 
-		-- play sound
-		parent:EmitSound( "Ability.static.start" )
-  -- cast animation
-    caster:StartGesture( ACT_DOTA_CAST_ABILITY_2 )
+    -- play sound
+    parent:EmitSound( "Ability.static.start" )
 
-		-- start thinking
-		self:StartIntervalThink( damageInterval )
-	end
+    -- cast animation
+    --caster:StartGesture(ACT_DOTA_CAST_ABILITY_2)
 
---------------------------------------------------------------------------------
-
-	function modifier_electrician_electric_shield:OnRefresh( event )
-		-- destroy the shield particles
-		ParticleManager:DestroyParticle( self.partShield, false )
-		ParticleManager:ReleaseParticleIndex( self.partShield )
-
-		self:OnCreated( event )
-	end
+    -- start thinking
+    self:StartIntervalThink(damageInterval)
+  end
 
 --------------------------------------------------------------------------------
 
-	function modifier_electrician_electric_shield:OnDestroy()
-		-- destroy the shield particles
-		ParticleManager:DestroyParticle( self.partShield, false )
-		ParticleManager:ReleaseParticleIndex( self.partShield )
+  function modifier_electrician_electric_shield:OnRefresh(event)
+    -- destroy the shield particles
+    if self.partShield then
+      ParticleManager:DestroyParticle(self.partShield, false)
+      ParticleManager:ReleaseParticleIndex(self.partShield)
+    end
 
-		-- play end sound
-		self:GetParent():EmitSound( "Hero_Razor.StormEnd" )
-	end
+    self:OnCreated(event)
+  end
+
+--------------------------------------------------------------------------------
+
+  function modifier_electrician_electric_shield:OnDestroy()
+    -- destroy the shield particles
+    if self.partShield then
+      ParticleManager:DestroyParticle(self.partShield, false)
+      ParticleManager:ReleaseParticleIndex(self.partShield)
+    end
+    -- play end sound
+    self:GetParent():EmitSound("Hero_Razor.StormEnd")
+  end
 
 --------------------------------------------------------------------------------
 
@@ -213,10 +223,13 @@ if IsServer() then
 				ability = spell,
 			} )
 
-			local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_POINT_FOLLOW, parent )
-			ParticleManager:SetParticleControlEnt( part, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
-			ParticleManager:SetParticleControlEnt( part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parentOrigin, true )
-			ParticleManager:ReleaseParticleIndex( part )
+      -- old particle
+      --local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_POINT_FOLLOW, parent)
+      -- new particle
+      local part = ParticleManager:CreateParticle("particles/item/mjollnir/static_lightning_bolt.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(part, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+      ParticleManager:SetParticleControlEnt(part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parentOrigin, true)
+      ParticleManager:ReleaseParticleIndex(part)
 
 			target:EmitSound( "Hero_razor.lightning" )
 		end
