@@ -133,7 +133,16 @@ function electrician_energy_absorption:OnSpellStart()
         -- } )
 
         -- Add a speed debuff
-        target:AddNewModifier(caster, self, "modifier_electrician_energy_absorption_debuff", {duration = duration})
+        local speed_debuff = target:FindModifierByNameAndCaster("modifier_electrician_energy_absorption_debuff", caster)
+        if speed_debuff then
+          speed_debuff:SetDuration(duration, true)
+          speed_debuff:SetStackCount(speed_debuff:GetStackCount() + 1)
+        else
+          speed_debuff = target:AddNewModifier(caster, self, "modifier_electrician_energy_absorption_debuff", {duration = duration})
+          if speed_debuff then
+            speed_debuff:SetStackCount(1)
+          end
+        end
 
         -- deal damage
         ApplyDamage( {
@@ -173,8 +182,16 @@ function electrician_energy_absorption:OnSpellStart()
     SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, caster, mana_absorbed, nil)
 
     -- give the speed modifier
-    local speed_modifier = caster:AddNewModifier(caster, self, "modifier_electrician_energy_absorption", {duration = duration})
-    speed_modifier:SetStackCount(speed_absorbed)
+    local speed_modifier = caster:FindModifierByName("modifier_electrician_energy_absorption")
+    if speed_modifier then
+      speed_modifier:SetDuration(duration, true)
+      speed_modifier:SetStackCount(speed_modifier:GetStackCount() + speed_absorbed)
+    else
+      speed_modifier = caster:AddNewModifier(caster, self, "modifier_electrician_energy_absorption", {duration = duration})
+      if speed_modifier then
+        speed_modifier:SetStackCount(speed_absorbed)
+      end
+    end
   end
 end
 
@@ -263,11 +280,12 @@ function modifier_electrician_energy_absorption_debuff:OnCreated(event)
     speed_absorb_creeps = ability:GetSpecialValueFor("speed_absorb_non_heroes")
     speed_absorb_heroes = ability:GetSpecialValueFor("speed_absorb_heroes")
   end
-
+  
+  local stack_count = self:GetStackCount()
   if parent:IsRealHero() or parent:IsOAABoss() then
-    self.speed = -speed_absorb_heroes
+    self.speed = -speed_absorb_heroes * stack_count
   else
-    self.speed = -speed_absorb_creeps
+    self.speed = -speed_absorb_creeps * stack_count
   end
 end
 

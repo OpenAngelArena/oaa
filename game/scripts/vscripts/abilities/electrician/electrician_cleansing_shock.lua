@@ -120,6 +120,13 @@ function electrician_cleansing_shock:ApplyEffect( target )
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
     target:Purge( true, false, false, false, false )
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
+
+    -- Check for mini-stun talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_stun")
+    if talent and talent:GetLevel() > 0 then
+      target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
+    end
+
     -- Deal damage to summons, illusions and dominated units if caster has aghanim scepter
     if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) then
       local summon_damage = self:GetSpecialValueFor( "summon_illusion_damage_scepter" )
