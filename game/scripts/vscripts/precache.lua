@@ -15,7 +15,7 @@ g_ItemPrecache = {
   "item_reflection_shard_1",
   "item_regen_crystal_1",
   "item_sacred_skull",
-  "item_siege_mode",
+  --"item_siege_mode",
   "item_stoneskin",
   "item_trumps_fists",
   "item_vampire",
