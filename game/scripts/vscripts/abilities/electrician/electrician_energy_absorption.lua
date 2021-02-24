@@ -280,7 +280,7 @@ function modifier_electrician_energy_absorption_debuff:OnCreated(event)
     speed_absorb_creeps = ability:GetSpecialValueFor("speed_absorb_non_heroes")
     speed_absorb_heroes = ability:GetSpecialValueFor("speed_absorb_heroes")
   end
-  
+
   local stack_count = self:GetStackCount()
   if parent:IsRealHero() or parent:IsOAABoss() then
     self.speed = -speed_absorb_heroes * stack_count

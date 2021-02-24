@@ -13,7 +13,7 @@ function electrician_static_grip:GetChannelTime()
   if caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
     return 0
   end
-	
+
   if self.modGrip and not self.modGrip:IsNull() then
     return self.modGrip:GetDuration()
   end

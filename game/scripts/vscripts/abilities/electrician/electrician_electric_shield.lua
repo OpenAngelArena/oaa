@@ -119,12 +119,12 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_electric_shield:DeclareFunctions()
-	local func = {
-		--MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR,
+  local func = {
+    --MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR,
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
-	}
+  }
 
-	return func
+  return func
 end
 
 --------------------------------------------------------------------------------
@@ -162,23 +162,23 @@ if IsServer() then
     if parent:HasShardOAA() then
       local damage_per_mana = self:GetAbility():GetSpecialValueFor("shield_per_mana") * 0.01
       local current_mana = parent:GetMana()
-	  local current_shield_hp = current_mana * damage_per_mana
+      local current_shield_hp = current_mana * damage_per_mana
 
       -- Calculate block amount
-	  blockAmount = math.min(blockAmount, current_shield_hp)
-	  
+      blockAmount = math.min(blockAmount, current_shield_hp)
+
       -- Calculate what shield hp should be after blocking
       local shield_hp_after = current_shield_hp - blockAmount
-	  
+
       -- Calculate what mana should be after blocking
       local mana_after = shield_hp_after / damage_per_mana
-	  
+
       -- Calculate how much mana should be removed
-	  local mana_to_remove = current_mana - mana_after
+      local mana_to_remove = current_mana - mana_after
       if mana_to_remove <= 0 then
         mana_to_remove = current_mana
       end
-	  
+
       -- Remove mana
       parent:ReduceMana(mana_to_remove)
     else
@@ -198,7 +198,7 @@ if IsServer() then
       if self:GetStackCount() <= 0 then
         self:Destroy()
       end
-	end
+    end
 
     return blockAmount
   end
@@ -209,8 +209,8 @@ if IsServer() then
     local parent = self:GetParent()
     local spell = self:GetAbility()
     local caster = self:GetCaster()
-    
-	if not caster:HasShardOAA() and event.shieldHP ~= -1 then
+
+    if not caster:HasShardOAA() and event.shieldHP ~= -1 then
       self:SetStackCount(event.shieldHP)
     end
 
