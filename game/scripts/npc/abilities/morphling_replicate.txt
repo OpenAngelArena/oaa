@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 80 40 20 10" //OAA
+    "AbilityCooldown"                                     "120 100 80 60 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cast_range_bonus"                        "600"
+        "scepter_cast_range_bonus"                        "300"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown_reduction"                      "20"
         "RequiresScepter"                                 "1"
       }
     }
