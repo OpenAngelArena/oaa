@@ -27,7 +27,7 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 14 14" //OAA
+    "AbilityCooldown"                                     "20 18 16 14 13 12" //OAA
     "AbilityManaCost"                                     "50"
 
     // Special
@@ -53,13 +53,13 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "3"
+        "scepter_duration"                                "2"
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_attacks"                                 "6"
+        "scepter_attacks"                                 "4"
         "RequiresScepter"                                 "1"
       }
       "06"

@@ -27,7 +27,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"       "0"     // Physical protection.
-    "MagicalResistance"       "0"   // Magical protection.
+    "MagicalResistance"       "25"   // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -35,7 +35,7 @@
     "AttackDamageMin"                                     "144"   // Damage range min.
     "AttackDamageMax"                                     "144"   // Damage range max.
     "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"        "1.0"   // Speed of attack.
+    "AttackRate"        "1.4"   // Speed of attack.
     "AttackAnimationPoint"    "0.467"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
     "AttackRange"       "100"   // Range within a target can be attacked.

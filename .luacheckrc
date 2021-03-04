@@ -2849,6 +2849,7 @@ read_globals = { -- these globals can only be accessed.
 "MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE",
 "MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES",
 "RollPseudoRandomPercentage",
+"CreateRune",
 "DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1",
 "AddAnimationTranslate",
 "BOSS_WANDERER_SPAWN_START",
