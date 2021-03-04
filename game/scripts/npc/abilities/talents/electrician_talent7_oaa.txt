@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Cleansing Shock applies mini-stun
+  // Electrician: Static Grip becomes pseudo-channel ability
   //=================================================================================================================
-  "special_bonus_electrician_cleansing_shock_stun"
+  "special_bonus_electrician_static_grip_non_channel"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8477"
+    "ID"                                                  "3586"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -18,8 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "0.1"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1"
       }
     }
   }

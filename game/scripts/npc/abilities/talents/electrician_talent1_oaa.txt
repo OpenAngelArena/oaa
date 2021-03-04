@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Electrician: x2 Energy Absorption Hero Mana Restore
-	//=================================================================================================================
-	"special_bonus_electrician_absorption_hero_mana_restore"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				  "special_bonus_undefined"
-		"ID"					      "8476"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"			  "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Electrician: Energy Absorption bonus mana absorbed
+  //=================================================================================================================
+  "special_bonus_electrician_energy_absorption_mana"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8476"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"value"				  "2.0"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "10"
+      }
+    }
+  }
 }
