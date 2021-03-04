@@ -5,9 +5,10 @@
 item_dagger_of_moriah = class(TransformationBaseClass)
 
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_dagger_of_moriah_sangromancy", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_dagger_of_moriah_stacking_stats", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_dagger_of_moriah_non_stacking_stats", "items/transformation/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_sangromancy", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_stacking_stats", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_non_stacking_stats", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dagger_of_moriah_sangromancy_effect", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
 
 ---------------------------------------------------------------------------------------------------
 
@@ -188,14 +189,34 @@ function modifier_item_dagger_of_moriah_sangromancy:IsPurgable()
   return true
 end
 
-function modifier_item_dagger_of_moriah_sangromancy:OnCreated( event )
-  local spell = self:GetAbility()
+function modifier_item_dagger_of_moriah_sangromancy:IsAura()
+  return true
+end
 
-  spell.mod = self
+function modifier_item_dagger_of_moriah_sangromancy:GetModifierAura()
+  return "modifier_item_dagger_of_moriah_sangromancy_effect"
+end
 
-  self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
-  self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
-  self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
+function modifier_item_dagger_of_moriah_sangromancy:GetAuraRadius()
+  return self:GetAbility():GetSpecialValueFor("radius")
+end
+
+function modifier_item_dagger_of_moriah_sangromancy:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_item_dagger_of_moriah_sangromancy:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
+
+function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
+  --local spell = self:GetAbility()
+
+  --spell.mod = self
+
+  --self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
+  --self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
+  --self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
 
   if IsServer() and self.nPreviewFX == nil then
     self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
@@ -203,14 +224,14 @@ function modifier_item_dagger_of_moriah_sangromancy:OnCreated( event )
   end
 end
 
-function modifier_item_dagger_of_moriah_sangromancy:OnDestroy(  )
+function modifier_item_dagger_of_moriah_sangromancy:OnDestroy()
   if IsServer() and self.nPreviewFX ~= nil then
     ParticleManager:DestroyParticle( self.nPreviewFX, false )
     ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
     self.nPreviewFX = nil
   end
 end
-
+--[[
 function modifier_item_dagger_of_moriah_sangromancy:OnRefresh( event )
   local spell = self:GetAbility()
 
@@ -282,7 +303,52 @@ function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
     end
   end
 end
+]]
 
 function modifier_item_dagger_of_moriah_sangromancy:GetTexture()
   return "custom/dagger_of_moriah_2_active"
+end
+
+--------------------------------------------------------------------------------
+
+modifier_item_dagger_of_moriah_sangromancy_effect = class(ModifierBaseClass)
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:IsHidden()
+  return false
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:IsDebuff()
+  return true
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:IsPurgable()
+  return false
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:OnCreated()
+  local ability = self:GetAbility()
+  if ability then
+    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+  end
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:OnRefresh()
+  local ability = self:GetAbility()
+  if ability then
+    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+  end
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+  }
+  return funcs
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierMagicalResistanceBonus()
+  if self.magic_resistance then
+    return self.magic_resistance
+  end
+  return -15
 end
