@@ -1,60 +1,49 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_leshrac"
-	"Title"			"Recommended Items for Leshrac"
+  "author"     "Valve"
+  "hero"       "npc_dota_hero_leshrac"
+  "Title"      "Recommended Items for Leshrac"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_null_talisman"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"    "item_null_talisman"
       "item"    "item_flask"
-		}
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		""
-			"item"		"item_magic_wand"
-			"item"		"item_boots"
-			"item"		"item_wind_lace"
-		}
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"    "item_magic_wand"
+      "item"    "item_boots"
+      "item"    "item_wind_lace"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		""
-			"item"		""
-			"item"		"item_cyclone"
-			"item"		"item_bloodstone_1"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"    "item_cyclone"
+      "item"    "item_shivas_guard"
+      "item"    "item_ultimate_scepter"
+      "item"    "item_ethereal_blade"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_shivas_guard"
-			"item"		"item_octarine_core"
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_wind_waker"
+      "item"    "item_bloodstone_1"
+      "item"    "item_ghost_king_bar"
+      "item"    "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_veil_of_discord"
+      "item"    "item_eternal_shroud_oaa"
       "item"    "item_satanic_core"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		""
-			"item"		"item_veil_of_discord"
-			"item"		""
-			"item"		""
-			"item"		"item_ultimate_scepter"
-			"item"		"item_rod_of_atos"
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		""
-			"item"		"item_sphere"
-			"item"		"item_lotus_orb"
-			"item"		""
-			"item"		""
-		}
-	}
+      "item"    "item_sphere"
+      "item"    "item_lotus_orb"
+      "item"    "item_sheepstick_4"
+      "item"    "item_radiance"
+    }
+  }
 }
