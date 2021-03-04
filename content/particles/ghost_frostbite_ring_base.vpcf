@@ -1,0 +1,120 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf31:version{593cd181-a1d6-4c6f-9a8c-0534e8d44db0} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 20
+	m_ConstantColor = [ 255, 182, 121, 255 ]
+	m_nConstantSequenceNumber = 5
+	m_nBehaviorVersion = 10
+	m_nFirstMultipleOverride_BackwardCompat = 6
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ 0.0, 0.0, 0.0 ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 6.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RingWave"
+			m_bEvenDistribution = true
+			m_flInitialRadius = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 110.0
+			}
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.75
+			m_fLifetimeMax = 1.0
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 50.0
+			m_flRadiusMax = 50.0
+			m_flRadiusRandExponent = 2.0
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+			m_nSequenceMax = 3
+			m_nSequenceMin = 3
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 72, 109, 255 ]
+			m_ColorMax = [ 28, 44, 221 ]
+			m_TintMin = [ 0, 0, 0 ]
+			m_TintMax = [ 255, 255, 255 ]
+		},
+		{
+			_class = "C_INIT_Orient2DRelToCP"
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 5.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 5.0 ]
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 0.0
+			m_flBias = 0.3
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_MovementRotateParticleAroundAxis"
+			m_flRotRate = 30.0
+		},
+		{
+			_class = "C_OP_Orient2DRelToCP"
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_flOverbrightFactor = 2.0
+			m_nOrientationType = "PARTICLE_ORIENTATION_WORLD_Z_ALIGNED"
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/elliptical_flare.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+			m_OutlineColor = [ 255, 255, 255 ]
+		},
+	]
+}

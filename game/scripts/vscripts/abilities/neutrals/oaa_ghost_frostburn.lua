@@ -96,7 +96,7 @@ function modifier_frostburn_oaa_effect:OnRefresh()
 end
 
 function modifier_frostburn_oaa_effect:GetEffectName()
-  return "particles/items4_fx/spirit_vessel_damage.vpcf"
+  return "particles/ghost_frostbite.vpcf"--"particles/items4_fx/spirit_vessel_damage.vpcf"
 end
 
 function modifier_frostburn_oaa_effect:DeclareFunctions()
