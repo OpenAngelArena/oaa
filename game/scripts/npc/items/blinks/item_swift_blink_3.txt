@@ -54,7 +54,7 @@
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
     "UpgradesItems"                                       "item_swift_blink_3;item_swift_blink_4"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "11800"
@@ -65,7 +65,7 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"                                   "1"
 
-    // Special  
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -79,7 +79,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "blink_damage_cooldown"                           "3.0"
       }
-      "03" 
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "blink_range_clamp"                               "960"
@@ -87,7 +87,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 35 50 70 100"
+        "bonus_agility"                                   "25 35 50 70 95"
       }
       "05"
       {
@@ -97,12 +97,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "50 60 75 95 120"
+        "bonus_attack_speed"                              "50 55 60 65 70"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_damage"                             "50 60 75 95 120"
+        "bonus_attack_damage"                             "50 60 80 110 150"
       }
       "08"
       {
