@@ -60,10 +60,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_agility"                                   "12 17 27 42 62" //OAA
       }
-      "03" // like Wind Waker
+      "03" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 45 60 80 105" //OAA
+        "bonus_intellect"                                 "20 25 35 50 70" //OAA
       }
       "04" // first 3 values must be the same as Wind Waker, 4th value same as vanilla Sheepstick
       {
@@ -73,7 +73,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
+        "sheep_duration"                                  "2.5 2.75 3.0 3.25 3.5" //OAA
       }
       "06"
       {
