@@ -22,14 +22,7 @@ function item_trusty_shovel_oaa:OnSpellStart()
     self.rewards = {}
   end
 
-  if game_time <= 5*60 then
-    self.rewards = {
-      "kobold",
-      "flask",
-      "clarity",
-      "bottle",
-    }
-  elseif game_time > 5*60 and game_time <= 12*60 then
+  if game_time <= 12*60 then
     self.rewards = {
       "kobold",
       "flask",
@@ -46,14 +39,13 @@ function item_trusty_shovel_oaa:OnSpellStart()
     self.rewards = {
       "kobold_commander",
       "burst_elixir",
-      "bottle",
+      "hybrid_elixir",
     }
   elseif game_time > 36*60 and game_time <= 46*60 then
     self.rewards = {
       "ghost",
       "burst_elixir",
       "hybrid_elixir",
-      "bottle",
     }
   elseif game_time > 46*60 then
     self.rewards = {
@@ -61,7 +53,6 @@ function item_trusty_shovel_oaa:OnSpellStart()
       "burst_elixir",
       "hybrid_elixir",
       "sustain_elixir",
-      "bottle",
     }
   end
 
@@ -139,6 +130,7 @@ function item_trusty_shovel_oaa:DigOutItem(item_name, position)
   local item = CreateItem(item_name, nil, nil)
   item:SetSellable(false)
   item:SetShareability(ITEM_FULLY_SHAREABLE)
+  item:SetStacksWithOtherOwners(true)
   CreateItemOnPositionSync(position, item)
 end
 

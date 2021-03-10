@@ -66,7 +66,7 @@ end
 function modifier_item_demon_stone_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MANA_BONUS,
-	MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 

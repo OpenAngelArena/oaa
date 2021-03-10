@@ -49,7 +49,7 @@ end
 function modifier_item_reflex_core_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSORB_SPELL,
-	MODIFIER_PROPERTY_EVASION_CONSTANT,
+    MODIFIER_PROPERTY_EVASION_CONSTANT,
   }
 end
 
