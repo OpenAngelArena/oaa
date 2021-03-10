@@ -1,4 +1,4 @@
-	"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Recipe: Echo Sabre
@@ -62,7 +62,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 35 65 105 155"
+        "bonus_damage"                                    "15 35 75 135 215"
       }
       "02"
       {
@@ -77,7 +77,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "10 20 30 40 50"
       }
       "05"
       {
