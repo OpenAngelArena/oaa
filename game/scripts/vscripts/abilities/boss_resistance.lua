@@ -29,8 +29,10 @@ function modifier_boss_resistance:DeclareFunctions()
 end
 
 function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
+  local parent = self:GetParent()
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  if keys.attacker == self:GetParent() then -- boss degen nonsense
+
+  if keys.attacker == parent then -- boss degen nonsense
     return 0
   end
   return keys.damage * damageReduction / 100
@@ -109,13 +111,18 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
 -- [   VScript              ]: mkb_tested: false
 
   local percentDamageSpells = {
+    bloodseeker_bloodrage = true,
     death_prophet_spirit_siphon = true,
     doom_bringer_infernal_blade = true,
     huskar_life_break = true,
+    jakiro_liquid_ice = true,
+    necrolyte_reapers_scythe = true,
+    phantom_assassin_fan_of_knives = true,
+    tinker_shrink_ray = true,
     winter_wyvern_arctic_burn = true
-    --life_stealer_feast = true
   }
 
+  local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   local attacker = keys.attacker
   local inflictor = keys.inflictor
 
@@ -160,7 +167,7 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
 
   local name = inflictor:GetAbilityName()
   if percentDamageSpells[name] then
-    return -100
+    return -damageReduction
   end
 
   -- Leshrac Diabolic Edict bonus damage
@@ -174,7 +181,6 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
     end
   end
 
---   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
 --   local parent = self:GetParent()
 --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
 --   local damageAmpModifiers = {
