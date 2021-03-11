@@ -104,9 +104,9 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
     "modifier_item_kaya_and_sange",
   }
 
-  local custom_modifiers = {
-    "modifier_item_stoneskin",
-  }
+  -- local custom_modifiers = {
+    -- "modifier_item_stoneskin",
+  -- }
 
   local spell_lifesteal_amp = 0
 
@@ -121,28 +121,28 @@ function modifier_item_spell_lifesteal_oaa:OnTakeDamage(params)
     end
   end
 
-  for _, mod_name in pairs(custom_modifiers) do
-    local modifier = attacker:FindModifierByName(mod_name)
-    if modifier then
-      local ability = modifier:GetAbility()
-      if ability then
-        -- Spell Lifesteal Amp stacks multiplicatively
-        spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-ability:GetSpecialValueFor("spell_lifesteal_amp"))
-      end
-    end
-  end
+  -- for _, mod_name in pairs(custom_modifiers) do
+    -- local modifier = attacker:FindModifierByName(mod_name)
+    -- if modifier then
+      -- local ability = modifier:GetAbility()
+      -- if ability then
+        -- -- Spell Lifesteal Amp stacks multiplicatively
+        -- spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-ability:GetSpecialValueFor("spell_lifesteal_amp"))
+      -- end
+    -- end
+  -- end
 
-  local paladin_sword_modifier = attacker:FindModifierByName("modifier_item_paladin_sword")
-  if paladin_sword_modifier then
-    local paladin_sword = paladin_sword_modifier:GetAbility()
-    if paladin_sword then
-      local bonus = paladin_sword:GetSpecialValueFor("bonus_amp")
-      if bonus then
-        -- Spell Lifesteal Amp stacks multiplicatively
-        spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-bonus)
-      end
-    end
-  end
+  -- local paladin_sword_modifier = attacker:FindModifierByName("modifier_item_paladin_sword")
+  -- if paladin_sword_modifier then
+    -- local paladin_sword = paladin_sword_modifier:GetAbility()
+    -- if paladin_sword then
+      -- local bonus = paladin_sword:GetSpecialValueFor("bonus_amp")
+      -- if bonus then
+        -- -- Spell Lifesteal Amp stacks multiplicatively
+        -- spell_lifesteal_amp = 1-(1-spell_lifesteal_amp)*(1-bonus)
+      -- end
+    -- end
+  -- end
 
   nHeroHeal = nHeroHeal * (1 + spell_lifesteal_amp/100)
   nCreepHeal = nCreepHeal * (1 + spell_lifesteal_amp/100)
