@@ -35,6 +35,27 @@ function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   if keys.attacker == parent then -- boss degen nonsense
     return 0
   end
+
+  local inflictor = keys.inflictor
+  print("[BOSS RESISTANCE BLOCK] Ability that dealt damage:")
+  print(inflictor)
+  if inflictor and IsServer() then
+    local damagingByAccident = {
+      item_radiance = true,
+      item_radiance_2 = true,
+      item_radiance_3 = true,
+      item_radiance_4 = true,
+      item_radiance_5 = true,
+      item_cloak_of_flames = true,
+    }
+    local name = inflictor:GetAbilityName()
+    print("[BOSS RESISTANCE BLOCK] Name of the ability that is being blocked: "..name)
+    -- Block damage if it was accidental, we check this by checking boss hp percentage
+    if damagingByAccident[name] and parent:GetHealth()/parent:GetMaxHealth() > 90/100 then
+      return keys.damage
+    end
+  end
+
   return keys.damage * damageReduction / 100
 end
 
@@ -165,9 +186,13 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
     return 0
   end
 
+  print("[BOSS RESISTANCE REDUCTION] Ability that dealt damage:")
+  print(inflictor)
+
   local name = inflictor:GetAbilityName()
+  print("[BOSS RESISTANCE REDUCTION] Name of the ability that is being reduced: "..name)
   if percentDamageSpells[name] then
-    return -damageReduction
+    --return -damageReduction
   end
 
   -- Leshrac Diabolic Edict bonus damage
