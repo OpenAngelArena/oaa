@@ -134,8 +134,6 @@ if IsServer() then
     local spell = self:GetAbility()
 
     local inflictor = event.inflictor
-    print("[BOSS REGEN ONTAKEDAMAGE] Ability that dealt damage is:")
-    print(inflictor)
     if inflictor then
       local damagingByAccident = {
         item_radiance = true,
@@ -146,7 +144,6 @@ if IsServer() then
         item_cloak_of_flames = true,
       }
       local name = inflictor:GetAbilityName()
-      print("[BOSS REGEN ONTAKEDAMAGE] Name of the ability that is being checked: "..name)
       -- Don't react to damage if it was accidental, we check this by checking boss hp percentage
       if damagingByAccident[name] and parent:GetHealth()/parent:GetMaxHealth() > 90/100 then
         return
