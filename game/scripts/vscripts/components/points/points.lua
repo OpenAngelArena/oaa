@@ -19,12 +19,12 @@ function PointsManager:Init ()
   self.hasGameEnded = false
 
   local scoreLimit = NORMAL_KILL_LIMIT
-  local scoreLimitIncrease = 10 -- if you want to change put: PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
+  local scoreLimitIncrease = 10 -- if you want to change put: PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
     scoreLimitIncrease = scoreLimitIncrease/2
   end
-  scoreLimit = scoreLimit * PlayerResource:GetTeamPlayerCount() + scoreLimitIncrease
+  scoreLimit = scoreLimit * PlayerResource:SafeGetTeamPlayerCount() + scoreLimitIncrease
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', {

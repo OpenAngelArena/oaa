@@ -196,7 +196,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     pit.killCount = pit.killCount + 1
     if not BossSpawner.hasKilledTiers[bossTier] then
       BossSpawner.hasKilledTiers[bossTier] = true
-      local scoreLimitIncrease = PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
+      local scoreLimitIncrease = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
       PointsManager:IncreaseLimit(scoreLimitIncrease)
     end
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()

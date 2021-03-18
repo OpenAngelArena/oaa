@@ -58,10 +58,10 @@ function CreepPower:Init ()
   if HeroSelection.is10v10 then
     maxTeamPlayerCount = 20
   end
-  self.numPlayersXPFactor = 1 -- PlayerResource:GetTeamPlayerCount() / maxTeamPlayerCount
-  self.numPlayersStatsFactor = (PlayerResource:GetTeamPlayerCount() + 5) / (maxTeamPlayerCount + 5)
+  self.numPlayersXPFactor = 1 -- PlayerResource:SafeGetTeamPlayerCount() / maxTeamPlayerCount
+  self.numPlayersStatsFactor = (PlayerResource:SafeGetTeamPlayerCount() + 5) / (maxTeamPlayerCount + 5)
 
-  if PlayerResource:GetTeamPlayerCount() == 1 then
+  if PlayerResource:SafeGetTeamPlayerCount() == 1 then
     self.numPlayersStatsFactor = 1
   end
 

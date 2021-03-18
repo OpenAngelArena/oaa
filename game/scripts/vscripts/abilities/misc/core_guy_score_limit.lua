@@ -14,7 +14,7 @@ function core_guy_score_limit:OnSpellStart()
 
   if IsServer() then
     --print("Trying to increase score limit!")
-    local scoreLimitIncrease = PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
+    local scoreLimitIncrease = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
     PointsManager:IncreaseLimit(scoreLimitIncrease)
   end
 end
