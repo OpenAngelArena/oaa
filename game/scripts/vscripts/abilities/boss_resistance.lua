@@ -29,10 +29,30 @@ function modifier_boss_resistance:DeclareFunctions()
 end
 
 function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
+  local parent = self:GetParent()
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  if keys.attacker == self:GetParent() then -- boss degen nonsense
+
+  if keys.attacker == parent then -- boss degen nonsense
     return 0
   end
+
+  local inflictor = keys.inflictor
+  if inflictor and IsServer() then
+    local damagingByAccident = {
+      item_radiance = true,
+      item_radiance_2 = true,
+      item_radiance_3 = true,
+      item_radiance_4 = true,
+      item_radiance_5 = true,
+      item_cloak_of_flames = true,
+    }
+    local name = inflictor:GetAbilityName()
+    -- Block damage if it was accidental, we check this by checking boss hp percentage
+    if damagingByAccident[name] and parent:GetHealth()/parent:GetMaxHealth() > 90/100 then
+      return keys.damage
+    end
+  end
+
   return keys.damage * damageReduction / 100
 end
 
@@ -109,13 +129,18 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
 -- [   VScript              ]: mkb_tested: false
 
   local percentDamageSpells = {
-    death_prophet_spirit_siphon = true,
-    doom_bringer_infernal_blade = true,
-    huskar_life_break = true,
-    winter_wyvern_arctic_burn = true
-    --life_stealer_feast = true
+    bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
+    death_prophet_spirit_siphon = true,     -- doesn't work on vanilla Roshan
+    doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
+    huskar_life_break = true,               -- doesn't work on vanilla Roshan
+    jakiro_liquid_ice = false,
+    necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
+    phantom_assassin_fan_of_knives = false,
+    tinker_shrink_ray = true,               -- doesn't work on vanilla Roshan
+    winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
   }
 
+  local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   local attacker = keys.attacker
   local inflictor = keys.inflictor
 
@@ -158,9 +183,27 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
     return 0
   end
 
+  -- We will not overcomplicate the interaction with damage amp from Veil:
+  -- if parent has Veil debuff, set damage reduction to 100%
+  local parent = self:GetParent()
+  local hasVeilDebuff = parent:HasModifier("modifier_item_veil_of_discord_debuff")
+
   local name = inflictor:GetAbilityName()
   if percentDamageSpells[name] then
-    return -100
+    if hasVeilDebuff then
+      return -100
+    else
+      return 0 - damageReduction
+    end
+  end
+
+   -- Special case for tinker with aghanim shard
+  if name == "tinker_laser" and attacker:HasShardOAA() then
+    if hasVeilDebuff then
+      return -100
+    else
+      return 0 - damageReduction
+    end
   end
 
   -- Leshrac Diabolic Edict bonus damage
@@ -174,8 +217,6 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
     end
   end
 
---   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
---   local parent = self:GetParent()
 --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
 --   local damageAmpModifiers = {
 --     "modifier_bloodseeker_bloodrage",

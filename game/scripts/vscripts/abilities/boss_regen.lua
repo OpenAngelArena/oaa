@@ -133,6 +133,23 @@ if IsServer() then
 
     local spell = self:GetAbility()
 
+    local inflictor = event.inflictor
+    if inflictor then
+      local damagingByAccident = {
+        item_radiance = true,
+        item_radiance_2 = true,
+        item_radiance_3 = true,
+        item_radiance_4 = true,
+        item_radiance_5 = true,
+        item_cloak_of_flames = true,
+      }
+      local name = inflictor:GetAbilityName()
+      -- Don't react to damage if it was accidental, we check this by checking boss hp percentage
+      if damagingByAccident[name] and parent:GetHealth()/parent:GetMaxHealth() > 90/100 then
+        return
+      end
+    end
+
     -- Don't trigger bleeding when damage is below min aggro dmg (tier * BOSS_AGRO_FACTOR)
     if event.damage > damage_threshold then
       parent:AddNewModifier( parent, spell, "modifier_boss_regen_degen", {duration = spell:GetSpecialValueFor( "degen_duration" )} )
