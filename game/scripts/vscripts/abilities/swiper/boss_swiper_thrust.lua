@@ -4,6 +4,13 @@ boss_swiper_thrust = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
+function boss_swiper_thrust:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_nyx_assassin/nyx_assassin_impale.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", context)
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts", context)
+end
+
 function boss_swiper_thrust:OnAbilityPhaseStart()
 	if IsServer() then
 		local caster = self:GetCaster()
@@ -12,6 +19,14 @@ function boss_swiper_thrust:OnAbilityPhaseStart()
 		local distance = (target - caster:GetAbsOrigin()):Length()
 		local castTime = self:GetCastPoint()
 		local direction = (target - caster:GetAbsOrigin()):Normalized()
+
+    -- Warning particle
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(FX, 2, target)
+    ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
+    ParticleManager:ReleaseParticleIndex(FX)
 
 		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
 	end

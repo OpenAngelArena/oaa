@@ -9,6 +9,7 @@ boss_slime_slam = class(AbilityBaseClass)
 function boss_slime_slam:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", context)
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context)
 end
 
@@ -20,6 +21,14 @@ function boss_slime_slam:OnAbilityPhaseStart()
 		local distance = self:GetCastRange(target, caster)
 		local castTime = self:GetCastPoint()
 		local direction = (target - caster:GetAbsOrigin()):Normalized()
+
+    -- Warning particle
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(FX, 2, target)
+    ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
+    ParticleManager:ReleaseParticleIndex(FX)
 
 		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
 	end
