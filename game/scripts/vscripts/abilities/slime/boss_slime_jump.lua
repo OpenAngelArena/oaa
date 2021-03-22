@@ -12,7 +12,6 @@ function boss_slime_jump:GetPlaybackRateOverride()
 end
 
 function boss_slime_jump:Precache(context)
-  --PrecacheResource("particle", "particles/econ/items/invoker/invoker_ti6/invoker_deafening_blast_glyphs_shadow_ti6.vpcf", context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", context)
@@ -48,7 +47,7 @@ function boss_slime_jump:OnAbilityPhaseStart()
 	local origin = caster:GetAbsOrigin()
 	local radius = self:GetSpecialValueFor("radius")
 
-	DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 55, radius, false, self:GetCastPoint())
+	--DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 55, radius, false, self:GetCastPoint())
 	return true
 end
 
@@ -60,9 +59,7 @@ function boss_slime_jump:OnSpellStart(keys)
 	local origin = caster:GetAbsOrigin()
 	local radius = self:GetSpecialValueFor("radius")
 
-	-- Warning particle (while Slime is flying)
-  --local indicator = ParticleManager:CreateParticle("particles/econ/items/invoker/invoker_ti6/invoker_deafening_blast_glyphs_shadow_ti6.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	--ParticleManager:SetParticleControl(indicator, 3, target + Vector(0,0,16))
+  -- Warning particle (while Slime is flying)
   local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(indicator, 0, target)
   ParticleManager:SetParticleControl(indicator, 1, Vector(radius, radius, radius))
@@ -83,8 +80,9 @@ function boss_slime_jump:OnSpellStart(keys)
 			local smoke = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, caster)
 			ParticleManager:ReleaseParticleIndex(smoke)
 
+            -- Remove warning particle
 			ParticleManager:DestroyParticle(indicator, true)
-      ParticleManager:ReleaseParticleIndex(indicator)
+            ParticleManager:ReleaseParticleIndex(indicator)
 
 			local units = self:FindTargets()
 

@@ -58,32 +58,24 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 
     caster:AddNewModifier(caster, self, "modifier_boss_swiper_anti_stun", {duration = self:GetCastPoint()})
 
-    self:DebugRange(caster, range)
+    --self:DebugRange(caster, range)
 
     local delay = self:GetSpecialValueFor("delay") --self:GetCastPoint()
 
     local position2 = caster_loc + (caster:GetForwardVector() * range)
-    local position1 = RotatePosition(caster_loc, QAngle(0,45,0), position2)
-    local position3 = RotatePosition(caster_loc, QAngle(0,-45,0), position2)
+    local position1 = RotatePosition(caster_loc, QAngle(0, 45, 0), position2)
+    local position3 = RotatePosition(caster_loc, QAngle(0, -45, 0), position2)
     local forward1 = (position1 - caster_loc):Normalized()
     local forward3 = (position3 - caster_loc):Normalized()
     local width = (position2 - position1):Length2D() / 2
 
-    -- Warning particle
-    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
-    ParticleManager:SetParticleControl(FX, 1, GetGroundPosition(caster_loc, nil)
-    ParticleManager:SetParticleControl(FX, 2, GetGroundPosition(position2, nil)
-    ParticleManager:SetParticleControl(FX, 3, Vector(3*width, 100, 3*width))
-    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
-    ParticleManager:ReleaseParticleIndex(FX)
-
-    -- Hit particle
-    Timers:CreateTimer(delay, function()
+    -- Particle
+	Timers:CreateTimer(delay/2, function()
       local swipe = ParticleManager:CreateParticle(self.particleName, PATTACH_CUSTOMORIGIN, caster)
-      ParticleManager:SetParticleControl(swipe, 0, caster_loc + (caster:GetForwardVector() * 50) + Vector(0,0,100))
-      ParticleManager:SetParticleControl(swipe, 1, caster_loc + (caster:GetForwardVector() * 100) + Vector(0,0,100))
-      ParticleManager:SetParticleControl(swipe, 2, Vector(1.25,0,0))
-      ParticleManager:SetParticleControl(swipe, 3, Vector(0.8,0,0))
+      ParticleManager:SetParticleControl(swipe, 0, caster_loc + (caster:GetForwardVector() * 50) + Vector(0, 0, 100))
+      ParticleManager:SetParticleControl(swipe, 1, caster_loc + (caster:GetForwardVector() * 100) + Vector(0, 0, 100))
+      ParticleManager:SetParticleControl(swipe, 2, Vector(1.25, 0, 0))
+      ParticleManager:SetParticleControl(swipe, 3, Vector(0.8, 0, 0))
       ParticleManager:ReleaseParticleIndex(swipe)
     end)
 
@@ -114,7 +106,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 		end
 
 		for k, direction in pairs(directions) do
-			Timers:CreateTimer(delay + (delay * math.abs(k - modifier))/6, function()
+			Timers:CreateTimer(delay/2 + (delay * math.abs(k - modifier))/12, function()
 				local units = self:FindUnitsInCone(
 					caster_loc,
 					direction,

@@ -28,7 +28,7 @@ function boss_swiper_thrust:OnAbilityPhaseStart()
     ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
     ParticleManager:ReleaseParticleIndex(FX)
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
+    --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
 	end
 	return true
 end
@@ -70,7 +70,7 @@ end
 function boss_swiper_thrust:OnProjectileHit( target, location )
 	if IsServer() then
 		if target ~= nil then
-			DebugDrawSphere(target:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
+			--DebugDrawSphere(target:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
 
 			target:EmitSound("hero_ursa.attack")
 

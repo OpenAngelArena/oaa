@@ -25,12 +25,12 @@ function boss_slime_slam:OnAbilityPhaseStart()
     -- Warning particle
     local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(FX, 2, target)
+    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*distance)
     ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
     ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
     ParticleManager:ReleaseParticleIndex(FX)
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
+		--DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
 	end
 	return true
 end
@@ -98,7 +98,7 @@ function boss_slime_slam:OnSpellStart()
 		local units = self:FindTargets()
 
 		for k,v in pairs(units) do
-			DebugDrawSphere(v:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
+			--DebugDrawSphere(v:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
 
 			v:EmitSound("hero_ursa.attack")
 
