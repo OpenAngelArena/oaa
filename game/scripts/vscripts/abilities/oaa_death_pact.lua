@@ -18,8 +18,8 @@ function clinkz_death_pact_oaa:OnSpellStart()
   local target = self:GetCursorTarget()
   local duration = self:GetSpecialValueFor( "duration" )
 
-  -- get the target's current health
-  local targetHealth = target:GetHealth()
+  -- get the target's max health
+  local targetHealth = target:GetMaxHealth()
 
   -- kill the target
   target:Kill( self, caster )
@@ -57,6 +57,10 @@ function modifier_clinkz_death_pact_oaa:IsPurgable()
   return false
 end
 
+function modifier_clinkz_death_pact_oaa:RemoveOnDeath()
+  return false
+end
+
 function modifier_clinkz_death_pact_oaa:OnCreated( event )
   local parent = self:GetParent()
   local spell = self:GetAbility()
@@ -64,7 +68,7 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
   -- this has to be done server-side because valve
   if IsServer() then
     -- get the parent's (Clinkz) current health before applying anything
-    self.parentHealth = parent:GetHealth()
+    --self.parentHealth = parent:GetHealth()
 
     -- set the modifier's stack count to the target's health, so that we
     -- have access to it on the client
@@ -93,15 +97,16 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
   -- retrieve the stack count
   local targetHealth = self:GetStackCount()
 
-  -- make sure the resulting buffs don't exceed the caps
+  -- Calculate bonuses
   self.health = targetHealth * healthPct * 0.01
+  self.damage = targetHealth * damagePct * 0.01
 
+  -- Cap the health bonus
   if healthMax > 0 then
     self.health = math.min( healthMax, self.health )
   end
 
-  self.damage = targetHealth * damagePct * 0.01
-
+  -- Cap the damage bonus
   if damageMax > 0 then
     self.damage = math.min( damageMax, self.damage )
   end
@@ -111,7 +116,8 @@ function modifier_clinkz_death_pact_oaa:OnCreated( event )
     parent:CalculateStatBonus(true)
 
     -- add the added health
-    parent:SetHealth( self.parentHealth + self.health )
+    --parent:SetHealth( self.parentHealth + self.health )
+    parent:Heal(self.health, spell)
   end
 end
 
@@ -122,7 +128,7 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
   -- this has to be done server-side because valve
   if IsServer() then
     -- get the parent's current health before applying anything
-    self.parentHealth = parent:GetHealth()
+    --self.parentHealth = parent:GetHealth()
 
     -- set the modifier's stack count to the target's health, so that we
     -- have access to it on the client
@@ -151,15 +157,16 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
   -- retrieve the stack count
   local targetHealth = self:GetStackCount()
 
-  -- make sure the resulting buffs don't exceed the caps
+  -- Calculate bonuses
   self.health = targetHealth * healthPct * 0.01
+  self.damage = targetHealth * damagePct * 0.01
 
+  -- Cap the health bonus
   if healthMax > 0 then
     self.health = math.min( healthMax, self.health )
   end
 
-  self.damage = targetHealth * damagePct * 0.01
-
+  -- Cap the damage bonus
   if damageMax > 0 then
     self.damage = math.min( damageMax, self.damage )
   end
@@ -169,24 +176,30 @@ function modifier_clinkz_death_pact_oaa:OnRefresh( event )
     parent:CalculateStatBonus(true)
 
     -- add the added health
-    parent:SetHealth( self.parentHealth + self.health )
+    --parent:SetHealth( self.parentHealth + self.health )
+    parent:Heal(self.health, spell)
   end
 end
 
 function modifier_clinkz_death_pact_oaa:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE, -- Vanilla is not base damage!
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,       -- this is bonus raw damage (green)
+    --MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
     MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
   }
 
   return funcs
 end
 
-function modifier_clinkz_death_pact_oaa:GetModifierBaseAttack_BonusDamage( event )
+--function modifier_clinkz_death_pact_oaa:GetModifierBaseAttack_BonusDamage()
+  --return self.damage
+--end
+
+function modifier_clinkz_death_pact_oaa:GetModifierPreAttack_BonusDamage()
   return self.damage
 end
 
-function modifier_clinkz_death_pact_oaa:GetModifierExtraHealthBonus( event )
+function modifier_clinkz_death_pact_oaa:GetModifierExtraHealthBonus()
   return self.health
 end
 
@@ -203,6 +216,10 @@ function modifier_clinkz_death_pact_effect_oaa:IsDebuff()
 end
 
 function modifier_clinkz_death_pact_effect_oaa:IsPurgable()
+  return false
+end
+
+function modifier_clinkz_death_pact_effect_oaa:RemoveOnDeath()
   return false
 end
 

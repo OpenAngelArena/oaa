@@ -2,7 +2,7 @@
 // Clinkz Death Pact OAA
 //=============================================================================
 "DOTA_Tooltip_ability_clinkz_death_pact_oaa"                            "#{DOTA_Tooltip_ability_clinkz_death_pact}"
-"DOTA_Tooltip_ability_clinkz_death_pact_oaa_Description"                "#{DOTA_Tooltip_ability_clinkz_death_pact_Description}\n<font color='#FFA500'>Death Pact has a limit to the amount of health and damage that can be gained.</font>"
+"DOTA_Tooltip_ability_clinkz_death_pact_oaa_Description"                "Clinkz consumes the target enemy unit or friendly unit, gaining max health and damage based on its max health.\n<font color='#FFA500'>Death Pact has a limit to the amount of health and damage that can be gained.</font>"
 "DOTA_Tooltip_ability_clinkz_death_pact_oaa_Lore"                       "#{DOTA_Tooltip_ability_clinkz_death_pact_Lore}"
 "DOTA_Tooltip_ability_clinkz_death_pact_oaa_Note0"                      "#{DOTA_Tooltip_ability_clinkz_death_pact_Note0}"
 "DOTA_Tooltip_ability_clinkz_death_pact_oaa_Note1"                      "#{DOTA_Tooltip_ability_clinkz_death_pact_Note1}"
@@ -13,5 +13,7 @@
 "DOTA_Tooltip_ability_clinkz_death_pact_oaa_health_gain_max"            "MAX HEALTH GAIN:"
 "DOTA_Tooltip_ability_clinkz_death_pact_oaa_damage_gain_max"            "MAX DAMAGE GAIN:"
 
+"DOTA_Tooltip_ability_clinkz_death_pact_Description"                    "#{DOTA_Tooltip_ability_clinkz_death_pact_oaa_Description}"
+
 "DOTA_Tooltip_modifier_clinkz_death_pact_effect_oaa"                    "#{DOTA_Tooltip_modifier_clinkz_death_pact}"
-"DOTA_Tooltip_modifier_clinkz_death_pact_effect_oaa_Description"        "Increased max health and increased base damage."
+"DOTA_Tooltip_modifier_clinkz_death_pact_effect_oaa_Description"        "Bonus damage and increased max health."
