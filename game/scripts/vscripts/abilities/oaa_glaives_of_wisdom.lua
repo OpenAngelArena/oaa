@@ -81,9 +81,15 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   damage_table.ability = self
 
   ApplyDamage(damage_table)
+  
+  -- Overhead particle message
+  SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+
+  -- Sound
+  target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
 
   -- Create more bounces if there are more left
-  if data.bounces_left >= 0 then
+  if data.bounces_left > 0 then
     -- Change data for the next bounce
     data.bounces_left = data.bounces_left - 1
     data.physical_damage = bounce_damage
@@ -118,10 +124,10 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
             Source = target,
             bProvidesVision = false,
             Target = enemy,
-            iMoveSpeed = parent:GetProjectileSpeed(),
+            iMoveSpeed = caster:GetProjectileSpeed(),
             bDodgable = true,
             bIsAttack = false,
-            iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+            --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
             ExtraData = data
           }
 
@@ -385,7 +391,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
               iMoveSpeed = parent:GetProjectileSpeed(),
               bDodgable = true,
               bIsAttack = false,
-              iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+              --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
               ExtraData = {
                 bounces_left = number_of_bounces-1,
                 physical_damage = event.damage,
