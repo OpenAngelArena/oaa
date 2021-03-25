@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 70 60 60 60"
+    "AbilityCooldown"                                     "80 70 60 50 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,13 +40,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_gain_pct"                                 "40 60 80 100 120" //OAA, for picking screen tooltip
+        "health_gain_pct"                                 "40 70 100 115 130"
         "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_8"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_gain_pct"                                 "4 6 8 10 14" //OAA, for picking screen tooltip
+        "damage_gain_pct"                                 "4 8 12 16 20"
         "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_8"
         "LinkedSpecialBonusField"                         "value2"
       }
