@@ -41,30 +41,25 @@
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed"                                "2000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_count"                                    "2 3 4 5 5 5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounce_count"                                    "2 3 4 5 5 5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "bounce_range"                                    "525"
       }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "debuff_duration"                                 "0.25"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "100"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bounce_delay"                                    "0.1"
