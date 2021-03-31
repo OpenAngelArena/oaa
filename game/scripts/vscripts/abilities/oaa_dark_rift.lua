@@ -50,7 +50,7 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   end
 
   local radius = self:GetSpecialValueFor( "radius" )
-  self.originSecond = GetGroundPosition( Vector(pos.x, pos.y, 0), caster)
+  local target_loc = GetGroundPosition( Vector(pos.x, pos.y, 0), caster)
 
   -- Remove particles of the previous spell instance in case of refresher
   if caster.partPortal1 then
@@ -64,8 +64,9 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
     caster.partPortal2 = nil
   end
 
-  -- Remove stored location of the previous spell instance in case of refresher
-  caster.original_cast_location = nil
+  -- Remove stored locations of the previous spell instance in case of refresher
+  caster.dark_rift_origin = nil
+  caster.dark_rift_target = nil
 
   -- create portal particle on caster location
   local partPortal1 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
@@ -75,18 +76,21 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
 
   -- create portal particle on destination
   local partPortal2 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
-  ParticleManager:SetParticleControl( partPortal2, 0, self.originSecond )
-  ParticleManager:SetParticleControl( partPortal2, 2, self.originSecond )
+  ParticleManager:SetParticleControl( partPortal2, 0, target_loc )
+  ParticleManager:SetParticleControl( partPortal2, 2, target_loc )
   ParticleManager:SetParticleControl( partPortal2, 1, Vector( radius, 1, 1 ) )
 
   -- play cast sounds
   caster:EmitSound( "Hero_AbyssalUnderlord.DarkRift.Cast" )
-  --EmitSoundOnLocationWithCaster( self.originSecond, "Hero_AbyssalUnderlord.DarkRift.Cast", caster )
+  --EmitSoundOnLocationWithCaster( target_loc, "Hero_AbyssalUnderlord.DarkRift.Cast", caster )
   -- EmitSoundOnLocationWithCaster needs to be replaced with EmitSound on invisible thinker/dummy entity
   -- and StopSound when portals close, otherwise its annoying
 
   -- Store the location of the caster on the caster itself for the sub ability
-  caster.original_cast_location = originCaster
+  caster.dark_rift_origin = originCaster
+
+  -- Store the target location on the caster itself for the sub ability
+  caster.dark_rift_target = target_loc
 
   -- Store particles indexes on caster itself
   caster.partPortal1 = partPortal1
@@ -124,21 +128,23 @@ function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
   if bInterrupted then
     RemoveParticles()
 
-    caster.original_cast_location = nil
+    caster.dark_rift_origin = nil
+    caster.dark_rift_target = nil
 
     return
   end
 
   local originParent = caster:GetAbsOrigin()
   local radius = self:GetSpecialValueFor("radius")
+  local target_loc = caster.dark_rift_target
 
   -- destroy all trees in portals
   GridNav:DestroyTreesAroundPoint( originParent, radius, true )
-  GridNav:DestroyTreesAroundPoint( self.originSecond, radius, true )
+  GridNav:DestroyTreesAroundPoint( target_loc, radius, true )
 
   -- play teleportation sounds
   caster:EmitSound("Hero_AbyssalUnderlord.DarkRift.Aftershock")
-  EmitSoundOnLocationWithCaster( self.originSecond, "Hero_AbyssalUnderlord.DarkRift.Aftershock", caster )
+  EmitSoundOnLocationWithCaster( target_loc, "Hero_AbyssalUnderlord.DarkRift.Aftershock", caster )
 
   -- emit warp particles
   local part = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_warp.vpcf", PATTACH_WORLDORIGIN, caster )
@@ -147,20 +153,20 @@ function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
 
   local part2 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abbysal_underlord_darkrift_warp.vpcf", PATTACH_WORLDORIGIN, caster )
   ParticleManager:SetParticleControl( part2, 1, Vector( radius, 1, 1 ) )
-  ParticleManager:SetParticleControl( part2, 2, self.originSecond )
+  ParticleManager:SetParticleControl( part2, 2, target_loc )
 
   local targetTeam = self:GetAbilityTargetTeam()
   local targetType = self:GetAbilityTargetType()
   local targetFlags = self:GetAbilityTargetFlags()
 
-  local units_in_portal = FindUnitsInRadius(caster:GetTeamNumber(), self.originSecond, nil, radius, targetTeam, targetType, targetFlags, FIND_ANY_ORDER, false)
+  local units_in_portal = FindUnitsInRadius(caster:GetTeamNumber(), target_loc, nil, radius, targetTeam, targetType, targetFlags, FIND_ANY_ORDER, false)
 
   -- Original stun duration
   local stun_duration = self:GetSpecialValueFor("stun_duration")
 
   -- Teleport the caster
-  caster:SetAbsOrigin(self.originSecond)
-  FindClearSpaceForUnit(caster, self.originSecond, true)
+  caster:SetAbsOrigin(target_loc)
+  FindClearSpaceForUnit(caster, target_loc, true)
 
   -- Disjoint disjointable/dodgeable projectiles
   ProjectileManager:ProjectileDodge(caster)
@@ -198,7 +204,7 @@ function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
     end)
   else
     RemoveParticles()
-    caster.original_cast_location = nil
+    caster.dark_rift_origin = nil
   end
 end
 
