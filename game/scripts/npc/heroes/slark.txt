@@ -1,13 +1,14 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Keeper of the Light
+  // HERO: Slark
   //=================================================================================================================
-  "npc_dota_hero_keeper_of_the_light"
+  "npc_dota_hero_slark"
   {
-     "Ability11"		"special_bonus_spell_lifesteal_60"
-	 "AttackDamageMin"		"25"
-	 "AttackDamageMax"		"32"
-	 "Ability17"		    "special_bonus_spell_amplify_16"
+    "BaseAttackSpeed"		"130"
+	"Ability17"		"special_bonus_spell_block_20"
+	"Ability11"     "special_bonus_armor_8"
+	"Ability10"     "special_bonus_damage_15"
+	
   }
 }
