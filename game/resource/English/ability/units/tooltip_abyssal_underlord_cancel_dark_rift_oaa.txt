@@ -2,7 +2,7 @@
 // Underlord Dark Rift sub ability
 //=============================================================================
 "DOTA_Tooltip_ability_abyssal_underlord_cancel_dark_rift_oaa"                   "Dark Abduction"
-"DOTA_Tooltip_ability_abyssal_underlord_cancel_dark_rift_oaa_Description"       "Teleports Underlord and stunned enemies back to the inital Dark Rift cast location."
+"DOTA_Tooltip_ability_abyssal_underlord_cancel_dark_rift_oaa_Description"       "Teleports Underlord and stunned enemies back to the inital Dark Rift channel location. Doesn't teleport Underlord if there are no stunned enemies."
 "DOTA_Tooltip_ability_abyssal_underlord_cancel_dark_rift_oaa_Lore"              "You are coming with me."
 
 "DOTA_Tooltip_ability_abyssal_underlord_cancel_dark_rift"                       "#{DOTA_Tooltip_ability_abyssal_underlord_cancel_dark_rift_oaa}"
