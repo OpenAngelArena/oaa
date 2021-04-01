@@ -542,23 +542,31 @@ function FillTopBarPlayer (TeamContainer) {
 }
 
 function EnableChatWindow () {
-  var pregamePanel = FindDotaHudElement('PreGame');
+  let pregamePanel = FindDotaHudElement('PreGame');
   pregamePanel.style.zIndex = 10;
   pregamePanel.style.backgroundColor = 'transparent';
-  var contentPanel = pregamePanel.FindChildTraverse('MainContents');
+  let contentPanel = pregamePanel.FindChildTraverse('MainContents');
   contentPanel.style.visibility = 'collapse';
-  var backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
+  let backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
   backgroundPanel.style.visibility = 'collapse';
-  var backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
+  let backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
   backgroundDashboardPanel.style.visibility = 'collapse';
-  var radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
+  let radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
   radiantTeamPanel.style.visibility = 'collapse';
-  var direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
+  let direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
   direTeamPanel.style.visibility = 'collapse';
-  var headerPanel = pregamePanel.FindChildTraverse('Header');
+  let headerPanel = pregamePanel.FindChildTraverse('Header');
   headerPanel.style.visibility = 'collapse';
-  var minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
+  let minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
   minimapPanel.style.visibility = 'collapse';
+  let panel = pregamePanel.FindChildTraverse('FriendsAndFoes');
+  panel.style.visibility = 'collapse';
+  let panel2 = pregamePanel.FindChildTraverse('HeroPickingTeamComposition');
+  panel2.style.visibility = 'collapse';
+  let panel3 = pregamePanel.FindChildTraverse('PlusChallengeSelector');
+  panel3.style.visibility = 'collapse';
+  let panel4 = pregamePanel.FindChildTraverse('AvailableItemsContainer');
+  panel4.style.visibility = 'collapse';
 }
 
 function UpdatePreviews (data) {
