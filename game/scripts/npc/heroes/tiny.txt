@@ -8,5 +8,10 @@
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
     "Ability6"        "tiny_grow_oaa" // replaces tiny_grow
+	
+	"AttributeBaseAgility"		"10" //oaa
+	"AttributeAgilityGain"		"1.00000" //oaa 
+	"MovementSpeed"		        "315" //oaa
+	"MovementTurnRate"		    "0.800000" //oaa
   }
 }

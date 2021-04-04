@@ -47,13 +47,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "11 18 25 32 39 46"
+        "bonus_damage_pct"                                "12 20 28 36 42 50" //oaa
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "10 20 30 40 50 60"
+        "cleave_damage_pct"                               "20 30 40 50 75 100" //oaa
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "04"
@@ -79,7 +79,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "self_multiplier"                                 "75"
+        "self_multiplier"                                 "100" //oaa
       }
     }
   }
