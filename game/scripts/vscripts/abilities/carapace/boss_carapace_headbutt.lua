@@ -6,8 +6,16 @@ boss_carapace_headbutt = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
+function boss_carapace_headbutt:Precache(context)
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_smoke.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context)
+end
+
 function boss_carapace_headbutt:GetPlaybackRateOverride()
-	return 0.25
+  return 0.25
 end
 
 --------------------------------------------------------------------------------
@@ -22,14 +30,14 @@ function boss_carapace_headbutt:OnAbilityPhaseStart()
     local direction = caster:GetForwardVector()
 
     -- Warning particle
-    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*distance)
+    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*(distance+width) + Vector(0, 0, 50))
     ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
-    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 255))
     ParticleManager:ReleaseParticleIndex(FX)
 
-    DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance*2,width,50), direction, Vector(255,0,0), 1, castTime)
+    --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance*2,width,50), direction, Vector(255,0,0), 1, castTime)
   end
   return true
 end
@@ -42,7 +50,7 @@ if IsServer() then
 		local damage_range = self:GetSpecialValueFor("damage_range")
 
 		local startPoint = caster:GetAbsOrigin()
-		local endPoint = caster:GetAbsOrigin() + (caster:GetForwardVector() * damage_range)
+		local endPoint = startPoint + (caster:GetForwardVector() * damage_range)
 
 		local enemies = FindUnitsInLine(
 			caster:GetTeamNumber(),

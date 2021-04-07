@@ -22,9 +22,9 @@ function boss_swiper_reapers_rush:OnAbilityPhaseStart()
     local direction = (target - caster:GetAbsOrigin()):Normalized()
 
     -- Warning particle
-    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*distance)
+    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*(distance+width))
     ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
     ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
     ParticleManager:ReleaseParticleIndex(FX)
@@ -32,13 +32,13 @@ function boss_swiper_reapers_rush:OnAbilityPhaseStart()
     -- Destination indicator particle
     local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(indicator, 0, target)
-    ParticleManager:SetParticleControl(indicator, 1, Vector(radius, radius, radius))
+    ParticleManager:SetParticleControl(indicator, 1, Vector(width, width, width))
     ParticleManager:SetParticleControl(indicator, 15, Vector(255, 26, 26))
 
-    self.indicator = indicator
+	self.indicator = indicator
 
-    DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
-    DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)
+    --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
+    --DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)
   end
   return true
 end
