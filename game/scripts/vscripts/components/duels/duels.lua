@@ -144,7 +144,8 @@ function Duels:CountPlayerDeath (player)
       winningTeamId = DOTA_TEAM_GOODGUYS
     end
 
-    PointsManager:AddPoints(winningTeamId, 1)
+    -- Gaining a point for winning a duel -> not intuitive
+    --PointsManager:AddPoints(winningTeamId, 1)
 
     self:AllPlayers(self.currentDuel, function (otherPlayer)
       if player.duelNumber ~= otherPlayer.duelNumber then
