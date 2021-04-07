@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "AbilityTextureName"            "bloodseeker_bloodrage"
+    "AbilityTextureName"            "nyx_assassin_impale"
     "ScriptFile"                    "abilities/swiper/boss_swiper_thrust.lua"
     "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -54,7 +54,7 @@
       "04"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage"                    "6500"
+        "damage"                    "6000"
       }
     }
   }

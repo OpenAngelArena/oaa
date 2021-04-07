@@ -12,17 +12,26 @@ end
 
 --------------------------------------------------------------------------------
 
-if IsServer() then
-	function boss_carapace_headbutt:OnAbilityPhaseStart()
-		local caster = self:GetCaster()
-		local width = self:GetSpecialValueFor("width")
-		local damage_range = self:GetSpecialValueFor("damage_range")
-		local castTime = self:GetCastPoint()
-		local direction = caster:GetForwardVector()
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(damage_range*2,width,50), direction, Vector(255,0,0), 1, castTime)
-		return true
-	end
+function boss_carapace_headbutt:OnAbilityPhaseStart()
+  if IsServer() then
+    local caster = self:GetCaster()
+    local width = self:GetSpecialValueFor("width")
+    local distance = self:GetSpecialValueFor("damage_range")
+    local castTime = self:GetCastPoint()
+    local direction = caster:GetForwardVector()
+
+    -- Warning particle
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*distance)
+    ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
+    ParticleManager:ReleaseParticleIndex(FX)
+
+    DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance*2,width,50), direction, Vector(255,0,0), 1, castTime)
+  end
+  return true
 end
 
 --------------------------------------------------------------------------------

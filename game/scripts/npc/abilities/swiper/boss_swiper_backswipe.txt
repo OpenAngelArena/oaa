@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "AbilityTextureName"            "bloodseeker_bloodrage"
+    "AbilityTextureName"            "sven_great_cleave"
     "ScriptFile"                    "abilities/swiper/boss_swiper_backswipe.lua"
     "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -39,7 +39,7 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage"                    "6500"
+        "damage"                    "6000"
       }
       "02"
       {

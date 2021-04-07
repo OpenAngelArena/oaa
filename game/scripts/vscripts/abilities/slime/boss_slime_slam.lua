@@ -30,7 +30,7 @@ function boss_slime_slam:OnAbilityPhaseStart()
     ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
     ParticleManager:ReleaseParticleIndex(FX)
 
-		--DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
+		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
 	end
 	return true
 end
