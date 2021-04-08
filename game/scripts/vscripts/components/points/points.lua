@@ -19,12 +19,12 @@ function PointsManager:Init ()
   self.hasGameEnded = false
 
   local scoreLimit = NORMAL_KILL_LIMIT
-  local scoreLimitIncrease = 10 -- if you want to change put: PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
+  local scoreLimitIncrease = KILL_LIMIT_INCREASE
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
-    scoreLimitIncrease = scoreLimitIncrease/2
+    --scoreLimitIncrease = scoreLimitIncrease/2
   end
-  scoreLimit = scoreLimit * PlayerResource:SafeGetTeamPlayerCount() + scoreLimitIncrease
+  scoreLimit = (scoreLimit + scoreLimitIncrease) * PlayerResource:SafeGetTeamPlayerCount()
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', {
@@ -43,13 +43,31 @@ function PointsManager:Init ()
   end)
 
   GameEvents:OnPlayerAbandon(function (keys)
-    local limit = self:GetLimit()
-    local maxPoints = math.max(self:GetPoints(DOTA_TEAM_GOODGUYS), self:GetPoints(DOTA_TEAM_BADGUYS))
-    limit = math.min(limit, math.max(maxPoints + 10, limit - 10))
+    -- Reduce the score limit if player abandoned only if game time is after MIN_MATCH_TIME
+    if HudTimer and HudTimer:GetGameTime() > MIN_MATCH_TIME then
+      local limit = self:GetLimit()
+      local maxPoints = math.max(self:GetPoints(DOTA_TEAM_GOODGUYS), self:GetPoints(DOTA_TEAM_BADGUYS))
+      local limitChange = PlayerResource:SafeGetTeamPlayerCount()
+      limit = math.min(limit, math.max(maxPoints + limitChange, limit - limitChange))
 
-    self:SetLimit(limit)
+      self:SetLimit(limit)
+    end
   end)
 
+  GameEvents:OnPlayerReconnect(function (keys)
+    -- Refresh the score limit after someone reconnected only if its before MIN_MATCH_TIME and no points gained
+    -- This will maybe fix the score limit if someone disconnects during hero selection
+    if HudTimer and HudTimer:GetGameTime() < MIN_MATCH_TIME then
+      if self:GetPoints(DOTA_TEAM_GOODGUYS) == 0 and self:GetPoints(DOTA_TEAM_BADGUYS) == 0 then
+        local limitRefresh = (NORMAL_KILL_LIMIT + KILL_LIMIT_INCREASE) * PlayerResource:SafeGetTeamPlayerCount()
+        if HeroSelection.is10v10 then
+          limitRefresh = (TEN_V_TEN_KILL_LIMIT + KILL_LIMIT_INCREASE) * PlayerResource:SafeGetTeamPlayerCount()
+        end
+
+        self:SetLimit(limitRefresh)
+      end
+    end
+  end)
   -- Register chat commands
   ChatCommand:LinkDevCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
   ChatCommand:LinkDevCommand("-add_enemy_points", Dynamic_Wrap(PointsManager, "AddEnemyPointsCommand"), self)

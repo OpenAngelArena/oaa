@@ -80,10 +80,6 @@ function HeroKillGold:GoldFilter (keys)
 end
 
 function HeroKillGold:HeroDeathHandler (keys)
-  -- points code for reference
-  -- if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() and keys.killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
-  --   self:AddPoints(keys.killer:GetTeam())
-  -- end
   if not keys.killer or not keys.killed then
     return
   end
