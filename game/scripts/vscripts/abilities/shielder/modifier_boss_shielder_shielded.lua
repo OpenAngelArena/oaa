@@ -74,6 +74,14 @@ function modifier_boss_shielder_shielded_buff:GetModifierTotal_ConstantBlock(key
     return 0
   end
 
+  if keys.inflictor then
+    local damaging_ability = keys.inflictor
+    -- Prevent Shielder returning damage to another Shielder
+    if damaging_ability:GetAbilityName() == ability:GetAbilityName() then
+      return 0
+    end
+  end
+
   local attackOrigin = attacker:GetAbsOrigin()
   local parentOrigin = parent:GetAbsOrigin()
   local attackDirection = (attackOrigin - parentOrigin):Normalized()

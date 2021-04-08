@@ -9,7 +9,7 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/creeps/forest_bear/forest_bear.vmdl"  // Model.
-    "vscripts"                                            "units/ai_simple.lua"
+    "vscripts"                                            "units/ai_bear_boss.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
     "ModelScale"                                          "2"
     "Level"                                               "30"
@@ -20,9 +20,10 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_fury_swipes"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
+    "Ability2"                                            "bear_boss_earthshock"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_cliffwalk"
+    "Ability5"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
