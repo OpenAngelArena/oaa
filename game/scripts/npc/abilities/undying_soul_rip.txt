@@ -46,7 +46,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_unit"                                 "20 30 40 50 100 200" //OAA
+        "damage_per_unit"                                 "20 30 40 50 100 150" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_undying_6"
       }
       "02"
@@ -62,7 +62,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tombstone_heal"                                  "4 8 12 16 20 24"
+        "tombstone_heal"                                  "4 8 12 16 18 20"
       }
     }
   }

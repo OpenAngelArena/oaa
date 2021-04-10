@@ -21,7 +21,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "2.4"
-    "AbilityCastRange"                                    "1300"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AbilityChannelAnimation"                             "ACT_DOTA_CAST_ABILITY_4"
@@ -47,7 +47,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "1300"
+        "range"                                           "1200"
         "RequiresScepter"                                 "1"
       }
       "03"
