@@ -282,25 +282,34 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
       self.clones[3]={}
     end
 
+    local clone_attack_range = 300
+
     -- Inner Ring:
     self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
     -- Outer Ring:
     Timers:CreateTimer(spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
+      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius-clone_attack_range, 2, base_damage_percent)
     end)
     -- Extra Ring with the talent:
     Timers:CreateTimer(2*spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
+      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius-clone_attack_range, 3, base_damage_percent)
+    end)
+
+    -- Remove monkeys if they were created while caster was dead or out of the circle
+    Timers:CreateTimer(2*spawn_interval+0.01, function()
+      if not caster:IsAlive() or not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
+        self:RemoveMonkeys(caster)
+      end
     end)
   end
 end
 
 function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius, ringNumber, damage_pct)
-  if number == 0 or radius == 0 then
+  if number == 0 or radius <= 0 then
     return
   end
 
-  if not caster:HasModifier("modifier_wukongs_command_oaa_buff") and ringNumber ~= 1 then
+  if ringNumber ~= 1 and ((not caster:HasModifier("modifier_wukongs_command_oaa_buff")) or (not caster:IsAlive())) then
     return
   end
 
@@ -349,14 +358,14 @@ function monkey_king_wukongs_command_oaa:RemoveMonkeys(caster)
   local unit_name = "npc_dota_monkey_clone_oaa"
   -- Find all monkeys belonging to the caster on the map and hide them
   local allied_units = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD), FIND_ANY_ORDER, false)
-  for _,unit in pairs(allied_units) do
+  for _, unit in pairs(allied_units) do
     if unit:GetUnitName() == unit_name then
       if IsServer() then
         local handle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_destroy.vpcf", PATTACH_ABSORIGIN, caster)
         ParticleManager:SetParticleControl(handle, 0, unit:GetAbsOrigin())
         -- for some weid reason calling DestroyParticle(... , false) do destroy the particle immediatly
         -- thanks volvo
-        Timers:CreateTimer(3,function()
+        Timers:CreateTimer(3, function()
           ParticleManager:DestroyParticle(handle, false)
           ParticleManager:ReleaseParticleIndex(handle)
         end)

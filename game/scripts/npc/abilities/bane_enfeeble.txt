@@ -20,12 +20,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "1100"
+    "AbilityCastRange"                                    "800 900 1000 1100 1200 1300" //OAA, Valve has it wrong
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 16 12 8 8 8"
+    "AbilityCooldown"                                     "23 19 15 11 7 7" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +38,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "25 35 45 55 60 65"
+        "damage_reduction"                                "45 50 55 60 65 70"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_reduction"                                  "25 35 45 55 60 65"
+        "heal_reduction"                                  "45 50 55 60 65 70"
       }
       "03"
       {
@@ -53,7 +53,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8"
+        "duration"                                        "11" //OAA
       }
     }
   }
