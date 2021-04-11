@@ -15,6 +15,10 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
+
+		"MaxLevel"                      "5"
+		"RequiredLevel"                 "6"
+    	"LevelsBetweenUpgrades"         "6"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

@@ -14,6 +14,10 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
+		
+		"MaxLevel"                    	"6"
+   		"RequiredLevel"              	"1"
+    	"LevelsBetweenUpgrades"         "2"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
