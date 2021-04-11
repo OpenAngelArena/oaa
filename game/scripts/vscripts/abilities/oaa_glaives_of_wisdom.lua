@@ -117,7 +117,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
         if enemy and enemy ~= target and not enemy:IsAttackImmune() then
           local projectile_info = {
             EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
-            Ability = ability,
+            Ability = damage_table.ability,
             Source = target,
             bProvidesVision = false,
             Target = enemy,
