@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5279"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -51,13 +52,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 440 580 1000 1420"
+        "damage"                                          "300 440 580 1000 1420" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "3 4 5 6 7"
+        "count"                                           "5" //OAA
       }
       "05"
       {

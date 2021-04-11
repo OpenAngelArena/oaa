@@ -16,7 +16,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "1"
 
@@ -24,7 +24,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "1.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_5"
 
@@ -48,7 +48,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1"
+        "stun_duration"                                   "2"
       }
     }
   }
