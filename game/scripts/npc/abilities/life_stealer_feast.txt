@@ -25,6 +25,11 @@
         "hp_leech_percent"                                "1.8 2.4 3.0 3.6 4.2 4.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_3"
       }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_damage_percent"                               "0.6 0.8 1 1.2 1.4 1.6"
+      }
     }
   }
 }

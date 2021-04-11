@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8429"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -35,31 +35,36 @@
         "bonus_range"                                     "125 200 275 350 425 500"
       }
       "02"
-      {
+      { 
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 40 60 80 100 120"
+        "acorn_shot_damage"                               "50 75 100 125 250 500"
       }
       "03"
-      {
+      { 
         "var_type"                                        "FIELD_INTEGER"
-        "bounce_count"                                    "2 3 4 5 5 5"
+        "base_damage_pct"                                 "65"
       }
       "04"
-      {
+      { 
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_count"                                    "2 3 4 5 6 7"
+      }
+      "05"
+      { 
         "var_type"                                        "FIELD_INTEGER"
         "bounce_range"                                    "525"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "debuff_duration"                                 "0.25"
       }
-      "06"
-      {
+      "07"
+      { 
         "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "100"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "bounce_delay"                                    "0.1"

@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.01"
 
     // Time
@@ -47,7 +47,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_perc_damage"                                  "1.5 3.25 5.0 6.75 6.75 6.75"
+        "hp_perc_damage"                                  "1 2.75 4.5 6.25 6.75 6.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_5"
       }
       "04"
