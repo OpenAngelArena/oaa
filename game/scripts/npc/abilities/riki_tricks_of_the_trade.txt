@@ -27,7 +27,7 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 13 12" //OAA
+    "AbilityCooldown"                                     "21 18 15 12 12 12"
     "AbilityManaCost"                                     "50"
 
     // Special
@@ -48,21 +48,26 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "75 80 85 90 95 100" //OAA
+        "damage_pct"                                      "50"
       }
       "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "agility_pct"                                     "55 70 85 100 115 130"
+      }
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration"                                "2"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_attacks"                                 "4"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cast_range"                              "700"
