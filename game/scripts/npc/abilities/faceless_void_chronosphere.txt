@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.35"
 
     // Time
@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "radius"                                          "500"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_2"
       }
       "02"

@@ -25,9 +25,9 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "11 10 9 8 8 8"
+    "AbilityCooldown"                                     "9 8 7 6 5"
     "AbilityManaCost"                                     "100"
 
     // Stats
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "2.0"
+        "buff_duration"                                   "20"
       }
       "02"
       {
@@ -51,13 +51,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "70 140 210 280 560 1120"
+        "damage"                                          "300 440 580 1000 1420"
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "4" //OAA
+        "count"                                           "3 4 5 6 7"
       }
       "05"
       {

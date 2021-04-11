@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1500"
+    "AbilityCastRange"                                    "1400"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -66,7 +66,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_range_multiplier"                        "3"
+        "scepter_range_multiplier"                        "2.5"
         "RequiresScepter"                                 "1"
       }
       "07"

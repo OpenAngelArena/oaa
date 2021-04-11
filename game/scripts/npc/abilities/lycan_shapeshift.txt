@@ -38,7 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "650"
+        "speed"                                           "550"
       }
       "03"
       {
@@ -48,7 +48,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transformation_time"                             "1.25"
+        "transformation_time"                             "1.1"
       }
       "05"
       {
@@ -60,6 +60,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "crit_multiplier"                                 "150 175 200 225 250"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_bonus"                                    "150 350 550 950 1350"
       }
     }
   }
