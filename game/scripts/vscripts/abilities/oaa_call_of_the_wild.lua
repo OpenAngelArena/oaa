@@ -75,6 +75,7 @@ end
 beastmaster_call_of_the_wild_hawk_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier( "modifier_hawk_invisibility_oaa", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_hawk_shard_truesight", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
 
 function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -137,6 +138,8 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
     if caster:HasShardOAA() then
       local dive_bomb = hawk:AddAbility("beastmaster_hawk_dive_oaa")
       dive_bomb:SetLevel(1)
+      -- True-Sight buff
+      hawk:AddNewModifier(caster, self, "modifier_hawk_shard_truesight", {})
     end
   end
 
@@ -159,11 +162,9 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, 
   return npcCreep
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
-modifier_hawk_invisibility_oaa = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
+modifier_hawk_invisibility_oaa = class(ModifierBaseClass)
 
 function modifier_hawk_invisibility_oaa:IsHidden()
   return true
@@ -202,4 +203,45 @@ end
 
 function modifier_hawk_invisibility_oaa:GetPriority()
   return MODIFIER_PRIORITY_ULTRA
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_hawk_shard_truesight = class(ModifierBaseClass)
+
+function modifier_hawk_shard_truesight:IsHidden()
+  return true
+end
+
+function modifier_hawk_shard_truesight:IsDebuff()
+  return false
+end
+
+function modifier_hawk_shard_truesight:IsPurgable()
+  return false
+end
+
+function modifier_hawk_shard_truesight:IsAura()
+  return true
+end
+
+function modifier_hawk_shard_truesight:GetModifierAura()
+  return "modifier_truesight"
+end
+
+function modifier_hawk_shard_truesight:GetAuraRadius()
+  local parent = self:GetParent()
+  return parent:GetCurrentVisionRange() or 1100
+end
+
+function modifier_hawk_shard_truesight:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_hawk_shard_truesight:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_ALL
+end
+
+function modifier_hawk_shard_truesight:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
 end
