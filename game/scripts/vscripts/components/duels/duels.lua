@@ -396,7 +396,6 @@ function Duels:ActuallyStartDuel(options)
   local smallArenaIndex = RandomInt(1, 2)
 
   local gamemode = GameRules:GetGameModeEntity()
-  gamemode:SetTPScrollSlotItemOverride("item_dust")
   gamemode:SetCustomBackpackSwapCooldown(1.0)
 
   self:SpawnPlayersOnArenas(split, smallArenaIndex, bigArenaIndex)
@@ -439,8 +438,6 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
-      -- Replace tp scroll with dust
-      Duels:SwapItems("item_dust", hero, player)
     end
   end
   for _,player in ipairs(playerSplit.GoodPlayers) do
@@ -450,8 +447,6 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
-      -- Replace tp scroll with dust
-      Duels:SwapItems("item_dust", hero, player)
     end
   end
 
@@ -594,7 +589,6 @@ function Duels:EndDuel ()
   end
 
   local gamemode = GameRules:GetGameModeEntity()
-  gamemode:SetTPScrollSlotItemOverride("item_tpscroll")
   gamemode:SetCustomBackpackSwapCooldown(3.0)
 
   local currentDuel = self.currentDuel
@@ -625,8 +619,6 @@ function Duels:EndDuel ()
       HeroState.RestoreState(hero, state)
       MoveCameraToPlayer(hero)
       HeroState.PurgeDuelHighgroundBuffs(hero) -- needed to remove undispellable Highground buffs
-      -- Replace dust with tp scroll
-      Duels:SwapItems("item_tpscroll", hero, player)
     end)
     -- Remove Modifier
     for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
@@ -680,19 +672,4 @@ function Duels:PlayerForDuel(playerId)
   end)
 
   return foundIt
-end
-
-function Duels:SwapItems(intendedItemname, hero, player)
-  local current = hero:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-  if current then
-    -- Set charges to 1
-    if current:GetCurrentCharges() > 1 then
-      current:SetCurrentCharges(1)
-    end
-    -- Remove the item
-    hero:RemoveItem(current)
-  end
-  -- Add the item, new item should be auto-added to tpscroll slot
-  local new = CreateItem(intendedItemname, player, player)
-  hero:AddItem(new)
 end

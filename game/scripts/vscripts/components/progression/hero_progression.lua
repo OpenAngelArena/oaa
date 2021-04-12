@@ -182,8 +182,8 @@ end
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
   if pattern == nil then
-    -- normal leveling up until 25
-    if level < 25 then
+    -- normal leveling up
+    if level < 31 then
       return true
     end
     -- get 1 point every 3rd level from now on
@@ -196,14 +196,10 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
 end
 
 function HeroProgression:ProcessAbilityPointGain(hero, level)
-  --DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
-  --[[ -- ability points are not spent automatically on the talents at 30
-  if level == 30 then
-    hero:SetAbilityPoints(hero:GetAbilityPoints() + 4)
-  end
-  ]]
-  if self:ShouldGetAnAbilityPoint(hero, level) and level > 25 then
-    --DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
+  DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
+
+  if self:ShouldGetAnAbilityPoint(hero, level) and level > 30 then
+    DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
     hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
   end
 end

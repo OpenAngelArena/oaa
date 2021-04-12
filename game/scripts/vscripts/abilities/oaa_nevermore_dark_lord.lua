@@ -56,18 +56,7 @@ end
 modifier_nevermore_dark_lord_oaa_armor_debuff = class(ModifierBaseClass)
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:IsHidden()
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
-  if IsServer() then
-    if not parent:CanEntityBeSeenByMyTeam(caster) then
-      return true
-    end
-  else
-    if caster:IsInvisible() then
-      return true
-    end
-  end
-  return false
+  return true
 end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:IsDebuff()
@@ -81,6 +70,7 @@ end
 function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
   local caster = self:GetCaster()
   self.armor_reduction = self:GetAbility():GetSpecialValueFor("armor_reduction")
+  self.magic_resistance = 0
   if IsServer() then
     local talent = caster:FindAbilityByName("special_bonus_unique_nevermore_5")
     if talent and talent:GetLevel() > 0 then
@@ -96,6 +86,10 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
       self.armor_reduction = armor_reduction
     end
   end
+
+  if caster:HasShardOAA() then
+    self.magic_resistance = -14
+  end
 end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:OnRefresh()
@@ -104,13 +98,18 @@ end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
   return funcs
 end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierPhysicalArmorBonus()
   return self.armor_reduction
+end
+
+function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierMagicalResistanceBonus()
+  return self.magic_resistance
 end
 
 ---------------------------------------------------------------------------------------------------
