@@ -41,9 +41,9 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "22"
     "AbilitySharedCooldown"                               "veil"
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
@@ -70,7 +70,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
+        "aura_mana_regen"                                 "1.75 2.0 2.5 3.25 4.25"
       }
       "03"
       {

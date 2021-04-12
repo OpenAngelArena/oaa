@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
+    "ItemCost"                                            "950"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
 
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_force_staff"
     "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_ring_of_regen"
+      "01"                                                "item_staff_of_wizardry;item_fluffy_hat"
     }
   }
 
@@ -45,13 +45,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "550"
     "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "23.0 20.0 17.0 15.0 12.0"
+    "AbilityCooldown"                                     "23.0 20.0 17.0 15.0 12.0"
     "AbilitySharedCooldown"     "force"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "2175"
+    "ItemCost"            "2200"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "rare"
     "ItemAliases"         "fs;force staff;force"
@@ -70,8 +70,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "2.5 10 20 30 40"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "150 400 900 1650 2650"
       }
       "03"
       {

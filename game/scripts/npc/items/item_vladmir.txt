@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "600"
+    "ItemCost"            "500"
     "ItemShopTags"          ""
 
     // Recipe
@@ -44,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2800"
+    "ItemCost"            "2700"
     "ItemShopTags"          "lifesteal;damage;armor;regen_mana"
     "ItemQuality"         "rare"
     "ItemAliases"         "vladmir's offering;vlads"
@@ -62,7 +62,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_aura"                                 "1.4 1.65 2.15 2.9 3.9"
+        "mana_regen_aura"                                 "1.75 2.0 2.5 3.25 4.25"
       }
       "03"
       {
