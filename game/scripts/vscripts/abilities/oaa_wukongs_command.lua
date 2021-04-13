@@ -214,22 +214,24 @@ end
 function monkey_king_wukongs_command_oaa:GetAOERadius()
   local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("second_radius")
+  local clone_attack_range = 300
   local talent_radius = 0
   if caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") and caster.special_bonus_unique_monkey_king_extra_ring then
     talent_radius = caster.special_bonus_unique_monkey_king_extra_ring
   end
 
-  return math.max(talent_radius, radius)
+  return math.max(talent_radius + clone_attack_range, radius + clone_attack_range)
 end
 
 function monkey_king_wukongs_command_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local center = self:GetCursorPosition()
+  local clone_attack_range = 300
 
   local first_ring_radius = self:GetSpecialValueFor("first_radius")
   local second_ring_radius = self:GetSpecialValueFor("second_radius")
   local third_ring_radius = 0
-  self.active_radius = second_ring_radius
+  self.active_radius = second_ring_radius + clone_attack_range
 
   -- How many monkeys on each ring
   local first_ring = self:GetSpecialValueFor("num_first_soldiers")
@@ -240,7 +242,7 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
   if talent and talent:GetLevel() > 0 then
     third_ring_radius = talent:GetSpecialValueFor("value")
     third_ring = talent:GetSpecialValueFor("value2")
-    self.active_radius = third_ring_radius
+    self.active_radius = third_ring_radius + clone_attack_range
     if caster:HasScepter() then
       third_ring = self:GetSpecialValueFor("num_third_soldiers_scepter")
     end
@@ -282,17 +284,15 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
       self.clones[3]={}
     end
 
-    local clone_attack_range = 300
-
     -- Inner Ring:
     self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
     -- Outer Ring:
     Timers:CreateTimer(spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius-clone_attack_range, 2, base_damage_percent)
+      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
     end)
     -- Extra Ring with the talent:
     Timers:CreateTimer(2*spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius-clone_attack_range, 3, base_damage_percent)
+      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
     end)
 
     -- Remove monkeys if they were created while caster was dead or out of the circle
