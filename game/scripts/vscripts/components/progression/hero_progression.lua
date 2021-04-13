@@ -4,7 +4,7 @@ if HeroProgression == nil then
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
-  --Debug:EnableDebugging()
+  Debug:EnableDebugging()
   -- dota_player_gained_level:
   --"player_id"
   --"level"
@@ -182,11 +182,16 @@ end
 function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
   local pattern = HeroProgression.customLevellingPatterns[hero:GetName()]
   if pattern == nil then
-    -- normal leveling up
-    if level < 31 then
+    -- normal leveling up (attribute bonus is auto-leveled at levels 17,19,21,22,23,24,26 if you didn't lvl it up earlier)
+    if level < 27 then
       return true
     end
-    -- get 1 point every 3rd level from now on
+	
+    -- After 7.29 patch ability points are gained on every level:
+    -- bad_levels = {27, 29, 30, 32, 33, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 50} 
+    -- Bad levels give ability points but they shouldn't
+
+    -- get 1 point on levels: 28, 31, 34, 37, 40, 43, 46, 49
     return math.fmod(level, 3) == 1
   else
     -- Hero levelling up has a custom levelling pattern
@@ -198,9 +203,9 @@ end
 function HeroProgression:ProcessAbilityPointGain(hero, level)
   DebugPrint('Processing the ability point for ' .. hero:GetName() .. ' at level ' .. level .. ' they have ' .. hero:GetAbilityPoints())
 
-  if self:ShouldGetAnAbilityPoint(hero, level) and level > 30 then
-    DebugPrint('Add 1 ability point (had ' .. hero:GetAbilityPoints() .. ' ability points)')
-    hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+  if not self:ShouldGetAnAbilityPoint(hero, level) then
+    hero:SetAbilityPoints(hero:GetAbilityPoints() - 1)
+    DebugPrint('Ability points for ' .. hero:GetName() .. ' at level ' .. level .. ' after reducing: ' .. hero:GetAbilityPoints())
   end
 end
 
