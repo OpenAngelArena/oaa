@@ -26,12 +26,13 @@ function item_trusty_shovel_oaa:OnSpellStart()
     self.rewards = {
       "kobold",
       "flask",
-      "clarity",
+      "enchanted_mango",
       "bottle",
     }
   elseif game_time > 12*60 and game_time <= 24*60 then
     self.rewards = {
       "kobold_soldier",
+      "enchanted_mango",
       "burst_elixir",
       "bottle",
     }
@@ -100,8 +101,8 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
 
   if random_reward == "flask" then
     self:DigOutItem("item_flask", position)
-  elseif random_reward == "clarity" then
-    self:DigOutItem("item_clarity", position)
+  elseif random_reward == "enchanted_mango" then
+    self:DigOutItem("item_enchanted_mango", position)
   elseif random_reward == "bottle" then
     self:DigOutItem("item_infinite_bottle", position)
   elseif random_reward == "kobold" then

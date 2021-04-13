@@ -67,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 30 45 65 90"
+        "bonus_agility"                                   "24 34 49 69 94"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 25 40 60"
+        "bonus_intellect"                                 "12 17 27 42 62"
       }
       "03"
       {
@@ -82,7 +82,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "16 24 36 52 72"
+        "feedback_mana_burn_illusion_melee"               "12 20 32 48 68"
       }
       "05"
       {
@@ -107,7 +107,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_burn"                                 "0.8"
+        "damage_per_burn"                                 "1"
       }
     }
   }

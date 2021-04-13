@@ -7,21 +7,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "633"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3590" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
     "Model"             "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500" //OAA
+    "ItemCost"                                            "1500"
     "ItemShopTags"          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
     "ItemResult"          "item_helm_of_the_dominator_2"
-    "ItemRequirements" //OAA
+    "ItemRequirements"
     {
       "01"                                                "item_helm_of_the_dominator;item_upgrade_core"
       "02"                                                "item_vladmir;item_upgrade_core"
@@ -35,7 +36,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "635"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3591" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_helm_of_the_overlord"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
@@ -52,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "0"
-    "ItemCost"                                            "3850" //OAA
+    "ItemCost"                                            "3850"
     "ItemShopTags"          "damage;armor;unique;hard_to_tag"
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd 2;helm of the dominator 2;helm 2;dominator 2"
@@ -66,37 +68,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stats"                                     "6 10 15 20 25" //OAA
+        "bonus_stats"                                     "6 10 15 20 25"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 7 9 12 16" //OAA
+        "bonus_armor"                                     "6 7 9 12 16"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_regen"                                     "6 9 12 15 18" //OAA
+        "bonus_regen"                                     "6 9 12 15 18"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "1000 3000 6000 12000 24000" //OAA
+        "health_min"                                      "1000 1800 3600 7200 14400"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_base"                                      "425"
+        "speed_base"                                      "380"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounty_gold"                                     "200 300 600 1200 2400" //OAA
+        "bounty_gold"                                     "100 200 400 800 1600"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus_damage"                              "25 50 100 150 200" //OAA
+        "creep_bonus_damage"                              "25 50 100 150 200"
       }
       "08"
       {
@@ -111,12 +113,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus_armor"                               "4 5 6 7 8" //OAA
+        "creep_bonus_armor"                               "4 5 6 7 8"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 20 30 40 50" //OAA
+        "model_scale"                                     "0 20 30 40 50"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "count_limit"                                     "1 2 2 2 3"
       }
     }
   }
