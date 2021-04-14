@@ -103,7 +103,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
     location,
     nil,
-    800,
+    500,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_CREEP,
     DOTA_UNIT_TARGET_FLAG_NONE,
@@ -114,13 +114,13 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
   if (maximumUnits and maximumUnits <= #units) then
     -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
-    for _,unit in pairs(units) do
-      local unitProperties = self:GetCreepProperties(unit)
-      local distributedScale = 1.0 / #units
+    -- for _,unit in pairs(units) do
+      -- local unitProperties = self:GetCreepProperties(unit)
+      -- local distributedScale = 1.0 / #units
 
-      unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, creepProperties, distributedScale)
-      self:SetCreepPropertiesOnHandle(unit, unitProperties)
-    end
+      -- unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, unitProperties, distributedScale)
+      -- self:SetCreepPropertiesOnHandle(unit, unitProperties)
+    -- end
     return false
   end
 
