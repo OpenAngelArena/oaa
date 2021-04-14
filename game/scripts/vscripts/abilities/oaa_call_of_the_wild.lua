@@ -30,8 +30,8 @@ function beastmaster_call_of_the_wild_boar_oaa:OnUpgrade()
 
 	-- Check to not enter a level up loop
   if hawk_ability and hawk_ability:GetLevel() ~= abilityLevel then
-		hawk_ability:SetLevel(abilityLevel)
-	end
+    hawk_ability:SetLevel(abilityLevel)
+  end
 end
 
 function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abilityLevel, duration)
