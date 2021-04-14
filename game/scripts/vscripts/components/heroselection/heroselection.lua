@@ -43,7 +43,6 @@ function HeroSelection:Init ()
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
 
-
   local herolistFile = 'scripts/npc/herolist.txt'
 
   if self.isCM then
@@ -57,6 +56,10 @@ function HeroSelection:Init ()
   end
   if self.isRanked or self.isUnranked then
     self.isBanning = true
+  end
+
+  if PlayerResource:SafeGetTeamPlayerCount() <= 6 and PlayerResource:SafeGetTeamPlayerCount() > 1 then
+    herolistFile = 'scripts/npc/herolist_3v3.txt'
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
