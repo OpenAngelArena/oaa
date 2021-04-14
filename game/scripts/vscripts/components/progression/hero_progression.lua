@@ -186,9 +186,9 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
     if level < 27 then
       return true
     end
-	
+
     -- After 7.29 patch ability points are gained on every level:
-    -- bad_levels = {27, 29, 30, 32, 33, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 50} 
+    -- bad_levels = {27, 29, 30, 32, 33, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 50}
     -- Bad levels give ability points but they shouldn't
 
     -- get 1 point on levels: 28, 31, 34, 37, 40, 43, 46, 49

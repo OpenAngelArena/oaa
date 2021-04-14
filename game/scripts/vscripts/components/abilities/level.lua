@@ -63,7 +63,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
   })
 
   self:SetTalents(hero)
-  
+
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
     if string.find(leveled_up_ability, "special_bonus_") then
