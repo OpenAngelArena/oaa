@@ -1,0 +1,106 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Dawnbreaker: FIRE WREATH
+	//=================================================================================================================
+	"dawnbreaker_fire_wreath"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"7902"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		
+		"MaxLevel"                    	"6"
+   		"RequiredLevel"              	"1"
+    	"LevelsBetweenUpgrades"         "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"17 15 13 11 11 11"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"1.1"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"swipe_radius"					"360"					
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"swipe_damage"					"25 35 45 55 110 220"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"smash_radius"					"250"
+			}	
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"smash_damage"					"40 65 90 115 230 460"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"movement_speed"				"215"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"total_attacks"					"3"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"smash_stun_duration"			"0.8 1.0 1.2 1.4 1.6 1.8"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"sweep_stun_duration"			"0.12"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"self_stun_duration"			"0.2"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"swipe_slow"					"-100"
+			}
+			"13"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"smash_distance_from_hero"		"120"
+			}		
+			"14"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"animation_rate"				"0"
+			}		
+		}	
+	}
+}
