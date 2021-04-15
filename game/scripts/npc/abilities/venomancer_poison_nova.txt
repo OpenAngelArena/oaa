@@ -39,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "830"
+        "radius"                                          "885"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_6"
       }
       "02"
@@ -50,13 +50,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18"
+        "duration"                                        "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 90 140 280 420" //OAA
+        "damage"                                          "40 90 140 240 340" //OAA
       }
       "05"
       {
@@ -67,7 +67,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "18"
+        "duration_scepter"                                "20" //OAA, Valve has it wrong lmao
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
         "RequiresScepter"                                 "1"
       }

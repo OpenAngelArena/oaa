@@ -26,7 +26,7 @@ function clinkz_death_pact_oaa:OnSpellStart()
 
   -- Apply the modifier that just displays duration and visual effects
   caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_effect_oaa", {duration = duration} )
-  
+
   -- get KV variables
   local healthPct = self:GetSpecialValueFor("health_gain_pct")
   local healthMax = self:GetSpecialValueFor("health_gain_max")

@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "24 21 18 15 14 14"
+    "AbilityCooldown"               "21 19 17 15 14 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,17 +47,17 @@
       "03"
       {
         "var_type"                          "FIELD_FLOAT"
-        "jump_duration"                     "0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
+        "jump_duration"                     "0.458" //OAA "0.431 0.484 0.538 0.592" // proportional to horizontal distance
       }
       "04"
       {
         "var_type"                          "FIELD_INTEGER"
-        "jump_height"                       "257" //"228 257 285 314" // proportional to horizontal distance
+        "jump_height"                       "243" //OAA "228 257 285 314" // proportional to horizontal distance
       }
       "05"
       {
         "var_type"                          "FIELD_INTEGER"
-        "jump_horizontal_distance"          "450" //"400 450 500 550"
+        "jump_horizontal_distance"          "425" //"400 450 500 550"
       }
       "06"
       {

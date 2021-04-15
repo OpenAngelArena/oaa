@@ -71,17 +71,7 @@ if IsServer() then
       return 0
     end
 
-    -- because talents are dumb we need to manually get its value
-    local chanceTalent = 0
-
-    local talent = parent:FindAbilityByName( "special_bonus_unique_slardar" )
-
-    -- we also have to manually check if it's been skilled or not
-    if talent and talent:GetLevel() > 0 then
-      chanceTalent = talent:GetSpecialValueFor( "value" )
-    end
-
-    local chance = (spell:GetSpecialValueFor( "chance" ) + chanceTalent) / 100
+    local chance = spell:GetSpecialValueFor( "chance" ) / 100
 
     -- we're using the modifier's stack to store the amount of prng failures
     -- this could be something else but since this modifier is hidden anyway ...
@@ -107,20 +97,25 @@ if IsServer() then
       -- use cooldown ( and mana, if necessary )
       spell:UseResources( true, true, true )
 
-
       -- because talents are dumb we need to manually get its value
       local damageTalent = 0
 
-      local dtalent = parent:FindAbilityByName( "special_bonus_unique_slardar_2" )
-
       -- we also have to manually check if it's been skilled or not
+      local dtalent = parent:FindAbilityByName( "special_bonus_unique_slardar_2" )
       if dtalent and dtalent:GetLevel() > 0 then
         damageTalent = dtalent:GetSpecialValueFor( "value" )
       end
 
-      -- apply the proc damage
-      return spell:GetSpecialValueFor( "bonus_damage" ) + damageTalent
+      local damage = spell:GetSpecialValueFor( "bonus_damage" ) + damageTalent
+      local creep_multiplier = spell:GetSpecialValueFor( "creep_dmg_multiplier" )
 
+      -- creeps have different damage
+      if not target:IsHero() then
+        damage = damage * creep_multiplier
+      end
+
+      -- apply the proc damage
+      return damage
     else
       -- increment failure count
       self:SetStackCount( prngMult )

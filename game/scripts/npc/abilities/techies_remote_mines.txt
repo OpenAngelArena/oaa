@@ -22,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "1.0"
+    "AbilityCastPoint"                                    "0.5" //OAA
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 600 900 1800 3300" //OAA
+        "damage"                                          "300 600 900 1800 2700" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
@@ -94,7 +94,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 10 20 30 40"     // Percentage over model scale
+        "model_scale"                                     "0 10 20 30 40"
       }
       "12"
       {
@@ -103,5 +103,4 @@
       }
     }
   }
-
 }

@@ -8,7 +8,7 @@
     "ID"                                                  "207"    // unique ID
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "1750"
+    "ItemCost"                                            "1550"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "200" //OAA
+    "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "6625"
+    "ItemCost"                                            "6325"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "abyssal blade"
@@ -90,7 +90,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "block_chance"                                    "60"
       }
       "07"
       {

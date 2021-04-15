@@ -81,7 +81,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   damage_table.ability = self
 
   ApplyDamage(damage_table)
-  
+
   -- Overhead particle message
   SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
 
@@ -90,13 +90,10 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
 
   -- Create more bounces if there are more left
   if data.bounces_left > 0 then
-    -- Change data for the next bounce
-    data.bounces_left = data.bounces_left - 1
-    data.physical_damage = bounce_damage
-    data.spell_damage = glaives_damage
+    -- Data of the current projectile is read-only !!!
 
     local bounce_radius = self:GetSpecialValueFor("shard_bounce_range")
-    local target_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
+    local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
 
     if caster:HasScepter() then
       target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
@@ -116,11 +113,11 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
     )
 
     if #enemies > 0 then
-      for _, enemy in pairs(enemies) do
+      for _, enemy in ipairs(enemies) do
         if enemy and enemy ~= target and not enemy:IsAttackImmune() then
           local projectile_info = {
             EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
-            Ability = ability,
+            Ability = damage_table.ability,
             Source = target,
             bProvidesVision = false,
             Target = enemy,
@@ -128,7 +125,11 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
             bDodgable = true,
             bIsAttack = false,
             --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
-            ExtraData = data
+            ExtraData = {
+              bounces_left = data.bounces_left - 1,
+              physical_damage = bounce_damage,
+              spell_damage = glaives_damage
+            }
           }
 
           -- Create glaive bounce
@@ -360,7 +361,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
     if parent:HasShardOAA() then
       local bounce_radius = ability:GetSpecialValueFor("shard_bounce_range")
       local number_of_bounces = ability:GetSpecialValueFor("shard_bounce_count")
-      local target_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
+      local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
 
       if parent:HasScepter() then
         target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
@@ -380,7 +381,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
       )
 
       if #enemies > 0 and number_of_bounces > 0 then
-        for _, enemy in pairs(enemies) do
+        for _, enemy in ipairs(enemies) do
           if enemy and enemy ~= target and not enemy:IsAttackImmune() then
             local projectile_info = {
               EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
@@ -393,7 +394,7 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
               bIsAttack = false,
               --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
               ExtraData = {
-                bounces_left = number_of_bounces-1,
+                bounces_left = number_of_bounces - 1,
                 physical_damage = event.damage,
                 spell_damage = bonusDamage
               }

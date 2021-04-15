@@ -20,14 +20,14 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.53"
+    "AbilityCastPoint"                                    "0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AbilityChannelAnimation"                             "ACT_DOTA_CHANNEL_ABILITY_4"
     "AbilityChannelTime"                                  "60"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
+    "AbilityCooldown"                                     "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_cost_pct"                                   "3 6 9 12 15"
+        "mana_cost_pct"                                   "10"
       }
       "03"
       {

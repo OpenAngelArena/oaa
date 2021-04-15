@@ -100,7 +100,7 @@ test('KV Values', function (t) {
     var j = 0;
     // short unsigned (0, 65535) 65536 is equivalent to 0; 65537 is equivalent to 1 etc.
     console.log('items/abilities with potentially bad ID if unique ID is short unsigned type:');
-    for (iter = 10000; iter < 9999999; iter++) {
+    for (iter = 8000; iter < 9999999; iter++) {
       if (idsFound[iter] !== undefined) {
         for (j = 1; j < 153; j++) {
           idToCheck = iter - 65536 * j;
@@ -354,7 +354,8 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
     'abilitychanneltime',
     'abilityduration',
     'AbilityCharges',
-    'AbilityChargeRestoreTime'
+    'AbilityChargeRestoreTime',
+    'castpoint_scepter'
   ];
 
   if (parentSpecials) {

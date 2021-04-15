@@ -10,15 +10,17 @@
     "ID"                                                  "5066"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 600 600 600 800 1000"
+    "AbilityCastRange"                                    "575 600 625 650 675 700" //OAA
     "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "24 21 18 15 15 15" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -80,7 +82,7 @@
       "10"	//OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "600 600 600 600 800 1000"
+        "cast_range_tooltip"                              "575 600 625 650 675 700"
       }
     }
   }

@@ -28,7 +28,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "morph_cooldown"                                  "1.0 0.25 0.1 0.04 0.02 0.01"
+        "morph_cooldown"                                  "0.333 0.166 0.083 0.0416 0.02 0.01"
       }
       "03"
       {
@@ -38,7 +38,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "morph_rate_tooltip"                              "1 4 10 25 50 100"
+        "morph_rate_tooltip"                              "3 6 12 24 50 100"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost"                                       "10"
       }
     }
   }

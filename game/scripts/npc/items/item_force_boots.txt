@@ -87,6 +87,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "push_duration"                                   "0.5"
       }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen"                                        "30"
+      }
     }
   }
 }

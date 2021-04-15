@@ -15,7 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -37,9 +37,8 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "5 4 3 2.5 2"
+        "teleport_delay"                                  "3"
       }
     }
   }
-
 }

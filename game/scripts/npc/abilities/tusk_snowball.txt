@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1250"
+    "AbilityCastRange"                                    "1150"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -46,7 +46,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snowball_speed"                                  "600 625 650 675 680 690"
+        "snowball_speed"                                  "600 625 650 675 700 725"
         "LinkedSpecialBonus"                              "special_bonus_unique_tusk_3"
       }
       "03"

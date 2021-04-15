@@ -1,22 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Sand King Burrowsrike
+  // Broodmother: Silken Bola
   //=================================================================================================================
-  "sandking_burrowstrike"
+  "broodmother_silken_bola"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5102"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "ID"                                                  "639" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
-
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -24,18 +21,23 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550 600 650 700 750 800" //OAA
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    "HasShardUpgrade"                                     "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 10 9"
+    "AbilityCooldown"                                     "24 20 16 12 12 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 150 160"
+    "AbilityManaCost"                                     "70 75 80 85 90 95"
 
-    "AbilityDamage"                                       "100 160 220 280 560 1120"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.3"	// Primarily about the damageo
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,34 +46,32 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burrow_width"                                    "150"
+        "movement_speed"                                  "25 35 45 55 65 75"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "burrow_duration"                                 "1.6 1.8 2.0 2.2 2.3 2.4"
+        "duration"                                        "6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burrow_speed"                                    "2000"
+        "projectile_speed"                                "1200"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burrow_anim_time"                                "0.52"
+        "var_type"                                        "FIELD_INTEGER"
+        "impact_damage"                                   "100 120 140 160 320 640"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "1000 1100 1200 1300 1400 1500" //OAA
-        "RequiresScepter"                                 "1"
+        "attack_damage"                                   "5 6 7 8 16 32"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burrow_speed_scepter"                            "3000"
-        "RequiresScepter"                                 "1"
+        "miss_chance"                                     "40"
       }
     }
   }

@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"warlock_fatal_bonds"
+  "warlock_fatal_bonds"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -11,6 +11,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -45,6 +46,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "count"                                           "6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_warlock_9"
       }
       "02"
       {

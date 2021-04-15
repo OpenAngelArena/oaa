@@ -65,23 +65,16 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "125 225 325 625 1125" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_7"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "linger_duration"                                 "2"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus_range"                             "400"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_bonus_duration"                          "20"

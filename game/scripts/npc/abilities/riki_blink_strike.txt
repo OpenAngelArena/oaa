@@ -48,6 +48,13 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "25 50 75 100 200 400"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "AbilityChargeRestoreTime"                        ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_riki_9"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+      }
     }
   }
 }

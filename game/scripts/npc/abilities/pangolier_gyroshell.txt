@@ -14,6 +14,7 @@
     "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
     "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"               "1"
+
     "MaxLevel"                      "5"
     "RequiredLevel"                 "6"
     "LevelsBetweenUpgrades"         "6"
@@ -33,7 +34,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                 "200 350 500 750 1000" //OAA
+    "AbilityDamage"                 "180 340 500 980 1460" //OAA
 
     "precache"
     {
@@ -58,7 +59,7 @@
       "03"
       {
         "var_type"              "FIELD_FLOAT"
-        "forward_move_speed"    "600"
+        "forward_move_speed"    "550"
       }
       "04"
       {
@@ -98,8 +99,8 @@
       "11"
       {
         "var_type"              "FIELD_FLOAT"
-        "duration"              "8.0"
-        "LinkedSpecialBonus"  "special_bonus_unique_pangolier_6"
+        "duration"              "10.0"
+        "LinkedSpecialBonus"    "special_bonus_unique_pangolier_6"
       }
       "12"
       {

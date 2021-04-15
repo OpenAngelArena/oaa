@@ -39,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage"                                    "10 20 30 40 80 160"
+        "creep_damage"                                    "10 15 20 25 50 100"
       }
       "02"
       {
@@ -60,7 +60,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_range"                                       "700"
+        "max_range"                                       "650"
         "LinkedSpecialBonus"                              "special_bonus_unique_wisp_3"
       }
       "06"

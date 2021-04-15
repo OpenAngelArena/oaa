@@ -19,7 +19,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -42,10 +42,10 @@
         "brain_sap_damage"                                "75 150 225 300 600 900"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_2"
       }
-      "02"
+      "02" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "1.5" //Increase the cd if it becomes annoying
+        "cooldown_scepter"                                "1.5"
         "RequiresScepter"                                 "1"
       }
     }

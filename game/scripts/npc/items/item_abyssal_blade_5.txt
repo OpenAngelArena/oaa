@@ -41,7 +41,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "200" //OAA
+    "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
@@ -91,7 +91,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "block_chance"                                    "60"
       }
       "07"
       {

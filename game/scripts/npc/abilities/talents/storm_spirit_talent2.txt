@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "6906"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6906"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "value"           "16" //OAA
-        "ad_linked_ability"			"storm_spirit_ball_lightning"
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "15" //OAA
+        "ad_linked_ability"                               "storm_spirit_ball_lightning"
       }
     }
   }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Tiny Toss Tree
+  // Ability: Tiny Toss Tree (Ability linked to Tree Grab)
   //=================================================================================================================
   "tiny_toss_tree"
   {
@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_INVALID"
 
@@ -33,12 +33,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "1300"
+        "range"                                           "1200"
       }
-      "03"
+      "03" // percentage bonus damage against creeps
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "25"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_7"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
