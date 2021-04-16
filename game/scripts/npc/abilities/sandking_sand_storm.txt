@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 85 95 105 115 125" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +44,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sand_storm_radius"                               "425 500 575 650 700 750"
+        "sand_storm_radius"                               "425 500 575 650 725 800"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sand_storm_damage"                               "20 45 70 95 200 300"
+        "sand_storm_damage"                               "25 50 75 100 200 400" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_2"
       }
       "04"

@@ -7,13 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"							"532"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "AbilitySound"					"Hero_KeeperOfTheLight.ManaLeak.Cast"
+    "ID"                                                  "532" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilitySound"                                        "Hero_KeeperOfTheLight.ManaLeak.Cast"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,12 +21,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"				"0.2"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 20 17 14 14 14"
+    "AbilityCooldown"                                     "23 20 17 14 11 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"				"700 750 800 850 900 950"
+    "AbilityCastRange"                                    "700 750 800 850 900 950"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

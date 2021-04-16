@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "9525"
+    "ItemCost"                                            "9550"
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 3;pike 3"
@@ -68,12 +68,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "13 18 28 43 63"
+        "bonus_intellect"                                 "15 20 30 45 65"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "2.5 5 10 15 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "200 400 600 800 1000"
       }
       "03"
       {

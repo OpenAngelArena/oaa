@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6502"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6502" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"680" //OAA
-        "ad_linked_ability"			"shadow_shaman_ether_shock"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "720" //OAA
+        "ad_linked_ability"                               "shadow_shaman_ether_shock"
       }
     }
   }

@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_debuff", "abilities/fur
 LinkLuaModifier("modifier_furion_wrath_of_nature_hit_debuff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_counter", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_buff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_root_oaa", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function furion_wrath_of_nature_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
@@ -81,6 +82,8 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated()
   self.jump_delay = ability:GetSpecialValueFor("jump_delay")
   self.damage_scepter = ability:GetSpecialValueFor("damage_scepter")
   self.scepter_debuff_duration = ability:GetSpecialValueFor("scepter_buffer")
+  self.min_duration = ability:GetSpecialValueFor("scepter_min_root_duration")
+  self.max_duration = ability:GetSpecialValueFor("scepter_max_root_duration")
 
   if IsServer() then
     -- Create a table for storing already hit units
@@ -154,7 +157,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:GetNextTarget()
   )
 
   if #enemies ~= 0 then
-    for i=1, #enemies do
+    for i = 1, #enemies do
       if enemies[i] then
         -- Remove couriers and units that cannot be seen by caster's team (invisible but not revealed)
         if enemies[i]:IsCourier() or not caster:CanEntityBeSeenByMyTeam(enemies[i]) then
@@ -171,7 +174,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:GetNextTarget()
       if enemy then
         local bHitByWrath = false
         if self.targets_hit then
-          for _,hHitEnemy in ipairs(self.targets_hit) do
+          for _, hHitEnemy in ipairs(self.targets_hit) do
             if enemy == hHitEnemy then
               bHitByWrath = true
             end
@@ -204,7 +207,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
   local bHasScepter = caster:HasScepter()
 
   -- Apply a scepter debuff before applying damage
-  if bHasScepter then
+  if bHasScepter and hTarget:IsRealHero() then
     local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
     if force_of_nature_ability and force_of_nature_ability:GetLevel() > 0 then
       hTarget:AddNewModifier(caster, force_of_nature_ability, "modifier_furion_wrath_of_nature_scepter_debuff", {duration = self.scepter_debuff_duration})
@@ -234,6 +237,20 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
     damage_type = DAMAGE_TYPE_MAGICAL,
     ability = ability
   }
+
+  -- Scepter root effect
+  if bHasScepter then
+    local min_duration = self.min_duration or 1.6
+    local max_duration = self.max_duration or 3.4
+    local number_of_bounces = self.max_targets or 18
+    local increase_per_bounce = (max_duration - min_duration) / number_of_bounces
+    local root_duration = math.min(min_duration + increase_per_bounce * nTargetsHit, max_duration)
+    local actual_duration = hTarget:GetValueChangedByStatusResistance(root_duration)
+    --print("[WRATH OF NATURE OAA] Root duration is: "..actual_duration)
+
+    -- Apply root
+    hTarget:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_scepter_root_oaa", {duration = actual_duration})
+  end
 
   -- Apply damage
   ApplyDamage(damage_table)
@@ -295,7 +312,7 @@ function modifier_furion_wrath_of_nature_scepter_debuff:IsDebuff()
 end
 
 function modifier_furion_wrath_of_nature_scepter_debuff:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_furion_wrath_of_nature_scepter_debuff:DeclareFunctions()
@@ -462,4 +479,28 @@ end
 
 function modifier_furion_wrath_of_nature_kill_damage_buff:GetModifierPreAttack_BonusDamage()
   return self:GetAbility():GetSpecialValueFor("kill_damage")
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_furion_wrath_of_nature_scepter_root_oaa = class(ModifierBaseClass)
+
+function modifier_furion_wrath_of_nature_scepter_root_oaa:IsHidden() -- needs tooltip
+  return false
+end
+
+function modifier_furion_wrath_of_nature_scepter_root_oaa:IsDebuff()
+  return true
+end
+
+function modifier_furion_wrath_of_nature_scepter_root_oaa:IsPurgable()
+  return true
+end
+
+function modifier_furion_wrath_of_nature_scepter_root_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_ROOTED] = true,
+  }
+
+  return state
 end

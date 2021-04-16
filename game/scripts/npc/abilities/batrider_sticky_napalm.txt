@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "20"
+    "AbilityManaCost"                                     "20 30 40 50 60 70" //OAA, for picking screen
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -58,6 +58,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_speed_pct"                              "-2 -4 -6 -8 -10 -12"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "05"
       {

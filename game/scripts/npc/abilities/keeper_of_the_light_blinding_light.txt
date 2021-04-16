@@ -38,13 +38,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "50" //OAA
+        "miss_rate"                                       "80" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_8"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "duration"                                        "6" //OAA
       }
       "03"
       {
@@ -64,7 +64,7 @@
       "07" // 06
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300" //OAA
+        "damage"                                          "400" //OAA
       }
     }
   }

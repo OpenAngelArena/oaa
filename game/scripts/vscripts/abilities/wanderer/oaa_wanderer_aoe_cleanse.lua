@@ -9,10 +9,11 @@ end
 function wanderer_aoe_cleanse:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
+    local radius = self:GetSpecialValueFor("radius")
     self.nPreviewFX = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true)
-    ParticleManager:SetParticleControl(self.nPreviewFX, 1, Vector(self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("radius"), 175))
-    ParticleManager:SetParticleControl(self.nPreviewFX, 15, Vector(255, 140, 0))
+    ParticleManager:SetParticleControl(self.nPreviewFX, 1, Vector(radius, radius, radius))
+    ParticleManager:SetParticleControl(self.nPreviewFX, 15, Vector(255, 26, 26))
   end
   return true
 end

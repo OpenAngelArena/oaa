@@ -35,6 +35,52 @@ function item_bubble_orb_1:OnSpellStart()
   local bubbleEffect = ParticleManager:CreateParticle(bubbleEffectName, PATTACH_ABSORIGIN, caster)
   ParticleManager:SetParticleControl(bubbleEffect, 1, Vector(radius, radius, radius))
 
+  -- Knockback enemies
+  local enemies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    targetPoint,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_ANY_ORDER,
+    false
+  )
+  local modifierKnockback = {
+      center_x = targetPoint.x,
+      center_y = targetPoint.y,
+      center_z = targetPoint.z,
+      duration = 0.5,
+      knockback_duration = 0.5,
+      knockback_distance = radius,
+    }
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      --modifierKnockback.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
+      enemy:AddNewModifier(caster, self, "modifier_knockback", modifierKnockback)
+    end
+  end
+
+  -- Strong Dispel allies
+  local allies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    targetPoint,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  for _, ally in pairs(allies) do
+    if ally and not ally:IsNull() then
+      ally:Purge(false, true, false, true, true)
+    end
+  end
+
   -- Timer to destroy particle effect
   Timers:CreateTimer(duration, function()
     ParticleManager:DestroyParticle(bubbleEffect, false)

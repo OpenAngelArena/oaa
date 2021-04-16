@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "3650"
+    "ItemCost"                                            "3550"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd;halberd"
@@ -85,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "18 19 20 21 22" //OAA
+        "status_resistance"                               "16 18 20 22 24"
       }
       "06"
       {

@@ -1,4 +1,5 @@
-LinkLuaModifier("modifier_item_far_sight", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_far_sight_dummy_stuff", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_far_sight_true_sight", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_far_sight = class(ItemBaseClass)
@@ -8,7 +9,7 @@ function item_far_sight:GetAOERadius()
 end
 
 function item_far_sight:GetIntrinsicModifierName()
-  return "modifier_item_far_sight"
+  return "modifier_generic_bonus"
 end
 
 function item_far_sight:OnSpellStart()
@@ -17,61 +18,23 @@ function item_far_sight:OnSpellStart()
   local casterTeam = caster:GetTeamNumber()
   local revealDuration = self:GetSpecialValueFor("reveal_duration")
 
-  AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
-  local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
+  --AddFOWViewer(casterTeam, target, self:GetSpecialValueFor("reveal_radius"), revealDuration, false)
+  --local trueSightThinker = CreateModifierThinker(caster, self, "modifier_item_far_sight_true_sight", {duration = revealDuration}, target, casterTeam, false)
+
+  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target, false, caster, caster, casterTeam)
+  dummy:AddNewModifier(caster, self, "modifier_far_sight_dummy_stuff", {})
+  dummy:AddNewModifier(caster, self, "modifier_item_far_sight_true_sight", {})
+  dummy:AddNewModifier(caster, self, "modifier_kill", {duration = revealDuration})
+
+  dummy:MakeVisibleToTeam(DOTA_TEAM_GOODGUYS, revealDuration)
+  dummy:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, revealDuration)
 end
 
 item_far_sight_2 = item_far_sight
 item_far_sight_3 = item_far_sight
 item_far_sight_4 = item_far_sight
 
---------------------------------------------------------------------------------
-
-modifier_item_far_sight = class(ModifierBaseClass)
-
-function modifier_item_far_sight:IsHidden()
-  return true
-end
-
-function modifier_item_far_sight:IsDebuff()
-  return false
-end
-
-function modifier_item_far_sight:IsPurgable()
-  return false
-end
-
-function modifier_item_far_sight:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
-function modifier_item_far_sight:DeclareFunctions()
-  local funcs  = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
-  }
-  return funcs
-end
-
-function modifier_item_far_sight:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor")
-end
-
-function modifier_item_far_sight:GetModifierBonusStats_Strength()
-  return self:GetAbility():GetSpecialValueFor("bonus_str")
-end
-
-function modifier_item_far_sight:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_int")
-end
-
-function modifier_item_far_sight:GetModifierConstantHealthRegen()
-  return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-end
-
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_item_far_sight_true_sight = class(ModifierBaseClass)
 
@@ -89,18 +52,60 @@ end
 
 function modifier_item_far_sight_true_sight:OnCreated()
   local ability = self:GetAbility()
-  local radius = 900
   if ability and not ability:IsNull() then
-    radius = ability:GetSpecialValueFor("reveal_radius")
+    self.revealRadius = ability:GetSpecialValueFor("reveal_radius")
+  else
+    self.revealRadius = 800
   end
 
   if IsServer() then
-    self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
-    ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
-    ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
-  end
+    local parent = self:GetParent()
+    local parent_location = parent:GetAbsOrigin()
+    local parent_team = parent:GetTeamNumber()
+    local enemy_team = DOTA_TEAM_BADGUYS
+    if parent_team == enemy_team then
+      enemy_team = DOTA_TEAM_GOODGUYS
+    end
 
-  self.revealRadius = radius
+	  -- Old particle
+    --self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    --ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
+    --ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
+
+    -- New particles
+    local index1 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_green.vpcf", PATTACH_WORLDORIGIN, parent, parent_team)
+    ParticleManager:SetParticleControl(index1, 0, parent_location)
+    ParticleManager:SetParticleControl(index1, 1, Vector(self.revealRadius-100, 0, 0))
+
+    local index2 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_red.vpcf", PATTACH_WORLDORIGIN, parent, enemy_team)
+    ParticleManager:SetParticleControl(index2, 0, parent_location)
+    ParticleManager:SetParticleControl(index2, 1, Vector(self.revealRadius-100, 0, 0))
+
+    self.particle1 = index1
+    self.particle2 = index2
+  end
+end
+
+function modifier_item_far_sight_true_sight:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH,
+  }
+end
+
+function modifier_item_far_sight_true_sight:OnDeath(event)
+  if event.unit == self:GetParent() then
+    if self.particle1 then
+      ParticleManager:DestroyParticle(self.particle1, true)
+      ParticleManager:ReleaseParticleIndex(self.particle1)
+      self.particle1 = nil
+    end
+
+    if self.particle2 then
+      ParticleManager:DestroyParticle(self.particle2, true)
+      ParticleManager:ReleaseParticleIndex(self.particle2)
+      self.particle2 = nil
+    end
+  end
 end
 
 function modifier_item_far_sight_true_sight:GetModifierAura()
@@ -124,10 +129,75 @@ function modifier_item_far_sight_true_sight:GetAuraSearchFlags()
 end
 
 function modifier_item_far_sight_true_sight:OnDestroy()
-  if IsServer() then
-    if self.nFXIndex then
-      ParticleManager:DestroyParticle( self.nFXIndex , false)
-      ParticleManager:ReleaseParticleIndex( self.nFXIndex )
-    end
+  if self.particle1 then
+    ParticleManager:DestroyParticle(self.particle1, true)
+    ParticleManager:ReleaseParticleIndex(self.particle1)
   end
+  if self.particle2 then
+    ParticleManager:DestroyParticle(self.particle2, true)
+    ParticleManager:ReleaseParticleIndex(self.particle2)
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_far_sight_dummy_stuff = class(ModifierBaseClass)
+
+function modifier_far_sight_dummy_stuff:IsHidden()
+  return true
+end
+
+function modifier_far_sight_dummy_stuff:IsDebuff()
+  return false
+end
+
+function modifier_far_sight_dummy_stuff:IsPurgable()
+  return false
+end
+
+function modifier_far_sight_dummy_stuff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    MODIFIER_PROPERTY_BONUS_DAY_VISION,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+  }
+end
+
+function modifier_far_sight_dummy_stuff:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_far_sight_dummy_stuff:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_far_sight_dummy_stuff:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_far_sight_dummy_stuff:GetBonusDayVision()
+  return self:GetAbility():GetSpecialValueFor("reveal_radius")
+end
+
+function modifier_far_sight_dummy_stuff:GetBonusNightVision()
+  return self:GetAbility():GetSpecialValueFor("reveal_radius")
+end
+
+function modifier_far_sight_dummy_stuff:CheckState()
+  local state = {
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_NO_TEAM_MOVE_TO] = true,
+    [MODIFIER_STATE_NO_TEAM_SELECT] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_FLYING] = true,
+  }
+  return state
 end

@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "525 750 975 1200 1250 1275"
+    "AbilityCastRange"                                    "550 750 950 1150 1350 1550"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.75 2.5 3.25 4 5 6"
+        "duration"                                        "1.75 2.5 3.25 4 4.75 5.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_5"
       }
       "04"

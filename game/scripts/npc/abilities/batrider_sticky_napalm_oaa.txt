@@ -1,0 +1,89 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Batrider: Sticky Napalm (OAA Rework)
+  //=================================================================================================================
+  "batrider_sticky_napalm_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85320"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_batrider_sticky_napalm.lua"
+    "AbilityTextureName"                                  "batrider_sticky_napalm"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "550 600 650 700 750 800"
+    "AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "3.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "20 30 40 50 60 70"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_stack"                                "6 12 18 24 48 96"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "375 400 425 450 475 500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "8"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_pct"                              "-2 -4 -6 -8 -10 -12"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "turn_rate_pct"                                   "-10 -30 -50 -70 -75 -80"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_stacks"                                      "10"
+      }
+      "07" // Percentage of damage dealt to non-ancient creeps
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_creeps"                                   "75"
+      }
+      "08" // Percentage of damage dealt to ancient creeps but not bosses
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_ancients"                                 "50"
+      }
+      "09" // Percentage of damage dealt to bosses
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_bosses"                                   "50"
+      }
+    }
+  }
+}

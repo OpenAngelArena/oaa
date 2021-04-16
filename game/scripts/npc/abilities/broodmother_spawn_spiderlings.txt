@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5279"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "FightRecapLevel"                                     "1"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,9 +26,9 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "11 10 9 8 8 8"
+    "AbilityCooldown"                                     "9 8 7 6 5"
     "AbilityManaCost"                                     "100"
 
     // Stats
@@ -41,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "2.0"
+        "buff_duration"                                   "20"
       }
       "02"
       {
@@ -51,13 +52,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "70 140 210 280 560 1120"
+        "damage"                                          "300 440 580 1000 1420" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "4" //OAA
+        "count"                                           "5" //OAA
       }
       "05"
       {

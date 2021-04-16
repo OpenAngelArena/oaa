@@ -16,8 +16,8 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCooldown"                                     "40 34 28 22 22 22"
-    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "28 24 20 16 16 16"
+    "AbilityManaCost"                                     "60 70 80 90 100 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8 10 12 14 16 18"
+        "duration"                                        "8 9 10 11 12 13"
       }
       "03"
       {
@@ -41,7 +41,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_percentage"                             "75"
+        "cooldown_percentage"                             "60"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_stack"                                "10 11 12 13 26 52"
       }
     }
   }

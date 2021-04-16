@@ -37,7 +37,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "3948"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_helm_of_the_dominator_2"
+    "BaseClass"                     "item_helm_of_the_overlord"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
@@ -84,17 +84,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "1000 3000 6000 12000 24000"
+        "health_min"                                      "1000 1800 3600 7200 14400"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_base"                                      "425"
+        "speed_base"                                      "380"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounty_gold"                                     "200 300 600 1200 2400"
+        "bounty_gold"                                     "100 200 400 800 1600"
       }
       "07"
       {
@@ -120,6 +120,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "model_scale"                                     "0 20 30 40 50"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "count_limit"                                     "1 2 2 2 3"
       }
     }
   }

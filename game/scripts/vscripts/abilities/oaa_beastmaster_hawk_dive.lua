@@ -6,7 +6,7 @@ function beastmaster_hawk_dive_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-   -- Check if target and caster entities exist
+  -- Check if target and caster entities exist
   if not target or not caster then
     return
   end

@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6855"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6855"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "0.6" //OAA
+        "value"                                           "0.55" //OAA
         "ad_linked_ability"                               "puck_dream_coil"
       }
     }

@@ -45,6 +45,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "status_resistance"                               "50"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_8"
       }
       "03"
       {
@@ -55,7 +56,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "26 24 22 20 18"  //OAA
+        "cooldown_scepter"                                "28 26 24 22 20" //OAA
         "RequiresScepter"                                 "1"
       }
     }

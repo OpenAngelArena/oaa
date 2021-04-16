@@ -40,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "0.9"
+        "delay"                                           "0.8"
       }
       "03"
       {
@@ -50,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage"                                    "100 175 250 325 725 1125"
+        "blast_damage"                                    "100 175 250 325 650 1300"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_2"
       }
     }

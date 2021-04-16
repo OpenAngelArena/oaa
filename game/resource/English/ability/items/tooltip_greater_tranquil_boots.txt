@@ -5,7 +5,7 @@
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots"                              "Greater Tranquil Boots"
 "DOTA_Tooltip_Ability_item_recipe_greater_tranquil_boots"                       "Greater Tranquil Boots Recipe"
 //"DOTA_Tooltip_Ability_item_greater_tranquil_boots_Description"                  "<h1>Passive: Break</h1> Whenever you are attacked by a hero, the bonus %bonus_health_health% HP regen is lost and the movement speed bonus is reduced to %broken_movement_speed% for %break_time% seconds."
-"DOTA_Tooltip_Ability_item_greater_tranquil_boots_Description"                  "<h1>Active: Tranquilize</h1> Reduces attack speed of melee heroes by %melee_attack_speed_slow% and attack range of ranged heroes by %ranged_bonus_attack_range% for %tranquilize_duration% seconds."
+"DOTA_Tooltip_Ability_item_greater_tranquil_boots_Description"                  "<h1>Active: Naturalize</h1> Sprouts a ring of trees around a unit, trapping it in place. Affected allies gain tree-walking and %hp_regen_amp%%% hp regen amplification for %sprout_duration% seconds. Affected enemies have their attack speed slowed by %attack_speed_slow% for %slow_duration% seconds. Trees last %sprout_duration% seconds. \n<h1>Passive: Tree-Walking</h1> You can walk through trees without destroying them."
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_Lore"                         "Pacifying enemies just by using these boots was never so easy."
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_Note0"                        "Attack speed slow doesn't work on bosses."
 "DOTA_Tooltip_Ability_item_greater_tranquil_boots_bonus_movement_speed"         "+$move_speed"
@@ -57,4 +57,7 @@
 //"DOTA_Tooltip_Ability_item_tranquil_origin_bonus_health_regen"                  "#{DOTA_Tooltip_Ability_item_greater_tranquil_boots_bonus_health_regen}"
 
 "DOTA_Tooltip_modifier_greater_tranquils_tranquilize_debuff"                    "Tranquilized"
-"DOTA_Tooltip_modifier_greater_tranquils_tranquilize_debuff_Description"        "Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% and attack range by %MODIFIER_PROPERTY_ATTACK_RANGE_BONUS%."
+"DOTA_Tooltip_modifier_greater_tranquils_tranquilize_debuff_Description"        "Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
+"DOTA_Tooltip_modifier_greater_tranquils_tranquilize_buff"                      "Tranquility"
+"DOTA_Tooltip_modifier_greater_tranquils_tranquilize_buff_Description"          "Tree-Walking and bonus hp regen amplification."

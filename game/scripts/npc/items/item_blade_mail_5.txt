@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "35225"
+    "ItemCost"                                            "35125"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm 5;blade mail 5;blademail 5"
@@ -87,7 +87,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_reflection_constant"                     "20"
+        "passive_reflection_constant"                     "20 40 80 140 220"
       }
       "06"
       {

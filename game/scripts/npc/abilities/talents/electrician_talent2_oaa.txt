@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Electrician: Cleansing Shock Always Affects Self
-	//=================================================================================================================
-	"special_bonus_electrician_shock_autoself"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				  "special_bonus_undefined"
-		"ID"					      "8477"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"			  "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Electrician: Cleansing Shock applies mini-stun
+  //=================================================================================================================
+  "special_bonus_electrician_cleansing_shock_stun"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8477"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"value"				  "1"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "0.1"
+      }
+    }
+  }
 }

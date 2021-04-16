@@ -15,6 +15,7 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "HasScepterUpgrade"                                   "0"
+    //"HasShardUpgrade"                                     "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -26,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "145"
+    "AbilityManaCost"                                     "125 130 135 140 145 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "wolf_duration"                                   "55.0"
+        "wolf_duration"                                   "50"
       }
       "03"
       {
@@ -50,13 +51,14 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wolf_damage"                                     "26 34 42 50 170 340"
+        "wolf_damage"                                     "26 44 62 80 180 280" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "wolf_hp"                                         "300 350 400 450 1500 3000"
+        "wolf_hp"                                         "300 400 500 600 1600 2600" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_7"
       }
       "06"
       {

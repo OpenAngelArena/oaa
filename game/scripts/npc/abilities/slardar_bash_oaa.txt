@@ -58,6 +58,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_cooldown"                                "8.0"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_dmg_multiplier"                            "2"
+      }
     }
   }
 }

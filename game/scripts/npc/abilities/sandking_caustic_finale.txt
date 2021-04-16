@@ -34,7 +34,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_damage_pct"                       "10 14 18 22 24 26"
+        "caustic_finale_damage_pct"                       "10 14 18 22 26 30"
       }
       "04"
       {
@@ -44,7 +44,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_slow"                             "-10 -15 -20 -25 -30 -35"
+        "caustic_finale_slow"                             "-10 -20 -30 -40 -50 -60" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_6"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }

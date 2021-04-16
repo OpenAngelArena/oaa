@@ -7,14 +7,14 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"      "special_bonus_attack_speed_30" // replaces special_bonus_unique_storm_spirit_6
+    "Ability10"      "special_bonus_hp_250" // replaces special_bonus_hp_200
     "Ability11"      "special_bonus_mp_regen_250"
 
     "Ability12"      "special_bonus_unique_storm_spirit_5"
-    "Ability13"      "special_bonus_hp_400" // replaces special_bonus_hp_375
+    "Ability13"      "special_bonus_unique_storm_spirit_2" // replaces special_bonus_attack_speed_25
 
     "Ability14"      "special_bonus_unique_storm_spirit"
-    "Ability15"      "special_bonus_unique_storm_spirit_2" // replaces special_bonus_attack_speed_25
+    "Ability15"      "special_bonus_unique_storm_spirit_8"
 
     "Ability16"      "special_bonus_unique_storm_spirit_7"
     "Ability17"      "special_bonus_unique_storm_spirit_6" // replaces special_bonus_unique_storm_spirit_4
@@ -26,5 +26,6 @@
     // special_bonus_unique_storm_spirit_5 - Static Remnant damage
     // special_bonus_unique_storm_spirit_6 - Overload damage
     // special_bonus_unique_storm_spirit_7 - Overload bouncing
+    // special_bonus_unique_storm_spirit_8 - Static Remnant cooldown
   }
 }

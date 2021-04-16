@@ -16,6 +16,15 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
+	
+    "precache"
+    {
+      "particle"                                          "particles/ghost_frostbite_ground_elec.vpcf"
+      "particle"                                          "particles/ghost_frostbite_ring.vpcf"
+      "particle"                                          "particles/ghost_frostbite_ring_base.vpcf"
+      "particle"                                          "particles/ghost_frostbite_ring_detail.vpcf"
+      "particle"                                          "particles/ghost_frostbite.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,9 +33,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-35"
+        "heal_prevent_percent"                            "-25"
       }
       "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-25"
+      }
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "heal_prevent_duration"                           "5.0"

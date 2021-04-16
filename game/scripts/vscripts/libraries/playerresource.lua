@@ -49,3 +49,7 @@ function CDOTA_PlayerResource:IsBotOrPlayerConnected(id)
   local connectionState = self:GetConnectionState(id)
   return connectionState == 2 or connectionState == 1
 end
+
+function CDOTA_PlayerResource:SafeGetTeamPlayerCount()
+  return length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_GOODGUYS)) + length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
+end

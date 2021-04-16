@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16800"
+    "ItemCost"                                            "16700"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Reduction orb 2"
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "30 50 90"
+        "bonus_health_regen"                              "18 21 24"
       }
       "03"
       {
@@ -88,12 +88,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 3.0 4.0"
+        "duration"                                        "4.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "0 25 50"
+        "damage_as_healing"                               "50"
       }
     }
   }

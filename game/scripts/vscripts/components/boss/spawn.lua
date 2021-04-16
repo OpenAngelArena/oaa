@@ -194,11 +194,14 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
+    -- Increasing the score limit with the first boss kill of the tier
+    --[[
     if not BossSpawner.hasKilledTiers[bossTier] then
       BossSpawner.hasKilledTiers[bossTier] = true
-      local scoreLimitIncrease = PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
+      local scoreLimitIncrease = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
       PointsManager:IncreaseLimit(scoreLimitIncrease)
     end
+    ]]
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)
     end)

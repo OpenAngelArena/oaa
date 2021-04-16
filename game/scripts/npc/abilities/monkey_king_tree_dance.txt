@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "900" //OAA, Valve has it wrong
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -50,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ground_jump_distance"                            "1000"
+        "ground_jump_distance"                            "900"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_7"
       }
       "05"
@@ -89,13 +89,13 @@
         "var_type"                                        "FIELD_INTEGER"
         "top_level_height"                                "500"
       }
-      "12"
+      "12" // same as in Primal Spring ability
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_tooltip"                           "140 210 280 350 770 1190"
+        "impact_damage_tooltip"                           "140 210 280 350 700 1400"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_3"
       }
-      "13"
+      "13" // same as in Primal Spring ability
       {
         "var_type"                                        "FIELD_INTEGER"
         "impact_movement_slow_tooltip"                    "20 40 60 80 85 90"

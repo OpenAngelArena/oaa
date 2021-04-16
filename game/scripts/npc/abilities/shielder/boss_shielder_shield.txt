@@ -1,23 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Generic boss resistance for % based damage
+  // Damage reduction and damage return for all damage dealt from the front; shield size increases
   //=================================================================================================================
   "boss_shielder_shield"
   {
-
     "ID"                                                  "9904"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/shielder/boss_shielder_shield.lua"
-    "AbilityTextureName"                                  "tidehunter_kraken_shell"
+    "AbilityTextureName"                                  "mars_bulwark"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-
 
     "MaxLevel"                                            "3"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "1"
-
 
     "AbilitySpecial"
     {

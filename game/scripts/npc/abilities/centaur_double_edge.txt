@@ -23,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "4.0"
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.3"
 
     //------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
@@ -61,7 +61,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "shard_str_duration"                              "12"
+        "shard_str_duration"                              "15"
       }
     }
   }

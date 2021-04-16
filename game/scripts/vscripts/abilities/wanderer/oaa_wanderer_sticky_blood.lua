@@ -103,9 +103,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
     end
 
     if attacker:IsHero() then
-      if not attacker:IsMagicImmune() then
-        self:ProcStickyBlood(caster, ability, attacker)
-      end
+      self:ProcStickyBlood(caster, ability, attacker)
     else
       if attacker.GetPlayerOwner then
         local player = attacker:GetPlayerOwner()
@@ -117,9 +115,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
           hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
         end
         if hero_owner then
-          if not hero_owner:IsMagicImmune() then
-            self:ProcStickyBlood(caster, ability, hero_owner)
-          end
+          self:ProcStickyBlood(caster, ability, hero_owner)
         end
       end
     end
@@ -127,6 +123,11 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
 end
 
 function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability, unit)
+  -- If unit is dead, spell immune or in a duel, don't do anything
+  if not unit:IsAlive() or unit:IsMagicImmune() or Duels:IsActive() then
+    return
+  end
+
   -- Proc Sound
   caster:EmitSound("Hero_Batrider.StickyNapalm.Cast")
 

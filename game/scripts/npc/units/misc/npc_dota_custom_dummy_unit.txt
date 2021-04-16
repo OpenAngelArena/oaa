@@ -1,0 +1,67 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // DUMMY unit
+  //=================================================================================
+  "npc_dota_custom_dummy_unit"
+  {
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/development/invisiblebox.vmdl"
+    "Level"                                               "1"
+    "UnitLabel"                                           "dummy_unit"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            ""
+
+    // Protection
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"                                     "0"
+    "AttackDamageMax"                                     "0"
+    "AttackRate"                                          "1.0"
+    "AttackAnimationPoint"                                "0.5"
+    "AttackAcquisitionRange"                              "800"
+    "AttackRange"                                         "1"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"                                       "0"
+    "MovementTurnRate"                                    "1.0"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "0"
+    "StatusManaRegen"                                     "0"
+
+    // Combat
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_GOODGUYS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "0"
+    "VisionNighttimeRange"                                "0"
+  }
+}

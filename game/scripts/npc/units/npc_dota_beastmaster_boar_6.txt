@@ -25,12 +25,13 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"      // Physical protection.
+    "MagicalResistance"                                   "25"		// Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "500"    // Damage range min.
-    "AttackDamageMax"                                     "500"    // Damage range max.
+    "AttackDamageMin"                                     "280"    // Damage range min.
+    "AttackDamageMax"                                     "280"    // Damage range max.
     "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.5"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -44,19 +45,19 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "150"    // Experience earn.
+    "BountyXP"                                            "180"    // Experience earn.
     "BountyGoldMin"                                       "26"    // Gold earned min.
     "BountyGoldMax"                                       "38"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"    // Speed.
+    "MovementSpeed"                                       "370"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "5000"    // Base health.
+    "StatusHealth"                                        "3200"    // Base health.
     "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
 
     // Vision

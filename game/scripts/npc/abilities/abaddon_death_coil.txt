@@ -39,19 +39,18 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "self_damage"                                     "75 100 125 150 275 400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
+        "self_damage"                                     "50"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_damage"                                   "120 165 210 255 510 765"
+        "target_damage"                                   "110 160 210 260 520 780"
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "120 165 210 255 510 765"
+        "heal_amount"                                     "110 160 210 260 520 780" //OAA, Valve has it wrong
         "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
       }
       "04"

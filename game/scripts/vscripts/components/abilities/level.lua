@@ -63,6 +63,18 @@ function AbilityLevels:CheckAbilityLevels (keys)
   })
 
   self:SetTalents(hero)
+
+  local leveled_up_ability = keys.abilityname
+  if leveled_up_ability then
+    if string.find(leveled_up_ability, "special_bonus_") then
+      -- Ability is a talent (not a reliable way of checking but its temporary anyway)
+      -- Check for hero level:
+      if level > 27 then
+        -- Adding a skill point if a player leveled up a talent that is not supposed to be levelled.
+        hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+      end
+    end
+  end
 end
 
 function AbilityLevels:SetTalents(hero)

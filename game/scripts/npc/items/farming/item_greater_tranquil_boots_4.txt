@@ -42,15 +42,15 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_tranquil_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "custom/greater_tranquils_4"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18"
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "greater_tranquils"
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "600 650 700 750"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
@@ -65,6 +65,14 @@
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_tranquil_boots_4"
     "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
+
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
+      "particle"                                          "particles/units/heroes/hero_furion/furion_sprout.vpcf"
+      "particle"                                          "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -83,7 +91,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "20 40 60 80"
+        "bonus_health_regen"                              "17 20 23 26"
       }
       "04"
       {
@@ -98,17 +106,27 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "melee_attack_speed_slow"                         "-700"
+        "attack_speed_slow"                               "-700"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ranged_bonus_attack_range"                       "-500"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.5 3.0 3.5 4.0"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tranquilize_duration"                            "5.0"
+        "sprout_duration"                                 "3.5 4.0 4.5 5.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_amp"                                    "50"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "700"
       }
     }
   }

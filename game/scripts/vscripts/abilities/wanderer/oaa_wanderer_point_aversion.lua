@@ -27,7 +27,7 @@ function modifier_wanderer_point_aversion_passive:OnCreated()
   if ability and not ability:IsNull() then
     self.damage = ability:GetSpecialValueFor("damage_per_point_difference")
   else
-    self.damage = 25
+    self.damage = 100
   end
 end
 

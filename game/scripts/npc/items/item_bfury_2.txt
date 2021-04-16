@@ -32,10 +32,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "4.0"
     "AbilityTextureName"                                  "custom/battle_fury_2"
+
     //Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -62,12 +64,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "7.5 14.0 20.0 25.0 32.0"
+        "bonus_health_regen"                              "7.5 11 14 17 20"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.25 3.5 4.0 4.75 5.75"
+        "bonus_mana_regen"                                "2.75 3.0 3.5 4.25 5.25"
       }
       "04" // Cleave against heroes
       {

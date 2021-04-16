@@ -1,6 +1,7 @@
-
-"DOTAAbilities" {
-  "boss_charger_charge" {
+"DOTAAbilities"
+{
+  "boss_charger_charge"
+  {
     "ID"                                                  "9901"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/charger/boss_charger_charge.lua"
@@ -64,22 +65,22 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glancing_damage"                                  "500 750 1000"
+        "glancing_damage"                                 "500 750 1000"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glancing_slow"                                    "10 30 50"
+        "glancing_slow"                                   "10 30 50"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glancing_duration"                                "1 2 3"
+        "glancing_duration"                               "1 2 3"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "glancing_knockback"                               "200 250 300"
+        "glancing_knockback"                              "200 250 300"
       }
     }
   }

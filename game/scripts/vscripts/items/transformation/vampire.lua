@@ -110,7 +110,7 @@ function modifier_item_vampire_active:IsDebuff()
 end
 
 function modifier_item_vampire_active:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_vampire_active:OnCreated()

@@ -8,7 +8,7 @@
     "ID"                                                  "207"    // unique ID
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "1750"
+    "ItemCost"                                            "1550"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "200" //OAA
+    "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
@@ -51,7 +51,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "6625"
+    "ItemCost"                                            "6325"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "abyssal blade"
@@ -65,17 +65,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 35 55 85 125"
+        "bonus_damage"                                    "10 20 40 70 110" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 1000 1500 2000"
+        "bonus_health"                                    "200 400 600 800 1000" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "10 20 30 40 50"
+        "bonus_health_regen"                              "3 6 9 12 15" //OAA
       }
       "04"
       {
@@ -90,12 +90,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "block_chance"                                    "60"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 25 30"
+        "bonus_strength"                                  "25 30 40 55 75" //OAA
       }
       "08"
       {
@@ -120,7 +120,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "100 150 225 325 475"
+        "bonus_chance_damage"                             "160 210 310 460 660" //OAA
       }
       "13"
       {

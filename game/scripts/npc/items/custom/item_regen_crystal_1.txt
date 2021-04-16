@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "8800"
+    "ItemCost"                                            "8700"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "regen crystal"
@@ -81,7 +81,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen"                                 "500"
+        "active_hp_regen"                                 "300 400 500"
       }
       "05"
       {

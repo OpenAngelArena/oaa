@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "2500"
+    "ItemCost"                    "2400"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemAliases"                 "holy locket"
@@ -106,7 +106,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_gain_timer"                               "15"
+        "charge_gain_timer"                               "10"
       }
     }
   }

@@ -56,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "35940"
+    "ItemCost"                        "35840"
     "ItemAliases"                     "silver staff 2; break staff 2"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -92,7 +92,7 @@
       "06"
       {
         "var_type"                    "FIELD_INTEGER"
-        "max_hp_damage"               "5 6"
+        "max_hp_damage"               "4 5"
       }
       "07"
       {

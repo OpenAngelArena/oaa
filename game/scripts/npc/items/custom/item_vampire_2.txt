@@ -41,7 +41,7 @@
     "ScriptFile"                                          "items/transformation/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/vampire_2"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -75,12 +75,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "100 140"
+        "bonus_damage"                                    "130 210"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resistance"                         "28 30"
+        "bonus_status_resistance"                         "25 30"
       }
       "04"
       {

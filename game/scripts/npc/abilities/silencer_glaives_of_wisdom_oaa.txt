@@ -81,6 +81,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "shard_bounce_count"                              "1"
       }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_damage_reduction"                   "50"
+      }
     }
   }
 }

@@ -2,15 +2,49 @@ electrician_static_grip = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_electrician_static_grip", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_electrician_static_grip_movement", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier( "modifier_electrician_static_grip_debuff_tracker", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_electrician_static_grip_non_channel", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
-	if self.modGrip and not self.modGrip:IsNull() then
-		return self.modGrip:GetDuration()
-	end
+  local caster = self:GetCaster()
+  -- Talent that makes Static Grip non-channel (pseudo-channel)
+  if caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
+    return 0
+  end
 
-	return 0
+  if self.modGrip and not self.modGrip:IsNull() then
+    return self.modGrip:GetDuration()
+  end
+
+  return 0
+end
+
+function electrician_static_grip:GetBehavior()
+  local caster = self:GetCaster()
+  -- Talent that makes Static Grip non-channel (pseudo-channel)
+  if caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
+    return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+  end
+  return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED
+end
+
+function electrician_static_grip:OnHeroCalculateStatBonus()
+  if not IsServer() then
+    return
+  end
+  local caster = self:GetCaster()
+  --print("[CHATTERJEE STATIC GRIP] OnHeroCalculateStatBonus on Server")
+  -- Check for talent that makes Static Grip non-channel (pseudo-channel)
+  local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_non_channel")
+  if talent and talent:GetLevel() > 0 then
+    if not caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
+      caster:AddNewModifier(caster, talent, "modifier_special_bonus_electrician_static_grip_non_channel", {})
+    end
+  else
+    caster:RemoveModifierByName("modifier_special_bonus_electrician_static_grip_non_channel")
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -27,8 +61,12 @@ function electrician_static_grip:OnSpellStart()
     -- create the stun modifier on target
     target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )
 
-    -- create the movement modifier on caster
-    caster:AddNewModifier( caster, self, "modifier_electrician_static_grip_movement", { target = target:entindex(), duration = durationMax } )
+    -- create the movement modifier on caster if he doesn't have the talent
+    if caster:HasLearnedAbility("special_bonus_electrician_static_grip_non_channel") then
+      caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_debuff_tracker", {duration = durationMax})
+    else
+      caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_movement", {target = target:entindex(), duration = durationMax})
+    end
   end
 end
 
@@ -56,10 +94,6 @@ function modifier_electrician_static_grip:IsHidden()
 end
 
 function modifier_electrician_static_grip:IsPurgable()
-	return false
-end
-
-function modifier_electrician_static_grip:IsPurgeException()
 	return true
 end
 
@@ -115,30 +149,38 @@ function modifier_electrician_static_grip:OnCreated( event )
 	-- is ran on the client
 	spell.modGrip = self
 
-	if IsServer() then
-		local parent = self:GetParent()
-		local caster = self:GetCaster()
+  if IsServer() then
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
 
-		-- grab ability specials
-		local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
-		self.distBreak = spell:GetCastRange( parent:GetAbsOrigin(), parent ) + spell:GetSpecialValueFor( "link_buffer" )
-		self.damagePerInterval = spell:GetSpecialValueFor( "damage_per_second" ) * damageInterval
-		self.damageType = spell:GetAbilityDamageType()
+    -- grab ability specials
+    local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
+    local damage_per_second = spell:GetSpecialValueFor("damage_per_second")
+    -- Bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
+    if talent and talent:GetLevel() > 0 then
+      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+    end
+    self.damagePerInterval = damage_per_second * damageInterval
+    self.damageType = spell:GetAbilityDamageType()
 
-		-- create the particle
-		self.part = ParticleManager:CreateParticle( "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster )
-		ParticleManager:SetParticleControlEnt( self.part, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true )
-		ParticleManager:SetParticleControlEnt( self.part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true )
+    -- create the particle
+    self.part = ParticleManager:CreateParticle( "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster )
+    ParticleManager:SetParticleControlEnt( self.part, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true )
+    ParticleManager:SetParticleControlEnt( self.part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true )
 
-		-- play sound
-		parent:EmitSound( "Hero_StormSpirit.ElectricVortex" )
+    -- play sound
+    parent:EmitSound( "Hero_StormSpirit.ElectricVortex" )
 
     -- cast animation
-    caster:StartGesture( ACT_DOTA_CAST_ABILITY_3 )
+    --caster:StartGesture( ACT_DOTA_CAST_ABILITY_3 )
 
-		-- start thinking
-		self:StartIntervalThink( damageInterval )
-	end
+    -- Apply first damage tick immediately
+    self:OnIntervalThink()
+
+    -- start thinking
+    self:StartIntervalThink( damageInterval )
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -152,37 +194,45 @@ function modifier_electrician_static_grip:OnRefresh( event )
 	-- is ran on the client
 	spell.modGrip = self
 
-	if IsServer() then
-		local parent = self:GetParent()
-		local caster = self:GetCaster()
+  if IsServer() then
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
 
-		-- grab ability specials
-		local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
-		self.distBreak = spell:GetCastRange( parent:GetAbsOrigin(), parent ) + spell:GetSpecialValueFor( "link_buffer" )
-		self.damagePerInterval = spell:GetSpecialValueFor( "damage_per_second" ) * damageInterval
-		self.damageType = spell:GetAbilityDamageType()
+    -- grab ability specials
+    local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
+    local damage_per_second = spell:GetSpecialValueFor("damage_per_second")
+    -- Bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
+    if talent and talent:GetLevel() > 0 then
+      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+    end
+    self.damagePerInterval = damage_per_second * damageInterval
+    self.damageType = spell:GetAbilityDamageType()
 
-		-- play sound
-		parent:EmitSound( "Hero_StormSpirit.ElectricVortex" )
-
-		-- start thinking
-		self:StartIntervalThink( damageInterval )
-	end
+    -- play sound
+    parent:EmitSound( "Hero_StormSpirit.ElectricVortex" )
+  end
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
 	function modifier_electrician_static_grip:OnDestroy()
-		-- clean up the particle
-		ParticleManager:DestroyParticle( self.part, false )
-		ParticleManager:ReleaseParticleIndex( self.part )
+    local caster = self:GetCaster()
+    local parent = self:GetParent()
 
-		-- end the sound prematurely
-		self:GetParent():StopSound( "Hero_StormSpirit.ElectricVortex" )
+    -- clean up the particle
+    if self.part then
+      ParticleManager:DestroyParticle( self.part, false )
+      ParticleManager:ReleaseParticleIndex( self.part )
+    end
 
-		-- remove the movement modifier on caster
-		self:GetCaster():RemoveModifierByName( "modifier_electrician_static_grip_movement" )
+    -- end the sound prematurely
+    parent:StopSound( "Hero_StormSpirit.ElectricVortex" )
+
+    -- remove modifiers on the caster
+    caster:RemoveModifierByName("modifier_electrician_static_grip_movement")
+    caster:RemoveModifierByName("modifier_electrician_static_grip_debuff_tracker")
 
 		-- end the channel
 		-- with the new channel duration method this seems superfluous
@@ -307,4 +357,81 @@ if IsServer() then
 	function modifier_electrician_static_grip_movement:OnHorizontalMotionInterrupted()
 		self:Destroy()
 	end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_electrician_static_grip_debuff_tracker = class(ModifierBaseClass)
+
+function modifier_electrician_static_grip_debuff_tracker:IsHidden()
+  return true
+end
+
+function modifier_electrician_static_grip_debuff_tracker:IsDebuff()
+  return false
+end
+
+function modifier_electrician_static_grip_debuff_tracker:IsPurgable()
+  return false
+end
+
+function modifier_electrician_static_grip_debuff_tracker:OnCreated()
+  if not IsServer() then
+    return
+  end
+  -- start thinking
+  self:StartIntervalThink(0.25)
+end
+
+function modifier_electrician_static_grip_debuff_tracker:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  local modifier = ability.modGrip
+  if not modifier or modifier:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+	end
+
+  local parent = self:GetParent()
+  if parent:IsSilenced() or parent:IsStunned() or parent:IsHexed() then
+    modifier:Destroy()
+    self:StartIntervalThink(-1)
+    self:Destroy()
+  end
+end
+
+function modifier_electrician_static_grip_debuff_tracker:CheckState()
+  local state = {
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+  }
+
+	return state
+end
+
+---------------------------------------------------------------------------------------------------
+
+-- Modifier on caster used for talent that makes Static Grip non-channel (pseudo-channel)
+modifier_special_bonus_electrician_static_grip_non_channel = class(ModifierBaseClass)
+
+function modifier_special_bonus_electrician_static_grip_non_channel:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_electrician_static_grip_non_channel:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_electrician_static_grip_non_channel:RemoveOnDeath()
+  return false
 end

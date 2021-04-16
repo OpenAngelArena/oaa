@@ -53,7 +53,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "CastFilterRejectCaster"                              "1"
+    //"CastFilterRejectCaster"                              "1"
     "FightRecapLevel"                                     "1"
 
     // Stats
@@ -103,7 +103,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 60 100 150"
+        "bonus_damage"                                    "10 30 70 130 210"
       }
       "03"
       {
@@ -118,7 +118,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 6 8 11 15"
+        "bonus_armor"                                     "6 7 9 12 16"
       }
       "06"
       {

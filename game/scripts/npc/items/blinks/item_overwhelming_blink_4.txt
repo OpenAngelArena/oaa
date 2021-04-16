@@ -1,0 +1,119 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Overwhelming Blink 4
+  //=================================================================================================================
+  "item_recipe_overwhelming_blink_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3570"    // unique ID
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_overwhelming_blink_4"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_overwhelming_blink_3;item_upgrade_core_3"
+      "02"                                                "item_arcane_blink_3;item_upgrade_core_3"
+      "03"                                                "item_swift_blink_3;item_upgrade_core_3"
+    }
+  }
+
+  //=================================================================================================================
+  // Overwhelming Blink 4
+  //=================================================================================================================
+  "item_overwhelming_blink_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3571"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "BaseClass"                                           "item_overwhelming_blink"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "15.0"
+    "AbilityManaCost"                                     "0"
+    "AbilitySharedCooldown"                               "blink"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_overwhelming_blink_3;item_overwhelming_blink_4"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "19800"
+    "ItemShopTags"                                        "teleport"
+    "ItemQuality"                                         "component"
+    "ItemAliases"                                         "blink dagger;str blink"
+    //"SideShop"                                          "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range"                                     "1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blink_damage_cooldown"                           "3.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range_clamp"                               "960"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "25 35 50 70 95"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "800"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "50 55 60 65 70"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow"                                     "50 60 70 80 90"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_pct"                                      "100"
+      }
+    }
+  }
+}
