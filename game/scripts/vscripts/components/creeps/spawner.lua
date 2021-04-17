@@ -232,7 +232,7 @@ function CreepCamps:UpgradeCreepProperties(propertiesOne, propertiesTwo, scale)
   --upgradedCreepProperties[MANA_ENUM] = math.max(propertiesOne[MANA_ENUM], propertiesTwo[MANA_ENUM] * scale)
   upgradedCreepProperties[DAMAGE_ENUM] = math.max(propertiesOne[DAMAGE_ENUM], propertiesTwo[DAMAGE_ENUM] * scale)
   upgradedCreepProperties[ARMOR_ENUM] = math.max(propertiesOne[ARMOR_ENUM], propertiesTwo[ARMOR_ENUM] * scale)
-  
+
   -- Sum up bounties
   upgradedCreepProperties[GOLD_BOUNTY_ENUM] = propertiesOne[GOLD_BOUNTY_ENUM] + propertiesTwo[GOLD_BOUNTY_ENUM] * scale
   upgradedCreepProperties[EXP_BOUNTY_ENUM] = propertiesOne[EXP_BOUNTY_ENUM] + propertiesTwo[EXP_BOUNTY_ENUM] * scale
