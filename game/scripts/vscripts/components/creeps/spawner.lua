@@ -65,7 +65,7 @@ end
 function CreepCamps:CreepSpawnTimer ()
   -- scan for creep camps and spawn them
   -- DebugPrint('[creeps/spawner] Spawning creeps')
-  DeepPrintTable(self.creep_upgrade_table)
+  --DeepPrintTable(self.creep_upgrade_table)
   self.creep_upgrade_table = nil
 
   local camps = Entities:FindAllByName('creep_camp')
@@ -119,6 +119,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   -- Check if the camp is full
   if (maximumUnits and maximumUnits <= #units) then
     -- DebugPrint('[creeps/spawner] Too many creeps in camp, not spawning more')
+    local distributedScale = 1.0 / #units
     local found = false
     -- In the full camp, upgrade creeps with the same name as the creep that is supposed to spawn
     for _, unit in pairs(units) do
@@ -128,8 +129,8 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
         found = true
         -- Upgrade only if that unit was not upgraded already in the previous instance of SpawnCreepInCamp
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
-          -- Stats of the new creep are being added to the old creep
-          unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, newCreepProperties, 1.0)
+          -- Change stats of the old creep to be the same as the new creep (except gold and xp)
+          unitProperties = self:UpgradeCreepProperties(unitProperties, newCreepProperties, 1.0)
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel)
         end
@@ -138,12 +139,11 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
     -- If there were no units in the camp with the same name as the creep that is supposed to spawn then
     if not found then
-      local distributedScale = 1.0 / #units
       -- Upgrade all non-upgraded creeps based on number of units in the camp
       for _, unit in pairs(units) do
         local unitProperties = self:GetCreepProperties(unit)
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
-          unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, unitProperties, distributedScale)
+          unitProperties = self:UpgradeCreepProperties(unitProperties, unitProperties, distributedScale)
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           --self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel)
         end
@@ -224,6 +224,22 @@ function CreepCamps:AddCreepPropertiesWithScale( propertiesOne, scaleOne, proper
   return addedCreepProperties
 end
 
+function CreepCamps:UpgradeCreepProperties(propertiesOne, propertiesTwo, scale)
+  local upgradedCreepProperties = {}
+
+  -- Never downgrade stats
+  upgradedCreepProperties[HEALTH_ENUM] = math.max(propertiesOne[HEALTH_ENUM], propertiesTwo[HEALTH_ENUM] * scale)
+  --upgradedCreepProperties[MANA_ENUM] = math.max(propertiesOne[MANA_ENUM], propertiesTwo[MANA_ENUM] * scale)
+  upgradedCreepProperties[DAMAGE_ENUM] = math.max(propertiesOne[DAMAGE_ENUM], propertiesTwo[DAMAGE_ENUM] * scale)
+  upgradedCreepProperties[ARMOR_ENUM] = math.max(propertiesOne[ARMOR_ENUM], propertiesTwo[ARMOR_ENUM] * scale)
+  
+  -- Sum up bounties
+  upgradedCreepProperties[GOLD_BOUNTY_ENUM] = propertiesOne[GOLD_BOUNTY_ENUM] + propertiesTwo[GOLD_BOUNTY_ENUM] * scale
+  upgradedCreepProperties[EXP_BOUNTY_ENUM] = propertiesOne[EXP_BOUNTY_ENUM] + propertiesTwo[EXP_BOUNTY_ENUM] * scale
+
+  return upgradedCreepProperties
+end
+
 function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   --HEALTH
   local intendedMaxHealth = creepProperties[HEALTH_ENUM]
@@ -273,7 +289,7 @@ function CreepCamps:IsAlreadyUpgradedAtThisMinute(creepHandle, minute)
   end
 
   local index = creepHandle:GetEntityIndex()
-  if self.creep_upgrade_table[index] = nil then
+  if self.creep_upgrade_table[index] == nil then
     return false
   end
 
