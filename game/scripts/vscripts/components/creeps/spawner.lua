@@ -129,8 +129,13 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
         found = true
         -- Upgrade only if that unit was not upgraded already in the previous instance of SpawnCreepInCamp
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
-          -- Change stats of the old creep to be the same as the new creep (except gold and xp)
-          unitProperties = self:UpgradeCreepProperties(unitProperties, newCreepProperties, 1.0)
+          if unitProperties[NAME_ENUM] == "npc_dota_neutral_custom_black_dragon" then
+            -- Change stats of the dragons in a unique way
+            unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, newCreepProperties, distributedScale)
+          else
+            -- Change stats of the old creep to be the same as the new creep (except gold and xp)
+            unitProperties = self:UpgradeCreepProperties(unitProperties, newCreepProperties, 1.0)
+          end
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel)
         end
@@ -139,7 +144,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
     -- If there were no units in the camp with the same name as the creep that is supposed to spawn then
     if not found then
-      -- Upgrade all non-upgraded creeps based on number of units in the camp
+      -- Upgrade all non-upgraded creeps based on number of units in the camp (distributedScale)
       for _, unit in pairs(units) do
         local unitProperties = self:GetCreepProperties(unit)
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
