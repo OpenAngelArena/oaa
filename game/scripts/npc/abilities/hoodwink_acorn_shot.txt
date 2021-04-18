@@ -35,22 +35,22 @@
         "bonus_range"                                     "125 200 275 350 425 500"
       }
       "02"
-      { 
+      {
         "var_type"                                        "FIELD_INTEGER"
         "acorn_shot_damage"                               "50 75 100 125 250 500"
       }
       "03"
-      { 
+      {
         "var_type"                                        "FIELD_INTEGER"
-        "base_damage_pct"                                 "65"
+        "base_damage_pct"                                 "75"
       }
       "04"
-      { 
+      {
         "var_type"                                        "FIELD_INTEGER"
         "bounce_count"                                    "2 3 4 5 6 7"
       }
       "05"
-      { 
+      {
         "var_type"                                        "FIELD_INTEGER"
         "bounce_range"                                    "525"
       }
@@ -60,7 +60,7 @@
         "debuff_duration"                                 "0.25"
       }
       "07"
-      { 
+      {
         "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "100"
       }
