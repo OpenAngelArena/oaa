@@ -105,9 +105,20 @@ function modifier_item_ghost_king_bar_active:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
+    self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
+    self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
   end
 
   self:StartIntervalThink(FrameTime())
+end
+
+function modifier_item_ghost_king_bar_active:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
+    self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
+    self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
+  end
 end
 
 function modifier_item_ghost_king_bar_active:OnIntervalThink()
@@ -122,6 +133,9 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 
   return funcs
@@ -133,6 +147,18 @@ end
 
 function modifier_item_ghost_king_bar_active:GetAbsoluteNoDamagePhysical()
   return 1
+end
+
+function modifier_item_ghost_king_bar_active:GetModifierHealAmplify_PercentageSource()
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
+end
+
+function modifier_item_ghost_king_bar_active:GetModifierHealAmplify_PercentageTarget()
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
+end
+
+function modifier_item_ghost_king_bar_active:GetModifierSpellLifestealRegenAmplify_Percentage()
+  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("active_spell_lifesteal_amp")
 end
 
 function modifier_item_ghost_king_bar_active:CheckState()
