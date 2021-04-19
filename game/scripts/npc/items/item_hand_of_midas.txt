@@ -16,7 +16,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "1750"
     "ItemShopTags"                                        ""
     "ItemAliases"                                         "hom"
 
@@ -45,21 +45,23 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityTextureName"                                  "custom/midas_1"
+    //"AbilityTextureName"                                  "custom/midas_1"
+    "AbilityTextureName"                                  "item_hand_of_midas"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "55.0"
-    "AbilitySharedCooldown"                               "hand_of_midas"
+    "AbilityCooldown"                                     "55"
+    //"AbilitySharedCooldown"                               "hand_of_midas"
 
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "1"
+    //"MaxUpgradeLevel"                                     "3"
+    //"ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "1950"
+    "ItemCost"                                            "2200"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas;midas"
@@ -72,17 +74,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40 45 50"
+        "bonus_attack_speed"                              "50"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "2 4 6"
+        "xp_multiplier"                                   "3" // old: 2 4 6
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "150 350 550"
+        "bonus_gold"                                      "160" // old: 150 350 550
       }
       "04"
       {
