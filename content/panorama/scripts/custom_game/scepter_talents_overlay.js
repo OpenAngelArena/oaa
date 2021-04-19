@@ -33,8 +33,7 @@ function UpdateTalentBranchOption (talentSideRoot, isRightSide, isUpgrade) {
 function UpdateTalentTreeBranch (level, isRightSide, isUpgrade) {
   let root = FindDotaHudElement('StatPipContainer');
   let talentTreeRowIds = ['undefined', 'StatRow10', 'StatRow15', 'StatRow20', 'StatRow25'];
-  if ((root.BHasClass('RightBranchSelected') && isRightSide) ||
-        (root.BHasClass('LeftBranchSelected') && !isRightSide) || level < 1 || level > 4) {
+  if ((root.BHasClass('RightBranchSelected') && isRightSide) || (root.BHasClass('LeftBranchSelected') && !isRightSide) || level < 1 || level > 4) {
     $.Msg('ScepterUpgrade - side is already selected or out of range');
     return;
   }
@@ -63,18 +62,23 @@ GameEvents.Subscribe('oaa_scepter_upgrade', function (args) {
   UpdateTalentTreeBranch(lvlMap[args.Level], args.IsRightSide, args.IsUpgrade);
 });
 
-(function () {
+GameEvents.Subscribe('talent_tree_disable', function (args) {
   let hudElements = FindDotaHudElement('HUDElements');
-  // let centerPanel = hudElements.FindChildTraverse('center_block');
-  // let talentBranch = centerPanel.FindChildTraverse('StatBranch');
+  let centerPanel = hudElements.FindChildTraverse('center_block');
+  // Find the talent tree
+  let talentTree = centerPanel.FindChildTraverse('StatBranch');
+  // Find level up frame for the talent tree
+  let levelUpButton = centerPanel.FindChildTraverse('level_stats_frame')
+  
+  if (args) {
+    if (args.disable === 1) {
+      // Disable clicking on the talent tree
+      talentTree.SetPanelEvent('onactivate', function () {});
+      // Remove level up above the talent tree
+      levelUpButton.style.visibility = 'collapse';
+	}
+  }
 
-  // Find the talent tree and disable it
-  let talentTree = hudElements.FindChildTraverse('lower_hud').FindChildTraverse('center_with_stats').FindChildTraverse('center_block').FindChildTraverse('AbilitiesAndStatBranch').FindChildTraverse('StatBranch');
   // talentTree.style.visibility = 'collapse';
-  talentTree.SetPanelEvent('onmouseover', function () {});
-  talentTree.SetPanelEvent('onactivate', function () {});
-
-  // Disable the level up frame for the talent tree
-  let levelUpButton = hudElements.FindChildTraverse('lower_hud').FindChildTraverse('center_with_stats').FindChildTraverse('center_block').FindChildTraverse('level_stats_frame');
-  levelUpButton.style.visibility = 'collapse';
-})();
+  // talentTree.SetPanelEvent('onmouseover', function () {});
+});
