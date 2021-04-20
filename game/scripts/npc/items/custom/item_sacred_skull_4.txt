@@ -33,7 +33,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/purpleskull_4"
+    "AbilityTextureName"                                  "custom/purpleskull_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "0"
+        "bonus_health_regen"                              "3 6 9 12"
       }
       "06"
       {
@@ -109,12 +109,12 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_missing_hp"                           "10 20 30 40"
+        "damage_per_missing_hp"                           "15 20 30 45"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_per_missing_hp"                             "10 20 30 40"
+        "heal_per_missing_hp"                             "15 20 30 45"
       }
       "12"
       {
@@ -134,12 +134,12 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "death_vision_radius"                             "1200"
+        "death_vision_radius"                             "800"
       }
       "16"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "death_vision_duration"                           "30"
+        "death_vision_duration"                           "10"
       }
     }
   }
