@@ -106,19 +106,20 @@ function modifier_boss_capture_point:OnIntervalThink()
     false
   )
 
-  local function remove_wraith_heroes_from_table(table1)
-    for k,v in pairs(table1) do
-      local hero_to_test = table1[k]
+  -- Remove heroes with Wraith King buff, Meepo Clones and Arc Warden Tempest Doubles
+  local function filter_heroes(heroes)
+    for k, v in pairs(heroes) do
+      local hero_to_test = heroes[k]
       if hero_to_test then
-        if hero_to_test:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
-          table.remove(table1, k)
+        if hero_to_test:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") or hero_to_test:IsClone() or hero_to_test:IsTempestDouble() then
+          table.remove(heroes, k)
         end
       end
     end
   end
 
-  remove_wraith_heroes_from_table(radiantUnits)
-  remove_wraith_heroes_from_table(direUnits)
+  filter_heroes(radiantUnits)
+  filter_heroes(direUnits)
 
   local captureTick
   local heroMultiplierTable = {
