@@ -490,7 +490,7 @@ function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnIntervalThink()
         if item then
           if item:GetAbilityName() == boots then
             parent:RemoveItem(item)
-			break
+            break
           end
         end
       end
