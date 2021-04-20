@@ -40,8 +40,10 @@
     "ID"                                                  "3017"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/greater_power_treads_3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "13925"
@@ -65,32 +67,37 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "25 45 70 100"
+        "primary_attribute_bonus"                         "25 40 55 70"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45"
+        "bonus_all_stats"                                 "10 15 20 25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 60 100"
+        "bonus_attack_speed"                              "30 35 40 45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "all_stats"                                       "0"
+        "bonus_damage"                                    "10 20 40 70"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "12 14 16 18"
+        "bonus_magic_resistance"                          "6 7 8 9"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "8 12 16 20"
+        "bonus_spell_amp"                                 "7 8 9 10"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "primary_attribute_multiplier"                    "2"
       }
     }
   }
