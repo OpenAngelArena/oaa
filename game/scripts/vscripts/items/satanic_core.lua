@@ -42,6 +42,18 @@ function modifier_item_satanic_core:IsHidden()
   return true
 end
 
+function modifier_item_satanic_core:IsDebuff()
+  return false
+end
+
+function modifier_item_satanic_core:IsPurgable()
+  return false
+end
+
+function modifier_item_satanic_core:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_satanic_core:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -57,10 +69,6 @@ function modifier_item_satanic_core:OnCreated()
 end
 
 modifier_item_satanic_core.OnRefresh = modifier_item_satanic_core.OnCreated
-
-function modifier_item_satanic_core:IsPurgable()
-  return false
-end
 
 function modifier_item_satanic_core:DeclareFunctions()
   local funcs = {
