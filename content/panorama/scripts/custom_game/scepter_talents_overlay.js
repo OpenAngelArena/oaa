@@ -68,15 +68,14 @@ GameEvents.Subscribe('talent_tree_disable', function (args) {
   // Find the talent tree
   let talentTree = centerPanel.FindChildTraverse('StatBranch');
   // Find level up frame for the talent tree
-  let levelUpButton = centerPanel.FindChildTraverse('level_stats_frame')
-  
+  let levelUpButton = centerPanel.FindChildTraverse('level_stats_frame');
   if (args) {
     if (args.disable === 1) {
       // Disable clicking on the talent tree
       talentTree.SetPanelEvent('onactivate', function () {});
       // Remove level up above the talent tree
       levelUpButton.style.visibility = 'collapse';
-	}
+    }
   }
 
   // talentTree.style.visibility = 'collapse';
