@@ -12,6 +12,7 @@ function item_sonic:OnSpellStart()
 
   -- Disable working on Meepo Clones
   if caster:IsClone() then
+    self:RefundManaCost()
     self:EndCooldown()
     return
   end

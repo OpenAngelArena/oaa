@@ -8,8 +8,11 @@ item_greater_guardian_greaves = class(ItemBaseClass)
 function item_greater_guardian_greaves:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Disable working on Meepo Clones
   if caster:IsClone() then
-    return false
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
   end
 
   local heroes = FindUnitsInRadius(
