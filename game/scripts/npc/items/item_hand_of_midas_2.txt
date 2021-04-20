@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2250"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemAliases"                                         "hom"
 
@@ -25,7 +25,7 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_hand_of_midas_1"
+      "01"                                                "item_hand_of_midas_1;item_upgrade_core"
     }
   }
 
@@ -48,16 +48,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "55.0"
+    "AbilityCooldown"                                     "60"
     "AbilitySharedCooldown"                               "hand_of_midas"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "4200"
+    "ItemCost"                                            "3450"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas 2;midas 2"
@@ -70,17 +70,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40 45 50"
+        "bonus_attack_speed"                              "40 90 140 190 240"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "2 4 6"
+        "xp_multiplier"                                   "2 4 6 10"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "150 350 550"
+        "bonus_gold"                                      "150 750 2250 5000"
       }
       "04"
       {
