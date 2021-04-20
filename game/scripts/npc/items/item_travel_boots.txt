@@ -73,6 +73,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed"                            "50" // you get these boots a lot earlier,
       }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_during_duels"                       "0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_boss_damage"                               "0"
+      }
     }
   }
 }

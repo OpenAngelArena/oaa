@@ -169,13 +169,27 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
         end
       end
 
-	  -- Brewmaster Earth Split Demolish
+      -- Brewmaster Earth Split Demolish
       if attacker:HasModifier("modifier_brewmaster_earth_pulverize") then
         local ability = attacker:FindAbilityByName("brewmaster_earth_pulverize")
         if ability then
           local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
+          end
+        end
+      end
+
+      -- Greater Travels Boots affecting attack damage
+      if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") then
+        local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")
+        if modifier then
+          local ability = modifier:GetAbility()
+          if ability then
+            local damage_increase_pct = ability:GetSpecialValueFor("bonus_boss_damage")
+            if damage_increase_pct and damage_increase_pct > 0 then
+              return damage_increase_pct
+            end
           end
         end
       end
@@ -213,6 +227,20 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
       local damage_increase_pct = ability:GetSpecialValueFor("tower_bonus")
       if damage_increase_pct and damage_increase_pct > 0 then
         return damage_increase_pct
+      end
+    end
+  end
+
+  -- Greater Travels Boots affecting spell damage
+  if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") and IsServer() then
+    local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")
+    if modifier then
+      local ability = modifier:GetAbility()
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("bonus_boss_damage")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
       end
     end
   end

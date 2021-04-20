@@ -1,19 +1,19 @@
---LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_travel_boots_unique_passive", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_greater_travel_boots = class(ItemBaseClass)
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
-  return "modifier_item_greater_travel_boots" -- "modifier_intrinsic_multiplexer"
+  return "modifier_intrinsic_multiplexer"
 end
--- uncomment this if we plan to add more effects to Greater Travel Boots
---[[
+
 function item_greater_travel_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_travel_boots",
+    "modifier_item_greater_travel_boots_unique_passive",
   }
 end
-]]
 
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
@@ -151,6 +151,47 @@ function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Bo
   end
 end
 
+---------------------------------------------------------------------------------------------------
+
+modifier_item_greater_travel_boots_unique_passive = class(ModifierBaseClass)
+
+function modifier_item_greater_travel_boots_unique_passive:IsHidden()
+  return true
+end
+
+function modifier_item_greater_travel_boots_unique_passive:IsDebuff()
+  return false
+end
+
+function modifier_item_greater_travel_boots_unique_passive:IsPurgable()
+  return false
+end
+
+function modifier_item_greater_travel_boots_unique_passive:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
+  end
+end
+
+modifier_item_greater_travel_boots_unique_passive.OnRefresh = modifier_item_greater_travel_boots_unique_passive.OnCreated
+
+function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+  }
+
+  return funcs
+end
+
+function modifier_item_greater_travel_boots_unique_passive:GetModifierBaseDamageOutgoing_Percentage()
+  if Duels:IsActive() and self.dmg then
+    return self.dmg
+  end
+
+  return 0
+end
+
 --------------------------------------------------------------------------------
 -- All the upgrades are exactly the same
 --------------------------------------------------------------------------------
@@ -159,4 +200,3 @@ item_greater_travel_boots_3 = class(item_greater_travel_boots)
 item_greater_travel_boots_4 = class(item_greater_travel_boots)
 item_greater_travel_boots_5 = class(item_greater_travel_boots)
 item_travel_boots_oaa = item_greater_travel_boots
-
