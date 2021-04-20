@@ -31,7 +31,7 @@
   {
     "ID"                                                  "8516"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/transformation/sonic.lua"
+    "ScriptFile"                                          "items/sonic.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/sonic_3"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -88,6 +88,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"
       }
+    }
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
     }
   }
 }
