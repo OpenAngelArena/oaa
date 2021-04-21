@@ -61,7 +61,13 @@ function modifier_duel_rune_hill:DeclareFunctions()
 end
 
 function modifier_duel_rune_hill:OnIntervalThink()
-  if self:GetCaster():HasModifier("modifier_duel_rune_hill_enemy") then
+  local unit = self:GetCaster() or self:GetParent()
+
+  if unit:IsClone() or unit:IsTempestDouble() then
+    return
+  end
+
+  if unit:HasModifier("modifier_duel_rune_hill_enemy") then
     self:SetStackCount(0)
     return
   end
@@ -87,10 +93,8 @@ function modifier_duel_rune_hill:OnIntervalThink()
 
   self:SetStackCount(stackCount)
 
-  local unit = self:GetCaster()
-
-  if rewardTable[stackCount] ~= nil and self:GetCaster().AddNewModifier then
-    unit:AddNewModifier(self:GetCaster(), nil, rewardTable[stackCount], {
+  if rewardTable[stackCount] ~= nil and unit.AddNewModifier then
+    unit:AddNewModifier(unit, nil, rewardTable[stackCount], {
       duration = 60
     })
   end
@@ -106,7 +110,7 @@ function modifier_duel_rune_hill:OnIntervalThink()
     [130]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
   }
 
-  if particleTable[stackCount] ~= nil and self:GetCaster() then
+  if particleTable[stackCount] ~= nil and unit then
     local part = ParticleManager:CreateParticle(particleTable[stackCount], PATTACH_ABSORIGIN_FOLLOW, unit)
     ParticleManager:SetParticleControlEnt(part, 1, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(part)
