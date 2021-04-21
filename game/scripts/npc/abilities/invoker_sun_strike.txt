@@ -39,7 +39,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "100 162.5 225 287.5 350 412.5 475 537.5 600.0 662.5 725.0 850.0 975.0 1100.0 1225.0"
+        "damage"                                          "100 162.5 225 287.5 350 412.5 475 537.5 950 1140 1330 1520 1710 1900 2090"
         "levelkey"                                        "exortlevel"
       }
       "04"
@@ -55,7 +55,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cataclysm_cooldown"                              "60" //OAA
+        "cataclysm_cooldown"                              "50" //OAA
       }
       "07"
       {
