@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -26,7 +26,7 @@
     "ItemResult"                                          "item_eternal_shroud_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_voodoo_mask;item_hood_of_defiance"
+      "01"                                                "item_voodoo_mask;item_hood_of_defiance;item_vitality_booster"
     }
   }
 
@@ -58,11 +58,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"3300"
-    "ItemShopTags"					"regen_health;magic_resist"
-    "ItemQuality"					"epic"
-    "ItemAliases"					"eternal shroud;es"
-    "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "3300"
+    "ItemShopTags"                                        "regen_health;magic_resist"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "eternal shroud;es"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -76,24 +76,29 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "8.5 12 15 18 21"
+        "bonus_health_regen"                              "9 12 15 18 21"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 500 700 1000 1400"
+        "bonus_health"                                    "300 550 1050 1800 2800"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_duration"                                "12.0"
+        "barrier_block"                                   "400 800 1200 1600 2000"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "barrier_duration"                                "12.0"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "hero_spell_lifesteal"                            "20 22 24 26 28"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "creep_spell_lifesteal"                           "4 6 8 10 12"

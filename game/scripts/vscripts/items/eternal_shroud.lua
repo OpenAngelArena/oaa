@@ -60,6 +60,7 @@ function modifier_item_eternal_shroud_oaa:OnCreated()
   if ability and not ability:IsNull() then
     self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_spell_resist")
     self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.hp = ability:GetSpecialValueFor("bonus_health")
   end
 end
 
@@ -73,6 +74,7 @@ function modifier_item_eternal_shroud_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS,
   }
   return funcs
 end
@@ -83,6 +85,10 @@ end
 
 function modifier_item_eternal_shroud_oaa:GetModifierMagicalResistanceBonus()
   return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_spell_resist")
+end
+
+function modifier_item_eternal_shroud_oaa:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
 ---------------------------------------------------------------------------------------------------
