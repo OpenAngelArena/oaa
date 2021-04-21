@@ -7,17 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                          "268"
+    "ID"                                                  "268"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "475"
-    "ItemShopTags"                ""
+    "ItemCost"                                            "475"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                  "1"
-    "ItemResult"                  "item_holy_locket"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_holy_locket"
     "ItemRequirements"
     {
       "01"                                                "item_headdress;item_fluffy_hat;item_energy_booster;item_magic_wand"
@@ -31,18 +31,18 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                          "269"
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO"
-    "AbilityTextureName"          "custom/holy_locket_1"
+    "ID"                                                  "269"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"                                  "custom/holy_locket_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "2400"
-    "ItemShopTags"                ""
-    "ItemQuality"                 "rare"
-    "ItemAliases"                 "holy locket"
+    "ItemCost"                                            "2400"
+    "ItemShopTags"                                        ""
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "holy locket"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -51,8 +51,8 @@
     "AbilityCastRange"                                    "500 600 700 800 900"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"             "5"
-    "ItemBaseLevel"               "1"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_increase"                                   "35 40 45 50 55"
+        "heal_increase"                                   "35 45 55 65 75"
       }
       "06"
       {
@@ -101,7 +101,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "restore_per_charge"                              "15 20 30 45 65" // old magic wand: 15 30 60 120 240; keep in mind the heal increase
+        "restore_per_charge"                              "15 25 35 45 55" // old magic wand: 15 30 60 120 240; keep in mind the heal increase
       }
       "10"
       {
