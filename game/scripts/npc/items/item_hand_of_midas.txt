@@ -50,7 +50,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "55"
     "AbilitySharedCooldown"                               "hand_of_midas"
 
     "MaxUpgradeLevel"                                     "5"
@@ -77,7 +77,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "2 4 6 10"
+        "xp_multiplier"                                   "2 5 8 11"
       }
       "03"
       {
@@ -90,5 +90,5 @@
         "transmute_cast_range_tooltip"                    "600"
       }
 	  }
-}
+  }
 }

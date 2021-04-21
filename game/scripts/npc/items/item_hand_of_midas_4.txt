@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8694021"                         // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3593"                         // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
@@ -36,7 +36,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8694021"                   // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3594"                   // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/hand_of_midas.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -48,7 +48,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "55"
     "AbilitySharedCooldown"                               "hand_of_midas"
 
     "MaxUpgradeLevel"                                     "5"
@@ -57,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "14450"
+    "ItemCost"                                            "14950"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas 4;midas 4"
@@ -75,7 +75,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "2 4 6 10"
+        "xp_multiplier"                                   "2 5 8 11"
       }
       "03"
       {
