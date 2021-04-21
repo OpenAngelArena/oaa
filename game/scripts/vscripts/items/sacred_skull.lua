@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_sacred_skull_stacking_stats", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_sacred_skull_non_stacking_stats", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_sacred_skull_dummy_stuff", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sacred_skull_dummy_stuff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_sacred_skull = class(ItemBaseClass)
 
