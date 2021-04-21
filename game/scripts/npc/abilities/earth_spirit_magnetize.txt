@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "350"
+    "AbilityCastRange"                                    "375" //OAA
     "AbilityCastPoint"                                    "0.01"
 
     // Time
@@ -37,12 +37,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_radius"                                     "350"
+        "cast_radius"                                     "375" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "50 150 250 450 650" //OAA
+        "damage_per_second"                               "80 200 340 480 960" //OAA
       }
       "03"
       {
