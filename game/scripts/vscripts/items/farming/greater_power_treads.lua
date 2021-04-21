@@ -147,25 +147,16 @@ function modifier_item_greater_power_treads:OnCreated()
   self.str = ability:GetSpecialValueFor("bonus_all_stats")
   self.agi = ability:GetSpecialValueFor("bonus_all_stats")
   self.int = ability:GetSpecialValueFor("bonus_all_stats")
-  local multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
-  local bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+  self.multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
+  self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
 
-  local attribute = parent:GetPrimaryAttribute()
-  if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    self.str = self.str + bonus_to_primary_stat
-    self.magic_resistance = multiplier * self.magic_resistance
-  elseif attribute == DOTA_ATTRIBUTE_AGILITY then
-    self.agi = self.agi + bonus_to_primary_stat
-    self.bonus_damage = multiplier * self.bonus_damage
-  elseif attribute == DOTA_ATTRIBUTE_INTELLECT then
-    self.int = self.int + bonus_to_primary_stat
-    self.spell_amp = multiplier * self.spell_amp
-  else
-    print("[Greater Power Treads]: Something is wrong.")
+  if IsServer() then
+    local attribute = parent:GetPrimaryAttribute()
+    self:SetStackCount(attribute)
   end
 end
 
-function modifier_item_oaa_dagon_stacking_stats:OnRefresh()
+function modifier_item_greater_power_treads:OnRefresh()
   local parent = self:GetParent()
   local ability = self:GetAbility()
 
@@ -181,21 +172,12 @@ function modifier_item_oaa_dagon_stacking_stats:OnRefresh()
   self.str = ability:GetSpecialValueFor("bonus_all_stats")
   self.agi = ability:GetSpecialValueFor("bonus_all_stats")
   self.int = ability:GetSpecialValueFor("bonus_all_stats")
-  local multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
-  local bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+  self.multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
+  self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
 
-  local attribute = parent:GetPrimaryAttribute()
-  if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    self.str = self.str + bonus_to_primary_stat
-    self.magic_resistance = multiplier * self.magic_resistance
-  elseif attribute == DOTA_ATTRIBUTE_AGILITY then
-    self.agi = self.agi + bonus_to_primary_stat
-    self.bonus_damage = multiplier * self.bonus_damage
-  elseif attribute == DOTA_ATTRIBUTE_INTELLECT then
-    self.int = self.int + bonus_to_primary_stat
-    self.spell_amp = multiplier * self.spell_amp
-  else
-    print("[Greater Power Treads]: Something is wrong.")
+  if IsServer() then
+    local attribute = parent:GetPrimaryAttribute()
+    self:SetStackCount(attribute)
   end
 end
 
@@ -224,26 +206,50 @@ function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.str + self.bonus_to_primary_stat
+  end
   return self.str
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.agi + self.bonus_to_primary_stat
+  end
   return self.agi
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.int + self.bonus_to_primary_stat
+  end
   return self.int
 end
 
 function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.multiplier * self.magic_resistance
+  end
   return self.magic_resistance
 end
 
 function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.multiplier * self.bonus_damage
+  end
   return self.bonus_damage
 end
 
 function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.multiplier * self.spell_amp
+  end
   return self.spell_amp
 end
 
