@@ -172,9 +172,25 @@ function modifier_item_greater_travel_boots_unique_passive:OnCreated()
   if ability and not ability:IsNull() then
     self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
   end
+  if IsServer() then
+    self:StartIntervalThink(0)
+  end
 end
 
-modifier_item_greater_travel_boots_unique_passive.OnRefresh = modifier_item_greater_travel_boots_unique_passive.OnCreated
+function modifier_item_greater_travel_boots_unique_passive:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
+  end
+end
+
+function modifier_item_greater_travel_boots_unique_passive:OnIntervalThink()
+  if Duels:IsActive() then
+    self:SetStackCount(1)
+  else
+    self:SetStackCount(2)
+  end
+end
 
 function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
   local funcs = {
@@ -185,8 +201,8 @@ function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
 end
 
 function modifier_item_greater_travel_boots_unique_passive:GetModifierBaseDamageOutgoing_Percentage()
-  if Duels:IsActive() and self.dmg then
-    return self.dmg
+  if self:GetStackCount() == 1 then
+    return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage_during_duels")
   end
 
   return 0
