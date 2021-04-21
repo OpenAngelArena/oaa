@@ -18,10 +18,15 @@ end
 
 function item_greater_phase_boots:OnSpellStart()
   local caster = self:GetCaster()
-  local active_duration = self:GetSpecialValueFor("phase_duration")
 
-  -- play the sound
-  caster:EmitSound( "DOTA_Item.PhaseBoots.Activate" )
+  -- Disable working on Meepo Clones
+  if caster:IsClone() then
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
+  end
+
+  local active_duration = self:GetSpecialValueFor("phase_duration")
 
   -- Disjoint projectiles on cast
 	ProjectileManager:ProjectileDodge(caster)
@@ -31,6 +36,9 @@ function item_greater_phase_boots:OnSpellStart()
 
   -- Add the vanilla spider legs modifier (free pathing and cool visual spider effect)
   caster:AddNewModifier( caster, self, "modifier_item_spider_legs_active", { duration = active_duration } )
+
+  -- play the sound
+  caster:EmitSound("DOTA_Item.PhaseBoots.Activate")
 end
 
 --[[  Old split attack Greater Phase Boots effect - it procced instant attacks to splintered targets

@@ -45,6 +45,13 @@ function item_greater_tranquil_boots:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
+  -- Disable working on Meepo Clones
+  if caster:IsClone() then
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
+  end
+
   -- Create the projectile
   local info = {
     Target = target,

@@ -1,14 +1,30 @@
-item_sonic = class(TransformationBaseClass)
+item_sonic = class(ItemBaseClass)
 
-LinkLuaModifier("modifier_sonic_fly", "items/transformation/sonic.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sonic_fly", "items/sonic.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_sonic:GetIntrinsicModifierName()
   return "modifier_item_phase_boots"--"modifier_generic_bonus"
 end
 
-function item_sonic:GetTransformationModifierName()
-  return "modifier_sonic_fly"
+function item_sonic:OnSpellStart()
+  local caster = self:GetCaster()
+
+  -- Disable working on Meepo Clones
+  if caster:IsClone() then
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
+  end
+
+  -- Apply Basic Dispel
+  caster:Purge(false, true, false, false, false)
+
+  -- Apply Sonic buff to caster
+  caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = self:GetSpecialValueFor("duration")})
+
+  -- Emit Activation sound
+  caster:EmitSound("Hero_Dark_Seer.Surge")
 end
 
 item_sonic_2 = item_sonic
@@ -31,10 +47,7 @@ end
 
 function modifier_sonic_fly:OnCreated()
   local ability = self:GetAbility()
-
   if ability and not ability:IsNull() then
-    ability.mod = self
-
     self.vision = ability:GetSpecialValueFor("vision_bonus")
     self.speed = ability:GetSpecialValueFor("speed_bonus")
   end

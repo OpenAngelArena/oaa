@@ -75,7 +75,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "130 140 150 160"
+        "bonus_movement_speed"                            "100 120 140 160"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_during_duels"                       "15 20 25 30"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_boss_damage"                               "20 25 30 35"
       }
     }
   }
