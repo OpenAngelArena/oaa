@@ -24,7 +24,6 @@ function Spawn( entityKeyValues )
   thisEntity.BossTier = thisEntity.BossTier or 3
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
-
 end
 
 function WandererThink ()
@@ -122,6 +121,13 @@ function WandererThink ()
       end
       return 1
     end
+
+    if IsLocationInOffside(thisEntity:GetAbsOrigin()) then
+      thisEntity:Stop()
+      thisEntity.isLeashing = true
+      WalkTowardsSpot(thisEntity.aggroOrigin)
+      thisEntity.isAggro = false
+    end
   end
 
   if not thisEntity.isAggro then
@@ -165,13 +171,15 @@ function WandererThink ()
 
     if thisEntity:IsIdle() then
       if nearestEnemy then
-        ExecuteOrderFromTable({
-          UnitIndex = thisEntity:entindex(),
-          -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = nearestEnemy:GetAbsOrigin(),
-          Queue = 0,
-        })
+        if not IsLocationInOffside(nearestEnemy:GetAbsOrigin()) then
+          ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),
+            -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+            OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+            Position = nearestEnemy:GetAbsOrigin(),
+            Queue = 0,
+          })
+        end
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
@@ -303,7 +311,7 @@ function GetNextWanderLocation (startPosition)
     isValidPosition = true
     if scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 2000 then
       isValidPosition = false
-    elseif IsNearWell(nextPosition) then
+    elseif IsLocationInOffside(nextPosition) then
       isValidPosition = false
     end
   end
