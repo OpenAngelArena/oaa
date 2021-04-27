@@ -75,7 +75,7 @@ function Wanderer:SpawnWanderer ()
       -- Spawn the next wanderer at ...
       HudTimer:At(self.nextSpawn, partial(Wanderer.SpawnWanderer, Wanderer))
 
-      -- Give cores to the capturing team
+      -- Give cores and points to the capturing team
       if self.level == 1 then
         BossAI:RewardBossKill(2, teamId)
         BossAI:RewardBossKill(2, teamId)
@@ -84,10 +84,8 @@ function Wanderer:SpawnWanderer ()
         BossAI:RewardBossKill(3, teamId)
       elseif self.level > 2 then
         BossAI:RewardBossKill(4, teamId)
+        PointsManager:AddPoints(teamId, 1)
       end
-
-      -- Give points to the capturing team
-      PointsManager:AddPoints(teamId, 2)
 
       -- Apply Wanderer buff to the capturing team
       PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
@@ -135,7 +133,7 @@ function Wanderer:FindWhereToSpawn ()
     minX = 1500
   end
   if scoreDiff >= 20 then
-    maxX = 4000
+    maxX = 5500
   end
 
   local position = nil

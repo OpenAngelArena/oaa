@@ -121,13 +121,6 @@ function WandererThink ()
       end
       return 1
     end
-
-    if IsLocationInOffside(thisEntity:GetAbsOrigin()) then
-      thisEntity:Stop()
-      thisEntity.isLeashing = true
-      WalkTowardsSpot(thisEntity.aggroOrigin)
-      thisEntity.isAggro = false
-    end
   end
 
   if not thisEntity.isAggro then
@@ -281,17 +274,17 @@ function GetNextWanderLocation (startPosition)
     isGoodLead = RandomInt(0, 1) == 0
   end
 
-  if scoreDiff > 5 then
+  if scoreDiff >= 5 then
     maxX = 1600
-    maxY = 1900
+    maxY = 3000
   end
-  if scoreDiff > 10 then
+  if scoreDiff >= 10 then
     maxY = 4000
-    maxX = 3100
-    minX = 500
+    maxX = 2900
+    minX = 700
   end
-  if scoreDiff > 20 then
-    maxX = 5500
+  if scoreDiff >= 20 then
+    maxX = 5600
     minX = 2900
   end
   local nextPosition = nil
