@@ -415,10 +415,10 @@ function HeroSelection:ChooseBans ()
   for k, v in pairs(herolist) do
     table.insert(list_of_hero_names, k)
   end
-  DeepPrintTable(list_of_hero_names)
+  --DeepPrintTable(list_of_hero_names)
 
-  -- Ban random 50 heroes
-  for i = 1, 50 do
+  -- Randomly ban 70 heroes
+  for i = 1, 70 do
     local hero_name = list_of_hero_names[RandomInt(1, #list_of_hero_names)]
 
     table.insert(rankedpickorder.bans, hero_name)
