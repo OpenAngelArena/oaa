@@ -410,6 +410,19 @@ function HeroSelection:ChooseBans ()
       end
     end
   end
+
+  local list_of_hero_names = {}
+  for k, v in pairs(herolist) do
+    table.insert(list_of_hero_names, k)
+  end
+  DeepPrintTable(list_of_hero_names)
+
+  -- Ban random 50 heroes
+  for i = 1, 50 do
+    local hero_name = list_of_hero_names[RandomInt(1, #list_of_hero_names)]
+
+    table.insert(rankedpickorder.bans, hero_name)
+  end
 end
 
 function HeroSelection:RankedTimer (time, message)
