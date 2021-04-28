@@ -136,7 +136,7 @@ function Wanderer:FindWhereToSpawn ()
     maxX = 5500
   end
 
-  local position = nil
+  local position
   local isValidPosition = false
 
   while not isValidPosition do

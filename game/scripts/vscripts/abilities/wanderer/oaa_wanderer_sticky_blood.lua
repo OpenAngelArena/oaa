@@ -160,11 +160,11 @@ function modifier_wanderer_sticky_blood_passive:GetModifierTotal_ConstantBlock(k
   if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(parent_pos) then
     return damage
   end
-  
+
   if attacker:GetTeamNumber() == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(parent_pos) then
     return damage
   end
-  
+
   -- Parent blocks all damage from attackers that are standing in their offside zone
   if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(attacker_pos) then
     return damage
@@ -173,7 +173,7 @@ function modifier_wanderer_sticky_blood_passive:GetModifierTotal_ConstantBlock(k
   if attacker:GetTeamNumber() == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(attacker_pos) then
     return damage
   end
-  
+
   -- Block all self damage if parent is in some offside zone
   if attacker == parent and IsLocationInOffside(parent_pos) then
     return damage

@@ -202,6 +202,9 @@ read_globals = { -- these globals can only be accessed.
 "MoveCameraToPlayer",
 "MoveCameraToEntity",
 "IsPlayerTeam",
+"IsLocationInRadiantOffside",
+"IsLocationInDireOffside",
+"IsLocationInOffside",
 
 -- cfinder
 "PrdCFinder",
