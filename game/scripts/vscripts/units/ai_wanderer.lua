@@ -24,7 +24,6 @@ function Spawn( entityKeyValues )
   thisEntity.BossTier = thisEntity.BossTier or 3
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
-
 end
 
 function WandererThink ()
@@ -165,13 +164,15 @@ function WandererThink ()
 
     if thisEntity:IsIdle() then
       if nearestEnemy then
-        ExecuteOrderFromTable({
-          UnitIndex = thisEntity:entindex(),
-          -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = nearestEnemy:GetAbsOrigin(),
-          Queue = 0,
-        })
+        if not IsLocationInOffside(nearestEnemy:GetAbsOrigin()) then
+          ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),
+            -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+            OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+            Position = nearestEnemy:GetAbsOrigin(),
+            Queue = 0,
+          })
+        end
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
@@ -273,17 +274,17 @@ function GetNextWanderLocation (startPosition)
     isGoodLead = RandomInt(0, 1) == 0
   end
 
-  if scoreDiff > 5 then
+  if scoreDiff >= 5 then
     maxX = 1600
-    maxY = 1900
+    maxY = 3000
   end
-  if scoreDiff > 10 then
+  if scoreDiff >= 10 then
     maxY = 4000
-    maxX = 3100
-    minX = 500
+    maxX = 2900
+    minX = 700
   end
-  if scoreDiff > 20 then
-    maxX = 5500
+  if scoreDiff >= 20 then
+    maxX = 5600
     minX = 2900
   end
   local nextPosition = nil
@@ -303,7 +304,7 @@ function GetNextWanderLocation (startPosition)
     isValidPosition = true
     if scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 2000 then
       isValidPosition = false
-    elseif IsNearWell(nextPosition) then
+    elseif IsLocationInOffside(nextPosition) then
       isValidPosition = false
     end
   end
