@@ -105,6 +105,9 @@ function Wanderer:SpawnWanderer ()
           end
         end
       end)
+
+      -- Enable offsides if any was disabled
+      Wanderer:DisableOffside("Enable")
     end)
     -- Give the thinker some vision so that spectators can always see the capture point
     capturePointThinker:SetDayTimeVisionRange(1)
@@ -157,4 +160,17 @@ function Wanderer:FindWhereToSpawn ()
   end
 
   return GetGroundPosition(position, nil)
+end
+
+function Wanderer:DisableOffside(side)
+  if side == "Radiant" then
+    self.radiant_offside_disabled = true
+    self.dire_offside_disabled = false
+  elseif side == "Dire" then
+    self.radiant_offside_disabled = false
+    self.dire_offside_disabled = true
+  else
+    self.radiant_offside_disabled = false
+    self.dire_offside_disabled = false
+  end
 end

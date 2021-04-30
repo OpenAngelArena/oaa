@@ -60,6 +60,14 @@ function WandererThink ()
     end
   end
 
+  if IsLocationInRadiantOffside(thisEntity:GetAbsOrigin()) then
+    Wanderer:DisableOffside("Radiant")
+  elseif IsLocationInDireOffside(thisEntity:GetAbsOrigin()) then
+    Wanderer:DisableOffside("Dire")
+  else
+    Wanderer:DisableOffside("Enable")
+  end
+
   -- Wanderer is aggroed if its health is below 95%
   local shouldAggro = hpPercent < 0.95
 
