@@ -280,8 +280,23 @@ function modifier_spark_power_effect:GetModifierProcAttack_BonusDamage_Pure(even
   return damage
 end
 
-function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock()
-  return self.bonus
+function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
+  local parent = self:GetParent()
+  local attacker = keys.attacker
+
+  if not attacker or attacker:IsNull() then
+    return 0
+  end
+
+  if parent:IsRealHero() then
+    return 0
+  end
+
+  if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
+    return self.bonus
+  end
+
+  return 0
 end
 
 function modifier_spark_power_effect:OnTooltip()
