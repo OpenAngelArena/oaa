@@ -77,7 +77,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed"                            "100 120 140 160"
       }
-      "02" // percentage bonus based on base (white) dmg
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_during_duels"                       "15 20 25 30"
@@ -85,7 +85,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_boss_damage"                               "20 25 30 35"
+        "bonus_spell_amp_during_duels"                    "18 22 26 30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_boss_damage"                               "25 35 45 55"
       }
     }
   }
