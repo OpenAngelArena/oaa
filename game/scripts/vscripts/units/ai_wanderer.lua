@@ -164,15 +164,13 @@ function WandererThink ()
 
     if thisEntity:IsIdle() then
       if nearestEnemy then
-        if not IsLocationInOffside(nearestEnemy:GetAbsOrigin()) then
-          ExecuteOrderFromTable({
-            UnitIndex = thisEntity:entindex(),
-            -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-            OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-            Position = nearestEnemy:GetAbsOrigin(),
-            Queue = 0,
-          })
-        end
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+          Position = nearestEnemy:GetAbsOrigin(),
+          Queue = 0,
+        })
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
@@ -304,7 +302,7 @@ function GetNextWanderLocation (startPosition)
     isValidPosition = true
     if scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 2000 then
       isValidPosition = false
-    elseif IsLocationInOffside(nextPosition) then
+    elseif IsNearRadiantFountain(nextPosition) or IsNearDireFountain(nextPosition) then
       isValidPosition = false
     end
   end
@@ -312,8 +310,52 @@ function GetNextWanderLocation (startPosition)
   return nextPosition
 end
 
-function IsNearWell (pos)
-  return math.abs(pos.x) > 4800 and math.abs(pos.y) < 1400
+function IsNearRadiantFountain (pos)
+  local radiant_fountain = Entities:FindByName(nil, "fountain_good_trigger")
+  if not radiant_fountain then
+    print("Radiant fountain trigger not found or referenced name is wrong.")
+    return math.abs(pos.x) > 4800 and math.abs(pos.y) < 1400
+  end
+  local origin = radiant_fountain:GetAbsOrigin()
+  local bounds = radiant_fountain:GetBounds()
+  if pos.x < bounds.Mins.x + origin.x - 500 then
+    return false
+  end
+  if pos.y < bounds.Mins.y + origin.y - 500 then
+    return false
+  end
+  if pos.x > bounds.Maxs.x + origin.x + 500 then
+    return false
+  end
+  if pos.y > bounds.Maxs.y + origin.y + 500 then
+    return false
+  end
+
+  return true
+end
+
+function IsNearDireFountain (pos)
+  local bad_fountain = Entities:FindByName(nil, "fountain_bad_trigger")
+  if not bad_fountain then
+    print("Dire fountain trigger not found or referenced name is wrong.")
+    return math.abs(pos.x) > 4800 and math.abs(pos.y) < 1400
+  end
+  local origin = bad_fountain:GetAbsOrigin()
+  local bounds = bad_fountain:GetBounds()
+  if pos.x < bounds.Mins.x + origin.x - 500 then
+    return false
+  end
+  if pos.y < bounds.Mins.y + origin.y - 500 then
+    return false
+  end
+  if pos.x > bounds.Maxs.x + origin.x + 500 then
+    return false
+  end
+  if pos.y > bounds.Maxs.y + origin.y + 500 then
+    return false
+  end
+
+  return true
 end
 
 function CheckPathBlocking ()
