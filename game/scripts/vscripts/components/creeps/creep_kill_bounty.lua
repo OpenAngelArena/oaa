@@ -103,7 +103,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
   local creepBountyMultiplier = 1
   if attacker:HasModifier("modifier_spark_cleave") then
     creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_CLEAVE/100
-  elseif attacker:HasModifier("modifier_spark_power") then
+  elseif attacker:HasModifier("modifier_spark_power") or attacker:HasModifier("modifier_spark_power_effect") then
     creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_POWER/100
   end
 

@@ -1,7 +1,7 @@
 modifier_spark_power = class(ModifierBaseClass)
 
 function modifier_spark_power:IsHidden()
-  return true
+  return false
 end
 
 function modifier_spark_power:IsDebuff()
@@ -45,7 +45,7 @@ function modifier_spark_power:GetAuraSearchTeam()
 end
 
 function modifier_spark_power:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
 end
 
 function modifier_spark_power:GetAuraEntityReject(hEntity)
@@ -64,7 +64,14 @@ function modifier_spark_power:GetAuraEntityReject(hEntity)
       end
     end
   end
+
   return false
+end
+
+function modifier_spark_power:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOOLTIP,
+  }
 end
 
 function modifier_spark_power:OnCreated()
@@ -100,8 +107,11 @@ function modifier_spark_power:OnCreated()
     -- Bonus damage/block formula
     local bonus = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
     self:SetStackCount(bonus)
-    self:StartIntervalThink(1)
   end
+
+  parent.power_spark_bonus = self:GetStackCount()
+
+  self:StartIntervalThink(0.3)
 
   --[[
   -- Power Spark constants
@@ -159,9 +169,20 @@ function modifier_spark_power:OnIntervalThink()
   parent.power_spark_bonus = self:GetStackCount()
 end
 
+function modifier_spark_power:OnTooltip()
+  return self:GetStackCount()
+end
+
 ---------------------------------------------------------------------------------------------------
 
+modifier_spark_power_effect = class(ModifierBaseClass)
+
 function modifier_spark_power_effect:IsHidden()
+  local caster = self:GetCaster() or self:GetAuraOwner()
+  local parent = self:GetParent()
+  if parent == caster then
+    return true
+  end
   return false
 end
 
@@ -175,23 +196,23 @@ end
 
 function modifier_spark_power_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_TOOLTIP,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE,
     MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_TOOLTIP,
+    MODIFIER_PROPERTY_TOOLTIP2,
   }
 end
 
 function modifier_spark_power_effect:OnCreated()
-  local caster = self:GetCaster()
+  local caster = self:GetCaster() or self:GetAuraOwner()
+
+  self.bonus = self.bonus or 0
+
   if not caster or caster:IsNull() then
     return
   end
 
   if caster:IsIllusion() then
-    return
-  end
-
-  if not caster.power_spark_bonus then
     return
   end
 
@@ -199,16 +220,15 @@ function modifier_spark_power_effect:OnCreated()
 end
 
 function modifier_spark_power_effect:OnRefresh()
-  local caster = self:GetCaster()
+  local caster = self:GetCaster() or self:GetAuraOwner()
+
+  self.bonus = self.bonus or 0
+
   if not caster or caster:IsNull() then
     return
   end
 
   if caster:IsIllusion() then
-    return
-  end
-
-  if not caster.power_spark_bonus then
     return
   end
 
@@ -270,8 +290,8 @@ function modifier_spark_power_effect:GetModifierProcAttack_BonusDamage_Pure(even
   end
   ]]
   local damage = self.bonus
-  if parent:IsIllusion() then
-    damage = damage/10
+  if parent:IsIllusion() or not parent:IsHero() then
+    damage = damage / 10
   end
   if damage > 0 then
     SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
@@ -293,14 +313,34 @@ function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
   end
 
   if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
-    return self.bonus
+    local block = self.bonus
+    if not parent:IsHero() then
+      block = block / 2
+    end
+    if RandomInt(1, 100) <= 50 then
+      return block
+    end
   end
 
   return 0
 end
 
 function modifier_spark_power_effect:OnTooltip()
-  return self.bonus
+  local parent = self:GetParent()
+  local damage = self.bonus
+  if parent:IsIllusion() or not parent:IsHero() then
+    damage = damage / 10
+  end
+  return damage
+end
+
+function modifier_spark_power_effect:OnTooltip2()
+  local parent = self:GetParent()
+  local block = self.bonus
+  if not parent:IsHero() then
+    block = block / 2
+  end
+  return block
 end
 
 function modifier_spark_power_effect:GetTexture()
