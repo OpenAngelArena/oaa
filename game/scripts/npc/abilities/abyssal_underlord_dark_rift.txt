@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 275 325"  //OAA, for picking screen tooltip
+    "AbilityManaCost"                                     "150 225 300 375 450"  //OAA, for picking screen tooltip
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_teleport_delay"                          "0.1" // OAA, for picking screen tooltip
+        "scepter_teleport_delay"                          "0.5" // OAA, for picking screen tooltip
       }
       "04"
       {
@@ -62,7 +62,7 @@
       "05" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2.0 2.25 2.5 2.75 3.0"
+        "stun_duration"                                   "2.25 2.5 2.75 3.0 3.25"
       }
       "06" //OAA, for picking screen tooltip
       {
