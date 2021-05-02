@@ -60,14 +60,6 @@ function WandererThink ()
     end
   end
 
-  if IsLocationInRadiantOffside(thisEntity:GetAbsOrigin()) then
-    Wanderer:DisableOffside("Radiant")
-  elseif IsLocationInDireOffside(thisEntity:GetAbsOrigin()) then
-    Wanderer:DisableOffside("Dire")
-  else
-    Wanderer:DisableOffside("Enable")
-  end
-
   -- Wanderer is aggroed if its health is below 95%
   local shouldAggro = hpPercent < 0.95
 
@@ -137,7 +129,19 @@ function WandererThink ()
     thisEntity:RemoveModifierByName("modifier_boss_regen_degen")
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
+    Wanderer:DisableOffside("Enable")
   else
+    -- If the score difference isn't too big, disable offside if Wanderer is aggroed on it
+    if math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS)) < 25 then
+      if IsLocationInRadiantOffside(thisEntity:GetAbsOrigin()) then
+        Wanderer:DisableOffside("Radiant")
+      elseif IsLocationInDireOffside(thisEntity:GetAbsOrigin()) then
+        Wanderer:DisableOffside("Dire")
+      else
+        Wanderer:DisableOffside("Enable")
+      end
+    end
+
     local nearbyEnemies = FindUnitsInRadius(
       thisEntity:GetTeamNumber(),
       thisEntity:GetOrigin(),
