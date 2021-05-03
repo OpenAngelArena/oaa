@@ -21,7 +21,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-    "AbilityCooldown"                                     "15 14 13 12 11 11"
+    "AbilityCooldown"                                     "12" //OAA
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
@@ -36,7 +36,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.7 2.0 2.3 2.6 2.75 2.9"
+        "stun_duration"                                   "1.7 2.0 2.3 2.6 2.7 2.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_centaur_2"
       }
       "03"
