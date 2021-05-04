@@ -4,17 +4,15 @@
     <include src="file://{resources}/styles/play.css"/>
     <include src="file://{resources}/styles/custom_game/team_select.css" />
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
-
   </styles>
+
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/team_select.js" />
+    <!--<include src="file://{resources}/scripts/custom_game/team_select.js" /> -->
     <include src="file://{resources}/scripts/team_select.js" />
     <include src="file://{resources}/scripts/game_length_options.js" />
   </scripts>
 
   <Panel hittest="false" class="TeamSelect">
-
-
     <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">`
       <!--Empty space to let the loading screen and chat be visible-->
       <Panel id="TeamsSelectEmptySpace">
@@ -33,25 +31,24 @@
           </RadioButton>
         </Panel> -->
           <Panel id="CustomSettingsID" class="CustomSettings">
-              <Label class="SettingsTitle" text="GAME SETTINGS"/>
-              <Label class="SettingsSubtitle" text="HOST" id="Host"/>
-              <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
-                  <Panel class="SettingsGroup w-31">
-                      <Button id="RESET" class="SettingsItem ButtonBevel" onactivate="onPanelChange('RESET')">
-                          <Label text="Reset"/>
-                      </Button>
-                  </Panel>
-                  <Panel class="SettingsGroup w-31">
-                      <Label class="SettingsGroupTitle" text="Gamemode"/>
-                      <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
-                          <Label text="All Random" id="AR"/>
-                          <Label text="All Pick" id="AP"/>
-                          <Label text="Random Draft" id="RD"/>
-                      </DropDown>
-                      <!--<ToggleButton id="ALLOW_SAME_HERO_SELECTION" class="SettingsItem" text="Allow Same Hero" onactivate="onPanelChange('ALLOW_SAME_HERO_SELECTION')"/> -->
-					  <ToggleButton id="small_player_pool" class="SettingsItem" text="2-6 Players" onactivate="onPanelChange('small_player_pool')"/>
-                  </Panel>
+            <Label class="SettingsTitle" text="GAME SETTINGS"/>
+            <Label id="Host" class="SettingsSubtitle" text="HOST"/>
+            <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
+              <Panel class="SettingsGroup w-31">
+                <Button id="RESET" class="SettingsItem ButtonBevel" onactivate="onPanelChange('RESET')">
+                  <Label text="Reset"/>
+                </Button>
               </Panel>
+              <Panel class="SettingsGroup w-31">
+                <Label class="SettingsGroupTitle" text="Gamemode"/>
+                <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
+                  <Label text="All Random" id="AR"/>
+                  <Label text="All Pick" id="AP"/>
+                  <Label text="Random Draft" id="RD"/>
+                </DropDown>
+                <ToggleButton id="small_player_pool" class="SettingsItem" text="2-6 Players" onactivate="onPanelChange('small_player_pool')"/>
+              </Panel>
+            </Panel>
           </Panel>
       </Panel>
     </Panel>
@@ -86,9 +83,6 @@
 
       </Panel>
     </Panel>
-
-
-
 
     <Panel id="GameAndPlayersRoot">
       <Panel id="GameInfoPanel" >
