@@ -43,7 +43,6 @@ function HeroSelection:Init ()
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
 
-
   local herolistFile = 'scripts/npc/herolist.txt'
 
   if self.isCM then
@@ -411,17 +410,44 @@ function HeroSelection:ChooseBans ()
     end
   end
 
-  local list_of_hero_names = {}
-  for k, v in pairs(herolist) do
-    table.insert(list_of_hero_names, k)
+  if not OAAOptions then
+    return
   end
-  --DeepPrintTable(list_of_hero_names)
 
-  -- Randomly ban 70 heroes
-  for i = 1, 70 do
-    local hero_name = list_of_hero_names[RandomInt(1, #list_of_hero_names)]
+  if not OAAOptions.settings then
+    return
+  end
 
-    table.insert(rankedpickorder.bans, hero_name)
+  local list_of_hero_names = {}
+  if OAAOptions.settings.GAME_MODE == "RD" then
+    for k, v in pairs(herolist) do
+      table.insert(list_of_hero_names, k)
+    end
+    --DeepPrintTable(list_of_hero_names)
+
+    -- Randomly ban 70 heroes
+    for i = 1, 70 do
+      local hero_name = list_of_hero_names[RandomInt(1, #list_of_hero_names)]
+
+      table.insert(rankedpickorder.bans, hero_name)
+    end
+  end
+  if OAAOptions.settings.small_player_pool == 1 then
+    list_of_hero_names = {}
+    list_of_hero_names[1] = "npc_dota_hero_arc_warden"
+    list_of_hero_names[2] = "npc_dota_hero_dark_willow"
+    list_of_hero_names[3] = "npc_dota_hero_enigma"
+    list_of_hero_names[4] = "npc_dota_hero_faceless_void"
+    list_of_hero_names[5] = "npc_dota_hero_lone_druid"
+    list_of_hero_names[6] = "npc_dota_hero_meepo"
+    list_of_hero_names[7] = "npc_dota_hero_obsidian_destroyer"
+    list_of_hero_names[8] = "npc_dota_hero_phoenix"
+    list_of_hero_names[9] = "npc_dota_hero_shadow_demon"
+
+    for i = 1, #list_of_hero_names do
+      local hero_name = list_of_hero_names[i]
+      table.insert(rankedpickorder.bans, hero_name)
+    end
   end
 end
 

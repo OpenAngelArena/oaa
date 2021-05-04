@@ -40,7 +40,7 @@ require('libraries/containers')
 -- This library provides an automatic graph construction of path_corner entities within the map
 --require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua
-require('libraries/selection')
+--require('libraries/selection')
 -- Helpful math functions from the internet
 require('libraries/math')
 -- chat command registry made easy

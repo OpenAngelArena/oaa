@@ -32,9 +32,29 @@
             <Label class="description" text="#oaa_game_length_long" />
           </RadioButton>
         </Panel> -->
+        <Panel hittest="false">
+          <Panel id="CustomSettingsID" class="CustomSettings">
+              <Label class="SettingsTitle" text="GAME SETTINGS"/>
+              <Label class="SettingsSubtitle" text="HOST" id="Host"/>
+              <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
+                  <Panel class="SettingsGroup w-31">
+                      <Button id="RESET" class="SettingsItem ButtonBevel" onactivate="onPanelChange('RESET')">
+                          <Label text="Reset"/>
+                      </Button>
+                  </Panel>
+                  <Panel class="SettingsGroup w-31">
+                      <Label class="SettingsGroupTitle" text="Gamemode"/>
+                      <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
+                          <Label text="All Random" id="AR"/>
+                          <Label text="All Pick" id="AP"/>
+                          <Label text="Random Draft" id="RD"/> -->
+                      </DropDown>
+                      <!--<ToggleButton id="ALLOW_SAME_HERO_SELECTION" class="SettingsItem" text="Allow Same Hero" onactivate="onPanelChange('ALLOW_SAME_HERO_SELECTION')"/> -->
+                  </Panel>
+              </Panel>
+          </Panel>
+        </Panel>
       </Panel>
-
-
     </Panel>
 
     <Panel id="TeamsList" >
