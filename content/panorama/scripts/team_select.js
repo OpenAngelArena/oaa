@@ -102,7 +102,7 @@ function hostTitle () {
     }
   } else {
     $.Msg('failed hostTitle');
-    $.Schedule(0.1, hostTitle);
+    // $.Schedule(0.1, hostTitle);
   }
 }
 
@@ -115,8 +115,8 @@ function loadSettings (kv, secondTime) {
     // didnt happen, lua loads before clients?
     if (!secondTime) {
       $.Msg('failed loadSettings');
+      $.Schedule(0.1, loadSettings(kv, true));
     }
-    $.Schedule(0.1, loadSettings(kv, true));
   }
 }
 loadSettings(CustomNetTables.GetTableValue('oaa_settings', 'default'));

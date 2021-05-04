@@ -1,7 +1,7 @@
 <root>
   <styles>
-    <include src="file://{resources}/styles/dotastyles.css" />
-    <include src="file://{resources}/styles/play.css" />
+    <include src="s2r://panorama/styles/dotastyles.vcss_c"/>
+    <include src="file://{resources}/styles/play.css"/>
     <include src="file://{resources}/styles/custom_game/team_select.css" />
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
 
@@ -32,7 +32,6 @@
             <Label class="description" text="#oaa_game_length_long" />
           </RadioButton>
         </Panel> -->
-        <Panel hittest="false">
           <Panel id="CustomSettingsID" class="CustomSettings">
               <Label class="SettingsTitle" text="GAME SETTINGS"/>
               <Label class="SettingsSubtitle" text="HOST" id="Host"/>
@@ -47,13 +46,13 @@
                       <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
                           <Label text="All Random" id="AR"/>
                           <Label text="All Pick" id="AP"/>
-                          <Label text="Random Draft" id="RD"/> -->
+                          <Label text="Random Draft" id="RD"/>
                       </DropDown>
                       <!--<ToggleButton id="ALLOW_SAME_HERO_SELECTION" class="SettingsItem" text="Allow Same Hero" onactivate="onPanelChange('ALLOW_SAME_HERO_SELECTION')"/> -->
+					  <ToggleButton id="small_player_pool" class="SettingsItem" text="2-6 Players" onactivate="onPanelChange('small_player_pool')"/>
                   </Panel>
               </Panel>
           </Panel>
-        </Panel>
       </Panel>
     </Panel>
 
