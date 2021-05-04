@@ -57,6 +57,12 @@ function HeroSelection:Init ()
   if self.isRanked or self.isUnranked then
     self.isBanning = true
   end
+  
+  if OAAOptions and OAAOptions.settings then
+    if OAAOptions.settings.small_player_pool == 1 then
+      herolistFile = 'scripts/npc/herolist_3v3.txt'
+    end
+  end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
   local heroAbilities = {}
@@ -411,10 +417,12 @@ function HeroSelection:ChooseBans ()
   end
 
   if not OAAOptions then
+    print("OAAOptions is nil!")
     return
   end
 
   if not OAAOptions.settings then
+    print("OAAOptions settings table is nil!")
     return
   end
 
@@ -426,27 +434,24 @@ function HeroSelection:ChooseBans ()
     --DeepPrintTable(list_of_hero_names)
 
     -- Randomly ban 70 heroes
-    for i = 1, 70 do
-      local hero_name = list_of_hero_names[RandomInt(1, #list_of_hero_names)]
+    print("RANDOM DRAFT: Banning 70 random heroes")
+    local i = 0
+    while i <= 70 do
+      local random_number = RandomInt(1, #list_of_hero_names)
+      local hero_name = list_of_hero_names[random_number]
+      -- Check if already banned
+      local banned = false
+      for _, v in pairs(rankedpickorder.bans) do
+        if v == hero_name then
+          banned = true
+          break -- break for loop
+        end
+      end
 
-      table.insert(rankedpickorder.bans, hero_name)
-    end
-  end
-  if OAAOptions.settings.small_player_pool == 1 then
-    list_of_hero_names = {}
-    list_of_hero_names[1] = "npc_dota_hero_arc_warden"
-    list_of_hero_names[2] = "npc_dota_hero_dark_willow"
-    list_of_hero_names[3] = "npc_dota_hero_enigma"
-    list_of_hero_names[4] = "npc_dota_hero_faceless_void"
-    list_of_hero_names[5] = "npc_dota_hero_lone_druid"
-    list_of_hero_names[6] = "npc_dota_hero_meepo"
-    list_of_hero_names[7] = "npc_dota_hero_obsidian_destroyer"
-    list_of_hero_names[8] = "npc_dota_hero_phoenix"
-    list_of_hero_names[9] = "npc_dota_hero_shadow_demon"
-
-    for i = 1, #list_of_hero_names do
-      local hero_name = list_of_hero_names[i]
-      table.insert(rankedpickorder.bans, hero_name)
+      if not banned then
+        table.insert(rankedpickorder.bans, hero_name)
+        i = i + 1
+      end
     end
   end
 end
