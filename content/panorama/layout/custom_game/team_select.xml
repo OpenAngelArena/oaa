@@ -35,7 +35,7 @@
             <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
               <Panel class="SettingsGroup">
                 <Label class="SettingsGroupTitle" text="Game Mode Settings"/>
-				<Button id="RESET" class="SettingsItem" onactivate="onPanelChange('RESET')">
+                <Button id="RESET" class="SettingsItem" onactivate="onPanelChange('RESET')">
                   <Label id="ResetLabel" text="Reset"/>
                 </Button>
                 <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">

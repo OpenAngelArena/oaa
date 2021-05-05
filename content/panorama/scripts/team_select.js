@@ -20,7 +20,7 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
     hideShowUI(data.newState);
   }
 
-  hostTitle()
+  hostTitle();
   loadSettings(CustomNetTables.GetTableValue('oaa_settings', 'default'));
 }());
 
@@ -127,10 +127,6 @@ CustomNetTables.SubscribeNetTableListener('oaa_settings', function (t, k, kv) {
     $.Msg('oaa_settings :', k);
     $('#SettingsBody').enabled = false;
     loadSettings(kv);
-
-    // for (let i = 0; i < $('#SettingsBody').GetChildCount(); i++) {
-      // $("#SettingsBody").GetChild(i).SetHasClass("SettingsGroupInsideSideBar", true);
-    // }
   }
 });
 
