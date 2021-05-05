@@ -1626,6 +1626,7 @@ read_globals = { -- these globals can only be accessed.
 "class",
 "DMG_FALL",
 "MODIFIER_PROPERTY_TOOLTIP",
+"MODIFIER_PROPERTY_TOOLTIP2",
 "DOTA_LOADOUT_TYPE_NONE",
 "DOTA_LOADOUT_TYPE_SHOULDER",
 "CEntityScriptFramework",
