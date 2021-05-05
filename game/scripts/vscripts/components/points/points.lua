@@ -24,7 +24,7 @@ function PointsManager:Init ()
     scoreLimit = TEN_V_TEN_KILL_LIMIT
     --scoreLimitIncrease = scoreLimitIncrease/2
   end
-  scoreLimit = (scoreLimit + scoreLimitIncrease) * PlayerResource:SafeGetTeamPlayerCount()
+  scoreLimit = 10 + (scoreLimit + scoreLimitIncrease) * PlayerResource:SafeGetTeamPlayerCount()
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', {

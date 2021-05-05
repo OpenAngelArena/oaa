@@ -34,8 +34,8 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 5                     -- Starting KILL_LIMIT = (NORMAL_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 5v5 - 40 (60); 4v4 - 34 (48); 3v3 - 28 (36); 2v2 - 22 (24); 1v1 - 16 (12);
-TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = (TEN_V_TEN_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 6v6 - 60; 8v8 - 80; 10v10 - 100;
+NORMAL_KILL_LIMIT = 2                     -- Starting KILL_LIMIT = 10 + (NORMAL_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
+TEN_V_TEN_KILL_LIMIT = 3                  -- Starting KILL_LIMIT = 10 + (TEN_V_TEN_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
 KILL_LIMIT_INCREASE = 1                   -- Actual KILL_LIMIT_INCREASE is equal to number of players
 
 -- poop wards
@@ -88,8 +88,11 @@ BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
-BOSS_WANDERER_SPAWN_START = 12 * 60     -- start time for wanderer spawn
-BOSS_WANDERER_RESPAWN = 5 * 60          -- start time for wanderer spawn
+BOSS_WANDERER_MIN_SPAWN_TIME = 12       -- min time at which first Wanderer can spawn (in minutes)
+BOSS_WANDERER_MAX_SPAWN_TIME = 15       -- max time at which first Wanderer can spawn (in minutes)
+BOSS_WANDERER_MIN_RESPAWN_TIME = 3      -- min respawn time of the Wanderer (in minutes)
+BOSS_WANDERER_MAX_RESPAWN_TIME = 6      -- min respawn time of the Wanderer (in minutes)
+BOSS_WANDERER_BUFF_DURATION = 3         -- max duration of the Wanderer buff (in minutes)
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn

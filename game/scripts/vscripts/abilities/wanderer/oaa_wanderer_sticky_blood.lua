@@ -23,7 +23,7 @@ end
 modifier_wanderer_sticky_blood_passive = class(ModifierBaseClass)
 
 function modifier_wanderer_sticky_blood_passive:IsHidden()
-  return true
+  return false
 end
 
 function modifier_wanderer_sticky_blood_passive:IsDebuff()
@@ -50,6 +50,7 @@ modifier_wanderer_sticky_blood_passive.OnRefresh = modifier_wanderer_sticky_bloo
 function modifier_wanderer_sticky_blood_passive:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
   }
   return funcs
 end
@@ -146,6 +147,51 @@ function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability,
 
   -- Start cooldown
   ability:UseResources(true, true, true)
+end
+
+function modifier_wanderer_sticky_blood_passive:GetModifierTotal_ConstantBlock(keys)
+  local parent = self:GetParent()
+  local attacker = keys.attacker
+  local damage = keys.damage
+  local parent_pos = parent:GetAbsOrigin()
+  local attacker_pos = attacker:GetAbsOrigin()
+
+  -- Parent blocks all damage from attackers if parent is in their offside zone
+  if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(parent_pos) then
+    return damage
+  end
+
+  if attacker:GetTeamNumber() == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(parent_pos) then
+    return damage
+  end
+
+  -- Parent blocks all damage from attackers that are standing in their offside zone
+  if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(attacker_pos) then
+    return damage
+  end
+
+  if attacker:GetTeamNumber() == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(attacker_pos) then
+    return damage
+  end
+
+  -- Block all self damage if parent is in some offside zone
+  if attacker == parent and IsLocationInOffside(parent_pos) then
+    return damage
+  end
+
+  return 0
+end
+
+function modifier_wanderer_sticky_blood_passive:CheckState()
+  local state = {
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+  }
+
+  return state
+end
+
+function modifier_wanderer_sticky_blood_passive:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
 
 ---------------------------------------------------------------------------------------------------

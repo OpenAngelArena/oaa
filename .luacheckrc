@@ -202,6 +202,9 @@ read_globals = { -- these globals can only be accessed.
 "MoveCameraToPlayer",
 "MoveCameraToEntity",
 "IsPlayerTeam",
+"IsLocationInRadiantOffside",
+"IsLocationInDireOffside",
+"IsLocationInOffside",
 
 -- cfinder
 "PrdCFinder",
@@ -2855,8 +2858,11 @@ read_globals = { -- these globals can only be accessed.
 "CreateRune",
 "DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1",
 "AddAnimationTranslate",
-"BOSS_WANDERER_SPAWN_START",
-"BOSS_WANDERER_RESPAWN",
+"BOSS_WANDERER_MIN_SPAWN_TIME",
+"BOSS_WANDERER_MAX_SPAWN_TIME",
+"BOSS_WANDERER_MIN_RESPAWN_TIME",
+"BOSS_WANDERER_MAX_RESPAWN_TIME",
+"BOSS_WANDERER_BUFF_DURATION",
 "AbilityKV",
 "VectorTarget",
 "KILL_LIMIT_INCREASE",

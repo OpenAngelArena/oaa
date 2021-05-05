@@ -4,9 +4,11 @@ modifier_wanderer_team_buff = class(ModifierBaseClass)
 
 function modifier_wanderer_team_buff:OnCreated ()
   if IsServer() then
+    local duration_in_minutes = BOSS_WANDERER_BUFF_DURATION or 3
+    local duration_in_seconds = duration_in_minutes * 60
     self:StartIntervalThink(1)
-    self:SetStackCount(180)
-    self.stackCount = 180
+    self:SetStackCount(duration_in_seconds)
+    self.stackCount = duration_in_seconds
   end
 end
 
@@ -44,6 +46,7 @@ function modifier_wanderer_team_buff:DeclareFunctions()
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
     -- MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
   }
 end
@@ -69,6 +72,37 @@ function modifier_wanderer_team_buff:GetModifierMoveSpeedBonus_Percentage ()
     return 0
   end
   return 20
+end
+
+function modifier_wanderer_team_buff:OnTakeDamage(event)
+  if IsServer() then
+    local damaged_entity = event.unit
+    local attacker = event.attacker
+
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= self:GetParent() then
+      return
+    end
+
+    if not damaged_entity or damaged_entity:IsNull() then
+      return
+    end
+
+    if damaged_entity.HasModifier == nil then
+      return
+    end
+
+    if not damaged_entity:HasModifier("modifier_wanderer_boss_buff") then
+      return
+    end
+
+    -- Remove this buff if the hero that is damaging the Wanderer has this buff
+    -- Damaging the Wanderer while using the buff of the previous Wanderer is not cool
+    self:Destroy()
+  end
 end
 
 function modifier_wanderer_team_buff:IsHidden ()

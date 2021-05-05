@@ -1,8 +1,6 @@
-LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
-
-Debug:EnableDebugging()
 
 if HeroSelection == nil then
+  Debug:EnableDebugging()
   DebugPrint ('Starting HeroSelection')
   HeroSelection = class({})
 end
@@ -172,7 +170,7 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
   CustomGameEventManager:RegisterListener('bottle_selected', Dynamic_Wrap(HeroSelection, 'OnBottleSelected'))
   CustomGameEventManager:RegisterListener('arcana_selected', Dynamic_Wrap(HeroSelection, 'OnArcanaSelected'))
-  
+
   if OAAOptions and OAAOptions.settings then
     if OAAOptions.settings.small_player_pool == 1 then
       print("OAAOptions smaller player pool option selected")
