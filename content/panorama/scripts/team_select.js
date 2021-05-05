@@ -21,6 +21,7 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
   }
 
   hostTitle()
+  loadSettings(CustomNetTables.GetTableValue('oaa_settings', 'default'));
 }());
 
 function MMRShuffle () {
@@ -101,7 +102,7 @@ function hostTitle () {
       }
     }
   } else {
-    $.Msg('failed hostTitle');
+    $.Msg('Failed to set host name on Team Select screen');
     // $.Schedule(0.1, hostTitle);
   }
 }
@@ -111,15 +112,15 @@ function loadSettings (kv, secondTime) {
     for (let i in kv) {
       updatePanel({setting: i, value: kv[i]});
     }
+    $.Msg('Succesfully loaded/changed Game Settings.');
   } else {
     // didnt happen, lua loads before clients?
     if (!secondTime) {
-      $.Msg('failed loadSettings');
+      $.Msg('Failed to load Game Settings. Trying again one more time.');
       $.Schedule(0.1, loadSettings(kv, true));
     }
   }
 }
-loadSettings(CustomNetTables.GetTableValue('oaa_settings', 'default'));
 
 CustomNetTables.SubscribeNetTableListener('oaa_settings', function (t, k, kv) {
   if (k === 'locked') {
@@ -171,7 +172,6 @@ function updatePanel (kv) {
   let panel = $('#' + name);
   if (panel) {
     let panelType = panel.paneltype;
-    // $.Msg(name,": ",val);
     switch (true) {
       case (panelType === 'DropDown'):
         panel.SetSelected(val);

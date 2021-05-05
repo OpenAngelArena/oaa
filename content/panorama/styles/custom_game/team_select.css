@@ -816,20 +816,10 @@ DOTAAvatarImage
   /* box-shadow: inset #000000 0px 2px 6px 3px; */
 }
 
-.SettingsTitle
-{
-  margin-top: 20px;
-  margin-bottom: -20px;
-  horizontal-align: center;
-  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU;
-  font-size: 40px;
-  color: #ffffff;
-}
-
 .SettingsSubtitle
 {
   padding: 10px 10px 4px 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
   horizontal-align: center;
   font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU;
   font-size: 30px;
@@ -850,21 +840,18 @@ DOTAAvatarImage
   margin-bottom: 200px;
 }
 
-.w-31 {
-  width: 31%;
-}
-
 .SettingsGroup
 {
   height: fit-children;
-  min-width: 300px;
-  /* horizontal-align: right; */
-  /* vertical-align: top; */
+  min-width: 400px;
+  horizontal-align: center;
+  vertical-align: center;
   flow-children: down;
   margin: 10px 10px;
   background-color: #181a1e;
   box-shadow: #000000 0px 2px 6px 3px;
   border-radius: 0px;
+  width: 15%;
 }
 
 .SettingsGroupTitle
@@ -875,7 +862,7 @@ DOTAAvatarImage
   margin-bottom: 0px;
   horizontal-align: left;
   /* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
-  font-size: 20px;
+  font-size: 30px;
   color: #ffffff;
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
@@ -890,6 +877,12 @@ DOTAAvatarImage
   horizontal-align: left;
   /* text-transform: none; */
   /* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
-  font-size: 20px;
   color: #ffffff;
+}
+
+#ResetLabel
+{
+  horizontal-align: center;
+  vertical-align: center;
+  font-size: 20px;
 }

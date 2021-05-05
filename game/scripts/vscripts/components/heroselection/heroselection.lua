@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LU
 Debug:EnableDebugging()
 
 if HeroSelection == nil then
-  DebugPrint ( 'Starteng HeroSelection' )
+  DebugPrint ('Starting HeroSelection')
   HeroSelection = class({})
 end
 
@@ -38,7 +38,6 @@ function HeroSelection:Init ()
   self.isARDM = GetMapName() == "ardm"
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "oaa" or GetMapName() == "oaa_winter"
-  self.isUnranked = false
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -54,14 +53,8 @@ function HeroSelection:Init ()
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
-  if self.isRanked or self.isUnranked then
+  if self.isRanked or self.is10v10 then
     self.isBanning = true
-  end
-  
-  if OAAOptions and OAAOptions.settings then
-    if OAAOptions.settings.small_player_pool == 1 then
-      herolistFile = 'scripts/npc/herolist_3v3.txt'
-    end
   end
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
@@ -179,6 +172,19 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('preview_hero', Dynamic_Wrap(HeroSelection, 'HeroPreview'))
   CustomGameEventManager:RegisterListener('bottle_selected', Dynamic_Wrap(HeroSelection, 'OnBottleSelected'))
   CustomGameEventManager:RegisterListener('arcana_selected', Dynamic_Wrap(HeroSelection, 'OnArcanaSelected'))
+  
+  if OAAOptions and OAAOptions.settings then
+    if OAAOptions.settings.small_player_pool == 1 then
+      print("OAAOptions smaller player pool option selected")
+      local herolistFile = 'scripts/npc/herolist_3v3.txt'
+      local herolistTable = LoadKeyValues(herolistFile)
+      for key, value in pairs(herolistTable) do
+        if value == 0 then
+	      table.insert(rankedpickorder.bans, key)
+        end
+      end
+    end
+  end
 
   if self.isCM then
     HeroSelection:CMManager(nil)
@@ -237,8 +243,6 @@ function HeroSelection:GetSelectedArcanaForPlayer(playerId)
 end
 
 function HeroSelection:RankedManager (event)
-  -- unranked uses regular picking screen
-  if self.isUnranked then return end
   local function save ()
     CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
   end
@@ -289,7 +293,11 @@ function HeroSelection:RankedManager (event)
       rankedpickorder.currentOrder = 1
       self:ChooseBans()
       save()
-      return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+      if OAAOptions and OAAOptions.settings.GAME_MODE == "AR" then
+        return HeroSelection:APTimer(-1, "ALL RANDOM")
+      else
+        return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+      end
     end
   end
   if rankedpickorder.phase == 'picking' then
@@ -381,7 +389,7 @@ function HeroSelection:ChooseBans ()
       return
     end
     for playerID,choice in pairs(rankedpickorder.banChoices) do
-      rankedpickorder.bans[1] = choice
+      table.insert(rankedpickorder.bans, choice)
       DebugPrint('Only suggestion was ' .. choice)
     end
     return
@@ -453,6 +461,11 @@ function HeroSelection:ChooseBans ()
         i = i + 1
       end
     end
+  elseif OAAOptions.settings.GAME_MODE == "AR" then
+    -- 100% chance bans
+    PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+      table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+    end)
   end
 end
 
