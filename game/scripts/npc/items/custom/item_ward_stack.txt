@@ -90,12 +90,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
       }
-      "06" // dota observer ward: 360
+      "06" // vanilla dota observer ward duration: 360
       {
         "var_type"                                        "FIELD_INTEGER"
         "observer_duration"                               "180"
       }
-      "07" // dota sentry ward: 480
+      "07" // vanilla dota sentry ward duration: 480
       {
         "var_type"                                        "FIELD_INTEGER"
         "sentry_duration"                                 "240"
@@ -115,7 +115,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "sentry_reveal_radius"                            "900"
       }
-      "11"
+      "11" // vanilla dota observer ward restock: 135
       {
         "var_type"                                        "FIELD_INTEGER"
         "observer_recharge"                               "135 120 100 80 60"
@@ -125,10 +125,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "observer_max"                                    "2 3 4 5 6"
       }
-      "13"
+      "13" // vanilla dota sentry ward restock: 75
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_recharge"                                 "90 65 50 40 30"
+        "sentry_recharge"                                 "75 65 50 40 30"
       }
       "14"
       {
