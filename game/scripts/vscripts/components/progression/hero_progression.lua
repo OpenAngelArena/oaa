@@ -4,7 +4,7 @@ if HeroProgression == nil then
 end
 
 GameEvents:OnPlayerLevelUp(function(keys)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   -- dota_player_gained_level:
   --"player_id"
   --"level"

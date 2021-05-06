@@ -546,27 +546,49 @@ function EnableChatWindow () {
   pregamePanel.style.zIndex = 10;
   pregamePanel.style.backgroundColor = 'transparent';
   let contentPanel = pregamePanel.FindChildTraverse('MainContents');
-  contentPanel.style.visibility = 'collapse';
+  if (contentPanel) {
+    contentPanel.style.visibility = 'collapse';
+  }
   let backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
-  backgroundPanel.style.visibility = 'collapse';
+  if (backgroundPanel) {
+    backgroundPanel.style.visibility = 'collapse';
+  }
   let backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
-  backgroundDashboardPanel.style.visibility = 'collapse';
+  if (backgroundDashboardPanel) {
+    backgroundDashboardPanel.style.visibility = 'collapse';
+  }
   let radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
-  radiantTeamPanel.style.visibility = 'collapse';
+  if (radiantTeamPanel) {
+    radiantTeamPanel.style.visibility = 'collapse';
+  }
   let direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
-  direTeamPanel.style.visibility = 'collapse';
+  if (direTeamPanel) {
+    direTeamPanel.style.visibility = 'collapse';
+  }
   let headerPanel = pregamePanel.FindChildTraverse('Header');
-  headerPanel.style.visibility = 'collapse';
+  if (headerPanel) {
+    headerPanel.style.visibility = 'collapse';
+  }
   let minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
-  minimapPanel.style.visibility = 'collapse';
-  let panel = pregamePanel.FindChildTraverse('FriendsAndFoes');
-  panel.style.visibility = 'collapse';
+  if (minimapPanel) {
+    minimapPanel.style.visibility = 'collapse';
+  }
+  let friendsAndFoesPanel = pregamePanel.FindChildTraverse('FriendsAndFoes');
+  if (friendsAndFoesPanel) {
+    friendsAndFoesPanel.style.visibility = 'collapse';
+  }
   let panel2 = pregamePanel.FindChildTraverse('HeroPickingTeamComposition');
-  panel2.style.visibility = 'collapse';
+  if (panel2) {
+    panel2.style.visibility = 'collapse';
+  }
   let panel3 = pregamePanel.FindChildTraverse('PlusChallengeSelector');
-  panel3.style.visibility = 'collapse';
+  if (panel3) {
+    panel3.style.visibility = 'collapse';
+  }
   let panel4 = pregamePanel.FindChildTraverse('AvailableItemsContainer');
-  panel4.style.visibility = 'collapse';
+  if (panel4) {
+    panel4.style.visibility = 'collapse';
+  }
 }
 
 function UpdatePreviews (data) {

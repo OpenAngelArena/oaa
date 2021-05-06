@@ -66,11 +66,13 @@ function AbilityLevels:CheckAbilityLevels (keys)
 
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
-    if string.find(leveled_up_ability, "special_bonus_") then
-      -- Ability is a talent (not a reliable way of checking but its temporary anyway)
-      -- Check for hero level:
-      if level > 27 then
-        -- Adding a skill point if a player leveled up a talent that is not supposed to be levelled.
+    local talent = hero:FindAbilityByName(leveled_up_ability)
+    if string.find(leveled_up_ability, "special_bonus_") or talent:IsAttributeBonus() then
+      -- Ability is a talent
+
+      -- Check for hero level and if talent is really taken
+      if level >= 27 and talent:GetLevel() == 0 then
+        -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
         hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
       end
     end
