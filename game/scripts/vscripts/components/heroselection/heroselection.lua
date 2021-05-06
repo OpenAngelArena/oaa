@@ -1,9 +1,7 @@
-LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
-
-Debug:EnableDebugging()
 
 if HeroSelection == nil then
-  DebugPrint ( 'Starteng HeroSelection' )
+  Debug:EnableDebugging()
+  DebugPrint ('Starting HeroSelection')
   HeroSelection = class({})
 end
 
@@ -38,11 +36,9 @@ function HeroSelection:Init ()
   self.isARDM = GetMapName() == "ardm"
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "oaa" or GetMapName() == "oaa_winter"
-  self.isUnranked = false
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
-
 
   local herolistFile = 'scripts/npc/herolist.txt'
 
@@ -55,7 +51,7 @@ function HeroSelection:Init ()
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
-  if self.isRanked or self.isUnranked then
+  if self.isRanked or self.is10v10 then
     self.isBanning = true
   end
 
@@ -175,6 +171,19 @@ function HeroSelection:StartSelection ()
   CustomGameEventManager:RegisterListener('bottle_selected', Dynamic_Wrap(HeroSelection, 'OnBottleSelected'))
   CustomGameEventManager:RegisterListener('arcana_selected', Dynamic_Wrap(HeroSelection, 'OnArcanaSelected'))
 
+  if OAAOptions and OAAOptions.settings then
+    if OAAOptions.settings.small_player_pool == 1 then
+      print("OAAOptions smaller player pool option selected")
+      local herolistFile = 'scripts/npc/herolist_3v3.txt'
+      local herolistTable = LoadKeyValues(herolistFile)
+      for key, value in pairs(herolistTable) do
+        if value == 0 then
+	      table.insert(rankedpickorder.bans, key)
+        end
+      end
+    end
+  end
+
   if self.isCM then
     HeroSelection:CMManager(nil)
   elseif self.isBanning then
@@ -232,8 +241,6 @@ function HeroSelection:GetSelectedArcanaForPlayer(playerId)
 end
 
 function HeroSelection:RankedManager (event)
-  -- unranked uses regular picking screen
-  if self.isUnranked then return end
   local function save ()
     CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
   end
@@ -284,7 +291,11 @@ function HeroSelection:RankedManager (event)
       rankedpickorder.currentOrder = 1
       self:ChooseBans()
       save()
-      return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+      if OAAOptions and OAAOptions.settings.GAME_MODE == "AR" then
+        return HeroSelection:APTimer(-1, "ALL RANDOM")
+      else
+        return self:RankedTimer(RANKED_PICK_TIME, "PICK")
+      end
     end
   end
   if rankedpickorder.phase == 'picking' then
@@ -376,7 +387,7 @@ function HeroSelection:ChooseBans ()
       return
     end
     for playerID,choice in pairs(rankedpickorder.banChoices) do
-      rankedpickorder.bans[1] = choice
+      table.insert(rankedpickorder.bans, choice)
       DebugPrint('Only suggestion was ' .. choice)
     end
     return
@@ -411,17 +422,48 @@ function HeroSelection:ChooseBans ()
     end
   end
 
-  local list_of_hero_names = {}
-  for k, v in pairs(herolist) do
-    table.insert(list_of_hero_names, k)
+  if not OAAOptions then
+    print("OAAOptions is nil!")
+    return
   end
-  --DeepPrintTable(list_of_hero_names)
 
-  -- Randomly ban 70 heroes
-  for i = 1, 70 do
-    local hero_name = list_of_hero_names[RandomInt(1, #list_of_hero_names)]
+  if not OAAOptions.settings then
+    print("OAAOptions settings table is nil!")
+    return
+  end
 
-    table.insert(rankedpickorder.bans, hero_name)
+  local list_of_hero_names = {}
+  if OAAOptions.settings.GAME_MODE == "RD" then
+    for k, v in pairs(herolist) do
+      table.insert(list_of_hero_names, k)
+    end
+    --DeepPrintTable(list_of_hero_names)
+
+    -- Randomly ban 70 heroes
+    print("RANDOM DRAFT: Banning 70 random heroes")
+    local i = 0
+    while i <= 70 do
+      local random_number = RandomInt(1, #list_of_hero_names)
+      local hero_name = list_of_hero_names[random_number]
+      -- Check if already banned
+      local banned = false
+      for _, v in pairs(rankedpickorder.bans) do
+        if v == hero_name then
+          banned = true
+          break -- break for loop
+        end
+      end
+
+      if not banned then
+        table.insert(rankedpickorder.bans, hero_name)
+        i = i + 1
+      end
+    end
+  elseif OAAOptions.settings.GAME_MODE == "AR" then
+    -- 100% chance bans
+    PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+      table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+    end)
   end
 end
 

@@ -702,14 +702,11 @@ background-repeat: no-repeat;
 
 .player_slot
 {
-    height: 32px;
-    width: 100%;
-    flow-children: right;
-    margin-top: 2px;
+  height: 32px;
+  width: 100%;
+  flow-children: right;
+  margin-top: 2px;
 }
-
-
-
 
 .TeamSelectPlayer
 {
@@ -804,4 +801,88 @@ DOTAAvatarImage
     background-size: 32px 32px;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+}
+
+.CustomSettings
+{
+  width: fill-parent-flow(1);
+  /*height: fit-children;*/
+  /* horizontal-align: center; */
+  vertical-align: top;
+  /* margin-bottom: 280px; */
+  flow-children: down;
+  /* background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.00, #272b30 ), color-stop( 0.6, #181a1e ), to( #181a1e ) ); */
+  /* border-radius: 20px; */
+  /* box-shadow: inset #000000 0px 2px 6px 3px; */
+}
+
+.SettingsSubtitle
+{
+  padding: 10px 10px 4px 10px;
+  margin-top: 10px;
+  horizontal-align: center;
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU;
+  font-size: 30px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #181a1e;
+  box-shadow: #000000 0px 2px 6px 3px;
+}
+
+.SettingsBody
+{
+  width: 100%; /**** Panel SettingsBody has fill-parent-flow for width, but isn't in a flowing right layout*/
+  /*height: fit-children;*/ /*test*/
+  /* horizontal-align: right; */
+  /* vertical-align: top;   */
+  flow-children: down-wrap;
+  overflow: squish squish;
+  margin-bottom: 200px;
+}
+
+.SettingsGroup
+{
+  height: fit-children;
+  min-width: 400px;
+  horizontal-align: center;
+  vertical-align: center;
+  flow-children: down;
+  margin: 10px 10px;
+  background-color: #181a1e;
+  box-shadow: #000000 0px 2px 6px 3px;
+  border-radius: 0px;
+  width: 15%;
+}
+
+.SettingsGroupTitle
+{
+  width: fit-children;
+  min-width: fit-children;
+  padding: 10px 10px 5px 10px;
+  margin-bottom: 0px;
+  horizontal-align: left;
+  /* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
+  font-size: 30px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.SettingsItem
+{
+  width: 100%;
+  min-width: 140px;
+  /*max-width: 100%;*/
+  /*padding: 0px 10px 0px 10px;*/
+  margin: 5px 5px;
+  horizontal-align: left;
+  /* text-transform: none; */
+  /* font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,Gulim,MingLiU; */
+  color: #ffffff;
+}
+
+#ResetLabel
+{
+  horizontal-align: center;
+  vertical-align: center;
+  font-size: 20px;
 }

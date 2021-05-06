@@ -1,11 +1,11 @@
 <root>
   <styles>
-    <include src="file://{resources}/styles/dotastyles.css" />
-    <include src="file://{resources}/styles/play.css" />
+    <include src="s2r://panorama/styles/dotastyles.vcss_c"/>
+    <include src="file://{resources}/styles/play.css"/>
     <include src="file://{resources}/styles/custom_game/team_select.css" />
     <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
-
   </styles>
+
   <scripts>
     <include src="file://{resources}/scripts/custom_game/team_select.js" />
     <include src="file://{resources}/scripts/team_select.js" />
@@ -13,8 +13,6 @@
   </scripts>
 
   <Panel hittest="false" class="TeamSelect">
-
-
     <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">`
       <!--Empty space to let the loading screen and chat be visible-->
       <Panel id="TeamsSelectEmptySpace">
@@ -32,9 +30,24 @@
             <Label class="description" text="#oaa_game_length_long" />
           </RadioButton>
         </Panel> -->
+          <Panel id="CustomSettingsID" class="CustomSettings">
+            <Label id="Host" class="SettingsSubtitle" text="HOST"/>
+            <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
+              <Panel class="SettingsGroup">
+                <Label class="SettingsGroupTitle" text="Game Mode Settings"/>
+                <Button id="RESET" class="SettingsItem" onactivate="onPanelChange('RESET')">
+                  <Label id="ResetLabel" text="Reset"/>
+                </Button>
+                <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
+                  <Label text="All Random" id="AR"/>
+                  <Label text="All Pick" id="AP"/>
+                  <Label text="Random Draft" id="RD"/>
+                </DropDown>
+                <ToggleButton id="small_player_pool" class="SettingsItem" text="2-6 Players" onactivate="onPanelChange('small_player_pool')"/>
+              </Panel>
+            </Panel>
+          </Panel>
       </Panel>
-
-
     </Panel>
 
     <Panel id="TeamsList" >
@@ -67,9 +80,6 @@
 
       </Panel>
     </Panel>
-
-
-
 
     <Panel id="GameAndPlayersRoot">
       <Panel id="GameInfoPanel" >
