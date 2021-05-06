@@ -21,6 +21,10 @@ function modifier_spark_power:GetAttributes()
 end
 
 function modifier_spark_power:AllowIllusionDuplicate()
+  return false
+end
+
+function modifier_spark_power:IsAura()
   return true
 end
 
@@ -28,8 +32,55 @@ function modifier_spark_power:GetTexture()
   return "custom/spark_power"
 end
 
+function modifier_spark_power:GetModifierAura()
+  return "modifier_spark_power_effect"
+end
+
+function modifier_spark_power:GetAuraRadius()
+  return 1200
+end
+
+function modifier_spark_power:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_spark_power:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER)
+end
+
+function modifier_spark_power:GetAuraEntityReject(hEntity)
+  local caster = self:GetCaster()
+  -- Dont provide the aura effect to allies that you can't control
+  if hEntity ~= caster then
+    if IsServer() then
+      if UnitVarToPlayerID(hEntity) ~= UnitVarToPlayerID(caster) then
+        return true
+      end
+    else
+      if hEntity.GetPlayerOwnerID then
+        if hEntity:GetPlayerOwnerID() ~= caster:GetPlayerOwnerID() then
+          return true
+        end
+      end
+    end
+  end
+
+  return false
+end
+
+function modifier_spark_power:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOOLTIP,
+  }
+end
+
 function modifier_spark_power:OnCreated()
   local parent = self:GetParent()
+
+  if parent:IsIllusion() then
+    return
+  end
+
   if IsServer() then
     -- Current damage values
     local base_damage_max = parent:GetBaseDamageMax()
@@ -53,11 +104,14 @@ function modifier_spark_power:OnCreated()
     local base_damage_level_1_min = base_damage_min - current_primary_stat_value + starting_primary_stat_value
     local starting_average_base_damage = (base_damage_level_1_max + base_damage_level_1_min)/2
 
-    -- Bonus damage formula
-    self.bonus_damage = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
-    self:SetStackCount(self.bonus_damage)
-    self:StartIntervalThink(1)
+    -- Bonus damage/block formula
+    local bonus = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
+    self:SetStackCount(bonus)
   end
+
+  parent.power_spark_bonus = self:GetStackCount()
+
+  self:StartIntervalThink(0.3)
 
   --[[
   -- Power Spark constants
@@ -108,19 +162,80 @@ function modifier_spark_power:OnIntervalThink()
     local base_damage_level_1_min = base_damage_min - current_primary_stat_value + starting_primary_stat_value
     local starting_average_base_damage = (base_damage_level_1_max + base_damage_level_1_min)/2
 
-    self.bonus_damage = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
-    self:SetStackCount(self.bonus_damage)
+    local bonus = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
+    self:SetStackCount(bonus)
   end
+
+  parent.power_spark_bonus = self:GetStackCount()
 end
 
-function modifier_spark_power:DeclareFunctions()
+function modifier_spark_power:OnTooltip()
+  return self:GetStackCount()
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_spark_power_effect = class(ModifierBaseClass)
+
+function modifier_spark_power_effect:IsHidden()
+  local caster = self:GetCaster() or self:GetAuraOwner()
+  local parent = self:GetParent()
+  if parent == caster then
+    return true
+  end
+  return false
+end
+
+function modifier_spark_power_effect:IsDebuff()
+  return false
+end
+
+function modifier_spark_power_effect:IsPurgable()
+  return false
+end
+
+function modifier_spark_power_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_TOOLTIP,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE,
+    MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_TOOLTIP,
+    MODIFIER_PROPERTY_TOOLTIP2,
   }
 end
 
-function modifier_spark_power:GetModifierProcAttack_BonusDamage_Pure(event)
+function modifier_spark_power_effect:OnCreated()
+  local caster = self:GetCaster() or self:GetAuraOwner()
+
+  self.bonus = self.bonus or 0
+
+  if not caster or caster:IsNull() then
+    return
+  end
+
+  if caster:IsIllusion() then
+    return
+  end
+
+  self.bonus = caster.power_spark_bonus
+end
+
+function modifier_spark_power_effect:OnRefresh()
+  local caster = self:GetCaster() or self:GetAuraOwner()
+
+  self.bonus = self.bonus or 0
+
+  if not caster or caster:IsNull() then
+    return
+  end
+
+  if caster:IsIllusion() then
+    return
+  end
+
+  self.bonus = caster.power_spark_bonus
+end
+
+function modifier_spark_power_effect:GetModifierProcAttack_BonusDamage_Pure(event)
   local parent = self:GetParent()
   local target = event.target
 
@@ -174,9 +289,9 @@ function modifier_spark_power:GetModifierProcAttack_BonusDamage_Pure(event)
     end
   end
   ]]
-  local damage = self.bonus_damage
-  if parent:IsIllusion() then
-    damage = damage/10
+  local damage = self.bonus
+  if parent:IsIllusion() or not parent:IsHero() then
+    damage = damage / 10
   end
   if damage > 0 then
     SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
@@ -185,6 +300,49 @@ function modifier_spark_power:GetModifierProcAttack_BonusDamage_Pure(event)
   return damage
 end
 
-function modifier_spark_power:OnTooltip()
-  return self:GetStackCount()
+function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
+  local parent = self:GetParent()
+  local attacker = keys.attacker
+
+  if not attacker or attacker:IsNull() then
+    return 0
+  end
+
+  if parent:IsRealHero() then
+    return 0
+  end
+
+  if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
+    local block = self.bonus
+    if not parent:IsHero() then
+      block = block / 2
+    end
+    if RandomInt(1, 100) <= 50 then
+      return block
+    end
+  end
+
+  return 0
+end
+
+function modifier_spark_power_effect:OnTooltip()
+  local parent = self:GetParent()
+  local damage = self.bonus
+  if parent:IsIllusion() or not parent:IsHero() then
+    damage = damage / 10
+  end
+  return damage
+end
+
+function modifier_spark_power_effect:OnTooltip2()
+  local parent = self:GetParent()
+  local block = self.bonus
+  if not parent:IsHero() then
+    block = block / 2
+  end
+  return block
+end
+
+function modifier_spark_power_effect:GetTexture()
+  return "custom/spark_power"
 end
