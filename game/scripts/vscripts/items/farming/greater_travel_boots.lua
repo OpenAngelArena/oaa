@@ -171,6 +171,7 @@ function modifier_item_greater_travel_boots_unique_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
+    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
   end
   if IsServer() then
     self:StartIntervalThink(0)
@@ -181,6 +182,7 @@ function modifier_item_greater_travel_boots_unique_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
+    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
   end
 end
 
@@ -195,6 +197,7 @@ end
 function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
   }
 
   return funcs
@@ -203,6 +206,14 @@ end
 function modifier_item_greater_travel_boots_unique_passive:GetModifierBaseDamageOutgoing_Percentage()
   if self:GetStackCount() == 1 then
     return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage_during_duels")
+  end
+
+  return 0
+end
+
+function modifier_item_greater_travel_boots_unique_passive:GetModifierSpellAmplify_Percentage()
+  if self:GetStackCount() == 1 then
+    return self.spell_amp or self:GetAbility():GetSpecialValueFor("bonus_spell_amp_during_duels")
   end
 
   return 0
