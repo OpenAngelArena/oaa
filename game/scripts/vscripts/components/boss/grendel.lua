@@ -68,12 +68,60 @@ function Grendel:SpawnGrendel()
     end
   end)
 
+  --bossHandle:OnHurt(function (keys)
+    --bossHandle:MakeVisibleToTeam(DOTA_TEAM_GOODGUYS, 5)
+    --bossHandle:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, 5)
+  --end)
+
   -- reward handling
   bossHandle:OnDeath(function (keys)
     self.nextSpawn = HudTimer:GetGameTime() + self.respawn_time
 
     if self.spawn_counter <= 2 then
       HudTimer:At(self.nextSpawn, partial(Grendel.SpawnGrendel, Grendel))
+    end
+
+    local xp_reward = 3000 * self.spawn_counter
+    local attacker_index = keys.entindex_attacker
+    local killer
+    if attacker_index then
+      killer = EntIndexToHScript(attacker_index)
+    end
+    if killer then
+      local allied_team = killer:GetTeamNumber()
+      -- If boss died to self damage somehow
+      if allied_team == DOTA_TEAM_NEUTRALS then
+        local boss_enemies = FindUnitsInRadius(
+          allied_team,
+          bossHandle:GetAbsOrigin(),
+          nil,
+          1600,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_HERO,
+          bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+          FIND_CLOSEST,
+          false
+        )
+        local closest_hero
+        if #boss_enemies ~= 0 then
+          closest_hero = boss_enemies[1]
+        end
+        if closest_hero then
+          allied_team = closest_hero:GetTeamNumber()
+        end
+      end
+
+      local allied_player_ids = PlayerResource:GetPlayerIDsForTeam(allied_team)
+
+      -- Give xp to every hero on the killing team
+      allied_player_ids:each(function (playerid)
+        local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+
+        if hero and xp_reward > 0 then
+          hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
+          SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_XP, hero, xp_reward, nil)
+        end
+      end)
     end
 
     -- Increase the score limit

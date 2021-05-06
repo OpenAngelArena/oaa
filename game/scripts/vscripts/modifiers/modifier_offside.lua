@@ -4,7 +4,6 @@ LinkLuaModifier('modifier_onside_buff', 'modifiers/modifier_onside_buff.lua', LU
 
 modifier_is_in_offside = class(ModifierBaseClass)
 modifier_offside = class(ModifierBaseClass)
-modifier_onside_buff = class(ModifierBaseClass)
 
 local TICKS_PER_SECOND = 5
 
@@ -126,7 +125,14 @@ function modifier_offside:OnIntervalThink()
     return
   end
 
-  local isInOffside = self:GetParent():HasModifier("modifier_is_in_offside")
+  local parent = self:GetParent()
+  local team = parent:GetTeamNumber()
+
+  if (team == DOTA_TEAM_GOODGUYS and Wanderer.dire_offside_disabled == true) or (team == DOTA_TEAM_BADGUYS and Wanderer.radiant_offside_disabled == true) then
+    return
+  end
+
+  local isInOffside = parent:HasModifier("modifier_is_in_offside")
 
   if not self.stackOffset then
     self.stackOffset = 1
@@ -143,9 +149,8 @@ function modifier_offside:OnIntervalThink()
     self.stackOffset = 0
   end
 
-
   local playerHero = self:GetCaster()
-  local h = self:GetParent():GetMaxHealth()
+  local h = parent:GetMaxHealth()
   local stackCount = self:GetStackCount()
 
   self:DrawParticles()
@@ -157,9 +162,7 @@ function modifier_offside:OnIntervalThink()
     return
   end
 
-
-  local location = self:GetParent():GetAbsOrigin()
-  local team = self:GetParent():GetTeamNumber()
+  local location = parent:GetAbsOrigin()
   local defenders = FindUnitsInRadius(
     team,
     location,
@@ -182,7 +185,7 @@ function modifier_offside:OnIntervalThink()
   end
 
   local damageTable = {
-    victim = self:GetParent(),
+    victim = parent,
     attacker = defenders,
     damage = (h * ((0.15 * ((stackCount - 10)^2 + 10 * (stackCount - 10)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
@@ -194,4 +197,3 @@ function modifier_offside:OnIntervalThink()
     return ApplyDamage(damageTable)
   end
 end
-

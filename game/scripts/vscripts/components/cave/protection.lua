@@ -85,7 +85,7 @@ function ProtectionAura:IsInSpecificZone(teamID, roomID, entity)
 end
 
 function ProtectionAura:StartTouchGood(event)
-  if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS then
+  if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS and not Wanderer.radiant_offside_disabled then
     if not event.activator:HasModifier("modifier_is_in_offside") then
       return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
     end
@@ -99,7 +99,7 @@ function ProtectionAura:EndTouchGood(event)
 end
 
 function ProtectionAura:StartTouchBad(event)
-  if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS then
+  if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS and not Wanderer.dire_offside_disabled then
     if not event.activator:HasModifier("modifier_is_in_offside") then
       return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
     end
