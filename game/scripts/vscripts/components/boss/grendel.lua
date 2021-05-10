@@ -10,8 +10,11 @@ function Grendel:Init()
   local spawn_time = 12 * 60
   HudTimer:At(spawn_time, partial(Grendel.SpawnGrendel, Grendel))
   ChatCommand:LinkDevCommand("-spawngrendel", Dynamic_Wrap(self, 'SpawnGrendel'), self)
+  self.level = 0
   self.nextSpawn = spawn_time
   self.respawn_time = 5 * 60
+  self.respawned = false
+  self.xp_reward_per_hero = 3000
   self.initialized = true
 end
 
@@ -20,12 +23,18 @@ function Grendel:GetState()
   return {
     level = self.level,
     nextSpawn = self.nextSpawn,
+    respawn_time = self.respawn_time,
+    respawned = self.respawned,
+    xp_reward_per_hero = self.xp_reward_per_hero,
     isAlive = isAlive
   }
 end
 
 function Grendel:LoadState(state)
   self.level = state.level
+  self.respawn_time = state.respawn_time
+  self.respawned = state.respawned
+  self.xp_reward_per_hero = state.xp_reward_per_hero
   if state.isAlive then
     self:SpawnGrendel()
   else
@@ -45,11 +54,9 @@ function Grendel:SpawnGrendel()
     self.grendel = nil
   end
 
-  if not self.spawn_counter then
-    self.spawn_counter = 0
-  end
+  self.level = self.level + 1
 
-  if self.spawn_counter > 2 then
+  if self.level > 2 then
     return
   end
 
@@ -57,8 +64,6 @@ function Grendel:SpawnGrendel()
   local bossHandle = CreateUnitByName("npc_dota_boss_grendel", location, true, nil, nil, DOTA_TEAM_NEUTRALS)
   bossHandle.BossTier = 2
   self.grendel = bossHandle
-
-  self.spawn_counter = self.spawn_counter + 1
 
   -- Give everyone vision over Grendel
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
@@ -75,13 +80,14 @@ function Grendel:SpawnGrendel()
 
   -- reward handling
   bossHandle:OnDeath(function (keys)
-    self.nextSpawn = HudTimer:GetGameTime() + self.respawn_time
+    Grendel.nextSpawn = HudTimer:GetGameTime() + Grendel.respawn_time
 
-    if self.spawn_counter <= 2 then
-      HudTimer:At(self.nextSpawn, partial(Grendel.SpawnGrendel, Grendel))
+    if not Grendel.respawned then
+      Grendel.respawned = true
+      HudTimer:At(Grendel.nextSpawn, partial(Grendel.SpawnGrendel, Grendel))
     end
 
-    local xp_reward = 3000 * self.spawn_counter
+    local xp_reward = Grendel.xp_reward_per_hero * Grendel.level
     local attacker_index = keys.entindex_attacker
     local killer
     if attacker_index then

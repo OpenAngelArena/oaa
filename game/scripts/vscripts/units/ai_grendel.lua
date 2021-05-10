@@ -50,8 +50,8 @@ function GrendelThink ()
     end
   end
 
-  -- Aggroed if its health is below 98%
-  local shouldAggro = hpPercent < 0.98
+  -- Aggroed if its health is below 95%
+  local shouldAggro = hpPercent < 0.95
 
   -- Check if it is aggroed but it shouldn't be aggroed
   if thisEntity.isAggro and not shouldAggro then
@@ -99,9 +99,7 @@ function GrendelThink ()
   end
 
   if not thisEntity.isAggro then
-    -- less going on so we do non-aggro case first....
-    -- don't degen if we're not aggrod yet
-    thisEntity:RemoveModifierByName("modifier_boss_regen_degen")
+    --thisEntity:RemoveModifierByName("modifier_boss_regen_degen")
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
   else

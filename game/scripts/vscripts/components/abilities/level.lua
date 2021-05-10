@@ -67,13 +67,17 @@ function AbilityLevels:CheckAbilityLevels (keys)
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
     local talent = hero:FindAbilityByName(leveled_up_ability)
-    if string.find(leveled_up_ability, "special_bonus_") or talent:IsAttributeBonus() then
+    if string.find(leveled_up_ability, "special_bonus_") and talent:IsAttributeBonus() then
       -- Ability is a talent
 
-      -- Check for hero level and if talent is really taken
-      if level >= 27 and talent:GetLevel() == 0 then
+      -- Check for hero level
+      if level >= 27 then
         -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
-        hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+        if talent:GetLevel() == 0 or ((talent:GetLevel() == 1) and talent.granted_with_oaa_scepter) then
+          -- Talent wasn't learned or was granted by Aghanim Scepter
+          -- dota_player_learned_ability event doesn't happen for abilities that are lvled with Lua: ability:SetLevel(level)
+          hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+        end
       end
     end
   end
@@ -150,6 +154,7 @@ function AbilityLevels:SetTalents(hero)
     if claim then
       if leftLevel == 0 then
         leftAbility:SetLevel(1)
+        leftAbility.granted_with_oaa_scepter = true
         -- Check if this talent is on problematic list, add modifier if true
         for i = 1, #problematic_talents do
           local talent = problematic_talents[i]
@@ -166,6 +171,7 @@ function AbilityLevels:SetTalents(hero)
       end
       if rightLevel == 0 then
         rightAbility:SetLevel(1)
+        rightAbility.granted_with_oaa_scepter = true
         -- Check if this talent is on problematic list, add modifier if true
         for i = 1, #problematic_talents do
           local talent = problematic_talents[i]
@@ -185,11 +191,13 @@ function AbilityLevels:SetTalents(hero)
       if hero['talentChoice' .. level] == 'left' then
         if rightLevel ~= 0 then
           rightAbility:SetLevel(0)
+          rightAbility.granted_with_oaa_scepter = nil
           hero:RemoveModifierByName(AbilityLevels:GetTalentModifier(rightAbility:GetName()))
         end
       else
         if leftLevel ~= 0 then
           leftAbility:SetLevel(0)
+          leftAbility.granted_with_oaa_scepter = nil
           hero:RemoveModifierByName(AbilityLevels:GetTalentModifier(leftAbility:GetName()))
         end
       end
