@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 12 12"
+    "AbilityCooldown"                                     "14" //OAA // Calculated with values: 3.75s max stun duration (no talent), shard 3s delay, shard -3s cd;
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.75 2.25 2.75 3.25 3.75 4.25"
+        "stun_duration"                                   "1.75 2.25 2.75 3.25 3.5 3.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_6"
       }
       "03"
