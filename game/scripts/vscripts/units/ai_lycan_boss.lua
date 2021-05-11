@@ -42,12 +42,13 @@ function LycanBossThink()
     thisEntity:GetOrigin(), nil,
     thisEntity:GetCurrentVisionRange(),
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
     FIND_CLOSEST,
-    false )
+    false
+  )
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+  local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
 	--Agro
@@ -76,12 +77,12 @@ function LycanBossThink()
 
 	thisEntity.bShapeshift = thisEntity:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
 	if thisEntity.bShapeshift then
-		if thisEntity.hClawLungeAbility ~= nil and thisEntity.hClawLungeAbility:IsFullyCastable() then
+		if thisEntity.hClawLungeAbility ~= nil and thisEntity.hClawLungeAbility:IsFullyCastable() and thisEntity.hClawLungeAbility:IsOwnersManaEnough() and not thisEntity:IsRooted() then
 			return CastClawLunge( hEnemies[ RandomInt( 1, #hEnemies ) ] )
 		end
 	else
 		if thisEntity:GetHealthPercent() < 50 then
-			if thisEntity.hShapeshiftAbility:IsFullyCastable() then
+			if thisEntity.hShapeshiftAbility:IsFullyCastable() and thisEntity.hShapeshiftAbility:IsOwnersManaEnough() then
 				return CastShapeshift()
 			end
 		end
@@ -96,7 +97,7 @@ function LycanBossThink()
 
 	-- Have we hit our minion limit?
 	if #thisEntity.LYCAN_BOSS_SUMMONED_UNITS < thisEntity.LYCAN_BOSS_MAX_SUMMONS then
-		if thisEntity.hSummonWolvesAbility ~= nil and thisEntity.hSummonWolvesAbility:IsFullyCastable() then
+		if thisEntity.hSummonWolvesAbility ~= nil and thisEntity.hSummonWolvesAbility:IsFullyCastable() and thisEntity.hSummonWolvesAbility:IsOwnersManaEnough() then
 			return CastSummonWolves()
 		end
 	end

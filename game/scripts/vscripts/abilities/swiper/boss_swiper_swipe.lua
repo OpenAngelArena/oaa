@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_swiper_anti_stun", "abilities/swiper/boss_swiper_swipe.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 
     local delay = self:GetSpecialValueFor("delay") or self:GetCastPoint()
 
-    caster:AddNewModifier(caster, self, "modifier_boss_swiper_anti_stun", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
 
     local position2 = caster_loc + (caster:GetForwardVector() * range)
     local position1 = RotatePosition(caster_loc, QAngle(0, 45, 0), position2)
@@ -140,40 +140,6 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_backswipe_base:OnSpellStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
-	end
-end
-
-------------------------------------------------------------------------------------
-
-modifier_boss_swiper_anti_stun = class(ModifierBaseClass)
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_swiper_anti_stun:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
-end
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_swiper_anti_stun:IsPurgable()
-	return false
-end
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_swiper_anti_stun:CheckState()
-  local state = {
-    [MODIFIER_STATE_HEXED] = false,
-    [MODIFIER_STATE_ROOTED] = false,
-    [MODIFIER_STATE_SILENCED] = false,
-    [MODIFIER_STATE_STUNNED] = false,
-    [MODIFIER_STATE_FROZEN] = false,
-    [MODIFIER_STATE_FEARED] = false,
-    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-  }
-
-  return state
+  local caster = self:GetCaster()
+  local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
 end

@@ -37,18 +37,9 @@ function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   end
 
   local inflictor = keys.inflictor
-  if inflictor and IsServer() then
-    local damagingByAccident = {
-      item_radiance = true,
-      item_radiance_2 = true,
-      item_radiance_3 = true,
-      item_radiance_4 = true,
-      item_radiance_5 = true,
-      item_cloak_of_flames = true,
-    }
-    local name = inflictor:GetAbilityName()
-    -- Block damage if it was accidental, we check this by checking boss hp percentage
-    if damagingByAccident[name] and parent:GetHealth()/parent:GetMaxHealth() > 90/100 then
+  if IsServer() then
+    if parent:CheckForAccidentalDamage(inflictor) then
+      -- Block all damage if it was accidental
       return keys.damage
     end
   end
@@ -79,7 +70,7 @@ if IsServer() then
       local base_armor = parent:GetPhysicalArmorBaseValue()
       local current_armor = parent:GetPhysicalArmorValue(false)
       self.checkArmor = false
-      local min_armor = base_armor - 20
+      local min_armor = base_armor - 25
       if current_armor < min_armor then
         return min_armor - current_armor
       end

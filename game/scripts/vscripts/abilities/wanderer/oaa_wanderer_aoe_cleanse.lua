@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 wanderer_aoe_cleanse = class(AbilityBaseClass)
 
 function wanderer_aoe_cleanse:Precache(context)
@@ -10,6 +12,10 @@ function wanderer_aoe_cleanse:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
     local radius = self:GetSpecialValueFor("radius")
+    local delay = self:GetCastPoint()
+
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+
     self.nPreviewFX = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true)
     ParticleManager:SetParticleControl(self.nPreviewFX, 1, Vector(radius, radius, radius))
@@ -72,7 +78,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
     caster:GetTeamNumber(),
     caster_location,
     nil,
-    2*radius,
+    radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_OTHER,
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
@@ -99,6 +105,8 @@ function wanderer_aoe_cleanse:OnSpellStart()
       damage_table.damage = damage + enemy:GetMaxHealth() * hp_percent * 0.01
       -- Apply Damage
       ApplyDamage(damage_table)
+      -- Hit them with normal attack
+      caster:PerformAttack(enemy, false, true, true, false, false, false, true)
     end
   end
 
@@ -107,7 +115,8 @@ function wanderer_aoe_cleanse:OnSpellStart()
     if ward and not ward:IsNull() then
       if ward.HasModifier and ward.IsInvulnerable then
         if not ward:HasModifier("modifier_item_buff_ward") and not ward:IsInvulnerable() then
-          ward:Kill(self, caster)
+          --ward:Kill(self, caster)
+          caster:PerformAttack(ward, false, true, true, false, false, false, true)
         end
       end
     end

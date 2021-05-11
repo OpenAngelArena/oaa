@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_boss_slime_shake_slow", "abilities/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_slime_anti_stun", "abilities/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ end
 
 function boss_slime_shake:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	caster:AddNewModifier(caster, self, "modifier_boss_slime_anti_stun", {duration = self:GetCastPoint() + self:GetChannelTime()})
+	caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = self:GetCastPoint() + self:GetChannelTime()})
 	return true
 end
 
@@ -174,36 +174,4 @@ end
 function modifier_boss_slime_shake_slow:GetModifierMoveSpeedBonus_Percentage()
 	if not self:GetAbility() then return end
 	return self:GetAbility():GetSpecialValueFor("slow")
-end
-
-------------------------------------------------------------------------------------
-
-modifier_boss_slime_anti_stun = class(ModifierBaseClass)
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_slime_anti_stun:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
-end
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_slime_anti_stun:IsPurgable()
-	return false
-end
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_slime_anti_stun:CheckState()
-  local state = {
-    [MODIFIER_STATE_HEXED] = false,
-    [MODIFIER_STATE_ROOTED] = false,
-    [MODIFIER_STATE_SILENCED] = false,
-    [MODIFIER_STATE_STUNNED] = false,
-    [MODIFIER_STATE_FROZEN] = false,
-    [MODIFIER_STATE_FEARED] = false,
-    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-  }
-
-  return state
 end
