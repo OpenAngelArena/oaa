@@ -63,6 +63,10 @@ end
 function modifier_duel_rune_hill:OnIntervalThink()
   local unit = self:GetCaster() or self:GetParent()
 
+  if not IsServer() then
+    return
+  end
+
   if unit:IsClone() or unit:IsTempestDouble() then
     return
   end

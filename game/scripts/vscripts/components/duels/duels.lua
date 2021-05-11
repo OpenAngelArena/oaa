@@ -463,6 +463,10 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
     goodPlayerIndex = playerSplit.GoodPlayerIndex
   }
 
+  Timers:CreateTimer(2, function()
+    GridNav:RegrowAllTrees()
+  end)
+
   DebugPrint("Duel Info")
   DebugPrintTable(self.currentDuel)
 

@@ -73,7 +73,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
       -- Check for hero level
       if level >= 27 then
         -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
-        if talent:GetLevel() == 0 or ((talent:GetLevel() == 1) and talent.granted_with_oaa_scepter) then
+        if talent:GetLevel() == 0 or talent.granted_with_oaa_scepter then
           -- Talent wasn't learned or was granted by Aghanim Scepter
           -- dota_player_learned_ability event doesn't happen for abilities that are lvled with Lua: ability:SetLevel(level)
           hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
