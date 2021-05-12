@@ -56,7 +56,7 @@ function OgreSeerThink()
   if thisEntity.hOgreBoss then
     agro_center = thisEntity.hOgreBoss.vInitialSpawnPos
   end
-  local enemies = FindUnitsInRadius( 
+  local enemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
     agro_center,
     nil,

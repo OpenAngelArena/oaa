@@ -39,7 +39,7 @@ function LycanBossThink()
 
   local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-  
+
   if hasDamageThreshold then
     if not thisEntity.bHasAgro then
       DebugPrint("Lycan Boss Agro")
@@ -112,7 +112,7 @@ function LycanBossThink()
       return CastSummonWolves()
     end
   end
-  
+
   local function FindNearestValidUnit(entity, unit_group)
     for i = 1, #unit_group do
       local enemy = unit_group[i]
@@ -130,7 +130,7 @@ function LycanBossThink()
   else
     valid_enemy = hEnemies[RandomInt(1, #hEnemies)]
   end
-  
+
   if not valid_enemy then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
@@ -232,7 +232,7 @@ function CastShapeshift()
 end
 
 function CastRuptureBall( unit )
-  if unit and not unit:IsNull() then	
+  if unit and not unit:IsNull() then
     ExecuteOrderFromTable({
       UnitIndex = thisEntity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
