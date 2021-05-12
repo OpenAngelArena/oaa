@@ -32,7 +32,7 @@ function DireHoundBossThink()
     return 1
 	end
 
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	if #enemies == 0 then
 		return 1
 	end
@@ -83,7 +83,6 @@ function Attack(unit)
 	return 1
 end
 
-
 function Approach(unit)
 	thisEntity.bMoving = true
 
@@ -97,8 +96,6 @@ function Approach(unit)
 	})
 	return 1
 end
-
-
 
 function Retreat(unit)
 	thisEntity.bMoving = true
@@ -114,3 +111,11 @@ function Retreat(unit)
 	return 1.25
 end
 
+function RetreatHome()
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos
+  })
+  return 6
+end

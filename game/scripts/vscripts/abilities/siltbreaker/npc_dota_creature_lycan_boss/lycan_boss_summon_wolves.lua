@@ -115,9 +115,14 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_summon_wolves:GetCooldown( iLevel )
-	local fReducedCD = self.BaseClass.GetCooldown( self, self:GetLevel() ) - ( self:GetCaster().nCAST_SUMMON_WOLVES_COUNT * 3 )
-	local fMinCD = ( self.BaseClass.GetCooldown( self, self:GetLevel() ) / 2 ) + 5
-	local fNewCD = math.max( fMinCD, fReducedCD )
+  local caster = self:GetCaster()
+  local baseCD = self.BaseClass.GetCooldown(self, self:GetLevel())
+  local fReducedCD = baseCD - 3
+  if caster.nCAST_SUMMON_WOLVES_COUNT then
+    fReducedCD = baseCD - caster.nCAST_SUMMON_WOLVES_COUNT * 3
+  end
+  local fMinCD = baseCD/2 + 5
+  local fNewCD = math.max(fMinCD, fReducedCD)
 
-	return fNewCD
+  return fNewCD
 end

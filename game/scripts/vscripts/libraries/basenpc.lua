@@ -191,7 +191,6 @@ if IsServer() then
 
   function CDOTA_BaseNPC:CheckForAccidentalDamage(ability)
     if not ability or ability:IsNull() then
-      print("Ability is nil in CheckForAccidentalDamage")
       return nil
     end
 
