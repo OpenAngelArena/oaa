@@ -48,12 +48,13 @@ CreepTypes = {
    -- 4 "ancient camp"
   {
     {                                               --HP  MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_granite_golem",           1275,    0,  50,    2,   100,  75}, -- expected gold is 200 and XP is 151
-      {"npc_dota_neutral_rock_golem",              680,     0,  40,    1,    50,  38},
-      {"npc_dota_neutral_rock_golem",              680,     0,  40,    1,    50,  38}
+      {"npc_dota_neutral_granite_golem",           1275,    0,  50,    2,   120,  140} -- expected gold is 120 and XP is 140
+    },
+	{
+      {"npc_dota_neutral_rock_golem",              1200,    0,  40,    1,    50,  140}
     },
     {
-      {"npc_dota_neutral_black_dragon",            1275,  500,  80,    3,   200, 151}
+      {"npc_dota_neutral_black_dragon",            1275,  500,  80,    3,   120, 140}
     }
   },
    -- 5 "solo ancient corner camp"
