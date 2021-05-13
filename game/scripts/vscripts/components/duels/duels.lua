@@ -13,6 +13,7 @@ local zoneNames = {
   "duel_3",
   "duel_4",
   "duel_5",
+  "duel_6",
 }
 
 local DuelPreparingEvent = Event()
