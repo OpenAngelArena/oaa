@@ -59,10 +59,10 @@ function DuelRunes:StartTouch(event)
 ]]
   local modifier
   local activator = event.activator
-  if not activator:IsClone() and not activator:IsTempestDouble() then
+  if not activator:IsClone() and not activator:IsTempestDouble() and Duels:IsActive() and (not activator:HasModifier("modifier_out_of_duel")) then
     modifier = activator:AddNewModifier(activator, nil, "modifier_duel_rune_hill", {})
   end
-  -- No idea how this can be nil if the previous line doesn't have an error, but it happens for some reason
+
   if modifier then
     modifier.zone = event.caller
   end
