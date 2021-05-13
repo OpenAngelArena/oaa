@@ -13,6 +13,7 @@ local zoneNames = {
   "duel_3",
   "duel_4",
   "duel_5",
+  "duel_6",
 }
 
 local DuelPreparingEvent = Event()
@@ -392,7 +393,7 @@ function Duels:ActuallyStartDuel(options)
   DebugPrint("Duel Player Split")
   DebugPrint(split.PlayerSplitOffset)
 
-  local bigArenaIndex = RandomInt(3, 5)
+  local bigArenaIndex = RandomInt(3, 6)
   local smallArenaIndex = RandomInt(1, 2)
 
   local gamemode = GameRules:GetGameModeEntity()
