@@ -34,7 +34,7 @@ function modifier_spark_midas:OnCreated()
   self.max_charges = 200
   self.charges_needed_for_kill = 100
   self.bonus_gold = {375, 750, 1500, 3000, 4500, 7500, 15000} -- gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000} * 3/4
-  self.bonus_xp = 100
+  self.bonus_xp = 125
 end
 
 if IsServer() then
