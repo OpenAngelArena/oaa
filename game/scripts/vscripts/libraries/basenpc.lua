@@ -188,6 +188,33 @@ if IsServer() then
 
     self:Purge(true, true, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
   end
+
+  function CDOTA_BaseNPC:CheckForAccidentalDamage(ability)
+    if not ability or ability:IsNull() then
+      return nil
+    end
+
+    if ability.GetAbilityName then
+      local damagingByAccident = {
+        item_radiance = true,
+        item_radiance_2 = true,
+        item_radiance_3 = true,
+        item_radiance_4 = true,
+        item_radiance_5 = true,
+        item_cloak_of_flames = true,
+        mirana_starfall = true,
+        wisp_spirits = true,
+      }
+      local name = ability:GetAbilityName()
+      local hp = self:GetHealth()
+      local max_hp = self:GetMaxHealth()
+      if damagingByAccident[name] and hp/max_hp > 96/100 then
+        return true
+      end
+    end
+
+    return false
+  end
 end
 
 -- On Server:

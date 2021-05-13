@@ -111,7 +111,7 @@ end
 if IsServer() then
   function modifier_boss_regen:OnTakeDamage( event )
     local parent = self:GetParent()
-    local damage_threshold = BOSS_AGRO_FACTOR or 20
+    local damage_threshold = BOSS_AGRO_FACTOR or 15
 
     if event.unit ~= parent then
       return
@@ -134,20 +134,9 @@ if IsServer() then
     local spell = self:GetAbility()
 
     local inflictor = event.inflictor
-    if inflictor then
-      local damagingByAccident = {
-        item_radiance = true,
-        item_radiance_2 = true,
-        item_radiance_3 = true,
-        item_radiance_4 = true,
-        item_radiance_5 = true,
-        item_cloak_of_flames = true,
-      }
-      local name = inflictor:GetAbilityName()
-      -- Don't react to damage if it was accidental, we check this by checking boss hp percentage
-      if damagingByAccident[name] and parent:GetHealth()/parent:GetMaxHealth() > 90/100 then
-        return
-      end
+    if parent:CheckForAccidentalDamage(inflictor) then
+      -- Don't react to damage if it was accidental
+      return
     end
 
     -- Don't trigger bleeding when damage is below min aggro dmg (tier * BOSS_AGRO_FACTOR)

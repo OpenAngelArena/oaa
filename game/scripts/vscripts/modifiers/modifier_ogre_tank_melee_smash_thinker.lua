@@ -53,16 +53,19 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 
           ApplyDamage(damageInfo)
           if not enemy:IsAlive() then
-            local critParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
-            ParticleManager:SetParticleControlEnt(critParticle, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true)
-            ParticleManager:SetParticleControl(critParticle, 1, enemy:GetOrigin())
-            ParticleManager:SetParticleControlForward(critParticle, 1, -caster:GetForwardVector())
-            ParticleManager:SetParticleControlEnt(critParticle, 10, enemy, PATTACH_ABSORIGIN_FOLLOW, nil, enemy:GetOrigin(), true)
+            local critParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+            ParticleManager:SetParticleControlEnt(critParticle, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+            ParticleManager:SetParticleControl(critParticle, 1, enemy:GetAbsOrigin())
+            ParticleManager:SetParticleControlOrientation(critParticle, 1, -caster:GetForwardVector(), caster:GetRightVector(), caster:GetUpVector())
+            --ParticleManager:SetParticleControlForward(critParticle, 1, -caster:GetForwardVector())
+            --ParticleManager:SetParticleControlEnt(critParticle, 10, enemy, PATTACH_ABSORIGIN_FOLLOW, nil, enemy:GetOrigin(), true)
             ParticleManager:ReleaseParticleIndex(critParticle)
 
             caster:EmitSound("Dungeon.BloodSplatterImpact")
           else
-            enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = self.stun_duration})
+            if not enemy:IsMagicImmune() then
+              enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = self.stun_duration})
+            end
           end
         end
       end

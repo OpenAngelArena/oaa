@@ -35,7 +35,7 @@ function boss_swiper_reapers_rush:OnAbilityPhaseStart()
     ParticleManager:SetParticleControl(indicator, 1, Vector(width, width, width))
     ParticleManager:SetParticleControl(indicator, 15, Vector(255, 26, 26))
 
-	self.indicator = indicator
+    self.indicator = indicator
 
     --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
     --DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)

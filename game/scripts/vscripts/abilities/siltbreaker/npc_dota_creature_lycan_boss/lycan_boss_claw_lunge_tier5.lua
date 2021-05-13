@@ -21,55 +21,61 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge_tier5:OnAbilityPhaseInterrupted()
-	if IsServer() then
-		self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
-		ParticleManager:DestroyParticle( self.nPreviewFX, false )
-	end
+  if IsServer() then
+    self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
+    if self.nPreviewFX then
+      ParticleManager:DestroyParticle(self.nPreviewFX, false)
+      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+      self.nPreviewFX = nil
+    end
+  end
 end
 
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge_tier5:OnSpellStart()
-  if IsServer() then
-    local caster = self:GetCaster()
-    ParticleManager:DestroyParticle( self.nPreviewFX, true )
-    caster:RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
-
-    self.lunge_speed = self:GetSpecialValueFor( "lunge_speed" )
-    self.lunge_width = self:GetSpecialValueFor( "lunge_width" )
-    self.lunge_distance = self:GetSpecialValueFor( "lunge_distance" )
-    self.lunge_damage = self:GetSpecialValueFor( "lunge_damage" )
-
-    local vPos = nil
-    if self:GetCursorTarget() then
-      vPos = self:GetCursorTarget():GetOrigin()
-    else
-      vPos = self:GetCursorPosition()
-    end
-
-    local vDirection = vPos - caster:GetOrigin()
-    vDirection.z = 0.0
-    vDirection = vDirection:Normalized()
-
-    self.vProjectileLocation = caster:GetOrigin() -- + ( vDirection * 100 )
-
-    local info = {
-      EffectName = "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf",
-      Ability = self,
-      vSpawnOrigin = self.vProjectileLocation,
-      fStartRadius = self.lunge_width,
-      fEndRadius = self.lunge_width,
-      vVelocity = vDirection * self.lunge_speed,
-      fDistance = self.lunge_distance,
-      Source = caster,
-      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-      iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_BUILDING),
-    }
-
-    ProjectileManager:CreateLinearProjectile( info )
-
-    caster:AddNewModifier( caster, self, "modifier_lycan_boss_claw_lunge", {} )
+  local caster = self:GetCaster()
+  if self.nPreviewFX then
+    ParticleManager:DestroyParticle(self.nPreviewFX, true)
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
   end
+  caster:RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
+
+  self.lunge_speed = self:GetSpecialValueFor( "lunge_speed" )
+  self.lunge_width = self:GetSpecialValueFor( "lunge_width" )
+  self.lunge_distance = self:GetSpecialValueFor( "lunge_distance" )
+  self.lunge_damage = self:GetSpecialValueFor( "lunge_damage" )
+
+  local vPos = nil
+  if self:GetCursorTarget() then
+    vPos = self:GetCursorTarget():GetOrigin()
+  else
+    vPos = self:GetCursorPosition()
+  end
+
+  local vDirection = vPos - caster:GetOrigin()
+  vDirection.z = 0.0
+  vDirection = vDirection:Normalized()
+
+  self.vProjectileLocation = caster:GetOrigin() -- + ( vDirection * 100 )
+
+  local info = {
+    EffectName = "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf",
+    Ability = self,
+    vSpawnOrigin = self.vProjectileLocation,
+    fStartRadius = self.lunge_width,
+    fEndRadius = self.lunge_width,
+    vVelocity = vDirection * self.lunge_speed,
+    fDistance = self.lunge_distance,
+    Source = caster,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+    iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_BUILDING),
+  }
+
+  ProjectileManager:CreateLinearProjectile( info )
+
+  caster:AddNewModifier( caster, self, "modifier_lycan_boss_claw_lunge", {} )
 end
 
 --------------------------------------------------------------------------------
@@ -106,5 +112,3 @@ function lycan_boss_claw_lunge_tier5:OnProjectileThink( vLocation )
 		self.vProjectileLocation = vLocation
 	end
 end
-
---------------------------------------------------------------------------------
