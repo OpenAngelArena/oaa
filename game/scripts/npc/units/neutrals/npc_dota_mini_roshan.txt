@@ -4,13 +4,13 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
     "SoundSet"                                            "Roshan"        // Name of sound set.
     "ModelScale"                                          "0.25"
     "Level"                                               "30"
     "IsAncient"                                           "1"
-    "ConsideredHero"                                      "1"
+    "ConsideredHero"                                      "0"
 
     // Abilities
     //----------------------------------------------------------------
