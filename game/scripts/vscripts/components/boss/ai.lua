@@ -113,8 +113,8 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
     elseif not self.hasSecondBoss[team] then
       self.hasSecondBoss[team] = true
 
-      BossSpawner[team .. "Zone1"].disable()
-      BossSpawner[team .. "Zone2"].disable()
+      --BossSpawner[team .. "Zone1"].disable()
+      --BossSpawner[team .. "Zone2"].disable()
     end
   elseif tier == 2 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
