@@ -43,19 +43,22 @@ function modifier_item_preemptive_damage_reduction:IsPurgable()
 end
 
 function modifier_item_preemptive_damage_reduction:OnCreated()
+  self.damageheal = 50
+  self.damageReduction = 100
+  self.endHeal = 0
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.damageheal = ability:GetSpecialValueFor("damage_as_healing") / 100
-    self.damageReduction = ability:GetSpecialValueFor( "damage_reduction" )
+    self.damageheal = ability:GetSpecialValueFor("damage_as_healing")
+    self.damageReduction = ability:GetSpecialValueFor("damage_reduction")
   end
-  self.endHeal = 0
 end
 
 function modifier_item_preemptive_damage_reduction:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.damageheal = ability:GetSpecialValueFor("damage_as_healing") / 100
-    self.damageReduction = ability:GetSpecialValueFor( "damage_reduction" )
+    self.damageheal = ability:GetSpecialValueFor("damage_as_healing")
+    self.damageReduction = ability:GetSpecialValueFor("damage_reduction")
   end
 end
 
@@ -72,12 +75,13 @@ end
 
 function modifier_item_preemptive_damage_reduction:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    --MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_PROPERTY_MODEL_SCALE
   }
 end
 
-function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Percentage (event)
+--function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Percentage(event)
   --[[
     % reduction!
     process_procs: true
@@ -106,9 +110,22 @@ function modifier_item_preemptive_damage_reduction:GetModifierIncomingDamage_Per
     fail_type: 0
   ]]
 
-  self.endHeal = self.endHeal + event.original_damage * self.damageheal
+  --self.endHeal = self.endHeal + event.original_damage * self.damageheal / 100
 
-  return self.damageReduction * -1
+  --return self.damageReduction * -1
+--end
+
+function modifier_item_preemptive_damage_reduction:GetModifierTotal_ConstantBlock(keys)
+  local parent = self:GetParent()
+  local damage = keys.damage
+
+  self.endHeal = self.endHeal + damage * self.damageheal / 100
+
+  local block_amount = damage * self.damageReduction / 100
+
+  SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
+
+  return block_amount
 end
 
 function modifier_item_preemptive_damage_reduction:GetModifierModelScale()

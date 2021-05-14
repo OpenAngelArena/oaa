@@ -50,7 +50,7 @@ CreepTypes = {
     {                                               --HP  MANA  DMG   ARM   GOLD  EXP
       {"npc_dota_neutral_granite_golem",           1275,    0,  50,    2,   120,  140} -- expected gold is 120 and XP is 140
     },
-	{
+    {
       {"npc_dota_neutral_rock_golem",              1200,    0,  40,    1,    50,  140}
     },
     {
