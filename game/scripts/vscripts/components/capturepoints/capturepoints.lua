@@ -179,10 +179,10 @@ function CapturePoints:StartCapture(color)
     y = 1
   }
   Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
-  self:MinimapPing(5)
+  self:MinimapPing()
   Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
     Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
-    CapturePoints:MinimapPing(5)
+    CapturePoints:MinimapPing()
   end)
 
   for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
@@ -214,7 +214,7 @@ function CapturePoints:Reward(teamId)
     return
   end
 
-  PointsManager:AddPoints(teamId, NumCaptures)
+  PointsManager:AddPoints(teamId, 2*NumCaptures)
 
   if NumCaptures == 1 then
     self:GiveItemToWholeTeam("item_upgrade_core", teamId)
@@ -240,18 +240,18 @@ function CapturePoints:ActuallyStartCapture()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
 
-  local leftVector = Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 256)
-  local rightVector = Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 256)
+  local leftVector = GetGroundPosition(Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 384), nil)
+  local rightVector = GetGroundPosition(Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 384), nil)
 
   -- Create under spectator team so that spectators can always see the capture point
-  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
+  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_GOODGUYS, false)
   local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier1:SetCallback(partial(self.Reward, self))
   -- Give the thinker some vision so that spectators can always see the capture point
   capturePointThinker1:SetDayTimeVisionRange(1)
   capturePointThinker1:SetNightTimeVisionRange(1)
 
-  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  rightVector, DOTA_TEAM_SPECTATOR, false)
+  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, rightVector, DOTA_TEAM_BADGUYS, false)
   local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier2:SetCallback(partial(self.Reward, self))
   -- Give the thinker some vision so that spectators can always see the capture point
