@@ -243,7 +243,7 @@ function CapturePoints:ActuallyStartCapture()
 
   local leftVector = GetGroundPosition(Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 384), nil)
   local rightVector = GetGroundPosition(Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 384), nil)
-  
+
   local fountains = Entities:FindAllByClassname("ent_dota_fountain")
   local radiant_fountain
   local dire_fountain
