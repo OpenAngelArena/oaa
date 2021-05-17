@@ -46,9 +46,9 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "3"    // Experience earn.
-    "BountyGoldMin"                                       "3"    // Gold earned min.
-    "BountyGoldMax"                                       "3"    // Gold earned max.
+    "BountyXP"                                            "9"    // OAA
+    "BountyGoldMin"                                       "9"    // OAA
+    "BountyGoldMax"                                       "9"    // OAA
 
     // Bounds
     //----------------------------------------------------------------
@@ -63,7 +63,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "240"    // OAA
+    "StatusHealth"                                        "360"    // OAA
     "StatusHealthRegen"                                   "2.0"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.

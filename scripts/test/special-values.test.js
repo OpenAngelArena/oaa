@@ -297,6 +297,8 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
     'AbilityCastRange',
     'AbilityCastPoint',
     'AbilityChannelTime',
+    'AbilityCharges',
+    'AbilityChargeRestoreTime',
     'AbilityCooldown',
     'AbilityDamage',
     'AbilityDuration',

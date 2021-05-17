@@ -59,13 +59,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_incoming"                        "100"
+        "illusion_damage_incoming"                        "100 100 100 75 25"
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_incoming"          "200"
+        "tooltip_illusion_total_damage_incoming"          "200 200 200 175 125"
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -78,7 +78,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_cooldown"                                "35"
+        "tooltip_cooldown"                                "30" //OAA
         "RequiresScepter"                                 "1"
       }
     }
