@@ -31,7 +31,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "8 12 16 20 14 8"
+        "damage_reduction"                                "8 12 16 20 20 20"
       }
       "03"
       {
@@ -42,12 +42,16 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "minimum_damage"                                  "40"
+        "minimum_damage"                                  "40 40 40 40 80 160"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "1200"
+	  "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage_reduction"                            "80"
       }
     }
   }
