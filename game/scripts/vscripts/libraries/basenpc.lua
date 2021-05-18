@@ -242,7 +242,7 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
-	  return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special")
+    return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special") or self:HasModifier("modifier_chaos_knight_phantasm_illusion_shard")
   end
 end
 
@@ -271,6 +271,6 @@ if C_DOTA_BaseNPC then
   end
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
-	  return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special")
+    return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special") or self:HasModifier("modifier_chaos_knight_phantasm_illusion_shard")
   end
 end
