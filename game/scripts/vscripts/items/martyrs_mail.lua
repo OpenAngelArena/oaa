@@ -100,6 +100,16 @@ function modifier_item_martyrs_mail_passive_aura:IsPurgable()
   return false
 end
 
+function modifier_item_martyrs_mail_passive_aura:OnCreated()
+  self.aura_radius = 1200
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+  end
+end
+
+modifier_item_martyrs_mail_passive_aura.OnRefresh = modifier_item_martyrs_mail_passive_aura.OnCreated
+
 function modifier_item_martyrs_mail_passive_aura:IsAura()
   return true
 end
@@ -109,7 +119,7 @@ function modifier_item_martyrs_mail_passive_aura:GetModifierAura()
 end
 
 function modifier_item_martyrs_mail_passive_aura:GetAuraRadius()
-  return self.aura_radius or 1200
+  return self.aura_radius
 end
 
 function modifier_item_martyrs_mail_passive_aura:GetAuraSearchTeam()
@@ -119,18 +129,6 @@ end
 function modifier_item_martyrs_mail_passive_aura:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
-
-function modifier_item_martyrs_mail_passive_aura:OnCreated()
-  local ability = self:GetAbility()
-  local radius = 1200
-  if ability and not ability:IsNull() then
-    radius = ability:GetSpecialValueFor("aura_radius")
-  end
-
-  self.aura_radius = radius
-end
-
-modifier_item_martyrs_mail_passive_aura.OnRefresh = modifier_item_martyrs_mail_passive_aura.OnCreated
 
 ---------------------------------------------------------------------------------------------------
 
@@ -289,6 +287,7 @@ function modifier_item_martyrs_mail_passive_aura_effect:GetPriority()
 end
 
 function modifier_item_martyrs_mail_passive_aura_effect:OnCreated()
+  self.attack_speed = 100
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
