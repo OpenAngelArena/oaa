@@ -83,13 +83,14 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_rupture_ball_tier5:OnProjectileHit( hTarget, vLocation )
-	if IsServer() then
-		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
-		  hTarget:EmitSound("Lycan.RuptureBall.Impact")
+  if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
+    -- Reduce number of sounds
+    if hTarget:IsRealHero() then
+      hTarget:EmitSound("Lycan.RuptureBall.Impact")
+    end
 
-			hTarget:AddNewModifier( self:GetCaster(), self, "modifier_bloodseeker_rupture", { duration = self:GetSpecialValueFor( "duration" ) } )
-		end
+    hTarget:AddNewModifier( self:GetCaster(), self, "modifier_bloodseeker_rupture", { duration = self:GetSpecialValueFor( "duration" ) } )
+  end
 
-		return false
-	end
+  return false
 end

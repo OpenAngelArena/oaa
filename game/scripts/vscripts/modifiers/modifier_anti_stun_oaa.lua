@@ -1,11 +1,11 @@
 modifier_anti_stun_oaa = class(ModifierBaseClass)
 
 function modifier_anti_stun_oaa:IsHidden()
-	return true
+  return true
 end
 
 function modifier_anti_stun_oaa:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_anti_stun_oaa:GetPriority()
