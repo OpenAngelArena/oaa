@@ -128,7 +128,7 @@ function electrician_cleansing_shock:ApplyEffect( target )
     end
 
     -- Deal damage to summons, illusions and dominated units if caster has aghanim scepter
-    if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) then
+    if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) and not target:IsStrongIllusionOAA() then
       local summon_damage = self:GetSpecialValueFor( "summon_illusion_damage_scepter" )
       local damage_table = {}
       damage_table.attacker = caster

@@ -23,8 +23,8 @@
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "2 4 6 8 10 12"
-    "AbilityChargeRestoreTime"                            "45.0"
+    "AbilityCharges"                                      "3 5 7 9 10 11"
+    "AbilityChargeRestoreTime"                            "40"
 
     "AbilityManaCost"                                     "50"
 
@@ -45,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heath_regen"                                     "5 10 15 20 30 50" //OAA
+        "heath_regen"                                     "5 10 15 20 30 40" //OAA
       }
       "04"
       {

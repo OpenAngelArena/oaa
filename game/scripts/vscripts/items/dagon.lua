@@ -44,7 +44,7 @@ function item_dagon_oaa:OnSpellStart()
   end
 
   -- If the target is an illusion, just kill it and don't do damage
-  if target:IsIllusion() and not target:IsNull() then
+  if target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA() then
     target:Kill(self, caster)
     return
   end

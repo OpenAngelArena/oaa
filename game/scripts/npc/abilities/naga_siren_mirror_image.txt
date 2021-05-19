@@ -48,12 +48,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "250"
+        "incoming_damage"                                 "250 225 200 175 150 100" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_incoming_damage_total_pct"               "350"
+        "tooltip_incoming_damage_total_pct"               "350 325 300 275 250 200" //OAA
       }
       "06"
       {

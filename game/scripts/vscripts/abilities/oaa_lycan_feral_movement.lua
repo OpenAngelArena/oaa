@@ -91,3 +91,18 @@ function modifier_lycan_feral_movement_effect_oaa:CheckState()
 
   return state
 end
+
+function modifier_lycan_feral_movement_effect_oaa:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_EVASION_CONSTANT,
+  }
+end
+
+function modifier_lycan_feral_movement_effect_oaa:GetModifierAttackSpeedBonus_Constant()
+  return 50
+end
+
+function modifier_lycan_feral_movement_effect_oaa:GetModifierEvasion_Constant()
+  return 15
+end

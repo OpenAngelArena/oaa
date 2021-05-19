@@ -56,12 +56,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_incoming"                         "100"
+        "replica_damage_incoming"                         "100 100 100 75 25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_replica_total_damage_incoming"           "200"
+        "tooltip_replica_total_damage_incoming"           "200 200 200 175 125"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
