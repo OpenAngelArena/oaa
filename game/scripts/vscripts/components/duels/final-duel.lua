@@ -65,16 +65,16 @@ function FinalDuel:PreparingDuelHandler (keys)
     self.isCurrentlyFinalDuel = true
     self.needsFinalDuel = false
     Notifications:TopToAll({text="#duel_final_duel_imminent", duration=4.0})
-
-    local limit = PointsManager:GetLimit()
-    local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
-    local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-    self.goodCanWin = goodPoints >= limit
-    self.badCanWin = badPoints >= limit
   end
 end
 
 function FinalDuel:StartDuelHandler (keys)
+  local limit = PointsManager:GetLimit()
+  local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+  local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  self.goodCanWin = goodPoints >= limit
+  self.badCanWin = badPoints >= limit
+  
   if self.isCurrentlyFinalDuel then
     local extraMessage = ""
     if self.goodCanWin then
