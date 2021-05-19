@@ -122,10 +122,22 @@ function FinalDuel:EndDuelHandler (currentDuel)
     PointsManager:SetWinner(DOTA_TEAM_BADGUYS)
     return
   end
-  self.goodCanWin = false
-  self.badCanWin = false
 
   -- Increase the score limit
   local addToLimit = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE -- old: limitIncreaseAmounts[PointsManager:GetGameLength()]
   PointsManager:IncreaseLimit(addToLimit)
+
+  -- Give points to winners as a comeback compensation
+  local pointAward = math.ceil(addToLimit/2)
+  -- If the loser is DOTA_TEAM_BADGUYS and they had a chance to win, give points to DOTA_TEAM_GOODGUYS
+  if loser == "bad" and self.badCanWin then
+    PointsManager:AddPoints(DOTA_TEAM_GOODGUYS, pointAward)
+  end
+  -- If the loser is DOTA_TEAM_GOODGUYS and they had a chance to win, give points to DOTA_TEAM_BADGUYS
+  if loser == "good" and self.goodCanWin then
+    PointsManager:AddPoints(DOTA_TEAM_BADGUYS, pointAward)
+  end
+
+  self.goodCanWin = false
+  self.badCanWin = false
 end
