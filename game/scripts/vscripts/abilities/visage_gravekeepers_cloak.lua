@@ -15,9 +15,9 @@ function visage_gravekeepers_cloak_oaa:OnHeroCalculateStatBonus()
     local summon_familiars_ability = caster:FindAbilityByName("visage_summon_familiars_oaa")
     local ability_level = summon_familiars_ability:GetLevel()
 
-    local stone_form_ability = caster:AddAbility("visage_summon_familiars_stone_form")
+    local stone_form_ability = caster:FindAbilityByName("visage_summon_familiars_stone_form")
     if stone_form_ability then
-      stone_form_ability:SetHidden(true)
+      --stone_form_ability:SetHidden(true)
       self.added_stone_form = true
       if ability_level ~= 0 then
         stone_form_ability:SetLevel(ability_level)
@@ -81,12 +81,15 @@ function visage_gravekeepers_cloak_oaa:OnSpellStart()
     return
   end
 
+  --[[ -- this doesn't work for hidden abilities
   ExecuteOrderFromTable({
-		UnitIndex = caster:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = stone_form_ability:entindex(),
-		Queue = false,
-	})
+    UnitIndex = caster:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = stone_form_ability:entindex(),
+    Queue = false,
+  })
+  ]]
+  stone_form_ability:OnSpellStart()
 end
 
 function visage_gravekeepers_cloak_oaa:IsStealable()
