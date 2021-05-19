@@ -8,6 +8,10 @@ function modifier_item_spell_lifesteal_oaa:IsPurgable()
   return false
 end
 
+function modifier_item_spell_lifesteal_oaa:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_spell_lifesteal_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_TAKEDAMAGE,

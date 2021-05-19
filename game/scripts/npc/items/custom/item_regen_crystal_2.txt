@@ -43,7 +43,7 @@
     "AbilityTextureName"                                  "custom/regen_crystal_2"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "25"
     "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "regen_crystal"
 
@@ -77,17 +77,17 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_mana_to_hp_regen"                            "3"
+        "max_mana_to_hp_regen"                            "5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen"                                 "300 400 500"
+        "active_hp_regen"                                 "400 500 600"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen_amp"                             "100"
+        "active_hp_regen_amp"                             "50"
       }
       "06"
       {
