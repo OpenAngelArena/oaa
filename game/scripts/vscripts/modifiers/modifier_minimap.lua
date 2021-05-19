@@ -37,9 +37,18 @@ if IsServer() then
 
     --Capture points Icons
     if self.IsCapture then
-      Timers:CreateTimer(45, function()
-        if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then
-          minimap_entity:ForceKill(false)
+      Timers:CreateTimer(CAPTURE_LENTGH, function()
+        if not IsValidEntity(minimap_entity) or not minimap_entity:IsAlive() then
+          return -1
+        end
+
+        if CapturePoints and CapturePoints:IsActive() then
+          return 0.5
+        else
+          if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then
+            minimap_entity:ForceKill(false)
+            return -1
+          end
         end
       end)
       return -1
