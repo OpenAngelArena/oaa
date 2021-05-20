@@ -56,7 +56,11 @@ end
 function Components:InitComponent (component)
   DebugPrint('Initting this component!')
   if component.Init then
+    if component.initialized == true then
+      return
+    end
     component:Init()
+    component.initialized = true
   else
     DebugPrint('This component has no init function!')
   end
