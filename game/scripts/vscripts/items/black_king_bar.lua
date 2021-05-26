@@ -13,13 +13,20 @@ end
 function item_black_king_bar_1:OnSpellStart()
 	local caster = self:GetCaster()
 
-	caster:AddNewModifier( caster, self, "modifier_black_king_bar_immune", {
+  -- Basic Dispel
+  caster:Purge( false, true, false, false, false )
+
+  -- Remove debuffs that are removed only with spell immunity
+  caster:RemoveModifierByName("modifier_slark_pounce_leash")
+  caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
+
+	-- Apply spell immunity buff
+  caster:AddNewModifier( caster, self, "modifier_black_king_bar_immune", {
 		duration = self:GetSpecialValueFor( "duration" ),
 	} )
-	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 
-  caster:Purge( false, true, false, false, false )
-	-- wow bkb is a basic item without the decay
+  -- Sound
+	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 end
 
 --------------------------------------------------------------------------------
