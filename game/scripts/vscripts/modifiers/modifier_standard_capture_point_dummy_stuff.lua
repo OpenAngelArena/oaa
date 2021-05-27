@@ -12,6 +12,10 @@ function modifier_standard_capture_point_dummy_stuff:IsPurgable()
   return false
 end
 
+function modifier_standard_capture_point_dummy_stuff:OnCreated(keys)
+  self.radius = 300
+end
+
 function modifier_standard_capture_point_dummy_stuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
@@ -35,11 +39,11 @@ function modifier_standard_capture_point_dummy_stuff:GetAbsoluteNoDamagePure()
 end
 
 function modifier_standard_capture_point_dummy_stuff:GetBonusDayVision()
-  return 300
+  return self.radius
 end
 
 function modifier_standard_capture_point_dummy_stuff:GetBonusNightVision()
-  return 300
+  return self.radius
 end
 
 function modifier_standard_capture_point_dummy_stuff:CheckState()
@@ -58,4 +62,29 @@ function modifier_standard_capture_point_dummy_stuff:CheckState()
     [MODIFIER_STATE_FLYING] = true,
   }
   return state
+end
+
+-- TrueSight part:
+function modifier_standard_capture_point_dummy_stuff:IsAura()
+  return true
+end
+
+function modifier_standard_capture_point_dummy_stuff:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_standard_capture_point_dummy_stuff:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_HERO
+end
+
+function modifier_standard_capture_point_dummy_stuff:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end
+
+function modifier_standard_capture_point_dummy_stuff:GetModifierAura()
+  return "modifier_truesight"
+end
+
+function modifier_standard_capture_point_dummy_stuff:GetAuraRadius()
+  return self.radius
 end

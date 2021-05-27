@@ -3,10 +3,7 @@ LinkLuaModifier("modifier_standard_capture_point_dummy_stuff", "modifiers/modifi
 
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or class({})
---local FirstZones = {
-  --left = Vector(-3584, 0, 256),
-  --right = Vector(3584, 0, 256),
---}
+
 local Zones = {
 -- TODO, change this. These should be zones in the map or programatically generated
 -- hard coded is a bad in-between with the disadvantages of both
@@ -147,13 +144,8 @@ function CapturePoints:ScheduleCapture()
   self.currentCapture = CAPTUREPOINT_IS_STARTING
   Debug:EnableDebugging()
   -- DebugPrint('Capture number... ' .. NumCaptures)
-  -- if NumCaptures == 0 then
-    -- Use tier 1 zones for tier 1
-    -- CurrentZones = FirstZones
-  -- else
-    -- Chooses random zone
+  -- Chooses random zone
   CurrentZones = Zones[RandomInt(1, NumZones)]
-  -- end
   --If statemant checks for duel interference
   if not Duels.startDuelTimer then
     CapturePoints:StartCapture("blue")
@@ -215,7 +207,8 @@ function CapturePoints:Reward(teamId)
     return
   end
 
-  PointsManager:AddPoints(teamId, 2*NumCaptures)
+  local pointReWard = math.min(2*NumCaptures, PlayerResource:SafeGetTeamPlayerCount())
+  PointsManager:AddPoints(teamId, pointReWard)
 
   if NumCaptures == 1 then
     self:GiveItemToWholeTeam("item_upgrade_core", teamId)
@@ -255,7 +248,6 @@ function CapturePoints:ActuallyStartCapture()
     end
   end
 
-  -- Create under spectator team so that spectators can always see the capture point
   local radiant_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
   local capturePointModifier1 = radiant_capture_point:FindModifierByName("modifier_standard_capture_point")
   capturePointModifier1:SetCallback(partial(self.Reward, self))
@@ -269,7 +261,7 @@ function CapturePoints:ActuallyStartCapture()
   capturePointModifier2:SetCallback(partial(self.Reward, self))
 
   -- Give vision to the Dire team with a dummy unit
-  self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
+  self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
   self.dire_dummy:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
 end
 
