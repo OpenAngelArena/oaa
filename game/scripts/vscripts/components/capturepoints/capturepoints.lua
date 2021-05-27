@@ -207,7 +207,7 @@ function CapturePoints:Reward(teamId)
     return
   end
 
-  local pointReWard = math.min(2*NumCaptures, PlayerResource:SafeGetTeamPlayerCount())
+  local pointReWard = math.min(NumCaptures + 1, PlayerResource:SafeGetTeamPlayerCount())
   PointsManager:AddPoints(teamId, pointReWard)
 
   if NumCaptures == 1 then
