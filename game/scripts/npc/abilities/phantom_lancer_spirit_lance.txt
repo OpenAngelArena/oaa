@@ -82,13 +82,13 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "300"
+        "illusion_damage_in_pct"                          "200" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_in_pct"            "400"
+        "tooltip_illusion_total_damage_in_pct"            "300" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "10"

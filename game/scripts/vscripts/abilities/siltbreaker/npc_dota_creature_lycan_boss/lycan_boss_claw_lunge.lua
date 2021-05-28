@@ -81,34 +81,31 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge:OnProjectileHit( hTarget, vLocation )
-	if IsServer() then
-		if hTarget ~= nil then
-			if not hTarget:IsInvulnerable() then
-				local damageInfo =
-				{
-					victim = hTarget,
-					attacker = self:GetCaster(),
-					damage = self.lunge_damage,
-					damage_type = DAMAGE_TYPE_PHYSICAL,
-					ability = self,
-				}
-				ApplyDamage( damageInfo )
-			end
-		else
-			local hBuff = self:GetCaster():FindModifierByName( "modifier_lycan_boss_claw_lunge" )
-			if hBuff ~= nil then
-				hBuff:Destroy()
-			end
-		end
-	end
+  if hTarget ~= nil then
+    if not hTarget:IsInvulnerable() then
+      local damageInfo =
+      {
+        victim = hTarget,
+        attacker = self:GetCaster(),
+        damage = self.lunge_damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        ability = self,
+      }
+      ApplyDamage( damageInfo )
+    end
+  else
+    local hBuff = self:GetCaster():FindModifierByName( "modifier_lycan_boss_claw_lunge" )
+    if hBuff then
+      hBuff:Destroy()
+    end
+  end
 
-	return false
+  return false
 end
 
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge:OnProjectileThink( vLocation )
-	if IsServer() then
-		self.vProjectileLocation = vLocation
-	end
+  -- Important for modifier_lycan_boss_claw_lunge UpdateHorizontalMotion
+  self.vProjectileLocation = vLocation
 end

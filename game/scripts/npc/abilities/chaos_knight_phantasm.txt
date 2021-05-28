@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_count"                                    "1 2 3 4 4"
+        "images_count"                                    "2 3 3 4 4" //OAA
       }
       "02"
       {
@@ -52,23 +52,23 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "0 0 0 25 50"
+        "outgoing_damage"                                 "-50 -25 0 25 50" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "100 100 100 125 150"
+        "outgoing_damage_tooltip"                         "50 75 100 125 150" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "150" //OAA
+        "incoming_damage"                                 "225 200 175 150 100" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage_tooltip"                         "250" //OAA
+        "incoming_damage_tooltip"                         "325 300 275 250 200" //OAA
       }
       "07"
       {

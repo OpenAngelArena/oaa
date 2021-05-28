@@ -6,11 +6,13 @@
     //
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
-    "SoundSet"                                            "Roshan"        // Name of sound set.
+    "SoundSet"                                            "n_creep_Ranged"
     "ModelScale"                                          "0.25"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "0"
+    "IsNeutralUnitType"                                   "1"
+    "UseNeutralCreepBehavior"                             "1"     // If you want to use a custom behavior (AI), set to 0
 
     // Abilities
     //----------------------------------------------------------------
@@ -18,8 +20,7 @@
     "Ability2"                                            "roshan_bash"			// Ability 2.
     "Ability3"                                            "roshan_slam"			// Ability 3.
     "Ability4"                                            "boss_cliffwalk"		// Ability 4.
-    "Ability5"                                            ""		// Ability 5
-    "Ability6"                                  					"necronomicon_warrior_sight"			// Ability 6
+    "Ability5"                                            "necronomicon_warrior_sight"		// Ability 5
 
     // Armor
     //----------------------------------------------------------------
@@ -31,10 +32,9 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "4.0"      // Speed of attack.
+    "AttackRate"                                          "2.5"     // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "1000"    // Speed of projectile.
@@ -61,8 +61,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "5500"    // Base health.
     "StatusHealthRegen"                                   "20"    // Health regeneration rate.
-    "StatusMana"                                          "0"    // Base mana.
-    "StatusManaRegen"                                     "0"    // Mana regeneration rate.
+    "StatusMana"                                          "300"    // Base mana.
+    "StatusManaRegen"                                     "1"    // Mana regeneration rate.
 
     // Team
     //----------------------------------------------------------------
@@ -73,11 +73,11 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
     // Inventory
     //----------------------------------------------------------------
-    "HasInventory"                                        "1"
+    "HasInventory"                                        "0"
   }
 }

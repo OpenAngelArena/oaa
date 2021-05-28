@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Crystal Maiden: Arcane Magic (OAA ability that improves vanilla ability)
+  //=================================================================================================================
+  "crystal_maiden_arcane_magic_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85128"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_crystal_maiden_arcane_magic.lua"
+    "AbilityTextureName"                                  "crystal_maiden_brilliance_aura"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen"                                      "1 2 3 4 5 6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "self_factor"                                     "3.0"
+      }
+      "03" // Arcane Rune: 30%
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cd_reduction"                                    "0"
+      }
+      "04" // Arcane Rune: 30%; old talent: 14%
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_reduction_pct"                         "2 3 4 5 7 14"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_spell_amp"                                 "5 6 7 8 9 10"
+      }
+    }
+  }
+}

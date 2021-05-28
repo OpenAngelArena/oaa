@@ -202,8 +202,13 @@ end
 
 function InitModule(myModule)
   if myModule ~= nil then
+    if myModule.initialized == true then
+      print("Module is already initialized and there was an attempt to initialize it again -> preventing")
+      return
+    end
     local status, err = pcall(function ()
       myModule:Init()
+      myModule.initialized = true
     end)
     if err then
       local info = debug.getinfo(2, "Sl")

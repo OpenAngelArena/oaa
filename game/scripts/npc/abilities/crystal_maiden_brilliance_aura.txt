@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5128"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
     "MaxLevel"                                            "6"
@@ -24,12 +24,28 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "1 2 3 4 6 8" //OAA
+        "mana_regen"                                      "1 2 3 4 5 6" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "self_factor"                                     "3.0"
+      }
+      "07" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_reduction_pct"                         "2 3 4 5 7 14"
+      }
+      "08" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_resistance"                          "0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_4"
+      }
+      "09" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_spell_amp"                                 "5 6 7 8 9 10"
       }
     }
   }

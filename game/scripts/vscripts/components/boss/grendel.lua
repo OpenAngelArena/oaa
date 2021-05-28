@@ -131,8 +131,7 @@ function Grendel:SpawnGrendel()
     end
 
     -- Increase the score limit
-    local scoreLimitIncrease = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
-    PointsManager:IncreaseLimit(scoreLimitIncrease)
+    PointsManager:IncreaseLimit()
   end)
 end
 

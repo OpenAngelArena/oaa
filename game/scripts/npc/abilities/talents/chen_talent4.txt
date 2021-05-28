@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
-	// Bonus Holy Persuasion Minimum Health
-	//=================================================================================================================
-	"special_bonus_unique_chen_4"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6535"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  //=================================================================================================================
+  // Bonus Holy Persuasion Minimum Health
+  //=================================================================================================================
+  "special_bonus_unique_chen_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6535" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"1000" //OAA
-        "ad_linked_ability"			"chen_holy_persuasion"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1400" //OAA
+        "ad_linked_ability"                               "chen_holy_persuasion"
+      }
+    }
+  }
 }

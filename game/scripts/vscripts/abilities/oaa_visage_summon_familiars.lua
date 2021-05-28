@@ -95,12 +95,25 @@ function visage_summon_familiars_oaa:OnSpellStart()
 end
 
 function visage_summon_familiars_oaa:OnUpgrade()
+  local caster = self:GetCaster()
   local abilityLevel = self:GetLevel()
-  local self_cast_ability = self:GetCaster():FindAbilityByName("visage_stone_form_self_cast")
+  local self_cast_ability = caster:FindAbilityByName("visage_stone_form_self_cast")
 
   -- Check to not enter a level up loop
   if self_cast_ability and self_cast_ability:GetLevel() ~= abilityLevel then
     self_cast_ability:SetLevel(abilityLevel)
+  end
+
+  -- Shard hidden ability
+  if caster:HasShardOAA() then
+    local stone_form_ability = caster:FindAbilityByName("visage_summon_familiars_stone_form")
+
+    -- Check to not enter a level up loop
+    if stone_form_ability then
+      if stone_form_ability:GetLevel() ~= abilityLevel then
+        stone_form_ability:SetLevel(abilityLevel)
+      end
+    end
   end
 end
 

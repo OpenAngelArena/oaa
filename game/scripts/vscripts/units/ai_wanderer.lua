@@ -270,12 +270,9 @@ function WalkTowardsSpot (spot)
   })
 end
 
-local FIRST_MIN_X = 600
-local FIRST_MIN_Y = 600
-
 function GetNextWanderLocation (startPosition)
-  local maxY = FIRST_MIN_Y
-  local maxX = FIRST_MIN_X
+  local maxY = 4000
+  local maxX = 600
   local minY = 0
   local minX = 0
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
@@ -286,10 +283,9 @@ function GetNextWanderLocation (startPosition)
 
   if scoreDiff >= 5 then
     maxX = 1600
-    maxY = 3000
+    minX = 200
   end
   if scoreDiff >= 10 then
-    maxY = 4000
     maxX = 2900
     minX = 700
   end

@@ -24,6 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+    "AbilityCastRange"                                    "400"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +56,7 @@
       "04" // original: 8/10/12/14%
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_absorb_percentage"                          "10 12 14 16 18 20"
+        "mana_absorb_percentage"                          "8 10 12 14 18 22"
         "LinkedSpecialBonus"                              "special_bonus_electrician_energy_absorption_mana"
       }
       "05"

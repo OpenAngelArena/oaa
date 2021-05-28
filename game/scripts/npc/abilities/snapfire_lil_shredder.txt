@@ -22,8 +22,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "24 20 16 12 11 10"
-    "AbilityDuration"               "6"
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityDuration"                                     "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -65,8 +65,8 @@
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_per_attack"                      "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_reduction_per_attack"                      "0.75"
       }
       "08"
       {

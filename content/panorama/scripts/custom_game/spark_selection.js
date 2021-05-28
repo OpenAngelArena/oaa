@@ -108,7 +108,7 @@ function SparkFinished () {
 }
 
 function OpenSparkSelection () {
-  $('#SparkSelection').AddClass('show');
+  $('#SparkSelection').ToggleClass('show');
   currentSpark = null;
   forcedPickSpark = false;
   ResetSparkDisplay();
