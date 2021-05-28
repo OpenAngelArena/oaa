@@ -79,23 +79,10 @@ function HeroKillXP:HeroDeathHandler(keys)
 
   local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local killedHeroXP = killedHero:GetCurrentXP()
-  local killedHeroXP2 = PlayerResource:GetTotalEarnedXP(killedPlayerID)
   local killedHeroStreak = killedHero:GetStreak()
   local killedHeroLevel = killedHero:GetLevel()
-  local killedHeroStreakXP = 0
 
-  print("killed hero xp (GetCurrentXP):")
-  print(killedHeroXP)
-  print("========================================")
-  print("killed hero xp (GetTotalEarnedXP):")
-  print(killedHeroXP2)
-  print("========================================")
-  print("killed hero kill streak:")
-  print(killedHeroStreak)
-  print("========================================")
-  print("killed hero level:")
-  print(killedHeroLevel)
-  print("========================================")
+  local killedHeroStreakXP = 0
 
   if killedHeroStreak > 2 then
     --killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_BASE + HERO_XP_BOUNTY_STREAK_INCREASE * (killedHeroStreak - 3)

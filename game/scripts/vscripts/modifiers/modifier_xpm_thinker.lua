@@ -57,7 +57,7 @@ function modifier_xpm_thinker:GetXPMForPlayer( playerID )
       local b = 35
       local c = 28817
       local divisor = 1152
-      local percent = 30
+      local percent = 25
 
       local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) * (percent / 100) / divisor
 
