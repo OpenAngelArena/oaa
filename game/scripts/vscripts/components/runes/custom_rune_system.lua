@@ -1,25 +1,34 @@
 -- For inspiration look here: https://github.com/EarthSalamander42/dota_imba/blob/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components/runes.lua
 
-Custom_Rune_System = Custom_Rune_System or {}
+CustomRuneSystem = CustomRuneSystem or {}
 
-function Custom_Rune_System:Init()
+function CustomRuneSystem:Init()
   Debug.EnableDebugging()
   DebugPrint('Init Custom Rune System module')
+  
+  if USE_DEFAULT_RUNE_SYSTEM == true then
+    return
+  end
+
   -- Power-up Runes
-  local powerup_rune_spawners = Entities:FindAllByClassname("dota_item_rune_spawner_powerup")
+  local powerup_rune_spawners = Entities:FindAllByClassname("custom_powerup_rune_spot")
   self.powerup_rune_locations = {}
 
   -- Remove power-up rune spawner entities
   for i = 1, #powerup_rune_spawners do
     self.powerup_rune_locations[i] = powerup_rune_spawners[i]:GetAbsOrigin()
-    powerup_rune_spawners[i]:RemoveSelf()
+    --powerup_rune_spawners[i]:RemoveSelf() -- crashes, don't use it
   end
 
-  -- Start a timer after FIRST_POWER_RUNE_SPAWN_TIME delay and repeat every POWER_RUNE_SPAWN_INTERVAL seconds
-  Timers:CreateTimer(FIRST_POWER_RUNE_SPAWN_TIME, function()
-    Custom_Rune_System:SpawnRunes("powerup")
-    return POWER_RUNE_SPAWN_INTERVAL
-  end)
+  if HudTimer then
+    HudTimer:At(FIRST_POWER_RUNE_SPAWN_TIME, function()
+      CustomRuneSystem:SpawnRunes("powerup")
+    end)
+  else
+    Timers:CreateTimer(FIRST_POWER_RUNE_SPAWN_TIME + PREGAME_TIME, function()
+      CustomRuneSystem:SpawnRunes("powerup")
+    end)
+  end
 
   self.power_runes_enums = {
     DOTA_RUNE_DOUBLEDAMAGE,
@@ -31,39 +40,46 @@ function Custom_Rune_System:Init()
     DOTA_RUNE_WATER,
   }
 
-  -- Bounty Runes (we will use vanilla for now)
-  --local bounty_rune_spawners = Entities:FindAllByClassname("dota_item_rune_spawner_bounty")
-  --self.bounty_rune_locations = {}
-  -- Remove bounty rune spawner entities
-  --for i = 1, #bounty_rune_spawners do
-    --self.bounty_rune_locations[i] = bounty_rune_spawners[i]:GetAbsOrigin()
-    --bounty_rune_spawners[i]:RemoveSelf()
-  --end
+  -- Bounty Runes
+  local bounty_rune_spawners = Entities:FindAllByClassname("custom_bounty_rune_spot")
+  self.bounty_rune_locations = {}
 
-  -- Start a timer after FIRST_BOUNTY_RUNE_SPAWN_TIME delay and repeat every BOUNTY_RUNE_SPAWN_INTERVAL seconds
-  --Timers:CreateTimer(FIRST_BOUNTY_RUNE_SPAWN_TIME, function()
-    --Custom_Rune_System:SpawnRunes("bounty")
-    --return BOUNTY_RUNE_SPAWN_INTERVAL
-  --end)
+  Remove bounty rune spawner entities
+  for i = 1, #bounty_rune_spawners do
+    self.bounty_rune_locations[i] = bounty_rune_spawners[i]:GetAbsOrigin()
+  end
+
+  if HudTimer then
+    HudTimer:At(FIRST_BOUNTY_RUNE_SPAWN_TIME, function()
+      CustomRuneSystem:SpawnRunes("bounty")
+    end)
+  else
+    Timers:CreateTimer(FIRST_BOUNTY_RUNE_SPAWN_TIME + PREGAME_TIME, function()
+      CustomRuneSystem:SpawnRunes("bounty")
+    end)
+  end
 end
 
-function Custom_Rune_System:SpawnRunes(rune_type)
-	local rune_locations = {}
-	if rune_type == "bounty" then
-		rune_locations = self.bounty_rune_locations
-	elseif rune_type == "powerup" then
-		rune_locations = self.powerup_rune_locations
-	else
-		DebugPrint("Custom_Rune_System: Invalid rune_type for spawning.")
-		return
-	end
+function CustomRuneSystem:SpawnRunes(rune_type)
+  local rune_locations = {}
+  local spawn_interval = 60
+  if rune_type == "bounty" then
+    rune_locations = self.bounty_rune_locations
+    spawn_interval = BOUNTY_RUNE_SPAWN_INTERVAL
+  elseif rune_type == "powerup" then
+    rune_locations = self.powerup_rune_locations
+    spawn_interval = POWER_RUNE_SPAWN_INTERVAL
+  else
+    DebugPrint("CustomRuneSystem: Invalid rune_type for spawning.")
+    return
+  end
 
-	if rune_locations == nil or rune_locations == {} then
-		DebugPrint("Custom_Rune_System: Invalid rune locations.")
-		return
-	end
+  if rune_locations == nil or rune_locations == {} then
+    DebugPrint("CustomRuneSystem: Invalid rune locations.")
+    return
+  end
 
-	for i = 1, #rune_locations do
+  for i = 1, #rune_locations do
     -- Remove all DotA runes around the spawner first
     self:RemoveRuneAroundLocation(rune_locations[i])
     -- Actually Spawn Rune at rune location
@@ -74,17 +90,22 @@ function Custom_Rune_System:SpawnRunes(rune_type)
       local rune_to_spawn = self.power_runes_enums[random_int]
       CreateRune(rune_locations[i], rune_to_spawn)
     end
-	end
+  end
+  
+  -- Repeat all this after spawn_interval
+  Timers:CreateTimer(spawn_interval, function()
+    CustomRuneSystem:SpawnRunes(rune_type)
+  end)
 end
 
-function Custom_Rune_System:RemoveRuneAroundLocation(location)
+function CustomRuneSystem:RemoveRuneAroundLocation(location)
   if not location then
-    DebugPrint("Custom_Rune_System: location in RemoveRuneAroundLocation is nil!")
+    DebugPrint("CustomRuneSystem: location in RemoveRuneAroundLocation is nil!")
     return
   end
   local all_runes_around_location = Entities:FindAllByClassnameWithin("dota_item_rune", location, 1200)
   if all_runes_around_location == nil then
-    DebugPrint("Custom_Rune_System: No runes found around the specified location!")
+    --DebugPrint("CustomRuneSystem: No runes found around the specified location!")
     return
   end
   -- Remove all DotA runes near the location

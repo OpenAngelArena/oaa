@@ -205,12 +205,12 @@ function GameMode:_CaptureGameMode()
     else
       -- Arcane runes are broken by Valve, if they don't fix them: use RuneSpawnFilter
       -- RuneSpawnFilter is currently broken too
-      for rune, spawn in pairs(ENABLED_RUNES) do
-        mode:SetRuneEnabled(rune, spawn)
-      end
-      mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
-      mode:SetPowerRuneSpawnInterval(POWER_RUNE_SPAWN_INTERVAL)
-      GameRules:SetRuneSpawnTime(0)
+      --for rune, spawn in pairs(ENABLED_RUNES) do
+        --mode:SetRuneEnabled(rune, spawn)
+      --end
+      --mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
+      --mode:SetPowerRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
+      --GameRules:SetRuneSpawnTime(0)
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )
