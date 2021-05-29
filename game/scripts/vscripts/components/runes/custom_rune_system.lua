@@ -3,20 +3,25 @@
 CustomRuneSystem = CustomRuneSystem or {}
 
 function CustomRuneSystem:Init()
-  Debug.EnableDebugging()
+  --Debug.EnableDebugging()
   DebugPrint('Init Custom Rune System module')
   
   if USE_DEFAULT_RUNE_SYSTEM == true then
     return
   end
 
+  local hidden_point = Vector(-10000,-10000,-10000)
+
   -- Power-up Runes
-  local powerup_rune_spawners = Entities:FindAllByClassname("custom_powerup_rune_spot")
+  local powerup_rune_spawners = Entities:FindAllByClassname("dota_item_rune_spawner_powerup") --vanilla power-up spawners
+  --local powerup_rune_spawners = Entities:FindAllByName("custom_powerup_rune_spot")
   self.powerup_rune_locations = {}
 
   -- Remove power-up rune spawner entities
   for i = 1, #powerup_rune_spawners do
     self.powerup_rune_locations[i] = powerup_rune_spawners[i]:GetAbsOrigin()
+	-- Hide the vanilla spawner
+	powerup_rune_spawners[i]:SetOrigin(hidden_point)
     --powerup_rune_spawners[i]:RemoveSelf() -- crashes, don't use it
   end
 
@@ -37,16 +42,19 @@ function CustomRuneSystem:Init()
     DOTA_RUNE_INVISIBILITY,
     DOTA_RUNE_REGENERATION,
     DOTA_RUNE_ARCANE,
-    DOTA_RUNE_WATER,
+    --DOTA_RUNE_WATER,
   }
 
   -- Bounty Runes
-  local bounty_rune_spawners = Entities:FindAllByClassname("custom_bounty_rune_spot")
+  local bounty_rune_spawners = Entities:FindAllByClassname("dota_item_rune_spawner_bounty") -- vanilla bounty rune spawners
+  --local bounty_rune_spawners = Entities:FindAllByName("custom_bounty_rune_spot")
   self.bounty_rune_locations = {}
 
-  Remove bounty rune spawner entities
+  -- Remove bounty rune spawner entities
   for i = 1, #bounty_rune_spawners do
     self.bounty_rune_locations[i] = bounty_rune_spawners[i]:GetAbsOrigin()
+	-- Hide the vanilla spawner
+	bounty_rune_spawners[i]:SetOrigin(hidden_point)
   end
 
   if HudTimer then

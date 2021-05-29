@@ -140,11 +140,16 @@ HERO_XP_BOUNTY_STREAK_MAX = 3000     -- Max amount of streak xp bonus (25 * 100 
 HERO_XP_BONUS_FACTOR = 0.13          -- Multiplier for the xp of the killed hero (0.13 in normal dota)
 HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
 
--- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 0        -- After what delay in seconds will the first bounty rune spawn? unused
-BOUNTY_RUNE_SPAWN_INTERVAL = 180        -- How long in seconds should we wait between bounty rune spawns?
+-- Runes
+USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spawn timings and the same runes as dota have?
+-- Bounty Runes
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 0     -- After what delay in seconds will the first bounty rune spawn?
+BOUNTY_RUNE_SPAWN_INTERVAL = 180     -- How long in seconds should we wait between bounty rune respawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
+-- Power-up Runes
+FIRST_POWER_RUNE_SPAWN_TIME = 0      -- After what delay in seconds will the first power-up rune spawn?
+POWER_RUNE_SPAWN_INTERVAL = 120      -- How long in seconds should we wait between power-up runes respawns?
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -249,10 +254,6 @@ SKIP_TEAM_SETUP = false       -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 30                  -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
-
-USE_DEFAULT_RUNE_SYSTEM = false     -- Should we use the default dota rune spawn timings and the same runes as dota have?
-FIRST_POWER_RUNE_SPAWN_TIME = 0    -- After what delay in seconds will the first power-up rune spawn?
-POWER_RUNE_SPAWN_INTERVAL = 60     -- How long in seconds should we wait between power-up runes spawns?
 
 ENABLED_RUNES = {}                      -- Which runes should be enabled to spawn in our game mode?
 ENABLED_RUNES[DOTA_RUNE_DOUBLEDAMAGE] = true
