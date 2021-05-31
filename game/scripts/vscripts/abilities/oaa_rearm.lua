@@ -53,6 +53,7 @@ local exempt_item_table = {
   item_helm_of_the_dominator_4 = true,
   item_helm_of_the_dominator_5 = true,
   item_meteor_hammer = true,
+  item_meteor_hammer_1 = true,
   item_meteor_hammer_2 = true,
   item_meteor_hammer_3 = true,
   item_meteor_hammer_4 = true,

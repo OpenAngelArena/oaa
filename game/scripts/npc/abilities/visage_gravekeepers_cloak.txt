@@ -20,13 +20,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_layers"                                      "4 4 4 4 5 7"
+        "max_layers"                                      "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "8 12 16 20 20 20"
+        "damage_reduction"                                "8 12 16 20 22 24"
       }
       "03"
       {
@@ -37,7 +37,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "minimum_damage"                                  "40 40 40 40 80 160"
+        "minimum_damage"                                  "40"
       }
       "05"
       {

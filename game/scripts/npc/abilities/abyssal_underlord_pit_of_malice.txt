@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 19 17 15 15 15"
+    "AbilityCooldown"                                     "21 19 17 15 14 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,10 +39,10 @@
         "radius"                                          "400"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord_6"
       }
-      "02"
+      "02" // the root from multiple pits do not stack - once rooted, the unit becomes immune to all other pits for (pit_interval-ensnare_duration) seconds.
       {
         "var_type"                                        "FIELD_FLOAT"
-        "pit_duration"                                    "10" //oaa
+        "pit_duration"                                    "12.0"
       }
       "03"
       {
@@ -57,7 +57,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ensnare_duration"                                "1.15 1.3 1.45 1.6 1.75 1.9" //oaa
+        "ensnare_duration"                                "1.2 1.4 1.6 1.8 1.9 2.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord"
       }
     }

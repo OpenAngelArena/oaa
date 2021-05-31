@@ -63,7 +63,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "19150"
+    "ItemCost"                      "18400"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 4;meteor hammer 4"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -90,7 +90,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6 9 12 15 18"
+        "bonus_health_regen"                              "6.5 9 12 15 18"
       }
       "05"
       {
