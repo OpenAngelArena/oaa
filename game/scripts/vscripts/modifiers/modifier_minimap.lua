@@ -84,7 +84,7 @@ if IsServer() then
       end
 
       if not hasCreepAlive and self.IsBoss then
-        if not minimap_entity.DelayedRemoval then
+        if minimap_entity and not minimap_entity.DelayedRemoval then
           minimap_entity.DelayedRemoval = true
           return 10
         else
