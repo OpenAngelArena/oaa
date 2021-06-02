@@ -69,7 +69,7 @@ end
 
 function modifier_bristleback_oaa:OnCreated()
   local parent = self:GetParent()
-  
+
   if not parent.quill_threshold_counter_oaa then
     parent.quill_threshold_counter_oaa = 0
   end
@@ -90,24 +90,24 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
   if parent:PassivesDisabled() or (not ability) or ability:IsNull() then
     return 0
   end
-  
+
   -- Do nothing if damage has HP removal flag
   if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
     return 0
   end
-  
+
   local attacker = keys.attacker
   --local damage_before_reductions = keys.original_damage
   local damage_after_reductions = keys.damage
 
   local back_reduction_percentage = ability:GetLevelSpecialValueFor("back_damage_reduction", ability:GetLevel() - 1) / 100
   local side_reduction_percentage = ability:GetLevelSpecialValueFor("side_damage_reduction", ability:GetLevel() - 1) / 100
-  
+
   -- Particles and Sound
   local back_particle = "particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf"
   local side_particle = "particles/units/heroes/hero_bristleback/bristleback_side_dmg.vpcf"
   local sound = "Hero_Bristleback.Bristleback"
-  
+
   -- The y value of the angles vector contains the angle we actually want: where units are directionally facing in the world.
   local victim_angle = parent:GetAnglesAsVector().y
   local origin_difference = parent:GetAbsOrigin() - attacker:GetAbsOrigin()
