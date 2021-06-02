@@ -53,6 +53,19 @@ local function ResetState(hero)
       item:EndCooldown()
     end
   end
+
+  -- Special thing for Ward Stack - set counts to at least 1 ward
+  if hero.sentryCount then
+    if hero.sentryCount == 0 then
+      hero.sentryCount = 1
+    end
+  end
+
+  if hero.observerCount then
+    if hero.observerCount == 0 then
+      hero.observerCount = 1
+    end
+  end
 end
 
 local function SaveState(hero)
