@@ -60,8 +60,8 @@ if IsServer() then
       end
       -- make sure we only search for neutrals on respawn to avoid performance issues
       if minimap_entity.Respawn then
-        --self.neutrals = FindUnitsInRadius(teamNumber, origin, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
-		self.neutrals = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, origin, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, 0, false)
+        self.neutrals = FindUnitsInRadius(teamNumber, origin, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
+		--self.neutrals = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, origin, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, 0, false)
         if #self.neutrals > 0 then
           minimap_entity.Respawn = false
           self.CampHasBeenKilled = false
@@ -84,8 +84,8 @@ if IsServer() then
       end
 
       if not hasCreepAlive and self.IsBoss then
-        if not self.DelayedRemoval then
-          self.DelayedRemoval = true
+        if not minimap_entity.DelayedRemoval then
+          minimap_entity.DelayedRemoval = true
           return 10
         else
           if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then
