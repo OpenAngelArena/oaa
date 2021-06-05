@@ -70,7 +70,7 @@ end
 function modifier_bristleback_oaa:OnCreated()
   local parent = self:GetParent()
 
-  if not parent.quill_threshold_counter_oaa then
+  if not parent.quill_threshold_counter_oaa and not parent:IsIllusion() then
     parent.quill_threshold_counter_oaa = 0
   end
 end
@@ -133,10 +133,15 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
         -- Set Control Point 1 for the back damage particle; this controls where it's positioned in the world. In this case, it should be positioned on Bristleback.
         ParticleManager:SetParticleControlEnt(back_damage_particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
         ParticleManager:ReleaseParticleIndex(back_damage_particle)
-		-- Calculate blocked damage
+        -- Calculate blocked damage
         blocked_damage = damage_after_reductions * back_reduction_percentage
         -- Play the sound on Bristleback.
         parent:EmitSound(sound)
+
+        if not parent:IsIllusion() then
+          -- Increase the Quill Spray damage counter
+          parent.quill_threshold_counter_oaa = parent.quill_threshold_counter_oaa + damage_after_reductions - blocked_damage
+        end
     else
         -- Create the side particle effect.
         local side_damage_particle = ParticleManager:CreateParticle(side_particle, PATTACH_ABSORIGIN_FOLLOW, parent)
@@ -151,8 +156,6 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
 
   -- Don't release Quill Sprays on illusions
   if not parent:IsIllusion() then
-    -- Increase the Quill Spray damage counter (doesn't matter if Quill Spray is learned or not)
-    parent.quill_threshold_counter_oaa = parent.quill_threshold_counter_oaa + blocked_damage
     -- Check for Quill Spray ability
     local quill_spray_ability = parent:FindAbilityByName("bristleback_quill_spray")
     if quill_spray_ability and quill_spray_ability:GetLevel() ~= 0 then
