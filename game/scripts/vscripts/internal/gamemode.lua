@@ -208,8 +208,8 @@ function GameMode:_CaptureGameMode()
       --for rune, spawn in pairs(ENABLED_RUNES) do
         --mode:SetRuneEnabled(rune, spawn)
       --end
-      --mode:SetBountyRuneSpawnInterval(x) -- causes all runes to spawn at 0, 2 and every x minutes no matter what x number is
-      --mode:SetPowerRuneSpawnInterval(x) -- causes all runes to spawn at 0, 2 and every x minutes no matter what x number is
+      --mode:SetBountyRuneSpawnInterval(x) -- causes all runes to spawn at 0 and 2 and every x minutes no matter what x number is
+      --mode:SetPowerRuneSpawnInterval(x) -- causes all runes to spawn at 0 and 2 and every x minutes no matter what x number is
       --GameRules:SetRuneSpawnTime(x) -- does literally nothing no matter what x number is
     end
 
