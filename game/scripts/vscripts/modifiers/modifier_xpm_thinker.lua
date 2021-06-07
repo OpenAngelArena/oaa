@@ -38,6 +38,10 @@ function modifier_xpm_thinker:OnIntervalThink()
         if hero then
           -- give hero xp
           local xp = self:GetXPMForPlayer( playerID )
+          local spark = hero:FindModifierByName("modifier_spark_xp") or hero:FindModifierByName("modifier_spark_midas")
+          if spark then
+            xp = math.floor(xp + xp * spark.passive_bonus_xp)
+          end
           --print( "giving hero " .. hero:GetUnitName() .. " " .. xp .. " xp" )
           hero:AddExperience( xp, DOTA_ModifyXP_Unspecified, false, true )
         end
