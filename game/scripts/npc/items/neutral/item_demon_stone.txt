@@ -10,8 +10,10 @@
     "ID"                                                  "80290"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/neutral/demon_stone.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "item_philosophers_stone"
+
+    "AbilityCooldown"                                     "60"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_xpm"                                       "100"
+        "bonus_xpm"                                       "1000"
       }
       "02"
       {
@@ -40,7 +42,37 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "-100"
+        "bonus_damage"                                    "-30"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "-30"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "summon_duration"                                 "50"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_health"                                   "1000"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_damage"                                   "100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_armor"                                    "10"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_move_speed"                               "400"
       }
     }
   }
