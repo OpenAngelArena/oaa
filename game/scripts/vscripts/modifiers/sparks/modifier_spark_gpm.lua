@@ -68,7 +68,7 @@ function modifier_spark_gpm:CalculateGPM()
 end
 
 function modifier_spark_gpm:IsHidden()
-  return true
+  return not IsInToolsMode()
 end
 
 function modifier_spark_gpm:IsDebuff()

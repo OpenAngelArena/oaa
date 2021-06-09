@@ -58,6 +58,10 @@ function Sparks.SelectDefaultSpark (hero)
     return
   end
 
+  if not hero:HasModifier("modifier_spark_gpm") then
+    hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
+  end
+
   local spark_name = Sparks:FindDefaultSparkForHero(hero)
 
   Sparks:OnSelectSpark('asdf', {
@@ -168,6 +172,10 @@ function Sparks:CheckSparkOnHeroEntity (hero)
     Debug:EnableDebugging()
     DebugPrint('This player has no player!')
     return
+  end
+
+  if not hero:HasModifier("modifier_spark_gpm") then
+    hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
   end
 
   if hero:HasModifier(self:ModifierName(spark)) then
