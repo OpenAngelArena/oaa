@@ -85,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "8 12 16 20 24"
+        "spell_amp"                                       "10 14 18 22 26"
       }
       "06"
       {
@@ -100,12 +100,12 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "regen_per_charge"                                "0.2 0.25 0.3 0.35 0.4"
+        "regen_per_charge"                                "0.2"
       }
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "amp_per_charge"                                  "0.35 0.4 0.45 0.5 0.55"
+        "amp_per_charge"                                  "0.35"
       }
       "10"
       {

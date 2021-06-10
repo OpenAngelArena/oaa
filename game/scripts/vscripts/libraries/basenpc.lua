@@ -202,6 +202,7 @@ if IsServer() then
         item_radiance_4 = true,
         item_radiance_5 = true,
         item_cloak_of_flames = true,
+        doom_bringer_scorched_earth = true,
         mirana_starfall = true,
         wisp_spirits = true,
       }

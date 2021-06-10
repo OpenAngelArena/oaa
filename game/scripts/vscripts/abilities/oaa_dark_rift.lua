@@ -157,7 +157,7 @@ function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
 
   local targetTeam = self:GetAbilityTargetTeam()
   local targetType = self:GetAbilityTargetType()
-  local targetFlags = self:GetAbilityTargetFlags()
+  local targetFlags = DOTA_UNIT_TARGET_FLAG_NONE --self:GetAbilityTargetFlags()
 
   local units_in_portal = FindUnitsInRadius(caster:GetTeamNumber(), target_loc, nil, radius, targetTeam, targetType, targetFlags, FIND_ANY_ORDER, false)
 

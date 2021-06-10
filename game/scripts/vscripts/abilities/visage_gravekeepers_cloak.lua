@@ -108,6 +108,21 @@ end
 
 modifier_visage_gravekeepers_cloak_oaa = class(ModifierBaseClass)
 
+function modifier_visage_gravekeepers_cloak_oaa:IsHidden()
+  return false
+end
+
+function modifier_visage_gravekeepers_cloak_oaa:IsDebuff()
+  return false
+end
+
+function modifier_visage_gravekeepers_cloak_oaa:IsPurgable()
+  return false
+end
+
+function modifier_visage_gravekeepers_cloak_oaa:RemoveOnDeath()
+  return false
+end
 
 function modifier_visage_gravekeepers_cloak_oaa:OnCreated()
   if IsServer() then
@@ -166,8 +181,8 @@ if IsServer() then
 
     local stackCount = self:GetStackCount()
 
-    local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction") or 20
-    local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction") or 80
+    local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction")
+    local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction")
     local damageThreshold = ability:GetSpecialValueFor("minimum_damage")
     local recovery_time = ability:GetSpecialValueFor("recovery_time")
 
@@ -175,26 +190,22 @@ if IsServer() then
 
     -- Talent that decreases recovery time
     if parent:HasLearnedAbility("special_bonus_unique_visage_oaa_5") then
-      recovery_time = recovery_time - parent:FindAbilityByName("special_bonus_unique_visage_oaa_5"):GetSpecialValueFor("value")
+      recovery_time = recovery_time - math.abs(parent:FindAbilityByName("special_bonus_unique_visage_oaa_5"):GetSpecialValueFor("value"))
     end
+
+    -- Does not interact at all with damage instances lower than the threshold.
+    if keys.damage <= damageThreshold then
+      return 0
+    end
+
     if keys.attacker:GetTeam() ~= parent:GetTeam() and keys.attacker:GetTeam() ~= DOTA_TEAM_NEUTRALS then
-      if keys.damage > damageThreshold then
-        self:DecreaseStacks()
-        Timers:CreateTimer(recovery_time, function()
-          self:IncreaseStacks()
-        end)
-      end
+      self:DecreaseStacks()
+      Timers:CreateTimer(recovery_time, function()
+        self:IncreaseStacks()
+      end)
     end
     return keys.damage * damageReduction / 100
   end
-end
-
-function modifier_visage_gravekeepers_cloak_oaa:IsPurgable()
-  return false
-end
-
-function modifier_visage_gravekeepers_cloak_oaa:RemoveOnDeath()
-  return false
 end
 
 --------------------------------------------------------------------------
@@ -231,9 +242,21 @@ function modifier_visage_gravekeepers_cloak_oaa:GetAuraEntityReject(entity)
   return string.sub(entity:GetUnitName(), 0, 24) ~= "npc_dota_visage_familiar"
 end
 
----------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_visage_gravekeepers_cloak_oaa_aura = class(ModifierBaseClass)
+
+function modifier_visage_gravekeepers_cloak_oaa_aura:IsHidden()
+  return false
+end
+
+function modifier_visage_gravekeepers_cloak_oaa_aura:IsDebuff()
+  return false
+end
+
+function modifier_visage_gravekeepers_cloak_oaa_aura:IsPurgable()
+  return false
+end
 
 function modifier_visage_gravekeepers_cloak_oaa_aura:DeclareFunctions()
   return {
@@ -247,8 +270,8 @@ function modifier_visage_gravekeepers_cloak_oaa_aura:GetModifierTotal_ConstantBl
   local mod = caster:FindModifierByName("modifier_visage_gravekeepers_cloak_oaa")
   if mod and ability then
     local stackCount = mod:GetStackCount()
-    local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction") or 20
-    local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction") or 80
+    local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction")
+    local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction")
     local damageReduction = math.min(max_damage_reduction, damage_reduction_per_layer * stackCount)
 
     return keys.damage * damageReduction / 100
