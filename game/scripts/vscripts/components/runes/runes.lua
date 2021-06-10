@@ -22,15 +22,20 @@ function Runes:Init()
   end)
 
   -- Configuring rune spawn time would be easy if RuneSpawn filter actually worked, just return false in filter if the time isn't right
-  --FilterManager:AddFilter(FilterManager.RuneSpawn, self, Dynamic_Wrap(Runes, "RunesSpawnFilter"))
+  --FilterManager:AddFilter(FilterManager.RuneSpawn, self, Dynamic_Wrap(Runes, "Filter")) -- works only for power-up runes
 
   -- dota_item_rune entities are some special entities, they are not items or npcs !!!
   -- GetName() works on rune entities but returns nothing, thanks Valve
   -- with GetModelName() you can find out what rune it is (model names can be found in assets browser)
   -- GetOrigin() and SetOrigin() work on rune entities, at least something
-  -- Spawning rune entity with SpawnEntityFromTableSynchronous("dota_item_rune", { model = "", origin =}) works partially only for double damage
+  -- Spawning rune entity with SpawnEntityFromTableSynchronous("dota_item_rune", { model = "", origin =}) works partially and only for double damage
   -- Nobody knows what parameters should be used in the table for SpawnEntityFromTableSynchronous
+  -- CreateRune works for now
   self.initialized = true
+end
+
+function Runes:Filter(filter_table)
+  return false
 end
 
 function Runes:RemoveAllRunes()
