@@ -37,6 +37,10 @@ function item_blood_sword:OnSpellStart()
   caster:EmitSound("DOTA_Item.IronTalon.Activate")
 end
 
+function item_blood_sword:ProcsMagicStick()
+  return false
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_blood_sword_passive = class(ModifierBaseClass)

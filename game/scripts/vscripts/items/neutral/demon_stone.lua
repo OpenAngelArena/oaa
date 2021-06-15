@@ -10,7 +10,7 @@ end
 function item_demon_stone:OnSpellStart()
   local caster = self:GetCaster()
   local summon_duration = self:GetSpecialValueFor("summon_duration")
-  local summon_name = "npc_dota_warlock_golem_scepter_1"
+  local summon_name = "npc_dota_demon_stone_demon"
 
 	local caster_loc = caster:GetAbsOrigin()
 	local caster_direction = caster:GetForwardVector()
@@ -60,6 +60,10 @@ function item_demon_stone:OnSpellStart()
   if summon_ms and summon_ms > 0 then
     summon:SetBaseMoveSpeed(summon_ms)
   end
+end
+
+function item_demon_stone:ProcsMagicStick()
+  return false
 end
 
 ---------------------------------------------------------------------------------------------------

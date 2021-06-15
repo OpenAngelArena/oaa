@@ -95,9 +95,9 @@ function modifier_item_dragon_scale_oaa_passive:OnTakeDamage(event)
   -- Set overhead alert
   local overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
   if damage_type == DAMAGE_TYPE_PHYSICAL then
-    overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
-  elseif damage_type == DAMAGE_TYPE_MAGICAL then
     overhead_alert = OVERHEAD_ALERT_DAMAGE
+  elseif damage_type == DAMAGE_TYPE_MAGICAL then
+    overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
   end
 
   local damage_dealt = ApplyDamage(damage_table)
