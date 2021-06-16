@@ -23,15 +23,16 @@ function item_blood_sword:OnSpellStart()
   -- Add a lifesteal buff before the instant attack
   local buff = caster:AddNewModifier(caster, self, "modifier_item_blood_sword_lifesteal", {})
 
+  -- Instant attack
   caster:PerformAttack(target, true, true, true, false, false, false, true)
 
-  -- Remove bonus damage buff when instant attack is over
+  -- Remove lifesteal buff when instant attack is over
   buff:Destroy()
 
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items3_fx/iron_talon_active.vpcf", PATTACH_ABSORIGIN, target)
-	ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
-	ParticleManager:ReleaseParticleIndex(particle)
+  ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(particle)
 
   -- Sound
   caster:EmitSound("DOTA_Item.IronTalon.Activate")

@@ -6,6 +6,10 @@ function item_dragon_scale_oaa:GetIntrinsicModifierName()
   return "modifier_item_dragon_scale_oaa_passive"
 end
 
+function item_dragon_scale_oaa:ShouldUseResources()
+  return true
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_dragon_scale_oaa_passive = class(ModifierBaseClass)
@@ -63,7 +67,7 @@ function modifier_item_dragon_scale_oaa_passive:OnTakeDamage(event)
   local unit = event.unit -- damaged unit
 
   -- Do nothing if damaged unit doesn't have this buff
-  if unit ~= parent then
+  if unit ~= parent or not ability then
     return
   end
 
@@ -79,6 +83,10 @@ function modifier_item_dragon_scale_oaa_passive:OnTakeDamage(event)
 
   -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
   if not attacker or attacker:IsNull() then
+    return
+  end
+
+  if not ability:IsCooldownReady() then
     return
   end
 
@@ -102,4 +110,7 @@ function modifier_item_dragon_scale_oaa_passive:OnTakeDamage(event)
 
   local damage_dealt = ApplyDamage(damage_table)
   SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, attacker, damage_dealt, parent:GetPlayerOwner())
+
+  -- Start cooldown because of low interval dmg instances
+  ability:UseResources(true, true, true)
 end

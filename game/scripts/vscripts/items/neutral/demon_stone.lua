@@ -12,13 +12,13 @@ function item_demon_stone:OnSpellStart()
   local summon_duration = self:GetSpecialValueFor("summon_duration")
   local summon_name = "npc_dota_demon_stone_demon"
 
-	local caster_loc = caster:GetAbsOrigin()
-	local caster_direction = caster:GetForwardVector()
+  local caster_loc = caster:GetAbsOrigin()
+  local caster_direction = caster:GetForwardVector()
 
   -- Sound
   caster:EmitSound("DOTA_Item.Necronomicon.Activate")
 
-	-- Calculate summon position
+  -- Calculate summon position
   local summon_position = RotatePosition(caster_loc, QAngle(0, 30, 0), caster_loc + caster_direction * 180)
 
   -- Destroy trees around summon position
@@ -149,14 +149,6 @@ end
 
 modifier_demon_stone_summon_passives = class(ModifierBaseClass)
 
-function modifier_demon_stone_summon_passives:OnCreated()
-
-end
-
-function modifier_demon_stone_summon_passives:OnIntervalThink()
-
-end
-
 function modifier_demon_stone_summon_passives:IsHidden()
   return true
 end
@@ -179,7 +171,7 @@ end
 
 function modifier_demon_stone_summon_passives:GetAuraRadius()
   local parent = self:GetParent()
-  return parent:GetCurrentVisionRange() or 1200
+  return parent:GetCurrentVisionRange() or 800
 end
 
 function modifier_demon_stone_summon_passives:GetAuraSearchTeam()
