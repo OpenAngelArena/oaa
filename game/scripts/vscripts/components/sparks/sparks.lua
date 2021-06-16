@@ -5,13 +5,13 @@ function Sparks:Init()
   --Debug:EnableDebugging()
   DebugPrint("Sparks:Init running!")
 
-  LinkLuaModifier("modifier_spark_cleave", "modifiers/sparks/modifier_spark_cleave.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_spark_gpm", "modifiers/sparks/modifier_spark_gpm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_spark_cleave", "modifiers/sparks/modifier_spark_cleave.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_spark_midas", "modifiers/sparks/modifier_spark_midas.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_spark_power", "modifiers/sparks/modifier_spark_power.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_spark_power_effect", "modifiers/sparks/modifier_spark_power.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spark_xp", "modifiers/sparks/modifier_spark_xp.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spark_gold", "modifiers/sparks/modifier_spark_gold.lua", LUA_MODIFIER_MOTION_NONE)
+  --LinkLuaModifier("modifier_spark_xp", "modifiers/sparks/modifier_spark_xp.lua", LUA_MODIFIER_MOTION_NONE)
+  --LinkLuaModifier("modifier_spark_gold", "modifiers/sparks/modifier_spark_gold.lua", LUA_MODIFIER_MOTION_NONE)
 
   Sparks.data = {
     [DOTA_TEAM_GOODGUYS] = {
@@ -113,6 +113,13 @@ function Sparks:OnSelectSpark (eventId, keys)
     --DebugPrint('Invalid spark selection, what is a "' .. spark .. '"')
     return
   end
+
+  -- If player chooses the first option (old gpm) it actually chooses a default spark for his hero
+  if spark == "gpm" then
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    spark = Sparks:FindDefaultSparkForHero(hero)
+  end
+
   local oldSpark = Sparks.data.hasSpark[playerId]
   if oldSpark then
     --DebugPrint('They are changing their spark ' .. oldSpark .. ' to ' .. spark)
@@ -183,9 +190,9 @@ function Sparks:CheckSparkOnHeroEntity (hero)
   end
   -- purge the other modifiers
 
-  if spark ~= "gpm" then
-    hero:RemoveModifierByName(self:ModifierName("gpm"))
-  end
+  --if spark ~= "gpm" then
+    --hero:RemoveModifierByName(self:ModifierName("gpm"))
+  --end
   if spark ~= "midas" then
     hero:RemoveModifierByName(self:ModifierName("midas"))
   end
@@ -211,11 +218,12 @@ function Sparks:CheckSparkOnHeroEntity (hero)
 end
 
 function Sparks:ModifierName (spark)
-  if spark == "gpm" then
-    return "modifier_spark_gold"
-  --elseif spark == "midas" then
+  --if spark == "gpm" then
+    --return "modifier_spark_gold"
+  --end
+  --if spark == "midas" then
     --return "modifier_spark_xp"
-  end
+  --end
   return 'modifier_spark_' .. spark
 end
 
@@ -345,12 +353,11 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_phantom_lancer = "power",
     npc_dota_hero_naga_siren = "power",
     npc_dota_hero_terrorblade = "power",
-    npc_dota_hero_dummy_dummy = "gpm",
   }
 
   if default_sparks[hero_name] ~= nil then
     return default_sparks[hero_name]
   end
 
-  return "gpm"
+  return "cleave"
 end
