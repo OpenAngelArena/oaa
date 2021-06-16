@@ -34,7 +34,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_pct"                            "10 20 30 40 45 50" //OAA
+        "damage_reduction_pct"                            "14 21 28 35 40 45" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
@@ -55,10 +55,10 @@
         "bonus_damage_duration"                           "75" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "06"
+      "06" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_damage_duration_scepter"                   "100" //OAA
+        "bonus_damage_duration_scepter"                   "75" //OAA
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }

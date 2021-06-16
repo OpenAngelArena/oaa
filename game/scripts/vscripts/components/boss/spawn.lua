@@ -194,14 +194,19 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1
-    -- Increasing the score limit with the first boss kill of the tier
-    --[[
+
     if not BossSpawner.hasKilledTiers[bossTier] then
       BossSpawner.hasKilledTiers[bossTier] = true
-      local scoreLimitIncrease = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
-      PointsManager:IncreaseLimit(scoreLimitIncrease)
+      -- Notify everyone that a first boss is killed
+      local message = "First tier " .. tostring(bossTier) .. " boss has been slain!"
+      -- Show the message on the screen
+      Notifications:BottomToAll({text = message, duration = 5.0})
+      -- Show the message in chat
+      GameRules:SendCustomMessage(message, 0, 0)
+      -- Increasing the score limit with the first boss kill of the tier
+      --PointsManager:IncreaseLimit()
     end
-    ]]
+
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
       BossSpawner:SpawnBossAtPit(pit, bossTier)
     end)

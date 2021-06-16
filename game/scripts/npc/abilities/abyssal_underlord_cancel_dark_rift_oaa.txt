@@ -21,7 +21,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.1"
+    "AbilityCooldown"                                     "1.0" // like shadow_demon_shadow_poison_release
+    "AbilityCastPoint"                                    "0.3" // like shadow_demon_shadow_poison_release
 
     "AbilitySpecial"
     {

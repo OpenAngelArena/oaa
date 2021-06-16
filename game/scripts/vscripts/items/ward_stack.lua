@@ -302,6 +302,7 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
   self.charger = caster:AddNewModifier(caster, ability, modifierCharger, { duration = chargeDuration } )
 end
 
+--------------------------------------------------------------------------
 
 modifier_item_ward_stack_observers = class(modifier_item_ward_stack_sentries)
 
@@ -347,6 +348,8 @@ modifier_sentry_ward_recharger.OnRefresh = modifier_sentry_ward_recharger.OnCrea
 function modifier_sentry_ward_recharger:GetTexture ()
   return "item_ward_" .. self:WardName()
 end
+
+--------------------------------------------------------------------------
 
 modifier_observer_ward_recharger = class(modifier_sentry_ward_recharger)
 

@@ -77,10 +77,10 @@ function Wanderer:SpawnWanderer ()
 
       -- Give cores and points to the capturing team
       if self.level == 1 then
-        BossAI:RewardBossKill(2, teamId)
+        BossAI:RewardBossKill(1, teamId)
         BossAI:RewardBossKill(2, teamId)
       elseif self.level == 2 then
-        BossAI:RewardBossKill(3, teamId)
+        BossAI:RewardBossKill(2, teamId)
         BossAI:RewardBossKill(3, teamId)
       elseif self.level > 2 then
         BossAI:RewardBossKill(4, teamId)

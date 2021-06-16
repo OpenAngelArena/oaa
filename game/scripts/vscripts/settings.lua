@@ -131,20 +131,24 @@ LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly to
 -- XP gain and rubberband on hero kills
 USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
 
--- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
--- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
+-- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP) / number_of_killers
 HERO_XP_BOUNTY_BASE = 100            -- 100 in normal dota
-HERO_XP_BOUNTY_STREAK_BASE = 50      -- lvl * 30 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
-HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- 200 in normal dota
-HERO_XP_BOUNTY_STREAK_MAX = 800      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
-HERO_XP_BONUS_FACTOR = 0.13          -- 0.13 in normal dota
-HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
+HERO_XP_BOUNTY_STREAK_BASE = 30      -- Min amount of streak XP bonus (min streak is 3; lvl * 30 in normal dota)
+HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- not used for now
+HERO_XP_BOUNTY_STREAK_MAX = 3000     -- Max amount of streak XP bonus (lvl * streak * 10 in normal dota where lvl <= 25)
+HERO_XP_BONUS_FACTOR = 0.13          -- Multiplier for the XP of the killed hero (0.13 in normal dota)
+HERO_KILL_XP_RADIUS = 1500           -- XP range for killing heroes (1500 in normal dota)
 
--- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 120        -- After what delay in seconds will the first bounty rune spawn?
-BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
+-- Runes
+USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spawn timings and the same runes as dota have?
+-- Bounty Runes
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 0     -- After what delay in seconds will the first bounty rune spawn?
+BOUNTY_RUNE_SPAWN_INTERVAL = 180     -- How long in seconds should we wait between bounty rune respawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
+-- Power-up Runes
+FIRST_POWER_RUNE_SPAWN_TIME = 0      -- After what delay in seconds will the first power-up rune spawn?
+POWER_RUNE_SPAWN_INTERVAL = 120      -- How long in seconds should we wait between power-up runes respawns?
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -249,10 +253,6 @@ SKIP_TEAM_SETUP = false       -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 30                  -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
-
-USE_DEFAULT_RUNE_SYSTEM = false     -- Should we use the default dota rune spawn timings and the same runes as dota have?
-FIRST_POWER_RUNE_SPAWN_TIME = 120   -- After what delay in seconds will the first power-up rune spawn?
-POWER_RUNE_SPAWN_INTERVAL = 120     -- How long in seconds should we wait between power-up runes spawns?
 
 ENABLED_RUNES = {}                      -- Which runes should be enabled to spawn in our game mode?
 ENABLED_RUNES[DOTA_RUNE_DOUBLEDAMAGE] = true

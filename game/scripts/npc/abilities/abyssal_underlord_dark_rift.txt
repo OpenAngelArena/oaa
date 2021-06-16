@@ -14,7 +14,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for picking screen tooltip
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, for picking screen tooltip
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, for picking screen tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, for picking screen tooltip
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG" //OAA, for picking screen tooltip
 
     "MaxLevel"                                            "5"
@@ -51,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_teleport_delay"                          "0.5" // OAA, for picking screen tooltip
+        "scepter_teleport_delay"                          "0.6" // OAA, for picking screen tooltip
       }
       "04"
       {
@@ -67,7 +67,7 @@
       "06" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "250 450 650 1250 1850"
+        "damage"                                          "250 450 650 1050 1850"
       }
     }
   }

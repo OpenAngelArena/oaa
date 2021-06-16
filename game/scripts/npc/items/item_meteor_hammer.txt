@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "250"
+    "ItemCost"                      "1000"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -26,7 +26,7 @@
     "ItemResult"                    "item_meteor_hammer_1"
     "ItemRequirements"
     {
-      "01"                        "item_pers;item_crown"
+      "01"                                                "item_pers;item_rod_of_atos"
     }
   }
 
@@ -64,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "2350"
+    "ItemCost"                      "5400"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh;meteor hammer"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -91,7 +91,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6 9 12 15 18"
+        "bonus_health_regen"                              "6.5 9 12 15 18"
       }
       "05" // like Wind Waker
       {
