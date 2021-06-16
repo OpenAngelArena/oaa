@@ -35,9 +35,9 @@ end
 modifier_spark_gold.OnRefresh = modifier_spark_gold.OnCreated
 
 function modifier_spark_gold:DeclareFunctions()
-	return {
+  return {
     MODIFIER_EVENT_ON_DEATH,
-	}
+  }
 end
 
 -- Handles bonus gold from boss kills

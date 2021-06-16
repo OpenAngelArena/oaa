@@ -1,15 +1,15 @@
 modifier_spark_xp = class(ModifierBaseClass)
 
 function modifier_spark_xp:IsHidden()
-	return false
+  return false
 end
 
 function modifier_spark_xp:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_spark_xp:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_spark_xp:RemoveOnDeath()
@@ -35,9 +35,9 @@ end
 modifier_spark_xp.OnRefresh = modifier_spark_xp.OnCreated
 
 function modifier_spark_xp:DeclareFunctions()
-	return {
+  return {
     MODIFIER_EVENT_ON_DEATH,
-	}
+  }
 end
 
 -- Handles bonus experience from boss kills
