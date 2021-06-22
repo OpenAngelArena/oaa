@@ -39,6 +39,10 @@ function bristleback_bristleback_oaa:GetIntrinsicModifierName()
   return "modifier_bristleback_oaa"
 end
 
+function bristleback_bristleback_oaa:ShouldUseResources()
+  return true
+end
+
 function bristleback_bristleback_oaa:IsStealable()
   return false
 end
