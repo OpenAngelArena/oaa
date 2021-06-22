@@ -13,7 +13,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "item_philosophers_stone"
 
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "80"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_xpm"                                       "1000"
+        "bonus_xpm"                                       "666"
       }
       "02"
       {
@@ -42,12 +42,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "-30"
+        "bonus_damage"                                    "-60"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-30"
+        "bonus_attack_speed"                              "-35"
       }
       "05"
       {
@@ -57,7 +57,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "summon_health"                                   "1000"
+        "summon_health"                                   "900"
       }
       "07"
       {
@@ -72,7 +72,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "summon_move_speed"                               "400"
+        "summon_move_speed"                               "370"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_true_sight_radius"                        "800"
       }
     }
   }

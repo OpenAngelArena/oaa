@@ -170,8 +170,13 @@ function modifier_demon_stone_summon_passives:GetModifierAura()
 end
 
 function modifier_demon_stone_summon_passives:GetAuraRadius()
-  local parent = self:GetParent()
-  return parent:GetCurrentVisionRange() or 800
+  --local parent = self:GetParent()
+  --return parent:GetCurrentVisionRange() or 800
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor("summon_true_sight_radius")
+  end
+  return 800
 end
 
 function modifier_demon_stone_summon_passives:GetAuraSearchTeam()
