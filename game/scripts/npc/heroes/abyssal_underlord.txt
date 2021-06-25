@@ -11,7 +11,26 @@
     "Ability6"                                            "abyssal_underlord_dark_rift_oaa" // replaces abyssal_underlord_dark_rift
     "Ability7"                                            "generic_hidden" // replaces abyssal_underlord_cancel_dark_rift
 
+    "Ability10"                                           "special_bonus_armor_5"
+    "Ability11"                                           "special_bonus_unique_underlord_8"
+
+    "Ability12"                                           "special_bonus_unique_underlord_6"
+    "Ability13"                                           "special_bonus_unique_underlord_5"
+
     "Ability14"                                           "special_bonus_unique_underlord_2" // replaces special_bonus_attack_speed_60
     "Ability15"                                           "special_bonus_hp_regen_50" // replaces special_bonus_hp_regen_20
+
+    "Ability16"                                           "special_bonus_unique_underlord"
+    "Ability17"                                           "special_bonus_unique_underlord_9"
+
+    // special_bonus_unique_underlord - "+{s:value}s Pit of Malice Root"
+    // special_bonus_unique_underlord_2 - "+{s:value} Firestorm Wave Damage"
+    // special_bonus_unique_underlord_3 - "+{s:value} Atrophy Permanent Bonus Damage"   - doesn't work
+    // special_bonus_unique_underlord_4 - "{s:value}% Firestorm Building Damage"        - useless
+    // special_bonus_unique_underlord_5 - "-{s:value}s Firestorm Cooldown"
+    // special_bonus_unique_underlord_6 - "+{s:value} Pit of Malice AoE"
+    // special_bonus_unique_underlord_7 - "+{s:value} Firestorm Wave Count"             - shard does this
+    // special_bonus_unique_underlord_8 - "+{s:value} Firestorm Radius"
+    // special_bonus_unique_underlord_9 - "+{s:value}% Atrophy Allied Hero Bonus"
   }
 }
