@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5616"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, for picking screen tooltip
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, for picking screen tooltip
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for picking screen tooltip
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for picking screen tooltip
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90"  //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "100 95 90 85 80"  //OAA, for picking screen tooltip
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

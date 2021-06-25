@@ -110,6 +110,8 @@ function modifier_crystal_maiden_arcane_aura_effect_oaa:DeclareFunctions()
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
     --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
+    --MODIFIER_PROPERTY_TOOLTIP, -- OnTooltip
+    --MODIFIER_PROPERTY_TOOLTIP2, -- OnTooltip2
   }
 end
 
@@ -131,4 +133,12 @@ end
 
 --function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierMagicalResistanceBonus()
   --return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
+--end
+
+--function modifier_crystal_maiden_arcane_aura_effect_oaa:OnTooltip()
+  --return self.mana_cost_reduction
+--end
+
+--function modifier_crystal_maiden_arcane_aura_effect_oaa:OnTooltip2()
+  --return self.spell_amp
 --end
