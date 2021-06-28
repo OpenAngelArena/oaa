@@ -15,10 +15,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // 3x vanilla value
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "1050"  //OAA
+        "value"                                           "700"  //OAA
         "ad_linked_ability"                               "broodmother_spawn_spiderlings"
       }
     }
