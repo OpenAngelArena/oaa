@@ -52,23 +52,23 @@ function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseStart()
   local radius = self:GetSpecialValueFor( "radius" )
   local target_loc = GetGroundPosition( Vector(pos.x, pos.y, 0), caster) -- Server only?
 
-  -- Remove particles of the previous spell instance in case of refresher
-  --if caster.partPortal1 then
-    --ParticleManager:DestroyParticle( caster.partPortal1, false )
-    --ParticleManager:ReleaseParticleIndex( caster.partPortal1 )
-    --caster.partPortal1 = nil
-  --end
-  --if caster.partPortal2 then
-    --ParticleManager:DestroyParticle( caster.partPortal2, false )
-    --ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
-    --caster.partPortal2 = nil
-  --end
-
-  -- Remove stored locations of the previous spell instance in case of refresher
-  --caster.dark_rift_origin = nil
-  --caster.dark_rift_target = nil
-
   if IsServer() then
+    -- Remove particles of the previous spell instance in case of refresher
+    if caster.partPortal1 then
+      ParticleManager:DestroyParticle( caster.partPortal1, false )
+      ParticleManager:ReleaseParticleIndex( caster.partPortal1 )
+      caster.partPortal1 = nil
+    end
+    if caster.partPortal2 then
+      ParticleManager:DestroyParticle( caster.partPortal2, false )
+      ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
+      caster.partPortal2 = nil
+    end
+
+    --Remove stored locations of the previous spell instance in case of refresher
+    caster.dark_rift_origin = nil
+    caster.dark_rift_target = nil
+
     -- create portal particle on caster location
     local partPortal1 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
     ParticleManager:SetParticleControl( partPortal1, 0, originCaster )
@@ -110,12 +110,12 @@ function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseInterrupted()
 
     -- Remove particles if interrupted
     if caster.partPortal1 then
-      ParticleManager:DestroyParticle( caster.partPortal1, false )
+      ParticleManager:DestroyParticle( caster.partPortal1, true )
       ParticleManager:ReleaseParticleIndex( caster.partPortal1 )
       caster.partPortal1 = nil
     end
     if caster.partPortal2 then
-      ParticleManager:DestroyParticle( caster.partPortal2, false )
+      ParticleManager:DestroyParticle( caster.partPortal2, true )
       ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
       caster.partPortal2 = nil
     end
