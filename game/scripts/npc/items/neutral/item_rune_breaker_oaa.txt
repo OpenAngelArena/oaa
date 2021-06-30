@@ -1,17 +1,22 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Creed of Omniscience - neutral tier 3 item
+  // Rune Breaker - neutral tier 4 item
   //=================================================================================================================
-  "item_creed_of_omniscience"
+  "item_rune_breaker_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8626" // unique ID
+    "ID"                                                  "80379" // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/creed_of_omniscience.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/creed_of_omniscience"
+    "ScriptFile"                                          "items/neutral/rune_breaker.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityTextureName"                                  "item_the_leveller"
+
+    "AbilityCastRange"                                    "400"
+    "AbilityCooldown"                                     "25"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -30,43 +35,23 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "65"
+        "bonus_attack_speed"                              "50"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25"
+        "bonus_armor"                                     "5"
       }
-      "03"
+      "03" // percentage bonus based on base (white) dmg
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "15"
+        "bonus_damage_during_duels"                       "25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_turn_rate"                                 "50"
+        "duration"                                        "4"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "100"
-      }
-      // "02"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "bonus_attack_range"                              "100"
-      // }
-      // "03"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "bonus_attack_range_melee"                        "75"
-      // }
-      // "05"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "bonus_attack_projectile_speed"                   "600"
-      // }
     }
   }
 }

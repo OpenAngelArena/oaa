@@ -10,6 +10,7 @@
         "1" "5"
         "2" "5"
         "3" "5"
+        "4" "5"
       }
     }
 
@@ -24,7 +25,7 @@
       "item_arcane_ring"               "1"
       "item_angel_heart"               "1"
       "item_moon_crest"                "1"
-      "item_mysterious_hat"            "1"
+      //"item_mysterious_hat"            "1"
       "item_chipped_vest"              "1"
       "item_possessed_mask"            "1"
     }
@@ -39,6 +40,7 @@
         "1" "3"
         "2" "3"
         "3" "3"
+        "4" "3"
       }
     }
 
@@ -49,7 +51,7 @@
       "item_ring_of_aquila"            "1"
       "item_pupils_gift"               "1"
       "item_nether_shawl"              "1"
-      "item_dragon_scale"              "1"
+      "item_dragon_scale_oaa"          "1"
       "item_vambrace"                  "1"
       "item_clumsy_net"                "1"
       "item_quicksilver_amulet"        "1"
@@ -67,6 +69,7 @@
         "1" "5"
         "2" "5"
         "3" "5"
+        "4" "5"
       }
     }
 
@@ -82,19 +85,21 @@
       "item_cloak_of_flames"           "1"
       "item_ceremonial_robe"           "1"
       "item_creed_of_omniscience"      "1"
-      "item_craggy_coat"               "1"
+      "item_titan_sliver"              "1"
+      //"item_craggy_coat"               "1"
     }
   }
   "4"
   {
     "drop_rates"
     {
-      "35:00"
+      "30:00"
       {
         "0" "5"
         "1" "5"
         "2" "5"
         "3" "5"
+        "4" "5"
       }
     }
 
@@ -106,11 +111,11 @@
       "item_ninja_gear"                "1"
       "item_princes_knife"             "1"
       "item_psychic_headband"          "1"
-      "item_titan_sliver"              "1"
       "item_telescope_oaa"             "1"
       "item_trickster_cloak"           "1"
       "item_stormcrafter"              "1"
-      "item_penta_edged_sword"         "1"
+      "item_blood_sword"               "1"
+      "item_rune_breaker_oaa"          "1"
     }
   }
   "5"
@@ -123,6 +128,7 @@
         "1" "5"
         "2" "5"
         "3" "5"
+        "4" "5"
       }
     }
 
@@ -135,7 +141,7 @@
       "item_ballista"                  "1"
       "item_stonework_pendant"         "1"
       "item_fallen_sky"                "1"
-      "item_pirate_hat"                "1"
+      //"item_pirate_hat"                "1"
       "item_ex_machina"                "1"
       "item_giants_ring"               "1"
       "item_book_of_shadows"           "1"
