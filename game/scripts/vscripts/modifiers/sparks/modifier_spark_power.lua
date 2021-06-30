@@ -291,7 +291,7 @@ function modifier_spark_power_effect:GetModifierProcAttack_BonusDamage_Pure(even
   ]]
   local damage = self.bonus
   if parent:IsIllusion() or not parent:IsHero() then
-    damage = damage / 10
+    damage = damage / 8
   end
   if damage > 0 then
     SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
@@ -329,7 +329,7 @@ function modifier_spark_power_effect:OnTooltip()
   local parent = self:GetParent()
   local damage = self.bonus
   if parent:IsIllusion() or not parent:IsHero() then
-    damage = damage / 10
+    damage = damage / 8
   end
   return damage
 end

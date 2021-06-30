@@ -160,10 +160,18 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   -- Grant the base last hit bounty
   for _, hero in rewardHeroes:unwrap() do
-    Gold:ModifyGold(hero, baseGold, true, DOTA_ModifyGold_RoshanKill)
+    -- Check for Gold spark
+    local spark = hero:FindModifierByName("modifier_spark_gold")
+    local specific_base_gold = baseGold
+    if spark then
+      specific_base_gold = math.floor(baseGold + baseGold * spark.hero_kill_bonus_gold)
+    end
+
+    Gold:ModifyGold(hero, specific_base_gold, true, DOTA_ModifyGold_RoshanKill)
+
     local killerPlayer = hero:GetPlayerOwner()
     if killerPlayer then
-      SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, baseGold, killerPlayer)
+      SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, specific_base_gold, killerPlayer)
     end
   end
 
@@ -290,11 +298,18 @@ function HeroKillGold:HeroDeathHandler (keys)
           rewardTeam = killerTeam,
         })
     end
+    -- Check for Gold spark
+    local spark = hero:FindModifierByName("modifier_spark_gold")
+    local specific_assist_gold = assistGold
+    if spark then
+      specific_assist_gold = math.floor(assistGold + assistGold * spark.hero_kill_bonus_gold)
+    end
 
-    Gold:ModifyGold(hero, assistGold, true, DOTA_ModifyGold_RoshanKill)
+    Gold:ModifyGold(hero, specific_assist_gold, true, DOTA_ModifyGold_RoshanKill)
+
     local player = hero:GetPlayerOwner()
     if player then
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, assistGold, player)
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_assist_gold, player)
     end
   end
 end

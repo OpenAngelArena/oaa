@@ -146,7 +146,13 @@ function HeroKillXP:HeroDeathHandler(keys)
   if rewardHeroes then
     for _, hero in rewardHeroes:unwrap() do
       if hero then
-        hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
+        -- Check for XP spark
+        local spark = hero:FindModifierByName("modifier_spark_xp")
+        local specific_hero_xp = xp
+        if spark then
+          specific_hero_xp = xp + xp * spark.hero_kill_bonus_xp
+        end
+        hero:AddExperience(specific_hero_xp, DOTA_ModifyXP_RoshanKill, false, true)
       end
     end
   end
@@ -154,7 +160,13 @@ function HeroKillXP:HeroDeathHandler(keys)
   -- Player kills: Give xp to the killer and to heroes around the killed hero
   for _, hero in ipairs(heroes) do
     if hero then
-      hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
+      -- Check for XP spark
+      local spark = hero:FindModifierByName("modifier_spark_xp")
+      local specific_hero_xp = xp
+      if spark then
+        specific_hero_xp = math.floor(xp + xp * spark.hero_kill_bonus_xp)
+      end
+      hero:AddExperience(specific_hero_xp, DOTA_ModifyXP_RoshanKill, false, true)
     end
   end
 end
