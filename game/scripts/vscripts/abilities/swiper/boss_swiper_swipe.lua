@@ -60,6 +60,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 
     local delay = self:GetSpecialValueFor("delay") or self:GetCastPoint()
 
+    -- Make the caster uninterruptible while casting this ability
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
 
     local position2 = caster_loc + (caster:GetForwardVector() * range)

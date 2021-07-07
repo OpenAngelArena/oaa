@@ -8,8 +8,6 @@ function modifier_lycan_boss_claw_lunge:OnCreated( kv )
 			self:Destroy()
 			return
 		end
-
-		self.lunge_width = self:GetAbility():GetSpecialValueFor( "lunge_width" )
 	end
 end
 
@@ -49,16 +47,21 @@ function modifier_lycan_boss_claw_lunge:DeclareFunctions()
 	return funcs
 end
 
-
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_lunge:CheckState()
-	local state =
-	{
-		[MODIFIER_STATE_STUNNED] = true,
-	}
+  local state =
+  {
+    [MODIFIER_STATE_STUNNED] = true, -- self stun for some reason
+    [MODIFIER_STATE_HEXED] = false,
+    [MODIFIER_STATE_ROOTED] = false,
+    [MODIFIER_STATE_SILENCED] = false,
+    [MODIFIER_STATE_FROZEN] = false,
+    [MODIFIER_STATE_FEARED] = false,
+    --[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+  }
 
-	return state
+  return state
 end
 
 --------------------------------------------------------------------------------
@@ -78,7 +81,5 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_lunge:OnHorizontalMotionInterrupted()
-	if IsServer() then
-		self.bHorizontalMotionInterrupted = true
-	end
+  self:Destroy()
 end

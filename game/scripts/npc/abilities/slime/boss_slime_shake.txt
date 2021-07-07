@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Slime Boss: Shake
+  // Slime Boss: Shake (Acid Rain)
   //=================================================================================================================
   "boss_slime_shake"
   {
@@ -17,10 +17,12 @@
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "700"
+    "AbilityCastRange"              "800"
     "AbilityCastPoint"              "0.5"
     "AbilityChannelTime"            "6.0"
     // Time
@@ -43,7 +45,7 @@
       "02"
       {
         "var_type"                  "FIELD_INTEGER"
-        "radius"                    "700"
+        "radius"                    "800"
       }
       "03"
       {
@@ -68,7 +70,7 @@
       "07"
       {
         "var_type"                  "FIELD_FLOAT"
-        "slow_duration"             "5.0"
+        "slow_duration"             "3.0"
       }
       "08"
       {

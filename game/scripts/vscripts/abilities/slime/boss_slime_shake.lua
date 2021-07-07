@@ -62,9 +62,12 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_slime_shake:OnAbilityPhaseStart()
-	local caster = self:GetCaster()
-	caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = self:GetCastPoint() + self:GetChannelTime()})
-	return true
+  local caster = self:GetCaster()
+
+  -- Make the caster uninterruptible while casting this ability
+  caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = self:GetCastPoint() + self:GetChannelTime()})
+
+  return true
 end
 
 ------------------------------------------------------------------------------------
@@ -156,6 +159,10 @@ modifier_boss_slime_shake_slow = class(ModifierBaseClass)
 
 function modifier_boss_slime_shake_slow:IsDebuff()
 	return true
+end
+
+function modifier_boss_slime_shake_slow:IsPurgable()
+  return true
 end
 
 ------------------------------------------------------------------------------------

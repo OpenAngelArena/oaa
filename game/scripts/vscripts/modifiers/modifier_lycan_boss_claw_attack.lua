@@ -127,37 +127,45 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_attack:TryToHitTarget( enemy )
-	local vToTarget = enemy:GetOrigin() - self:GetCaster():GetOrigin()
-	vToTarget = vToTarget:Normalized()
-	local flDirectionDot = DotProduct( vToTarget, self:GetCaster():GetForwardVector() )
-	local flAngle = 180 * math.acos( flDirectionDot ) / math.pi
-	if flAngle < 90 then
-		self:AddHitTarget( enemy )
-		local damageInfo =
-		{
-			victim = enemy,
-			attacker = self:GetParent(),
-			damage = self.damage,
-			damage_type = DAMAGE_TYPE_PHYSICAL,
-			ability = self,
-		}
+  local parent = self:GetParent() -- parent is the same as the caster in this case
+  local ability = self:GetAbility()
+  local vToTarget = enemy:GetOrigin() - parent:GetOrigin()
+  vToTarget = vToTarget:Normalized()
+  local flDirectionDot = DotProduct( vToTarget, parent:GetForwardVector() )
+  local flAngle = 180 * math.acos( flDirectionDot ) / math.pi
+  if flAngle < 90 then
+    self:AddHitTarget( enemy )
+    -- Hit sound
+    enemy:EmitSound("Roshan.Attack.Post")
+    -- Damage table
+    local damageInfo =
+    {
+      victim = enemy,
+      attacker = parent,
+      damage = self.damage,
+      damage_type = DAMAGE_TYPE_PHYSICAL,
+      ability = ability,
+    }
 
-		ApplyDamage( damageInfo )
-		enemy:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_stunned", { duration = self:GetAbility():GetSpecialValueFor( "stun_duration" ) } )
-		enemy:EmitSound("Roshan.Attack.Post")
-	end
+    ApplyDamage( damageInfo )
+
+    -- Stun only alive and non-spell-immune units
+    if enemy:IsAlive() and not enemy:IsMagicImmune() then
+      enemy:AddNewModifier(parent, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("stun_duration")})
+    end
+  end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_attack:HasHitTarget( hTarget )
-	for _, target in pairs( self.hHitTargets ) do
-		if target == hTarget then
-        return true
-	    end
-	end
+  for _, target in pairs( self.hHitTargets ) do
+    if target == hTarget then
+      return true
+    end
+  end
 
-	return false
+  return false
 end
 
 --------------------------------------------------------------------------------
