@@ -64,7 +64,7 @@ function LycanBossThink()
       nil,
       thisEntity:GetCurrentVisionRange(),
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_ALL,
+      DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
       DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
       FIND_CLOSEST,
       false
@@ -78,7 +78,7 @@ function LycanBossThink()
         3*BOSS_LEASH_SIZE,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_ALL,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
         FIND_CLOSEST,
         false
       )
@@ -117,11 +117,12 @@ function LycanBossThink()
     for i = 1, #unit_group do
       local enemy = unit_group[i]
       if enemy and not enemy:IsNull() then
-        if enemy:IsAlive() and not enemy:IsAttackImmune() and not enemy:IsInvulnerable() and not enemy:IsOutOfGame() and not enemy:HasModifier("modifier_item_buff_ward") and not enemy:IsCourier() and enemy:GetAttackRange() > BOSS_LEASH_SIZE and (enemy:GetAbsOrigin() - entity.vInitialSpawnPos):Length2D() < 2*BOSS_LEASH_SIZE then
+        if enemy:IsAlive() and (not enemy:IsInvulnerable()) and (not enemy:IsOutOfGame()) and (not enemy:IsOther()) and (not enemy:IsCourier()) and ((enemy:GetAbsOrigin() - entity.vInitialSpawnPos):Length2D() < 2*BOSS_LEASH_SIZE) then
           return enemy
         end
       end
     end
+	return nil
   end
 
   local valid_enemy
