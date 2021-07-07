@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_boss_resistance", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("modifier_boss_truesight", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_resistance = class(AbilityBaseClass)
 
@@ -47,17 +47,59 @@ function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   return keys.damage * damageReduction / 100
 end
 
-function modifier_boss_resistance:OnTakeDamage(keys)
+function modifier_boss_resistance:OnTakeDamage(event)
   if not IsServer() then
     return
   end
-  local parent = self:GetParent()
-  if not keys.attacker or not keys.unit or keys.unit ~= parent then
+  local parent = self:GetParent()   -- boss
+  local ability = self:GetAbility() -- boss_resistance
+
+  local attacker = event.attacker
+  local victim = event.unit
+  local inflictor = event.inflictor
+  local damage = event.damage
+
+  if not attacker or attacker:IsNull() then
     return
   end
-  local ability = self:GetAbility()
+
+  if not victim or victim:IsNull() then
+    return
+  end
+
+  -- Check if damaged entity is not this boss
+  if victim ~= parent then
+    return
+  end
+
+  -- Check if it's self damage
+  if attacker == victim then
+    return
+  end
+
+  -- Check if it's accidental damage
+  if parent:CheckForAccidentalDamage(inflictor) then
+    return
+  end
+
+  -- Find what tier is this boss if its defined and set the appropriate damage_threshold
+  local tier = parent.BossTier or 1
+  local damage_threshold = BOSS_AGRO_FACTOR or 15
+  damage_threshold = damage_threshold * tier
+
+  -- Check if damage is less than the threshold
+  if damage <= damage_threshold then
+    return
+  end
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
   local revealDuration = ability:GetSpecialValueFor("reveal_duration")
-  keys.attacker:AddNewModifier(parent, self:GetAbility(), "modifier_boss_truesight", {duration = revealDuration})
+
+  -- Reveal the attacker for revealDuration seconds
+  attacker:AddNewModifier(parent, ability, "modifier_boss_truesight_oaa", {duration = revealDuration})
 end
 
 if IsServer() then
@@ -273,9 +315,9 @@ end
 
 -----------------------------------------------------------------------------------------
 
-modifier_boss_truesight = class(ModifierBaseClass)
+modifier_boss_truesight_oaa = class(ModifierBaseClass)
 
-function modifier_boss_truesight:OnCreated()
+function modifier_boss_truesight_oaa:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.maxRevealDist = ability:GetSpecialValueFor("reveal_max_distance")
@@ -284,10 +326,10 @@ function modifier_boss_truesight:OnCreated()
   end
 end
 
-modifier_boss_truesight.OnRefresh = modifier_boss_truesight.OnCreated
+modifier_boss_truesight_oaa.OnRefresh = modifier_boss_truesight_oaa.OnCreated
 
 if IsServer() then
-  function modifier_boss_truesight:CheckState()
+  function modifier_boss_truesight_oaa:CheckState()
     local parent = self:GetParent()
     local caster = self:GetCaster()
 
@@ -306,19 +348,19 @@ if IsServer() then
   end
 end
 
-function modifier_boss_truesight:IsPurgable()
+function modifier_boss_truesight_oaa:IsPurgable()
   return false
 end
 
-function modifier_boss_truesight:IsDebuff()
+function modifier_boss_truesight_oaa:IsDebuff()
   return true
 end
 
-function modifier_boss_truesight:GetTexture()
+function modifier_boss_truesight_oaa:GetTexture()
   return "item_gem"
 end
 
-function modifier_boss_truesight:IsHidden()
+function modifier_boss_truesight_oaa:IsHidden()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
@@ -329,14 +371,14 @@ function modifier_boss_truesight:IsHidden()
   return (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self.maxRevealDist
 end
 
-function modifier_boss_truesight:GetEffectName()
+function modifier_boss_truesight_oaa:GetEffectName()
   return "particles/items2_fx/true_sight_debuff.vpcf"
 end
 
-function modifier_boss_truesight:GetEffectAttachType()
+function modifier_boss_truesight_oaa:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_boss_truesight:GetPriority()
+function modifier_boss_truesight_oaa:GetPriority()
   return MODIFIER_PRIORITY_SUPER_ULTRA
 end
