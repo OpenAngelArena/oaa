@@ -37,10 +37,10 @@ function abyssal_underlord_dark_rift_oaa:GetCooldown(level)
   return cooldown
 end
 
-function abyssal_underlord_dark_rift_oaa:OnSpellStart()
+function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
   local originCaster = caster:GetAbsOrigin()
-  local pos = self:GetCursorPosition()
+  local pos = self:GetCursorPosition() -- Server only?
   local minRange = self:GetSpecialValueFor("minimum_range")
   local vectorTarget = pos - originCaster
 
@@ -50,67 +50,96 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   end
 
   local radius = self:GetSpecialValueFor( "radius" )
-  local target_loc = GetGroundPosition( Vector(pos.x, pos.y, 0), caster)
+  local target_loc = GetGroundPosition( Vector(pos.x, pos.y, 0), caster) -- Server only?
 
-  -- Remove particles of the previous spell instance in case of refresher
-  if caster.partPortal1 then
-    ParticleManager:DestroyParticle( caster.partPortal1, false )
-    ParticleManager:ReleaseParticleIndex( caster.partPortal1 )
-    caster.partPortal1 = nil
+  if IsServer() then
+    -- Remove particles of the previous spell instance in case of refresher
+    if caster.partPortal1 then
+      ParticleManager:DestroyParticle( caster.partPortal1, false )
+      ParticleManager:ReleaseParticleIndex( caster.partPortal1 )
+      caster.partPortal1 = nil
+    end
+    if caster.partPortal2 then
+      ParticleManager:DestroyParticle( caster.partPortal2, false )
+      ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
+      caster.partPortal2 = nil
+    end
+
+    --Remove stored locations of the previous spell instance in case of refresher
+    caster.dark_rift_origin = nil
+    caster.dark_rift_target = nil
+
+    -- create portal particle on caster location
+    local partPortal1 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
+    ParticleManager:SetParticleControl( partPortal1, 0, originCaster )
+    ParticleManager:SetParticleControl( partPortal1, 2, originCaster )
+    ParticleManager:SetParticleControl( partPortal1, 1, Vector( radius, 1, 1 ) )
+
+    -- create portal particle on destination
+    local partPortal2 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
+    ParticleManager:SetParticleControl( partPortal2, 0, target_loc )
+    ParticleManager:SetParticleControl( partPortal2, 2, target_loc )
+    ParticleManager:SetParticleControl( partPortal2, 1, Vector( radius, 1, 1 ) )
+
+    -- play cast sounds
+    caster:EmitSound("Hero_AbyssalUnderlord.DarkRift.Cast")
+    --EmitSoundOnLocationWithCaster( target_loc, "Hero_AbyssalUnderlord.DarkRift.Cast", caster )
+    -- EmitSoundOnLocationWithCaster needs to be replaced with EmitSound on invisible thinker/dummy entity
+    -- and StopSound when portals close, otherwise its annoying
+
+    -- Store the location of the caster on the caster itself for the sub ability
+    caster.dark_rift_origin = originCaster
+
+    -- Store the target location on the caster itself for the sub ability
+    caster.dark_rift_target = target_loc
+
+    -- Store particles indexes on caster itself (because of Dark Abduction sub ability)
+    caster.partPortal1 = partPortal1
+    caster.partPortal2 = partPortal2
   end
-  if caster.partPortal2 then
-    ParticleManager:DestroyParticle( caster.partPortal2, false )
-    ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
-    caster.partPortal2 = nil
-  end
 
-  -- Remove stored locations of the previous spell instance in case of refresher
-  caster.dark_rift_origin = nil
-  caster.dark_rift_target = nil
-
-  -- create portal particle on caster location
-  local partPortal1 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
-  ParticleManager:SetParticleControl( partPortal1, 0, originCaster )
-  ParticleManager:SetParticleControl( partPortal1, 2, originCaster )
-  ParticleManager:SetParticleControl( partPortal1, 1, Vector( radius, 1, 1 ) )
-
-  -- create portal particle on destination
-  local partPortal2 = ParticleManager:CreateParticle( "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf", PATTACH_WORLDORIGIN, caster )
-  ParticleManager:SetParticleControl( partPortal2, 0, target_loc )
-  ParticleManager:SetParticleControl( partPortal2, 2, target_loc )
-  ParticleManager:SetParticleControl( partPortal2, 1, Vector( radius, 1, 1 ) )
-
-  -- play cast sounds
-  caster:EmitSound( "Hero_AbyssalUnderlord.DarkRift.Cast" )
-  --EmitSoundOnLocationWithCaster( target_loc, "Hero_AbyssalUnderlord.DarkRift.Cast", caster )
-  -- EmitSoundOnLocationWithCaster needs to be replaced with EmitSound on invisible thinker/dummy entity
-  -- and StopSound when portals close, otherwise its annoying
-
-  -- Store the location of the caster on the caster itself for the sub ability
-  caster.dark_rift_origin = originCaster
-
-  -- Store the target location on the caster itself for the sub ability
-  caster.dark_rift_target = target_loc
-
-  -- Store particles indexes on caster itself
-  caster.partPortal1 = partPortal1
-  caster.partPortal2 = partPortal2
+  return true
 end
 
-function abyssal_underlord_dark_rift_oaa:GetChannelTime()
-  if self:GetCaster():HasScepter() then
-    return self:GetSpecialValueFor("teleport_delay_scepter")
+function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseInterrupted()
+  if IsServer() then
+    local caster = self:GetCaster()
+
+    -- Stop sound if interrupted
+    caster:StopSound("Hero_AbyssalUnderlord.DarkRift.Cast")
+
+    -- Remove particles if interrupted
+    if caster.partPortal1 then
+      ParticleManager:DestroyParticle( caster.partPortal1, true )
+      ParticleManager:ReleaseParticleIndex( caster.partPortal1 )
+      caster.partPortal1 = nil
+    end
+    if caster.partPortal2 then
+      ParticleManager:DestroyParticle( caster.partPortal2, true )
+      ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
+      caster.partPortal2 = nil
+    end
+
+    -- Remove stored locations if interrupted
+    caster.dark_rift_origin = nil
+    caster.dark_rift_target = nil
   end
-  return self.BaseClass.GetChannelTime(self)
 end
 
-function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
+-- function abyssal_underlord_dark_rift_oaa:GetChannelTime()
+  -- if self:GetCaster():HasScepter() then
+    -- return self:GetSpecialValueFor("teleport_delay_scepter")
+  -- end
+  -- return self.BaseClass.GetChannelTime(self)
+-- end
+
+function abyssal_underlord_dark_rift_oaa:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Stop sound in all cases when channeling finishes
-  caster:StopSound( "Hero_AbyssalUnderlord.DarkRift.Cast" )
+  -- Stop sound when the spell goes off
+  caster:StopSound("Hero_AbyssalUnderlord.DarkRift.Cast")
 
-  -- Function for removing portal particles
+  -- local function for removing portal particles
   local function RemoveParticles()
     if caster.partPortal1 then
       ParticleManager:DestroyParticle( caster.partPortal1, false )
@@ -122,16 +151,6 @@ function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
       ParticleManager:ReleaseParticleIndex( caster.partPortal2 )
       caster.partPortal2 = nil
     end
-  end
-
-  -- Remove stuff if interrupted and don't continue
-  if bInterrupted then
-    RemoveParticles()
-
-    caster.dark_rift_origin = nil
-    caster.dark_rift_target = nil
-
-    return
   end
 
   local originParent = caster:GetAbsOrigin()
@@ -208,10 +227,17 @@ function abyssal_underlord_dark_rift_oaa:OnChannelFinish(bInterrupted)
   end
 end
 
+function abyssal_underlord_dark_rift_oaa:ProcsMagicStick()
+  return true
+end
+
+function abyssal_underlord_dark_rift_oaa:IsStealable()
+  return true
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_underlord_dark_rift_oaa_stun = class(ModifierBaseClass)
-
 
 function modifier_underlord_dark_rift_oaa_stun:IsHidden()
   return false

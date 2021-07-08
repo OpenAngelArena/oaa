@@ -15,7 +15,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 3
-      local max_number_of_monkeys_per_ring = math.max(10, self:GetSpecialValueFor("num_second_soldiers_scepter"))
+      local max_number_of_monkeys_per_ring = math.max(12, self:GetSpecialValueFor("num_third_soldiers_scepter"))
       local hidden_point = Vector(-10000,-10000,-10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -214,7 +214,7 @@ end
 function monkey_king_wukongs_command_oaa:GetAOERadius()
   local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("second_radius")
-  local clone_attack_range = 300
+  local clone_attack_range = caster:GetAttackRange()
   local talent_radius = 0
   if caster:HasModifier("modifier_special_bonus_unique_monkey_king_ring") and caster.special_bonus_unique_monkey_king_extra_ring then
     talent_radius = caster.special_bonus_unique_monkey_king_extra_ring
@@ -226,7 +226,7 @@ end
 function monkey_king_wukongs_command_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local center = self:GetCursorPosition()
-  local clone_attack_range = 300
+  local clone_attack_range = caster:GetAttackRange()
 
   local first_ring_radius = self:GetSpecialValueFor("first_radius")
   local second_ring_radius = self:GetSpecialValueFor("second_radius")
@@ -574,67 +574,69 @@ function modifier_monkey_clone_oaa:OnCreated()
     self:StartIntervalThink(0.1)
   end
 end
-if IsServer() then
-  function modifier_monkey_clone_oaa:OnIntervalThink()
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-    local parent_position = parent:GetAbsOrigin()
-    local search_radius = parent:GetAttackRange() + parent:GetHullRadius() + 24
 
-    local function StopAttacking(unit)
-      unit.target = nil
-      unit:SetForceAttackTarget(nil)
-      unit:SetIdleAcquire(false)
-      unit:SetAcquisitionRange(0)
-      unit:Interrupt()
-      unit:Stop()
-      unit:Hold()
+function modifier_monkey_clone_oaa:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local parent_position = parent:GetAbsOrigin()
+  local search_radius = caster:GetAttackRange() + parent:GetHullRadius() + 24
+
+  local function StopAttacking(unit)
+    unit.target = nil
+    unit:SetForceAttackTarget(nil)
+    unit:SetIdleAcquire(false)
+    unit:SetAcquisitionRange(0)
+    unit:Interrupt()
+    unit:Stop()
+    unit:Hold()
+  end
+
+  if parent and not parent:IsNull() and parent:IsAlive() then
+    if not parent.target or parent.target:IsNull() or not parent.target:IsAlive() then
+      StopAttacking(parent)
     end
 
-    if parent and not parent:IsNull() and parent:IsAlive() then
-      if not parent.target or parent.target:IsNull() or not parent.target:IsAlive() then
+    if parent.target then
+      local target_position = parent.target:GetAbsOrigin()
+      local distance = (parent_position - target_position):Length2D()
+      local real_target = parent:GetAttackTarget() or parent.target  -- GetAttackTarget is nil sometimes
+      if parent.target:IsAttackImmune() or parent.target:IsInvulnerable() or (not caster:HasScepter() and not real_target:IsHero()) or distance > search_radius then
         StopAttacking(parent)
       end
+    else
+      local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
+      local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 
-      if parent.target then
-        local target_position = parent.target:GetAbsOrigin()
-        local distance = (parent_position - target_position):Length2D()
-        local real_target = parent:GetAttackTarget() or parent.target  -- GetAttackTarget is nil sometimes
-        if parent.target:IsAttackImmune() or parent.target:IsInvulnerable() or (not caster:HasScepter() and not real_target:IsHero()) or distance > search_radius then
-          StopAttacking(parent)
-        end
-      else
-        local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
-        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-
-        -- Filter out attack-immune and non-hero units if caster doesn't have scepter
-        if #enemies ~= 0 then
-          for i=1,#enemies do
-            if enemies[i] then
-              if enemies[i]:IsAttackImmune() then
-                table.remove(enemies,i)
-              else
-                if not caster:HasScepter() then
-                  if not enemies[i]:IsHero() then
-                    table.remove(enemies,i)
-                  end
+      -- Filter out attack-immune and non-hero units if caster doesn't have scepter
+      if #enemies ~= 0 then
+        for i=1,#enemies do
+          if enemies[i] then
+            if enemies[i]:IsAttackImmune() then
+              table.remove(enemies,i)
+            else
+              if not caster:HasScepter() then
+                if not enemies[i]:IsHero() then
+                  table.remove(enemies,i)
                 end
               end
             end
           end
         end
-        -- Check the new enemies table if its empty
-        if #enemies ~= 0 then
-          parent.target = enemies[1]
-        end
+      end
+      -- Check the new enemies table if its empty
+      if #enemies ~= 0 then
+        parent.target = enemies[1]
+      end
 
-        -- If target is found, enable auto-attacking of the parent and force him to attack found target
-        -- SetAttacking doesn't work; SetAttackTarget doesn't exist; SetAggroTarget probably doesn't work too
-        if parent.target then
-          parent:SetIdleAcquire(true)
-          parent:SetAcquisitionRange(search_radius)
-          parent:SetForceAttackTarget(parent.target)
-        end
+      -- If target is found, enable auto-attacking of the parent and force him to attack found target
+      -- SetAttacking doesn't work; SetAttackTarget doesn't exist; SetAggroTarget probably doesn't work too
+      if parent.target then
+        parent:SetIdleAcquire(true)
+        parent:SetAcquisitionRange(search_radius)
+        parent:SetForceAttackTarget(parent.target)
       end
     end
   end
@@ -642,11 +644,33 @@ end
 
 function modifier_monkey_clone_oaa:DeclareFunctions()
   local funcs = {
+    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_ATTACK_START
   }
   return funcs
+end
+
+-- Trying to match attack range of clones with caster's attack range
+function modifier_monkey_clone_oaa:GetModifierAttackRangeBonus()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  if parent == caster then
+    return 0
+  end
+  local caster_attack_range = caster:GetAttackRange()
+  if self.check_attack_range then
+    return 0
+  else
+    self.check_attack_range = true
+    local parent_attack_range = parent:GetAttackRange()
+    self.check_attack_range = false
+    if caster_attack_range > parent_attack_range then
+      return caster_attack_range - parent_attack_range
+    end
+  end
+  return 0
 end
 
 function modifier_monkey_clone_oaa:GetStatusEffectName()
@@ -676,8 +700,8 @@ function modifier_monkey_clone_oaa:OnAttackLanded(keys)
       if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * pseudo_rng_mult ) then
         -- Reset failure count
         parent.failure_count = 0
-        -- Apply caster's attack that can miss
-        caster:PerformAttack(keys.target, true, true, true, false, false, false, false)
+        -- Apply caster's attack that cannot miss
+        caster:PerformAttack(keys.target, true, true, true, false, false, false, true)
       else
         -- Increment failure count
         parent.failure_count = pseudo_rng_mult

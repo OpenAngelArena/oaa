@@ -80,7 +80,7 @@
         "base_damage_percent"                             "100"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "08"
+      "08" // its not higher because of Satanic
       {
         "var_type"                                        "FIELD_INTEGER"
         "proc_chance"                                     "50"
@@ -121,7 +121,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "num_third_soldiers_scepter"                      "10"
+        "num_third_soldiers_scepter"                      "12"
         "RequiresScepter"                                 "1"
       }
     }

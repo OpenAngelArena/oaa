@@ -1,0 +1,99 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Broodmother: Spawn Spiderlings (OAA Rework)
+  //=================================================================================================================
+  "broodmother_spawn_spiderlings_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85279"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_broodmother_spawn_spiderlings.lua"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "broodmother_spawn_spiderlings"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_base_hp"                              "320"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_hp_per_level"                         "50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_base_armor"                           "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spiderling_armor_per_level"                      "0.2"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_speed"                                "350"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_base_attack_damage"                   "15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_attack_damage_per_level"              "2"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spiderling_duration"                             "60"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_spawn_count"                          "3"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_max_count"                            "20"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_spiderling_base_hp"                        "960"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_spiderling_base_attack_damage"             "50"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_spiderling_spawn_count"                    "1"
+      }
+    }
+  }
+}

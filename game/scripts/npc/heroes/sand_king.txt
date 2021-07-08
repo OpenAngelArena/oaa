@@ -1,0 +1,28 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Sand King
+  //=================================================================================================================
+  "npc_dota_hero_sand_king"
+  {
+    "Ability10"                                           "special_bonus_unique_sand_king_5"
+    "Ability11"                                           "special_bonus_hp_200"
+
+    "Ability12"                                           "special_bonus_unique_sand_king_2"
+    "Ability13"                                           "special_bonus_unique_sand_king_6"
+
+    "Ability14"                                           "special_bonus_unique_sand_king_7"
+    "Ability15"                                           "special_bonus_hp_regen_50" // replaces special_bonus_hp_regen_25
+
+    "Ability16"                                           "special_bonus_unique_sand_king"
+    "Ability17"                                           "special_bonus_unique_sand_king_4"
+
+    // special_bonus_unique_sand_king - "+{s:value} Epicenter Pulses"
+    // special_bonus_unique_sand_king_2 - "+{s:value} Sand Storm DPS"
+    // special_bonus_unique_sand_king_3 - "{s:value} Epicenter Attack Slow"
+    // special_bonus_unique_sand_king_4 - "{s:value}% Sand Storm Slow and Blind"
+    // special_bonus_unique_sand_king_5 - "+{s:value} Epicenter Damage Per Pulse"
+    // special_bonus_unique_sand_king_6 - "+{s:value}% Caustic Finale Slow"
+    // special_bonus_unique_sand_king_7 - "-{s:value}s Burrowstrike Cooldown"
+  }
+}
