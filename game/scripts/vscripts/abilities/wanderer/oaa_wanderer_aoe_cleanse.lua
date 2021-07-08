@@ -14,8 +14,10 @@ function wanderer_aoe_cleanse:OnAbilityPhaseStart()
     local radius = self:GetSpecialValueFor("radius")
     local delay = self:GetCastPoint()
 
+    -- Make the caster uninterruptible while casting this ability
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
 
+    -- Warning particle
     self.nPreviewFX = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true)
     ParticleManager:SetParticleControl(self.nPreviewFX, 1, Vector(radius, radius, radius))

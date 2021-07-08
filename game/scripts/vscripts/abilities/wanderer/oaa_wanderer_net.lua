@@ -12,7 +12,8 @@ end
 
 function wanderer_net:OnAbilityPhaseStart()
   if IsServer() then
-	self.warningFX = ParticleManager:CreateParticle("particles/generic_gameplay/generic_has_quest.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
+    -- Warning particle over caster's head
+    self.warningFX = ParticleManager:CreateParticle("particles/generic_gameplay/generic_has_quest.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetCaster())
   end
   return true
 end

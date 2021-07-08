@@ -72,7 +72,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
-    -- If caster or ability don't exist -> don't continue
+    -- Don't continue If caster or ability doesn't exist
     if not caster or caster:IsNull() or not ability or ability:IsNull() then
       return
     end
@@ -82,7 +82,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
-    -- Don't continue if attacker is deleted or he is about to be deleted
+    -- Don't continue if attacker doesn't exist or it is about to be deleted
     if not attacker or attacker:IsNull() then
       return
     end
@@ -92,13 +92,14 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
+    -- Don't continue if the attacker entity doesn't have IsHero method -> attacker entity is something weird
     if attacker.IsHero == nil then
       return
     end
 
     local damage_threshold = self.threshold
     -- If the damage is below the threshold -> don't continue
-    if damage < damage_threshold then
+    if damage <= damage_threshold then
       return
     end
 
@@ -235,12 +236,12 @@ function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
 
-    -- If attacked target isnt the parent -> don't continue
+    -- If attacked target isn't the parent -> don't continue
     if target ~= parent then
       return
     end
 
-    -- If parent doesn't exist or its about to be deleted -> don't continue
+    -- If parent doesn't exist or it is about to be deleted -> don't continue
     if not parent or parent:IsNull() then
       return
     end
@@ -250,7 +251,7 @@ function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
       return
     end
 
-    -- If caster doesn't exist or its about to be deleted -> don't continue
+    -- If caster doesn't exist or it is about to be deleted -> don't continue
     if not caster or caster:IsNull() then
       return
     end

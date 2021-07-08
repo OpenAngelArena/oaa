@@ -71,9 +71,10 @@ function lycan_boss_claw_lunge:OnSpellStart()
     Source = caster,
     iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
     iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_BUILDING),
+    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
   }
 
-  ProjectileManager:CreateLinearProjectile( info )
+  self.projectile_id = ProjectileManager:CreateLinearProjectile( info )
 
   caster:AddNewModifier( caster, self, "modifier_lycan_boss_claw_lunge", {} )
 end
@@ -81,31 +82,53 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge:OnProjectileHit( hTarget, vLocation )
-  if hTarget ~= nil then
-    if not hTarget:IsInvulnerable() then
-      local damageInfo =
-      {
-        victim = hTarget,
-        attacker = self:GetCaster(),
-        damage = self.lunge_damage,
-        damage_type = DAMAGE_TYPE_PHYSICAL,
-        ability = self,
-      }
-      ApplyDamage( damageInfo )
-    end
-  else
-    local hBuff = self:GetCaster():FindModifierByName( "modifier_lycan_boss_claw_lunge" )
+  local caster = self:GetCaster()
+  local hBuff = caster:FindModifierByName("modifier_lycan_boss_claw_lunge")
+
+  if not hTarget or hTarget:IsNull() then
+    -- Remove the buff if target doesn't exist
     if hBuff then
       hBuff:Destroy()
     end
+    return true -- destroy the projectile if target doesn't exist
   end
 
-  return false
+  if not hBuff then
+    return true -- destroy the projectile if caster doesn't have the buff
+  end
+
+  if not hTarget:IsInvulnerable() then
+    local damageInfo =
+    {
+      victim = hTarget,
+      attacker = caster,
+      damage = self.lunge_damage,
+      damage_type = DAMAGE_TYPE_PHYSICAL,
+      ability = self,
+    }
+
+    ApplyDamage( damageInfo )
+  end
+
+  return false -- projectile keeps going
 end
 
 --------------------------------------------------------------------------------
 
 function lycan_boss_claw_lunge:OnProjectileThink( vLocation )
+  local caster = self:GetCaster()
+  local hBuff = caster:FindModifierByName("modifier_lycan_boss_claw_lunge")
+
+  if not hBuff then
+    if self.projectile_id and ProjectileManager:IsValidProjectile(self.projectile_id) then
+      ProjectileManager:DestroyLinearProjectile(self.projectile_id)
+    end
+  end
+
+  if not vLocation then
+    return
+  end
+
   -- Important for modifier_lycan_boss_claw_lunge UpdateHorizontalMotion
   self.vProjectileLocation = vLocation
 end

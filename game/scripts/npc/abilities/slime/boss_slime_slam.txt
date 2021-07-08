@@ -17,6 +17,8 @@
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +55,7 @@
       "04"
       {
         "var_type"                  "FIELD_FLOAT"
-        "slow_duration"             "1.5"
+        "slow_duration"             "2.0"
       }
       "05"
       {

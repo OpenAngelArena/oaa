@@ -26,8 +26,9 @@ function lycan_boss_claw_attack_tier5:OnAbilityPhaseStart()
     end
 
     caster:AddNewModifier(caster, self, "modifier_lycan_boss_claw_attack", kv)
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", kv)
+    --caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", kv)
   end
+
   return true
 end
 

@@ -141,6 +141,10 @@ function modifier_boss_slime_slam_slow:IsDebuff()
 	return true
 end
 
+function modifier_boss_slime_slam_slow:IsPurgable()
+  return true
+end
+
 ------------------------------------------------------------------------------------
 
 function modifier_boss_slime_slam_slow:DeclareFunctions()

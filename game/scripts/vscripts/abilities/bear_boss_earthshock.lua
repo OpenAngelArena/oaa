@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_bear_boss_earthshock_debuff", "abilities/bear_boss_earthshock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 bear_boss_earthshock = class(AbilityBaseClass)
 
@@ -13,6 +14,12 @@ function bear_boss_earthshock:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
     local radius = self:GetSpecialValueFor("radius")
+    local delay = self:GetCastPoint()
+
+    -- Make the caster uninterruptible while casting this ability
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+
+    -- Warning particle
     local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(indicator, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true)
     ParticleManager:SetParticleControl(indicator, 1, Vector(radius, radius, radius))

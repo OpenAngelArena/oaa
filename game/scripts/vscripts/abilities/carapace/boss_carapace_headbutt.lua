@@ -27,7 +27,8 @@ function boss_carapace_headbutt:OnAbilityPhaseStart()
     local castTime = self:GetCastPoint()
     local direction = caster:GetForwardVector()
 
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = self:GetCastPoint()-0.01})
+    -- Make the caster uninterruptible while casting this ability
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = castTime - 0.01})
 
     -- Warning particle
     local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
