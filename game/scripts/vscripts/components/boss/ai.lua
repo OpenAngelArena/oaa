@@ -70,13 +70,17 @@ end
 ]]
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
-  PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
-    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  if CorePointsManager then
+    CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
+  else
+    PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-    if hero then
-      hero:AddItemByName(item)
-    end
-  end)
+      if hero then
+        hero:AddItemByName(item)
+      end
+    end)
+  end
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)
