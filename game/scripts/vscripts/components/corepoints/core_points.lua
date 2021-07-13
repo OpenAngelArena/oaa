@@ -1,12 +1,17 @@
-CorePointsManager = Components:Register('CorePointsManager', COMPONENT_STRATEGY)
+
+if CorePointsManager == nil then
+  Debug.EnableDebugging()
+  DebugPrint("Creating CorePointsManager.")
+  CorePointsManager = class({})
+end
 
 function CorePointsManager:Init()
   if self.initialized then
     print("CorePointsManager is already initialized and there was an attempt to initialize it again -> preventing")
     return nil
   end
-  LinkLuaModifier("modifier_core_points_counter_oaa", "components/points/core_points.lua", LUA_MODIFIER_MOTION_NONE)
-  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterOrders"))
+  LinkLuaModifier("modifier_core_points_counter_oaa", "components/corepoints/core_points.lua", LUA_MODIFIER_MOTION_NONE)
+  FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
 
@@ -38,6 +43,7 @@ function CorePointsManager:FilterOrders(keys)
   if ability_index then
     ability = EntIndexToHScript(ability_index)
   end
+  local shop_item = keys.shop_item_name
   local target_index = keys.entindex_target
   local target
   if target_index then
@@ -58,20 +64,18 @@ function CorePointsManager:FilterOrders(keys)
 
   if order == DOTA_UNIT_ORDER_PURCHASE_ITEM then
     -- Check if needed variables exist
-    if unit_with_order and ability then
-      -- Check if ability is an item
-      if ability:IsItem() then
-        -- if ability:IsRecipe() then
-        local core_points_cost = self:GetCorePointsFullValue(ability)
-        local purchaser_core_points = self:GetCorePointsOnHero(unit_with_order, playerID)
-        if purchaser_core_points >= core_points_cost and core_points_cost ~= 0 then
+    if unit_with_order and shop_item then
+      local core_points_cost = self:GetCorePointsFullValue(shop_item)
+      local purchaser_core_points = self:GetCorePointsOnHero(unit_with_order, playerID)
+      if purchaser_core_points >= core_points_cost then
+        if core_points_cost ~= 0 then
           self:AddCorePoints(-core_points_cost, unit_with_order, playerID)
           self:GiveUpgradeCoreToHero(core_points_cost, unit_with_order, playerID)
-        else
-          --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "display_custom_error", { message = "#hud_error_not_enough_core_points" })
-          --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 70, message = ""})
-          return false
         end
+      else
+        --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "display_custom_error", { message = "#hud_error_not_enough_core_points" })
+        --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 70, message = ""})
+        return false
       end
     end
   elseif order == DOTA_UNIT_ORDER_SELL_ITEM then
@@ -124,52 +128,87 @@ function CorePointsManager:GetCorePointValueOfUpdgradeCore(item_name)
 end
 
 function CorePointsManager:GetCorePointsFullValue(item)
-  local value = 0
+  --Debug.EnableDebugging()
   if not item then
     print("CorePointsManager (GetCorePointsFullValue): item doesn't exist.")
-    return value
+    return 0
   end
 
-  local item_name = item:GetName()
-  if not item:IsRecipe() then
-    item_name = string.gsub(item_name, "item_", "item_recipe_")
-    --value = tonumber(item:GetAbilityKeyValues()["CorePointCost"])
+  local item_name -- string
+  local recipe_check -- boolean
+  if type(item) == 'string' then
+    item_name = item
+    recipe_check = string.find(item_name, "item_recipe_")
+  else
+    item_name = item:GetName()
+    recipe_check = item:IsRecipe()
   end
 
-  local item_data = GetAbilityKeyValuesByName(item_name)
-  if not item_data then
-    print("CorePointsManager (GetCorePointsFullValue): item data doesn't exist.")
-    return value
-  end
-  local item_req = item_data["ItemRequirements"]
+  --DebugPrint("Item that is being checked: "..item_name)
 
-  print(item_name)
-  print(item_req)
-  print("===================")
-  for k, v in pairs(item_req) do
-    print(k, v)
+  -- Check if the item is a recipe item
+  local recipe_name
+  if recipe_check then
+    recipe_name = item_name
+  else
+    recipe_name = string.gsub(item_name, "item_", "item_recipe_")
   end
-  print(item_req["01"])
-  print("===================")
+
+  --DebugPrint("Recipe of the item that is being checked: "..recipe_name)
+
+  -- Get KV data of the recipe item
+  local recipe_data = GetAbilityKeyValuesByName(recipe_name)
+  if not recipe_data then
+    DebugPrint("CorePointsManager (GetCorePointsFullValue): recipe data doesn't exist for this item.")
+    return 0
+  end
+
+  -- Item Requirements table - table of strings
+  local item_req = recipe_data["ItemRequirements"]
   local req_string = item_req["01"]
-  --local b = string.sub(a, #a-7)
+  
+  -- Check the first recipe if it contains upgrade cores
   local c = string.find(req_string, "upgrade_core", -15)
   local d = string.find(req_string, "upgrade_core_2", -15)
   local e = string.find(req_string, "upgrade_core_3", -15)
   local f = string.find(req_string, "upgrade_core_4", -15)
+
+  -- Calculate full and recipe value of the item
+  -- Tier 1 items = 2 core points; T2 items = 2+4 core points; T3 items = 2+4+8 core points; T4 items = 2+4+8+16 core points;
+  local full_value = 0 -- Full Value of the item in core points
+  local recipe_value = 0 -- Value of the recipe (for recipes themselves full_value and recipe_value are the same)
+
+  -- Value of Upgrade Cores in core points:
+  local c1 = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core")
+  local c2 = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_2")
+  local c3 = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_3")
+  local c4 = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_4")
   if c then
     if d then
-      value = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_2")
+      recipe_value = c2
+      full_value = c2 + c1
     elseif e then
-      value = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_3")
+      recipe_value = c3
+      full_value = c3 + c2 + c1
     elseif f then
-      value = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_4")
+      recipe_value = c4
+      full_value = c4 + c3 + c2 + c1
     else
-      value = self:GetCorePointValueOfUpdgradeCore("item_upgrade_core")
+      recipe_value = c1
+      full_value = c1
     end
   end
 
-  return value
+  if recipe_check then
+    DebugPrint("Core point value of "..item_name.." is: "..tostring(recipe_value))
+    -- Return only the value of the recipe
+    return recipe_value
+  else
+    DebugPrint("Core point value of "..item_name.." is: "..tostring(full_value))
+    DebugPrint("Core point value of "..recipe_name.." is: "..tostring(recipe_value))
+    -- Return full value
+    return full_value
+  end
 end
 
 function CorePointsManager:GetCorePointsSellValue(item)
@@ -244,6 +283,7 @@ function CorePointsManager:AddCorePoints(amount, unit, playerID)
 end
 
 function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
+  Debug.EnableDebugging()
   if not unit or not playerID then
     print("CorePointsManager: Couldnt do GiveUpgradeCoreToHero for this unit and playerID")
     return
@@ -265,20 +305,28 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
 
   local item_name = ""
   if number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core") then
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 1 core")
     item_name = "item_upgrade_core"
   elseif number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_2") then
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 2 core")
     item_name = "item_upgrade_core_2"
   elseif number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_3") then
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 3 core")
     item_name = "item_upgrade_core_3"
   elseif number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_4") then
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Tier 4 core")
     item_name = "item_upgrade_core_4"
+  elseif number == 0 then
+    -- This item has core point value of 0
+    return
   else
-    print("CorePointsManager (GiveUpgradeCoreToHero): Special case - item has multiple cores in recipe.")
-    -- special cases
+    DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Special case - item has multiple cores in recipe.")
+    -- special cases (rapier, scepter)
     return
   end
 
   if item_name ~= "" then
+    --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
     hero:AddItemByName(item_name)
   end
 end
