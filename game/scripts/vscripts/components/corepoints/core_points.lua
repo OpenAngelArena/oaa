@@ -69,12 +69,26 @@ function CorePointsManager:FilterOrders(keys)
       local purchaser_core_points = self:GetCorePointsOnHero(unit_with_order, playerID)
       if purchaser_core_points >= core_points_cost then
         if core_points_cost ~= 0 then
-          self:AddCorePoints(-core_points_cost, unit_with_order, playerID)
-          self:GiveUpgradeCoreToHero(core_points_cost, unit_with_order, playerID)
+          local allowed_to_buy = true
+          if core_points_cost > self:GetCorePointValueOfUpdgradeCore("item_upgrade_core") then
+            allowed_to_buy = BossSpawner.hasKilledTiers[CorePointsManager:GetUpgradeCoreTierFromCorePointCost(core_points_cost)] == true
+          end
+          if allowed_to_buy then
+            self:AddCorePoints(-core_points_cost, unit_with_order, playerID)
+            self:GiveUpgradeCoreToHero(core_points_cost, unit_with_order, playerID)
+          else
+            -- Error
+            local tier = CorePointsManager:GetUpgradeCoreTierFromCorePointCost(core_points_cost)
+            local error_msg1 = "Tier " .. tostring(tier) .. " Boss Not Dead."
+            CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg1})
+            return false
+          end
         end
       else
-        --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "display_custom_error", { message = "#hud_error_not_enough_core_points" })
-        --CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 70, message = ""})
+        -- Error
+        local needed = core_points_cost - purchaser_core_points
+        local error_msg2 = "Not Enough Core Points. " .. tostring(needed) .. " more needed."
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg2})
         return false
       end
     end
@@ -127,6 +141,23 @@ function CorePointsManager:GetCorePointValueOfUpdgradeCore(item_name)
   end
 end
 
+function CorePointsManager:GetUpgradeCoreTierFromCorePointCost(number)
+  if number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core") then
+    return 1
+  elseif number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_2") then
+    return 2
+  elseif number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_3") then
+    return 3
+  elseif number == self:GetCorePointValueOfUpdgradeCore("item_upgrade_core_4") then
+    return 4
+  elseif number == 0 then
+    return 0
+  else
+    print("CorePointsManager (GetUpgradeCoreTierFromCorePointCost): Unusual core point cost.")
+    return 4
+  end
+end
+
 function CorePointsManager:GetCorePointsFullValue(item)
   --Debug.EnableDebugging()
   if not item then
@@ -166,7 +197,7 @@ function CorePointsManager:GetCorePointsFullValue(item)
   -- Item Requirements table - table of strings
   local item_req = recipe_data["ItemRequirements"]
   local req_string = item_req["01"]
-  
+
   -- Check the first recipe if it contains upgrade cores
   local c = string.find(req_string, "upgrade_core", -15)
   local d = string.find(req_string, "upgrade_core_2", -15)
@@ -328,6 +359,10 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
   if item_name ~= "" then
     --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
     hero:AddItemByName(item_name)
+    -- Add a magic wand to trigger auto-combining and remove it
+    local temp_item = CreateItem("item_magic_wand", hero:GetPlayerOwner(), hero:GetPlayerOwner())
+    hero:AddItem(temp_item)
+    temp_item:RemoveSelf()
   end
 end
 
