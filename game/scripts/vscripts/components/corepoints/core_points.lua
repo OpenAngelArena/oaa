@@ -359,10 +359,6 @@ function CorePointsManager:GiveUpgradeCoreToHero(number, unit, playerID)
   if item_name ~= "" then
     --DebugPrint("CorePointsManager (GiveUpgradeCoreToHero): Giving a core")
     hero:AddItemByName(item_name)
-    -- Add a magic wand to trigger auto-combining and remove it
-    local temp_item = CreateItem("item_magic_wand", hero:GetPlayerOwner(), hero:GetPlayerOwner())
-    hero:AddItem(temp_item)
-    temp_item:RemoveSelf()
   end
 end
 
