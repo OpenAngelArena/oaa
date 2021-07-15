@@ -84,7 +84,7 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnDeath(event)
       self.spider_counter_oaa = self.spider_counter_oaa - 1
     end
   end
-  
+
   -- Don't continue if the killer doesn't exist
   if not killer or killer:IsNull() then
     return
@@ -177,6 +177,9 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnDeath(event)
       -- Add modifier to giant spiders
       summon:AddNewModifier(parent, ability, "modifier_broodmother_giant_spiderling_passive", {})
     end
+
+    -- Add duration to spiders
+    summon:AddNewModifier(parent, ability, "modifier_kill", {duration = summon_duration})
 
     -- Fix stats of summons
     -- HP
