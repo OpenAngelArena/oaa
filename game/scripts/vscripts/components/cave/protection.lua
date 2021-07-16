@@ -121,7 +121,7 @@ end
 function ProtectionAura:EndTouch(event)
   local activator = event.activator
   local origin = activator:GetAbsOrigin()
-  local team = activator::GetTeam()
+  local team = activator:GetTeam()
 
   -- Remove offside thinker if activator is not in offside
   if (team == DOTA_TEAM_GOODGUYS and not IsLocationInDireOffside(origin)) or (team == DOTA_TEAM_BADGUYS and not IsLocationInRadiantOffside(origin)) then
