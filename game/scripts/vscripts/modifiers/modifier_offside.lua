@@ -8,10 +8,32 @@ modifier_offside = class(ModifierBaseClass)
 local TICKS_PER_SECOND = 5
 
 function modifier_is_in_offside:OnCreated()
-  if IsServer() then
-    local parent = self:GetParent()
+  if not IsServer() then
+    return
+  end
+
+  self:StartIntervalThink(1)
+end
+
+modifier_is_in_offside.OnRefresh = modifier_is_in_offside.OnCreated
+
+function modifier_is_in_offside:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local origin = parent:GetAbsOrigin()
+  local team = parent::GetTeam()
+
+  if not IsLocationInOffside(origin) or Duels:IsActive() then
+    return
+  end
+
+  -- Add offside debuff if enemy is in offside and offside is active/enabled
+  if (team == DOTA_TEAM_GOODGUYS and IsLocationInDireOffside(origin) and not Wanderer.dire_offside_disabled) or (team == DOTA_TEAM_BADGUYS and IsLocationInRadiantOffside(origin) and not Wanderer.radiant_offside_disabled) then
     if not parent:HasModifier("modifier_offside") then
-      parent:AddNewModifier(self:GetCaster(), nil, "modifier_offside", {})
+      parent:AddNewModifier(parent, nil, "modifier_offside", {})
     end
   end
 end
@@ -23,8 +45,6 @@ end
 function modifier_is_in_offside:IsPurgable()
   return false
 end
-
-modifier_is_in_offside.OnRefresh = modifier_is_in_offside.OnCreated
 
 --------------------------------------------------------------------
 

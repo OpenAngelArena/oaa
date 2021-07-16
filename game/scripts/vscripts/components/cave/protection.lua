@@ -49,8 +49,8 @@ function ProtectionAura:Init ()
       -- players = {}
     })
 
-    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouchGood)
-    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouchGood)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
   for roomID = 0,MAX_ROOMS do
@@ -62,8 +62,8 @@ function ProtectionAura:Init ()
       -- players = {}
     })
 
-    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouchBad)
-    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouchBad)
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
   ProtectionAura.active = true
@@ -84,30 +84,47 @@ function ProtectionAura:IsInSpecificZone(teamID, roomID, entity)
   return zone.handle:IsTouching(entity)
 end
 
-function ProtectionAura:StartTouchGood(event)
-  if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS and not Wanderer.radiant_offside_disabled then
-    if not event.activator:HasModifier("modifier_is_in_offside") then
-      return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
-    end
+-- function ProtectionAura:StartTouchGood(event)
+  -- if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS and not Wanderer.radiant_offside_disabled then
+    -- if not event.activator:HasModifier("modifier_is_in_offside") then
+      -- return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
+    -- end
+  -- end
+-- end
+
+-- function ProtectionAura:EndTouchGood(event)
+  -- if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_GOODGUYS, event.activator) then
+    -- event.activator:RemoveModifierByName("modifier_is_in_offside")
+  -- end
+-- end
+
+-- function ProtectionAura:StartTouchBad(event)
+  -- if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS and not Wanderer.dire_offside_disabled then
+    -- if not event.activator:HasModifier("modifier_is_in_offside") then
+      -- return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
+    -- end
+  -- end
+-- end
+
+-- function ProtectionAura:EndTouchBad(event)
+  -- if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_BADGUYS, event.activator) then
+    -- event.activator:RemoveModifierByName("modifier_is_in_offside")
+  -- end
+-- end
+
+function ProtectionAura:StartTouch(event)
+  if not event.activator:HasModifier("modifier_is_in_offside") then
+    return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
   end
 end
 
-function ProtectionAura:EndTouchGood(event)
-  if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_GOODGUYS, event.activator) then
-    event.activator:RemoveModifierByName("modifier_is_in_offside")
-  end
-end
+function ProtectionAura:EndTouch(event)
+  local activator = event.activator
+  local origin = activator:GetAbsOrigin()
+  local team = activator::GetTeam()
 
-function ProtectionAura:StartTouchBad(event)
-  if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS and not Wanderer.dire_offside_disabled then
-    if not event.activator:HasModifier("modifier_is_in_offside") then
-      return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
-    end
-  end
-end
-
-function ProtectionAura:EndTouchBad(event)
-  if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_BADGUYS, event.activator) then
-    event.activator:RemoveModifierByName("modifier_is_in_offside")
+  -- Remove offside thinker if activator is not in offside
+  if (team == DOTA_TEAM_GOODGUYS and not IsLocationInDireOffside(origin)) or (team == DOTA_TEAM_BADGUYS and not IsLocationInRadiantOffside(origin)) then
+    activator:RemoveModifierByName("modifier_is_in_offside")
   end
 end
