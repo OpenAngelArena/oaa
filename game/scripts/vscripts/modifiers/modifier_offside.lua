@@ -24,7 +24,7 @@ function modifier_is_in_offside:OnIntervalThink()
 
   local parent = self:GetParent()
   local origin = parent:GetAbsOrigin()
-  local team = parent::GetTeam()
+  local team = parent:GetTeam()
 
   if not IsLocationInOffside(origin) or Duels:IsActive() then
     return
