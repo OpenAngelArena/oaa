@@ -24,11 +24,11 @@
     "ItemResult"                                          "item_greater_travel_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_travel_boots_oaa"
-      "02"                                                "item_tranquil_boots"
-      "03"                                                "item_phase_boots"
-      "04"                                                "item_power_treads"
-      "05"                                                "item_arcane_boots"
+      "01"                                                "item_travel_boots_oaa;item_upgrade_core"
+      "02"                                                "item_tranquil_boots;item_upgrade_core"
+      "03"                                                "item_phase_boots;item_upgrade_core"
+      "04"                                                "item_power_treads;item_upgrade_core"
+      "05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
