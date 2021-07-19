@@ -667,6 +667,11 @@ function buildItemTree (t, data, cb) {
 
         fs.writeFileSync(fileName, lines, { encoding: 'utf8' });
       }
+
+      var file = itemFileMap[item];
+      var string = fs.readFileSync(file, { encoding: 'utf8' });
+      string = string.replace(';item_upgrade_core_4', '');
+      fs.writeFileSync(file, string, { encoding: 'utf8' });
     });
 
     // output item costs in csv format (for haga usually)
