@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -23,7 +24,7 @@
     "ItemResult"                                          "item_shroud_3"
     "ItemRequirements"
     {
-      "01"                                                "item_shroud_2;item_upgrade_core_3"
+      "01"                                                "item_shroud_2"
     }
   }
 

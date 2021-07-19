@@ -9,6 +9,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "FightRecapLevel"                                     "1"
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -16,7 +17,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_manta_4;item_upgrade_core_4"
+      "01"                                                "item_manta_4"
     }
   }
 

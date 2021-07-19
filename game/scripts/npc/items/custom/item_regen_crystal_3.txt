@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -23,10 +24,10 @@
     "ItemResult"                                          "item_regen_crystal_3"
     "ItemRequirements"
     {
-      "01"                                                "item_regen_crystal_2;item_upgrade_core_4"
-      "02"                                                "item_heart_4;item_upgrade_core_4"
-      "03"                                                "item_crimson_guard_4;item_upgrade_core_4"
-      "04"                                                "item_heart_transplant;item_upgrade_core_4"
+      "01"                                                "item_regen_crystal_2"
+      "02"                                                "item_heart_4"
+      "03"                                                "item_crimson_guard_4"
+      "04"                                                "item_heart_transplant"
     }
   }
 

@@ -7,6 +7,7 @@
   {
     "ID"                                                  "3111"    // unique ID
     "BaseClass"                                           "item_datadriven"
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "20000"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "ItemShopTags"                                        ""
@@ -15,9 +16,9 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_abyssal_blade_4;item_upgrade_core_4"
-      "02"                                                "item_skadi_4;item_upgrade_core_4"
-      "03"                                                "item_trumps_fists;item_upgrade_core_4"
+      "01"                                                "item_abyssal_blade_4"
+      "02"                                                "item_skadi_4"
+      "03"                                                "item_trumps_fists"
     }
   }
 

@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -18,7 +19,7 @@
     "ItemResult"                                          "item_aeon_disk_2"
     "ItemRequirements"
     {
-      "01"                                                "item_sphere;item_upgrade_core"
+      "01"                                                "item_sphere"
     }
   }
 

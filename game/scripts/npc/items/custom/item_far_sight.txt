@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -23,7 +24,7 @@
     "ItemResult"                                          "item_far_sight"
     "ItemRequirements"
     {
-      "01"                                                "item_ward_stack;item_upgrade_core"
+      "01"                                                "item_ward_stack"
     }
   }
 

@@ -9,15 +9,16 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick_4"
     "ItemRequirements"
     {
-      "01"                                                "item_gungir_3;item_upgrade_core_3"
-      "02"                                                "item_meteor_hammer_3;item_upgrade_core_3"
-      "03"                                                "item_wind_waker_3;item_upgrade_core_3"
+      "01"                                                "item_gungir_3"
+      "02"                                                "item_meteor_hammer_3"
+      "03"                                                "item_wind_waker_3"
     }
   }
 

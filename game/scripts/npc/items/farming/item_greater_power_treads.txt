@@ -13,6 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -22,11 +23,11 @@
     "ItemResult"                                          "item_greater_power_treads"
     "ItemRequirements"
     {
-      "01"                                                "item_power_treads;item_upgrade_core"
-      "02"                                                "item_phase_boots;item_upgrade_core"
-      "03"                                                "item_tranquil_boots;item_upgrade_core"
-      "04"                                                "item_travel_boots_oaa;item_upgrade_core"
-      "05"                                                "item_arcane_boots;item_upgrade_core"
+      "01"                                                "item_power_treads"
+      "02"                                                "item_phase_boots"
+      "03"                                                "item_tranquil_boots"
+      "04"                                                "item_travel_boots_oaa"
+      "05"                                                "item_arcane_boots"
     }
   }
 

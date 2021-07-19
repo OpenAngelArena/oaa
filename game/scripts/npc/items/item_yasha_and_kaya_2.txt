@@ -13,6 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -22,9 +23,9 @@
     "ItemResult"                                          "item_yasha_and_kaya_2"
     "ItemRequirements"
     {
-      "01"                                                "item_yasha_and_kaya;item_upgrade_core"
-      "02"                                                "item_kaya_and_sange;item_upgrade_core"
-      "03"                                                "item_sange_and_yasha;item_upgrade_core"
+      "01"                                                "item_yasha_and_kaya"
+      "02"                                                "item_kaya_and_sange"
+      "03"                                                "item_sange_and_yasha"
     }
   }
   //=================================================================================================================

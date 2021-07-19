@@ -13,6 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -22,8 +23,8 @@
     "ItemResult"                                          "item_monkey_king_bar_2"
     "ItemRequirements"
     {
-      "01"                                                "item_monkey_king_bar;item_upgrade_core"
-      "02"                                                "item_mjollnir;item_upgrade_core"
+      "01"                                                "item_monkey_king_bar"
+      "02"                                                "item_mjollnir"
     }
   }
 

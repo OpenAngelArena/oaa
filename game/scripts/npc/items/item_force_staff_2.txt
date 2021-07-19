@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "1500"
+    "ItemCorePointCost"                                   "2"
+    "ItemCost"                                            "1500"
     "ItemShopTags"          ""
 
     // Recipe
@@ -23,8 +24,8 @@
     "ItemResult"          "item_force_staff_2"
     "ItemRequirements"
     {
-      "01"                                                "item_force_staff;item_upgrade_core"
-      "02"                                                "item_pull_staff;item_upgrade_core"
+      "01"                                                "item_force_staff"
+      "02"                                                "item_pull_staff"
     }
   }
 

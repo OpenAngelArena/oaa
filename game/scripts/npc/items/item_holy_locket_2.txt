@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "1500"
+    "ItemCorePointCost"                                   "2"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                ""
 
     // Recipe
@@ -23,7 +24,7 @@
     "ItemResult"                  "item_holy_locket_2"
     "ItemRequirements"
     {
-      "01"                        "item_holy_locket;item_upgrade_core"
+      "01"                        "item_holy_locket"
     }
   }
 

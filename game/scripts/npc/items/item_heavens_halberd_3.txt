@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -23,8 +24,8 @@
     "ItemResult"                                          "item_heavens_halberd_3"
     "ItemRequirements"
     {
-      "01"                                                "item_heavens_halberd_2;item_upgrade_core_2"
-      "02"                                                "item_echo_sabre_2;item_upgrade_core_2"
+      "01"                                                "item_heavens_halberd_2"
+      "02"                                                "item_echo_sabre_2"
     }
   }
 

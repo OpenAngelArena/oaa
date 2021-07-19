@@ -13,11 +13,12 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_3"
+    "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "3500"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
-      "01"                                                "item_butterfly_2;item_upgrade_core_2"
+      "01"                                                "item_butterfly_2"
     }
   }
 

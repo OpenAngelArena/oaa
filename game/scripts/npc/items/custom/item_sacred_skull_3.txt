@@ -10,6 +10,7 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
+    "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -17,8 +18,8 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_sacred_skull_2;item_upgrade_core_3"
-      "02"                                                "item_bloodstone_3;item_upgrade_core_3"
+      "01"                                                "item_sacred_skull_2"
+      "02"                                                "item_bloodstone_3"
     }
   }
 

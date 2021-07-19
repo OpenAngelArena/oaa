@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "3500"
+    "ItemCorePointCost"                                   "4"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -23,9 +24,9 @@
     "ItemResult"                    "item_meteor_hammer_3"
     "ItemRequirements"
     {
-      "01"                                                "item_meteor_hammer_2;item_upgrade_core_2"
-      "02"                                                "item_gungir_2;item_upgrade_core_2"
-      "03"                                                "item_wind_waker_2;item_upgrade_core_2"
+      "01"                                                "item_meteor_hammer_2"
+      "02"                                                "item_gungir_2"
+      "03"                                                "item_wind_waker_2"
     }
   }
 

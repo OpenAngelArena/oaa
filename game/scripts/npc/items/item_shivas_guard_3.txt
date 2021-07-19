@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -24,8 +25,8 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_shivas_guard_2;item_upgrade_core_2"
-      "02"                                                "item_blade_mail_2;item_upgrade_core_2"
+      "01"                                                "item_shivas_guard_2"
+      "02"                                                "item_blade_mail_2"
     }
   }
 

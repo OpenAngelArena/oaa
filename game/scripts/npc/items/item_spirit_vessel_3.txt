@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -23,7 +24,7 @@
     "ItemResult"          "item_spirit_vessel_3"
     "ItemRequirements"
     {
-      "01"            "item_spirit_vessel_2;item_upgrade_core_2"
+      "01"            "item_spirit_vessel_2"
     }
   }
 

@@ -9,6 +9,7 @@
     "ID"                                                  "3127"      // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "BaseClass"                                           "item_datadriven"
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -16,8 +17,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_bloodstone_4;item_upgrade_core_4"
-      "02"                                                "item_sacred_skull_3;item_upgrade_core_4"
+      "01"                                                "item_bloodstone_4"
+      "02"                                                "item_sacred_skull_3"
     }
   }
 

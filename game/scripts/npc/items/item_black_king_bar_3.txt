@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "3500"
+    "ItemCorePointCost"                                   "4"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -23,7 +24,7 @@
     "ItemResult"                    "item_black_king_bar_3"
     "ItemRequirements"
     {
-      "01"                                                "item_black_king_bar_2;item_upgrade_core_2"
+      "01"                                                "item_black_king_bar_2"
     }
   }
 

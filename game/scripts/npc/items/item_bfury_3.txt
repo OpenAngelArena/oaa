@@ -8,6 +8,7 @@
     "ID"                                                  "3075"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -15,8 +16,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
-      "01"                                                "item_bfury_2;item_upgrade_core_2"
-      "02"                                                "item_desolator_oaa_2;item_upgrade_core_2"
+      "01"                                                "item_bfury_2"
+      "02"                                                "item_desolator_oaa_2"
     }
   }
 

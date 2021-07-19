@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -23,8 +24,8 @@
     "ItemResult"                                          "item_desolator_oaa_2"
     "ItemRequirements"
     {
-      "01"                                                "item_desolator;item_upgrade_core"
-      "02"                                                "item_bfury;item_upgrade_core"
+      "01"                                                "item_desolator"
+      "02"                                                "item_bfury"
     }
   }
 

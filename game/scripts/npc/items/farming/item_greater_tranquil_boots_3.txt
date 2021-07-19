@@ -13,6 +13,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -22,11 +23,11 @@
     "ItemResult"                                          "item_greater_tranquil_boots_3"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
-      "02"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
-      "03"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
-      "04"                                                "item_greater_power_treads_2;item_upgrade_core_3"
-      "05"                                                "item_greater_guardian_greaves_2;item_upgrade_core_3"
+      "01"                                                "item_greater_tranquil_boots_2"
+      "02"                                                "item_greater_travel_boots_2"
+      "03"                                                "item_greater_phase_boots_2"
+      "04"                                                "item_greater_power_treads_2"
+      "05"                                                "item_greater_guardian_greaves_2"
     }
   }
 

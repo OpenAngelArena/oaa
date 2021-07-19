@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "20000"
+    "ItemCorePointCost"                                   "16"
+    "ItemCost"                                            "20000"
     "ItemShopTags"          ""
 
     // Recipe
@@ -23,8 +24,8 @@
     "ItemResult"          "item_glimmer_cape_5"
     "ItemRequirements"
     {
-      "01"                                                "item_glimmer_cape_4;item_upgrade_core_4"
-      "02"                                                "item_pipe_4;item_upgrade_core_4"
+      "01"                                                "item_glimmer_cape_4"
+      "02"                                                "item_pipe_4"
     }
   }
 

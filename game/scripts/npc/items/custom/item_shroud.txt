@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -23,7 +24,7 @@
     "ItemResult"                                          "item_shroud"
     "ItemRequirements"
     {
-      "01"                                                "item_ghost;item_glimmer_cape;item_upgrade_core"
+      "01"                                                "item_ghost;item_glimmer_cape"
     }
   }
 

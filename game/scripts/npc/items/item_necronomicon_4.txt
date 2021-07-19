@@ -9,6 +9,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemBaseLevel"                                       "4"
@@ -17,7 +18,7 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "ItemRequirements"
     {
-      "01"                                                "item_necronomicon_3;item_upgrade_core"
+      "01"                                                "item_necronomicon_3"
     }
   }
 

@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -24,9 +25,9 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_arcane_blink_3;item_upgrade_core_3"
-      "02"                                                "item_swift_blink_3;item_upgrade_core_3"
-      "03"                                                "item_overwhelming_blink_3;item_upgrade_core_3"
+      "01"                                                "item_arcane_blink_3"
+      "02"                                                "item_swift_blink_3"
+      "03"                                                "item_overwhelming_blink_3"
     }
   }
 

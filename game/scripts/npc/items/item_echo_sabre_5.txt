@@ -13,6 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -23,8 +24,8 @@
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_echo_sabre_4;item_upgrade_core_4"
-      "02"                                                "item_heavens_halberd_4;item_upgrade_core_4"
+      "01"                                                "item_echo_sabre_4"
+      "02"                                                "item_heavens_halberd_4"
     }
   }
 

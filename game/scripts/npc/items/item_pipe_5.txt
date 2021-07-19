@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -23,8 +24,8 @@
     "ItemResult"                                          "item_pipe_5"
     "ItemRequirements"
     {
-      "01"                                                "item_pipe_4;item_upgrade_core_4"
-      "02"                                                "item_glimmer_cape_4;item_upgrade_core_4"
+      "01"                                                "item_pipe_4"
+      "02"                                                "item_glimmer_cape_4"
     }
   }
 

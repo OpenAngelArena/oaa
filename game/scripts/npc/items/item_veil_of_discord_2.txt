@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -23,7 +24,7 @@
     "ItemResult"                                          "item_veil_of_discord_2"
     "ItemRequirements"
     {
-      "01"                                                "item_veil_of_discord;item_upgrade_core"
+      "01"                                                "item_veil_of_discord"
     }
   }
 

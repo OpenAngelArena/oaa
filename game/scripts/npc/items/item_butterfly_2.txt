@@ -14,10 +14,11 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_butterfly_2"
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1500"
     "ItemRequirements"
     {
-      "01"                                                "item_butterfly;item_upgrade_core"
+      "01"                                                "item_butterfly"
     }
   }
 

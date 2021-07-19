@@ -14,6 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "4"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -23,7 +24,7 @@
     "ItemResult"                                          "item_dagon_oaa_7"
     "ItemRequirements"
     {
-      "01"                                                "item_dagon_oaa_6;item_upgrade_core_2"
+      "01"                                                "item_dagon_oaa_6"
     }
   }
 
