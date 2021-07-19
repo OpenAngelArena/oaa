@@ -24,7 +24,9 @@ function OnCorePointsChanged (args) {
   let modifier = 'modifier_core_points_counter_oaa';
   let corePoints = args.cp;
   if (HasModifier(unit, modifier)) {
-    corePoints = GetStackCount(unit, modifier);
+    $.Schedule(0.03, function () {
+      corePoints = GetStackCount(unit, modifier);
+    });
   }
 
   let cpLabel = $('#CorePointsText');
