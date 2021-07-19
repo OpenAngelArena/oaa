@@ -41,7 +41,6 @@ local Zones = {
   { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
 local NumZones = 32
-local NumCaptures = 0
 local LiveZones = 0
 local Start = Event()
 local PrepareCapture = Event()
@@ -56,6 +55,7 @@ function CapturePoints:Init ()
   DebugPrint('Init capture point')
 
   self.currentCapture = nil
+  self.NumCaptures = 0
 
   CapturePoints.nextCaptureTime = INITIAL_CAPTURE_POINT_DELAY
   HudTimer:At(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
@@ -70,13 +70,13 @@ end
 function CapturePoints:GetState ()
   local state = {}
 
-  state.captures = NumCaptures
+  state.captures = self.NumCaptures
 
   return state
 end
 
 function CapturePoints:LoadState (state)
-  NumCaptures = state.captures
+  self.NumCaptures = state.captures
 end
 
 function CapturePoints:IsActive ()
@@ -143,7 +143,7 @@ function CapturePoints:ScheduleCapture()
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
   Debug:EnableDebugging()
-  -- DebugPrint('Capture number... ' .. NumCaptures)
+  -- DebugPrint('Capture number... ' .. self.NumCaptures)
   -- Chooses random zone
   CurrentZones = Zones[RandomInt(1, NumZones)]
   --If statemant checks for duel interference
@@ -211,16 +211,16 @@ function CapturePoints:Reward(teamId)
     return
   end
 
-  local pointReWard = math.min(NumCaptures + 1, PlayerResource:SafeGetTeamPlayerCount())
+  local pointReWard = math.min(self.NumCaptures + 1, PlayerResource:SafeGetTeamPlayerCount())
   PointsManager:AddPoints(teamId, pointReWard)
 
-  if NumCaptures == 1 then
+  if self.NumCaptures == 1 then
     self:GiveItemToWholeTeam("item_upgrade_core", teamId)
-  elseif NumCaptures == 2 then
+  elseif self.NumCaptures == 2 then
     self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-  elseif NumCaptures == 3 then
+  elseif self.NumCaptures == 3 then
     self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
-  elseif NumCaptures >= 4 then
+  elseif self.NumCaptures >= 4 then
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 
@@ -232,7 +232,7 @@ end
 
 function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
-  NumCaptures = NumCaptures + 1
+  self.NumCaptures = self.NumCaptures + 1
   Notifications:TopToAll({text="#capturepoints_start", duration=3.0, style={color="red", ["font-size"]="80px"}})
   self:MinimapPing()
   DebugPrint ('CaptureStarted')

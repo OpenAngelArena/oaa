@@ -1,0 +1,79 @@
+.ResourcePanel
+{
+  width: 100%;
+  height: 100%;
+}
+
+.CorePointsPanel
+{
+  width: 100px;
+  height: 40px;
+
+  horizontal-align: right;
+  vertical-align: bottom;
+
+  margin-bottom: 157px;
+  margin-right: 10px;
+}
+
+#CorePointsLabelPanel
+{
+  width: 80px;
+  height: 36px;
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #60862d ), to( #3d5f1c ) );
+  border-top: 1px solid #ffffff22;
+  border-left: 1px solid #ffffff11;
+  border-right: 1px solid #00000044;
+  border-bottom: 1px solid #00000088;
+  brightness: 1;
+  z-index: -1;
+  box-shadow: #000000aa 0px 0px 2px 2px;
+  align: right bottom;
+  margin-bottom: 37px;
+  transition-property: background-image;
+  transition-duration: .18s;
+  transition-timing-function: ease-in-out;
+  tooltip-position: top;
+}
+
+#CorePointsIconPanel
+{
+  width: 50px;
+  height: 36px;
+  background-image: url("s2r://panorama/images/hud/reborn/ability_bg_psd.vtex");
+  background-size: 100%;
+  margin-bottom: 37px;
+  vertical-align: bottom;
+  border-top: 1px solid #ffffff22;
+  border-left: 1px solid #ffffff11;
+  border-right: 1px solid #00000044;
+  border-bottom: 1px solid #00000088;
+  opacity: 1;
+  tooltip-position: left;
+}
+
+#CorePointsText
+{
+  color: green;
+  font-size: 20px;
+  font-family: Radiance;
+  font-weight: bold;
+  text-align: center; /* left */
+  text-shadow: 0px 0px 3px 3.0 #000000;
+  font-family: Radiance;
+  margin-left: 38px; /* 5px*/
+  margin-top: 3px; /* 4px */
+  /* vertical-align: center; */
+  /* horizontal-align: left; */
+  text-overflow: shrink;
+}
+
+#CorePointsIcon
+{
+  width:36px;
+  height:26px;
+  /* background-image: url("s2r://panorama/images/custom_game/.png"); */
+  background-size: 100% 100%;
+  horizontal-align: center;
+  vertical-align: center;
+}
