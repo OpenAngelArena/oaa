@@ -1,6 +1,6 @@
 
 if CorePointsManager == nil then
-  Debug.EnableDebugging()
+  --Debug.EnableDebugging()
   DebugPrint("Creating CorePointsManager.")
   CorePointsManager = class({})
 end
@@ -209,12 +209,12 @@ function CorePointsManager:GetCorePointsFullValue(item)
   -- Get KV data of the recipe item
   local recipe_data = GetAbilityKeyValuesByName(recipe_name)
   if not recipe_data then
-    DebugPrint("CorePointsManager (GetCorePointsFullValue): recipe data doesn't exist for this item.")
+    DebugPrint("CorePointsManager (GetCorePointsFullValue): recipe data doesn't exist for "..item_name)
     return 0
   end
 
   if not recipe_data["ItemCorePointCost"] or recipe_data["ItemCorePointCost"] == "" then
-    print("ItemCorePointCost key-value not set properly for "..recipe_name)
+    DebugPrint("CorePointsManager (GetCorePointsFullValue): ItemCorePointCost key-value not set properly for "..recipe_name)
     return 0
   end
 
