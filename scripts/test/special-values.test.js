@@ -670,7 +670,7 @@ function buildItemTree (t, data, cb) {
 
       var file = itemFileMap[item];
       var string = fs.readFileSync(file, { encoding: 'utf8' });
-      string = string.replace(';item_upgrade_core_2', '');
+      string = string.replace(';item_upgrade_core', '');
       fs.writeFileSync(file, string, { encoding: 'utf8' });
     });
 
