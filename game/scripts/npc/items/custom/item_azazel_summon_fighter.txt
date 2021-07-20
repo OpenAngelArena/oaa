@@ -3,17 +3,17 @@
   //=================================================================================================================
   // Recipe: Azazel Fighter
   //=================================================================================================================
-  "item_recipe_azazel_summon_fighter"
-  {
-    "ID"                            "8558"
-    "BaseClass"                     "item_datadriven"
-    "AbilityTextureName"            "custom/recipe/recipe_4"
-    "Model"                         "models/props_gameplay/recipe.vmdl"
+  // "item_recipe_azazel_summon_fighter"
+  // {
+    // "ID"                            "8558"
+    // "BaseClass"                     "item_datadriven"
+    // "AbilityTextureName"            "custom/recipe/recipe_4"
+    // "Model"                         "models/props_gameplay/recipe.vmdl"
 
-    "ItemCorePointCost"                                   "16"
-    "ItemCost"                                            "1"
-    "SecretShop"                    "1"
-    "ItemShopTags"                  ""
+    // "ItemCorePointCost"                                   "16"
+    // "ItemCost"                                            "1"
+    // "SecretShop"                    "1"
+    // "ItemShopTags"                  ""
 
     // "ItemRecipe"                    "1"
     // "ItemResult"                    "item_azazel_summon_fighter"
@@ -21,7 +21,7 @@
     // {
       // "01"                          "item_upgrade_core_4"
     // }
-  }
+  // }
   //=================================================================================================================
   // Azazel: Azazel Fighter
   //=================================================================================================================
