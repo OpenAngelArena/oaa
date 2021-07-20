@@ -74,7 +74,7 @@ function CorePointsManager:FilterOrders(keys)
           if core_points_cost > self:GetCorePointValueOfTier(1) then
             allowed_to_buy = BossSpawner.hasKilledTiers[tier] == true
             if CapturePoints.currentCapture == nil and CapturePoints.NumCaptures >= tier then
-              allowed_to_buy = true -- Capture Point of corresponding tier was captured
+              allowed_to_buy = true -- Both Capture Points of corresponding tier were captured
             end
           end
           if allowed_to_buy then
@@ -147,27 +147,17 @@ function CorePointsManager:GetCorePointValueOfTier(tier)
 end
 
 function CorePointsManager:GetCorePointValueOfUpdgradeCore(item_name)
-  if item_name == "item_upgrade_core" then
-    return self:GetCorePointValueOfTier(1)
-  elseif item_name == "item_upgrade_core_2" then
-    return self:GetCorePointValueOfTier(2)
-  elseif item_name == "item_upgrade_core_3" then
-    return self:GetCorePointValueOfTier(3)
-  elseif item_name == "item_upgrade_core_4" then
-    return self:GetCorePointValueOfTier(4)
-  else
-    return self:GetCorePointsFullValue(item_name)
-  end
+  return self:GetCorePointsFullValue(item_name)
 end
 
 function CorePointsManager:GetTierFromCorePointCost(number)
-  if number == self:GetCorePointValueOfTier(1) then
+  if number > 0 and number <= self:GetCorePointValueOfTier(1) then
     return 1
-  elseif number == self:GetCorePointValueOfTier(2) then
+  elseif number > self:GetCorePointValueOfTier(1) and number <= self:GetCorePointValueOfTier(2) then
     return 2
-  elseif number == self:GetCorePointValueOfTier(3) then
+  elseif number > self:GetCorePointValueOfTier(2) and number <= self:GetCorePointValueOfTier(3) then
     return 3
-  elseif number == self:GetCorePointValueOfTier(4) then
+  elseif number > self:GetCorePointValueOfTier(3) and number <= self:GetCorePointValueOfTier(4) then
     return 4
   elseif number == 0 then
     return 0
@@ -206,69 +196,98 @@ function CorePointsManager:GetCorePointsFullValue(item)
 
   --DebugPrint("Recipe of the item that is being checked: "..recipe_name)
 
-  -- Get KV data of the recipe item
+  -- Get KV data of the item and recipe
+  local item_data = GetAbilityKeyValuesByName(item_name)
   local recipe_data = GetAbilityKeyValuesByName(recipe_name)
+
+  if not item_data then
+    print("CorePointsManager (GetCorePointsFullValue): item data doesn't exist for "..item_name)
+    return 0
+  end
+
+  if item_data["ItemCorePointCost"] and item_data["ItemCorePointCost"] ~= "" then
+    return tonumber(item_data["ItemCorePointCost"]) -- Full Value of the item in core points set in KV file
+  end
+
+  -- Calculate ItemCorePointCost (full value) through the recipe because it's not set in KV file
+  -- If recipe doesn't exist, that's not possible to do
   if not recipe_data then
     DebugPrint("CorePointsManager (GetCorePointsFullValue): recipe data doesn't exist for "..item_name)
     return 0
   end
 
-  if not recipe_data["ItemCorePointCost"] or recipe_data["ItemCorePointCost"] == "" then
-    DebugPrint("CorePointsManager (GetCorePointsFullValue): ItemCorePointCost key-value not set properly for "..recipe_name)
+  if recipe_check then
+    -- Item is a recipe and item_data["ItemCorePointCost"] is nil or empty
+    DebugPrint("CorePointsManager (GetCorePointsFullValue): ItemCorePointCost key-value not set properly for "..item_name)
     return 0
   end
 
-  -- Recipe value (important when buying items)
-  local recipe_value = tonumber(recipe_data["ItemCorePointCost"]) -- Value of the recipe (for recipes themselves full_value and recipe_value are the same)
+  -- Item Requirements table - table of strings
+  local item_req = recipe_data["ItemRequirements"]
 
-  -- Full value (important when selling items)
-  -- Tier 1 items = 2 core points; T2 items = 2+4 core points; T3 items = 2+4+8 core points; T4 items = 2+4+8+16 core points;
-  local full_value = 0
-  local item_data = GetAbilityKeyValuesByName(item_name)
-  if item_data["ItemCorePointCost"] and item_data["ItemCorePointCost"] ~= "" then
-    full_value = tonumber(item_data["ItemCorePointCost"]) -- Full Value of the item in core points set in KV file
+  -- If Item Requirements table doesn't exist, it's not possible to calculate ItemCorePointCost (full value)
+  if not item_req then
+    DebugPrint("CorePointsManager (GetCorePointsFullValue): recipe "..recipe_name.." doesn't contain ItemRequirements!")
+    return 0
   end
 
-  -- Value of Upgrade Cores in core points:
-  local c1 = self:GetCorePointValueOfTier(1)
-  local c2 = self:GetCorePointValueOfTier(2)
-  local c3 = self:GetCorePointValueOfTier(3)
-  local c4 = self:GetCorePointValueOfTier(4)
+  -- First recipe
+  local req_string = item_req["01"]
 
-  -- Calculate full value of the item if KV is not set
-  if full_value == 0 then
-    if recipe_value == c1 then
-      full_value = c1
-    elseif recipe_value == c2 then
-      full_value = c2 + c1
-    elseif recipe_value == c3 then
-      full_value = c3 + c2 + c1
-    elseif recipe_value == c4 then
-      full_value = c4 + c3 + c2 + c1
+  -- Check the first recipe if it contains upgrade cores
+  local uc1 = string.find(req_string, "upgrade_core", -15)
+  local uc2 = string.find(req_string, "upgrade_core_2", -15)
+  local uc3 = string.find(req_string, "upgrade_core_3", -15)
+  local uc4 = string.find(req_string, "upgrade_core_4", -15)
+
+  local recipe_value = 0
+  if recipe_data["ItemCorePointCost"] and recipe_data["ItemCorePointCost"] ~= "" then
+    recipe_value = tonumber(recipe_data["ItemCorePointCost"]) -- Value of the recipe
+  end
+
+  -- Full value (important when selling items)
+  -- Tier 1 items = upgrade core 1 value;
+  -- T2 items = upgrade core 2 value + upgrade core 1 value;
+  -- T3 items = upgrade core 3 value + upgrade core 2 value + upgrade core 1 value;
+  -- T4 items = upgrade core 4 value + upgrade core 3 value + upgrade core 2 value + upgrade core 1 value;
+  local full_value = recipe_value
+
+  -- Value of Upgrade Cores in core points:
+  local c1 = self:GetCorePointsFullValue("item_upgrade_core")
+  local c2 = self:GetCorePointsFullValue("item_upgrade_core_2")
+  local c3 = self:GetCorePointsFullValue("item_upgrade_core_3")
+  local c4 = self:GetCorePointsFullValue("item_upgrade_core_4")
+
+  if uc1 then
+    if uc2 then
+      full_value = recipe_value + c2 + c1
+    elseif uc3 then
+      full_value = recipe_value + c3 + c2 + c1
+    elseif uc4 then
+      full_value = recipe_value + c4 + c3 + c2 + c1
     else
-      full_value = recipe_value -- temporary
+      full_value = recipe_value + c1
     end
   end
 
-  if recipe_check then
-    DebugPrint("Core point value of "..item_name.." is: "..tostring(recipe_value))
-    -- Return only the value of the recipe
-    return recipe_value
-  else
-    DebugPrint("Core point value of "..item_name.." is: "..tostring(full_value))
-    DebugPrint("Core point value of "..recipe_name.." is: "..tostring(recipe_value))
-    -- Return full value
-    return full_value
-  end
+  DebugPrint("Core point value of "..item_name.." is: "..tostring(full_value))
+
+  return full_value
 end
 
 function CorePointsManager:GetCorePointsSellValue(item)
-  -- Recipes are worth full value
-  if item:IsRecipe() then
-    return self:GetCorePointsFullValue(item)
+  local item_name -- string
+  if type(item) == 'string' then
+    item_name = item
   else
-    return math.floor(self:GetCorePointsFullValue(item) / 2)
+    item_name = item:GetName()
   end
+
+  if item_name == "item_upgrade_core" or item_name == "item_upgrade_core_2" or item_name == "item_upgrade_core_3" or item_name == "item_upgrade_core_4" then
+    return self:GetCorePointsFullValue(item)
+  end
+
+  return math.floor(self:GetCorePointsFullValue(item) / 2)
 end
 
 function CorePointsManager:GetCorePointsOnHero(unit, playerID)
@@ -291,12 +310,10 @@ function CorePointsManager:GetCorePointsOnHero(unit, playerID)
     return 0
   end
 
-  --return self.playerID_table[UnitVarToPlayerID(hero)]
-
   local counter = hero:FindModifierByName("modifier_core_points_counter_oaa")
   if not counter then
     print("CorePointsManager (GetCorePointsOnHero): Couldnt find a counter buff.")
-    return 0
+    return self.playerID_table[UnitVarToPlayerID(hero)]
   end
 
   return counter:GetStackCount()
