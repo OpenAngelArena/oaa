@@ -7,10 +7,10 @@
   </scripts>
 
   <Panel hittest="false" class='ResourcePanel'>
-    <Panel class="CorePointsIconPanel" onmouseover="UIShowTextTooltip(#corepoints)" onmouseout="UIHideTextTooltip()">
+    <Panel class="CorePointsIconPanel" onmouseover="UIShowTextTooltip(#oaa_core_points)" onmouseout="UIHideTextTooltip()">
       <Image id="CorePointsIcon" />
     </Panel>
-    <Panel class="CorePointsLabelPanel" onmouseover="UIShowTextTooltip(#corepoints_tip)" onmouseout="UIHideTextTooltip()">
+    <Panel class="CorePointsLabelPanel" onmouseover="UIShowTextTooltip(#oaa_core_points_tip)" onmouseout="UIHideTextTooltip()">
       <Label id="CorePointsText" text="0" html="true" class="TitleFont" />
     </Panel>
   </Panel>

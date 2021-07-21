@@ -18,7 +18,7 @@
   box-shadow: #000000aa 0px 0px 2px 2px;
   align: right bottom;
   margin-bottom: 10px;
-  margin-right: 450px;
+  margin-right: 420px;
   transition-property: background-image;
   transition-duration: .18s;
   transition-timing-function: ease-in-out;
@@ -33,7 +33,7 @@
   background-size: 100%;
   align: right bottom;
   margin-bottom: 10px;
-  margin-right: 520px;
+  margin-right: 490px;
   border-top: 1px solid #ffffff22;
   border-left: 1px solid #ffffff11;
   border-right: 1px solid #00000044;
@@ -61,8 +61,8 @@
 #CorePointsIcon
 {
   width:36px;
-  height:26px;
-  /* background-image: url("s2r://panorama/images/custom_game/.png"); */
+  height:36px;
+  background-image: url("s2r://panorama/images/custom_game/hud/core_points.png");
   background-size: 100% 100%;
   horizontal-align: center;
   vertical-align: center;
