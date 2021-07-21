@@ -81,8 +81,8 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
   local buff_duration = self:GetSpecialValueFor("sprout_duration")
 
   if target:GetTeam() ~= caster:GetTeam() then
-    -- Don't do anything if target has Linken's effect
-    if target:TriggerSpellAbsorb(self) then
+    -- Don't do anything if target has Linken's effect or it's spell-immune
+    if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
       return
     end
 

@@ -11,8 +11,8 @@ function broodmother_incapacitating_bite_oaa:OnSpellStart()
   -- Sound
   caster:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
 
-  -- Don't do anything if target has Linken's effect
-  if target:TriggerSpellAbsorb(self) then
+  -- Don't do anything if target has Linken's effect or it's spell-immune
+  if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
     return
   end
 
