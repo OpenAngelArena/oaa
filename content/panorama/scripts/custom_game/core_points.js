@@ -20,20 +20,21 @@ function GetStackCount (unit, modifier) {
 }
 
 function OnCorePointsChanged (args) {
-  let unit = Players.GetLocalPlayerPortraitUnit();
-  let modifier = 'modifier_core_points_counter_oaa';
+  const unit = Players.GetLocalPlayerPortraitUnit();
+  const modifier = 'modifier_core_points_counter_oaa';
+  const cpLabel = $('#CorePointsText');
   let corePoints = args.cp;
   if (HasModifier(unit, modifier)) {
     $.Schedule(0.03, function () {
       corePoints = GetStackCount(unit, modifier);
+      cpLabel.text = corePoints;
     });
   }
-
-  let cpLabel = $('#CorePointsText');
 
   cpLabel.text = corePoints;
 }
 
 (function () {
   GameEvents.Subscribe('core_point_number_changed', OnCorePointsChanged);
+  OnCorePointsChanged({cp:'-'});
 })();

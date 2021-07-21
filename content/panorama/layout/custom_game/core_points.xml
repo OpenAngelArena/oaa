@@ -8,7 +8,7 @@
 
   <Panel hittest="false" class='ResourcePanel'>
     <Panel class="CorePointsIconPanel" onmouseover="UIShowTextTooltip(#oaa_core_points)" onmouseout="UIHideTextTooltip()">
-      <Image id="CorePointsIcon" />
+      <Image id="CorePointsIcon" src="file://{images}/items/custom/upgrade_core.png"/>
     </Panel>
     <Panel class="CorePointsLabelPanel" onmouseover="UIShowTextTooltip(#oaa_core_points_tip)" onmouseout="UIHideTextTooltip()">
       <Label id="CorePointsText" text="0" html="true" class="TitleFont" />
