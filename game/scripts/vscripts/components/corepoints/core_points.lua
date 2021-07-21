@@ -82,7 +82,7 @@ function CorePointsManager:FilterOrders(keys)
             --self:GiveUpgradeCoreToHero(core_points_cost, unit_with_order, playerID)
           else
             -- Error - requirements not met
-            local error_msg1 = "#oaa_hud_error_requires_tier" .. tostring(tier) .. "#oaa_hud_error_boss_or_cp"
+            local error_msg1 = "#oaa_hud_error_requires_tier_" .. tostring(tier) .. "_boss_or_cp"
             CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg1})
             return false
           end
@@ -90,7 +90,7 @@ function CorePointsManager:FilterOrders(keys)
       else
         -- Error - not enough core points
         local needed = core_points_cost - purchaser_core_points
-        local error_msg2 = "#oaa_hud_error_not_enough_core_points" .. tostring(needed) .. "#oaa_hud_error_more_needed"
+        local error_msg2 = "#oaa_hud_error_not_enough_core_points" --.. tostring(needed) .. "#oaa_hud_error_more_needed"
         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg2})
         return false
       end
