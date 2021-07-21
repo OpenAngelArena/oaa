@@ -250,6 +250,11 @@ function GameMode:InitGameMode()
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
 
+  -- Remove spectating delay
+  if GetMapName() ~= "captains_mode" then
+    Convars:SetInt('tv_delay', 0)
+  end
+
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
 
