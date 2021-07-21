@@ -9,6 +9,7 @@
     "BaseClass"           "item_datadriven"
     "Model"               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"  "custom/recipe/recipe_4"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"        ""
     "ItemRecipe"          "1"
@@ -44,7 +45,7 @@
     "ItemBaseLevel"         "1"
     "UpgradesItems"         "item_sonic_2"
 
-    "ItemCost"              "13925"
+    "ItemCost"              "13928"
     "ItemShopTags"          "sonic"
     "ItemQuality"           ""
     "ItemAliases"           "sonic"

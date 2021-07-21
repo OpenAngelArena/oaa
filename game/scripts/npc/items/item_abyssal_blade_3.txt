@@ -8,6 +8,7 @@
     "ID"                                                  "3109"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -51,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "10300"
+    "ItemCost"                                            "10302"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

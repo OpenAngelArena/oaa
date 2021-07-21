@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "3500"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -51,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "9000"
+    "ItemCost"                      "9002"
     "ItemShopTags"                  "str;damage;hard_to_tag"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "bkb 3;black king bar 3"

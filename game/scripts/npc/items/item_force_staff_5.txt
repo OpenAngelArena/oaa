@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "20000"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "20000"
     "ItemShopTags"          ""
 
     // Recipe
@@ -53,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    "ItemCost"            "35200"
+    "ItemCost"            "35204"
     "ItemShopTags"          "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"         "rare"
     "ItemAliases"         "fs 5;force staff 5;force 5"

@@ -8,6 +8,7 @@
     "ID"                                                  "3670"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -46,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "38050"
+    "ItemCost"                                            "38054"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 5;mask of madness 5"

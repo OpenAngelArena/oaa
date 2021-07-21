@@ -14,6 +14,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_nullifier_4"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemRequirements"
     {
@@ -41,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "17725"
+    "ItemCost"            "17728"
     "ItemAliases"         "nlf 4;nullifier 4"
 
     "AbilitySharedCooldown"         "nullify"

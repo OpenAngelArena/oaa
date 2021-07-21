@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "8000"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "8000"
     "ItemShopTags"          ""
 
     // Recipe
@@ -52,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "16475"
+    "ItemCost"                    "16478"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"

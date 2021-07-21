@@ -14,7 +14,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "1500"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -63,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "6900"
+    "ItemCost"                      "6901"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 2;meteor hammer 2"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

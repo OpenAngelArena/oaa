@@ -8,6 +8,7 @@
     "ID"                                                  "3076"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -47,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16500"
+    "ItemCost"                                            "16503"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver 4"

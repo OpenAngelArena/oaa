@@ -8,9 +8,11 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3532"      // unique ID
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/upgrade_core.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    // "BaseClass"                                           "item_lua"
+    // "ScriptFile"                                          "items/upgrade_core.lua"
+    // "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -20,28 +22,28 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-
-    "ItemCost"                                            "8000"
-    "ItemPurchasable"                                     "0"
+    "ItemCorePointCost"                                   "8"
+    "ItemCost"                                            "1"
+    "ItemPurchasable"                                     "1"
     //"ItemSellable"                                      "0"
     "ItemKillable"                                        "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "channel_time"                                    "3.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "core_count"                                      "2"
-      }
-	}
+    // "AbilitySpecial"
+    // {
+      // "01"
+      // {
+        // "var_type"                                        "FIELD_FLOAT"
+        // "channel_time"                                    "3.0"
+      // }
+      // "02"
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "core_count"                                      "2"
+      // }
+    // }
     "precache"
     {
       "particle"                  "particles/items/upgrade_3.vpcf"

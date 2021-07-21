@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -35,7 +36,7 @@
     "BaseClass"                                           "item_panic_button"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                                            "37600"
+    "ItemCost"                                            "37604"
     "ItemShopTags"                                        "health_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"

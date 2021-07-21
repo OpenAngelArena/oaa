@@ -9,6 +9,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -33,7 +34,7 @@
     "AbilityTextureName"                                  "custom/octarine_core_3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10275"
+    "ItemCost"                                            "10277"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "octarine core 3;octarine 3"

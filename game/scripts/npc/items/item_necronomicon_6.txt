@@ -8,6 +8,7 @@
     "ID"                                                  "3168"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemBaseLevel"                                       "6"
@@ -41,7 +42,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
-    "ItemCost"                                            "17550"
+    "ItemCost"                                            "17553"
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 6;necro 6"

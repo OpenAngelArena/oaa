@@ -9,6 +9,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -45,7 +46,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "7100"
+    "ItemCost"                                            "7101"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

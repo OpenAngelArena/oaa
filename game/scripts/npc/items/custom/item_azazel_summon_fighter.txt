@@ -3,24 +3,25 @@
   //=================================================================================================================
   // Recipe: Azazel Fighter
   //=================================================================================================================
-  "item_recipe_azazel_summon_fighter"
-  {
-    "ID"                            "8558"
-    "BaseClass"                     "item_datadriven"
-    "AbilityTextureName"            "custom/recipe/recipe_4"
-    "Model"                         "models/props_gameplay/recipe.vmdl"
+  // "item_recipe_azazel_summon_fighter"
+  // {
+    // "ID"                            "8558"
+    // "BaseClass"                     "item_datadriven"
+    // "AbilityTextureName"            "custom/recipe/recipe_4"
+    // "Model"                         "models/props_gameplay/recipe.vmdl"
 
-    "ItemCost"                      "1"
-    "SecretShop"                    "1"
-    "ItemShopTags"                  ""
+    // "ItemCorePointCost"                                   "16"
+    // "ItemCost"                                            "1"
+    // "SecretShop"                    "1"
+    // "ItemShopTags"                  ""
 
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_azazel_summon_fighter"
-    "ItemRequirements" //OAA
-    {
-      "01"                          "item_upgrade_core_4"
-    }
-  }
+    // "ItemRecipe"                    "1"
+    // "ItemResult"                    "item_azazel_summon_fighter"
+    // "ItemRequirements" //OAA
+    // {
+      // "01"                          "item_upgrade_core_4"
+    // }
+  // }
   //=================================================================================================================
   // Azazel: Azazel Fighter
   //=================================================================================================================
@@ -42,7 +43,8 @@
     "ItemRequiresCharges"           "1"
 
     "ItemStackable"                 "0"
-    "ItemCost"                      "1"
+    "ItemCorePointCost"                                   "16"
+    "ItemCost"                                            "1"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                  "consumable"
     "ItemQuality"                   "epic"
