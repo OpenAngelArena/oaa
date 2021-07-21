@@ -6,7 +6,7 @@
 
 .CorePointsLabelPanel
 {
-  width: 100px;
+  width: 70px;
   height: 36px;
   /* background-color:gradient( linear, 0% 0%, 0% 100%, from( #60862d ), to( #3d5f1c ) ); */
   border-top: 1px solid #ffffff22;
@@ -17,8 +17,8 @@
   z-index: -1;
   box-shadow: #000000aa 0px 0px 2px 2px;
   align: right bottom;
-  margin-bottom: 100px;
-  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-right: 450px;
   transition-property: background-image;
   transition-duration: .18s;
   transition-timing-function: ease-in-out;
@@ -32,8 +32,8 @@
   background-image: url("s2r://panorama/images/hud/reborn/ability_bg_psd.vtex");
   background-size: 100%;
   align: right bottom;
-  margin-bottom: 100px;
-  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-right: 520px;
   border-top: 1px solid #ffffff22;
   border-left: 1px solid #ffffff11;
   border-right: 1px solid #00000044;
