@@ -85,6 +85,12 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnDeath(event)
     end
   end
 
+  -- modifier_kill makes the spiders kill themselves when it expires (dead = killer)
+  -- Don't create more spiders if spiders expire or if the dead unit is the parent (broodmother suicided somehow)
+  if dead == killer or dead == parent then
+    return
+  end
+
   -- Don't continue if the killer doesn't exist
   if not killer or killer:IsNull() then
     return

@@ -11,8 +11,8 @@ function item_silver_staff:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- Don't do anything if target has Linken's effect
-  if target:TriggerSpellAbsorb(self) then
+  -- Don't do anything if target has Linken's effect or it's spell-immune
+  if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
     return
   end
 
