@@ -248,25 +248,54 @@ function modifier_broodmother_giant_spiderling_passive:IsPurgable()
   return false
 end
 
+function modifier_broodmother_giant_spiderling_passive:OnCreated()
+  if not IsServer() then
+    return
+  end
+  local ability = spin_web
+  if ability and not ability:IsNull() then
+    self.bonus_ms = 0
+  end
+
+  self:StartIntervalThink(0)
+end
+
+function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
+  local condition = false
+  if condition then
+    self:SetStackCount(1)
+  else
+    self:SetStackCount(2)
+  end
+end
+
 function modifier_broodmother_giant_spiderling_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+    --MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
   }
 end
 
 function modifier_broodmother_giant_spiderling_passive:GetModifierMoveSpeedBonus_Percentage()
-  return 110
+  if self:GetStackCount() == 1 then
+    return self.bonus_ms
+  end
 end
 
-function modifier_broodmother_giant_spiderling_passive:GetModifierIgnoreMovespeedLimit()
-  return 1
-end
+-- function modifier_broodmother_giant_spiderling_passive:GetModifierIgnoreMovespeedLimit()
+  -- if self:GetStackCount() == 1 then
+    -- return 1
+  -- end
+-- end
 
 function modifier_broodmother_giant_spiderling_passive:CheckState()
-  local state = {
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-  }
-  return state
+  if self:GetStackCount() == 1 then
+    local state = {
+      [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+      [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    }
+    return state
+  else
+    return {}
+  end
 end

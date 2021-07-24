@@ -31,7 +31,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spiderling_hp_per_level"                         "50"
+        "spiderling_hp_per_level"                         "20"
       }
       "03"
       {
@@ -69,7 +69,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spiderling_spawn_count"                          "3"
+        "spiderling_spawn_count"                          "1"
       }
       "10"
       {
@@ -85,7 +85,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_spiderling_base_attack_damage"             "40"
+        "giant_spiderling_base_attack_damage"             "30"
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4"
         "CalculateSpellDamageTooltip"                     "0"
       }

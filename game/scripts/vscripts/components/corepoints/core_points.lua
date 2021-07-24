@@ -433,7 +433,7 @@ end
 modifier_core_points_counter_oaa = class({})
 
 function modifier_core_points_counter_oaa:IsHidden()
-  return false
+  return not IsInToolsMode()
 end
 
 function modifier_core_points_counter_oaa:IsPurgable()
@@ -442,6 +442,13 @@ end
 
 function modifier_core_points_counter_oaa:RemoveOnDeath()
   return false
+end
+
+function modifier_core_points_counter_oaa:OnCreated()
+  if IsServer() then
+    local count = CorePointsManager.playerID_table[UnitVarToPlayerID(self:GetParent())] or 0
+    self:SetStackCount(count)
+  end
 end
 
 -- function modifier_core_points_counter_oaa:OnStackCountChanged(old_stacks)
