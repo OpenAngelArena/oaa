@@ -1,68 +1,70 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Blade Mail
+  // Recipe: Spiked Mail 4
   //=================================================================================================================
-  "item_recipe_blade_mail"
+  "item_recipe_spiked_mail_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "126"
-    //"BaseClass"                                           "item_datadriven"
+    "ID"                                                  "3874"
+    "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "575"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_blade_mail"
+    "ItemResult"                                          "item_spiked_mail_4"
 
     "ItemRequirements"
     {
-      "01"                                                "item_broadsword;item_chainmail"
+      "01"                                                "item_spiked_mail_3;item_upgrade_core_3"
+      "02"                                                "item_shivas_guard_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Blade Mail
+  // Spiked Mail 4
   //=================================================================================================================
-  "item_blade_mail"
+  "item_spiked_mail_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "127"
-    //"BaseClass"                                           "item_lua"
-    //"ScriptFile"                                          "items/blade_mail.lua"
+    "ID"                                                  "3875"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/spiked_mail.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    //"AbilityTextureName"                                  "custom/blade_mail_1"
+    "AbilityTextureName"                                  "custom/lionsmane_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                     "100"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    //"MaxUpgradeLevel"                                     "5"
-    //"ItemBaseLevel"                                       "1"
-    //"UpgradesItems"                                       "item_blade_mail;item_blade_mail_2;item_blade_mail_3;item_blade_mail_4"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_spiked_mail_4;item_spiked_mail_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "2125"
+    "ItemCorePointCost"                                   "8"
+    "ItemCost"                                            "17853"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bm;blade mail;blademail"
+    "ItemAliases"                                         "sm 4;spiked mail 4;spikedmail 4"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -71,17 +73,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "28" //"28 48 88 148 228"
+        "bonus_damage"                                    "28 48 88 148 228"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6" //"6 9 13 18 24"
+        "bonus_intellect"                                 "25 35 50 70 95"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "0"
+        "bonus_armor"                                     "10 12 15 19 24"
       }
       "04"
       {
@@ -91,17 +93,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_reflection_constant"                     "20" //"20 40 80 140 220"
+        "passive_reflection_pct"                          "20"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_reflection_pct"                          "20"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_reflection_pct"                           "80" //"80 90 100 110 120"
+        "active_reflection_pct"                           "80"
       }
     }
   }

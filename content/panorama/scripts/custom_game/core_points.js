@@ -36,5 +36,5 @@ function OnCorePointsChanged (args) {
 
 (function () {
   GameEvents.Subscribe('core_point_number_changed', OnCorePointsChanged);
-  OnCorePointsChanged({cp:'-'});
+  OnCorePointsChanged({cp: '-'});
 })();
