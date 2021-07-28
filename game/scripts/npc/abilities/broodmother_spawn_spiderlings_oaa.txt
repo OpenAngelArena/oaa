@@ -31,7 +31,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spiderling_hp_per_level"                         "20"
+        "spiderling_hp_per_level"                         "25"
       }
       "03"
       {
@@ -74,7 +74,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spiderling_max_count"                            "20"
+        "spiderling_max_count"                            "15"
       }
       "11"
       {
@@ -93,6 +93,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "giant_spiderling_spawn_count"                    "1"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_spawn_radius"                         "900"
       }
     }
   }
