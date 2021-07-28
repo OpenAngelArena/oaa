@@ -188,6 +188,10 @@ function modifier_spark_power:OnStackCountChanged(old_stacks)
   if parent:IsIllusion() then
     return
   end
+  
+  if old_stacks == self:GetStackCount() then
+    return
+  end
 
   parent.power_spark_bonus = self:GetStackCount()
 
