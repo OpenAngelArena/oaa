@@ -81,6 +81,10 @@ function modifier_spark_power:OnCreated()
     return
   end
 
+  -- Initialize with 0
+  parent.power_spark_bonus = 0
+  self:SetStackCount(0)
+
   if IsServer() then
     -- Current damage values
     local base_damage_max = parent:GetBaseDamageMax()
@@ -106,10 +110,9 @@ function modifier_spark_power:OnCreated()
 
     -- Bonus damage/block formula
     local bonus = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
+    -- Change stack count
     self:SetStackCount(bonus)
   end
-
-  parent.power_spark_bonus = self:GetStackCount()
 
   self:StartIntervalThink(0.3)
 
@@ -130,6 +133,16 @@ function modifier_spark_power:OnCreated()
     end
   end
   ]]
+end
+
+function modifier_spark_power:OnRefresh()
+  local parent = self:GetParent()
+
+  if parent:IsIllusion() then
+    return
+  end
+
+  --parent.power_spark_bonus = self:GetStackCount()
 end
 
 function modifier_spark_power:OnIntervalThink()
@@ -166,7 +179,24 @@ function modifier_spark_power:OnIntervalThink()
     self:SetStackCount(bonus)
   end
 
+  --parent.power_spark_bonus = self:GetStackCount()
+end
+
+function modifier_spark_power:OnStackCountChanged(old_stacks)
+  local parent = self:GetParent()
+
+  if parent:IsIllusion() then
+    return
+  end
+  
+  if old_stacks == self:GetStackCount() then
+    return
+  end
+
   parent.power_spark_bonus = self:GetStackCount()
+
+  -- This will refresh the stacks and maybe refresh the aura too
+  self:ForceRefresh()
 end
 
 function modifier_spark_power:OnTooltip()

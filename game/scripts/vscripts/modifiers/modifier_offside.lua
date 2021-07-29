@@ -22,11 +22,17 @@ function modifier_is_in_offside:OnIntervalThink()
     return
   end
 
+  if Duels:IsActive() then
+    return
+  end
+
   local parent = self:GetParent()
   local origin = parent:GetAbsOrigin()
-  local team = parent:GetTeam()
+  local team = parent:GetTeamNumber()
 
-  if not IsLocationInOffside(origin) or Duels:IsActive() then
+  -- Remove this offside thinker if parent is not in any offside zone
+  if not IsLocationInOffside(origin) then
+    self:Destroy()
     return
   end
 
@@ -140,25 +146,34 @@ function modifier_offside:DrawParticles()
 end
 
 function modifier_offside:OnIntervalThink()
-  if not ProtectionAura then
-    self:Destroy()
+  if not IsServer() then
     return
   end
 
   local parent = self:GetParent()
+  local origin = parent:GetAbsOrigin()
   local team = parent:GetTeamNumber()
+  local isEnemyOffside = true -- we assume that the offside is an enemy zone
+  local radiantOffside = IsLocationInRadiantOffside(origin)
+  local direOffside = IsLocationInDireOffside(origin)
 
-  if (team == DOTA_TEAM_GOODGUYS and Wanderer.dire_offside_disabled == true) or (team == DOTA_TEAM_BADGUYS and Wanderer.radiant_offside_disabled == true) then
-    return
+  -- Check if parent is in its base (on its highground)
+  if (team == DOTA_TEAM_GOODGUYS and radiantOffside) or (team == DOTA_TEAM_BADGUYS and direOffside) then
+    isEnemyOffside = false -- this is possible when teleporting from enemy base to ally base and modifier_is_in_offside is not removed
   end
 
-  local isInOffside = parent:HasModifier("modifier_is_in_offside")
+  -- Check if parent is in the enemy offside zone while that offside zone is disabled by the Wanderer
+  if (team == DOTA_TEAM_GOODGUYS and direOffside and Wanderer.dire_offside_disabled == true) or (team == DOTA_TEAM_BADGUYS and radiantOffside and Wanderer.radiant_offside_disabled == true) then
+    return -- Don't continue (don't increment or decrement the stacks and don't do damage)
+  end
 
   if not self.stackOffset then
     self.stackOffset = 1
   else
     self.stackOffset = self.stackOffset + 1
   end
+
+  local isInOffside = parent:HasModifier("modifier_is_in_offside") and isEnemyOffside == true
 
   if self.stackOffset >= TICKS_PER_SECOND then
     if isInOffside then
@@ -178,13 +193,12 @@ function modifier_offside:OnIntervalThink()
     if stackCount <= 0 then
       self:Destroy()
     end
-    return
+    return -- Don't continue (don't do damage)
   end
 
-  local location = parent:GetAbsOrigin()
   local defenders = FindUnitsInRadius(
     team,
-    location,
+    origin,
     nil,
     2500,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -201,7 +215,7 @@ function modifier_offside:OnIntervalThink()
   if defenders then
     defenders = defenders[1]
   else
-    defenders = Entities:FindByClassnameNearest("ent_dota_fountain", location, 10000)
+    defenders = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 10000)
   end
 
   local damageTable = {

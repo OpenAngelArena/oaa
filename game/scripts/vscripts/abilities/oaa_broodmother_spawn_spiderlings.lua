@@ -118,6 +118,12 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnDeath(event)
   local summon_duration = ability:GetSpecialValueFor("spiderling_duration")
   local summon_count = ability:GetSpecialValueFor("spiderling_spawn_count")
   local max_count = ability:GetSpecialValueFor("spiderling_max_count")
+  local spawn_radius = ability:GetSpecialValueFor("spiderling_spawn_radius")
+
+  -- Spiderlings can spawn spiderlings only if near Broodmother, otherwise don't continue
+  if killer ~= parent and (killer:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > spawn_radius then
+    return
+  end
 
   -- Don't continue if we already reached the max amount of spiders
   if self.spider_counter_oaa >= max_count then
@@ -248,25 +254,104 @@ function modifier_broodmother_giant_spiderling_passive:IsPurgable()
   return false
 end
 
+function modifier_broodmother_giant_spiderling_passive:OnCreated()
+  self.bonus_ms = 18
+  self.bonus_hp_regen = 3
+
+  if not IsServer() then
+    return
+  end
+
+  local caster = self:GetCaster()
+  local ability = caster:FindAbilityByName("broodmother_spin_web")
+  if ability and not ability:IsNull() then
+    local ability_level = ability:GetLevel()
+    if ability_level > 0 then
+      self.bonus_ms = ability:GetLevelSpecialValueFor("bonus_movespeed", ability_level-1)
+      self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
+    end
+  end
+
+  self:StartIntervalThink(0)
+end
+
+function modifier_broodmother_giant_spiderling_passive:OnRefresh()
+  if not IsServer() then
+    return
+  end
+  local caster = self:GetCaster()
+  local ability = caster:FindAbilityByName("broodmother_spin_web")
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  local ability_level = ability:GetLevel()
+  if ability_level > 0 then
+    self.bonus_ms = ability:GetLevelSpecialValueFor("bonus_movespeed", ability_level-1)
+    self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
+  end
+end
+
+
+function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local caster = self:GetCaster()
+  local ability = caster:FindAbilityByName("broodmother_spin_web")
+  if not ability or ability:IsNull() then
+    return
+  end
+  local web_radius = ability:GetSpecialValueFor("radius")
+  local origin = self:GetParent():GetAbsOrigin()
+  local webs = Entities:FindAllByClassnameWithin("npc_dota_broodmother_web", origin, web_radius)
+  local condition = #webs > 0
+  -- If parent is near a web, apply web buffs
+  if condition then
+    self:SetStackCount(1)
+  else
+    self:SetStackCount(2)
+  end
+end
+
 function modifier_broodmother_giant_spiderling_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    --MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
   }
 end
 
 function modifier_broodmother_giant_spiderling_passive:GetModifierMoveSpeedBonus_Percentage()
-  return 110
+  if self:GetStackCount() == 1 then
+    return self.bonus_ms
+  end
+
+  return 0
 end
 
-function modifier_broodmother_giant_spiderling_passive:GetModifierIgnoreMovespeedLimit()
-  return 1
+function modifier_broodmother_giant_spiderling_passive:GetModifierConstantHealthRegen()
+	if self:GetStackCount() == 1 then
+    return self.bonus_hp_regen
+  end
+
+  return 0
 end
+
+-- function modifier_broodmother_giant_spiderling_passive:GetModifierIgnoreMovespeedLimit()
+  -- if self:GetStackCount() == 1 then
+    -- return 1
+  -- end
+-- end
 
 function modifier_broodmother_giant_spiderling_passive:CheckState()
-  local state = {
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-  }
-  return state
+  if self:GetStackCount() == 1 then
+    local state = {
+      [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+      [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    }
+    return state
+  else
+    return {}
+  end
 end
