@@ -46,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "25"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -97,7 +97,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_reflection_pct"                           "80"
+        "active_reflection_pct"                           "80 85 90 95 100"
       }
     }
   }
