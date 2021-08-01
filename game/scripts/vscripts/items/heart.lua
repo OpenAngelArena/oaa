@@ -1,265 +1,227 @@
-LinkLuaModifier("modifier_item_heart_transplant", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_heart_transplant_debuff", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_heart_transplant_buff", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_heart_oaa_stacking_stats", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_heart_oaa_non_stacking_stats", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_heart_oaa_active", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_heart_transplant = class(ItemBaseClass)
+item_heart_oaa = class(ItemBaseClass)
 
-function item_heart_transplant:GetIntrinsicModifierName()
-  return "modifier_item_heart_transplant"
+function item_heart_oaa:GetIntrinsicModifierName()
+  return "modifier_intrinsic_multiplexer"
 end
 
--- This is client only
-function item_heart_transplant:CastFilterResultTarget(target)
+function item_heart_oaa:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_heart_oaa_stacking_stats",
+    "modifier_item_heart_oaa_non_stacking_stats"
+  }
+end
+
+function item_heart_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
-  if target == caster then
-    return UF_FAIL_CUSTOM
-  end
+  local buff_duration = self:GetSpecialValueFor("buff_duration")
 
-  if target:HasModifier("modifier_item_heart_transplant_buff") or caster:HasModifier("modifier_item_heart_transplant_debuff") then
-    return UF_FAIL_CUSTOM
-  end
+  -- Apply a Heart special buff to the caster
+  caster:AddNewModifier(caster, self, "modifier_item_heart_oaa_active", {duration = buff_duration})
 
-  return defaultFilterResult
-end
+  -- Find enemies
+  local center = caster:GetAbsOrigin()
+  local radius = self:GetSpecialValueFor("radius")
+  local enemies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    center,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
 
--- This is client only
-function item_heart_transplant:GetCustomCastErrorTarget(target)
-  local caster = self:GetCaster()
-  if target == caster then
-    return "#dota_hud_error_cant_cast_on_self"
-  elseif target:HasModifier("modifier_item_heart_transplant_buff") or caster:HasModifier("modifier_item_heart_transplant_debuff") then
-    return "#oaa_hud_error_only_one_transplant"
-  end
-end
+  -- Havoc Knockback
+  local knockback_table = {
+    center_x = center.x,
+    center_y = center.y,
+    center_z = center.z,
+    duration = self:GetSpecialValueFor("knockback_duration"),
+    knockback_duration = self:GetSpecialValueFor("knockback_duration"),
+    knockback_distance = self:GetSpecialValueFor("knockback_distance"),
+  }
 
-function item_heart_transplant:OnSpellStart()
-  local caster = self:GetCaster()
-  local target = self:GetCursorTarget()
-
-  if not target or target:IsNull() then
-    return
-  end
-
-  local transplant_max_duration = self:GetSpecialValueFor("transplant_max_duration")
-
-  -- Remove the previous instance of heart transplant - only allow one active transfer
-  if self.transferred_buff and not self.transferred_buff:IsNull() then
-    self.transferred_buff:Destroy()
-  end
-
-  -- Apply a Heart Transplant buff to the target unit
-  self.transferred_buff = target:AddNewModifier(caster, self, "modifier_item_heart_transplant_buff", {duration = transplant_max_duration})
-
-  -- Apply a Heart Transplant debuff to the caster
-  caster:AddNewModifier(caster, self, "modifier_item_heart_transplant_debuff", {})
-end
-
-function item_heart_transplant:TransplantEnd(caster)
-  if IsServer() then
-	-- Remove debuff from the caster
-    caster:RemoveModifierByName("modifier_item_heart_transplant_debuff")
-
-    local cooldown = 5
-    if caster:IsRangedAttacker() then
-      cooldown = self:GetSpecialValueFor("cooldown_ranged")
-    else
-      cooldown = self:GetSpecialValueFor("cooldown_melee")
+  -- Knockback enemies
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      --knockback_table.knockback_distance = radius - (center - enemy:GetAbsOrigin()):Length2D()
+      enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
     end
+  end
 
-    -- Start cooldown unaffected by cooldown reductions
-    self:StartCooldown(cooldown)
+  -- Havoc Damage
+  local havoc_damage = self:GetSpecialValueFor("nuke_base_dmg")
+  if caster:IsHero() then
+    havoc_damage = self:GetSpecialValueFor("nuke_base_dmg") + caster:GetStrength() * self:GetSpecialValueFor("nuke_str_dmg")
+  end
+
+  local damage_table = {
+    attacker = caster,
+    damage = havoc_damage,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = self,
+  }
+
+  -- Damage enemies
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      damage_table.victim = enemy
+      ApplyDamage(damage_table)
+    end
   end
 end
 
-item_heart_transplant_2 = item_heart_transplant
+function item_heart_oaa:ProcsMagicStick()
+  return false
+end
+
+item_heart_2 = item_heart_oaa
+item_heart_3 = item_heart_oaa
+item_heart_4 = item_heart_oaa
+item_heart_5 = item_heart_oaa
 
 ---------------------------------------------------------------------------------------------------
+-- Parts of Heart that should stack with other items
 
-modifier_item_heart_transplant = class(ModifierBaseClass)
+modifier_item_heart_oaa_stacking_stats = class(ModifierBaseClass)
 
-function modifier_item_heart_transplant:DeclareFunctions()
+function modifier_item_heart_oaa_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_heart_oaa_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_heart_oaa_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_heart_oaa_stacking_stats:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_heart_oaa_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.str = ability:GetSpecialValueFor("bonus_strength")
+    self.hp = ability:GetSpecialValueFor("bonus_health")
+  end
+end
+
+modifier_item_heart_oaa_stacking_stats.OnRefresh = modifier_item_heart_oaa_stacking_stats.OnCreated
+
+function modifier_item_heart_oaa_stacking_stats:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
+  }
+end
+
+function modifier_item_heart_oaa_stacking_stats:GetModifierBonusStats_Strength()
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_heart_oaa_stacking_stats:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+---------------------------------------------------------------------------------------------------
+-- Parts of Heart that should NOT stack with other Hearts and Heart Transplants
+
+modifier_item_heart_oaa_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_heart_oaa_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_heart_oaa_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_heart_oaa_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_heart_oaa_non_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.regen = ability:GetSpecialValueFor("health_regen_pct")
+  end
+end
+
+modifier_item_heart_oaa_non_stacking_stats.OnRefresh = modifier_item_heart_oaa_non_stacking_stats.OnCreated
+
+function modifier_item_heart_oaa_non_stacking_stats:DeclareFunctions()
+  return {
     MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
     --MODIFIER_EVENT_ON_TAKEDAMAGE
   }
 end
 
-function modifier_item_heart_transplant:IsHidden()
-  return true
+function modifier_item_heart_oaa_non_stacking_stats:GetModifierHealthRegenPercentage()
+  return self.regen or self:GetAbility():GetSpecialValueFor("health_regen_pct")
 end
 
-function modifier_item_heart_transplant:IsPurgable()
-  return false
-end
-
-function modifier_item_heart_transplant:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
-function modifier_item_heart_transplant:OnCreated()
-  local ability = self:GetAbility()
-
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-    self.regen = ability:GetSpecialValueFor("health_regen_pct")
-    self.t_str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.t_hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.t_regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
-  end
-end
-
-function modifier_item_heart_transplant:OnRefresh()
-  local ability = self:GetAbility()
-
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-    self.regen = ability:GetSpecialValueFor("health_regen_pct")
-    self.t_str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.t_hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.t_regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
-  end
-end
-
-function modifier_item_heart_transplant:GetModifierBonusStats_Strength()
-  local parent = self:GetParent()
-  local bonus_str = self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
-  if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_str then
-    return bonus_str - self.t_str
-  end
-  return bonus_str
-end
-
-function modifier_item_heart_transplant:GetModifierHealthBonus()
-  local parent = self:GetParent()
-  local bonus_hp = self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-  if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_hp then
-    return bonus_hp - self.t_hp
-  end
-  return bonus_hp
-end
-
--- Prevent stacking with other heart transplants and other hearts
-if IsServer() then
-  function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
-    local parentHasHeart = parent:HasModifier("modifier_item_heart")
-    local isFirstHeartTransplantModifier = parent:FindModifierByName(self:GetName()) == self
-
-    if not parent:IsIllusion() and not parentHasHeart and isFirstHeartTransplantModifier then
-      local bonus_regen = self.regen or ability:GetSpecialValueFor("health_regen_pct")
-      if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_regen then
-        return bonus_regen - self.t_regen
-      end
-      return bonus_regen
-    end
-
-    return 0
-  end
-end
-
--- function modifier_item_heart_transplant:OnTakeDamage(event)
+-- function modifier_item_heart_oaa_non_stacking_stats:OnTakeDamage(event)
   -- local parent = self:GetParent()
   -- local ability = self:GetAbility()
 
   -- if event.damage > 0 and event.unit == parent and event.attacker ~= parent and not event.attacker:IsNeutralUnitType() and not event.attacker:IsOAABoss() then
-    -- if ability.transferred_buff and not ability.transferred_buff:IsNull() then
-      -- ability.transferred_buff:Destroy()
-    -- end
+    -- Whatever is the effect when taking player-controlled damage
   -- end
 -- end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_heart_transplant_debuff = class(ModifierBaseClass)
+modifier_item_heart_oaa_active = class(ModifierBaseClass)
 
-function modifier_item_heart_transplant_debuff:IsDebuff()
-  return true
-end
-
-function modifier_item_heart_transplant_debuff:IsPurgable()
+function modifier_item_heart_oaa_active:IsHidden()
   return false
 end
 
-function modifier_item_heart_transplant_debuff:IsPurgeException()
+function modifier_item_heart_oaa_active:IsDebuff()
   return false
 end
 
-function modifier_item_heart_transplant_debuff:OnCreated()
-  local parent = self:GetParent()
-
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
-  end
-end
-
-function modifier_item_heart_transplant_debuff:OnRefresh()
-  local parent = self:GetParent()
-
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
-  end
-end
-
-function modifier_item_heart_transplant_debuff:OnDestroy()
-  local parent = self:GetParent()
-
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
-  end
-end
-
----------------------------------------------------------------------------------------------------
-
-modifier_item_heart_transplant_buff = class(ModifierBaseClass)
-
-function modifier_item_heart_transplant_buff:IsPurgable()
+function modifier_item_heart_oaa_active:IsPurgable()
   return false
 end
 
-function modifier_item_heart_transplant_buff:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE
-  }
-end
-
-function modifier_item_heart_transplant_buff:OnCreated()
+function modifier_item_heart_oaa_active:OnCreated()
   local parent = self:GetParent()
-  local caster = self:GetCaster()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
+    self.str = ability:GetSpecialValueFor("buff_bonus_strength")
+    self.bonus_damage = ability:GetSpecialValueFor("buff_bonus_base_damage")
   end
 
   if IsServer() then
-    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+    if self.nPreviewFX == nil then
+      self.nPreviewFX = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+    end
   end
 
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus(true)
   end
-
-  self:StartIntervalThink(0.5)
 end
 
-function modifier_item_heart_transplant_buff:OnRefresh()
+function modifier_item_heart_oaa_active:OnRefresh()
   local parent = self:GetParent()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("transplant_bonus_strength")
-    self.hp = ability:GetSpecialValueFor("transplant_bonus_health")
-    self.regen = ability:GetSpecialValueFor("transplant_health_regen_pct")
+    self.str = ability:GetSpecialValueFor("buff_bonus_strength")
+    self.bonus_damage = ability:GetSpecialValueFor("buff_bonus_base_damage")
   end
 
   if IsServer() and parent:IsHero() then
@@ -267,84 +229,31 @@ function modifier_item_heart_transplant_buff:OnRefresh()
   end
 end
 
-function modifier_item_heart_transplant_buff:OnIntervalThink()
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
-
-  if not parent or not caster or parent:IsNull() or caster:IsNull() then
-    --self:StartIntervalThink(-1)
-    --self:SetDuration(0.01, true)
-    self:Destroy()
-    return
-  end
-
-  local ability = self:GetAbility()
-
-  if not ability or ability:IsNull() then
-    --self:StartIntervalThink(-1)
-    --self:SetDuration(0.01, true)
-    self:Destroy()
-    return
-  end
-
-  if not IsServer() then
-    return
-  end
-
-  local break_distance = ability:GetSpecialValueFor("transplant_max_range") + caster:GetCastRangeBonus()
-  local caster_position = caster:GetAbsOrigin()
-  local parent_position = parent:GetAbsOrigin()
-  local distance = parent_position - caster_position
-
-  -- If distance is higher than break distance, remove modifiers
-  if distance:Length2D() > break_distance then
-    --self:StartIntervalThink(-1)
-    --self:SetDuration(0.01, true)
-    self:Destroy()
-  end
-
-  if parent:IsHero() then
-    parent:CalculateStatBonus(true)
+function modifier_item_heart_oaa_active:OnDestroy()
+  if IsServer() then
+    if self.nPreviewFX then
+      ParticleManager:DestroyParticle(self.nPreviewFX, false)
+      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+      self.nPreviewFX = nil
+    end
   end
 end
 
-function modifier_item_heart_transplant_buff:OnDestroy()
-  if IsServer() and self.nPreviewFX then
-    ParticleManager:DestroyParticle(self.nPreviewFX, true)
-    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-    self.nPreviewFX = nil
-  end
-  local ability = self:GetAbility()
-  local caster = self:GetCaster()
-  if ability and caster then
-    -- End the Heart transplant
-    ability:TransplantEnd(caster)
-  end
+function modifier_item_heart_oaa_active:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE     -- this is bonus base damage (white)
+  }
 end
 
-function modifier_item_heart_transplant_buff:GetModifierBonusStats_Strength()
-  local parent = self:GetParent()
-  if self.str and parent:IsRealHero() then
-    return self.str
-  end
-
-  return 0
+function modifier_item_heart_oaa_active:GetModifierBonusStats_Strength()
+  return self.str
 end
 
-function modifier_item_heart_transplant_buff:GetModifierHealthBonus()
-  local parent = self:GetParent()
-  if self.hp and not parent:IsIllusion() then
-    return self.hp
-  end
-
-  return 0
+function modifier_item_heart_oaa_active:GetModifierBaseAttack_BonusDamage()
+  return self.bonus_damage
 end
 
-function modifier_item_heart_transplant_buff:GetModifierHealthRegenPercentage()
-  local parent = self:GetParent()
-  if self.regen and not parent:IsIllusion() then
-    return self.regen
-  end
-
-  return 0
+function modifier_item_heart_oaa_active:GetTexture()
+  return "item_heart"
 end
