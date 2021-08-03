@@ -38,6 +38,14 @@ function item_heart_oaa:OnSpellStart()
     false
   )
 
+  -- Havoc Particle
+  local particle = ParticleManager:CreateParticle("particles/items5_fx/havoc_hammer.vpcf", PATTACH_ABSORIGIN, caster)
+  ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
+  ParticleManager:ReleaseParticleIndex(particle)
+
+  -- Havoc Sound
+  caster:EmitSound("DOTA_Item.HavocHammer.Cast")
+
   -- Havoc Knockback
   local knockback_table = {
     center_x = center.x,
