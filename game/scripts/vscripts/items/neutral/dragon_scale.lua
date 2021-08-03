@@ -86,6 +86,21 @@ function modifier_item_dragon_scale_oaa_passive:OnTakeDamage(event)
     return
   end
 
+  -- Don't trigger on self damage or on damage originating from allies
+  if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
+    return
+  end
+
+  -- Don't trigger if attacker is dead, invulnerable or banished
+  if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() then
+    return
+  end
+
+  -- Don't trigger on buildings, towers and wards
+  if attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
+    return
+  end
+
   if not ability:IsCooldownReady() then
     return
   end

@@ -102,7 +102,7 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
 
   -- Do nothing if damage has Reflection flag
   if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-    return
+    return 0
   end
 
   local attacker = keys.attacker

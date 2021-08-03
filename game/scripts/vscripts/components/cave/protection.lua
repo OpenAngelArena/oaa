@@ -71,7 +71,7 @@ function ProtectionAura:Init ()
 end
 
 function ProtectionAura:IsInEnemyZone(teamID, entity)
-  for roomID = 0,MAX_ROOMS do
+  for roomID = 0, MAX_ROOMS do
     if ProtectionAura:IsInSpecificZone(teamID, roomID, entity) then
       return true
     end
@@ -125,6 +125,8 @@ function ProtectionAura:EndTouch(event)
 
   -- Remove offside thinker if activator is not in offside
   if (team == DOTA_TEAM_GOODGUYS and not IsLocationInDireOffside(origin)) or (team == DOTA_TEAM_BADGUYS and not IsLocationInRadiantOffside(origin)) then
-    activator:RemoveModifierByName("modifier_is_in_offside")
+    if activator:HasModifier("modifier_is_in_offside") then
+      activator:RemoveModifierByName("modifier_is_in_offside")
+    end
   end
 end
