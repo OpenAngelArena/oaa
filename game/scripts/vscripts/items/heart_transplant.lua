@@ -148,7 +148,7 @@ if IsServer() then
   function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local parentHasHeart = parent:HasModifier("modifier_item_heart")
+    local parentHasHeart = parent:HasModifier("modifier_item_heart_oaa_non_stacking_stats")
     local isFirstHeartTransplantModifier = parent:FindModifierByName(self:GetName()) == self
 
     if not parent:IsIllusion() and not parentHasHeart and isFirstHeartTransplantModifier then

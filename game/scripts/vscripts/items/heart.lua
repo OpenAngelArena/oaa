@@ -48,6 +48,7 @@ function item_heart_oaa:OnSpellStart()
 
   -- Havoc Knockback
   local knockback_table = {
+    should_stun = 0,
     center_x = center.x,
     center_y = center.y,
     center_z = center.z,
@@ -204,6 +205,10 @@ function modifier_item_heart_oaa_active:IsPurgable()
   return false
 end
 
+function modifier_item_heart_oaa_active:AllowIllusionDuplicate()
+  return true
+end
+
 function modifier_item_heart_oaa_active:OnCreated()
   local parent = self:GetParent()
   local ability = self:GetAbility()
@@ -260,6 +265,14 @@ end
 
 function modifier_item_heart_oaa_active:GetModifierBaseAttack_BonusDamage()
   return self.bonus_damage
+end
+
+function modifier_item_heart_oaa_active:GetEffectName()
+  return "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+end
+
+function modifier_item_heart_oaa_active:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
 end
 
 function modifier_item_heart_oaa_active:GetTexture()
