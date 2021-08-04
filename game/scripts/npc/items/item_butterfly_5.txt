@@ -7,15 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3135"      // unique ID
+    "ID"                                                  "3135"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_butterfly_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemShopTags"                                        ""
+
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_butterfly_5"
     "ItemRequirements"
     {
       "01"                                                "item_butterfly_4;item_upgrade_core_4"
@@ -29,20 +31,26 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3139"      // unique ID
-    "BaseClass"                                           "item_butterfly"
-    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ID"                                                  "3139"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/butterfly.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/butterfly_5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
+    "AbilitySharedCooldown"                               "butterfly"
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "16"
     "ItemCost"                                            "37979"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
@@ -72,6 +80,21 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "10 30 60 100 150"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_ms_per_agility"                             "0.08"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_evasion"                                    "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "2"
       }
     }
   }

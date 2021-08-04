@@ -7,18 +7,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3132"      // unique ID
+    "ID"                                                  "3132"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_butterfly_2"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
+    "ItemShopTags"                                        ""
+
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_butterfly_2"
     "ItemRequirements"
     {
-      "01"                                                "item_butterfly;item_upgrade_core"
+      "01"                                                "item_butterfly_oaa;item_upgrade_core"
     }
   }
 
@@ -29,20 +31,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3136"      // unique ID
-    "BaseClass"                                           "item_butterfly"
-    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ID"                                                  "3136"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/butterfly.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/butterfly_2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
+    "AbilitySharedCooldown"                               "butterfly"
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_butterfly_2;item_butterfly_3;item_butterfly_4"
-    "AbilityTextureName"                                  "custom/butterfly_2"
+    "UpgradesItems"                                       "item_butterfly_2;item_butterfly_3;item_butterfly_4;item_butterfly_5"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "6476"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
@@ -72,6 +81,21 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "10 30 60 100 150"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_ms_per_agility"                             "0.08"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_evasion"                                    "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "2"
       }
     }
   }
