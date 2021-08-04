@@ -52,7 +52,8 @@ function modifier_item_trumps_fists_passive:DeclareFunctions()
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    --MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
   return funcs
 end
@@ -81,15 +82,81 @@ function modifier_item_trumps_fists_passive:GetModifierManaBonus()
   return self.bonus_mana
 end
 
-function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
-  if IsServer() then
-    local attacker = kv.attacker
-    local target = kv.target
-    if attacker == self:GetParent() and not attacker:IsIllusion() then
-      --local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
-      target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+-- function modifier_item_trumps_fists_passive:OnAttackLanded( kv )
+  -- if IsServer() then
+    -- local attacker = kv.attacker
+    -- local target = kv.target
+    -- if attacker == self:GetParent() and not attacker:IsIllusion() then
+      -- --local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
+      -- target:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+    -- end
+  -- end
+-- end
+
+function modifier_item_trumps_fists_passive:OnTakeDamage(event)
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local attacker = event.attacker
+  local damaged_unit = event.unit
+  local inflictor = event.inflictor
+
+  -- Check if attacker exists
+  if not attacker or attacker:IsNull() then
+    return
+  end
+
+  -- Check if attacker has this modifier
+  if attacker ~= parent then
+    return
+  end
+
+  -- Check if damaged entity exists
+  if not damaged_unit or damaged_unit:IsNull() then
+    return
+  end
+
+  -- Ignore self damage
+  if damaged_unit == attacker then
+    return
+  end
+
+  -- Check if attacker is an illusion
+  if attacker:IsIllusion() then
+    return
+  end
+
+  -- Check if damaged entity is an item, rune or something weird
+  if damaged_unit.GetUnitName == nil then
+    return
+  end
+
+  -- Don't affect buildings, wards and invulnerable units.
+  if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
+    return
+  end
+
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  -- If inflictor is this item, don't continue
+  if inflictor then
+    if inflictor == ability or inflictor:GetAbilityName() == ability:GetAbilityName() then
+      return
     end
   end
+
+  -- Ignore damage that has the no-reflect flag
+  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+    return
+  end
+
+  -- Apply Blade of Judecca debuff
+  damaged_unit:AddNewModifier(parent, ability, "modifier_item_trumps_fists_frostbite", {duration = self.heal_prevent_duration})
 end
 
 --------------------------------------------------------------------------------
