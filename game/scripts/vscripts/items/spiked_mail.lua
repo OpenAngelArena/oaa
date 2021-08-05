@@ -134,7 +134,12 @@ function modifier_item_spiked_mail_passive_return:OnTakeDamage(event)
   end
 
   -- If there is a stronger reflection modifier, don't continue
-  if parent:HasModifier("modifier_item_spiked_mail_active_return") or parent:HasModifier("modifier_item_blade_mail_reflect") then
+  --if parent:HasModifier("modifier_item_spiked_mail_active_return")  then
+    --return
+  --end
+
+  -- If parent has Blade Mail passive/item or Blade Mail buff, don't continue to prevent stacking
+  if parent:HasModifier("modifier_item_blade_mail") or parent:HasModifier("modifier_item_blade_mail_reflect") then
     return
   end
 
@@ -189,6 +194,18 @@ function modifier_item_spiked_mail_passive_return:OnTakeDamage(event)
 
   -- Calculating damage that will be returned to attacker
   local new_damage = damage * damage_return / 100
+
+  -- If attacker has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
+  if attacker:HasModifier("modifier_item_veil_of_discord_debuff") then
+    local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
+    local veil_item = veil_debuff:GetAbility()
+    if veil_item then
+      local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
+      if damage_amp then
+        new_damage = new_damage / (1 + damage_amp/100)
+      end
+    end
+  end
 
   local damage_table = {}
   damage_table.victim = attacker
@@ -322,16 +339,38 @@ function modifier_item_spiked_mail_active_return:OnTakeDamage(event)
   -- Fetch the damage return amount/percentage
   local damage_return = ability:GetSpecialValueFor("active_reflection_pct")
 
+  -- If parent has Blade Mail passive/item, prevent stacking with the passive damage return
+  if parent:HasModifier("modifier_item_blade_mail") then
+    local blade_mail = parent:FindItemInInventory("item_blade_mail")
+    if blade_mail then
+      if not blade_mail:IsInBackpack() then
+        damage_return = damage_return - blade_mail:GetSpecialValueFor("passive_reflection_pct")
+      end
+    end
+  end
+
   -- Calculating damage that will be returned to attacker
   local new_damage = damage * damage_return / 100
+
+  -- If attacker has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
+  if attacker:HasModifier("modifier_item_veil_of_discord_debuff") then
+    local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
+    local veil_item = veil_debuff:GetAbility()
+    if veil_item then
+      local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
+      if damage_amp then
+        new_damage = new_damage / (1 + damage_amp/100)
+      end
+    end
+  end
 
   local damage_table = {}
   damage_table.victim = attacker
   damage_table.attacker = parent
-  damage_table.damage_type = DAMAGE_TYPE_PURE
+  damage_table.damage_type = event.damage_type -- Same damage type as original damage
   damage_table.ability = ability
   damage_table.damage = new_damage
-  damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+  damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
 
   ApplyDamage(damage_table)
 
