@@ -20,7 +20,12 @@ end
 
 function item_regen_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
+
+  -- Apply buff
   caster:AddNewModifier(caster, self, "modifier_item_regen_crystal_active", {duration = self:GetSpecialValueFor("duration")})
+
+  -- Sound
+  caster:EmitSound("DOTA_Item.EssenceRing.Cast")
 end
 
 function item_regen_crystal_1:ProcsMagicStick()
@@ -205,6 +210,14 @@ end
 
 function modifier_item_regen_crystal_active:GetModifierHPRegenAmplify_Percentage()
   return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("active_hp_regen_amp")
+end
+
+function modifier_item_regen_crystal_active:GetEffectName()
+  return "particles/items5_fx/essence_ring.vpcf"
+end
+
+function modifier_item_regen_crystal_active:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
 end
 
 function modifier_item_regen_crystal_active:GetTexture()
