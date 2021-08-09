@@ -143,15 +143,20 @@ function modifier_item_trumps_fists_passive:OnTakeDamage(event)
     return
   end
 
-  -- If inflictor is this item, don't continue
+  -- If inflictor is this item or any other item (radiance e.g.), don't continue
   if inflictor then
-    if inflictor == ability or inflictor:GetAbilityName() == ability:GetAbilityName() then
+    if inflictor == ability or inflictor:GetAbilityName() == ability:GetAbilityName() or inflictor:IsItem() then
       return
     end
   end
 
   -- Ignore damage that has the no-reflect flag
   if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+    return
+  end
+
+  -- Ignore damage that has hp removal flag
+  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
     return
   end
 
@@ -222,7 +227,8 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
           victim = unit,
           attacker = caster,
           damage = damage,
-          damage_type = DAMAGE_TYPE_PURE,
+          damage_type = DAMAGE_TYPE_MAGICAL,
+          damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
           ability = self:GetAbility()
         }
         ApplyDamage(damage_table)
