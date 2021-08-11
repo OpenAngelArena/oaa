@@ -56,27 +56,41 @@ function PointsManager:Init ()
       PointsManager:RefreshLimit()
     end)
   end)
+
   -- Register chat commands
   ChatCommand:LinkDevCommand("-addpoints", Dynamic_Wrap(PointsManager, "AddPointsCommand"), self)
   ChatCommand:LinkDevCommand("-add_enemy_points", Dynamic_Wrap(PointsManager, "AddEnemyPointsCommand"), self)
   ChatCommand:LinkDevCommand("-kill_limit", Dynamic_Wrap(PointsManager, "SetLimitCommand"), self)
 
-  local position = Vector(-5200, 200, 512)
-  local coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-  position = Vector(-5200, -200, 512)
-  coreDude = CreateUnitByName("npc_dota_core_guy_2", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  -- Find fountains
+  local radiant_fountain = Entities:FindByName(nil, "fountain_good_trigger")
+  local dire_fountain = Entities:FindByName(nil, "fountain_bad_trigger")
 
-  -- PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS):each(function (playerID)
-  --   coreDude:SetControllableByPlayer(playerID, false)
-  -- end)
+  -- Find radiant shrine location(s)
+  local radiant_shrine
+  if radiant_fountain then
+    local radiant_fountain_bounds = radiant_fountain:GetBounds()
+    local radiant_fountain_origin = radiant_fountain:GetAbsOrigin()
+    radiant_shrine = Vector(radiant_fountain_bounds.Maxs.x + radiant_fountain_origin.x + 400, 0, 512)
+  else
+    radiant_shrine = Vector(-5200, 0, 512)
+  end
 
-  position = Vector(5200, 200, 512)
-  coreDude = CreateUnitByName("npc_dota_core_guy_2", position, true, nil, nil, DOTA_TEAM_BADGUYS)
-  position = Vector(5200, -200, 512)
-  coreDude = CreateUnitByName("npc_dota_core_guy", position, true, nil, nil, DOTA_TEAM_BADGUYS)
-  -- PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS):each(function (playerID)
-  --   coreDude:SetControllableByPlayer(playerID, false)
-  -- end)
+  -- Find dire shrine location(s)
+  local dire_shrine
+  if dire_fountain then
+    local dire_fountain_bounds = dire_fountain:GetBounds()
+    local dire_fountain_origin = dire_fountain:GetAbsOrigin()
+    dire_shrine = Vector(dire_fountain_bounds.Mins.x + dire_fountain_origin.x - 400, 0, 512)
+  else
+    dire_shrine = Vector(5200, 0, 512)
+  end
+
+  -- Create shrines in front of the fountains
+  local coreDude = CreateUnitByName("npc_dota_core_guy", radiant_shrine, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  coreDude = CreateUnitByName("npc_dota_core_guy", dire_shrine, true, nil, nil, DOTA_TEAM_BADGUYS)
+  --coreDude = CreateUnitByName("npc_dota_core_guy_2", Vector(-5200, -200, 512), true, nil, nil, DOTA_TEAM_GOODGUYS)
+  --coreDude = CreateUnitByName("npc_dota_core_guy_2", Vector(5200, 200, 512), true, nil, nil, DOTA_TEAM_BADGUYS)
 end
 
 function PointsManager:GetState ()

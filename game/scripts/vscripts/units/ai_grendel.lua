@@ -37,6 +37,13 @@ function GrendelThink ()
     StartWandering()
   end
 
+  if Grendel.to_location ~= nil then
+    -- Reset Grendel caller when Grendel reaches the location he was called from
+    if (thisEntity:GetAbsOrigin() - Grendel.to_location):Length2D() < 200 then
+      Grendel:GoNearTeam(nil)
+    end
+  end
+
   local hpPercent = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
 
   if thisEntity.wandering then
@@ -44,6 +51,10 @@ function GrendelThink ()
   else
     if thisEntity:IsIdle() then
       thisEntity.wanderCountdown = thisEntity.wanderCountdown - 1
+      -- Decrease wander cooldown if Grendel was called
+      if Grendel.was_called then
+        thisEntity.wanderCountdown = math.min(thisEntity.wanderCountdown, 5)
+      end
     end
     if thisEntity.wanderCountdown < 0 then
       StartWandering()
@@ -203,6 +214,13 @@ function GetNextWanderLocation ()
   local maxX = 5500
   local minY = 0
   local minX = 0
+
+  -- Change Grendel's destination if he was called by some team
+  if Grendel.was_called then
+    if Grendel.to_location ~= nil then
+      return Grendel.to_location
+    end
+  end
 
   local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
 
