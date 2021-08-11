@@ -3,10 +3,10 @@
 //===============================================================================
 "DOTA_Tooltip_Ability_item_trumps_fists"                                    "Blade of Judecca"
 "DOTA_Tooltip_Ability_item_recipe_trumps_fists"                             "Blade of Judecca Recipe"
-"DOTA_Tooltip_Ability_item_trumps_fists_Description"                        "<h1>Passive: Frostburn</h1> Your attacks and spells apply a debuff that deals damage to the affected enemy every time they gain health. Damage is equal to %heal_prevent_percent%%% of the gained health. Debuff lasts for %heal_prevent_duration% seconds."//<br><br>The heal reduction decays linearly with the duration."
+"DOTA_Tooltip_Ability_item_trumps_fists_Description"                        "<h1>Passive: Frostburn</h1> Your attacks and spells apply a debuff that deals magic damage to the affected enemy every time they gain health. Damage is equal to %heal_prevent_percent%%% of the gained health. Debuff lasts for %heal_prevent_duration% seconds."//<br><br>The heal reduction decays linearly with the duration."
 "DOTA_Tooltip_Ability_item_trumps_fists_Lore"                               "The ancient frozen hatred within this sacred blade has the power to cease bloodflow to the extremities of its victims."
-"DOTA_Tooltip_Ability_item_trumps_fists_Note0"                              "Frostburn is not reducing healing, health regen and lifesteal, its just applying damage based on gained health. This also means that it doesn't stack with Eye of Skadi and Shiva's Guard."
-"DOTA_Tooltip_Ability_item_trumps_fists_Note1"                              "Frostburn pierces spell immunity and its not dispellable."
+"DOTA_Tooltip_Ability_item_trumps_fists_Note0"                              "Frostburn is not reducing healing, health regen and lifesteal, it's applying magic damage based on gained health. This also means that it doesn't stack with Eye of Skadi and Shiva's Guard."
+"DOTA_Tooltip_Ability_item_trumps_fists_Note1"                              "Frostburn pierces spell immunity and it's not dispellable."
 "DOTA_Tooltip_Ability_item_trumps_fists_Note2"                              "Frostburn duration is not affected by status resistance."
 //"DOTA_Tooltip_Ability_item_trumps_fists_bonus_damage"                       "+$damage"
 "DOTA_Tooltip_Ability_item_trumps_fists_bonus_all_stats"                    "+$all"
