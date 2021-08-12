@@ -298,7 +298,7 @@ function GetNextWanderLocation (startPosition)
 
   while not isValidPosition do
     if nextPosition then
-      print('Got a bad position option ' .. tostring(nextPosition))
+      --print('Got a bad position option ' .. tostring(nextPosition))
     end
     nextPosition = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), startPosition.z)
     if RandomInt(0, 1) == 0 then

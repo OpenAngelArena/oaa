@@ -132,6 +132,9 @@ function Grendel:SpawnGrendel()
 
     -- Increase the score limit
     PointsManager:IncreaseLimit()
+
+    -- Remove Grendel calls
+    Grendel:GoNearTeam(nil)
   end)
 end
 
@@ -152,4 +155,17 @@ function Grendel:FindWhereToSpawn()
   end
 
   return GetGroundPosition(position, nil)
+end
+
+function Grendel:GoNearTeam(team)
+  if team == DOTA_TEAM_GOODGUYS then
+    self.was_called = true
+    self.to_location = Vector(-5200, 200, 512)
+  elseif team == DOTA_TEAM_BADGUYS then
+    self.was_called = true
+    self.to_location = Vector(5200, 200, 512)
+  else
+    self.was_called = false
+    self.to_location = nil
+  end
 end
