@@ -36,7 +36,7 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityTextureName"            "custom/helm_of_the_dominator_1"
+    //"AbilityTextureName"            "custom/helm_of_the_dominator_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -53,8 +53,8 @@
     "ItemQuality"         "artifact"
     "ItemAliases"         "hotd;helm of the dominator;helm;dominator"
 
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
+    // "MaxUpgradeLevel"                                     "5"
+    // "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -63,22 +63,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stats"                                     "6 10 15 20 25"
+        "bonus_stats"                                     "6"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 7 9 12 16"
+        "bonus_armor"                                     "6"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_regen"                                     "6 9 12 15 18"
+        "bonus_regen"                                     "6"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "1000 1800 3600 7200 14400"
+        "health_min"                                      "1000"
       }
       "05"
       {
@@ -88,12 +88,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounty_gold"                                     "100 200 400 800 1600"
+        "bounty_gold"                                     "100"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus_damage"                              "25 50 100 150 200"
+        "creep_bonus_damage"                              "25"
       }
       "08"
       {
@@ -108,17 +108,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus_armor"                               "4 5 6 7 8"
+        "creep_bonus_armor"                               "4"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 20 30 40 50"
+        "model_scale"                                     "0"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count_limit"                                     "1 2 2 2 3"
+        "count_limit"                                     "1"
       }
     }
   }
