@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wanderer_team_buff", "modifiers/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -68,7 +69,8 @@ function Wanderer:SpawnWanderer ()
 
     -- Create a capture point
     --local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
-    local capturePointThinker = CreateUnitByName("npc_dota_thinker", self.wanderer:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_SPECTATOR)
+    local capturePointThinker = CreateUnitByName("npc_dota_custom_dummy_unit", self.wanderer:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_SPECTATOR)
+    capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_oaa_thinker", {})
     --local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
     local capturePointModifier = capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_boss_capture_point", {})
     capturePointModifier:SetCallback(function (teamId)
