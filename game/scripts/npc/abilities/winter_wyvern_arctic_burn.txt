@@ -34,17 +34,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "8.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_6"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_range_bonus"                              "350 425 500 575 575 575"
+        "attack_range_bonus"                              "350 400 450 500 550 600"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "percent_damage"                                  "6 7 8 9 11 13"
+        "percent_damage"                                  "6 7 8 9 10 11"
       }
       "04"
       {
@@ -55,12 +54,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_duration"                                 "5.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "22 28 34 40 45 50"
+        "move_slow"                                       "16 24 32 40 45 50"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_1"
       }
       "07"

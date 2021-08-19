@@ -28,13 +28,15 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_cleanse"                                  "600 550 500 450 400 350"
+        "damage_cleanse"                                  "600 550 500 450 425 400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_6"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_reset_interval"                           "6.0"
+        "damage_reset_interval"                           "7.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }
