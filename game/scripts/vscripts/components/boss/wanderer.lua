@@ -66,9 +66,11 @@ function Wanderer:SpawnWanderer ()
 
     Notifications:BottomToAll({text=("#wanderer_slain_message"), duration=5.0})
 
-    -- create capture point
-    local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
-    local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+    -- Create a capture point
+    --local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
+    local capturePointThinker = CreateUnitByName("npc_dota_thinker", self.wanderer:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_SPECTATOR)
+    --local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+    local capturePointModifier = capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_boss_capture_point", {})
     capturePointModifier:SetCallback(function (teamId)
       -- Storing for savestate ...
       self.nextSpawn = HudTimer:GetGameTime() + respawn_time
