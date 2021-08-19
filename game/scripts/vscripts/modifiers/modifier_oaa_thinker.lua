@@ -14,10 +14,10 @@ end
 
 function modifier_oaa_thinker:OnCreated(keys)
   if IsServer() then
-    print("caster"..tostring(self:GetCaster()))
-    print("ability"..tostring(self:GetAbility()))
-    print("thinker"..tostring(self:GetParent()))
-    print("location"..tostring(self:GetParent():GetAbsOrigin()))
+    --print("caster: "..tostring(self:GetCaster()))
+    --print("ability: "..tostring(self:GetAbility()))
+    --print("thinker: "..tostring(self:GetParent()))
+    --print("location: "..tostring(self:GetParent():GetAbsOrigin()))
   end
 end
 
