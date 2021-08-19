@@ -54,7 +54,6 @@ function modifier_oaa_thinker:CheckState()
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-    [MODIFIER_STATE_FLYING] = true,
   }
   return state
 end
