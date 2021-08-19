@@ -29,7 +29,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_spill_range"                              "2"
+        "attack_spill_range"                              "1.5"
       }
       "03"
       {
@@ -40,6 +40,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_spill_pct"                                "100"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_spill_penalty"                            "5"
       }
     }
   }
