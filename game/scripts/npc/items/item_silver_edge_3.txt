@@ -34,7 +34,7 @@
     "AbilityTextureName"                                  "custom/silver_edge_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "shadow_blade"
 
     // Spicy Parameters
@@ -46,7 +46,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "10602"
+    "ItemCost"                                            "10302"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -60,12 +60,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40 50 70 100 140"
+        "bonus_damage"                                    "60 70 90 120 160"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "45 55 65 75 85"
+        "bonus_attack_speed"                              "40 50 60 70 80"
       }
       "03"
       {
@@ -75,12 +75,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 20 30 45 65"
+        "bonus_intellect"                                 "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.0 4.25 4.75 5.5 6.5"
+        "bonus_mana_regen"                                "0"
       }
       "06"
       {
@@ -106,6 +106,21 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "backstab_duration"                               "4"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "30"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "160 190 220 250 280"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_crit_damage"                             "60 90 120 150 180"
       }
     }
   }
