@@ -56,6 +56,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "max_slow"                                        "75 80 85 90 95 100" //OAA
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aspd_per_second"                                 "10"
+      }
     }
   }
 }
