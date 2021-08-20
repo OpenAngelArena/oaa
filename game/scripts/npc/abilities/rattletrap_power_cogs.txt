@@ -40,12 +40,13 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "50 125 200 275 575 875"
+        "damage"                                          "50 125 200 275 550 1100"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_burn"                                       "50 80 110 140 280 420"
+        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk_8"
       }
       "04"
       {
