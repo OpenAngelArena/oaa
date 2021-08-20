@@ -27,7 +27,7 @@
     "HasScepterUpgrade"                                   "1"
 
     "AbilityCastRange"                                    "1350 1400 1450 1500 1550"
-    "AbilityCastPoint"                                    "1.5"
+    "AbilityCastPoint"                                    "1.7"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
@@ -62,12 +62,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "minimum_range"                                   "0"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "60"
-        "RequiresScepter"                                 "1"
-      }
+      // "05"
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "cooldown_scepter"                                "60"
+        // "RequiresScepter"                                 "1"
+      // }
     }
 
     "Precache"

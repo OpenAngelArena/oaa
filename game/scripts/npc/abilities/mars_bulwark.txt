@@ -23,7 +23,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "physical_damage_reduction"                       "40 45 50 55 65 85" //OAA
+        "physical_damage_reduction"                       "40 45 50 55 65 75" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_bulwark_damage_reduction"
       }
       "02"
       {
@@ -34,6 +35,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "physical_damage_reduction_side"                  "20 25 30 35 40 45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_bulwark_damage_reduction"
+        "LinkedSpecialBonusField"                         "value2"
       }
       "04"
       {
@@ -54,6 +57,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "redirect_speed_penatly"                          "20"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_bulwark_speed"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "08"
       {

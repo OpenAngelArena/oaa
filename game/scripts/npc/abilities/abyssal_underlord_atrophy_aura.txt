@@ -34,7 +34,8 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_pct"                            "14 21 28 35 40 45" //OAA
+        "damage_reduction_pct"                            "14 21 28 35 36 38" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_3"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"

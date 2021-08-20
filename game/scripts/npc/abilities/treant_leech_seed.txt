@@ -48,6 +48,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_slow"                                   "-15 -20 -25 -30 -35 -40" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_3"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "05"
       {

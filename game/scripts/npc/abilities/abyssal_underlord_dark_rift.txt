@@ -43,20 +43,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "400" // OAA, for picking screen tooltip
       }
-      "02" // cast point + channel duration
+      "02" // cast point
       {
         "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "1.5" // OAA, for picking screen tooltip
+        "teleport_delay"                                  "1.7" // OAA, for picking screen tooltip
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_teleport_delay"                          "0.6" // OAA, for picking screen tooltip
-      }
-      "04"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
+        "scepter_health_bonus"                            "1000 1500 2000"
         "RequiresScepter"                                 "1"
       }
       "05" //OAA, for picking screen tooltip
@@ -71,5 +66,4 @@
       }
     }
   }
-
 }

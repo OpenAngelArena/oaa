@@ -61,8 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ticks"                                           "3"
-        // ignore this error
+        "ticks"                                           "3" //OAA - ignore the error with LinkedSpecialBonusField
       }
     }
   }

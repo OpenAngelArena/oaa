@@ -26,16 +26,16 @@ function abyssal_underlord_dark_rift_oaa:OnUpgrade()
   end
 end
 
-function abyssal_underlord_dark_rift_oaa:GetCooldown(level)
-  local cooldown = self.BaseClass.GetCooldown(self, level)
-  local caster = self:GetCaster()
+-- function abyssal_underlord_dark_rift_oaa:GetCooldown(level)
+  -- local cooldown = self.BaseClass.GetCooldown(self, level)
+  -- local caster = self:GetCaster()
 
-  if caster:HasScepter() then
-    cooldown = self:GetSpecialValueFor("cooldown_scepter")
-  end
+  -- if caster:HasScepter() then
+    -- cooldown = self:GetSpecialValueFor("cooldown_scepter")
+  -- end
 
-  return cooldown
-end
+  -- return cooldown
+-- end
 
 function abyssal_underlord_dark_rift_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
@@ -226,6 +226,28 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
     caster.dark_rift_origin = nil
   end
 end
+
+-- function abyssal_underlord_dark_rift_oaa:OnHeroCalculateStatBonus()
+	-- local caster = self:GetCaster()
+  -- local fiends_gate_ability = caster:FindAbilityByName("abyssal_underlord_dark_portal")
+  -- local fiends_gate_warp_ability = caster:FindAbilityByName("abyssal_underlord_portal_warp")
+
+	-- if not fiends_gate_ability then
+    -- return
+  -- end
+
+  -- if caster:HasScepter() then
+		-- fiends_gate_ability:SetHidden(false)
+		-- if fiends_gate_ability:GetLevel() <= 0 then
+			-- fiends_gate_ability:SetLevel(1)
+		-- end
+    -- --if not fiends_gate_warp_ability then
+      -- --caster:AddAbility("abyssal_underlord_portal_warp")
+    -- --end
+	-- else
+		-- fiends_gate_ability:SetHidden(true)
+	-- end
+-- end
 
 function abyssal_underlord_dark_rift_oaa:ProcsMagicStick()
   return true

@@ -10,7 +10,7 @@
     "ID"                                                  "5151" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
@@ -24,10 +24,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                    "2500"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14" //OAA
+    "AbilityCooldown"                                     "12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -57,6 +58,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "700"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_explosion"                                "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_pct"                                      "0"
       }
     }
   }
