@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Shadow Realm Damage
+  // Bonus Shadow Realm Duration
   //=================================================================================================================
   "special_bonus_unique_dark_willow_1"
   {
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "100" //OAA
+        "value"                                           "1" //OAA
         "ad_linked_ability"                               "dark_willow_shadow_realm"
       }
     }

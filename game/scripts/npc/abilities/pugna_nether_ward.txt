@@ -46,19 +46,24 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_multiplier"                                 "1.0 1.25 1.5 1.75 2.0 2.25" //OAA
+        "mana_multiplier"                                 "1.0 1.25 1.50 1.75 2.0 2.25"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_3"
       }
       "04" // Max mana percentage as negative mana regen
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "-0.6 -1.0 -1.4 -1.8 -2.2 -2.6" //OAA
+        "mana_regen"                                      "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "attacks_to_destroy_tooltip"                      "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_drained_per_attack"                         "5 6 7 8 9 10"
       }
     }
   }

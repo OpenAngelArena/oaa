@@ -10,6 +10,11 @@
     "ID"                                                  "5062"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "OnCastbar"                                           "0"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,7 +37,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "necromastery_max_souls"                          "11 14 17 20 22 24"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_4"
       }
       "03"
       {
@@ -43,8 +47,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "necromastery_max_souls_scepter"                  "16 19 22 25 26 27" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_4"
         "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range_bonus"                              "0"
       }
     }
   }
