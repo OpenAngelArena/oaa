@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_mult"                                       "150 190 230 270 310 350"
+        "crit_mult"                                       "150 190 230 270 310 350" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_mars_gods_rebuke_extra_crit"
       }
       "02"
@@ -72,6 +72,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "knockback_slow_duration"                         "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mars_rebuke_slow"
       }
       "08"
       {

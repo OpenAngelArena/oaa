@@ -28,17 +28,18 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "chance"                                          "17"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-2 -4 -6 -8 -12 -17"
+        "armor_reduction"                                 "-2 -4 -6 -8 -12 -16"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_3"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 40 50 60 120 180"
+        "damage"                                          "30 45 60 75 150 225"
       }
       "04"
       {

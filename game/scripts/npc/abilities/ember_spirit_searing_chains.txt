@@ -47,7 +47,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "90 160 230 300 600 1200" //OAA
+        "damage_per_second"                               "50 70 90 110 220 330"
       }
       "04"
       {
@@ -58,6 +58,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "unit_count"                                      "2"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_7"
       }
       "06"
       {
