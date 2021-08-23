@@ -43,18 +43,18 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "blade_fury_radius"                               "260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blade_fury_damage"                               "85 110 135 160 270 380"
+        "blade_fury_damage"                               "90 115 140 165 330 660"
         "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "5.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut"
       }
     }
   }

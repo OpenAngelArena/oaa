@@ -50,7 +50,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "725 1025 1325 2225 3125" //OAA
+        "damage_scepter"                                  "700 950 1200 2200 3200" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_lion_3"
         "RequiresScepter"                                 "1"
       }
@@ -75,7 +75,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "40 35 30 25 20" //OAA
+        "cooldown_scepter"                                "35 30 25 20 15" //OAA
         "RequiresScepter"                                 "1"
       }
       "07"

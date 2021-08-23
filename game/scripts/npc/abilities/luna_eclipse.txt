@@ -28,8 +28,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120.0" //OAA
-    "AbilityDuration"                                     "2.4 4.2 6.0 7.2 8.4"
+    "AbilityCooldown"                                     "120" //OAA
+    "AbilityDuration"                                     "3.6 5.4 7.2 9.0 10.8" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "beams"                                           "6 9 12 15 18"
       }
-      "02"
+      "02" // max beams per unit without scepter
       {
         "var_type"                                        "FIELD_INTEGER"
         "hit_count"                                       "5"
@@ -54,7 +54,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "beam_interval"                                   "0.6"
       }
-      "04"
+      "04" // double the value of special_bonus_unique_luna_5
       {
         "var_type"                                        "FIELD_FLOAT"
         "beam_interval_scepter"                           "0.4" //OAA
@@ -68,19 +68,19 @@
       "07" // 06
       {
         "var_type"                                        "FIELD_INTEGER"
-        "beams_scepter"                                   "8 12 16 20 24" //OAA
+        "beams_scepter"                                   "8 13 18 21 24" //OAA
         "RequiresScepter"                                 "1"
       }
       "08" // 07
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count_scepter"                               "8 12 16 20 24" //OAA
+        "hit_count_scepter"                               "8 13 18 21 24" //OAA
         "RequiresScepter"                                 "1"
       }
-      "09" // 08
+      "09" // beam_interval_scepter x beams_scepter
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip_scepter"                        "3.2 4.8 6.4 8.0 9.6" //OAA
+        "duration_tooltip_scepter"                        "3.2 5.2 7.2 8.4 9.6" //OAA
         "RequiresScepter"                                 "1"
       }
       "10" // 09

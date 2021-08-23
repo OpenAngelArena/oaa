@@ -89,6 +89,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_jump_damage"                               "15 20 25 30 35"
       }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "initial_projectile_speed"                        "1050"
+      }
     }
   }
 }

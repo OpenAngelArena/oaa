@@ -45,14 +45,14 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_bonus"                                    "25 50 75 100 350 600"
+        "damage_bonus"                                    "30 60 90 120 360 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage"                                   "165 175 185 195 205 215" //OAA
+        "cleave_damage"                                   "150 165 180 195 210 225" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_4"
         "CalculateSpellDamageTooltip"                     "0"
       }

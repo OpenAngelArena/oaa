@@ -36,14 +36,17 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_duration"                                   "0.75 1.5 2.25 3.0 3.5 4.0"
-        //"LinkedSpecialBonus"                            "special_bonus_unique_lone_druid_3"
+        "hero_duration"                                   "0.75 1.5 2.25 3.0 3.5 4.0" //OAA - ignore the error with LinkedSpecialBonus
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_damage_multiplier"                         "3"
-        //"LinkedSpecialBonus"                            "special_bonus_unique_lone_druid_3"
+        "creep_damage_multiplier"                         "3" //OAA - ignore the error with LinkedSpecialBonus
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_entangle_chance"                            "30"
       }
     }
   }
