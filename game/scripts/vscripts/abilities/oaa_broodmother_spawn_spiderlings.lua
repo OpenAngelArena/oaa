@@ -257,6 +257,8 @@ end
 function modifier_broodmother_giant_spiderling_passive:OnCreated()
   self.bonus_ms = 18
   self.bonus_hp_regen = 3
+  self.hp_percent_low = 20
+  self.hp_percent_high = 100
 
   if not IsServer() then
     return
@@ -302,10 +304,14 @@ function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
   if not ability or ability:IsNull() then
     return
   end
+  local parent = self:GetParent()
   local web_radius = ability:GetSpecialValueFor("radius")
-  local origin = self:GetParent():GetAbsOrigin()
+  local origin = parent:GetAbsOrigin()
+  local hp_percent = parent:GetHealth() / parent:GetMaxHealth()
+
+  local multiplier = (hp_percent - self.hp_percent_low)/(self.hp_percent_high - self.hp_percent_low)
   local webs = Entities:FindAllByClassnameWithin("npc_dota_broodmother_web", origin, web_radius)
-  local condition = #webs > 0
+  local condition = (#webs > 0) and (multiplier > 0)
   -- If parent is near a web, apply web buffs
   if condition then
     self:SetStackCount(1)
@@ -324,7 +330,11 @@ end
 
 function modifier_broodmother_giant_spiderling_passive:GetModifierMoveSpeedBonus_Percentage()
   if self:GetStackCount() == 1 then
-    return self.bonus_ms
+    local multiplier = 1
+    if self.hp_percent_high and self.hp_percent_low and (self.hp_percent_high - self.hp_percent_low > 0) then
+      multiplier = (self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)
+    end
+    return self.bonus_ms * multiplier
   end
 
   return 0

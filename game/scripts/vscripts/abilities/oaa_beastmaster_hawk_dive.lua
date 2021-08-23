@@ -19,6 +19,8 @@ function beastmaster_hawk_dive_oaa:OnSpellStart()
   local damage = self:GetSpecialValueFor("damage")
   local duration = self:GetSpecialValueFor("stun_duration")
 
+  target:AddNewModifier(caster, self, "modifier_hawk_dive_stun", {duration = duration})
+
   local damage_table = {}
   damage_table.victim = target
   damage_table.attacker = caster
@@ -28,10 +30,8 @@ function beastmaster_hawk_dive_oaa:OnSpellStart()
 
   ApplyDamage(damage_table)
 
-  target:AddNewModifier(caster, self, "modifier_hawk_dive_stun", {duration = duration})
-
   if caster and caster:IsAlive() then
-    caster:Kill(self, caster)
+    caster:ForceKill(false)
   end
 end
 

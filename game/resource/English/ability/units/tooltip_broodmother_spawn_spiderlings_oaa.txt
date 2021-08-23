@@ -7,10 +7,12 @@
 // "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_damage"                    "DAMAGE:"
 // "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_count"                     "COUNT:"
 
+// "DOTA_Tooltip_ability_special_bonus_unique_broodmother_4"                      "+{s:value}% Spiders Damage to Buildings"
+
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa"                           "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings}"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Description"               "Every time Broodmother or her summons kill a unit, spiderlings will hatch from the unit's corpse. If killed unit is a hero or boss, giant spiderling will spawn instead. Spiderling stats scale with Broodmother's hero level."
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Lore"                      "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Lore}"
-"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Note0"                     ""
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Note0"                     "Broodmother's summons need to be within 900 radius of Broodmother in order to spawn more spiderlings and giant spiderlings. No restriction for spawning spiderites."
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Note1"                     "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Note1}"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_spiderling_duration"       "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_duration}"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_spiderling_spawn_count"    "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_count}"
@@ -24,3 +26,17 @@
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_giant_spiderling_base_attack_damage"    "GIANT SPIDERLING BASE DAMAGE:"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_giant_spiderling_spawn_count"           "GIANT SPIDERLING SPAWN COUNT:"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_spiderling_max_count"                   "MAX NUMBER OF SPIDERLINGS:"
+
+"DOTA_Tooltip_ability_special_bonus_unique_broodmother_4"                          "+{s:value} Spiderlings Attack Damage"
+
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Description"                            "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Description}"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Note0"                                  "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Note0}"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_base_hp"                     "SPIDERLING BASE HP:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_hp_per_level"                "SPIDERLING HP PER HERO LEVEL:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_base_armor"                  "SPIDERLING BASE ARMOR:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_armor_per_level"             "SPIDERLING ARMOR PER HERO LEVEL:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_base_attack_damage"          "SPIDERLING BASE DAMAGE:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_attack_damage_per_level"     "SPIDERLING DAMAGE PER HERO LEVEL:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_giant_spiderling_base_hp"               "GIANT SPIDERLING BASE HP:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_giant_spiderling_base_attack_damage"    "GIANT SPIDERLING BASE DAMAGE:"
+"DOTA_Tooltip_ability_broodmother_spawn_spiderlings_spiderling_max_count"                   "MAX NUMBER OF SPIDERLINGS:"

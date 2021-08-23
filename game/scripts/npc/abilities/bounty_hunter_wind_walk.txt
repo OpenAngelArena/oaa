@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30.0" //OAA
+        "duration"                                        "35" //OAA
       }
       "02"
       {
@@ -48,6 +48,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_5"
       }
     }
   }

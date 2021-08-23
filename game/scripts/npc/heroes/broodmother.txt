@@ -8,7 +8,7 @@
     "Ability1"                                            "broodmother_insatiable_hunger"
     "Ability2"                                            "broodmother_spin_web"
     "Ability3"                                            "broodmother_silken_bola"
-    "Ability4"                                            "generic_hidden"
+    "Ability4"                                            "broodmother_sticky_snare"
     "Ability5"                                            "broodmother_spawn_spiderlings_oaa" // replaces generic_hidden
     "Ability6"                                            "broodmother_incapacitating_bite_oaa" // replaces broodmother_spawn_spiderlings
 
@@ -27,7 +27,7 @@
     // special_bonus_unique_broodmother_1 - "+{s:value} Insatiable Hunger Damage/Lifesteal"
     // special_bonus_unique_broodmother_2 - "+{s:value} Spiders Health"
     // special_bonus_unique_broodmother_3 - "+{s:value} Spawn Spiderlings Damage"
-    // special_bonus_unique_broodmother_4 - "+{s:value} Spiders Attack Damage"
+    // special_bonus_unique_broodmother_4 - "+{s:value} Spiderlings Attack Damage"          - modified for OAA
     // special_bonus_unique_broodmother_5 - "-{s:value}s Spin Web Recharge Time"
   }
 }

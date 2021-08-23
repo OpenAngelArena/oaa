@@ -71,6 +71,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_move_speed_pct"                            "16 20 24 28 32"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "toss_crit_multiplier"                            "140 170 200 230 260"
+      }
     }
   }
 }

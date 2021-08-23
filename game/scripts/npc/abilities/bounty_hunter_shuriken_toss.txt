@@ -26,10 +26,10 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400"
+    "AbilityCastRange"                                    "375 425 475 525 575 625"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "8"
-    "AbilityManaCost"                                     "120 125 130 135 140 145"
+    "AbilityCooldown"                                     "5"
+    "AbilityManaCost"                                     "50 60 70 80 90 100"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "150 225 300 375 750 1125"
+        "bonus_damage"                                    "80 120 160 200 400 800"
         "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_2"
       }
       "02"
@@ -63,14 +63,19 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cast_range"                              "650"
+        "scepter_cast_range"                              "700"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "6"
+        "scepter_cooldown"                                "5" //OAA, Valve has it wrong
         "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range"                                      "375 425 475 525 575 625"
       }
     }
   }
