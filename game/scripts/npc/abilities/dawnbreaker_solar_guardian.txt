@@ -45,43 +45,61 @@
     {
       "01"
       {
-        "var_type"						"FIELD_FLOAT"
-        "airtime_duration"				"0.8"
+        "var_type"                                        "FIELD_FLOAT"
+        "airtime_duration"                                "0.8"
       }
       "02"
       {
-        "var_type"						"FIELD_INTEGER"
-        "radius"						"500"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_solar_guardian_radius"
       }
       "03"
       {
-        "var_type"						"FIELD_INTEGER"
-        "base_damage"					"30 70 110 230 350" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "30 70 110 230 430" //OAA
       }
       "04"
       {
-        "var_type"						"FIELD_INTEGER"
-        "base_heal"						"45 95 145 295 545" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "base_heal"                                       "45 95 145 295 545" //OAA
       }
       "05"
       {
-        "var_type"						"FIELD_FLOAT"
-        "pulse_interval"				"0.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "pulse_interval"                                  "0.5"
       }
       "06"
       {
-        "var_type"						"FIELD_INTEGER"
-        "land_damage"					"130 190 250 500 750" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "land_damage"                                     "130 190 250 500 750" //OAA
       }
       "07"
       {
-        "var_type"						"FIELD_FLOAT"
-        "land_stun_duration"			"1.5 1.75 2 2.25 2.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "land_stun_duration"                              "1.5 1.75 2 2.25 2.5"
       }
       "08"
       {
-        "var_type"						"FIELD_INTEGER"
-        "max_offset_distance"			"350"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_offset_distance"                             "350"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "airtime_scepter_bonus"                           "3.5"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_heal"                                    "60 120 180 360 660" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate"                                       "60"
+        "RequiresScepter"                                 "1"
       }
     }
   }

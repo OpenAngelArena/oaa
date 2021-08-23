@@ -38,13 +38,16 @@
       }
       "03"
       {
-        "var_type"					"FIELD_INTEGER"
-        "bonus_damage"				"120 140 160 180 200 220"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "120 140 160 180 200 220"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_crit"
       }
       "04"
       {
-        "var_type"					"FIELD_INTEGER"
-        "attack_count"				"3"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_count"                                    "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_attack_count"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "05"
       {

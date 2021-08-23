@@ -55,7 +55,12 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15.0"
+        "duration"                                        "10.0 12.0 14.0 16.0 18.0 20.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_hero"                                 "0"
       }
     }
   }

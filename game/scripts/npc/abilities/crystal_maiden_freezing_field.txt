@@ -99,6 +99,12 @@
         "scepter_delay"                                   "1.75"
         "RequiresScepter"                                 "1"
       }
+      "21"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_bonus_explosion"                           "20"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

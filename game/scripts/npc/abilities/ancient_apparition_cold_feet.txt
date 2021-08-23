@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10 9 8 7 7 7"
+    "AbilityCooldown"                                     "12 11 10 9 8 7"
     "AbilityDuration"                                     "4.0"
 
     // Cost
@@ -51,6 +51,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "break_distance"                                  "715"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_1"
       }
       "03"
       {
