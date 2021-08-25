@@ -53,12 +53,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "steal_amount"                                    "2"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_2"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_damage_multiplier"                       "2"
+        "scepter_damage_multiplier"                       "1"
         "RequiresScepter"                                 "1"
       }
       "05" // INT steal on enemy hit

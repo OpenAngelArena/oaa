@@ -13,7 +13,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -26,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 14 14"
+    "AbilityCooldown"                                     "20 18 16 14 13 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -59,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "penalty_duration"                                "5"
+        "penalty_duration"                                "3"
       }
       "05"
       {
@@ -67,6 +66,11 @@
         "movespeed"                                       "-9 -12 -15 -18 -21 -24"
         "LinkedSpecialBonus"                              "special_bonus_unique_silencer_6"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "penalty_multiplier"                              "2"
       }
     }
   }

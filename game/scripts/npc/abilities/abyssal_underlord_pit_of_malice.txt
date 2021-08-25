@@ -39,7 +39,7 @@
         "radius"                                          "400"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord_6"
       }
-      "02" // the root from multiple pits do not stack - once rooted, the unit becomes immune to all other pits for (pit_interval-ensnare_duration) seconds.
+      "02" // the root from multiple pits do not stack - once the root wears off, the unit becomes immune to all pits for (pit_interval-ensnare_duration) seconds.
       {
         "var_type"                                        "FIELD_FLOAT"
         "pit_duration"                                    "12.0"

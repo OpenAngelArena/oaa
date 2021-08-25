@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0" // OAA
+    "AbilityCooldown"                                     "90" // OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,6 +37,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "20 22 24 26 28 30" // OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "02"
       {
@@ -52,13 +53,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_range"                                     "340 360 380 400 420 440"
-        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_attack_range"                            "490 510 530 550 570 590" //OAA, Valve has it wrong
-        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
+        "tooltip_attack_range"                            "490 510 530 550 570 590"
       }
       "06"
       {

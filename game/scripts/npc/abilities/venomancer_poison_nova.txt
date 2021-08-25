@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80" //OAA
+    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -53,34 +53,39 @@
         "duration"                                        "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
       }
-      "04"
+      "04" // old: "40 90 140 240 340"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 90 140 240 340" //OAA
+        "var_type"                                        "FIELD_FLOAT"
+        "damage"                                          "3.5" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "60" //OAA
+        "cooldown_scepter"                                "100.0 80.0 60.0 60.0 60.0"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "20" //OAA, Valve has it wrong lmao
+        "duration_scepter"                                "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "07" // old: "75 125 175 325 475"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "75 125 175 325 475" //OAA
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_scepter"                                  "4.5" //OAA
         "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "500"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_damage"                                     "20 30 40 70 120"
       }
     }
   }

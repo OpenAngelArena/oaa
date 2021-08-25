@@ -18,9 +18,9 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0"
 
-    "AbilityCooldown"                                     "35 30 25 20 15 10"
+    "AbilityCooldown"                                     "24 22 20 18 16 14" //OAA
 
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "25"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,17 +35,18 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "duration"                                        "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "25"
+        "slow"                                            "50 45 40 35 30 25" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "headshot_chance"                                 "35" //OAA
+        "headshot_chance"                                 "100"
       }
     }
   }

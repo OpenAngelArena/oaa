@@ -95,7 +95,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "observer_duration"                               "180"
       }
-      "07" // vanilla dota sentry ward duration: 480
+      "07" // vanilla dota sentry ward duration: 420
       {
         "var_type"                                        "FIELD_INTEGER"
         "sentry_duration"                                 "240"
@@ -125,7 +125,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "observer_max"                                    "3"
       }
-      "13" // vanilla dota sentry ward restock: 75
+      "13" // vanilla dota sentry ward restock: 70
       {
         "var_type"                                        "FIELD_INTEGER"
         "sentry_recharge"                                 "50" // old: 75 65 50 40 30

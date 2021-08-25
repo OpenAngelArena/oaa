@@ -7,10 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5279"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "FightRecapLevel"                                     "1"
+    "ID"                                                  "5279"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE" //OAA, for picking screen tooltip
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA, for picking screen tooltip
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -21,15 +20,15 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, for picking screen tooltip
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, for picking screen tooltip
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "9 8 7 6 5"
-    "AbilityManaCost"                                     "100"
+    "AbilityCastRange"                                    "150" //OAA, for picking screen tooltip
+    "AbilityCastPoint"                                    "0.0" //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "0" //OAA, for picking screen tooltip
+    "AbilityManaCost"                                     "0" //OAA, for picking screen tooltip
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,28 +41,80 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "10" //OAA
+        "buff_duration"                                   "10" //OAA, for picking screen tooltip
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "spiderling_duration"                             "50" //OAA
+        "spiderling_duration"                             "60" //OAA, for picking screen tooltip
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 500 700 1100 1900" //OAA
+        "damage"                                          "0" //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "3" //OAA
+        "count"                                           "1" //OAA, for picking screen tooltip
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "projectile_speed"                                "0" //OAA, for picking screen tooltip
+      }
+      "06" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_base_hp"                              "320"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2"
+      }
+      "07" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_hp_per_level"                         "25"
+      }
+      "08" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_base_armor"                           "0"
+      }
+      "09" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spiderling_armor_per_level"                      "0.2"
+      }
+      "10" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_base_attack_damage"                   "15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "11" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_attack_damage_per_level"              "2"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "12" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spiderling_max_count"                            "15"
+      }
+      "13" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_spiderling_base_hp"                        "640"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2"
+      }
+      "14" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_spiderling_base_attack_damage"             "30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

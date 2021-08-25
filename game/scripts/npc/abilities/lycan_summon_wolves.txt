@@ -14,9 +14,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "0"
-    //"HasShardUpgrade"                                     "0"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -52,6 +49,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "wolf_damage"                                     "26 44 62 80 180 280" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"

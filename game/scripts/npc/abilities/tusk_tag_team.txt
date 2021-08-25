@@ -5,7 +5,7 @@
   //=================================================================================================================
   "tusk_tag_team"
   {
-    "ID"                                                  "7322"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7322"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -37,7 +37,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 45 70 95 145 195"
+        "bonus_damage"                                    "20 45 70 95 120 195"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tusk_3"
       }
       "02"
       {

@@ -31,13 +31,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "1.5"
+        "health_regen_rate"                               "1"
         "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_rate"                                 "1.5"
+        "mana_regen_rate"                                 "1"
         "RequiresScepter"                                 "1"
       }
       "03"
@@ -68,7 +68,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impale_burrow_cooldown_tooltip"                  "12" //OAA
+        "impale_burrow_cooldown_tooltip"                  "10" //OAA
         "RequiresScepter"                                 "1"
       }
       "08"

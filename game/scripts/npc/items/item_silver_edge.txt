@@ -6,14 +6,14 @@
   "item_recipe_silver_edge"
   {
     "ID"                                                  "248"    // unique ID
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_invis_sword;item_oblivion_staff"
+      "01"                                                "item_invis_sword;item_lesser_crit"
     }
   }
 
@@ -30,7 +30,7 @@
     "AbilityTextureName"                                  "custom/silver_edge_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25" //OAA
+    "AbilityCooldown"                                     "20" //OAA
     "AbilitySharedCooldown"                               "shadow_blade"
 
     // Spicy Parameters
@@ -42,7 +42,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "5600"
+    "ItemCost"                                            "5450"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sb;invis;shadow blade;silver edge"
@@ -53,15 +53,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // Shadow Blade (25) + Crystalys (32)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40 50 70 100 140"
+        "bonus_damage"                                    "60 70 90 120 160"
       }
-      "02"
+      "02" // Shadow Blade (35)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "45 55 65 75 85"
+        "bonus_attack_speed"                              "40 50 60 70 80"
       }
       "03"
       {
@@ -71,12 +71,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 20 30 45 65"
+        "bonus_intellect"                                 "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "4.0 4.25 4.75 5.5 6.5"
+        "bonus_mana_regen"                                "0"
       }
       "06"
       {
@@ -102,6 +102,21 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "backstab_duration"                               "4"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_chance"                                     "30"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crit_multiplier"                                 "160 190 220 250 280"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_crit_damage"                             "60 90 120 150 180"
       }
     }
   }

@@ -36,8 +36,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "200 230 260 290 300 310"
-        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_2"
+        "speed"                                           "200 230 260 290 300 310" //OAA - ignore the error with LinkedSpecialBonus
       }
       "03"
       {
@@ -53,6 +52,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_6"
       }
     }
   }

@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_standard_capture_point_dummy_stuff", "modifiers/modifier_standard_capture_point_dummy_stuff.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -252,17 +253,31 @@ function CapturePoints:ActuallyStartCapture()
     end
   end
 
-  local radiant_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
-  local capturePointModifier1 = radiant_capture_point:FindModifierByName("modifier_standard_capture_point")
+  --local radiant_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
+  local radiant_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier1 = radiant_capture_point:FindModifierByName("modifier_standard_capture_point")
+  local capturePointModifier1 = radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point", {})
   capturePointModifier1:SetCallback(partial(self.Reward, self))
+
+  -- Give the radiant_capture_point some vision so that spectators can always see the capture point
+  radiant_capture_point:SetDayTimeVisionRange(1)
+  radiant_capture_point:SetNightTimeVisionRange(1)
 
   -- Give vision to the Radiant team with a dummy unit
   self.radiant_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
   self.radiant_dummy:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
 
-  local dire_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, rightVector, DOTA_TEAM_SPECTATOR, false)
-  local capturePointModifier2 = dire_capture_point:FindModifierByName("modifier_standard_capture_point")
+  --local dire_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, rightVector, DOTA_TEAM_SPECTATOR, false)
+  local dire_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier2 = dire_capture_point:FindModifierByName("modifier_standard_capture_point")
+  local capturePointModifier2 = dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point", {})
   capturePointModifier2:SetCallback(partial(self.Reward, self))
+
+  -- Give the dire_capture_point some vision so that spectators can always see the capture point
+  dire_capture_point:SetDayTimeVisionRange(1)
+  dire_capture_point:SetNightTimeVisionRange(1)
 
   -- Give vision to the Dire team with a dummy unit
   self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)

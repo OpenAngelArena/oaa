@@ -16,7 +16,7 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCooldown"                                     "28 24 20 16 16 16"
+    "AbilityCooldown"                                     "28 24 20 16 14 12"
     "AbilityManaCost"                                     "60 70 80 90 100 110"
 
     // Special
@@ -37,6 +37,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "10"
+        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_8"
       }
       "04"
       {
@@ -47,6 +48,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_stack"                                "10 11 12 13 26 52"
+        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_6"
       }
     }
   }

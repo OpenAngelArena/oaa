@@ -35,18 +35,17 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "heal_additive"                                   "30 35 40 45 90 180"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_5"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_percentage"                                 "2 3 4 5 7 9"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_5"
+        "heal_percentage"                                 "1.75 2.5 3.25 4 4.75 5.5"
       }
     }
   }

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"					          "7231"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, Valve has it wrong
     "AbilitySound"					"Hero_Beastmaster.Call.Hawk"
 
     "MaxLevel"                                            "6"
@@ -52,7 +52,7 @@
       "04"
       {
         "var_type"					"FIELD_INTEGER"
-        "hawk_vision_tooltip"		"600 700 800 900 1000 1100"
+        "hawk_vision_tooltip"		"750 800 850 900 1000 1100"
         "LinkedSpecialBonus"    "special_bonus_unique_beastmaster_5"
       }
     }

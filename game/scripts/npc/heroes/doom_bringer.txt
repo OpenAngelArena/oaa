@@ -21,10 +21,10 @@
     // special_bonus_unique_doom_2 - "Devour Can Target Ancients"
     // special_bonus_unique_doom_3 - "+{s:value} Devour Bonus Gold"                 - useless
     // special_bonus_unique_doom_4 - "+{s:value} Scorched Earth Damage"
-    // special_bonus_unique_doom_5 - "+{s:value} Doom DPS"                          - added to ability
+    // special_bonus_unique_doom_5 - "+{s:value} Doom DPS"
     // special_bonus_unique_doom_6 - "+{s:value}% Scorched Earth Movement Speed"
-    // special_bonus_unique_doom_7 - "+{s:value} Doom Duration"                     - scepter does this
-    // special_bonus_unique_doom_8 - "Permanent Scorched Earth"                     - overpowered?
-    // special_bonus_unique_doom_9 - "-{s:value}s Scorched Earth Cooldown"
+    // special_bonus_unique_doom_7 - "+{s:value} Doom Duration"                     - unused, scepter does this
+    // special_bonus_unique_doom_8 - "Permanent Scorched Earth"
+    // special_bonus_unique_doom_9 - "-{s:value}s Scorched Earth Cooldown"          - useless if special_bonus_unique_doom_8 is used
   }
 }

@@ -39,31 +39,32 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-			"01"
-			{
-				"var_type"                                        "FIELD_INTEGER"
-				"damage"                                          "100 170 240 310 620 930"
-			}
-			"02"
-			{
-				"var_type"                                        "FIELD_INTEGER"
-				"radius"                                          "500"
-			}
-			"03"
-			{
-				"var_type"                                        "FIELD_FLOAT"
-				"disarm_duration"                                 "1.75 2.5 3.25 4 4.75 5.5"
-			}
-			"04"
-			{
-				"var_type"                                        "FIELD_INTEGER"
-				"knockback_distance"                              "400"
-			}
-			"05"
-			{
-				"var_type"                                        "FIELD_FLOAT"
-				"knockback_duration"                              "1.0"
-			}
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 170 240 310 620 930"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "disarm_duration"                                 "1.75 2.5 3.25 4 4.25 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_3"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "1.0"
+      }
     }
   }
 }

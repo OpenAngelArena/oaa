@@ -76,7 +76,7 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
     local disarm_duration = target:GetValueChangedByStatusResistance(duration)
 
     -- Apply slow debuff
-    target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
+    --target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
 
     -- Apply armor reduction and disarm debuff (don't apply disarm to bosses)
     if not target:IsOAABoss() then

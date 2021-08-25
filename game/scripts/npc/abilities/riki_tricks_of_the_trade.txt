@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "50"
+        "damage_pct"                                      "35 40 45 50 50 50" //OAA
       }
       "04"
       {
@@ -64,7 +64,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_attacks"                                 "4"
+        "scepter_attacks"                                 "5"
         "RequiresScepter"                                 "1"
       }
       "07"

@@ -28,14 +28,14 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17"
+    "AbilityCooldown"                                     "23 21 19 17 16 15" //OAA
 
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_speed"                                     "16 24 32 40 48 56"
+        "bonus_speed"                                     "25 30 35 40 45 50"
       }
       "02"
       {
@@ -68,7 +68,7 @@
       "07" // bonus_speed + river_speed
       {
         "var_type"                                        "FIELD_INTEGER"
-        "river_speed_tooltip"                             "41 49 57 65 73 81" // Valve is good at math again
+        "river_speed_tooltip"                             "50 55 60 65 70 75" // OAA, Valve is bad at math again
       }
     }
   }

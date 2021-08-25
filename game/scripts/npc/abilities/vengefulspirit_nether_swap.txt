@@ -51,6 +51,21 @@
         "scepter_charge_reduction"                        "2"
         "RequiresScepter"                                 "1"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reduction"                                "20 25 30 40 50" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reduction_duration"                       "3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50"
+      }
     }
   }
 }

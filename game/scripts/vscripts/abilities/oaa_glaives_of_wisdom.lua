@@ -465,8 +465,8 @@ if IsServer() then
   function modifier_oaa_int_steal:OnDeath(keys)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local stealRange = ability:GetLevelSpecialValueFor("steal_range", math.max(1, ability:GetLevel()))
-    local stealAmount = ability:GetLevelSpecialValueFor("steal_amount", math.max(1, ability:GetLevel()))
+    local stealRange = ability:GetSpecialValueFor("steal_range")
+    local stealAmount = ability:GetSpecialValueFor("steal_amount")
     local unit = keys.unit
     local filterResult = UnitFilter(
       unit,
@@ -478,9 +478,9 @@ if IsServer() then
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
     -- Check for +2 Int Steal Talent
-    if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
-      stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
-    end
+    --if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
+      --stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
+    --end
 
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
       local oldIntellect = unit:GetBaseIntellect()

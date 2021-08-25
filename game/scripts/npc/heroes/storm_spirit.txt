@@ -7,11 +7,11 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"      "special_bonus_hp_250" // replaces special_bonus_hp_200
+    "Ability10"      "special_bonus_unique_storm_spirit_5"
     "Ability11"      "special_bonus_mp_regen_250"
 
-    "Ability12"      "special_bonus_unique_storm_spirit_5"
-    "Ability13"      "special_bonus_unique_storm_spirit_2" // replaces special_bonus_attack_speed_25
+    "Ability12"      "special_bonus_hp_250"
+    "Ability13"      "special_bonus_attack_speed_25"
 
     "Ability14"      "special_bonus_unique_storm_spirit"
     "Ability15"      "special_bonus_unique_storm_spirit_8"
@@ -20,9 +20,9 @@
     "Ability17"      "special_bonus_unique_storm_spirit_6" // replaces special_bonus_unique_storm_spirit_4
 
     // special_bonus_unique_storm_spirit - Electric Vortex duration
-    // special_bonus_unique_storm_spirit_2 - Ball Lightning damage
-    // special_bonus_unique_storm_spirit_3 - Overload pierces spell immunity
-    // special_bonus_unique_storm_spirit_4 - Ball Lightning Auto Remnant
+    // special_bonus_unique_storm_spirit_2 - Ball Lightning damage           - unused
+    // special_bonus_unique_storm_spirit_3 - Overload pierces spell immunity - unused
+    // special_bonus_unique_storm_spirit_4 - Ball Lightning Auto Remnant     - cancer
     // special_bonus_unique_storm_spirit_5 - Static Remnant damage
     // special_bonus_unique_storm_spirit_6 - Overload damage
     // special_bonus_unique_storm_spirit_7 - Overload bouncing

@@ -12,8 +12,8 @@
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_radius"                   "RADIUS:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_stun_duration"            "STUN DURATION:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_damage"                   "DAMAGE:"
-"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_cooldown_scepter"         "SCEPTER COOLDOWN:"
-"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_scepter_description"      "Reduces cooldown to 60 seconds."
+//"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_cooldown_scepter"         "SCEPTER COOLDOWN:"
+//"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_scepter_description"      "Reduces cooldown to 60 seconds."
 
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift"                              "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa}"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_Description"                  "After casting for %teleport_delay% seconds, Underlord teleports to the target location, stunning and damaging enemies in a radius."
@@ -22,7 +22,7 @@
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_teleport_delay"               "CAST TIME:"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_stun_duration"                "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_stun_duration}"
 "DOTA_Tooltip_ability_abyssal_underlord_dark_rift_damage"                       "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_damage}"
-"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_scepter_description"          "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_scepter_description}"
+//"DOTA_Tooltip_ability_abyssal_underlord_dark_rift_scepter_description"          "#{DOTA_Tooltip_ability_abyssal_underlord_dark_rift_oaa_scepter_description}"
 
 "DOTA_Tooltip_modifier_underlord_dark_rift_oaa_stun"                            "Dark Rift"
 "DOTA_Tooltip_modifier_underlord_dark_rift_oaa_stun_Description"                "Stunned."

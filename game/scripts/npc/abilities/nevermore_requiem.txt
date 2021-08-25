@@ -53,17 +53,20 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_ms"                            "-25 -30 -35 -40 -45" //OAA
+        "requiem_reduction_ms"                            "-20 -25 -30 -35 -40"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_slow_duration"                           "0.8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "requiem_slow_duration_max"                       "2.4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
+        "LinkedSpecialBonusField"                         "value2"
       }
       "05"
       {

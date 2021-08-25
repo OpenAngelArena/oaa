@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "70 80 90 100 110 120" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,6 +46,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_speed"                                  "300 325 350 375 400 425"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spirit_breaker_4"
       }
       "02"
       {
@@ -76,7 +77,13 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_speed"                                   "175"
+        "scepter_speed"                                   "0" // OAA, Valve has it wrong
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cast_point"                              "0.1"
         "RequiresScepter"                                 "1"
       }
     }

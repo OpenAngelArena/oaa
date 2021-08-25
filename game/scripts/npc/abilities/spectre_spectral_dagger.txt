@@ -13,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "FightRecapLevel"                                     "1"
 
@@ -46,6 +46,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "75 130 185 240 480 960"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spectre_6"
       }
       "02"
       {

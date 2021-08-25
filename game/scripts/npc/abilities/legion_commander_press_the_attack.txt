@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "700" //OAA
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -52,6 +52,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hp_regen"                                        "30 50 70 90 130 250" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_6"
       }
     }
   }

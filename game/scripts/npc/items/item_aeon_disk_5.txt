@@ -42,7 +42,7 @@
     "ItemAliases"                                         "ad 5;aeon disk 5"
 
     "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "105.0 95.0 75.0 55.0 35.0"
+    "AbilityCooldown"                                     "80"
     "AbilityTextureName"                                  "custom/combo_breaker_5"
 
     // Special
@@ -52,7 +52,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "300 550 1050 1800 2800"
+        "bonus_health"                                    "250 500 1000 1750 2750"
       }
       "02"
       {
@@ -73,6 +73,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "buff_duration"                                   "2.5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_level"                                       "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_duration"                               "80"
       }
     }
   }

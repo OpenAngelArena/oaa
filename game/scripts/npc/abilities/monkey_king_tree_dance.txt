@@ -17,8 +17,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900" //OAA, Valve has it wrong
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "leap_speed"                                      "700"
+        "leap_speed"                                      "800"
       }
       "02" // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
       {
@@ -99,6 +99,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "impact_movement_slow_tooltip"                    "20 40 60 80 85 90"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "1000"
       }
     }
   }

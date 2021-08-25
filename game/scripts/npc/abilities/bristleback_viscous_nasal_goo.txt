@@ -62,7 +62,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_move_slow"                                  "20"
+        "base_move_slow"                                  "15"
       }
       "06"
       {
@@ -83,13 +83,13 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "900"
+        "radius_scepter"                                  "800"
         "RequiresScepter"                                 "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stack_limit_scepter"                             "8"
+        "stack_limit_scepter"                             "7"
         "LinkedSpecialBonus"                              "special_bonus_unique_bristleback"
         "RequiresScepter"                                 "1"
       }

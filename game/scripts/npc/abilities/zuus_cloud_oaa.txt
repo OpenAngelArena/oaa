@@ -47,12 +47,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cloud_duration"                                  "35"
+        "cloud_duration"                                  "30"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cloud_bolt_interval"                             "2.25"
+        "cloud_bolt_interval"                             "2.5"
       }
       "03"
       {
@@ -80,7 +80,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cloud_bounty_tooltip"                            "100"
+        "cloud_bounty_tooltip"                            "125"
         "RequiresScepter"                                 "1"
       }
     }

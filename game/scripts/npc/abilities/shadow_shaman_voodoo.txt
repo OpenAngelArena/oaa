@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13"
+    "AbilityCooldown"                                     "13" // min: 11
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,8 +44,8 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.25 2.0 2.75 3.5 4.0 4.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7"
+        "duration"                                        "1.25 2.0 2.75 3.5 4.0 4.5" //OAA - ignore the error with LinkedSpecialBonus
+        //"LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7" - this is Hex Breaks talent
       }
     }
   }

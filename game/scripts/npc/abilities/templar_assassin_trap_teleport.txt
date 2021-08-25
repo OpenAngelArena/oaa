@@ -8,19 +8,15 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "7853"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve is wrong
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve is wrong
 
     "MaxLevel"                                            "5"
-
-    "FightRecapLevel"                                     "1"
-    "IsGrantedByScepter"                                  "1"
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
-    "AbilityChannelTime"                                  "1.0"
+    "AbilityChannelTime"                                  "1.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -72,8 +68,8 @@
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_channel_time"                            "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "tooltip_channel_time"                            "1.5"
         "RequiresScepter"                                 "1"
       }
       "08"

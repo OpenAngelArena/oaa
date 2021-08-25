@@ -42,12 +42,19 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "abilitycastrange"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_9"
       }
     }
   }

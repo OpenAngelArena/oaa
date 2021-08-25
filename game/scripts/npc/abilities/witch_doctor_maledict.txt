@@ -46,8 +46,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "abilityduration"                                 ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_4"
-        "LinkedSpecialBonusField"                         "value"
       }
       "03"
       {
@@ -63,9 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ticks"                                           "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_4"
-        "LinkedSpecialBonusField"                         "value2"
+        "ticks"                                           "3" //OAA - ignore the error with LinkedSpecialBonusField
       }
     }
   }

@@ -87,9 +87,9 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
     end
   end
 
-  if caster:HasShardOAA() then
-    self.magic_resistance = -14
-  end
+  --if caster:HasShardOAA() then
+    --self.magic_resistance = -14
+  --end
 end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:OnRefresh()

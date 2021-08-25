@@ -21,7 +21,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "110" //OAA
+    "AbilityCooldown"                                     "130" //OAA
     "AbilityManaCost"                                     "125 175 225 275 325"
 
     // Special
@@ -32,11 +32,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "30.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_night_stalker_7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 100 150 300 500"
+        "bonus_damage"                                    "50 100 150 300 550"
+        "LinkedSpecialBonus"                              "special_bonus_unique_night_stalker_3"
       }
     }
   }

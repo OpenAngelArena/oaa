@@ -40,6 +40,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "mana_capacity_duration"                          "30 40 50 60 70 80"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_bonus_mana"                                "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_mana_duration"                             "10"
+      }
     }
   }
 }

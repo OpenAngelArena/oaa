@@ -184,7 +184,12 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
       if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
         if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          local damage_increase_pct
+          if attacker:IsRealHero() then
+            damage_increase_pct = ability:GetSpecialValueFor("true_form_bonus_building_damage")
+          else
+            damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          end
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
           end

@@ -9,15 +9,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "Ability2"                                            "mirana_arrow_oaa" // replaces mirana_arrow
 
-    "Ability10"                                           "special_bonus_attack_damage_45" // replaces special_bonus_attack_damage_15
+    "Ability10"                                           "special_bonus_unique_mirana_3"
+    "Ability11"                                           "special_bonus_unique_mirana_6"
 
-    "Ability14"                                           "special_bonus_spell_amplify_12" // replaces special_bonus_spell_amplify_8
+    "Ability12"                                           "special_bonus_unique_mirana_5"
+    "Ability13"                                           "special_bonus_unique_mirana_1"
+
+    "Ability14"                                           "special_bonus_unique_mirana_7" // replaces special_bonus_unique_mirana_4
     "Ability15"                                           "special_bonus_mana_break_40" // replaces special_bonus_mana_break_20
 
-    "Ability17"                                           "special_bonus_mirana_arrow_global" // replaces special_bonus_unique_mirana_4
+    "Ability16"                                           "special_bonus_unique_mirana_2"
+    "Ability17"                                           "special_bonus_mirana_arrow_global" // replaces special_bonus_unique_mirana_7
 
     // Attributes
     //-------------------------------------------------------------------------------------------------------------
     "AttributeBaseAgility"                                "22"
+
+    // special_bonus_unique_mirana_1 - "+{s:value} Leap Attack Speed"
+    // special_bonus_unique_mirana_2 - "+{s:value} Multishot Sacred Arrows"
+    // special_bonus_unique_mirana_3 - "-{s:value}s Sacred Arrow cooldown"
+    // special_bonus_unique_mirana_4 - "-{s:value}s Moonlight Shadow Cooldown"       - annoying
+    // special_bonus_unique_mirana_5 - "Moonlight Shadow gives +{s:value} Evasion"
+    // special_bonus_unique_mirana_6 - "+{s:value} Leap Distance"
+    // special_bonus_unique_mirana_7 - "+{s:value} Starstorm Damage"
+    // special_bonus_mirana_arrow_global - "Global Range Arrow"                      - custom
+    // special_bonus_mirana_arrow_pierce - "Bonus Arrow Pierce Count"                - custom, unused
+    // special_bonus_mana_break_40
+    // special_bonus_attack_damage_45
+    // special_bonus_spell_amplify_12
   }
 }

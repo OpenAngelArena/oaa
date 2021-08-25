@@ -58,7 +58,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_bonus"                                  "30"
+        "movement_bonus"                                  "30 35 40 45 50" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cooldown"                                "70" //OAA
       }
     }
   }

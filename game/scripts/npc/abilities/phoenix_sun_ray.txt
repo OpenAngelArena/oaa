@@ -53,12 +53,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_heal"                                       "7 10 13 16 32 50"
+        "base_heal"                                       "7 10 13 16 32 64"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_perc_heal"                                    "0.625 1.25 1.875 2.5 3.125 3.75"
+        "hp_perc_heal"                                    "0.5 1.0 1.5 2.0 2.5 3.0"
       }
       "06"
       {

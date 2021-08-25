@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scan_true_sight_thinker", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_scan_thinker", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_scan_debuff", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
@@ -123,12 +124,19 @@ function Glyph:CastScan(playerID, keys)
 
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
   local position = Vector(keys.position_x, keys.position_y, keys.position_z)
+  local team = hero:GetTeamNumber()
 
-  CreateModifierThinker( hero, nil, "modifier_scan_true_sight_thinker", {duration = SCAN_REVEAL_DURATION}, position, hero:GetTeamNumber(), false )
-  CreateModifierThinker( hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION}, position, hero:GetTeamNumber(), false )
+  -- CreateModifierThinker(hero, nil, "modifier_scan_true_sight_thinker", {duration = SCAN_REVEAL_DURATION}, position, team, false)
+  local scan_thinker1 = CreateUnitByName("npc_dota_custom_dummy_unit", position, false, hero, hero, team)
+  scan_thinker1:AddNewModifier(hero, nil, "modifier_oaa_thinker", {duration = SCAN_REVEAL_DURATION})
+  scan_thinker1:AddNewModifier(hero, nil, "modifier_scan_true_sight_thinker", {duration = SCAN_REVEAL_DURATION})
+
+  --CreateModifierThinker(hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION}, position, team, false)
+  local scan_thinker2 = CreateUnitByName("npc_dota_custom_dummy_unit", position, false, hero, hero, team)
+  scan_thinker2:AddNewModifier(hero, nil, "modifier_oaa_thinker", {duration = SCAN_DURATION})
+  scan_thinker2:AddNewModifier(hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION})
 
   self:ResetScanCooldown(playerID)
-
 end
 
 function Glyph:ResetScanCooldown(playerID)

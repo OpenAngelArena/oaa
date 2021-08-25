@@ -1,10 +1,17 @@
 //=============================================================================
 // Clinkz Strafe OAA
 //=============================================================================
-"DOTA_Tooltip_ability_clinkz_strafe_oaa"                            "#{DOTA_Tooltip_ability_clinkz_strafe}"
-"DOTA_Tooltip_ability_clinkz_strafe_oaa_Description"                "#{DOTA_Tooltip_ability_clinkz_strafe_Description}"
-"DOTA_Tooltip_ability_clinkz_strafe_oaa_Lore"                       "#{DOTA_Tooltip_ability_clinkz_strafe_Lore}"
-"DOTA_Tooltip_ability_clinkz_strafe_oaa_duration"                   "#{DOTA_Tooltip_ability_clinkz_strafe_duration}"
-"DOTA_Tooltip_ability_clinkz_strafe_oaa_attack_speed_bonus_pct"     "#{DOTA_Tooltip_ability_clinkz_strafe_attack_speed_bonus_pct}"
+//"DOTA_Tooltip_ability_clinkz_strafe"                                "Strafe"
+//"DOTA_Tooltip_ability_clinkz_strafe_Description"                    "Clinkz nimbly attacks with a barrage of arrows. Gains 100% evasion from ranged attackers and dramatically increases attack speed for a short time."
+//"DOTA_Tooltip_ability_clinkz_strafe_Lore"                           "It's hard to say whether the blur around the Bone Fletcher is from his flaming heart or his speed with the quiver."
+//"DOTA_Tooltip_ability_clinkz_strafe_attack_speed_bonus_pct"         "BONUS ATTACK SPEED:"
+//"DOTA_Tooltip_ability_clinkz_strafe_duration"                       "DURATION:"
 
-"DOTA_Tooltip_modifier_clinkz_strafe"                               "Strafe"
+"DOTA_Tooltip_ability_clinkz_strafe_oaa"                            "Strafe"
+"DOTA_Tooltip_ability_clinkz_strafe_oaa_Description"                "Clinkz nimbly attacks with a barrage of arrows. Gains 100% evasion from ranged attackers and dramatically increases attack speed for a short time."
+//"DOTA_Tooltip_ability_clinkz_strafe_oaa_Lore"                       "#{DOTA_Tooltip_ability_clinkz_strafe_Lore}"
+//"DOTA_Tooltip_ability_clinkz_strafe_oaa_duration"                   "#{DOTA_Tooltip_ability_clinkz_strafe_duration}"
+//"DOTA_Tooltip_ability_clinkz_strafe_oaa_attack_speed_bonus_pct"     "#{DOTA_Tooltip_ability_clinkz_strafe_attack_speed_bonus_pct}"
+
+//"DOTA_Tooltip_modifier_clinkz_strafe"                               "Strafe"
+//"DOTA_Tooltip_modifier_clinkz_strafe_Description"                   "Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

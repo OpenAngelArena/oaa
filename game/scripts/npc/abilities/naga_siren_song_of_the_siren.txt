@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -50,17 +50,17 @@
         "var_type"                                        "FIELD_FLOAT"
         "animation_rate"                                  "0.55"
       }
-      "04" // unused
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "regen_rate"                                      "10.0"
       }
-      "05" // unused
+      "05"
       {
         "var_type"                                        "FIELD_FLOAT"
         "regen_rate_self"                                 "10.0"
       }
-      "06" // unused
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "regen_rate_tooltip_scepter"                      "10"
@@ -69,7 +69,7 @@
       "07" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "120 110 100 90 80" //OAA
+        "scepter_cooldown"                                "100 95 90 85 80" //OAA
         "RequiresScepter"                                 "1"
       }
     }

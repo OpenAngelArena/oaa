@@ -33,13 +33,15 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "powershot_damage"                                "150 250 350 450 950 1450"
+        "powershot_damage"                                "150 250 350 450 900 1800"
         "LinkedSpecialBonus"                              "special_bonus_unique_windranger_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_reduction"                                "10" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_windranger_7"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"

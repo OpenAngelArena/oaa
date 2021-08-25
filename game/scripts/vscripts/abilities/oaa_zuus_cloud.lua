@@ -8,13 +8,13 @@ end
 
 function zuus_cloud_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  local hCloud = CreateUnitByName( "npc_dota_zeus_cloud", self:GetCursorPosition(), true, caster, caster, caster:GetTeamNumber() )
+  local hCloud = CreateUnitByName( "npc_dota_zeus_cloud", self:GetCursorPosition(), false, caster, caster, caster:GetTeamNumber() )
   hCloud:SetOwner( self:GetCaster() )
   hCloud:SetControllableByPlayer( self:GetCaster():GetPlayerOwnerID(), false )
-  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", nil )
+  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", {} )
   hCloud:AddNewModifier( caster, self, "modifier_kill", { duration = self:GetSpecialValueFor( "cloud_duration" ) } )
   hCloud:AddNewModifier( caster, self, "modifier_phased", {} )
-  FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
+  --FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
 end
 
 function zuus_cloud_oaa:OnHeroCalculateStatBonus()
@@ -166,11 +166,12 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
   local parent = self:GetParent()
   local lightning_bolt_ability = caster:FindAbilityByName('zuus_lightning_bolt') or self.lightning_bolt_ability
   local sight_radius =  0
+
   -- Rubick stole Nimbus but he doesn't have Lightning Bolt for some reason
   if not lightning_bolt_ability then
     return
   end
-   -- Rubick stole something else while cloud still exists
+  -- Rubick stole something else while cloud still exists
   if lightning_bolt_ability:IsNull() then
     return
   end
@@ -183,9 +184,12 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
   if lightning_bolt_ability:GetLevel() > 0 then
 
-    AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), sight_radius, sight_duration, false)
+    local caster_team = caster:GetTeamNumber()
 
-    CreateModifierThinker( caster, lightning_bolt_ability, "modifier_zuus_bolt_true_sight", { duration = sight_duration }, target:GetAbsOrigin(), caster:GetTeamNumber(), false )
+    -- Reveal the area
+    AddFOWViewer(caster_team, target:GetAbsOrigin(), sight_radius, sight_duration, false)
+
+    CreateModifierThinker( caster, lightning_bolt_ability, "modifier_zuus_bolt_true_sight", { duration = sight_duration }, target:GetAbsOrigin(), caster_team, false )
 
     -- Calculate mini-stun duration
     local ministun_duration = self.ability:GetSpecialValueFor("ministun_duration")
