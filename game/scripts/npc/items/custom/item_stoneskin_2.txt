@@ -42,9 +42,11 @@
     "ScriptFile"                                          "items/transformation/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin_2"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
+    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
