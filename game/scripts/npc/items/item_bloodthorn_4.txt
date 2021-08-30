@@ -27,6 +27,7 @@
       "01"                                                "item_bloodthorn_3;item_upgrade_core_3"
       "02"                                                "item_greater_crit_3;item_upgrade_core_3"
       "03"                                                "item_nullifier_3;item_upgrade_core_3"
+      "04"                                                "item_silver_edge_3;item_upgrade_core_3"
     }
   }
 
@@ -103,7 +104,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "120 130 140 150 160"
+        "target_crit_multiplier"                          "125 130 140 155 175"
       }
       "08"
       {
