@@ -68,22 +68,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stats"                                     "8 15 20 25 30"
+        "bonus_stats"                                     "6 10 15 20 25" //OAA
       }
       "02" // scales like this because of the aura
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "8 9 10 11 12"
+        "bonus_armor"                                     "6 7 8 9 10" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_regen"                                     "8 11 14 17 20"
+        "bonus_regen"                                     "6 9 12 15 18" //OAA
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_min"                                      "1800 3600 7200 14400 28800"
+        "health_min"                                      "1800 2800 4800 7800 11800"
       }
       "05"
       {
@@ -113,7 +113,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus_armor"                               "7 8 9 10 11" //OAA
+        "creep_bonus_armor"                               "5 6 7 8 9" //OAA
       }
       "11"
       {
@@ -143,7 +143,7 @@
       "16"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_aura"                                     "18 28 38 48 58"
+        "damage_aura"                                     "18 26 34 42 50"
       }
       "17"
       {
