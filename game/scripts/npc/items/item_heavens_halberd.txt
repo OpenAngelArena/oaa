@@ -92,6 +92,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "hp_regen_amp"                                    "22 24 26 28 30" //OAA
       }
+      "10" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "18 17 16 15 14"
+      }
     }
   }
 }

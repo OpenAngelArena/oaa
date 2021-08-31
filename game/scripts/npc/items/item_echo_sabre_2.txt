@@ -104,6 +104,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "0.8"
       }
+      "10" //OAA
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_tooltip"                                "5.0 4.0 2.5 1.8 1.6"
+      }
     }
   }
 }

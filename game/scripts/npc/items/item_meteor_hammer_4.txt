@@ -59,7 +59,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "600"
     "AbilitySharedCooldown"         "meteor"
-    "AbilityCooldown"               "24"
+    "AbilityCooldown"               "20 19 18 17 16"
     "AbilityManaCost"               "125"
 
     // Item Info
@@ -142,6 +142,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "impact_damage"                                   "150 350 550 750 950"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "20 19 18 17 16"
       }
     }
     "precache"

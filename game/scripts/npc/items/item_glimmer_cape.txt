@@ -62,28 +62,28 @@
     {
       "01"
       {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_magical_armor"     "15 16 17 18 20"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "16 17 18 19 20" //OAA
       }
       "02"
       {
-        "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6 0.55 0.5 0.45 0.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "0.65 0.6 0.55 0.5 0.45" //OAA
       }
       "03"
       {
-        "var_type"                "FIELD_INTEGER"
-        "active_magical_armor"    "45 48 51 55 60"
+        "var_type"                                        "FIELD_INTEGER"
+        "active_magical_armor"                            "40 45 50 55 60" //OAA
       }
       "04"
       {
-        "var_type"                "FIELD_FLOAT"
-        "duration"                "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
       }
       "05"
       {
-        "var_type"        "FIELD_FLOAT"
-        "building_duration_limit"     "180"
+        "var_type"                                        "FIELD_FLOAT"
+        "building_duration_limit"                         "180"
       }
     }
   }
