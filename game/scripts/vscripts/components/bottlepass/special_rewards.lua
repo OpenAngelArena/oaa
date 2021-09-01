@@ -22,7 +22,6 @@ SPECIAL_BOTTLES = {
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
   [72521220] = {1}, -- Abit Gray
-  [290575742] = {1,54}, -- Obby
   [37885614] = {1,55}, --Darkonius
 
 
@@ -187,6 +186,16 @@ SPECIAL_BOTTLES = {
   [53067223] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
   [107719587] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
   [80434451] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
+  [121375868] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - BUDSTER
+  [110199172] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Mr F
+  [315878482] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - GFC
+  [71409875] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Dabeast
+  [180650885] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Glaceon
+  [165382017] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Noob322
+  [312688223] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Nate
+  [184428872] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Sunrise
+  [211047291] = {3,4,5}, --steam: https://steamcommunity.com/profiles/76561198040700179 - Mungeon
+  [290575742] = {3,4,5,54}, -- Obby
 
 
   -- twitch donators 50 Custom
