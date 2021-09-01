@@ -54,7 +54,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "leash_duration"                                  "2.5 2.75 3 3.25 3.5 4"
+        "leash_duration"                                  "2.5 2.75 3 3.25 3.5 3.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_slark"
       }
       "06"
@@ -71,7 +71,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "10"
+        "charge_restore_time"                             "16 14 12 10 10 10" //OAA
         "RequiresScepter"                                 "1"
       }
       "09"
