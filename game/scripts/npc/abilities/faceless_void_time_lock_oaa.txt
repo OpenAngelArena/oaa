@@ -34,7 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // in normal dota: min stun time is second_attack_delay + duration (0.65) =  0.98;
+      "01" // in normal dota: min stun time is second_attack_delay + vanilla duration (0.65) =  0.98;
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "1.0"
@@ -47,12 +47,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "12 16 20 24 25 25"
+        "chance_pct"                                      "12 16 20 24 25 26"
       }
-      "04" // this should be vanilla value x 2
+      "04" // this should be at minimum: vanilla value x 2
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 40 50 60 120 240"
+        "bonus_damage"                                    "35 45 55 65 130 260"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "05"
