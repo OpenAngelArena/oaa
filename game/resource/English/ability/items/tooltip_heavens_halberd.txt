@@ -1,6 +1,14 @@
 //====================================================================================
 // Heaven's Halberd
 //====================================================================================
+//"DOTA_Tooltip_ability_item_heavens_halberd_Description"                         "<h1>Active: Disarm</h1>Prevents a target from attacking for %disarm_melee% seconds on melee targets, and %disarm_range% seconds on ranged targets.<br><br>Range: %abilitycastrange%"
+//"DOTA_Tooltip_ability_item_heavens_halberd_Lore"                                "This halberd moves with the speed of a smaller weapon, allowing the bearer to win duels that a heavy edge would not."
+//"DOTA_Tooltip_ability_item_heavens_halberd_bonus_evasion"                       "%+$evasion"
+//"DOTA_Tooltip_ability_item_heavens_halberd_bonus_strength"                      "+$str"
+//"DOTA_Tooltip_ability_item_heavens_halberd_status_resistance"                   "%+Status Resistance"
+//"DOTA_Tooltip_ability_item_heavens_halberd_hp_regen_amp"                        "%+Self HP Regen and Lifesteal Amp"
+"DOTA_Tooltip_ability_item_heavens_halberd_cooldown_tooltip"                    "COOLDOWN:"
+
 "DOTA_Tooltip_Ability_item_heavens_halberd_2"                                   "#{DOTA_Tooltip_Ability_item_heavens_halberd}"
 "DOTA_Tooltip_Ability_item_recipe_heavens_halberd_2"                            "Heaven's Halberd Recipe"
 "DOTA_Tooltip_Ability_item_heavens_halberd_2_Description"                       "#{DOTA_Tooltip_ability_item_heavens_halberd_Description}"
@@ -10,6 +18,7 @@
 "DOTA_Tooltip_Ability_item_heavens_halberd_2_bonus_strength"                    "#{DOTA_Tooltip_ability_item_heavens_halberd_bonus_strength}"
 "DOTA_Tooltip_Ability_item_heavens_halberd_2_status_resistance"                 "#{DOTA_Tooltip_Ability_item_heavens_halberd_status_resistance}"
 "DOTA_Tooltip_ability_item_heavens_halberd_2_hp_regen_amp"                      "#{DOTA_Tooltip_ability_item_heavens_halberd_hp_regen_amp}"
+"DOTA_Tooltip_ability_item_heavens_halberd_2_cooldown_tooltip"                  "#{DOTA_Tooltip_ability_item_heavens_halberd_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_heavens_halberd_3"                                   "#{DOTA_Tooltip_Ability_item_heavens_halberd}"
 "DOTA_Tooltip_Ability_item_recipe_heavens_halberd_3"                            "#{DOTA_Tooltip_Ability_item_recipe_heavens_halberd_2}"
@@ -20,6 +29,7 @@
 "DOTA_Tooltip_Ability_item_heavens_halberd_3_bonus_strength"                    "#{DOTA_Tooltip_ability_item_heavens_halberd_bonus_strength}"
 "DOTA_Tooltip_Ability_item_heavens_halberd_3_status_resistance"                 "#{DOTA_Tooltip_Ability_item_heavens_halberd_status_resistance}"
 "DOTA_Tooltip_ability_item_heavens_halberd_3_hp_regen_amp"                      "#{DOTA_Tooltip_ability_item_heavens_halberd_hp_regen_amp}"
+"DOTA_Tooltip_ability_item_heavens_halberd_3_cooldown_tooltip"                  "#{DOTA_Tooltip_ability_item_heavens_halberd_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_heavens_halberd_4"                                   "#{DOTA_Tooltip_Ability_item_heavens_halberd}"
 "DOTA_Tooltip_Ability_item_recipe_heavens_halberd_4"                            "#{DOTA_Tooltip_Ability_item_recipe_heavens_halberd_2}"
@@ -30,6 +40,7 @@
 "DOTA_Tooltip_Ability_item_heavens_halberd_4_bonus_strength"                    "#{DOTA_Tooltip_ability_item_heavens_halberd_bonus_strength}"
 "DOTA_Tooltip_Ability_item_heavens_halberd_4_status_resistance"                 "#{DOTA_Tooltip_Ability_item_heavens_halberd_status_resistance}"
 "DOTA_Tooltip_ability_item_heavens_halberd_4_hp_regen_amp"                      "#{DOTA_Tooltip_ability_item_heavens_halberd_hp_regen_amp}"
+"DOTA_Tooltip_ability_item_heavens_halberd_4_cooldown_tooltip"                  "#{DOTA_Tooltip_ability_item_heavens_halberd_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_heavens_halberd_5"                                   "#{DOTA_Tooltip_Ability_item_heavens_halberd}"
 "DOTA_Tooltip_Ability_item_recipe_heavens_halberd_5"                            "#{DOTA_Tooltip_Ability_item_recipe_heavens_halberd_2}"
@@ -40,3 +51,4 @@
 "DOTA_Tooltip_Ability_item_heavens_halberd_5_bonus_strength"                    "#{DOTA_Tooltip_ability_item_heavens_halberd_bonus_strength}"
 "DOTA_Tooltip_Ability_item_heavens_halberd_5_status_resistance"                 "#{DOTA_Tooltip_Ability_item_heavens_halberd_status_resistance}"
 "DOTA_Tooltip_ability_item_heavens_halberd_5_hp_regen_amp"                      "#{DOTA_Tooltip_ability_item_heavens_halberd_hp_regen_amp}"
+"DOTA_Tooltip_ability_item_heavens_halberd_5_cooldown_tooltip"                  "#{DOTA_Tooltip_ability_item_heavens_halberd_cooldown_tooltip}"

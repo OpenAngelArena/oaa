@@ -1,12 +1,11 @@
 //=====================================================================
 // Imp Claw
 //=====================================================================
+//"DOTA_Tooltip_ability_item_imp_claw_Description"                                "<h1>Passive: Critical Strike</h1> Empowers your next attack, causing it to be a critical strike dealing %crit_multiplier%%% damage."
+//"DOTA_Tooltip_ability_item_imp_claw_Lore"                                       "Though their tasks are largely thankless, demon hunters can often turn a profit bartering parts in Weeping Rose."
+//"DOTA_Tooltip_ability_item_imp_claw_bonus_damage"                               "+$damage"
+
 "DOTA_Tooltip_Ability_item_imp_claw_1"                                          "#{DOTA_Tooltip_Ability_item_imp_claw}"
 "DOTA_Tooltip_Ability_item_recipe_imp_claw_1"                                   "Imp Claw Recipe"
 "DOTA_Tooltip_Ability_item_imp_claw_1_Description"                              "#{DOTA_Tooltip_ability_item_imp_claw_Description}"
 "DOTA_Tooltip_Ability_item_imp_claw_1_bonus_damage"                             "#{DOTA_Tooltip_ability_item_imp_claw_bonus_damage}"
-
-"DOTA_Tooltip_Ability_item_imp_claw_2"                                          "#{DOTA_Tooltip_Ability_item_imp_claw}"
-"DOTA_Tooltip_Ability_item_recipe_imp_claw_2"                                   "#{DOTA_Tooltip_Ability_item_recipe_imp_claw_1}"
-"DOTA_Tooltip_Ability_item_imp_claw_2_Description"                              "#{DOTA_Tooltip_ability_item_imp_claw_Description}"
-"DOTA_Tooltip_Ability_item_imp_claw_2_bonus_damage"                             "#{DOTA_Tooltip_ability_item_imp_claw_bonus_damage}"

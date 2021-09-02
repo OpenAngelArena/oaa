@@ -59,7 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "8"
+    "ItemCorePointCost"                                   "14"
     "ItemCost"                                            "16703"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
@@ -73,12 +73,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 40 60 85 115"
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 1600 2000"
+        "bonus_health"                                    "250 500 750 1000 1250"
       }
       "03"
       {

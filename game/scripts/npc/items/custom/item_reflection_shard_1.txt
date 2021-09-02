@@ -42,7 +42,7 @@
     "AbilityTextureName"                                  "custom/reflection_shard_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8"
+    "AbilityCooldown"                                     "8 7 6 5"
     "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "4"
@@ -107,7 +107,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_tooltip"                                "8"
+        "cooldown_tooltip"                                "8 7 6 5"
       }
     }
   }
