@@ -8,33 +8,30 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      ""
             "item"      "item_wraith_band"
             "item"      "item_flask"
-            "item"      "item_circlet"
-            "item"      "item_branches"
-            "item"      "item_branches"
         }
 
         "#DOTA_Item_Build_Early_Game"
         {
-            "item"      "item_magic_wand"
-            "item"      "item_dragon_lance"
-            "item"      ""
+            "item"      "item_maelstrom"
+            "item"      "item_lesser_crit"
         }
 
         "#DOTA_Item_Build_Mid_Items"
         {
-            "item"      "item_greater_crit"
+            "item"      "item_dragon_lance"
+            "item"      "item_silver_edge"
             "item"      "item_mjollnir"
+            "item"      "item_hurricane_pike"
+            "item"      "item_skadi"
         }
 
         "#DOTA_Item_Build_Late_Items"
         {
-            "item"      "item_butterfly_oaa"
-            "item"      "item_hurricane_pike"
-            "item"      "item_trumps_fists"
-            "item"      "item_vampire"
+            "item"      "item_satanic"
+            "item"      "item_black_king_bar_1"
+            "item"      "item_mask_of_madness_2"
 	    "item"	"item_aghanims_shard"
         }
 
@@ -45,9 +42,9 @@
             "item"      "item_desolator"
             "item"      "item_silver_egde"
             "item"      "item_sange_and_yasha"
-            "item"      "item_skadi"
-            "item"      "item_satanic"
-            "item"      "item_mask_of_madness_2"
+            "item"      "item_trumps_fists"
+            "item"      "item_vampire"
+            "item"      "item_butterfly_oaa"
             "item"      "item_black_king_bar_1"
             "item"      "item_sphere"
             "item"      "item_ultimate_scepter"

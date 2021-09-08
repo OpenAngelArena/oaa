@@ -15,31 +15,35 @@
 
     "#DOTA_Item_Build_Early_Game"
     {
-      "item"    "item_magic_wand"
-      "item"		"item_cyclone"
+      "item"    	"item_witch_blade"
+      "item"		"item_ultimate_scepter"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
-      "item"		"item_ultimate_scepter"
-      "item"		"item_mjollnir"
+      "item"		"item_blink"
+      "item"    	"item_maelstrom"
+      "item"		"item_cyclone"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
+      "item"		"item_satanic"
+      "item"		"item_mjollnir"
+      "item"		"item_arcane_blink"
       "item"		"item_sheepstick_4"
-      "item"		"item_octarine_core"
       "item"		"item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"		"item_black_king_bar_1"
-      "item"		"item_bloodthorn"
-      "item"		"item_sphere"
-      "item"		"item_ethereal_blade"
-      "item"		"item_yasha_and_kaya"
+      "item"		"item_gungir"
       "item"		"item_skadi"
+      "item"		"item_bloodthorn"
+      "item"		"item_black_king_bar_1"
+      "item"		"item_ethereal_blade"
+      "item"		"item_octarine_core"
+      "item"		"item_trumps_fists"
       "item"		"item_monkey_king_bar"
     }
   }
