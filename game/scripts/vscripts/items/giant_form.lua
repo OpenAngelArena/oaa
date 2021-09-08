@@ -207,14 +207,6 @@ function modifier_item_giant_form_grow:OnAttackLanded(event)
     false
   )
 
-  -- remove the initial target from the list
-  for k, unit in pairs(units) do
-    if unit == target then
-      table.remove(units, k)
-      break
-    end
-  end
-
   -- get the wearer's damage
   local damage = event.original_damage
 
@@ -230,15 +222,15 @@ function modifier_item_giant_form_grow:OnAttackLanded(event)
   damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
 
   -- Show particle only if damage is above zero and only if there are units nearby
-  if actual_damage > 0 and #units > 0 then
+  if actual_damage > 0 and #units > 1 then
     local particle = ParticleManager:CreateParticle("particles/items/powertreads_splash.vpcf", PATTACH_POINT, target)
     ParticleManager:SetParticleControl(particle, 5, Vector(1, 0, splash_radius))
     ParticleManager:ReleaseParticleIndex(particle)
   end
 
   -- iterate through all targets
-  for k, unit in pairs(units) do
-    if unit and not unit:IsNull() then
+  for _, unit in pairs(units) do
+    if unit and not unit:IsNull() and unit ~= target then
       damage_table.victim = unit
       ApplyDamage(damage_table)
     end

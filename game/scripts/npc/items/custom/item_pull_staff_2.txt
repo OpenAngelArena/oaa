@@ -25,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_pull_staff;item_upgrade_core"
-      "02"                                                "item_force_staff;item_upgrade_core"
+      //"02"                                                "item_force_staff;item_upgrade_core"
     }
   }
 
@@ -69,7 +69,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3701"
+    "ItemCost"                                            "3751"
 
     "ItemSellable"                                        "1"
     "ItemPurchasable"                                     "1"
