@@ -8,6 +8,7 @@
 "DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_strength"                           "+$str"
 "DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_damage"                             "+$damage"
 "DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_status_resist"                      "%+Status Resistance"
+"DOTA_Tooltip_Ability_item_enrage_crystal_1_cooldown_tooltip"                         "COOLDOWN:"
 
 "DOTA_Tooltip_Ability_item_enrage_crystal_2"                                          "#{DOTA_Tooltip_Ability_item_enrage_crystal_1}"
 "DOTA_Tooltip_Ability_item_recipe_enrage_crystal_2"                                   "#{DOTA_Tooltip_Ability_item_recipe_enrage_crystal_1}"
@@ -16,6 +17,7 @@
 "DOTA_Tooltip_Ability_item_enrage_crystal_2_bonus_strength"                           "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_strength}"
 "DOTA_Tooltip_Ability_item_enrage_crystal_2_bonus_damage"                             "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_damage}"
 "DOTA_Tooltip_Ability_item_enrage_crystal_2_bonus_status_resist"                      "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_status_resist}"
+"DOTA_Tooltip_Ability_item_enrage_crystal_2_cooldown_tooltip"                         "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_enrage_crystal_3"                                          "#{DOTA_Tooltip_Ability_item_enrage_crystal_1}"
 "DOTA_Tooltip_Ability_item_recipe_enrage_crystal_3"                                   "#{DOTA_Tooltip_Ability_item_recipe_enrage_crystal_1}"
@@ -24,3 +26,4 @@
 "DOTA_Tooltip_Ability_item_enrage_crystal_3_bonus_strength"                           "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_strength}"
 "DOTA_Tooltip_Ability_item_enrage_crystal_3_bonus_damage"                             "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_damage}"
 "DOTA_Tooltip_Ability_item_enrage_crystal_3_bonus_status_resist"                      "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_bonus_status_resist}"
+"DOTA_Tooltip_Ability_item_enrage_crystal_3_cooldown_tooltip"                         "#{DOTA_Tooltip_Ability_item_enrage_crystal_1_cooldown_tooltip}"

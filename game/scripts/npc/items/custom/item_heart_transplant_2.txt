@@ -75,12 +75,12 @@
       "01" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "85 115"
+        "bonus_strength"                                  "70 95"
       }
-      "02" // same as Heart lvls 4-5
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1600 2000"
+        "bonus_health"                                    "1500 2000"
       }
       "03" // same as Heart lvls 4-5
       {
@@ -100,12 +100,12 @@
       "06" // same as Heart lvls 3-4
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_strength"                       "60 85"
+        "transplant_bonus_strength"                       "50 70"
       }
-      "07" // same as Heart lvls 3-4
+      "07" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_health"                         "1200 1600"
+        "transplant_bonus_health"                         "1000 1250"
       }
       "08" // same as Heart lvls 3-4
       {

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Scream of Pain Fear
+  // Scream of Pain Bonus Damage
   //=================================================================================================================
   "special_bonus_unique_queen_of_pain_2"
   {
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "1.5" //OAA
+        "value"                                           "180" //OAA
         "ad_linked_ability"                               "queenofpain_scream_of_pain"
       }
     }

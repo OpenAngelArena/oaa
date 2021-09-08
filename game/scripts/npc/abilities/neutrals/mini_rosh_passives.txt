@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Unit Name: Mini Rosh Passives - Spell Block, Free Pathing, True Sight, Status Resistance
+  //=================================================================================================================
+  "mini_rosh_passives"
+  {
+    "ID"                                                  "3594"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_mini_rosh_passives.lua"
+    "AbilityTextureName"                                  "roshan_spell_block"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCooldown"                                     "15"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_status_resistance"                         "35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_bonus_armor"                                "5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+    }
+  }
+}

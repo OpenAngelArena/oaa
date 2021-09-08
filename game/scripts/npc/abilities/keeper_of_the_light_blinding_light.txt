@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14" //OAA
+    "AbilityCooldown"                                     "18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,13 +38,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "80" //OAA
+        "miss_rate"                                       "50" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_8"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6" //OAA
+        "duration"                                        "4"
       }
       "03"
       {
@@ -64,7 +64,13 @@
       "07" // 06
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "400" //OAA
+        "damage"                                          "200" //OAA
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_12"
       }
     }
   }

@@ -11,7 +11,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"				                            "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"			                          "SPELL_DISPELLABLE_YES"
-    //"AbilityType"					                                "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "1"
 
@@ -39,19 +38,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "on_count"                                        "5"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "725"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count"                                       "18" //OAA
-        //"LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_4"
+        "hit_count"                                       "12" //OAA
       }
       "04"
       {

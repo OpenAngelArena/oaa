@@ -73,10 +73,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // same as Greater Boots of Travel max level
+      "01" // slightly better than Greater Boots of Travel max level
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "160"
+        "bonus_movement_speed"                            "120"
       }
       "02"
       {
@@ -91,7 +91,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen"                                        "30"
+        "hp_regen"                                        "26"
       }
     }
   }

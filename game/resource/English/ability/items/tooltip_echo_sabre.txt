@@ -1,6 +1,15 @@
 //=========================================================================
 // Echo Sabre
 //=========================================================================
+//"DOTA_Tooltip_Ability_item_echo_sabre_Description"              "<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a %movement_slow%%% movement slow for %slow_duration% seconds on each strike."
+//"DOTA_Tooltip_Ability_item_echo_sabre_Lore"                     "A deceptively swift blade imbued with resonant magic."
+//"DOTA_Tooltip_Ability_item_echo_sabre_bonus_strength"           "+$str"
+//"DOTA_Tooltip_Ability_item_echo_sabre_bonus_intellect"          "+$int"
+//"DOTA_Tooltip_Ability_item_echo_sabre_bonus_attack_speed"       "+$attack"
+//"DOTA_Tooltip_Ability_item_echo_sabre_bonus_damage"             "+$damage"
+//"DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen"         "+$mana_regen"
+"DOTA_Tooltip_Ability_item_echo_sabre_cooldown_tooltip"         "COOLDOWN:"
+
 "DOTA_Tooltip_Ability_item_echo_sabre_2"                        "#{DOTA_Tooltip_Ability_item_echo_sabre}"
 "DOTA_Tooltip_Ability_item_recipe_echo_sabre_2"                 "Echo Sabre Recipe"
 "DOTA_Tooltip_Ability_item_echo_sabre_2_Description"            "#{DOTA_Tooltip_Ability_item_echo_sabre_Description}"
@@ -10,8 +19,7 @@
 "DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_attack_speed"     "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_damage"           "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_damage}"
 "DOTA_Tooltip_Ability_item_echo_sabre_2_bonus_mana_regen"       "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
-//"DOTA_Tooltip_Ability_item_echo_sabre_2_movement_slow"          "%MOVEMENT SLOW:"
-//"DOTA_Tooltip_Ability_item_echo_sabre_2_slow_duration"          "SLOW DURATION:"
+"DOTA_Tooltip_Ability_item_echo_sabre_2_cooldown_tooltip"       "#{DOTA_Tooltip_Ability_item_echo_sabre_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_echo_sabre_3"                        "#{DOTA_Tooltip_Ability_item_echo_sabre}"
 "DOTA_Tooltip_Ability_item_recipe_echo_sabre_3"                 "#{DOTA_Tooltip_Ability_item_recipe_echo_sabre_2}"
@@ -22,8 +30,7 @@
 "DOTA_Tooltip_Ability_item_echo_sabre_3_bonus_attack_speed"     "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_echo_sabre_3_bonus_damage"           "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_damage}"
 "DOTA_Tooltip_Ability_item_echo_sabre_3_bonus_mana_regen"       "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
-//"DOTA_Tooltip_Ability_item_echo_sabre_3_movement_slow"          "%MOVEMENT SLOW:"
-//"DOTA_Tooltip_Ability_item_echo_sabre_3_slow_duration"          "SLOW DURATION:"
+"DOTA_Tooltip_Ability_item_echo_sabre_3_cooldown_tooltip"       "#{DOTA_Tooltip_Ability_item_echo_sabre_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_echo_sabre_4"                        "#{DOTA_Tooltip_Ability_item_echo_sabre}"
 "DOTA_Tooltip_Ability_item_recipe_echo_sabre_4"                 "#{DOTA_Tooltip_Ability_item_recipe_echo_sabre_2}"
@@ -34,8 +41,7 @@
 "DOTA_Tooltip_Ability_item_echo_sabre_4_bonus_attack_speed"     "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_echo_sabre_4_bonus_damage"           "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_damage}"
 "DOTA_Tooltip_Ability_item_echo_sabre_4_bonus_mana_regen"       "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
-//"DOTA_Tooltip_Ability_item_echo_sabre_4_movement_slow"          "%MOVEMENT SLOW:"
-//"DOTA_Tooltip_Ability_item_echo_sabre_4_slow_duration"          "SLOW DURATION:"
+"DOTA_Tooltip_Ability_item_echo_sabre_4_cooldown_tooltip"       "#{DOTA_Tooltip_Ability_item_echo_sabre_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_echo_sabre_5"                        "#{DOTA_Tooltip_Ability_item_echo_sabre}"
 "DOTA_Tooltip_Ability_item_recipe_echo_sabre_5"                 "#{DOTA_Tooltip_Ability_item_recipe_echo_sabre_2}"
@@ -46,5 +52,4 @@
 "DOTA_Tooltip_Ability_item_echo_sabre_5_bonus_attack_speed"     "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_echo_sabre_5_bonus_damage"           "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_damage}"
 "DOTA_Tooltip_Ability_item_echo_sabre_5_bonus_mana_regen"       "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
-//"DOTA_Tooltip_Ability_item_echo_sabre_5_movement_slow"          "%MOVEMENT SLOW:"
-//"DOTA_Tooltip_Ability_item_echo_sabre_5_slow_duration"          "SLOW DURATION:"
+"DOTA_Tooltip_Ability_item_echo_sabre_5_cooldown_tooltip"       "#{DOTA_Tooltip_Ability_item_echo_sabre_cooldown_tooltip}"
