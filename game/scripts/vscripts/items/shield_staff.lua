@@ -6,11 +6,11 @@ LinkLuaModifier("modifier_shield_staff_barrier_buff", "items/shield_staff.lua", 
 
 item_shield_staff = class(ItemBaseClass)
 
-function item_siege_mode:GetIntrinsicModifierName()
+function item_shield_staff:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
 end
 
-function item_siege_mode:GetIntrinsicModifierNames()
+function item_shield_staff:GetIntrinsicModifierNames()
   return {
     "modifier_generic_bonus",
     "modifier_item_shield_staff_non_stacking_stats"
@@ -388,12 +388,17 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
   local parent = self:GetParent()
   local block_amount = event.damage
   local barrier_hp = self:GetStackCount()
+  
+  -- Don't react on self damage
+  if event.attacker == parent then
+    return 0
+  end
 
   -- Don't block more than remaining hp
-  block_amount = math.min(block_amount, hp)
+  block_amount = math.min(block_amount, barrier_hp)
 
   -- Reduce barrier hp
-  self:SetStackCount(hp - block_amount)
+  self:SetStackCount(barrier_hp - block_amount)
 
   -- Visual effect
   SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
