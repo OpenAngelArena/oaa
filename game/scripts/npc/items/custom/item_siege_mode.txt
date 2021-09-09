@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Siege Mode
+  // Recipe: Splash Gun
   //=================================================================================================================
   "item_recipe_siege_mode"
   {
@@ -25,11 +25,12 @@
     "ItemRequirements"
     {
       "01"                                                "item_hurricane_pike_3;item_upgrade_core_3"
+      "02"                                                "item_shield_staff_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Siege Mode
+  // Splash Gun
   //=================================================================================================================
   "item_siege_mode"
   {
@@ -48,7 +49,7 @@
 
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "1.0"
+    "AbilityCooldown"                                     "16"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +57,7 @@
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "siege mode;siege gun;siege"
+    "ItemAliases"                                         "splash gun;splash;siege"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
@@ -92,58 +93,33 @@
       }
       "04"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "800 1000"
+      }
+      "05"
+      {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_health_regen"                              "12 15"
       }
-      "05" // ranged only
+      "06" // ranged only
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_range"                              "170 180"
       }
-      "06" // ranged only (melee heroes become ranged)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_attack_range"                              "600"
-      }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_attack_damage"                             "500"
+        "active_splash_radius"                            "300"
       }
       "08"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "siege_attack_rate"                               "0.7"
+        "var_type"                                        "FIELD_INTEGER"
+        "active_splash_damage"                            "150"
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_cast_range"                                "0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_splash_radius"                             "300"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_splash_damage"                             "150"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_move_speed"                                "270"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "siege_projectile_speed"                          "700"
-      }
-      "14"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown"                                        "12"
+        "duration"                                        "8"
       }
     }
   }
