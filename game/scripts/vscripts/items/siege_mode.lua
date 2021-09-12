@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_item_siege_mode_active", "items/siege_mode.lua", LUA_M
 
 ---------------------------------------------------------------------------------------------------
 
-item_siege_mode = class(ItemBaseClass)
+item_siege_mode = class(TransformationBaseClass)
 
 function item_siege_mode:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
@@ -18,40 +18,8 @@ function item_siege_mode:GetIntrinsicModifierNames()
   }
 end
 
-function item_siege_mode:GetAbilityTextureName()
-  local baseName = self.BaseClass.GetAbilityTextureName(self)
-
-  local activeName = ""
-
-  if self.mod and not self.mod:IsNull() then
-    activeName = "_active"
-  end
-
-  return baseName .. activeName
-end
-
-function item_siege_mode:OnSpellStart()
-  local caster = self:GetCaster()
-  local modifierName = "modifier_item_siege_mode_active"
-
-  local mod = self.mod or caster:FindModifierByName(modifierName)
-
-  if not mod or mod:IsNull() then
-    -- Apply modifier
-    self.mod = caster:AddNewModifier(caster, self, modifierName, {})
-  else
-    mod:Destroy()
-    self.mod = nil
-    -- Start the real cooldown when ''untoggled''
-    local cooldown = self:GetSpecialValueFor("cooldown")
-    self:EndCooldown()
-    self:StartCooldown(cooldown)
-    self:RefundManaCost()
-  end
-end
-
-function item_siege_mode:ProcsMagicStick()
-  return false
+function item_siege_mode:GetTransformationModifierName()
+  return "modifier_item_siege_mode_active"
 end
 
 item_siege_mode_2 = item_siege_mode
@@ -77,6 +45,7 @@ end
 function modifier_item_siege_mode_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
+    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
     self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
@@ -87,6 +56,7 @@ end
 function modifier_item_siege_mode_stacking_stats:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
+    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
     self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
@@ -96,6 +66,7 @@ end
 
 function modifier_item_siege_mode_stacking_stats:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -103,20 +74,24 @@ function modifier_item_siege_mode_stacking_stats:DeclareFunctions()
   }
 end
 
+function modifier_item_siege_mode_stacking_stats:GetModifierHealthBonus()
+  return self.bonus_health or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
 function modifier_item_siege_mode_stacking_stats:GetModifierConstantHealthRegen()
-  return self.bonus_health_regen or 0
+  return self.bonus_health_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
 function modifier_item_siege_mode_stacking_stats:GetModifierBonusStats_Strength()
-  return self.bonus_strength or 0
+  return self.bonus_strength or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_siege_mode_stacking_stats:GetModifierBonusStats_Agility()
-  return self.bonus_agility or 0
+  return self.bonus_agility or self:GetAbility():GetSpecialValueFor("bonus_agility")
 end
 
 function modifier_item_siege_mode_stacking_stats:GetModifierBonusStats_Intellect()
-  return self.bonus_intellect or 0
+  return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -171,7 +146,7 @@ function modifier_item_siege_mode_non_stacking_stats:GetModifierAttackRangeBonus
     return 0
   end
 
-  return self.attack_range or 170
+  return self.attack_range or self:GetAbility():GetSpecialValueFor("bonus_attack_range")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -194,6 +169,7 @@ function modifier_item_siege_mode_active:GetEffectName()
   return "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
 end
 
+--[[
 function modifier_item_siege_mode_active:OnCreated()
   local ability = self:GetAbility()
 
@@ -247,7 +223,7 @@ function modifier_item_siege_mode_active:OnIntervalThink()
     self:Destroy()
   end
 end
-
+]]
 function modifier_item_siege_mode_active:OnDestroy()
   if not IsServer() then
     return
@@ -255,26 +231,30 @@ function modifier_item_siege_mode_active:OnDestroy()
 
   local parent = self:GetParent()
 
-  if self.parentWasRanged then
-    parent:ChangeAttackProjectile()
+  if not parent:IsRangedAttacker() then
     return
   end
 
-  if parent:HasModifier("modifier_terrorblade_metamorphosis") or parent:HasAbility("troll_warlord_berserkers_rage") or parent:HasModifier("modifier_dragon_knight_dragon_form") or parent:HasModifier("modifier_lone_druid_true_form") then
-    return
-  end
+  -- if self.parentWasRanged then
+  parent:ChangeAttackProjectile()
+    -- return
+  -- end
 
-  parent:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
+  -- if parent:HasModifier("modifier_terrorblade_metamorphosis") or parent:HasAbility("troll_warlord_berserkers_rage") or parent:HasModifier("modifier_dragon_knight_dragon_form") or parent:HasModifier("modifier_lone_druid_true_form") then
+    -- return
+  -- end
+
+  -- parent:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 end
 
 function modifier_item_siege_mode_active:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
-    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-    MODIFIER_PROPERTY_CAST_RANGE_BONUS,
-    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
-    MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
+    --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    --MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
+    --MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+    --MODIFIER_PROPERTY_CAST_RANGE_BONUS,
+    --MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+    --MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
     MODIFIER_EVENT_ON_ATTACK_START,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_ATTACK_FINISHED,
@@ -292,30 +272,31 @@ end
   -- return {}
 -- end
 
-function modifier_item_siege_mode_active:GetModifierPreAttack_BonusDamage()
-  return self.atkDmg or 500
-end
+--function modifier_item_siege_mode_active:GetModifierPreAttack_BonusDamage()
+  --return self.atkDmg or 500
+--end
 
-function modifier_item_siege_mode_active:GetModifierFixedAttackRate()
-  return self.atkRate or 0.7
-end
+--function modifier_item_siege_mode_active:GetModifierFixedAttackRate()
+  --return self.atkRate or 0.7
+--end
 
-function modifier_item_siege_mode_active:GetModifierAttackRangeBonus()
-  if self:GetParent():IsRangedAttacker() then
-    return self.atkRange or 600
-  end
+--function modifier_item_siege_mode_active:GetModifierAttackRangeBonus()
+  --if self:GetParent():IsRangedAttacker() then
+    --return self.atkRange or 600
+  --end
 
-  return 0
-end
+  --return 0
+--end
 
-function modifier_item_siege_mode_active:GetModifierCastRangeBonus()
-  return self.castRange or 0
-end
+--function modifier_item_siege_mode_active:GetModifierCastRangeBonus()
+  --return self.castRange or 0
+--end
 
-function modifier_item_siege_mode_active:GetModifierMoveSpeed_Absolute()
-  return self.moveSpeed or 270
-end
+--function modifier_item_siege_mode_active:GetModifierMoveSpeed_Absolute()
+  --return self.moveSpeed or 270
+--end
 
+--[[
 function modifier_item_siege_mode_active:GetModifierProjectileSpeedBonus()
   local parent = self:GetParent()
   if not IsServer() or parent:HasModifier("modifier_item_princes_knife") then
@@ -335,6 +316,7 @@ function modifier_item_siege_mode_active:GetModifierProjectileSpeedBonus()
 
   return 0
 end
+]]
 
 function modifier_item_siege_mode_active:OnAttackStart(event)
   if not IsServer() then
@@ -347,6 +329,10 @@ function modifier_item_siege_mode_active:OnAttackStart(event)
   end
 
   if not parent or parent:IsNull() then
+    return
+  end
+
+  if not parent:IsRangedAttacker() then
     return
   end
 
@@ -404,8 +390,8 @@ function modifier_item_siege_mode_active:OnAttackLanded(event)
   local targetFlags = ability:GetAbilityTargetFlags()
 
   -- get the radius
-  local splash_radius = ability:GetSpecialValueFor("siege_splash_radius")
-  local splash_damage = ability:GetSpecialValueFor("siege_splash_damage")
+  local splash_radius = ability:GetSpecialValueFor("active_splash_radius")
+  local splash_damage = ability:GetSpecialValueFor("active_splash_damage")
 
   -- find all appropriate targets around the initial target
   local units = FindUnitsInRadius(
@@ -419,14 +405,6 @@ function modifier_item_siege_mode_active:OnAttackLanded(event)
     FIND_ANY_ORDER,
     false
   )
-
-  -- remove the initial target from the list
-  for k, unit in pairs(units) do
-    if unit == target then
-      table.remove(units, k)
-      break
-    end
-  end
 
   -- get the wearer's damage
   local damage = event.original_damage
@@ -442,18 +420,20 @@ function modifier_item_siege_mode_active:OnAttackLanded(event)
   damage_table.damage = actual_damage
   damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
 
+  -- Show particle only if damage is above zero and only if there are units nearby
+  if actual_damage > 0 and #units > 1 then
+    local part = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_CUSTOMORIGIN, target)
+    ParticleManager:SetParticleControl(part, 3, targetOrigin)
+    ParticleManager:ReleaseParticleIndex(part)
+  end
+
   -- iterate through all targets
-  for k, unit in pairs(units) do
-    if unit and not unit:IsNull() then
+  for _, unit in pairs(units) do
+    if unit and not unit:IsNull() and unit ~= target then
       damage_table.victim = unit
       ApplyDamage(damage_table)
     end
   end
-
-  -- play the particle
-  local part = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_CUSTOMORIGIN, target)
-  ParticleManager:SetParticleControl(part, 3, targetOrigin)
-  ParticleManager:ReleaseParticleIndex(part)
 
   -- sound
   target:EmitSound("OAA_Item.SiegeMode.Explosion")
@@ -467,13 +447,13 @@ function modifier_item_siege_mode_active:OnAttackFinished(event)
   local parent = self:GetParent()
   if event.attacker == parent then
 
+    if not parent:IsRangedAttacker() then
+      return
+    end
+
     -- Change the projectile (if a parent doesn't have modifier_item_siege_mode_active)
     parent:ChangeAttackProjectile()
   end
-end
-
-function modifier_item_siege_mode_active:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA
 end
 
 function modifier_item_siege_mode_active:GetTexture()
