@@ -47,18 +47,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 175 250 325 650 975"
+        "damage"                                          "100 175 250 325 650 1300"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "jump_damage_reduction_pct"                       "8"
+        "jump_damage_reduction_pct"                       "7"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_damage_reduction"                         "10 18 26 34 42 50"
+        "attack_damage_reduction"                         "20 25 30 35 40 45" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
       }

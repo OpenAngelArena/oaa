@@ -198,10 +198,11 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
     ["item_spirit_vessel_4"] = true,
     ["item_spirit_vessel_5"] = true,
     ["item_cloak_of_flames"] = true,
-    ["item_trumps_fists"] = true,
+    ["item_trumps_fists"] = true,           -- Blade of Judecca
     ["item_trumps_fists_2"] = true,
     ["item_silver_staff"] = true,
     ["item_silver_staff_2"] = true,
+    ["item_paintball"] = true,              -- Fae Grenade
   }
 
   -- For debugging
