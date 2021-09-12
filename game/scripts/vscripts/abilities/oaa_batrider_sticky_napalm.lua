@@ -52,8 +52,8 @@ function batrider_sticky_napalm_oaa:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Take status resistance of the enemy and calculate actual duration
-      local actual_duration = enemy:GetValueChangedByStatusResistance(duration)
-      enemy:AddNewModifier(caster, self, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = actual_duration})
+      --local actual_duration = enemy:GetValueChangedByStatusResistance(duration)
+      enemy:AddNewModifier(caster, self, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
     end
   end
 
@@ -91,6 +91,7 @@ function modifier_batrider_sticky_napalm_oaa_passive:DeclareFunctions()
     --MODIFIER_PROPERTY_DISABLE_TURNING,
     MODIFIER_EVENT_ON_ORDER,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_MODIFIER_ADDED,
   }
 
   return funcs
@@ -265,6 +266,44 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
   damage_table.damage = bonus_damage * stack_count
 
   ApplyDamage(damage_table)
+end
+
+-- Shard effects: Flamebreak applies Sticky Napalm charge
+function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Aghanim Shard
+  if not parent:HasShardOAA() then
+    return
+  end
+
+  -- Unit that gained a modifier
+  local unit = event.unit
+
+  -- If the unit is not actually a unit but its an entity that can gain modifiers
+  if unit.HasModifier == nil then
+    return
+  end
+
+  local flamebreak_modifier = unit:FindModifierByNameAndCaster("modifier_flamebreak_damage", parent)
+  if not flamebreak_modifier then
+    return
+  end
+
+  local ability = self:GetAbility()
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  local duration = ability:GetSpecialValueFor("duration")
+
+  -- Apply Sticky Napalm debuff
+  unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
 end
 
 ---------------------------------------------------------------------------------------------------
