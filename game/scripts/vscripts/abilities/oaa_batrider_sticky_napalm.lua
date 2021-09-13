@@ -274,10 +274,6 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
     return
   end
 
-  --for k, v in pairs(event) do
-    --print(k, v)
-  --end
-
   local parent = self:GetParent()
 
   -- Check if parent has Aghanim Shard
