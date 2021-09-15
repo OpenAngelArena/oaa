@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 180 240"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -47,12 +47,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20"
+        "damage_per_second"                               "15"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_duration"                                 "2 4 6 8 9 10"
+        "damage_duration"                                 "2 4 6 8 10 12"
         "CalculateSpellDamageTooltip"                     "0"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_3"
       }
@@ -94,7 +94,7 @@
       "11" // OAA
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_total_tooltip"                            "90 155 220 285 430 700" // damage_impact + damage_per_second x damage_duration
+        "damage_total_tooltip"                            "80 135 190 245 400 680" // damage_impact + damage_per_second x damage_duration
       }
     }
   }

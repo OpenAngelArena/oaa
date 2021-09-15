@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "11"
+    "AbilityCooldown"                                     "13"
     "AbilityChannelTime"                                  "3"
 
     // Cost
@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "200 300 400 500 1000 2000" //OAA
+        "total_damage"                                    "200 300 400 500 1000 2000"
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light"
       }
       "02"
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "speed"                                           "1050.0"
+        "speed"                                           "900.0"
       }
       "06"
       {

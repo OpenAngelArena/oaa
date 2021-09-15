@@ -1,7 +1,7 @@
 ﻿"DOTAAbilities"
 {
   //=================================================================================================================
-  // Clinkz: Strafe (OAA rework)
+  // Clinkz: Strafe (OAA rework) - custom shard ability
   //=================================================================================================================
   "clinkz_strafe_oaa"
   {
@@ -9,24 +9,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "85259"
     "BaseClass"                                           "ability_lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityTextureName"                                  "clinkz_strafe"
+    "AbilityTextureName"                                  "custom/clinkz_strafe_oaa"
     "ScriptFile"                                          "abilities/oaa_clinkz_strafe.lua"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "28 26 24 22 20 18"
+    "AbilityCooldown"                                     "22" // old "28 26 24 22 20 18"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 50 60 70 80 90"
+    "AbilityManaCost"                                     "90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,14 +33,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 4 5 6 6.5 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_2"
+        "duration"                                        "6" // old: "3 4 5 6 6.5 7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "90 120 150 180 210 240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_7"
+        "bonus_attack_speed"                              "200" // old "90 120 150 180 210 240"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_evasion"                                   "25"
       }
     }
   }

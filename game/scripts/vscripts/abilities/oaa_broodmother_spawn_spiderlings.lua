@@ -257,7 +257,7 @@ end
 function modifier_broodmother_giant_spiderling_passive:OnCreated()
   self.bonus_ms = 18
   self.bonus_hp_regen = 3
-  self.hp_percent_low = 20
+  self.hp_percent_low = 1
   self.hp_percent_high = 100
 
   if not IsServer() then

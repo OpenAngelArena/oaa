@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8" //OAA
+        "duration"                                        "10"
       }
       "02"
       {
@@ -58,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen"                                        "8 12 16 20 28 52"
+        "hp_regen"                                        "8 12 16 20 28 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_5"
       }
     }
