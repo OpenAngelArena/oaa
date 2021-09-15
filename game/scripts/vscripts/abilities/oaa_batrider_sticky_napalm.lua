@@ -2,7 +2,7 @@ batrider_sticky_napalm_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_passive", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_debuff", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_batrider_flamebreak_instance_tracker", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 --[[
 function batrider_sticky_napalm_oaa:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", context)
@@ -52,8 +52,8 @@ function batrider_sticky_napalm_oaa:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Take status resistance of the enemy and calculate actual duration
-      local actual_duration = enemy:GetValueChangedByStatusResistance(duration)
-      enemy:AddNewModifier(caster, self, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = actual_duration})
+      --local actual_duration = enemy:GetValueChangedByStatusResistance(duration)
+      enemy:AddNewModifier(caster, self, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
     end
   end
 
@@ -91,6 +91,7 @@ function modifier_batrider_sticky_napalm_oaa_passive:DeclareFunctions()
     --MODIFIER_PROPERTY_DISABLE_TURNING,
     MODIFIER_EVENT_ON_ORDER,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_MODIFIER_ADDED,
   }
 
   return funcs
@@ -198,10 +199,11 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
     ["item_spirit_vessel_4"] = true,
     ["item_spirit_vessel_5"] = true,
     ["item_cloak_of_flames"] = true,
-    ["item_trumps_fists"] = true,
+    ["item_trumps_fists"] = true,           -- Blade of Judecca
     ["item_trumps_fists_2"] = true,
     ["item_silver_staff"] = true,
     ["item_silver_staff_2"] = true,
+    ["item_paintball"] = true,              -- Fae Grenade
   }
 
   -- For debugging
@@ -264,6 +266,68 @@ function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
   damage_table.damage = bonus_damage * stack_count
 
   ApplyDamage(damage_table)
+end
+
+-- Shard effects: Flamebreak applies Sticky Napalm charge
+function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Aghanim Shard
+  if not parent:HasShardOAA() then
+    return
+  end
+
+  -- Unit that gained a modifier
+  local unit = event.unit
+
+  -- If the unit is not actually a unit but its an entity that can gain modifiers
+  if unit.HasModifier == nil then
+    return
+  end
+
+  local flamebreak_modifier = unit:FindModifierByNameAndCaster("modifier_flamebreak_damage", parent)
+  if not flamebreak_modifier then
+    return
+  end
+
+  local ability = self:GetAbility()
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  local duration = ability:GetSpecialValueFor("duration")
+  local remaining_duration = flamebreak_modifier:GetRemainingTime()
+  local flamebreak_tracker = unit:FindModifierByNameAndCaster("modifier_batrider_flamebreak_instance_tracker", parent)
+  local sticky_debuff = unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", parent)
+
+  if sticky_debuff and flamebreak_tracker then
+    -- Unit has a debuff and a tracker
+    -- Get the remaining duration of the tracker (this represents a rough estimate remaining duration of the previous instance)
+    local previous_flame_break_remaining_duration = flamebreak_tracker:GetRemainingTime()
+    -- Check if Flamebreak was recasted recently (0.1s) on a unit already affected by Flamebreak
+    if math.abs(remaining_duration - previous_flame_break_remaining_duration) > 0.1 then
+      -- Apply tracker with new duration
+      unit:AddNewModifier(parent, nil, "modifier_batrider_flamebreak_instance_tracker", {duration = remaining_duration})
+      -- Apply sticky
+      unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
+    end
+  elseif not sticky_debuff and flamebreak_tracker then
+    -- Unit has a tracker but doesn't have a debuff -> this means OnModifierAdded triggered for applying flamebreak_tracker
+    -- do nothing
+  else
+    -- Other cases:
+    -- 1) When the unit has sticky but not the tracker -> Sticky was applied through other means
+    -- 2) When the unit doesn't have sticky or a tracker -> Flamebreak was cast on a unit for the first time
+    -- Apply tracker
+    unit:AddNewModifier(parent, nil, "modifier_batrider_flamebreak_instance_tracker", {duration = remaining_duration})
+    -- Apply sticky
+    unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -346,4 +410,20 @@ end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:StatusEffectPriority()
   return MODIFIER_PRIORITY_LOW
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_batrider_flamebreak_instance_tracker = class(ModifierBaseClass)
+
+function modifier_batrider_flamebreak_instance_tracker:IsHidden()
+  return true
+end
+
+function modifier_batrider_flamebreak_instance_tracker:IsDebuff()
+  return false
+end
+
+function modifier_batrider_flamebreak_instance_tracker:IsPurgable()
+  return true
 end
