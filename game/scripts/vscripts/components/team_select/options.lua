@@ -42,7 +42,7 @@ end
 
 function OAAOptions:InitializeSettingsTable()
   self.settings = {
-    GAME_MODE = "AP",                   -- "RD", "AR", "AP"
+    GAME_MODE = "RD",                   -- "RD", "AR", "AP"
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
   }
 
