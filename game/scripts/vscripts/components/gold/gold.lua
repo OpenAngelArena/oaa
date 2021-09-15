@@ -194,7 +194,7 @@ function Gold:PassiveGPM(hero)
   if time and self:IsGoldGenActive() then
     local tick =  math.floor(time/GPM_TICK_INTERVAL)
     local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
-     -- GameRules:SetGoldPerTick doesn't work since 7.23
+    -- GameRules:SetGoldPerTick doesn't work since 7.23
     self:ModifyGold(hero, gold_per_tick, false, DOTA_ModifyGold_GameTick)
   end
 end
