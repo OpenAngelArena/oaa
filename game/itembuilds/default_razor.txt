@@ -8,49 +8,42 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      ""
+            "item"      "item_boots"
+            "item"      "item_ring_of_protection"
             "item"      "item_flask"
-            "item"      "item_enchanted_mango"
-            "item"      "item_branches"
-            "item"      "item_magic_wand"
         }
 
         "#DOTA_Item_Build_Early_Game"
         {
-            "item"      ""
-            "item"      ""
-            "item"      "item_greater_crit"
+            "item"      "item_lesser_crit"
+            "item"      "item_butterfly_oaa"
         }
 
         "#DOTA_Item_Build_Mid_Items"
         {
-            "item"      ""
-            "item"      ""
-            "item"      ""
+            "item"      "item_satanic"
+            "item"      "item_skadi"
+            "item"      "item_octarine_core"
         }
 
         "#DOTA_Item_Build_Late_Items"
         {
-            "item"      "item_desolator"
-            "item"      "item_assault"
-            "item"      "item_satanic"
-            "item"      ""
+            "item"      "item_black_king_bar_1"
+            "item"      "item_greater_crit"
+            "item"      "item_refresher_4"
 	    "item"	"item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
-            "item"      "item_black_king_bar_1"
+            "item"      "item_ultimate_scepter"
             "item"      "item_monkey_king_bar"
-            "item"      "item_skadi"
+            "item"      "item_mage_slayer"
             "item"      "item_trumps_fists"
-            "item"      "item_sphere"
+            "item"      "item_sange_and_yasha"
             "item"      "item_silver_edge"
-            "item"      "item_manta"
+            "item"      "item_shivas_guard"
             "item"      "item_mjollnir"
-            "item"      ""
-            "item"      "item_hurricane_pike"
-            "item"      ""
         }
     }
 }
