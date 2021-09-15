@@ -73,13 +73,23 @@ function CorePointsManager:FilterOrders(keys)
           local tier = CorePointsManager:GetTierFromCorePointCost(core_points_cost)
           if core_points_cost > self:GetCorePointValueOfTier(1) then
             allowed_to_buy = BossSpawner.hasKilledTiers[tier] == true
-            if CapturePoints.currentCapture == nil and CapturePoints.NumCaptures >= tier then
+            if CapturePoints and CapturePoints.currentCapture == nil and CapturePoints.NumCaptures >= tier then
               allowed_to_buy = true -- Both Capture Points of corresponding tier were captured
             end
           end
           if allowed_to_buy then
             self:AddCorePoints(-core_points_cost, unit_with_order, playerID)
             --self:GiveUpgradeCoreToHero(core_points_cost, unit_with_order, playerID)
+            local shop_item_name -- string
+            if type(shop_item) == 'string' then
+              shop_item_name = shop_item
+            else
+              shop_item_name = shop_item:GetName()
+            end
+            if shop_item_name == "item_core_info" and Gold then
+              Gold:ModifyGold(unit_with_order, 750, true, DOTA_ModifyGold_SellItem)
+              return false
+            end
           else
             -- Error - requirements not met
             local error_msg1 = "#oaa_hud_error_requires_tier_" .. tostring(tier) .. "_boss_or_cp"
