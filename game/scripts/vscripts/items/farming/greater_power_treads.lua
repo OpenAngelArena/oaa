@@ -2,7 +2,6 @@ item_greater_power_treads = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_power_treads", "items/farming/greater_power_treads.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
 --[[ old
 function item_greater_power_treads:GetAbilityTextureName()
   local baseName = self.BaseClass.GetAbilityTextureName( self )
@@ -31,13 +30,9 @@ function item_greater_power_treads:GetAbilityTextureName()
 end
 ]]
 
---------------------------------------------------------------------------------
-
 function item_greater_power_treads:GetIntrinsicModifierName()
   return "modifier_item_greater_power_treads"
 end
-
---------------------------------------------------------------------------------
 
 --[[ old
 function item_greater_power_treads:OnSpellStart()
@@ -59,12 +54,15 @@ function item_greater_power_treads:OnSpellStart()
   end
 end
 
---------------------------------------------------------------------------------
-
 function item_greater_power_treads:IsSwappable()
   return self:GetSpecialValueFor("bonus_stat") > 0
 end
 ]]
+
+item_greater_power_treads_2 = class(item_greater_power_treads)
+item_greater_power_treads_3 = class(item_greater_power_treads)
+item_greater_power_treads_4 = class(item_greater_power_treads)
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_greater_power_treads = class(ModifierBaseClass)
@@ -81,41 +79,11 @@ function modifier_item_greater_power_treads:IsPurgable()
   return false
 end
 
-function modifier_item_greater_power_treads:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
+--function modifier_item_greater_power_treads:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
 
 --[[ old
-function modifier_item_greater_power_treads:OnCreated( event )
-  local spell = self:GetAbility()
-
-  if not spell then
-    return
-  end
-
-  if spell.attribute then
-    self:SetStackCount( spell.attribute )
-  end
-
-  spell.treadMod = self
-
-  self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
-  self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
-  self.stat = spell:GetSpecialValueFor( "bonus_stat" )
-  self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
-  self.all_stats = spell:GetSpecialValueFor( "all_stats" )
-  self.magic_resistance = spell:GetSpecialValueFor( "bonus_magic_resistance" )
-  self.spell_amp = spell:GetSpecialValueFor( "bonus_spell_amp" )
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:OnRefresh( event )
-  return self:OnCreated( event )
-end
-
---------------------------------------------------------------------------------
-
 function modifier_item_greater_power_treads:OnRemoved()
   local spell = self:GetAbility()
 
@@ -138,6 +106,12 @@ function modifier_item_greater_power_treads:OnCreated()
   if not ability or ability:IsNull() then
     return
   end
+
+  --if ability.attribute then
+    --self:SetStackCount( ability.attribute )
+  --end
+
+  --ability.treadMod = self
 
   self.moveSpd = ability:GetSpecialValueFor("bonus_movement_speed")
   self.atkSpd = ability:GetSpecialValueFor("bonus_attack_speed")
@@ -415,9 +389,3 @@ if IsServer() then
   end
 end
 --]]
-
-item_greater_power_treads_2 = class(item_greater_power_treads)
-item_greater_power_treads_3 = class(item_greater_power_treads)
-item_greater_power_treads_4 = class(item_greater_power_treads)
-item_greater_power_treads_5 = class(item_greater_power_treads)
---item_power_origin = class(item_greater_power_treads)

@@ -93,24 +93,33 @@ end
 
 function modifier_mini_rosh_passives:GetAbsorbSpell(event)
   if not IsServer() then
-    return
+    return 0
   end
 
   local parent = self:GetParent()
   local ability = self:GetAbility()
+  local casted_ability = event.ability
 
-  if not ability or ability:IsNull() then
-    return
+  -- Don't block if we don't have required variables
+  if not ability or ability:IsNull() or not casted_ability or casted_ability:IsNull() then
+    return 0
   end
 
-  -- No need to dodge if parent is invulnerable
+  local caster = casted_ability:GetCaster()
+
+  -- Don't block allied spells
+  if caster:GetTeamNumber() == parent:GetTeamNumber() then
+    return 0
+  end
+
+  -- Don't block if parent is invulnerable, dominated, under break of if parent is an illusion
   if parent:IsInvulnerable() or parent:IsDominated() or parent:PassivesDisabled() or parent:IsIllusion() then
-    return
+    return 0
   end
 
-  -- Don't dodge if passive is on cooldown
+  -- Don't block if on cooldown
   if not ability:IsCooldownReady() then
-    return
+    return 0
   end
 
   -- Start cooldown respecting cooldown reductions

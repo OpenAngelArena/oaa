@@ -118,7 +118,18 @@ function electrician_cleansing_shock:ApplyEffect( target )
   local duration = self:GetSpecialValueFor( "duration" )
 
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    -- Check if the enemy target is spell-immune
+    if target:IsMagicImmune() then
+      -- Check for talent that allows targetting spell immune
+      if not caster:HasLearnedAbility("special_bonus_electrician_cleansing_shock_pierce") then
+        return
+      end
+    end
+
+    -- Basic Dispel (for enemies)
     target:Purge( true, false, false, false, false )
+
+    -- Slow debuff
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
 
     -- Check for mini-stun talent
@@ -139,7 +150,10 @@ function electrician_cleansing_shock:ApplyEffect( target )
       ApplyDamage(damage_table)
     end
   else
+    -- Basic Dispel (for allies)
     target:Purge( false, true, false, false, false )
+
+    -- Movement speed buff
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", { duration = duration } )
   end
 

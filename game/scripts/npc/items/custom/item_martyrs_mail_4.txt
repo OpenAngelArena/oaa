@@ -109,5 +109,11 @@
         "aura_radius"                                     "1200"
       }
     }
+
+    "precache"
+    {
+      "particle"                                          "particles/items_fx/blademail.vpcf"
+      "particle"                                          "particles/world_shrine/radiant_shrine_active_ray.vpcf"
+    }
   }
 }

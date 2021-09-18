@@ -436,7 +436,7 @@ function modifier_item_siege_mode_active:OnAttackLanded(event)
   end
 
   -- sound
-  target:EmitSound("OAA_Item.SiegeMode.Explosion")
+  target:EmitSound("dota_fountain.ProjectileImpact")
 end
 
 function modifier_item_siege_mode_active:OnAttackFinished(event)

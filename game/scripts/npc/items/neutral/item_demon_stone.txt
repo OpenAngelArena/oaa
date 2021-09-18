@@ -80,5 +80,11 @@
         "summon_true_sight_radius"                        "800"
       }
     }
+
+    "precache"
+    {
+      "model"                                             "models/heroes/warlock/warlock_demon.vmdl"
+      "soundfile"                                         "soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
+    }
   }
 }

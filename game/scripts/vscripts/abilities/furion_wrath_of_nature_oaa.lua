@@ -23,8 +23,8 @@ function furion_wrath_of_nature_oaa:OnSpellStart()
   local caster = self:GetCaster()
 
   if target then
-    -- If target doesn't have Spell Block then
-    if not target:TriggerSpellAbsorb(self) then
+    -- If target doesn't have Spell Block and not spell-immune then
+    if not target:TriggerSpellAbsorb(self) and not target:IsMagicImmune() then
       CreateModifierThinker(caster, self, "modifier_furion_wrath_of_nature_thinker_oaa", {}, target:GetAbsOrigin(), caster:GetTeamNumber(), false)
     end
   elseif cursor_position then

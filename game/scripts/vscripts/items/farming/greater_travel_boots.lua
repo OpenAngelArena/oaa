@@ -123,6 +123,11 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
 
+item_greater_travel_boots_2 = class(item_greater_travel_boots)
+item_greater_travel_boots_3 = class(item_greater_travel_boots)
+item_greater_travel_boots_4 = class(item_greater_travel_boots)
+item_travel_boots_oaa = item_greater_travel_boots
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_greater_travel_boots = class(ModifierBaseClass)
@@ -218,12 +223,3 @@ function modifier_item_greater_travel_boots_unique_passive:GetModifierSpellAmpli
 
   return 0
 end
-
---------------------------------------------------------------------------------
--- All the upgrades are exactly the same
---------------------------------------------------------------------------------
-item_greater_travel_boots_2 = class(item_greater_travel_boots)
-item_greater_travel_boots_3 = class(item_greater_travel_boots)
-item_greater_travel_boots_4 = class(item_greater_travel_boots)
-item_greater_travel_boots_5 = class(item_greater_travel_boots)
-item_travel_boots_oaa = item_greater_travel_boots

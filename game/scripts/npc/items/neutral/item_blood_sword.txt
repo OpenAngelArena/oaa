@@ -48,5 +48,11 @@
         "active_lifesteal_percent"                        "100"
       }
     }
+
+    "precache"
+    {
+      "particle"                                          "particles/items3_fx/iron_talon_active.vpcf"
+      "particle"                                          "particles/generic_gameplay/generic_lifesteal.vpcf"
+    }
   }
 }

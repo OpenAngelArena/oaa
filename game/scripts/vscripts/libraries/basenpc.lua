@@ -34,6 +34,7 @@ if IsServer() then
       "modifier_black_king_bar_immune",
       "modifier_item_hood_of_defiance_barrier",
       "modifier_item_pipe_barrier",
+      "modifier_item_satanic_unholy",
       "modifier_item_shadow_amulet_fade",
       "modifier_item_invisibility_edge_windwalk",
       "modifier_item_silver_edge_windwalk",
@@ -41,11 +42,28 @@ if IsServer() then
       "modifier_item_blade_mail_reflect",
       "modifier_item_lotus_orb_active",
       "modifier_item_sphere_target",               -- Linken's Sphere transferred buff
-      "modifier_item_martyrs_mail_martyr_active",  -- Martyr's Mail buff
-      "modifier_item_stoneskin_stone_armor",       -- Stoneskin Armor buff
-      "modifier_item_ghost_king_bar_active",       -- Ghost King Bar buff
+      "modifier_item_book_of_shadows_buff",
+      --"modifier_item_bloodstone_active",
+      "modifier_item_butterfly_oaa_active",        -- Butterfly active buff
+      --"modifier_item_dagger_of_moriah_sangromancy",-- Dagger of Moriah active buff
       "modifier_item_preemptive_purge",            -- Dispel Orb buff
+      "modifier_eternal_shroud_oaa_barrier",       -- Eternal Shroud active buff
+      "modifier_shield_staff_barrier_buff",        -- Force Shield Staff buff
+      --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller
+      "modifier_item_ghost_king_bar_active",       -- Ghost King Bar active buff
+      --"modifier_item_giant_form_grow",             -- Giant Form active buff
+      "modifier_item_heart_oaa_active",            -- Heart active buff
+      --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
+      "modifier_item_martyrs_mail_martyr_active",  -- Martyr's Mail buff
+      --"modifier_pull_staff_active_buff",           -- Pull Staff motion controller
       "modifier_item_preemptive_damage_reduction", -- Reduction Orb buff
+      --"modifier_item_reactive_reflect",            -- Reflection Shard buff
+      --"modifier_satanic_core_unholy",              -- Satanic Core active buff
+      --"modifier_sonic_fly",                        -- Sonic Boots active buff
+      "modifier_item_spiked_mail_active_return",   -- Spiked Mail active buff
+      --"modifier_item_siege_mode_active",           -- Splash Cannon active buff
+      "modifier_item_stoneskin_stone_armor",       -- Stoneskin Armor buff
+      "modifier_item_vampire_active",              -- Vampire Fang active buff
     }
 
     local undispellable_item_debuffs = {
@@ -55,6 +73,7 @@ if IsServer() then
       "modifier_item_nullifier_mute",           -- Nullifier debuff
       "modifier_item_trumps_fists_frostbite",   -- Blade of Judecca debuff
       "modifier_item_silver_staff_debuff",      -- Silver Staff debuff
+      "modifier_item_rune_breaker_oaa_debuff",  -- Rune Breaker debuff
     }
 
     local undispellable_ability_debuffs = {
@@ -72,6 +91,7 @@ if IsServer() then
       "modifier_razor_static_link_debuff",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
+      "modifier_shadow_demon_shadow_poison",
       "modifier_shadow_demon_purge_slow",
       "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
       "modifier_slark_pounce_leash",
@@ -113,7 +133,7 @@ if IsServer() then
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
-      "modifier_omniknight_repel",              -- Heavenly Grace
+      --"modifier_omniknight_repel",              -- Heavenly Grace
       "modifier_pangolier_shield_crash_buff",
       "modifier_phantom_assassin_blur_active",
       "modifier_razor_static_link_buff",
@@ -124,6 +144,7 @@ if IsServer() then
       "modifier_ursa_enrage",
       "modifier_weaver_shukuchi",
       "modifier_winter_wyvern_cold_embrace",
+      "modifier_windrunner_windrun",
       "modifier_windrunner_windrun_invis",
       "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
     }

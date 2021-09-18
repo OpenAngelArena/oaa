@@ -41,6 +41,10 @@ function item_greater_phase_boots:OnSpellStart()
   caster:EmitSound("DOTA_Item.PhaseBoots.Activate")
 end
 
+item_greater_phase_boots_2 = class(item_greater_phase_boots)
+item_greater_phase_boots_3 = class(item_greater_phase_boots)
+item_greater_phase_boots_4 = class(item_greater_phase_boots)
+
 --[[  Old split attack Greater Phase Boots effect - it procced instant attacks to splintered targets
 LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -295,8 +299,3 @@ function modifier_item_greater_phase_boots_active:GetModifierDamageOutgoing_Perc
 	return 0
 end
 ]]
-
-item_greater_phase_boots_2 = class(item_greater_phase_boots)
-item_greater_phase_boots_3 = class(item_greater_phase_boots)
-item_greater_phase_boots_4 = class(item_greater_phase_boots)
-item_greater_phase_boots_5 = class(item_greater_phase_boots)
