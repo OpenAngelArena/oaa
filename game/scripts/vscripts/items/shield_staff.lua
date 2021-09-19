@@ -368,13 +368,14 @@ function modifier_shield_staff_barrier_buff:OnCreated(event)
     if event.barrierHP then
       self:SetStackCount(event.barrierHP)
     end
+
+    -- Sound
+    parent:EmitSound("Hero_Abaddon.AphoticShield.Cast")
   end
+
   -- Particle
   --self.particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, parent)
   --ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
-
-  -- Sound
-  parent:EmitSound("Hero_Abaddon.AphoticShield.Cast")
 end
 
 function modifier_shield_staff_barrier_buff:OnRefresh(event)

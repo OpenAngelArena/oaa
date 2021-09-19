@@ -35,9 +35,9 @@ function MMRShuffle () {
 }
 
 function hideShowUI (state) {
-  if (state === 2) {
+  if (state === DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) {
     hidePregameUI();
-  } else if (state < 7) {
+  } else if (state < DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME) {
     showPregameUI();
   } else {
     hidePregameUI();
