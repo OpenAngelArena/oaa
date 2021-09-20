@@ -31,6 +31,10 @@ function Grendel:GetState()
 end
 
 function Grendel:LoadState(state)
+  if not state then
+    -- Grendel didn't exist when state was saved
+    return
+  end
   self.level = state.level
   self.respawn_time = state.respawn_time
   self.respawned = state.respawned

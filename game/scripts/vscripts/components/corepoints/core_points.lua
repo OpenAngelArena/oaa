@@ -20,13 +20,27 @@ function CorePointsManager:Init()
 end
 
 function CorePointsManager:GetState()
-  return {
-    --playerID_table = self.playerID_table,
-  }
+  local state = {}
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    state[steamid] = self.playerID_table[playerID]
+  end
+
+  return state
 end
 
 function CorePointsManager:LoadState(state)
-  --self.playerID_table = state.playerID_table
+  if not state then
+    -- CorePointsManager didn't exist when state was saved
+    return
+  end
+  
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    if state[steamid] then
+      self.playerID_table[playerID] = state[steamid]
+    end
+  end
 end
 
 function CorePointsManager:FilterOrders(keys)

@@ -8,7 +8,10 @@ local SaveLoadModules = {
   bosses = BossSpawner,
   gold = Gold,
   heroes = SaveLoadStateHero,
-  capturePoints = CapturePoints
+  capturePoints = CapturePoints,
+  corePoints = CorePointsManager,
+  wandererStatus = Wanderer,
+  grendelStatus = Grendel,
 }
 
 function SaveLoadState:Init ()
@@ -46,7 +49,7 @@ end
 
 function SaveLoadState:GetState ()
   local state = {}
-  for name,Module in pairs(SaveLoadModules) do
+  for name, Module in pairs(SaveLoadModules) do
     state[name] = Module:GetState()
   end
 
@@ -55,7 +58,7 @@ end
 
 function SaveLoadState:LoadState (state)
   DebugPrintTable(state)
-  for name,Module in pairs(SaveLoadModules) do
+  for name, Module in pairs(SaveLoadModules) do
     DebugPrint(name .. ' loading state')
     DebugPrintTable(state[name])
     Module:LoadState(state[name])

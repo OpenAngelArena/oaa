@@ -30,6 +30,10 @@ function Wanderer:GetState ()
 end
 
 function Wanderer:LoadState (state)
+  if not state then
+    -- Wanderer didn't exist when state was saved
+    return
+  end
   self.level = state.level
   if state.isAlive then
     self:SpawnWanderer()
