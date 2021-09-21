@@ -9,6 +9,7 @@ function fountain_attack:GetIntrinsicModifierName()
   return "modifier_fountain_attack"
 end
 
+---------------------------------------------------------------------------------------------------
 
 modifier_fountain_attack = class(ModifierBaseClass)
 

@@ -202,7 +202,7 @@ if IsServer() then
       "captureClockEffect"
     }
     foreach(partial(self.DestroyParticleByName, self), particles)
-    
+
     if parent and not parent:IsNull() then
       parent:ForceKill(false)
     end

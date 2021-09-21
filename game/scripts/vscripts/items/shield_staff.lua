@@ -73,7 +73,7 @@ function item_shield_staff:OnSpellStart()
   end
 
   -- Check if target is something weird
-  if target.GetTeamNumber == nil then
+  if target.TriggerSpellAbsorb == nil then
     return
   end
 

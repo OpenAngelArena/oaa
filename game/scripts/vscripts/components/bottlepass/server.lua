@@ -156,7 +156,7 @@ function Bottlepass:Ready ()
       end
     end
   end
-  
+
   if hostId ~= 7131038 and IsInToolsMode() then
     -- Stop trying to contact the server in tools when I am working, Idk how other devs tolerated this
     self.keepSpamming = false

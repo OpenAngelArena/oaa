@@ -15,7 +15,7 @@ if (altTooltip == null) {
 
 function CreateAbilityPanel (parent, ability) {
   var id = 'Ability_' + ability;
-  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, { abilityname: ability } )
+  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, {abilityname: ability});
   var icon = parent.FindChildTraverse(id);
 
   icon.SetPanelEvent('onmouseover', function () {
