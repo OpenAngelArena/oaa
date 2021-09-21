@@ -6,10 +6,7 @@ if CorePointsManager == nil then
 end
 
 function CorePointsManager:Init()
-  if self.initialized then
-    print("CorePointsManager is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "CorePointsManager"
   LinkLuaModifier("modifier_core_points_counter_oaa", "components/corepoints/core_points.lua", LUA_MODIFIER_MOTION_NONE)
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))

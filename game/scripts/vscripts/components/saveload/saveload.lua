@@ -20,6 +20,8 @@ function SaveLoadState:Init ()
     return
   end
 
+  self.moduleName = "SaveLoadState"
+
   -- check if we can resume state
   Bottlepass:StateLoad(self:GetPlayerList(), function (data)
     if not data or not data.state then

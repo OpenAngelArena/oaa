@@ -48,9 +48,39 @@ function modifier_fountain_attack:GetAuraSearchType()
 end
 
 function modifier_fountain_attack:GetAuraEntityReject(entity)
-  return entity:GetTeamNumber() == DOTA_TEAM_NEUTRALS or not IsInTrigger(entity, self.trigger)
+  -- Reject entities outside of the trigger
+  if not IsInTrigger(entity, self.trigger) then
+    return true
+  end
+
+  -- Reject neutrals
+  if entity.GetTeamNumber then
+    if entity:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      return true
+    end
+  end
+
+  if entity.HasModifier then
+    -- Reject custom thinkers
+    if entity:HasModifier("modifier_oaa_thinker") then
+      return true
+    end
+
+    -- Reject bosses even if they are not neutral
+    if entity:IsOAABoss() then
+      return true
+    end
+
+    -- Reject couriers
+    if entity:IsCourier() then
+      return true
+    end
+  end
+
+  return false
 end
 
+---------------------------------------------------------------------------------------------------
 
 modifier_fountain_attack_aura = class(ModifierBaseClass)
 
@@ -91,10 +121,6 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     local healthReductionAmount = targetMaxHealth / killTicks
     local targetMaxMana = target:GetMaxMana()
     local manaReductionAmount = targetMaxMana / killTicks
-
-    if target:IsCourier() then
-      return
-    end
 
     target:MakeVisibleDueToAttack(teamID, 0)
     target:Purge(true, false, false, false, true)

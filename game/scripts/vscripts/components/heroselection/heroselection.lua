@@ -825,6 +825,8 @@ function HeroSelection:EndStrategyTime ()
     PauseGame(true)
   end
 
+  -- OnGameInProgress first happens here, I think it's not needed to be here
+  DebugPrint("Initializing modules in OnGameInProgress when hero selection is over.")
   GameMode:OnGameInProgress()
   OnGameInProgressEvent()
 

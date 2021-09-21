@@ -10,6 +10,7 @@ end
 -- Duels.onEnd = DuelEndEvent.listen
 
 function FinalDuel:Init ()
+  self.moduleName = "FinalDuel"
   Duels.onEnd(partial(FinalDuel.EndDuelHandler, FinalDuel))
   Duels.onPreparing(partial(FinalDuel.PreparingDuelHandler, FinalDuel))
   Duels.onStart(partial(FinalDuel.StartDuelHandler, FinalDuel))

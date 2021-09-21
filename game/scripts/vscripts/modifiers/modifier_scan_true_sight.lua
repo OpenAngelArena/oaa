@@ -43,7 +43,7 @@ function modifier_scan_true_sight_thinker:OnDestroy()
   if IsServer() then
     local parent = self:GetParent()
     if parent and not parent:IsNull() then
-      UTIL_Remove(parent)
+      parent:ForceKill(false)
     end
   end
 end
