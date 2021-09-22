@@ -365,7 +365,7 @@ function HeroSelection:ChooseBans ()
   local badBanChoices = 0
   local playerIDs = {}
 
-  for playerID,choice in pairs(rankedpickorder.banChoices) do
+  for playerID, choice in pairs(rankedpickorder.banChoices) do
     table.insert(playerIDs, playerID)
     local team = PlayerResource:GetTeam(playerID)
     if team == DOTA_TEAM_GOODGUYS then
@@ -381,16 +381,16 @@ function HeroSelection:ChooseBans ()
   DebugPrint('Choosing bans from ' .. totalChoices .. ' choices...')
 
   if totalChoices == 1 then
-    if RandomInt(0, 1) == 0 then
-      -- no bans! choose things!
+    if RandomInt(0, 1) == 1 then
+      for playerID, choice in pairs(rankedpickorder.banChoices) do
+        if choice then
+          table.insert(rankedpickorder.bans, choice)
+          DebugPrint('Only suggestion was ' .. choice)
+        end
+      end
+	else
       DebugPrint('Rolled 0, no bans!')
-      return
-    end
-    for playerID,choice in pairs(rankedpickorder.banChoices) do
-      table.insert(rankedpickorder.bans, choice)
-      DebugPrint('Only suggestion was ' .. choice)
-    end
-    return
+	end
   else
     local skippedBans = 0
     while banCount < totalChoices / 2 do
@@ -779,7 +779,7 @@ function HeroSelection:IsHeroChosen (hero)
 end
 
 function HeroSelection:ForceRandomHero (playerId)
-  if not playerId then
+  if not playerId or (OAAOptions and OAAOptions.settings.GAME_MODE == "AR") then
     return HeroSelection:RandomHero()
   end
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}

@@ -71,8 +71,8 @@ function GetDotaHud () {
 }
 
 function listenToGameEvent (event, handler) {
-  var handle = GameEvents.Subscribe(event, handleWrapper);
-  var doneListening = false;
+  let handle = GameEvents.Subscribe(event, handleWrapper);
+  let doneListening = false;
 
   return unlisten;
 

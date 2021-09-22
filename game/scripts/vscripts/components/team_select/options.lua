@@ -1,13 +1,14 @@
 
 --OAAOptions = Components:Register('OAAOptions', COMPONENT_GAME_SETUP)
 if OAAOptions == nil then
-  DebugPrint('Starting OAAOptions')
+  --Debug:EnableDebugging()
+  DebugPrint('Starting OAAOptions module')
   OAAOptions = class({})
 end
 
 function OAAOptions:Init ()
-  Debug:EnableDebugging()
-  --DebugPrint('OAAOptions Init started!')
+  --Debug:EnableDebugging()
+  DebugPrint('OAAOptions module Initialization started!')
   if self.initialized then
     print("OAAOptions should be initialized only once -> preventing multiple times")
     return nil
@@ -37,7 +38,7 @@ function OAAOptions:Init ()
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
 
   self.initialized = true
-  --DebugPrint('OAAOptions Init finished!')
+  DebugPrint('OAAOptions moduel Initialization finished!')
 end
 
 function OAAOptions:InitializeSettingsTable()
