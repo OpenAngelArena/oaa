@@ -243,7 +243,7 @@ function vampire:lifesteal(event, spell, parent, amount)
     )
 
     if ufResult == UF_SUCCESS then
-      parent:Heal( damage * ( amount * 0.01 ), parent )
+      parent:Heal( damage * ( amount * 0.01 ), spell )
 
       local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )

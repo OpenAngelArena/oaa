@@ -21,13 +21,10 @@ function item_blood_sword:OnSpellStart()
   end
 
   -- Add a lifesteal buff before the instant attack
-  local buff = caster:AddNewModifier(caster, self, "modifier_item_blood_sword_lifesteal", {})
+  caster:AddNewModifier(caster, self, "modifier_item_blood_sword_lifesteal", {})
 
   -- Instant attack
   caster:PerformAttack(target, true, true, true, false, false, false, true)
-
-  -- Remove lifesteal buff when instant attack is over
-  buff:Destroy()
 
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items3_fx/iron_talon_active.vpcf", PATTACH_ABSORIGIN, target)
@@ -132,10 +129,6 @@ function modifier_item_blood_sword_lifesteal:OnAttackLanded(event)
     return
   end
 
-  if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
-    return
-  end
-
   local parent_team = parent:GetTeamNumber()
   local target = event.unit
 
@@ -143,17 +136,22 @@ function modifier_item_blood_sword_lifesteal:OnAttackLanded(event)
     target,
     DOTA_UNIT_TARGET_TEAM_BOTH,
     bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     parent_team
   )
 
   local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
 
-  if ufResult == UF_SUCCESS and lifesteal_percent > 0 and parent:IsAlive() then
-    parent:Heal(damage * lifesteal_percent * 0.01, parent)
+  --print(tostring(ufResult)) -- It returns 15, Wtf?
+  -- Maybe DOTA_UNIT_TARGET_TEAM_BOTH is bugging it out lmao
+
+  if (ufResult == UF_SUCCESS or ufResult == UF_FAIL_DEAD) and lifesteal_percent > 0 and parent:IsAlive() then
+    parent:Heal(damage * lifesteal_percent * 0.01, ability)
 
     local part = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControl(part, 0, parent:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(part)
   end
+
+  self:Destroy()
 end

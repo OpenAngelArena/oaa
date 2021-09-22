@@ -176,7 +176,7 @@ function modifier_oaa_borrowed_time_buff_caster:GetModifierTotal_ConstantBlock(k
     ParticleManager:ReleaseParticleIndex(heal_particle)
 
     -- Heal amount is equal to the damage amount (damage after reductions, not original damage)
-    parent:Heal(kv.damage, parent)
+    parent:Heal(kv.damage, self:GetAbility())
 
     -- Block the damage
     return kv.damage
