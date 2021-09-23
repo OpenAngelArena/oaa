@@ -25,10 +25,7 @@ local EXP_BOUNTY_ENUM = 7
 
 function CreepCamps:Init ()
   DebugPrint ( 'Initializing CreepCamps' )
-  if self.initialized then
-    print("CreepCamps is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "CreepCamps Spawner"
 
   self.CampPRDCounters = {}
   self.firstSpawn = true

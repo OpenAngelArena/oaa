@@ -38,7 +38,7 @@
     "ID"                                                  "3879"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_blink"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityTextureName"                                  "custom/blink_2"
+    "AbilityTextureName"                                  "item_blink"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

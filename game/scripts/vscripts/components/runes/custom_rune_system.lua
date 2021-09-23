@@ -1,6 +1,6 @@
 -- For inspiration look here: https://github.com/EarthSalamander42/dota_imba/blob/master/game/dota_addons/dota_imba_reborn/scripts/vscripts/components/runes.lua
 
-CustomRuneSystem = CustomRuneSystem or {}
+CustomRuneSystem = CustomRuneSystem or class({})
 
 function CustomRuneSystem:Init()
   --Debug.EnableDebugging()
@@ -87,23 +87,35 @@ function CustomRuneSystem:SpawnRunes(rune_type)
     return
   end
 
+  -- Remove all DotA runes around the spawners first
   for i = 1, #rune_locations do
-    -- Remove all DotA runes around the spawner first
     self:RemoveRuneAroundLocation(rune_locations[i])
-    -- Actually Spawn Rune at rune location
-    if rune_type == "bounty" then
-      CreateRune(rune_locations[i], DOTA_RUNE_BOUNTY)
-    else
-      local random_int = RandomInt(1, #self.power_runes_enums)
-      local rune_to_spawn = self.power_runes_enums[random_int]
-      CreateRune(rune_locations[i], rune_to_spawn)
-    end
   end
 
-  -- Repeat all this after spawn_interval
-  Timers:CreateTimer(spawn_interval, function()
-    CustomRuneSystem:SpawnRunes(rune_type)
+  -- Actually Spawn Rune at rune locations
+  Timers:CreateTimer(0.03, function()
+    for i = 1, #rune_locations do
+      if rune_type == "bounty" then
+        CreateRune(rune_locations[i], DOTA_RUNE_BOUNTY)
+      else
+        local random_int = RandomInt(1, #CustomRuneSystem.power_runes_enums)
+        local rune_to_spawn = CustomRuneSystem.power_runes_enums[random_int]
+        CreateRune(rune_locations[i], rune_to_spawn)
+      end
+    end
   end)
+
+  -- Repeat all this after spawn_interval
+  if HudTimer then
+    local current_time = HudTimer:GetGameTime()
+    HudTimer:At(current_time + spawn_interval, function()
+      CustomRuneSystem:SpawnRunes(rune_type)
+    end)
+  else
+    Timers:CreateTimer(spawn_interval, function()
+      CustomRuneSystem:SpawnRunes(rune_type)
+    end)
+  end
 end
 
 function CustomRuneSystem:RemoveRuneAroundLocation(location)

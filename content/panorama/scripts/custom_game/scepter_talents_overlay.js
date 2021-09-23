@@ -42,10 +42,10 @@ function UpdateTalentTreeBranch (level, isRightSide, isUpgrade) {
   talentTreeLvl.FindChildrenWithClassTraverse(treeBranchClass)[0].style.opacity = isUpgrade ? '1' : '0';
 }
 function FindTalentSideRootPanel (level, isRightSide) {
-  $.Msg('UpgradeOption' + level.toString());
+  // $.Msg('UpgradeOption' + level.toString());
   let upgradeTalentRoot = FindDotaHudElement('StatBranchColumn').FindChildTraverse('UpgradeOption' + level.toString());
   let upgradeNumber = isRightSide ? (level - 1) * 2 + 1 : (level - 1) * 2 + 2;
-  $.Msg('Upgrade' + upgradeNumber.toString());
+  // $.Msg('Upgrade' + upgradeNumber.toString());
   return upgradeTalentRoot.FindChildTraverse('Upgrade' + upgradeNumber.toString());
 }
 // For Testing on script reload

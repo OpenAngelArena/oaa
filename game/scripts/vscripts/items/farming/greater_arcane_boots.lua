@@ -65,4 +65,3 @@ end
 item_greater_arcane_boots_2 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_3 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_4 = class(item_greater_arcane_boots)
-item_greater_arcane_boots_5 = class(item_greater_arcane_boots)

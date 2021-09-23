@@ -80,7 +80,7 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
   local debuff_duration = self:GetSpecialValueFor("slow_duration")
   local buff_duration = self:GetSpecialValueFor("sprout_duration")
 
-  if target:GetTeam() ~= caster:GetTeam() then
+  if target:GetTeamNumber() ~= caster:GetTeamNumber() then
     -- Don't do anything if target has Linken's effect or it's spell-immune
     if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
       return
@@ -117,6 +117,10 @@ function item_greater_tranquil_boots:IsBreakable()
 	return self:GetSpecialValueFor("break_time") > 0
 end
 
+item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)
+item_greater_tranquil_boots_3 = class(item_greater_tranquil_boots)
+item_greater_tranquil_boots_4 = class(item_greater_tranquil_boots)
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_greater_tranquil_boots = class(ModifierBaseClass)
@@ -133,9 +137,9 @@ function modifier_item_greater_tranquil_boots:IsPurgable()
 	return false
 end
 
-function modifier_item_greater_tranquil_boots:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
-end
+--function modifier_item_greater_tranquil_boots:GetAttributes()
+	--return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
 
 function modifier_item_greater_tranquil_boots:OnCreated()
 	local spell = self:GetAbility()
@@ -418,9 +422,3 @@ function modifier_greater_tranquils_tranquilize_buff:CheckState()
   }
   return state
 end
-
-item_greater_tranquil_boots_2 = class(item_greater_tranquil_boots)
-item_greater_tranquil_boots_3 = class(item_greater_tranquil_boots)
-item_greater_tranquil_boots_4 = class(item_greater_tranquil_boots)
-item_greater_tranquil_boots_5 = class(item_greater_tranquil_boots)
---item_tranquil_origin = class(item_greater_tranquil_boots)

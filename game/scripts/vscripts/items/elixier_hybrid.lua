@@ -187,9 +187,33 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
       return
     end
 
-    -- Don't proc on Sticky Napalm because Sticky Napalm procs on any damage
+    -- Don't proc on stuff that procs on any damage
     -- it prevents infinite damage loop (proc on damage proc)
-    if inflictor:GetName() == "batrider_sticky_napalm" or inflictor:GetName() == "batrider_sticky_napalm_oaa" then
+    local non_trigger_inflictors = {
+      ["batrider_sticky_napalm"] = true,
+      ["batrider_sticky_napalm_oaa"] = true,
+      --["item_orb_of_venom"] = true,
+      --["item_orb_of_corrosion"] = true,
+      --["item_radiance"] = true,
+      --["item_radiance_2"] = true,
+      --["item_radiance_3"] = true,
+      --["item_radiance_4"] = true,
+      --["item_radiance_5"] = true,
+      --["item_urn_of_shadows"] = true,
+      --["item_spirit_vessel"] = true,
+      --["item_spirit_vessel_2"] = true,
+      --["item_spirit_vessel_3"] = true,
+      --["item_spirit_vessel_4"] = true,
+      --["item_spirit_vessel_5"] = true,
+      --["item_cloak_of_flames"] = true,
+      ["item_trumps_fists"] = true,           -- Blade of Judecca
+      ["item_trumps_fists_2"] = true,
+      --["item_silver_staff"] = true,
+      --["item_silver_staff_2"] = true,
+      --["item_paintball"] = true,              -- Fae Grenade
+    }
+
+    if non_trigger_inflictors[inflictor:GetName()] then
       return
     end
 

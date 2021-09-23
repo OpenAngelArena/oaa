@@ -6,10 +6,7 @@ if CorePointsManager == nil then
 end
 
 function CorePointsManager:Init()
-  if self.initialized then
-    print("CorePointsManager is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "CorePointsManager"
   LinkLuaModifier("modifier_core_points_counter_oaa", "components/corepoints/core_points.lua", LUA_MODIFIER_MOTION_NONE)
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
@@ -20,13 +17,27 @@ function CorePointsManager:Init()
 end
 
 function CorePointsManager:GetState()
-  return {
-    --playerID_table = self.playerID_table,
-  }
+  local state = {}
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    state[steamid] = self.playerID_table[playerID]
+  end
+
+  return state
 end
 
 function CorePointsManager:LoadState(state)
-  --self.playerID_table = state.playerID_table
+  if not state then
+    -- CorePointsManager didn't exist when state was saved
+    return
+  end
+  
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+    if state[steamid] then
+      self.playerID_table[playerID] = state[steamid]
+    end
+  end
 end
 
 function CorePointsManager:FilterOrders(keys)

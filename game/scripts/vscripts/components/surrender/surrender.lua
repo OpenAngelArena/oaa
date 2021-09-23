@@ -16,6 +16,7 @@ local teamIdToSurrender
 
 function SurrenderManager:Init ()
   DebugPrint ('Init SurrenderManager')
+  self.moduleName = "SurrenderManager"
   -- Register chat commands
   ChatCommand:LinkCommand("-surrender", Dynamic_Wrap(SurrenderManager, "CheckSurrenderConditions"), self)
   CustomGameEventManager:RegisterListener('surrender_result', Dynamic_Wrap(SurrenderManager, 'PlayerVote'))

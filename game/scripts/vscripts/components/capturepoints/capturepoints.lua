@@ -54,6 +54,7 @@ CapturePoints.onEnd = CaptureFinished.listen
 function CapturePoints:Init ()
   -- Debug.EnableDebugging()
   DebugPrint('Init capture point')
+  self.moduleName = "CapturePoints"
 
   self.currentCapture = nil
   self.NumCaptures = 0

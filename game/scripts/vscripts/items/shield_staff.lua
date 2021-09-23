@@ -72,24 +72,30 @@ function item_shield_staff:OnSpellStart()
     return
   end
 
-  -- Check if target has spell block
-  if target:TriggerSpellAbsorb(self) then
+  -- Check if target is something weird
+  if target.TriggerSpellAbsorb == nil then
     return
   end
 
-  -- Interrupt enemies only
+  -- Interrupt and damage enemies, apply barrier/shield to allies
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-    if not target:IsMagicImmune() then
-      target:Stop()
-      -- Damage table
-      local damage_table = {}
-      damage_table.attacker = caster
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-      damage_table.ability = self
-      damage_table.damage = self:GetSpecialValueFor("damage_to_enemies")
-      damage_table.victim = target
-      ApplyDamage(damage_table)
+    -- Don't do anything if target has Linken's effect or it's spell-immune
+    if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+      return
     end
+
+    -- Interrupt
+    target:Stop()
+
+    -- Damage table
+    local damage_table = {}
+    damage_table.attacker = caster
+    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+    damage_table.ability = self
+    damage_table.damage = self:GetSpecialValueFor("damage_to_enemies")
+    damage_table.victim = target
+
+    ApplyDamage(damage_table)
   else
     -- Apply barrier buff to the target
     target:AddNewModifier(caster, self, "modifier_shield_staff_barrier_buff", {
@@ -311,7 +317,13 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return 0
   end
 
+  -- Don't react on attacks
   if event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
+    return 0
+  end
+
+  -- Don't react on self damage
+  if event.attacker == parent then
     return 0
   end
 
@@ -356,13 +368,14 @@ function modifier_shield_staff_barrier_buff:OnCreated(event)
     if event.barrierHP then
       self:SetStackCount(event.barrierHP)
     end
+
+    -- Sound
+    parent:EmitSound("Hero_Abaddon.AphoticShield.Cast")
   end
+
   -- Particle
   --self.particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, parent)
   --ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
-
-  -- Sound
-  parent:EmitSound("Hero_Abaddon.AphoticShield.Cast")
 end
 
 function modifier_shield_staff_barrier_buff:OnRefresh(event)
@@ -388,7 +401,7 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
   local parent = self:GetParent()
   local block_amount = event.damage
   local barrier_hp = self:GetStackCount()
-  
+
   -- Don't react on self damage
   if event.attacker == parent then
     return 0

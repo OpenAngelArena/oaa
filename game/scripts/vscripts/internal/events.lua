@@ -46,6 +46,7 @@ function GameMode:_OnGameRulesStateChange(keys)
     end
   elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
     if not HeroSelection then
+      print("HeroSelection doesn't exist for some reason, -> initialize modules in OnGameInProgress when the state changes to DOTA_GAMERULES_STATE_GAME_IN_PROGRESS.")
       GameMode:OnGameInProgress()
       OnGameInProgressEvent()
     end

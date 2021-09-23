@@ -9,6 +9,7 @@ if BottleCounter == nil then
 end
 
 function BottleCounter:Init()
+  self.moduleName = "BottleCounter"
   self.bottleCount = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
   FilterManager:AddFilter(FilterManager.ItemAddedToInventory, self, Dynamic_Wrap(BottleCounter, 'Filter'))
 end

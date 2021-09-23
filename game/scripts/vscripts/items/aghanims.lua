@@ -33,7 +33,6 @@ function modifier_item_aghanims_talents:OnCreated()
 
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
       local item = parent:GetItemInSlot(i)
-
       if item then
         if string.sub(item:GetName(), 0, 22) == 'item_aghanims_scepter_' then
           local level = tonumber(string.sub(item:GetName(), 23))
@@ -83,8 +82,6 @@ function modifier_item_aghanims_talents:OnIntervalThink()
     return
   end
 
-  local caster = self:GetParent()
-
   self:SetTalents({
     [10] = self.aghsPower > 1,
     [15] = self.aghsPower > 2,
@@ -96,7 +93,6 @@ end
 function modifier_item_aghanims_talents:SetTalents(tree)
   -- 10 - 17
   -- input is { [10] = true, [15] = true, ... }
-  local talentOverrides = {}
   local parent = self:GetParent()
   if parent:GetLevel() >= 50 then
     tree = {
@@ -156,7 +152,6 @@ function modifier_item_aghanims_talents:SetTalents(tree)
             end
           end
         end
-
       end
       if rightLevel == 0 then
         rightAbility:SetLevel(1)
@@ -173,7 +168,6 @@ function modifier_item_aghanims_talents:SetTalents(tree)
             end
           end
         end
-
       end
     else
       -- print ('disabling talents')
@@ -205,14 +199,12 @@ function modifier_item_aghanims_talents:SetTalents(tree)
   end
 
   local abilityTable = {}
-
   for abilityIndex = 0, parent:GetAbilityCount() - 1 do
     local ability = parent:GetAbilityByIndex(abilityIndex)
-    if ability and ability:IsAttributeBonus() then
+    if ability and ability:IsAttributeBonus() and ability:GetName() ~= "special_bonus_attributes" and ability:GetName() ~= "attribute_bonus" then
       abilityTable[#abilityTable + 1] = ability
     end
   end
-
 
   setTalentLevel("10", abilityTable[2], abilityTable[1], tree[10])
   setTalentLevel("15", abilityTable[4], abilityTable[3], tree[15])

@@ -63,13 +63,19 @@ function item_pull_staff:OnSpellStart()
     return
   end
 
-  -- Check if target has spell block
-  if target:TriggerSpellAbsorb(self) then
+  -- Check if target is something weird
+  if target.TriggerSpellAbsorb == nil then
     return
   end
 
   -- Interrupt enemies only
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    -- Check if the enemy target has spell block
+    if target:TriggerSpellAbsorb(self) then
+      return
+    end
+
+    -- Interrupt
     target:Stop()
   end
 

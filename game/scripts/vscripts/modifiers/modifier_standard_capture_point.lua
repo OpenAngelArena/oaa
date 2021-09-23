@@ -195,12 +195,16 @@ end
 
 if IsServer() then
   function modifier_standard_capture_point:OnDestroy()
+    local parent = self:GetParent()
     local particles = {
       "captureRingEffect",
       "captureInProgressEffect",
       "captureClockEffect"
     }
     foreach(partial(self.DestroyParticleByName, self), particles)
-    UTIL_Remove(self:GetParent())
+
+    if parent and not parent:IsNull() then
+      parent:ForceKill(false)
+    end
   end
 end

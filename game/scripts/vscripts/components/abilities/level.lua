@@ -47,6 +47,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
   if not level then
     level = hero:GetLevel()
   end
+
   local canLevelUp = {}
 
   for index = 0, hero:GetAbilityCount() - 1 do
@@ -84,12 +85,10 @@ function AbilityLevels:CheckAbilityLevels (keys)
 end
 
 function AbilityLevels:SetTalents(hero)
-
   local aghsPower = 0
 
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(i)
-
     if item then
       if string.sub(item:GetName(), 0, 22) == 'item_aghanims_scepter_' then
         local level = tonumber(string.sub(item:GetName(), 23))
@@ -216,10 +215,9 @@ function AbilityLevels:SetTalents(hero)
   end
 
   local abilityTable = {}
-
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability and ability:IsAttributeBonus() then
+    if ability and ability:IsAttributeBonus() and ability:GetName() ~= "special_bonus_attributes" and ability:GetName() ~= "attribute_bonus" then
       abilityTable[#abilityTable + 1] = ability
     end
   end
@@ -236,8 +234,7 @@ function AbilityLevels:GetTalentModifier(name)
     special_bonus_spell_immunity = "modifier_special_bonus_spell_immunity",
     special_bonus_haste = "modifier_special_bonus_haste",
     special_bonus_truestrike = "modifier_special_bonus_truestrike",
-    special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
-    special_bonus_unique_treant_3 = "modifier_special_bonus_unique_treant_3",
+    --special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",

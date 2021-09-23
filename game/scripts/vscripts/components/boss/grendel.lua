@@ -3,10 +3,7 @@ LinkLuaModifier("modifier_provides_vision_oaa", "modifiers/modifier_provides_vis
 Grendel = Components:Register('Grendel', COMPONENT_STRATEGY)
 
 function Grendel:Init()
-  if self.initialized then
-    print("Grendel Spawner is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "Grendel Spawner"
   local spawn_time = 12 * 60
   HudTimer:At(spawn_time, partial(Grendel.SpawnGrendel, Grendel))
   ChatCommand:LinkDevCommand("-spawngrendel", Dynamic_Wrap(self, 'SpawnGrendel'), self)
@@ -31,6 +28,10 @@ function Grendel:GetState()
 end
 
 function Grendel:LoadState(state)
+  if not state then
+    -- Grendel didn't exist when state was saved
+    return
+  end
   self.level = state.level
   self.respawn_time = state.respawn_time
   self.respawned = state.respawned

@@ -5,10 +5,7 @@ LinkLuaModifier("modifier_wanderer_team_buff", "modifiers/modifier_wanderer_team
 Wanderer = Components:Register('Wanderer', COMPONENT_STRATEGY)
 
 function Wanderer:Init ()
-  if self.initialized then
-    print("Wanderer Spawner is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "Wanderer Spawner"
   local min_time = BOSS_WANDERER_MIN_SPAWN_TIME * 60
   local max_time = BOSS_WANDERER_MAX_SPAWN_TIME * 60
   local spawn_time = RandomInt(min_time, max_time)
@@ -16,7 +13,6 @@ function Wanderer:Init ()
   ChatCommand:LinkDevCommand("-spawnwanderer", Dynamic_Wrap(self, 'SpawnWanderer'), self)
   self.level = 0
   self.nextSpawn = spawn_time
-
   self.initialized = true
 end
 
@@ -30,6 +26,10 @@ function Wanderer:GetState ()
 end
 
 function Wanderer:LoadState (state)
+  if not state then
+    -- Wanderer didn't exist when state was saved
+    return
+  end
   self.level = state.level
   if state.isAlive then
     self:SpawnWanderer()

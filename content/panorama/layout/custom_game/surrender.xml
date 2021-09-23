@@ -1,7 +1,7 @@
 <root>
   <styles>
     <include src='file://{resources}/styles/hud/dota_hud_gg.css' />
-    <include src='file://{resources}/styles/dotastyles.css' />
+    <include src='s2r://panorama/styles/dotastyles.vcss_c' />
     <include src='file://{resources}/styles/custom_game/surrender.css' />
   </styles>
   <scripts>

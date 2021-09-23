@@ -53,20 +53,22 @@ function electrician_static_grip:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- trigger and get blocked by linkens
-  if not target:TriggerSpellAbsorb( self ) then
-    local durationMax = self:GetSpecialValueFor( "channel_time" )
-    durationMax = target:GetValueChangedByStatusResistance( durationMax )
+  -- Don't do anything if target has Linken's effect or it's spell-immune
+  if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+    return
+  end
 
-    -- create the stun modifier on target
-    target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )
+  local durationMax = self:GetSpecialValueFor( "channel_time" )
+  durationMax = target:GetValueChangedByStatusResistance( durationMax )
 
-    -- create the movement modifier on caster if he doesn't have the talent
-    if caster:HasLearnedAbility("special_bonus_electrician_static_grip_non_channel") then
-      caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_debuff_tracker", {duration = durationMax})
-    else
-      caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_movement", {target = target:entindex(), duration = durationMax})
-    end
+  -- create the stun modifier on target
+  target:AddNewModifier( caster, self, "modifier_electrician_static_grip", { duration = durationMax } )
+
+  -- create the movement modifier on caster if he doesn't have the talent
+  if caster:HasLearnedAbility("special_bonus_electrician_static_grip_non_channel") then
+    caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_debuff_tracker", {duration = durationMax})
+  else
+    caster:AddNewModifier(caster, self, "modifier_electrician_static_grip_movement", {target = target:entindex(), duration = durationMax})
   end
 end
 
@@ -380,7 +382,7 @@ function modifier_electrician_static_grip_debuff_tracker:OnCreated()
     return
   end
   -- start thinking
-  self:StartIntervalThink(0.25)
+  self:StartIntervalThink(0)
 end
 
 function modifier_electrician_static_grip_debuff_tracker:OnIntervalThink()

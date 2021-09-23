@@ -126,5 +126,11 @@
         "nuke_str_dmg"                                    "1.75"
       }
     }
+
+    "precache"
+    {
+      "particle"                                          "particles/items5_fx/havoc_hammer.vpcf"
+      "particle"                                          "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+    }
   }
 }

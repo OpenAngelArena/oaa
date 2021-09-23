@@ -4,10 +4,6 @@ Runes = Runes or class({})
 function Runes:Init()
   --Debug.EnableDebugging()
   --DebugPrint('Init runes module')
-  if self.initialized then
-    print("Runes were already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
 
   -- Check every 0.5 second if there is a rune spawned before the first duel, if yes remove it
   Timers:CreateTimer(function()
@@ -31,7 +27,6 @@ function Runes:Init()
   -- Spawning rune entity with SpawnEntityFromTableSynchronous("dota_item_rune", { model = "", origin =}) works partially and only for double damage
   -- Nobody knows what parameters should be used in the table for SpawnEntityFromTableSynchronous
   -- CreateRune works for now
-  self.initialized = true
 end
 
 function Runes:Filter(filter_table)
@@ -40,7 +35,7 @@ end
 
 function Runes:RemoveAllRunes()
   local all_runes = Entities:FindAllByClassname("dota_item_rune")
-  for _,rune in pairs(all_runes) do
+  for _, rune in pairs(all_runes) do
     if rune and not rune:IsNull() then
       UTIL_Remove(rune)
     end
