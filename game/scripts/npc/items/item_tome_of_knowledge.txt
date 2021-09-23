@@ -38,12 +38,12 @@
       "01"
       {
         "var_type"				"FIELD_INTEGER"
-        "xp_bonus"				"500" //OAA
+        "xp_bonus"				"700"
       }
       "02" // Bonus experience gained per previous tome starts with the third used tome, not with the second
       {
         "var_type"				"FIELD_INTEGER"
-        "xp_per_use"			"135"
+        "xp_per_use"			"270" // OAA
       }
     }
   }
