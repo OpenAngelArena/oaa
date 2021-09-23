@@ -203,6 +203,9 @@ function GameMode:OnGameInProgress()
   local xpm_thinker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
   xpm_thinker:AddNewModifier(xpm_thinker, nil, "modifier_oaa_thinker", {})
   xpm_thinker:AddNewModifier(xpm_thinker, nil, "modifier_xpm_thinker", {})
+  
+  -- valve is a really great company that totally cares about custom game mode creators and it's a breath of fresh air
+  GameRules:SetTimeOfDay( 0.251 )
 end
 
 function InitModule(myModule)
