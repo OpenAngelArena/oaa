@@ -210,15 +210,19 @@ function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
 
 			-- ApplyDamage( damageTable )
 			-- EmitSoundOnClient( "DOTA_Item.BladeMail.Damage", kv.attacker:GetPlayerOwner() )
+            local ability = self:GetAbility()
+            if not ability or ability:IsNull() then
+              return
+            end
 
-			local martyr_heal_aoe = self:GetAbility():GetSpecialValueFor( "martyr_heal_aoe" )
-			local martyr_heal_percent = self:GetAbility():GetSpecialValueFor( "martyr_heal_percent" )
+            local martyr_heal_aoe = ability:GetSpecialValueFor( "martyr_heal_aoe" )
+            local martyr_heal_percent = ability:GetSpecialValueFor( "martyr_heal_percent" )
 
 			local allies = FindUnitsInRadius( hCaster:GetTeamNumber(), hCaster:GetOrigin(), hCaster, martyr_heal_aoe, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
 			if #allies > 1 then
 				for _,ally in pairs(allies) do
 					if ally ~= hCaster then
-						ally:Heal( kv.original_damage * martyr_heal_percent / 100, hCaster )
+						ally:Heal( kv.original_damage * martyr_heal_percent / 100, ability )
 					end
 				end
 			end
