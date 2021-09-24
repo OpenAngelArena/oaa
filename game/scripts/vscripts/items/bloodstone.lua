@@ -219,10 +219,11 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
 
   -- someone else died or owner is reincarnating
   if caster ~= dead or caster:IsReincarnating() then
-    -- Dead unit is an actually dead real enemy hero unit
+    -- Dead unit is not on caster's team
     if caster:GetTeamNumber() ~= dead:GetTeamNumber() then
-      if dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) then
-        -- Charge gain
+
+      -- Dead unit is an actually dead real enemy hero unit or a boss and caster has below initial charges
+      if (dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone())) or (dead:IsOAABoss() and stone:GetCurrentCharges() < stone:GetSpecialValueFor("initial_charges_tooltip")) then
 
         local function IsItemBloodstone(item)
           return item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
@@ -235,15 +236,8 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
         local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
         local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
 
+        -- Charge gain - only if caster is near the dead unit or if caster is the killer
         if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
-          stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
-          self.charges = stone:GetCurrentCharges()
-        end
-      end
-
-      -- Give charges for boss kills if number of charges is less than initial
-      if dead:IsOAABoss() then
-        if ((dead:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() <= stone:GetSpecialValueFor("charge_range")) and stone:GetCurrentCharges() < stone:GetSpecialValueFor("initial_charges_tooltip") then
           stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
           self.charges = stone:GetCurrentCharges()
         end
