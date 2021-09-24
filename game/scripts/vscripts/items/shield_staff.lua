@@ -260,11 +260,24 @@ function modifier_item_shield_staff_non_stacking_stats:IsPurgable()
 end
 
 function modifier_item_shield_staff_non_stacking_stats:OnCreated()
+  if not IsServer() then
+    return
+  end
 
+  -- Initialize fail counters
+  self.damage_block_failures = 0
+  self:SetStackCount(0)
 end
 
 function modifier_item_shield_staff_non_stacking_stats:OnRefresh()
+  if not IsServer() then
+    return
+  end
 
+  -- Refresh fail counters
+  self.damage_block_failures = self.damage_block_failures or 0
+  local spell_damage_block_failures = self:GetStackCount() or 0
+  self:SetStackCount(spell_damage_block_failures)
 end
 
 function modifier_item_shield_staff_non_stacking_stats:DeclareFunctions()
@@ -292,14 +305,27 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierPhysical_Const
     return 0
   end
 
-  local chance = ability:GetSpecialValueFor("passive_attack_damage_block_chance")
+  local chance = ability:GetSpecialValueFor("passive_attack_damage_block_chance") / 100
 
-  if RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1, parent) == true then
+  if not self.damage_block_failures then
+    self.damage_block_failures = 0
+  end
+
+  -- Get number of failures
+  local prngMult = self.damage_block_failures + 1
+
+  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+    -- Reset failure count
+    self.damage_block_failures = 0
+
     if parent:IsRangedAttacker() then
       return ability:GetSpecialValueFor("passive_attack_damage_block_ranged")
     else
       return ability:GetSpecialValueFor("passive_attack_damage_block_melee")
     end
+  else
+    -- Increment number of failures
+    self.damage_block_failures = prngMult
   end
 
   return 0
@@ -331,15 +357,23 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return 0
   end
 
-  local chance = ability:GetSpecialValueFor("passive_spell_damage_block_chance")
+  local chance = ability:GetSpecialValueFor("passive_spell_damage_block_chance") / 100
 
-  if RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1, parent) == true then
+  -- Get number of failures
+  local prngMult = self:GetStackCount() + 1
+
+  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+    -- Reset failure count
+    self:SetStackCount(0)
 
     local block_amount = ability:GetSpecialValueFor("passive_spell_damage_block")
 
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
 
     return block_amount
+  else
+    -- Increment number of failures
+    self:SetStackCount(prngMult)
   end
 
   return 0
