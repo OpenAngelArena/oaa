@@ -4,7 +4,7 @@ modifier_wanderer_team_buff = class(ModifierBaseClass)
 
 function modifier_wanderer_team_buff:OnCreated ()
   if IsServer() then
-    local duration_in_minutes = BOSS_WANDERER_BUFF_DURATION or 3
+    local duration_in_minutes = BOSS_WANDERER_BUFF_DURATION or 2.5
     local duration_in_seconds = duration_in_minutes * 60
     self:StartIntervalThink(1)
     self:SetStackCount(duration_in_seconds)
