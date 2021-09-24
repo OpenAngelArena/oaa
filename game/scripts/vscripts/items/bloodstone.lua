@@ -220,29 +220,44 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
   -- someone else died or owner is reincarnating
   if caster ~= dead or caster:IsReincarnating() then
     -- Dead unit is an actually dead real enemy hero unit
-    if caster:GetTeamNumber() ~= dead:GetTeamNumber() and dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) then
-      -- Charge gain
+    if caster:GetTeamNumber() ~= dead:GetTeamNumber() then
+      if dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) then
+        -- Charge gain
 
-      local function IsItemBloodstone(item)
-        return item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
+        local function IsItemBloodstone(item)
+          return item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
+        end
+
+        local items = map(partial(caster.GetItemInSlot, caster), range(0, 5))
+        local firstBloodstone = nth(1, filter(IsItemBloodstone, items))
+        local isSelfFirstBloodstone = firstBloodstone == stone
+
+        local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
+        local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
+
+        if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
+          stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
+          self.charges = stone:GetCurrentCharges()
+        end
       end
 
-      local items = map(partial(caster.GetItemInSlot, caster), range(0, 5))
-      local firstBloodstone = nth(1, filter(IsItemBloodstone, items))
-      local isSelfFirstBloodstone = firstBloodstone == stone
-
-      local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
-      local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
-
-      if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
-        stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
-        self.charges = stone:GetCurrentCharges()
+      -- Give charges for boss kills if number of charges is less than initial
+      if dead:IsOAABoss() then
+        if ((dead:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() <= stone:GetSpecialValueFor("charge_range")) and stone:GetCurrentCharges() < stone:GetSpecialValueFor("initial_charges_tooltip") then
+          stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
+          self.charges = stone:GetCurrentCharges()
+        end
       end
     end
     return
   end
 
   -- Charge loss
+
+  -- Don't remove charges when neutrals kill the caster
+  if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
 
   local oldCharges = stone:GetCurrentCharges()
   --local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
