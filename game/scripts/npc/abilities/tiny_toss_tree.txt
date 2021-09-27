@@ -38,7 +38,7 @@
       "03" // percentage bonus damage against creeps
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25"
+        "bonus_damage"                                    "20" // OAA, Valve has it wrong
         "LinkedSpecialBonus"                              "special_bonus_unique_tiny_7"
         "CalculateSpellDamageTooltip"                     "0"
       }
