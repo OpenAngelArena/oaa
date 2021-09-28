@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -44,6 +45,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/greater_phase_boots_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8.0"
@@ -59,7 +61,7 @@
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
     "UpgradesItems"                                       "item_greater_phase_boots_3;item_greater_phase_boots_4"
-    "UpgradeRecipe"                                       "item_recipe_greater_phase_boots"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -74,7 +76,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "38 78 138 218"
       }
-	  "03"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "5 7 10 14"
@@ -94,6 +96,11 @@
         "var_type"                                        "FIELD_FLOAT"
         "phase_duration"                                  "3.0"
       }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items/phase_divehit.vpcf"
     }
   }
 }

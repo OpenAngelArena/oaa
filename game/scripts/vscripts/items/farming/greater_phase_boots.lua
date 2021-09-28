@@ -38,7 +38,7 @@ function item_greater_phase_boots:OnSpellStart()
 
   -- Add the vanilla spider legs modifier (free pathing and cool visual spider effect)
   caster:AddNewModifier(caster, self, "modifier_item_spider_legs_active", {duration = active_duration})
-  
+
   -- Add OAA unique greater phase boots modifier
   caster:AddNewModifier(caster, self, "modifier_item_greater_phase_boots_active", {duration = active_duration})
 
@@ -101,7 +101,7 @@ function modifier_item_greater_phase_boots_passives:GetModifierPhysicalArmorBonu
   return self.armor
 end
 
-
+---------------------------------------------------------------------------------------------------
 --[[  Old split attack Greater Phase Boots effect - it procced instant attacks to splintered targets
 LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -189,7 +189,7 @@ function modifier_item_greater_phase_boots_splinter_shot:GetModifierDamageOutgoi
 end
 ]]
 
-
+---------------------------------------------------------------------------------------------------
 -- Old mini-Shukuchi Greater Phase Boots effect
 
 modifier_item_greater_phase_boots_active = class(ModifierBaseClass)
@@ -244,7 +244,7 @@ function modifier_item_greater_phase_boots_active:HasHitUnit(target)
   if not IsServer() then
     return
   end
-  for _, unit in pairs( self.hitTargets ) do
+  for _, unit in pairs(self.hitTargets) do
     if unit == target then
       return true
     end
@@ -288,9 +288,9 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
       parent:PerformAttack(unit, true, true, true, false, false, false, true)
 
       -- play the particle
-      local part = ParticleManager:CreateParticle( "particles/items/phase_divehit.vpcf", PATTACH_ABSORIGIN, unit )
-      ParticleManager:SetParticleControlEnt( part, 1, unit, PATTACH_POINT, "attach_hitloc", unit:GetAbsOrigin(), true )
-      ParticleManager:ReleaseParticleIndex( part )
+      local part = ParticleManager:CreateParticle("particles/items/phase_divehit.vpcf", PATTACH_ABSORIGIN, unit)
+      ParticleManager:SetParticleControlEnt(part, 1, unit, PATTACH_POINT, "attach_hitloc", unit:GetAbsOrigin(), true)
+      ParticleManager:ReleaseParticleIndex(part)
     end
   end
 
