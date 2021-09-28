@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -45,6 +46,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "custom/greater_tranquils_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15"
@@ -64,7 +66,6 @@
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
     "UpgradesItems"                                       "item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
-    "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
 
     "precache"
     {
@@ -136,7 +137,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_damage_reduction"                        "10 15 20 25"
+        "passive_damage_reduction"                        "10 12 14 16"
       }
       "13"
       {
