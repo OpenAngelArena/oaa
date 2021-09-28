@@ -23,21 +23,41 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "12 18 24 30 36"
       }
-      "02"
+      "02" // for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "30 70 110 220 440"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03"
+      "03" // for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed_reduction"                          "20 30 40 50 60"
+      }
+      "04" // bonus_armor - bonus_armor(at lvl 3)
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor_oaa"                                 "0 0 0 6 12"
+      }
+      "05" // bonus_damage - bonus_damage(at lvl 3)
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_oaa"                                "0 0 0 110 330"
+      }
+      "06" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_reduction_oaa"                      "0 0 0 10 20"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale_oaa"                                 "0 0 0 20 40"
       }
     }
   }
