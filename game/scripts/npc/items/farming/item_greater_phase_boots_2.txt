@@ -72,52 +72,27 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "38 78 138 218"
+        "bonus_damage"                                    "38 78 138 218"
       }
-      "03"
+	  "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "32 62 102 152"
+        "bonus_armor"                                     "5 7 10 14"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_block_melee"                              "0"
+        "phase_movement_speed"                            "25 30 35 40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_block_ranged"                             "0"
+        "phase_movement_speed_range"                      "25 30 35 40"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "25 30 35 40"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "15 20 25 30"
-      }
-      "09"
-      {
         "var_type"                                        "FIELD_FLOAT"
         "phase_duration"                                  "3.0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "0"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 10 14"
       }
     }
   }
