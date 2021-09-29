@@ -32,7 +32,10 @@ function tiny_grow_oaa:OnUpgrade()
     return
   end
 
+  -- Set level of vanilla Grow 
   vanilla_ability:SetLevel(ability_level)
+  -- Adding vanilla modifier manually because UpgradeAbility, OnUpgrade or RefreshIntrinsicModifier methods don't work
+  caster:AddNewModifier(caster, vanilla_ability, "modifier_tiny_grow", {})
 end
   -- if self:GetCaster():GetUnitName() == "npc_dota_hero_tiny" then
     -- local level_1 = "models/heroes/tiny_02/tiny_02.vmdl"
