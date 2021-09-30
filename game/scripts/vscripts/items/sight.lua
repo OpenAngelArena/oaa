@@ -1,4 +1,6 @@
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_far_sight_stacking_stats", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_far_sight_non_stacking_stats", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_far_sight_dummy_stuff", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_far_sight_true_sight", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -9,7 +11,14 @@ function item_far_sight:GetAOERadius()
 end
 
 function item_far_sight:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_far_sight:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_far_sight_stacking_stats",
+    "modifier_item_far_sight_non_stacking_stats"
+  }
 end
 
 function item_far_sight:OnSpellStart()
@@ -33,6 +42,231 @@ end
 item_far_sight_2 = item_far_sight
 item_far_sight_3 = item_far_sight
 item_far_sight_4 = item_far_sight
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_far_sight_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_far_sight_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_far_sight_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_far_sight_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_far_sight_stacking_stats:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_far_sight_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.health = ability:GetSpecialValueFor("bonus_health")
+    self.health_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.armor = ability:GetSpecialValueFor("bonus_armor")
+    self.worst_attr = ability:GetSpecialValueFor("bonus_to_worst_attribute")
+    --self.strength = ability:GetSpecialValueFor("bonus_strength")
+    --self.agility = ability:GetSpecialValueFor("bonus_agility")
+    --self.intellect = ability:GetSpecialValueFor("bonus_intellect")
+  end
+
+  if IsServer() then
+    local parent = self:GetParent()
+    if not parent:IsHero() then
+      self:SetStackCount(DOTA_ATTRIBUTE_MAX+1)
+      return
+    end
+
+    local stats = {}
+    -- DOTA_ATTRIBUTE_INVALID = -1
+    -- DOTA_ATTRIBUTE_STRENGTH = 0
+    -- DOTA_ATTRIBUTE_AGILITY = 1
+    -- DOTA_ATTRIBUTE_INTELLECT = 2
+    -- DOTA_ATTRIBUTE_MAX = 3
+    stats[DOTA_ATTRIBUTE_STRENGTH+1] = parent:GetBaseStrength() + parent:GetStrengthGain() * 49
+    stats[DOTA_ATTRIBUTE_AGILITY+1] = parent:GetBaseAgility() + parent:GetAgilityGain() * 49
+    stats[DOTA_ATTRIBUTE_INTELLECT+1] = parent:GetBaseIntellect() + parent:GetIntellectGain() * 49
+
+    local attribute = DOTA_ATTRIBUTE_STRENGTH
+    local min_v = stats[1]
+    for k, v in ipairs(stats) do
+      if v < min_v then
+        min_v = v
+        attribute = k-1
+      end
+    end
+
+    self:SetStackCount(attribute)
+  end
+end
+
+function modifier_item_far_sight_stacking_stats:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.health = ability:GetSpecialValueFor("bonus_health")
+    self.health_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.armor = ability:GetSpecialValueFor("bonus_armor")
+    self.worst_attr = ability:GetSpecialValueFor("bonus_to_worst_attribute")
+    --self.strength = ability:GetSpecialValueFor("bonus_strength")
+    --self.agility = ability:GetSpecialValueFor("bonus_agility")
+    --self.intellect = ability:GetSpecialValueFor("bonus_intellect")
+  end
+
+  if IsServer() then
+    local parent = self:GetParent()
+    if not parent:IsHero() then
+      self:SetStackCount(DOTA_ATTRIBUTE_MAX+1)
+      return
+    end
+
+    local stats = {}
+    -- DOTA_ATTRIBUTE_INVALID = -1
+    -- DOTA_ATTRIBUTE_STRENGTH = 0
+    -- DOTA_ATTRIBUTE_AGILITY = 1
+    -- DOTA_ATTRIBUTE_INTELLECT = 2
+    -- DOTA_ATTRIBUTE_MAX = 3
+    stats[DOTA_ATTRIBUTE_STRENGTH+1] = parent:GetBaseStrength() + parent:GetStrengthGain() * 49
+    stats[DOTA_ATTRIBUTE_AGILITY+1] = parent:GetBaseAgility() + parent:GetAgilityGain() * 49
+    stats[DOTA_ATTRIBUTE_INTELLECT+1] = parent:GetBaseIntellect() + parent:GetIntellectGain() * 49
+
+    local attribute = DOTA_ATTRIBUTE_STRENGTH
+    local min_v = stats[1]
+    for k, v in ipairs(stats) do
+      if v < min_v then
+        min_v = v
+        attribute = k-1
+      end
+    end
+
+    self:SetStackCount(attribute)
+  end
+end
+
+function modifier_item_far_sight_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+  }
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierHealthBonus()
+  return self.health or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierConstantHealthRegen()
+  return self.health_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierManaBonus()
+  return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierConstantManaRegen()
+  return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierPhysicalArmorBonus()
+  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierBonusStats_Strength()
+  local attribute = self:GetStackCount()
+  if attribute ~= DOTA_ATTRIBUTE_STRENGTH then
+    return 0
+  end
+
+  return self.worst_attr or self:GetAbility():GetSpecialValueFor("bonus_to_worst_attribute")
+  --return self.strength or self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierBonusStats_Agility()
+  local attribute = self:GetStackCount()
+  if attribute ~= DOTA_ATTRIBUTE_AGILITY then
+    return 0
+  end
+
+  return self.worst_attr or self:GetAbility():GetSpecialValueFor("bonus_to_worst_attribute")
+  --return self.agility or self:GetAbility():GetSpecialValueFor("bonus_agility")
+end
+
+function modifier_item_far_sight_stacking_stats:GetModifierBonusStats_Intellect()
+  local attribute = self:GetStackCount()
+  if attribute ~= DOTA_ATTRIBUTE_INTELLECT then
+    return 0
+  end
+
+  return self.worst_attr or self:GetAbility():GetSpecialValueFor("bonus_to_worst_attribute")
+  --return self.intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_far_sight_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_far_sight_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_far_sight_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_far_sight_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_far_sight_non_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.vision = ability:GetSpecialValueFor("bonus_vision_percentage")
+    self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
+  end
+end
+
+function modifier_item_far_sight_non_stacking_stats:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.vision = ability:GetSpecialValueFor("bonus_vision_percentage")
+    self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
+  end
+end
+
+function modifier_item_far_sight_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS,
+  }
+end
+
+function modifier_item_far_sight_non_stacking_stats:GetBonusVisionPercentage()
+  return self.vision or self:GetAbility():GetSpecialValueFor("bonus_vision_percentage")
+end
+
+function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonus()
+  local parent = self:GetParent()
+
+  -- Prevent stacking with Octarine Core
+  if parent:HasModifier("modifier_item_octarine_core") then
+    return 0
+  end
+
+  return self.cast_range or self:GetAbility():GetSpecialValueFor("bonus_cast_range")
+end
 
 ---------------------------------------------------------------------------------------------------
 
