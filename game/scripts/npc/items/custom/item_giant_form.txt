@@ -83,7 +83,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 40"
+        "bonus_strength"                                  "70 95"
       }
       "03"
       {
@@ -98,7 +98,7 @@
       "05" // percentage attack speed reduction
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_attack_speed_reduction"                    "50"
+        "giant_attack_speed_reduction"                    "30"
       }
       "06" // doesn't work on ranged heroes
       {
@@ -118,7 +118,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
+        "duration"                                        "8.0"
       }
     }
   }
