@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Splash Gun
+  // Recipe: Splash Cannon
   //=================================================================================================================
   "item_recipe_siege_mode"
   {
@@ -30,7 +30,7 @@
   }
 
   //=================================================================================================================
-  // Splash Gun
+  // Splash Cannon
   //=================================================================================================================
   "item_siege_mode"
   {
@@ -57,7 +57,7 @@
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "splash gun;splash;siege"
+    "ItemAliases"                                         "splash cannon;splash;siege;cannon"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
@@ -79,7 +79,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "50 70"
+        "bonus_agility"                                   "65 90"
       }
       "02"
       {
@@ -89,7 +89,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "43 63"
+        "bonus_intellect"                                 "45 65"
       }
       "04"
       {
