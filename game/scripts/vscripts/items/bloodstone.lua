@@ -219,30 +219,39 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
 
   -- someone else died or owner is reincarnating
   if caster ~= dead or caster:IsReincarnating() then
-    -- Dead unit is an actually dead real enemy hero unit
-    if caster:GetTeamNumber() ~= dead:GetTeamNumber() and dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) then
-      -- Charge gain
+    -- Dead unit is not on caster's team
+    if caster:GetTeamNumber() ~= dead:GetTeamNumber() then
 
-      local function IsItemBloodstone(item)
-        return item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
-      end
+      -- Dead unit is an actually dead real enemy hero unit or a boss and caster has below initial charges
+      if (dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone())) or (dead:IsOAABoss() and stone:GetCurrentCharges() < stone:GetSpecialValueFor("initial_charges_tooltip")) then
 
-      local items = map(partial(caster.GetItemInSlot, caster), range(0, 5))
-      local firstBloodstone = nth(1, filter(IsItemBloodstone, items))
-      local isSelfFirstBloodstone = firstBloodstone == stone
+        local function IsItemBloodstone(item)
+          return item and string.sub(item:GetAbilityName(), 0, 15) == "item_bloodstone"
+        end
 
-      local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
-      local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
+        local items = map(partial(caster.GetItemInSlot, caster), range(0, 5))
+        local firstBloodstone = nth(1, filter(IsItemBloodstone, items))
+        local isSelfFirstBloodstone = firstBloodstone == stone
 
-      if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
-        stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
-        self.charges = stone:GetCurrentCharges()
+        local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
+        local isDeadInChargeRange = casterToDeadVector:Length2D() <= stone:GetSpecialValueFor("charge_range")
+
+        -- Charge gain - only if caster is near the dead unit or if caster is the killer
+        if (isDeadInChargeRange or killer == caster) and isSelfFirstBloodstone then
+          stone:SetCurrentCharges(stone:GetCurrentCharges() + stone:GetSpecialValueFor("kill_charges"))
+          self.charges = stone:GetCurrentCharges()
+        end
       end
     end
     return
   end
 
   -- Charge loss
+
+  -- Don't remove charges when neutrals kill the caster
+  if killer:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
 
   local oldCharges = stone:GetCurrentCharges()
   --local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
