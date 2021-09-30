@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -10,19 +10,84 @@
 	m_nGroupID = 3
 	m_flMaxDrawDistance = 2000.0
 	m_bShouldSort = false
-	m_Renderers = 
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 4
+	m_controlPointConfigurations = 
 	[
 		{
-			_class = "C_OP_RenderModels"
-			m_nManualFrameField = 18
-			m_bManualAnimFrame = true
-			m_bIgnoreNormal = true
-			m_nModelCP = 0
-			m_hOverrideMaterial = resource:"materials/dev/primary_white_gradient_top.vmat"
-			m_flAnimationRate = 0.0
-			m_bAnimated = true
-			m_bForceDrawInterlevedWithSiblings = true
-			m_nLOD = 1
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 6
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 10
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 1
+			m_LocalCoordinateSystemSpeedMax = [ -40.0, 40.0, 70.0 ]
+			m_LocalCoordinateSystemSpeedMin = [ -40.0, -40.0, 10.0 ]
+		},
+		{
+			_class = "C_INIT_RemapInitialCPDirectionToRotation"
+			m_nCP = 10
+			m_flOffsetRot = 180.0
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RadiusFromCPObject"
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 18
+			m_flMax = 15.0
+		},
+		{
+			_class = "C_INIT_PositionPlaceOnGround"
+			m_flOffset = 1.0
+			m_CollisionGroupName = "DEBRIS"
+		},
+		{
+			_class = "C_INIT_InheritVelocity"
+			m_nControlPointNumber = 10
+			m_bDisableOperator = true
 		},
 	]
 	m_Operators = 
@@ -30,12 +95,10 @@
 		{
 			_class = "C_OP_BasicMovement"
 			m_fDrag = 0.1
-			m_flOpStrengthMinScale = 0.0
 			m_flOpTimeOffsetMax = 1.0
 		},
 		{
 			_class = "C_OP_Decay"
-			m_flOpStrengthMinScale = 0.0
 			m_flOpTimeOffsetMax = 1.0
 		},
 		{
@@ -71,45 +134,20 @@
 			m_bDisableOperator = true
 		},
 	]
-	m_Initializers = 
+	m_Renderers = 
 	[
 		{
-			_class = "C_INIT_CreateWithinSphere"
-			m_nControlPointNumber = 1
-			m_LocalCoordinateSystemSpeedMax = [ -40.0, 40.0, 70.0 ]
-			m_LocalCoordinateSystemSpeedMin = [ -40.0, -40.0, 10.0 ]
-		},
-		{
-			_class = "C_INIT_RemapInitialCPDirectionToRotation"
-			m_nCP = 10
-			m_flOffsetRot = 180.0
-			m_nFieldOutput = 12
-			m_bDisableOperator = true
-		},
-		{
-			_class = "C_INIT_PositionPlaceOnGround"
-			m_flOffset = 1.0
-			m_CollisionGroupName = "DEBRIS"
-		},
-		{
-			_class = "C_INIT_RadiusFromCPObject"
-		},
-		{
-			_class = "C_INIT_RandomScalar"
-			m_nFieldOutput = 18
-			m_flMax = 15.0
-		},
-		{
-			_class = "C_INIT_InheritVelocity"
-			m_nControlPointNumber = 10
-			m_bDisableOperator = true
-		},
-	]
-	m_Emitters = 
-	[
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 1
+			_class = "C_OP_RenderModels"
+			m_nManualFrameField = 18
+			m_bManualAnimFrame = true
+			m_bIgnoreNormal = true
+			m_nModelCP = 0
+			m_hOverrideMaterial = resource:"materials/dev/primary_white_gradient_top.vmat"
+			m_flAnimationRate = 0.0
+			m_bAnimated = true
+			m_bForceDrawInterlevedWithSiblings = true
+			m_nLOD = 1
+			m_bForceLoopingAnimation = true
 		},
 	]
 	m_Children = 
@@ -119,50 +157,6 @@
 		},
 		{
 			m_ChildRef = resource:"particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_arcana_model_particles.vpcf"
-			m_bDisableChild = true
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 1
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 2
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 1.0, 1.0, 1.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 6
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 10
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-			]
 		},
 	]
 }
