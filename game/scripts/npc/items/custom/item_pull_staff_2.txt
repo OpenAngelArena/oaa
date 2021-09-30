@@ -25,7 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_pull_staff;item_upgrade_core"
-      //"02"                                                "item_force_staff;item_upgrade_core"
+      "02"                                                "item_echo_sabre;item_upgrade_core"
+      "03"                                                "item_heavens_halberd;item_upgrade_core"
     }
   }
 
@@ -45,38 +46,34 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3749"           // Default ID by Valve is "102"
+    "ID"                                                  "3749"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/pull_staff.lua"
     "AbilityTextureName"                                  "custom/pull_staff_2"
-    "Model"                                               "models/props_gameplay/red_box.vmdl"
-    "Effect"                                              "particles/generic_gameplay/dropped_item.vpcf"
-    "AbilityCastAnimation"                                "ACT_DOTA_IDLE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     //"CastFilterRejectCaster"                              "1"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 650 750 900 1100"
+    "AbilityCastRange"                                    "650 750 850 950 1050"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "18"
+    "AbilityCooldown"                                     "18 17 16 15 14"
     "AbilitySharedCooldown"                               "pull"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3776"
+    "ItemCost"                                            "4001"
 
     "ItemSellable"                                        "1"
     "ItemPurchasable"                                     "1"
     "ItemDroppable"                                       "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
-    "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
+    "ItemShopTags"                                        "str;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pull staff 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -106,17 +103,17 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 70 130 210"
+        "bonus_damage"                                    "15 35 75 135 215"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 20 35 55 80"
+        "bonus_strength"                                  "15 25 40 60 85"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "5 8 11 14 17"
+        "bonus_health_regen"                              "6 9 12 15 18"
       }
       "05"
       {
@@ -131,12 +128,17 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_range"                                   "600 650 750 900 1100"
+        "tooltip_range"                                   "650 750 850 950 1050"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "550 600 700 850 1050"
+        "distance"                                        "600 700 800 900 1000"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "18 17 16 15 14"
       }
     }
   }

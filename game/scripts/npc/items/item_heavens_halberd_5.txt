@@ -26,6 +26,7 @@
     {
       "01"                                                "item_heavens_halberd_4;item_upgrade_core_4"
       "02"                                                "item_echo_sabre_4;item_upgrade_core_4"
+      "03"                                                "item_pull_staff_4;item_upgrade_core_4"
     }
   }
 
@@ -43,13 +44,13 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/heavens_halberd_5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
     "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -75,7 +76,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 30 50 80 120"
+        "bonus_strength"                                  "20 30 45 65 90"
       }
       "03"
       {

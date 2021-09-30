@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "0" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -37,6 +37,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/heavens_halberd_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 17 16 15 14"
@@ -47,7 +48,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "3550"
+    "ItemCost"                                            "3350" //OAA
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd;halberd"
@@ -70,7 +71,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 30 50 80 120"
+        "bonus_strength"                                  "20 30 45 65 90"
       }
       "03"
       {
