@@ -1,7 +1,8 @@
 item_greater_tranquil_boots = class(ItemBaseClass)
 
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_tranquil_boots", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
---LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_trees_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -26,16 +27,15 @@ end
 ]]
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
-	return "modifier_item_greater_tranquil_boots" -- "modifier_intrinsic_multiplexer"
+	return "modifier_intrinsic_multiplexer"
 end
--- uncomment this if we plan to add more effects to Greater Tranquil Boots
---[[
+
 function item_greater_tranquil_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_tranquil_boots",
+    "modifier_greater_tranquils_trees_buff"
   }
 end
-]]
 
 function item_greater_tranquil_boots:ShouldUseResources()
   return true
@@ -102,14 +102,20 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
   ParticleManager:SetParticleControl(nFXIndex, 1, Vector(0.0, r, 0.0))
   ParticleManager:ReleaseParticleIndex(nFXIndex)
 
+  -- Create trees
   for i = 1,8 do
     CreateTempTree(target_loc + Vector(x_offset[i], y_offset[i], 0.0), buff_duration)
   end
 
+  -- Unstuck entities
   for i = 1,8 do
     ResolveNPCPositions(target_loc + Vector(x_offset[i], y_offset[i], 0.0), 64.0)
   end
 
+  -- Vision
+  self:CreateVisibilityNode(target_loc, self:GetSpecialValueFor("sprout_vision_range"), buff_duration)
+
+  -- Sound
   EmitSoundOnLocationWithCaster(target_loc, "Hero_Furion.Sprout", caster)
 end
 
@@ -328,6 +334,138 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
+modifier_greater_tranquils_trees_buff = class(ModifierBaseClass)
+
+function modifier_greater_tranquils_trees_buff:IsHidden()
+  return self:GetStackCount() ~= 0
+end
+
+function modifier_greater_tranquils_trees_buff:IsDebuff()
+  return false
+end
+
+function modifier_greater_tranquils_trees_buff:IsPurgable()
+  return false
+end
+
+function modifier_greater_tranquils_trees_buff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.hp_regen_amp = ability:GetSpecialValueFor("passive_hp_regen_amp")
+    self.heal_amp = ability:GetSpecialValueFor("passive_heal_amp")
+    self.dmg_reduction = ability:GetSpecialValueFor("passive_damage_reduction")
+    self.status_resist = ability:GetSpecialValueFor("passive_status_resistance")
+  end
+
+  if IsServer() then
+    self:SetStackCount(2)
+    self:StartIntervalThink(0)
+  end
+end
+
+function modifier_greater_tranquils_trees_buff:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.hp_regen_amp = ability:GetSpecialValueFor("passive_hp_regen_amp")
+    self.heal_amp = ability:GetSpecialValueFor("passive_heal_amp")
+    self.dmg_reduction = ability:GetSpecialValueFor("passive_damage_reduction")
+    self.status_resist = ability:GetSpecialValueFor("passive_status_resistance")
+  end
+end
+
+function modifier_greater_tranquils_trees_buff:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  if not parent or parent:IsNull() then
+    return
+  end
+
+  -- Ignore illusions and Meepo clones
+  if parent:IsIllusion() or parent:IsClone() then
+    return
+  end
+
+  -- Ignore banished units
+  if parent:IsOutOfGame() then
+    self:SetStackCount(2)
+    return
+  end
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  local parent_origin = parent:GetAbsOrigin()
+  local tree_radius = ability:GetSpecialValueFor("passive_tree_radius")
+
+  if GridNav:IsNearbyTree(parent_origin, tree_radius, true) then
+    self:SetStackCount(0)
+  else
+    self:SetStackCount(2)
+  end
+end
+
+function modifier_greater_tranquils_trees_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+  }
+end
+
+function modifier_greater_tranquils_trees_buff:GetModifierHPRegenAmplify_Percentage()
+  if self:GetStackCount() == 0 then
+    return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("passive_hp_regen_amp")
+  end
+
+  return 0
+end
+
+function modifier_greater_tranquils_trees_buff:GetModifierHealAmplify_PercentageSource()
+  if self:GetStackCount() == 0 then
+    return self.heal_amp or self:GetAbility():GetSpecialValueFor("passive_heal_amp")
+  end
+
+  return 0
+end
+
+function modifier_greater_tranquils_trees_buff:GetModifierHealAmplify_PercentageTarget()
+  if self:GetStackCount() == 0 then
+    return self.heal_amp or self:GetAbility():GetSpecialValueFor("passive_heal_amp")
+  end
+
+  return 0
+end
+
+function modifier_greater_tranquils_trees_buff:GetModifierIncomingDamage_Percentage(event)
+  --if event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+    --return 0
+  --end
+
+  if self:GetStackCount() == 0 then
+    return 0-self.dmg_reduction or 0-self:GetAbility():GetSpecialValueFor("passive_damage_reduction")
+  end
+
+  return 0
+end
+
+function modifier_greater_tranquils_trees_buff:GetModifierStatusResistanceStacking()
+  if self:GetStackCount() == 0 then
+    return self.status_resist or self:GetAbility():GetSpecialValueFor("passive_status_resistance")
+  end
+
+  return 0
+end
+
+---------------------------------------------------------------------------------------------------
+
 modifier_greater_tranquils_tranquilize_debuff = class(ModifierBaseClass)
 
 function modifier_greater_tranquils_tranquilize_debuff:IsHidden()
@@ -402,18 +540,31 @@ end
 function modifier_greater_tranquils_tranquilize_buff:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
+    self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
   end
 end
+
+modifier_greater_tranquils_tranquilize_buff.OnRefresh = modifier_greater_tranquils_tranquilize_buff.OnCreated
 
 function modifier_greater_tranquils_tranquilize_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
   }
 end
 
 function modifier_greater_tranquils_tranquilize_buff:GetModifierHPRegenAmplify_Percentage()
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("active_hp_regen_amp")
+end
+
+function modifier_greater_tranquils_tranquilize_buff:GetModifierHealAmplify_PercentageSource()
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
+end
+
+function modifier_greater_tranquils_tranquilize_buff:GetModifierHealAmplify_PercentageTarget()
+  return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
 end
 
 function modifier_greater_tranquils_tranquilize_buff:CheckState()
