@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-    //=================================================================================
+  //=================================================================================
 	// Warlock: Golem 2
 	//=================================================================================
-	    "npc_dota_warlock_golem_2"
-	{										
+	"npc_dota_warlock_golem_2"
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -17,7 +17,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -34,13 +34,13 @@
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"200"		// Damage range min.
-		"AttackDamageMax"			"200"		// Damage range max.	
+		"AttackDamageMax"			"200"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -62,8 +62,8 @@
 		"StatusHealth"				"3000"		// Base health.
 		"StatusHealthRegen"			"60"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
@@ -81,8 +81,8 @@
 		"HasInventory"				"0"
 	}
 
-	    "npc_dota_warlock_golem_scepter_2"
-	{										
+	"npc_dota_warlock_golem_scepter_2"
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
@@ -94,7 +94,7 @@
 		"ConsideredHero"			"1"
 		"UnitLabel"			"golem"
 		"wearable"				"8362"
-	
+
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
@@ -105,19 +105,19 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"20"			// Physical protection.
-		"MagicalResistance"				"33"	
+		"MagicalResistance"				"33"
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"150"		// Damage range min.
-		"AttackDamageMax"			"150"		// Damage range max.	
+		"AttackDamageMax"			"150"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"225"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -136,11 +136,11 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2250"		// Base health.
+		"StatusHealth"				"2400"		// Base health.
 		"StatusHealthRegen"			"60"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.

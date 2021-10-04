@@ -11,6 +11,7 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -45,9 +46,10 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "custom/greater_tranquils_2"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18"
+    "AbilityCooldown"                                     "18 17 16 15"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "greater_tranquils"
     "AbilityCastRange"                                    "600 650 700 750"
@@ -64,7 +66,6 @@
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
-    "UpgradeRecipe"                                       "item_recipe_greater_tranquil_boots"
 
     "precache"
     {
@@ -81,12 +82,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "75 80 85 90"
+        "bonus_movement_speed"                            "70 75 80 85"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 5 9 14"
+        "bonus_armor"                                     "0"
       }
       "03"
       {
@@ -121,12 +122,52 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "50"
+        "projectile_speed"                                "700"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "700"
+        "passive_hp_regen_amp"                            "20 22 24 26"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_heal_amp"                                "25 30 35 40"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_damage_reduction"                        "10 12 14 16"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_status_resistance"                       "10 15 20 25"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_tree_radius"                             "150"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_hp_regen_amp"                             "50"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_heal_amp"                                 "50"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "sprout_vision_range"                             "250"
+      }
+      "18"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "18 17 16 15"
       }
     }
   }

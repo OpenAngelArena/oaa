@@ -90,9 +90,9 @@ BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk befo
 BOSS_AGRO_FACTOR = 15                   -- boss must take (tier * n) damage before agro
 BOSS_WANDERER_MIN_SPAWN_TIME = 12       -- min time at which first Wanderer can spawn (in minutes)
 BOSS_WANDERER_MAX_SPAWN_TIME = 15       -- max time at which first Wanderer can spawn (in minutes)
-BOSS_WANDERER_MIN_RESPAWN_TIME = 3      -- min respawn time of the Wanderer (in minutes)
+BOSS_WANDERER_MIN_RESPAWN_TIME = 4      -- min respawn time of the Wanderer (in minutes)
 BOSS_WANDERER_MAX_RESPAWN_TIME = 6      -- min respawn time of the Wanderer (in minutes)
-BOSS_WANDERER_BUFF_DURATION = 3         -- max duration of the Wanderer buff (in minutes)
+BOSS_WANDERER_BUFF_DURATION = 2.5       -- max duration of the Wanderer buff (in minutes)
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn

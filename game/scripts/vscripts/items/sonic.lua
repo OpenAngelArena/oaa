@@ -1,10 +1,10 @@
 item_sonic = class(ItemBaseClass)
 
+LinkLuaModifier("modifier_item_sonic_passives", "items/sonic.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sonic_fly", "items/sonic.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_sonic:GetIntrinsicModifierName()
-  return "modifier_item_phase_boots"--"modifier_generic_bonus"
+  return "modifier_item_sonic_passives"
 end
 
 function item_sonic:OnSpellStart()
@@ -18,7 +18,7 @@ function item_sonic:OnSpellStart()
   end
 
   -- Apply Basic Dispel
-  caster:Purge(false, true, false, false, false)
+  --caster:Purge(false, true, false, false, false)
 
   -- Apply Sonic buff to caster
   caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = self:GetSpecialValueFor("duration")})
@@ -29,6 +29,56 @@ end
 
 item_sonic_2 = item_sonic
 
+---------------------------------------------------------------------------------------------------
+
+modifier_item_sonic_passives = class(ModifierBaseClass)
+
+function modifier_item_sonic_passives:IsHidden()
+  return true
+end
+
+function modifier_item_sonic_passives:IsDebuff()
+  return false
+end
+
+function modifier_item_sonic_passives:IsPurgable()
+  return false
+end
+
+function modifier_item_sonic_passives:OnCreated()
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  self.movement_speed = ability:GetSpecialValueFor("bonus_movement_speed")
+  self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+  self.agi = ability:GetSpecialValueFor("bonus_agility")
+end
+
+modifier_item_sonic_passives.OnRefresh = modifier_item_sonic_passives.OnCreated
+
+function modifier_item_sonic_passives:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+  }
+
+  return funcs
+end
+
+function modifier_item_sonic_passives:GetModifierMoveSpeedBonus_Special_Boots()
+  return self.movement_speed
+end
+
+function modifier_item_sonic_passives:GetModifierAttackSpeedBonus_Constant()
+  return self.attack_speed
+end
+
+function modifier_item_sonic_passives:GetModifierBonusStats_Agility()
+  return self.agi
+end
 ---------------------------------------------------------------------------------------------------
 
 modifier_sonic_fly = class(ModifierBaseClass)
@@ -45,11 +95,14 @@ function modifier_sonic_fly:IsPurgable()
   return true
 end
 
+function modifier_sonic_fly:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
 function modifier_sonic_fly:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.vision = ability:GetSpecialValueFor("vision_bonus")
-    self.speed = ability:GetSpecialValueFor("speed_bonus")
+    self.speed = ability:GetSpecialValueFor("active_speed_bonus")
   end
 end
 
@@ -58,7 +111,6 @@ modifier_sonic_fly.OnRefresh = modifier_sonic_fly.OnCreated
 function modifier_sonic_fly:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
     MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
@@ -70,16 +122,14 @@ function modifier_sonic_fly:CheckState()
     [MODIFIER_STATE_FLYING] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_UNSLOWABLE] = true,
+    [MODIFIER_STATE_ROOTED] = false,
+    [MODIFIER_STATE_TETHERED] = false,
   }
   return state
 end
 
-function modifier_sonic_fly:GetBonusVisionPercentage()
-  return self.vision or self:GetAbility():GetSpecialValueFor("vision_bonus")
-end
-
 function modifier_sonic_fly:GetModifierMoveSpeedBonus_Percentage()
-  return self.speed or self:GetAbility():GetSpecialValueFor("speed_bonus")
+  return self.speed or self:GetAbility():GetSpecialValueFor("active_speed_bonus")
 end
 
 function modifier_sonic_fly:GetModifierIgnoreMovespeedLimit()

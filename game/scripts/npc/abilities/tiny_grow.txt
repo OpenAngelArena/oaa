@@ -11,13 +11,11 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5109"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
     "AbilitySound"                                        "Tiny.Grow"
 
     "MaxLevel"                                            "3"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
