@@ -260,8 +260,8 @@ end
 function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonus()
   local parent = self:GetParent()
 
-  -- Prevent stacking with Octarine Core
-  if parent:HasModifier("modifier_item_octarine_core") then
+  -- Prevent stacking with Octarine Core and Aether Lens
+  if parent:HasModifier("modifier_item_octarine_core") or parent:HasModifier("modifier_item_aether_lens") then
     return 0
   end
 
