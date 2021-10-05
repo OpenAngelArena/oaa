@@ -39,10 +39,12 @@
     "BaseClass"                                           "item_radiance"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "custom/radiance_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "10102"
@@ -74,12 +76,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blind_pct"                                       "17"
+        "blind_pct"                                       "17 18 19 20 21"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700"
+        "aura_radius"                                     "700 750 800 850 900"
       }
     }
   }
