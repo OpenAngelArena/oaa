@@ -16,7 +16,7 @@
     "ItemResult"                                          "item_abyssal_blade_2"
     "ItemRequirements"
     {
-      "01"                                                "item_abyssal_blade;item_upgrade_core"
+      "01"                                                "item_skadi;item_upgrade_core"
     }
   }
 
@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "7826"
+    "ItemCost"                                            "6801"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
