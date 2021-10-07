@@ -47,7 +47,7 @@
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "900"
+    "AoERadius"                                           "800"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -78,32 +78,62 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5 8 11 14"
+        "bonus_health"                                    "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 3 5 8"
+        "bonus_health_regen"                              "5 8 11 14"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 30 45 60"
+        "bonus_mana"                                      "0"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 30 45 60"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.75 2.25 3.0 4.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "800"
+        "bonus_armor"                                     "2 4 7 11"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "reveal_duration"                                 "10.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_to_worst_attribute"                        "15 25 40 60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_vision_percentage"                         "20 30 40 50"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cast_range"                                "250 300 350 400"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reveal_radius"                                   "800"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reveal_duration"                                 "8"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dust_duration"                                   "10"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dust_radius"                                     "800"
       }
     }
   }
