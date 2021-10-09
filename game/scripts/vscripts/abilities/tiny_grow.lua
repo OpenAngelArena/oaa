@@ -33,7 +33,7 @@ function tiny_grow_oaa:OnUpgrade()
     return
   end
 
-  -- Set level of vanilla Grow 
+  -- Set level of vanilla Grow
   vanilla_ability:SetLevel(ability_level)
   -- Adding vanilla modifier manually because UpgradeAbility, OnUpgrade or RefreshIntrinsicModifier methods don't work
   --caster:AddNewModifier(caster, vanilla_ability, "modifier_tiny_grow", {})
@@ -137,7 +137,7 @@ function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
   self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
-  
+
   local parent = self:GetParent()
   -- Fix for illusions not getting 'modifier_tiny_grow'
   if parent:IsIllusion() and IsServer() then
