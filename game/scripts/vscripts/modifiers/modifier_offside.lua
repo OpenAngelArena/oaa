@@ -196,14 +196,14 @@ function modifier_offside:OnIntervalThink()
     return -- Don't continue (don't do damage)
   end
 
-  -- Find every enemy entity
+  -- Find enemy heroes and other player-controlled units
   local defenders = FindUnitsInRadius(
     team,
     origin,
     nil,
     3600,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_ALL,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER),
     bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_CLOSEST,
     false
@@ -214,15 +214,19 @@ function modifier_offside:OnIntervalThink()
       local defender = defenders[k]
       if defender and not defender:IsNull() and IsValidEntity(defender) then
         if defender:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
-          self.damage_source = defender
-          break
+          if defender.HasModifier then
+            if not defender:HasModifier("modifier_minimap") and not defender:HasModifier("modifier_oaa_thinker") then
+			  self.damage_source = defender
+              break
+            end
+          end
         end
       end
     end
   end
 
-  -- Last resort (this should never happen because of the shrine)
-  if not self.damage_source and IsValidEntity(self.damage_source) then
+  -- Last resort (if highground is empty, no heroes and player-controlled units)
+  if not self.damage_source and not IsValidEntity(self.damage_source) then
     self.damage_source = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 10000)
   end
 
@@ -232,7 +236,6 @@ function modifier_offside:OnIntervalThink()
     damage = (h * ((0.15 * ((stackCount - 8)^2 + 10 * (stackCount - 8)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
     damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
-    ability = nil
   }
 
   if stackCount >= 8 then
