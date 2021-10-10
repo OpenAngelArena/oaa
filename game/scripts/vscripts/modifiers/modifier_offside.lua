@@ -196,31 +196,39 @@ function modifier_offside:OnIntervalThink()
     return -- Don't continue (don't do damage)
   end
 
+  -- Find every enemy entity
   local defenders = FindUnitsInRadius(
     team,
     origin,
     nil,
-    2500,
+    3600,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_ALL,
     bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
-    FIND_ANY_ORDER,
+    FIND_CLOSEST,
     false
   )
 
-  if #defenders == 0 then
-    defenders = nil
+  if #defenders ~= 0 then
+    for k = 1, #defenders do
+      local defender = defenders[k]
+      if defender and not defender:IsNull() and IsValidEntity(defender) then
+        if defender:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
+          self.damage_source = defender
+          break
+        end
+      end
+    end
   end
 
-  if defenders then
-    defenders = defenders[1]
-  else
-    defenders = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 10000)
+  -- Last resort (this should never happen because of the shrine)
+  if not self.damage_source and IsValidEntity(self.damage_source) then
+    self.damage_source = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 10000)
   end
 
   local damageTable = {
     victim = parent,
-    attacker = defenders,
+    attacker = self.damage_source,
     damage = (h * ((0.15 * ((stackCount - 8)^2 + 10 * (stackCount - 8)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
     damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),

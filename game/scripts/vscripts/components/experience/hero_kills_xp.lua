@@ -54,6 +54,12 @@ function HeroKillXP:HeroDeathHandler(keys)
   local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
 
+  print("KILLER is: "..killerEntity:GetName())
+  if killerEntity.GetUnitName then
+    print("KILLER is precisely: "..killerEntity:GetUnitName())
+  end
+  print("KILLER's team is: "..tostring(killerTeam).."; 2 is Radiant, 3 is Dire, 4 is Neutrals;")
+
   if killerTeam == killedTeam then
     -- Hero is denied
     return
@@ -73,11 +79,20 @@ function HeroKillXP:HeroDeathHandler(keys)
 
   local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
+
+  print("KILLER's player ID is: "..tostring(killerPlayerID))
+
   if killerPlayerID == -1 or killedPlayerID == -1 then
     return
   end
 
   local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
+
+  print("KILLER's hero is: "..killerHero:GetName())
+  if killerHero.GetUnitName then
+    print("KILLER's hero is precisely: "..killerHero:GetUnitName())
+  end
+
   local killedHeroXP = killedHero:GetCurrentXP()
   local killedHeroStreak = killedHero:GetStreak()
   local killedHeroLevel = killedHero:GetLevel()
