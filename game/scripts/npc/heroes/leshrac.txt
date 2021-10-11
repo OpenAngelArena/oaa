@@ -1,0 +1,14 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Leshrac
+  //=================================================================================================================
+  "npc_dota_hero_leshrac"
+  {
+    "Ability11"                                           "special_bonus_strength_8" //replaces special_bonus_unique_leshrac_5
+    "Ability12"                                           "special_bonus_unique_leshrac_6"
+
+    "Ability14"                                           "special_bonus_unique_leshrac_5" // replaces special_bonus_strength 20
+    "Ability15"                                           "special_bonus_unique_leshrac_3"
+  }
+}
