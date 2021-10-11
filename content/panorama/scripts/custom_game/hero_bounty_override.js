@@ -8,8 +8,8 @@ function OverrideHeroBountyToast (data) {
   let toasts = toastManager.Children();
   let toastCount = toastManager.GetChildCount();
   // Find the last toast kill message that we need to override
-  let lastToast = toasts[toastCount-1];
-  let count = toastCount
+  let lastToast = toasts[toastCount - 1];
+  let count = toastCount;
   do {
     count = count - 1;
     if (count <= 0) {
@@ -34,13 +34,14 @@ function OverrideHeroBountyToast (data) {
     let killerIcon = '<img class="CombatEventHeroIcon" src="file://{images}/heroes/icons/' + Players.GetPlayerSelectedHero(playerID) + '.png"/>';
     killerText = killerText + (killerText ? ' ' : '') + killerIcon + ColoredText(color, name);
   });
-  //} else {
-    //killerText = $.Localize(Game.GetTeamDetails(data.rewardTeam).team_name);
+  // } else {
+  if (rewardPlayerIDs.length < 1 && !displayHeroes) {
+    killerText = $.Localize(Game.GetTeamDetails(data.rewardTeam).team_name);
     // if (data.rewardTeam === Game.GetLocalPlayerInfo().player_team_id) {
       // killMessageToast.RemoveClass('EnemyEvent');
       // killMessageToast.AddClass('AllyEvent');
     // }
-  //}
+  }
   let goldText = ColoredText('#ffd825', goldBounty.toString());
   let killIcon = '<Panel class="CombatEventKillIcon"/>';
   let goldIcon = '<Panel class="CombatEventGoldIcon"/>';
