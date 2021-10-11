@@ -3,7 +3,6 @@ LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFI
 LinkLuaModifier('modifier_onside_buff', 'modifiers/modifier_onside_buff.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_is_in_offside = class(ModifierBaseClass)
-modifier_offside = class(ModifierBaseClass)
 
 local TICKS_PER_SECOND = 5
 
@@ -52,7 +51,9 @@ function modifier_is_in_offside:IsPurgable()
   return false
 end
 
---------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+modifier_offside = class(ModifierBaseClass)
 
 function modifier_offside:OnCreated()
   if IsServer() then
@@ -70,8 +71,6 @@ function modifier_offside:IsPurgable()
   return false
 end
 
---------------------------------------------------------------------
---aura
 function modifier_offside:IsAura()
   return true
 end
@@ -91,8 +90,7 @@ end
 function modifier_offside:GetModifierAura()
   return "modifier_onside_buff"
 end
---------------------------------------------------------------------
---% health damage
+
 function modifier_offside:GetTexture()
   return "custom/modifier_offside"
 end
@@ -209,6 +207,7 @@ function modifier_offside:OnIntervalThink()
     false
   )
 
+  -- Find the damage source of offside damage - nearest non-neutral hero or player-controlled unit
   if #defenders ~= 0 then
     for k = 1, #defenders do
       local defender = defenders[k]
@@ -216,7 +215,7 @@ function modifier_offside:OnIntervalThink()
         if defender:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
           if defender.HasModifier then
             if not defender:HasModifier("modifier_minimap") and not defender:HasModifier("modifier_oaa_thinker") then
-			  self.damage_source = defender
+              self.damage_source = defender
               break
             end
           end
@@ -225,9 +224,9 @@ function modifier_offside:OnIntervalThink()
     end
   end
 
-  -- Last resort (if highground is empty, no heroes and player-controlled units)
+  -- Last resort (if highground is empty, there were no heroes and player-controlled units at modifier creation)
   if not self.damage_source and not IsValidEntity(self.damage_source) then
-    self.damage_source = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 10000)
+    self.damage_source = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 6000)
   end
 
   local damageTable = {

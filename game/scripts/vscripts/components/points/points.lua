@@ -73,6 +73,8 @@ function PointsManager:Init ()
       dire_fountain = entity
     end
   end
+
+  -- Find fountain triggers
   local radiant_fountain_t = Entities:FindByName(nil, "fountain_good_trigger")
   local dire_fountain_t = Entities:FindByName(nil, "fountain_bad_trigger")
 

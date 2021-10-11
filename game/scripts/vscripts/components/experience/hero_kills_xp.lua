@@ -165,6 +165,7 @@ function HeroKillXP:HeroDeathHandler(keys)
   end
 
   -- Player kills: Give xp to the killer and to heroes around the killed hero
+  -- pairs is used instead of ipairs because order doesn't matter
   for _, hero in pairs(heroes) do
     if hero then
       -- Check for XP spark
