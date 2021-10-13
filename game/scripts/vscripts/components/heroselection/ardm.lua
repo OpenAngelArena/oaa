@@ -7,60 +7,100 @@ local PrecacheHeroEvent = Event()
 function ARDMMode:Init (allHeroes)
   self.hasPrecached = false
   self.allHeroes = allHeroes
-  self.estimatedExperience = {}
+  self.addedmodifier = {}
 
   Debug:EnableDebugging()
-
-  GameEvents:OnHeroSelection(function ()
-    self:PrecacheAllHeroes(allHeroes, function ()
-      DebugPrint('Done precaching')
-      self.hasPrecached = true
-      PrecacheHeroEvent.broadcast(#allHeroes)
-    end)
-  end)
 
   self.heroPool = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {}
   }
 
-  GameEvents:OnHeroInGame(function (npc)
-    local teamId = npc:GetTeam()
-    if teamId == DOTA_TEAM_NEUTRALS or npc:GetUnitName() == FORCE_PICKED_HERO then
-      return
-    end
-
-    npc:AddNewModifier(npc, nil, "modifier_ardm", {})
-  end)
-
-  GameEvents:OnHeroKilled(function (keys)
-    local teamId = keys.killed:GetTeam()
-    if not keys.killed:IsReincarnating() and teamId ~= DOTA_TEAM_NEUTRALS then
-      local playerId = keys.killed:GetPlayerID()
-      -- rerandom!
-      local oldHero = PlayerResource:GetSelectedHeroEntity(playerId)
-      local newHeroName = self:GetRandomHero(teamId)
-
-      local modardm = oldHero:FindModifierByName("modifier_ardm")
-      if modardm then
-        modardm.hero = newHeroName
-      end
-    end
-  end)
+  GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
+  GameEvents:OnHeroInGame(ARDMMode.ApplyARDMmodifier)
+  GameEvents:OnHeroKilled(ARDMMode.ChangeHero)
 
   self:ReloadHeroPool(DOTA_TEAM_GOODGUYS)
   self:ReloadHeroPool(DOTA_TEAM_BADGUYS)
 end
 
+function ARDMMode.StartPrecache()
+  local allHeroes = ARDMMode.allHeroes
+  ARDMMode:PrecacheAllHeroes(allHeroes, function ()
+    DebugPrint('Done precaching')
+    ARDMMode.hasPrecached = true
+    PrecacheHeroEvent.broadcast(#allHeroes)
+  end)
+end
+
+function ARDMMode.ApplyARDMmodifier(hero)
+  if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+    return
+  end
+
+  if hero:IsTempestDouble() or hero:IsClone() then
+    return
+  end
+
+  local playerID = hero:GetPlayerOwnerID()
+  if ARDMMode.addedmodifier[playerID] then
+    return
+  end
+
+  -- if hero:GetUnitName() == FORCE_PICKED_HERO then
+    -- return
+  -- end
+
+  if not hero:HasModifier("modifier_ardm") then
+    hero:AddNewModifier(hero, nil, "modifier_ardm", {})
+  end
+
+  ARDMMode.addedmodifier[playerID] = true
+end
+
+function ARDMMode.ChangeHero(event)
+  if not event.killed then
+    return
+  end
+
+  local killed_hero = event.killed
+  local team = killed_hero:GetTeamNumber()
+  local playerID = killed_hero:GetPlayerOwnerID()
+
+  if killed_hero:IsClone() then
+    killed_hero = killed_hero:GetCloneSource()
+  end
+
+  if killed_hero:IsReincarnating() or killed_hero:IsTempestDouble() then
+    return
+  end
+
+  if team == DOTA_TEAM_NEUTRALS then
+    return
+  end
+
+  if not killed_hero:HasModifier("modifier_ardm") and not ARDMMode.addedmodifier[playerID] then
+    DebugPrint("Killed hero "..killed_hero:GetUnitName().." doesn't have ARDM modifier for some reason.")
+    return
+  end
+
+  local new_hero_name = ARDMMode:GetRandomHero(team)
+
+  local ardm_mod = killed_hero:FindModifierByName("modifier_ardm")
+  if ardm_mod then
+    ardm_mod.hero = new_hero_name
+  end
+end
+
 function ARDMMode:ReloadHeroPool (teamId)
-  for hero,primaryAttr in pairs(self.allHeroes) do
+  for hero, primaryAttr in pairs(self.allHeroes) do
     self.heroPool[teamId][hero] = true
   end
 end
 
 function ARDMMode:PrecacheAllHeroes (heroList, cb)
   local heroCount = 0
-  for hero,primaryAttr in pairs(heroList) do
+  for hero, primaryAttr in pairs(heroList) do
     heroCount = heroCount + 1
   end
   local done = after(heroCount, cb)
@@ -74,7 +114,7 @@ function ARDMMode:PrecacheAllHeroes (heroList, cb)
     end)
   end
 
-  for hero,primaryAttr in pairs(heroList) do
+  for hero, primaryAttr in pairs(heroList) do
     precacheUnit(hero)
   end
 end
@@ -95,7 +135,7 @@ end
 function ARDMMode:GetRandomHero (teamId)
   local n = 0
   local heroPool = {}
-  for hero,v in pairs(self.heroPool[teamId]) do
+  for hero, v in pairs(self.heroPool[teamId]) do
     n = n + 1
     heroPool[n] = hero
   end

@@ -42,6 +42,7 @@
                   <Label text="All Random" id="AR"/>
                   <Label text="All Pick" id="AP"/>
                   <Label text="Random Draft" id="RD"/>
+                  <Label text="All Random Death Match" id="ARDM"/>
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="2-6 Players" onactivate="onPanelChange('small_player_pool')"/>
               </Panel>

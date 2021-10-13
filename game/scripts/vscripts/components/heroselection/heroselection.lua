@@ -33,7 +33,9 @@ function HeroSelection:Init ()
   Debug.EnabledModules['heroselection:*'] = false
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "captains_mode"
-  self.isARDM = GetMapName() == "ardm"
+  if OAAOptions and OAAOptions.settings then
+    self.isARDM = OAAOptions.settings.GAME_MODE == "ARDM"
+  end
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "oaa" or GetMapName() == "oaa_seasonal"
   self.spawnedHeroes = {}
@@ -45,11 +47,11 @@ function HeroSelection:Init ()
   if self.isCM then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
-  if self.isARDM then
-    herolistFile = 'scripts/npc/herolist_ardm.txt'
-  end
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
+  end
+  if self.isARDM then
+    herolistFile = 'scripts/npc/herolist_ardm.txt'
   end
   if self.isRanked or self.is10v10 then
     self.isBanning = true
