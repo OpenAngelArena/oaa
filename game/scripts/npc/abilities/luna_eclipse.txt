@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "100" //OAA
     "AbilityDuration"                                     "3.6 5.4 7.2 9.0 10.8" //OAA
 
     // Cost
@@ -47,7 +47,7 @@
       "02" // max beams per unit without scepter
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count"                                       "5"
+        "hit_count"                                       "18"
       }
       "03"
       {
