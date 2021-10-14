@@ -51,6 +51,8 @@ function HeroKillXP:HeroDeathHandler(keys)
 
     return
   end
+
+  -- Every entity has GetTeamNumber
   local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
 
@@ -71,13 +73,15 @@ function HeroKillXP:HeroDeathHandler(keys)
     return
   end
 
+  -- playerID is -1 for the fountains, buildings, bottle statues, dummy units etc.
+  -- GetPlayerOwnerID will return -1 for those kind of stuff
   local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
-  if killerPlayerID == -1 or killedPlayerID == -1 then
+
+  if killedPlayerID == -1 then
     return
   end
 
-  local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local killedHeroXP = killedHero:GetCurrentXP()
   local killedHeroStreak = killedHero:GetStreak()
   local killedHeroLevel = killedHero:GetLevel()
@@ -93,8 +97,6 @@ function HeroKillXP:HeroDeathHandler(keys)
     killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_MAX
   end
 
-  local numAttackers = killedHero:GetNumAttackers()
-  local rewardPlayerIDs = iter({killerPlayerID})
   local rewardHeroes
   local distributeCount = 1
 
@@ -105,14 +107,17 @@ function HeroKillXP:HeroDeathHandler(keys)
     nil,
     HERO_KILL_XP_RADIUS,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_ALL,
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+    DOTA_UNIT_TARGET_HERO,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_ANY_ORDER,
     false
   )
 
-  -- Handle non-player kills (usually the fountain in OAA's case)
+  -- Handle non-player kills (when killerPlayerID is -1)
+  -- in OAA those are: fountains, buildings, bottle statues, dummy units etc.)
   if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    local rewardPlayerIDs
+    local numAttackers = killedHero:GetNumAttackers()
     if numAttackers == 0 then
       -- Distribute xp to all heroes on the killer team
       rewardPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killerTeam)
@@ -128,7 +133,9 @@ function HeroKillXP:HeroDeathHandler(keys)
     end
     rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
   else
-    -- When last hit by a hero from long range (>1500), that hero should always receive xp, regardless of distance
+    local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
+
+	-- When last hit by a hero from long range (>HERO_KILL_XP_RADIUS), that hero should always receive xp, regardless of distance
     local killerIsInHeroesTable = iter(heroes)
                                   :map(CallMethod("GetPlayerOwnerID"))
                                   :contains(killerPlayerID)
@@ -158,7 +165,8 @@ function HeroKillXP:HeroDeathHandler(keys)
   end
 
   -- Player kills: Give xp to the killer and to heroes around the killed hero
-  for _, hero in ipairs(heroes) do
+  -- pairs is used instead of ipairs because order doesn't matter
+  for _, hero in pairs(heroes) do
     if hero then
       -- Check for XP spark
       local spark = hero:FindModifierByName("modifier_spark_xp")
