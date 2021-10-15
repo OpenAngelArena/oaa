@@ -40,7 +40,6 @@ function GameMode:OnGameRulesStateChange(keys)
   elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
     print("Modules in OnGameInProgress are trying to be initialized again when the state changes to DOTA_GAMERULES_STATE_GAME_IN_PROGRESS.")
     GameMode:OnGameInProgress()
-    OnGameInProgressEvent()
   end
 end
 

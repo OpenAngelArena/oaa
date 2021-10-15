@@ -1,6 +1,6 @@
 -- Taken from bb template
 if CreepCamps == nil then
-    Debug.EnabledModules['creeps:*'] = false
+    Debug.EnabledModules['creeps:*'] = true
     DebugPrint ( 'creating new CreepCamps object.' )
     CreepCamps = class({})
 end
@@ -61,9 +61,11 @@ end
 
 function CreepCamps:CreepSpawnTimer ()
   -- scan for creep camps and spawn them
-  -- DebugPrint('[creeps/spawner] Spawning creeps')
+  DebugPrint('CreepCamps Spawning creeps')
   --DeepPrintTable(self.creep_upgrade_table)
   self.creep_upgrade_table = nil
+
+  DebugPrint("CreepPowerLevel at "..tostring(HudTimer:GetGameTime()).." is "..tostring(CreepPowerLevel))
 
   local camps = Entities:FindAllByName('creep_camp')
 
@@ -127,6 +129,9 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
         found = true
         -- Upgrade only if that unit was not upgraded already in the previous instance of SpawnCreepInCamp
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
+          DebugPrint("Standard Upgrade for "..unitProperties[NAME_ENUM].." with index "..tostring(unit:GetEntityIndex()).." at minute"..tostring(CreepPowerLevel))
+          DebugPrint("Old XP v1 for "..unitProperties[NAME_ENUM].." with index "..tostring(unit:GetEntityIndex()).." before minute"..tostring(CreepPowerLevel).." is: "..tostring(unitProperties[EXP_BOUNTY_ENUM]))
+          DebugPrint("Old XP v2 for "..unit:GetUnitName().." with index "..tostring(unit:GetEntityIndex()).." before minute"..tostring(CreepPowerLevel).." is: "..tostring(unit:GetDeathXP()))
           if unitProperties[NAME_ENUM] == "npc_dota_neutral_custom_black_dragon" then
             -- Change stats of the dragons in a unique way
             unitProperties = self:AddCreepPropertiesWithScale(unitProperties, 1.0, newCreepProperties, distributedScale)
@@ -136,6 +141,8 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
           end
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel, true)
+          DebugPrint("New XP v1 for "..unitProperties[NAME_ENUM].." with index "..tostring(unit:GetEntityIndex()).." at minute"..tostring(CreepPowerLevel).." is: "..tostring(unitProperties[EXP_BOUNTY_ENUM]))
+          DebugPrint("New XP v2 for "..unit:GetUnitName().." with index "..tostring(unit:GetEntityIndex()).." at minute"..tostring(CreepPowerLevel).." is: "..tostring(unit:GetDeathXP()))
         end
       end
     end
@@ -146,9 +153,14 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
       for _, unit in pairs(units) do
         local unitProperties = self:GetCreepProperties(unit)
         if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) and not self:AlreadyDidDistributedScaleUpgrade(unit, CreepPowerLevel) then
+          DebugPrint("Distributed Upgrade for "..unitProperties[NAME_ENUM].." with index "..tostring(unit:GetEntityIndex()).." at minute"..tostring(CreepPowerLevel))
+          DebugPrint("Old XP v1 for "..unitProperties[NAME_ENUM].." with index "..tostring(unit:GetEntityIndex()).." before minute"..tostring(CreepPowerLevel).." is: "..tostring(unitProperties[EXP_BOUNTY_ENUM]))
+          DebugPrint("Old XP v2 for "..unit:GetUnitName().." with index "..tostring(unit:GetEntityIndex()).." before minute"..tostring(CreepPowerLevel).." is: "..tostring(unit:GetDeathXP()))
           unitProperties = self:UpgradeCreepProperties(unitProperties, unitProperties, distributedScale)
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
           self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel, false)
+          DebugPrint("New XP v1 for "..unitProperties[NAME_ENUM].." with index "..tostring(unit:GetEntityIndex()).." at minute"..tostring(CreepPowerLevel).." is: "..tostring(unitProperties[EXP_BOUNTY_ENUM]))
+          DebugPrint("New XP v2 for "..unit:GetUnitName().." with index "..tostring(unit:GetEntityIndex()).." at minute"..tostring(CreepPowerLevel).." is: "..tostring(unit:GetDeathXP()))
         end
       end
     end
@@ -193,7 +205,7 @@ function CreepCamps:AdjustCreepPropertiesByPowerLevel( creepProperties, powerLev
 
   adjustedCreepProperties[NAME_ENUM] = creepProperties[NAME_ENUM]
   adjustedCreepProperties[HEALTH_ENUM] = creepProperties[HEALTH_ENUM] * creepPowerTable[HEALTH_ENUM]
-  --adjustedCreepProperties[MANA_ENUM] = creepProperties[MANA_ENUM] * creepPowerTable[MANA_ENUM]
+  adjustedCreepProperties[MANA_ENUM] = creepProperties[MANA_ENUM]
   adjustedCreepProperties[DAMAGE_ENUM] = creepProperties[DAMAGE_ENUM] * creepPowerTable[DAMAGE_ENUM]
   adjustedCreepProperties[ARMOR_ENUM] = creepProperties[ARMOR_ENUM] * creepPowerTable[ARMOR_ENUM]
   adjustedCreepProperties[GOLD_BOUNTY_ENUM] = creepProperties[GOLD_BOUNTY_ENUM] * creepPowerTable[GOLD_BOUNTY_ENUM]
@@ -209,10 +221,9 @@ function CreepCamps:AddCreepPropertiesWithScale( propertiesOne, scaleOne, proper
   if addedCreepProperties[HEALTH_ENUM] > propertiesTwo[HEALTH_ENUM] * CREEP_POWER_MAX then
     addedCreepProperties[HEALTH_ENUM] = propertiesTwo[HEALTH_ENUM] * CREEP_POWER_MAX
   end
-  --addedCreepProperties[MANA_ENUM] = propertiesOne[MANA_ENUM] * scaleOne + propertiesTwo[MANA_ENUM] * scaleTwo
-  --if addedCreepProperties[MANA_ENUM] > propertiesTwo[MANA_ENUM] * CREEP_POWER_MAX then
-    --addedCreepProperties[MANA_ENUM] = propertiesTwo[MANA_ENUM] * CREEP_POWER_MAX
-  --end
+
+  addedCreepProperties[MANA_ENUM] = propertiesOne[MANA_ENUM]
+
   addedCreepProperties[DAMAGE_ENUM] = propertiesOne[DAMAGE_ENUM] * scaleOne + propertiesTwo[DAMAGE_ENUM] * scaleTwo
   if addedCreepProperties[DAMAGE_ENUM] > propertiesTwo[DAMAGE_ENUM] * CREEP_POWER_MAX then
     addedCreepProperties[DAMAGE_ENUM] = propertiesTwo[DAMAGE_ENUM] * CREEP_POWER_MAX
@@ -232,7 +243,7 @@ function CreepCamps:UpgradeCreepProperties(propertiesOne, propertiesTwo, scale)
 
   -- Never downgrade stats
   upgradedCreepProperties[HEALTH_ENUM] = math.max(propertiesOne[HEALTH_ENUM], propertiesTwo[HEALTH_ENUM] * scale)
-  --upgradedCreepProperties[MANA_ENUM] = math.max(propertiesOne[MANA_ENUM], propertiesTwo[MANA_ENUM] * scale)
+  upgradedCreepProperties[MANA_ENUM] = propertiesOne[MANA_ENUM]
   upgradedCreepProperties[DAMAGE_ENUM] = math.max(propertiesOne[DAMAGE_ENUM], propertiesTwo[DAMAGE_ENUM] * scale)
   upgradedCreepProperties[ARMOR_ENUM] = math.max(propertiesOne[ARMOR_ENUM], propertiesTwo[ARMOR_ENUM] * scale)
 
@@ -285,11 +296,6 @@ function CreepCamps:MarkAsUpgradedAtThisMinute(creepHandle, minute, found)
 
   if self.creep_upgrade_table[index][minute] == nil then
     self.creep_upgrade_table[index][minute] = {}
-  end
-
-  -- Clear table elements of the previous minute
-  if self.creep_upgrade_table[index][minute-1] ~= nil then
-    self.creep_upgrade_table[index][minute-1] = nil
   end
 
   if found then

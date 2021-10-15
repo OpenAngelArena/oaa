@@ -22,12 +22,15 @@ function CreepPower:GetBasePowerForMinute (minute)
     }
   end
 
-  values[1] = self.numPlayersStatsFactor * values[1]
   values[2] = self.numPlayersStatsFactor * values[2]
   values[3] = self.numPlayersStatsFactor * values[3]
   values[4] = self.numPlayersStatsFactor * values[4]
-  values[5] = self.BootGoldFactor * values[5]
-  values[6] = self.numPlayersXPFactor * values[6]
+  values[5] = self.numPlayersStatsFactor * values[5]
+  values[6] = self.BootGoldFactor * values[6]
+  values[7] = self.numPlayersXPFactor * values[7]
+
+  DebugPrint("XP power level v1 is "..tostring(values[7]).." at minute "..tostring(values[1]))
+  DebugPrint("XP power level v2 is "..tostring(values[7]).." at "..tostring(HudTimer:GetGameTime()))
 
   return values
 end
