@@ -16,7 +16,7 @@ function ARDMMode:Init (allHeroes)
     [DOTA_TEAM_BADGUYS] = {}
   }
 
-  GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
+  --GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
   GameEvents:OnHeroInGame(ARDMMode.ApplyARDMmodifier)
   GameEvents:OnHeroKilled(ARDMMode.ChangeHero)
 
@@ -99,8 +99,11 @@ function ARDMMode:ReloadHeroPool (teamId)
 end
 
 function ARDMMode:PrecacheAllHeroes (heroList, cb)
+  Debug:EnableDebugging()
   local heroCount = 0
+  DebugPrint("herolist table:")
   for hero, primaryAttr in pairs(heroList) do
+    print(hero, primaryAttr)
     heroCount = heroCount + 1
   end
   local done = after(heroCount, cb)

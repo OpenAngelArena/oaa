@@ -33,9 +33,6 @@ function HeroSelection:Init ()
   Debug.EnabledModules['heroselection:*'] = false
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "captains_mode"
-  if OAAOptions and OAAOptions.settings then
-    self.isARDM = OAAOptions.settings.GAME_MODE == "ARDM"
-  end
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "oaa" or GetMapName() == "oaa_seasonal"
   self.spawnedHeroes = {}
@@ -50,9 +47,9 @@ function HeroSelection:Init ()
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
-  if self.isARDM then
-    herolistFile = 'scripts/npc/herolist_ardm.txt'
-  end
+  --if self.isARDM then
+    --herolistFile = 'scripts/npc/herolist_ardm.txt'
+  --end
   if self.isRanked or self.is10v10 then
     self.isBanning = true
   end
@@ -109,7 +106,13 @@ function HeroSelection:Init ()
 
   GameEvents:OnHeroSelection(function (keys)
     Debug:EnableDebugging()
-    if self.isARDM and ARDMMode then
+	if OAAOptions and OAAOptions.settings then
+	  HeroSelection.isARDM = OAAOptions.settings.GAME_MODE == "ARDM"
+	end
+	--DebugPrint('ARDMMode is: '..tostring(ARDMMode))
+	DebugPrint('ARDM chosen: '..tostring(HeroSelection.isARDM))
+    if HeroSelection.isARDM and ARDMMode then
+	  ARDMMode:Init(herolist)
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
       HeroSelection:StrategyTimer(3)
@@ -117,14 +120,14 @@ function HeroSelection:Init ()
         lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
       end)
       -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
-      ARDMMode:OnPrecache(function ()
-        DebugPrint('Precache finished! Woohoo!')
+      --ARDMMode:OnPrecache(function ()
+        --DebugPrint('Precache finished! Woohoo!')
         PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
           DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. lockedHeroes[playerID])
           HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
         end)
-        LoadFinishEvent.broadcast()
-      end)
+        --LoadFinishEvent.broadcast()
+      --end)
     else
       print("START HERO SELECTION")
       HeroSelection:StartSelection()
@@ -150,9 +153,9 @@ function HeroSelection:Init ()
     end
   end)
 
-  if self.isARDM and ARDMMode then
-    ARDMMode:Init(herolist)
-  end
+  --if self.isARDM and ARDMMode then
+    --ARDMMode:Init(herolist)
+  --end
 end
 
 -- set "empty" hero for every player and start picking phase

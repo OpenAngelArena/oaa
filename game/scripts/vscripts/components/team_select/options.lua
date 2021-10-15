@@ -53,9 +53,10 @@ function OAAOptions:InitializeSettingsTable()
 end
 
 function OAAOptions:AdjustGameMode()
-  --DebugPrint("OAAOptions Lock game mode settings and rules.")
+  --Debug:EnableDebugging()
+  DebugPrint("OAAOptions Lock game mode settings and rules.")
   CustomNetTables:SetTableValue("oaa_settings", "locked", OAAOptions.settings)
-  --DeepPrintTable(self.settings)
-  --DebugPrint("OAAOptions Adjusting game mode settings and rules that were set by the host.")
+  DeepPrintTable(self.settings)
+  DebugPrint("OAAOptions Adjusting game mode settings and rules that were set by the host.")
   --local gamemode = GameRules:GetGameModeEntity()
 end

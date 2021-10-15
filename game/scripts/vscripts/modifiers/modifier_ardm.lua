@@ -13,20 +13,20 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
   DebugPrint("Old hero Gold v1: "..tostring(gold_1))
   DebugPrint("Old hero Gold v2: "..tostring(gold_2))
   local hero_xp_1 = old_hero:GetCurrentXP()
-  local hero_xp_2 = PlayerResource:GetTotalEarnedXP(playerID)
-  DebugPrint("Old hero XP v1: "..tostring(hero_xp_1))
-  DebugPrint("Old hero XP v2: "..tostring(hero_xp_2))
+  --local hero_xp_2 = PlayerResource:GetTotalEarnedXP(playerID)
+  --DebugPrint("Old hero XP v1: "..tostring(hero_xp_1))
+  --DebugPrint("Old hero XP v2: "..tostring(hero_xp_2))
   local hero_lvl = old_hero:GetLevel()
   DebugPrint('Old hero was level ' .. hero_lvl)
 
   -- Calculate spent ability/skill points
-  local spent_ability_points = 0
-  for ability_index = 0, old_hero:GetAbilityCount() - 1 do
-    local ability = old_hero:GetAbilityByIndex(ability_index)
-    if ability then
-      spent_ability_points = spent_ability_points + ability:GetLevel()
-    end
-  end
+  --local spent_ability_points = 0
+  --for ability_index = 0, old_hero:GetAbilityCount() - 1 do
+    --local ability = old_hero:GetAbilityByIndex(ability_index)
+    --if ability then
+      --spent_ability_points = spent_ability_points + ability:GetLevel()
+    --end
+  --end
 
   local items = {}
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
