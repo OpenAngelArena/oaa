@@ -100,10 +100,11 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
   end
 
   -- ( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
-  local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,
+  local units = FindUnitsInRadius(
+    DOTA_TEAM_NEUTRALS,
     location,
     nil,
-    600,
+    400,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_CREEP,
     DOTA_UNIT_TARGET_FLAG_NONE,
@@ -134,7 +135,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
             unitProperties = self:UpgradeCreepProperties(unitProperties, newCreepProperties, 1.0)
           end
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
-          self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel)
+          self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel, true)
         end
       end
     end
@@ -144,10 +145,10 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
       -- Upgrade all non-upgraded creeps based on number of units in the camp (distributedScale)
       for _, unit in pairs(units) do
         local unitProperties = self:GetCreepProperties(unit)
-        if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) then
+        if not self:IsAlreadyUpgradedAtThisMinute(unit, CreepPowerLevel) and not self:AlreadyDidDistributedScaleUpgrade(unit, CreepPowerLevel) then
           unitProperties = self:UpgradeCreepProperties(unitProperties, unitProperties, distributedScale)
           self:SetCreepPropertiesOnHandle(unit, unitProperties)
-          --self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel)
+          self:MarkAsUpgradedAtThisMinute(unit, CreepPowerLevel, false)
         end
       end
     end
@@ -272,7 +273,7 @@ function CreepCamps:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
   creepHandle:SetDeathXP(math.ceil(creepProperties[EXP_BOUNTY_ENUM]))
 end
 
-function CreepCamps:MarkAsUpgradedAtThisMinute(creepHandle, minute)
+function CreepCamps:MarkAsUpgradedAtThisMinute(creepHandle, minute, found)
   if self.creep_upgrade_table == nil then
     self.creep_upgrade_table = {}
   end
@@ -282,7 +283,20 @@ function CreepCamps:MarkAsUpgradedAtThisMinute(creepHandle, minute)
     self.creep_upgrade_table[index] = {}
   end
 
-  self.creep_upgrade_table[index][minute] = true
+  if self.creep_upgrade_table[index][minute] == nil then
+    self.creep_upgrade_table[index][minute] = {}
+  end
+
+  -- Clear table elements of the previous minute
+  if self.creep_upgrade_table[index][minute-1] ~= nil then
+    self.creep_upgrade_table[index][minute-1] = nil
+  end
+
+  if found then
+    self.creep_upgrade_table[index][minute][1] = true
+  else
+    self.creep_upgrade_table[index][minute][2] = true
+  end
 end
 
 function CreepCamps:IsAlreadyUpgradedAtThisMinute(creepHandle, minute)
@@ -295,7 +309,32 @@ function CreepCamps:IsAlreadyUpgradedAtThisMinute(creepHandle, minute)
     return false
   end
 
-  if self.creep_upgrade_table[index][minute] == true then
+  if self.creep_upgrade_table[index][minute] == nil then
+    return false
+  end
+
+  if self.creep_upgrade_table[index][minute][1] == true then
+    return true
+  end
+
+  return false
+end
+
+function CreepCamps:AlreadyDidDistributedScaleUpgrade(creepHandle, minute)
+  if self.creep_upgrade_table == nil then
+    return false
+  end
+
+  local index = creepHandle:GetEntityIndex()
+  if self.creep_upgrade_table[index] == nil then
+    return false
+  end
+
+  if self.creep_upgrade_table[index][minute] == nil then
+    return false
+  end
+
+  if self.creep_upgrade_table[index][minute][2] == true then
     return true
   end
 
