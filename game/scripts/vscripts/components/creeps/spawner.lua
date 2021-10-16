@@ -1,6 +1,6 @@
 -- Taken from bb template
 if CreepCamps == nil then
-    Debug.EnabledModules['creeps:*'] = true
+    Debug.EnabledModules['creeps:*'] = false
     DebugPrint ( 'creating new CreepCamps object.' )
     CreepCamps = class({})
 end

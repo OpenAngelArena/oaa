@@ -26,7 +26,7 @@ function CreepPower:GetBasePowerForMinute (minute)
   values[2] = self.numPlayersStatsFactor * values[2]
   values[3] = self.numPlayersStatsFactor * values[3]
   values[4] = self.numPlayersStatsFactor * values[4]
-  values[5] = self.numPlayersStatsFactor * values[5]
+  --values[5] = self.numPlayersStatsFactor * values[5] -- Don't scale armor
   values[6] = self.BootGoldFactor * values[6]
   values[7] = self.numPlayersXPFactor * values[7]
 
