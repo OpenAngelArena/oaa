@@ -47,9 +47,6 @@ function HeroSelection:Init ()
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
-  --if self.isARDM then
-    --herolistFile = 'scripts/npc/herolist_ardm.txt'
-  --end
   if self.isRanked or self.is10v10 then
     self.isBanning = true
   end
@@ -106,13 +103,13 @@ function HeroSelection:Init ()
 
   GameEvents:OnHeroSelection(function (keys)
     Debug:EnableDebugging()
-	if OAAOptions and OAAOptions.settings then
-	  HeroSelection.isARDM = OAAOptions.settings.GAME_MODE == "ARDM"
-	end
-	--DebugPrint('ARDMMode is: '..tostring(ARDMMode))
-	DebugPrint('ARDM chosen: '..tostring(HeroSelection.isARDM))
+    if OAAOptions and OAAOptions.settings then
+      HeroSelection.isARDM = OAAOptions.settings.GAME_MODE == "ARDM"
+    end
+    --DebugPrint('ARDMMode is: '..tostring(ARDMMode))
+    DebugPrint('ARDM chosen (true/false): '..tostring(HeroSelection.isARDM))
     if HeroSelection.isARDM and ARDMMode then
-	  ARDMMode:Init(herolist)
+      ARDMMode:Init()
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
       HeroSelection:StrategyTimer(3)
@@ -120,14 +117,14 @@ function HeroSelection:Init ()
         lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
       end)
       -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
-      --ARDMMode:OnPrecache(function ()
-        --DebugPrint('Precache finished! Woohoo!')
+      ARDMMode:OnPrecache(function ()
+        DebugPrint('Precache finished! Woohoo!')
         PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
           DebugPrint('Giving player' .. tostring(playerID)  .. ' starting hero ' .. lockedHeroes[playerID])
           HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
         end)
-        --LoadFinishEvent.broadcast()
-      --end)
+        LoadFinishEvent.broadcast()
+      end)
     else
       print("START HERO SELECTION")
       HeroSelection:StartSelection()
@@ -178,12 +175,12 @@ function HeroSelection:StartSelection ()
 
   if OAAOptions and OAAOptions.settings then
     if OAAOptions.settings.small_player_pool == 1 then
-      print("OAAOptions smaller player pool option selected")
+      DebugPrint("OAAOptions smaller player pool option selected")
       local herolistFile = 'scripts/npc/herolist_3v3.txt'
       local herolistTable = LoadKeyValues(herolistFile)
       for key, value in pairs(herolistTable) do
         if value == 0 then
-	      table.insert(rankedpickorder.bans, key)
+          table.insert(rankedpickorder.bans, key)
         end
       end
     end
