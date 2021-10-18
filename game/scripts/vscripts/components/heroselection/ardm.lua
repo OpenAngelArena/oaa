@@ -158,7 +158,7 @@ function ARDMMode:PrecacheAllHeroes (heroList, cb)
   local heroCount = 0
   DebugPrint("herolist table:")
   for k, v in pairs(heroList) do
-    print(k, v)
+    --print(k, v)
     heroCount = heroCount + 1
   end
   local done = after(heroCount, cb)
@@ -167,7 +167,7 @@ function ARDMMode:PrecacheAllHeroes (heroList, cb)
 
   local function precacheUnit (hero)
     PrecacheUnitByNameAsync(hero, function ()
-      DebugPrint('precached this hero! ' .. hero)
+      DebugPrint('precached this hero: ' .. hero)
       done()
     end)
   end

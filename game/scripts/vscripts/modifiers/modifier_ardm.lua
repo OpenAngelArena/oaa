@@ -56,13 +56,13 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
     items[i] = {item_name, purchaser, cooldown, charges}
   end
 
-  -- Neutral items (check every slot)
+  -- Neutral items and TP scroll (check every slot)
   for i = DOTA_ITEM_SLOT_1, 20 do
     local item = old_hero:GetItemInSlot(i)
     if item then
       if item:IsNeutralDrop() then
-        -- Return the item to stash
-        PlayerResource:AddNeutralItemToStash(playerID, old_hero:GetTeamNumber(), item)
+        -- Return the item to stash - crashes
+        --PlayerResource:AddNeutralItemToStash(playerID, old_hero:GetTeamNumber(), item)
       end
     end
   end
