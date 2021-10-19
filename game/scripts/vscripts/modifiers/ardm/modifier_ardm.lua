@@ -73,8 +73,7 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
         -- Return the item to stash - crashes
         --PlayerResource:AddNeutralItemToStash(playerID, old_hero:GetTeamNumber(), item)
       elseif item:GetName() == "item_tpscroll" and i == DOTA_ITEM_TP_SCROLL then
-        items[DOTA_ITEM_TP_SCROLL][1] = "item_tpscroll"
-        items[DOTA_ITEM_TP_SCROLL][3] = item:GetCooldownTimeRemaining()
+        items[DOTA_ITEM_TP_SCROLL] = {"item_tpscroll", nil, item:GetCooldownTimeRemaining(), nil}
       end
     end
   end
@@ -176,34 +175,6 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
       new_hero:AddItem(shard)
     end
 
-    -- Create new items for the new hero
-    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
-      local item = items[i]
-      local item_name = item[1]
-      local purchaser = item[2]
-      local cooldown = item[3]
-      local charges = item[4]
-      if item_name then
-        local new_item = CreateItem(item_name, new_hero, new_hero)
-        new_hero:AddItem(new_item)
-        --new_item:SetStacksWithOtherOwners(true)
-        -- Set purchaser
-        if purchaser then
-          new_item:SetPurchaser(purchaser)
-        else
-          new_item:SetPurchaser(new_hero)
-        end
-        -- Set charges
-        if charges then
-          new_item:SetCurrentCharges(charges)
-        end
-        -- Set cooldowns
-        if cooldown and cooldown > 0 then
-          new_item:StartCooldown(cooldown)
-        end
-      end
-    end
-
     -- Create new permanent modifiers for the new hero
     if duel_damage then
       if not new_hero:HasModifier('modifier_legion_commander_duel_damage_oaa_ardm') then
@@ -255,6 +226,36 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
     if player then
       if player:GetAssignedHero() ~= new_hero then
         player:SetAssignedHeroEntity(new_hero)
+      end
+    end
+  end)
+
+  Timers:CreateTimer(2*0.03, function()
+    -- Create new items for the new hero
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+      local item = items[i]
+      local item_name = item[1]
+      local purchaser = item[2]
+      local cooldown = item[3]
+      local charges = item[4]
+      if item_name then
+        local new_item = CreateItem(item_name, new_hero, new_hero)
+        new_hero:AddItem(new_item)
+        --new_item:SetStacksWithOtherOwners(true)
+        -- Set purchaser
+        if purchaser then
+          new_item:SetPurchaser(purchaser)
+        else
+          new_item:SetPurchaser(new_hero)
+        end
+        -- Set charges
+        if charges then
+          new_item:SetCurrentCharges(charges)
+        end
+        -- Set cooldowns
+        if cooldown and cooldown > 0 then
+          new_item:StartCooldown(cooldown)
+        end
       end
     end
   end)

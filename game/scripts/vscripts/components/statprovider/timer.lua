@@ -7,7 +7,7 @@ HudTimer.registeredListeners = {}
 HudTimer.exactRegisteredListeners = {}
 
 function HudTimer:Init()
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   self.moduleName = "HudTimer"
   self.isPaused = false
   self.gameTime = DOTA_CLOCK_SKEW
@@ -60,7 +60,7 @@ function HudTimer:Init()
     local localMinuteOffset = math.floor(HudTimer.gameTime) % CLOCK_SYNC_INTERVAL
 
     if HudTimer.gameTime > 0 and gameMinuteOffset ~= localMinuteOffset then
-      Debug:EnableDebugging()
+      --Debug:EnableDebugging()
       DebugPrint('Clock skew detected! ' .. gameMinuteOffset .. ' / ' .. localMinuteOffset)
     end
 
