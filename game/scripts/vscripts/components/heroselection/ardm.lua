@@ -31,14 +31,13 @@ function ARDMMode:Init ()
   }
   self.playedHeroes = {}
 
-  --GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
-  self:StartPrecache()
-
   -- Register event listeners
   GameEvents:OnHeroInGame(ARDMMode.ApplyARDMmodifier)
   GameEvents:OnHeroKilled(ARDMMode.ScheduleHeroChange)
+  --GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
 
   self:LoadHeroPoolsForTeams()
+  self:StartPrecache()
 end
 
 function ARDMMode:StartPrecache()
@@ -157,40 +156,41 @@ function ARDMMode:LoadHeroPoolsForTeams()
   end
 end
 
+function ARDMMode:ReloadHeroPoolForTeam(teamId)
+
+end
+
 function ARDMMode:PrecacheAllHeroes (heroList, cb)
   Debug:EnableDebugging()
-  local heroCount = 0
-  for k, v in pairs(heroList) do
-    heroCount = heroCount + 1
-  end
-  local done = after(heroCount, cb)
-
   DebugPrint('Starting precache process...')
 
-  local function precacheUnit (hero)
-    PrecacheUnitByNameAsync(hero, function ()
-      DebugPrint('precached this hero: ' .. hero)
-      done()
-    end)
+  local count = 0
+  local total = #heroList
+  for _, hero in pairs(heroList) do
+    if hero then
+      PrecacheUnitByNameAsync(hero, function ()
+        DebugPrint('precached this hero: ' .. hero)
+        count = count + 1
+      end)
+    end
   end
-
-  for k, v in pairs(heroList) do
-    precacheUnit(v)
-  end
-end
-
-function ARDMMode:OnPrecache (cb)
-  if self.hasPrecached then
+  if count == total then
     cb()
-    -- no unlisten event to return, send noop
-    return noop
   end
-
-  return PrecacheHeroEvent.listen(cb)
 end
 
-function noop ()
-end
+-- function ARDMMode:OnPrecache (cb)
+  -- if self.hasPrecached then
+    -- cb()
+    -- -- no unlisten event to return, send noop
+    -- return noop
+  -- end
+
+  -- return PrecacheHeroEvent.listen(cb)
+-- end
+
+-- function noop ()
+-- end
 
 function ARDMMode:GetRandomHero (teamId)
   local heroPool = self.heroPool[teamId]
@@ -204,7 +204,6 @@ function ARDMMode:GetRandomHero (teamId)
 
   -- Check if heroPool has non-nil elements
   if n < 1 then
-    --self:ReloadHeroPoolForTeam(teamId)
     -- This will also happen if herolist file is empty
     return nil
   end

@@ -64,9 +64,7 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
         local order_table = {
           UnitIndex = old_hero:GetEntityIndex(),
           OrderType = DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN,
-          --TargetIndex = EntityIndex,
           AbilityIndex = item:GetEntityIndex(),
-          --Position = Vector(0,0,0),
           Queue = false,
         }
         ExecuteOrderFromTable(order_table)
@@ -218,8 +216,10 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
     -- Add ARDM modifier to the new hero
     new_hero:AddNewModifier(new_hero, nil, 'modifier_ardm', {})
 
-    -- Remove the old hero
-    UTIL_Remove(old_hero)
+    -- Remove the old hero (if it stil exists)
+    if old_hero and not old_hero:IsNull() then
+      UTIL_Remove(old_hero)
+    end
 
     -- Important for Wanderer Sticky Napalm
     local player = PlayerResource:GetPlayer(playerID)

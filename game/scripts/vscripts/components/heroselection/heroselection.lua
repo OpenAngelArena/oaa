@@ -94,46 +94,46 @@ function HeroSelection:Init ()
   end
 
   GameEvents:OnHeroInGame(function (hero)
-    local playerId = hero:GetPlayerID()
-    local hero_name = hero:GetUnitName()
-    DebugPrint('A hero (re)spawned: ' .. hero_name)
-    if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() then
-      return
-    end
     if not HeroSelection.isARDM then
+      local playerId = hero:GetPlayerID()
+      local hero_name = hero:GetUnitName()
+      -- Don't trigger for neutrals, Tempest Double and Meepo Clones
+      if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() then
+        return
+      end
+      DebugPrint("Hero "..hero_name.."spawned for the first time": ' .. hero_name)
       DebugPrint('Giving player ' .. tostring(playerId)  .. ' starting hero ' .. hero_name)
       HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
     end
   end)
 
   GameEvents:OnHeroSelection(function (keys)
-    Debug:EnableDebugging()
+    --Debug:EnableDebugging()
     if OAAOptions and OAAOptions.settings then
       HeroSelection.isARDM = OAAOptions.settings.GAME_MODE == "ARDM"
     end
-    --DebugPrint('ARDMMode is: '..tostring(ARDMMode))
-    DebugPrint('ARDM chosen (true/false): '..tostring(HeroSelection.isARDM))
-    if HeroSelection.isARDM and ARDMMode then
-      ARDMMode:Init()
+
+    --if HeroSelection.isARDM and ARDMMode then
+      --ARDMMode:Init()
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
-      HeroSelection:StrategyTimer(3)
-      PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-        lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
-      end)
-      -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
-      ARDMMode:OnPrecache(function ()
-        DebugPrint('Precache finished! Woohoo!')
-        PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-          DebugPrint('Giving player ' .. tostring(playerID)  .. ' starting hero ' .. lockedHeroes[playerID])
-          HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
-        end)
-        LoadFinishEvent.broadcast()
-      end)
-    else
+      -- HeroSelection:StrategyTimer(3)
+      -- PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+        -- lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
+      -- end)
+      -- -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
+      -- ARDMMode:OnPrecache(function ()
+        -- DebugPrint('Precache finished! Woohoo!')
+        -- PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+          -- DebugPrint('Giving player ' .. tostring(playerID)  .. ' starting hero ' .. lockedHeroes[playerID])
+          -- HeroSelection:GiveStartingHero(playerID, lockedHeroes[playerID])
+        -- end)
+        -- LoadFinishEvent.broadcast()
+      -- end)
+    --else
       print("START HERO SELECTION")
       HeroSelection:StartSelection()
-    end
+    --end
   end)
 
   GameEvents:OnPlayerReconnect(function (keys)
@@ -294,7 +294,7 @@ function HeroSelection:RankedManager (event)
       rankedpickorder.currentOrder = 1
       self:ChooseBans()
       save()
-      if OAAOptions and OAAOptions.settings.GAME_MODE == "AR" then
+      if OAAOptions and (OAAOptions.settings.GAME_MODE == "AR" or OAAOptions.settings.GAME_MODE == "ARDM") then
         return HeroSelection:APTimer(-1, "ALL RANDOM")
       else
         return self:RankedTimer(RANKED_PICK_TIME, "PICK")
@@ -466,6 +466,14 @@ function HeroSelection:ChooseBans ()
     -- 100% chance bans
     PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+    end)
+  elseif OAAOptions.settings.GAME_MODE == "ARDM" and ARDMMode then
+    -- 100% chance bans and don't get them on respawn
+    PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+      table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+      if rankedpickorder.banChoices[playerID] ~= nil then
+        table.insert(ARDMMode.playedHeroes, rankedpickorder.banChoices[playerID])
+      end
     end)
   end
 end

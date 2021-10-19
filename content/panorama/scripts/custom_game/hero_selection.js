@@ -123,7 +123,7 @@ var hilariousLoadingPhrases = [
   'Remember that this is only a game',
   'Never question Darkonius\' item builds',
   'Lich can use Frost Shield on Techies mines',
-  'Dark Seer can use Ion Shell on invulnerable allies but on enemies',
+  'Dark Seer can use Ion Shell on invulnerable allies',
   'Ten years since chrisinajar stream'
 ];
 
