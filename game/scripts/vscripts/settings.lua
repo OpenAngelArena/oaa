@@ -138,6 +138,7 @@ HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- not used for now
 HERO_XP_BOUNTY_STREAK_MAX = 3000     -- Max amount of streak XP bonus (lvl * streak * 10 in normal dota where lvl <= 25)
 HERO_XP_BONUS_FACTOR = 0.13          -- Multiplier for the XP of the killed hero (0.13 in normal dota)
 HERO_KILL_XP_RADIUS = 1500           -- XP range for killing heroes (1500 in normal dota)
+HERO_KILL_GOLD_RADIUS = 1500         -- Gold assist range for killing heroes (1500 in normal dota)
 
 -- Runes
 USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spawn timings and the same runes as dota have?

@@ -104,9 +104,13 @@ function HeroKillGold:HeroDeathHandler (keys)
 
     return
   end
+
+  -- Every entity has GetTeamNumber
   local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
+
   if killerTeam == killedTeam then
+    -- Hero is denied
     return
   end
 
@@ -122,23 +126,41 @@ function HeroKillGold:HeroDeathHandler (keys)
     return
   end
 
+  -- playerID is -1 for the fountains, buildings, bottle statues, dummy units etc.
+  -- GetPlayerOwnerID will return -1 for those kind of stuff
   local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
-  if killerPlayerID == -1 or killedPlayerID == -1 then
-    -- nope
+
+  if killedPlayerID == -1 then
     return
   end
-  local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
+
+  -- Variables related to the killed hero
   local streak = math.min(StreakTable.max, killedHero:GetStreak())
   local streakValue = StreakTable[streak]
   local killedHeroLevel = killedHero:GetLevel()
   local killedHeroLevelFactor = (100 * killedHeroLevel)/14
   local numAttackers = killedHero:GetNumAttackers()
-  local rewardPlayerIDs = iter({killerPlayerID}) -- The IDs of the players that will get a piece of the base gold bounty
-  local rewardHeroes = iter({killerHero})
+
+  local rewardPlayerIDs -- The IDs of the players that will get a piece of the base gold bounty if the killer is not a player
+  local rewardHeroes -- The heroes that will get a piece of the base gold bounty or full bounty
   local distributeCount = 1
 
-  -- Handle non-player kills (usually the fountain in OAA's case)
+  -- Heroes around the killed hero
+  local heroes = FindHeroesInRadius(
+    killerTeam,
+    killedHero:GetAbsOrigin(),
+    nil,
+    HERO_KILL_GOLD_RADIUS,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_HERO,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+    FIND_ANY_ORDER,
+    false
+  )
+
+  -- Handle non-player kills (when killerPlayerID is -1)
+  -- in OAA those are: fountains, buildings, bottle statues, dummy units etc.)
   if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
     if numAttackers == 0 then
       -- Distribute gold to all heroes on the killer team
@@ -154,59 +176,47 @@ function HeroKillGold:HeroDeathHandler (keys)
       distributeCount = numAttackers
     end
     rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
+  else
+    local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
+
+    -- When last hit by a hero, that hero should always receive assist gold, regardless of distance
+    local killerIsInHeroesTable = iter(heroes)
+                                    :map(CallMethod("GetPlayerOwnerID"))
+                                    :contains(killerPlayerID)
+    if not killerIsInHeroesTable then
+      table.insert(heroes, killerHero)
+    end
+
+    rewardHeroes = iter({killerHero})
   end
 
   local baseGold = math.floor((40 + streakValue + (killedHeroLevel * 8)) / distributeCount)
 
   -- Grant the base last hit bounty
-  for _, hero in rewardHeroes:unwrap() do
-    -- Check for Gold spark
-    local spark = hero:FindModifierByName("modifier_spark_gold")
-    local specific_base_gold = baseGold
-    if spark then
-      specific_base_gold = math.floor(baseGold + baseGold * spark.hero_kill_bonus_gold)
-    end
+  -- Player that killed the hero gets the full bounty; non-player kills split the bounty between attackers;
+  if rewardHeroes then
+    for _, hero in rewardHeroes:unwrap() do
+      -- Check for Gold spark
+      local spark = hero:FindModifierByName("modifier_spark_gold")
+      local specific_base_gold = baseGold
+      if spark then
+        specific_base_gold = math.floor(baseGold + baseGold * spark.hero_kill_bonus_gold)
+      end
 
-    Gold:ModifyGold(hero, specific_base_gold, true, DOTA_ModifyGold_RoshanKill)
+      Gold:ModifyGold(hero, specific_base_gold, true, DOTA_ModifyGold_RoshanKill)
 
-    local killerPlayer = hero:GetPlayerOwner()
-    if killerPlayer then
-      SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, specific_base_gold, killerPlayer)
-    end
-  end
+      DebugPrint("Base gold bounty that "..hero:GetUnitName().." gained is: "..specific_base_gold)
 
-  local heroes = FindHeroesInRadius(
-    killerTeam,
-    killedHero:GetAbsOrigin(),
-    nil,
-    1300,
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_ALL,
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
-    FIND_ANY_ORDER,
-    false
-  )
-
-  -- When last hit by a hero, that hero should always receive assist gold, regardless of distance
-  if PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
-    local killerIsInHeroesTable = iter(heroes)
-                                    :map(CallMethod("GetPlayerOwnerID"))
-                                    :contains(killerPlayerID)
-
-    if not killerIsInHeroesTable then
-      table.insert(heroes, killerHero)
+      local killerPlayer = hero:GetPlayerOwner()
+      if killerPlayer then
+        SendOverheadEventMessage(killerPlayer, OVERHEAD_ALERT_GOLD, killedHero, specific_base_gold, killerPlayer)
+      end
     end
   end
 
   local function sortByNetworth (a, b)
     return a:GetNetworth() > b:GetNetworth()
   end
-
-  table.sort(heroes, sortByNetworth)
-
-  DebugPrint(#heroes .. ' heroes getting assist gold')
-
-  local parameters = AssistGoldTable[math.min(AssistGoldTable.max, #heroes)]
 
   local function getHeroNetworth (playerId)
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
@@ -257,11 +267,13 @@ function HeroKillGold:HeroDeathHandler (keys)
     killedNWRanking = #entireKilledTeamNW
   end
 
-  DebugPrint(killedNetworth .. ' hero is in ' .. killedNWRanking .. 'th place of')
+  DebugPrint('Killed hero networth is: '..killedNetworth .. '. This hero is in ' .. killedNWRanking .. 'th place in the enemy networth table: ')
   DebugPrintTable(entireKilledTeamNW)
 
-  -- Modify the kill toast message to display properly for non-player last hits
-  if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+  -- Modify the kill toast message for non-player kills (assist gold is not shown for non-player kills)
+  -- rewardPlayerIDs is nil for player kills
+  if rewardPlayerIDs then
+    DebugPrint("Overriding kill toast message for non-player kills")
     CustomGameEventManager:Send_ServerToAllClients(
       "override_hero_bounty_toast",
       {
@@ -273,43 +285,66 @@ function HeroKillGold:HeroDeathHandler (keys)
       })
   end
 
-  for nwRank, hero in ipairs(heroes) do
-    -- assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
-    local assistGold = parameters.base + 0.9*(killedHeroLevelFactor/#heroes) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
-    DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - #heroes) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
-    local assistComebackGold = 0
-    if killedTeamNW > killerTeamNW then
-      assistComebackGold = (parameters.killedNwFactor * killedNetworth + parameters.comebackBase)/#heroes
-      DebugPrint("Comeback assist gold: (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. #heroes .. ' = ' .. assistComebackGold)
-    end
-    assistGold = assistGold + assistComebackGold
-    assistGold = math.floor(assistGold)
-    DebugPrint("Total assist gold: " .. assistGold)
+  local assist_table = {}
+  local assist_count = 1
+  if rewardPlayerIDs then
+    -- Assist gold when the killer is not a player
+    assist_table = rewardHeroes:totable()
+    assist_count = distributeCount
+  else
+    -- Assist gold when the killer belongs to a player
+    assist_table = heroes
+    assist_count = #heroes
+  end
 
-    -- Modify gold displayed in kill toast message for player last hits
-    if hero:GetPlayerOwnerID() == killerPlayerID then
-      CustomGameEventManager:Send_ServerToAllClients(
-        "override_hero_bounty_toast",
-        {
-          rewardIDs = rewardPlayerIDs:totable(),
-          killedID = killedPlayerID,
-          goldBounty = baseGold + assistGold,
-          displayHeroes = numAttackers > 0,
-          rewardTeam = killerTeam,
-        })
-    end
-    -- Check for Gold spark
-    local spark = hero:FindModifierByName("modifier_spark_gold")
-    local specific_assist_gold = assistGold
-    if spark then
-      specific_assist_gold = math.floor(assistGold + assistGold * spark.hero_kill_bonus_gold)
-    end
+  table.sort(assist_table, sortByNetworth)
 
-    Gold:ModifyGold(hero, specific_assist_gold, true, DOTA_ModifyGold_RoshanKill)
+  DebugPrint(assist_count .. ' heroes getting assist gold')
 
-    local player = hero:GetPlayerOwner()
-    if player then
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_assist_gold, player)
+  local parameters = AssistGoldTable[math.min(AssistGoldTable.max, assist_count)]
+
+  -- Split assist gold (ipairs is used instead of pairs because order matters)
+  for nwRank, hero in ipairs(assist_table) do
+    if hero then
+      -- assist gold = base + (bounty based on dying hero's level) * killerNwRankingFactor[assisting hero's networth rank] * killedNwRankingFactor + comeback bonus
+      local assistGold = parameters.base + 0.9*(killedHeroLevelFactor/assist_count) * parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] * parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)]
+      DebugPrint("Base assist gold: (" .. parameters.base .. ' + 0.9*(' .. math.max(1, 6 - assist_count) .. ' * ' .. killedHeroLevelFactor .. ') * ' .. parameters.killerNwRankingFactor[math.min(nwRank, #parameters.killerNwRankingFactor)] .. ' * ' .. parameters.killedNwRankingFactor[math.min(killedNWRanking, #parameters.killedNwRankingFactor)] .. ' = ' .. assistGold)
+      local assistComebackGold = 0
+      if killedTeamNW > killerTeamNW then
+        assistComebackGold = (parameters.killedNwFactor * killedNetworth + parameters.comebackBase)/assist_count
+        DebugPrint("Comeback assist gold: (" .. parameters.killedNwFactor .. " * " .. killedNetworth .. " + " .. parameters.comebackBase .. ") / " .. assist_count .. ' = ' .. assistComebackGold)
+      end
+      assistGold = assistGold + assistComebackGold
+      assistGold = math.floor(assistGold)
+      DebugPrint("Total assist gold for "..hero:GetUnitName().." is: "..assistGold)
+
+      -- Modify gold displayed in kill toast message for player last hits
+      if hero:GetPlayerOwnerID() == killerPlayerID then
+        DebugPrint("Overriding kill toast message for the player kill")
+        CustomGameEventManager:Send_ServerToAllClients(
+          "override_hero_bounty_toast",
+          {
+            rewardIDs = {killerPlayerID},
+            killedID = killedPlayerID,
+            goldBounty = baseGold + assistGold,
+            displayHeroes = true,
+            rewardTeam = killerTeam,
+          })
+      end
+
+      -- Check for Gold spark
+      local spark = hero:FindModifierByName("modifier_spark_gold")
+      local specific_assist_gold = assistGold
+      if spark then
+        specific_assist_gold = math.floor(assistGold + assistGold * spark.hero_kill_bonus_gold)
+      end
+
+      Gold:ModifyGold(hero, specific_assist_gold, true, DOTA_ModifyGold_RoshanKill)
+
+      local player = hero:GetPlayerOwner()
+      if player then
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_assist_gold, player)
+      end
     end
   end
 end
