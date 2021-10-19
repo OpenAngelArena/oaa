@@ -13,7 +13,6 @@ function Wanderer:Init ()
   ChatCommand:LinkDevCommand("-spawnwanderer", Dynamic_Wrap(self, 'SpawnWanderer'), self)
   self.level = 0
   self.nextSpawn = spawn_time
-  self.initialized = true
 end
 
 function Wanderer:GetState ()

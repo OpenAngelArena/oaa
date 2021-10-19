@@ -1,11 +1,16 @@
-LinkLuaModifier("modifier_ardm", "modifiers/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE )
-
 ARDMMode = ARDMMode or class({})
 
 local PrecacheHeroEvent = Event()
 
 function ARDMMode:Init ()
   Debug:EnableDebugging()
+
+  -- ARDM modifiers
+  LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
 
   -- Define the hero pool
   local ardm_heroes = {}
@@ -27,7 +32,6 @@ function ARDMMode:Init ()
   self.playedHeroes = {}
 
   --GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
-  DebugPrint('Start precaching')
   self:StartPrecache()
 
   -- Register event listeners
@@ -70,8 +74,8 @@ function ARDMMode.ApplyARDMmodifier(hero)
   -- Mark the first spawned hero as played - needed because of some edge cases
   table.insert(ARDMMode.playedHeroes, hero_name)
 
-  -- Remove the hero from the pool - needed because of some edge cases
-  ARDMMode:RemoveHeroFromThePool(hero_name, hero_team)
+  -- Remove the hero from the pool
+  --ARDMMode:RemoveHeroFromThePool(hero_name, hero_team)
 
   ARDMMode.addedmodifier[playerID] = true
 end
@@ -156,9 +160,7 @@ end
 function ARDMMode:PrecacheAllHeroes (heroList, cb)
   Debug:EnableDebugging()
   local heroCount = 0
-  DebugPrint("herolist table:")
   for k, v in pairs(heroList) do
-    --print(k, v)
     heroCount = heroCount + 1
   end
   local done = after(heroCount, cb)
@@ -203,6 +205,7 @@ function ARDMMode:GetRandomHero (teamId)
   -- Check if heroPool has non-nil elements
   if n < 1 then
     --self:ReloadHeroPoolForTeam(teamId)
+    -- This will also happen if herolist file is empty
     return nil
   end
 

@@ -64,6 +64,4 @@ function CreepPower:Init ()
   end
 
   self.BootGoldFactor = _G.BOOT_GOLD_FACTOR or 1
-
-  self.initialized = true
 end

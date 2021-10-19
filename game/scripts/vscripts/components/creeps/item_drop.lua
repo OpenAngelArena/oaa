@@ -38,8 +38,6 @@ function CreepItemDrop:Init ()
 
   --ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
   Timers:CreateTimer(Dynamic_Wrap(self, 'ItemDropUpgradeTimer'), self)
-
-  self.initialized = true
 end
 
 function CreepItemDrop:SetPowerLevel (powerLevel)

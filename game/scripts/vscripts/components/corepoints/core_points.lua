@@ -13,7 +13,6 @@ function CorePointsManager:Init()
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
 
   self.playerID_table = {}
-  self.initialized = true
 end
 
 function CorePointsManager:GetState()
@@ -31,7 +30,7 @@ function CorePointsManager:LoadState(state)
     -- CorePointsManager didn't exist when state was saved
     return
   end
-  
+
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
     if state[steamid] then

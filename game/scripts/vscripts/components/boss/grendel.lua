@@ -12,7 +12,6 @@ function Grendel:Init()
   self.respawn_time = 5 * 60
   self.respawned = false
   self.xp_reward_per_hero = 3000
-  self.initialized = true
 end
 
 function Grendel:GetState()

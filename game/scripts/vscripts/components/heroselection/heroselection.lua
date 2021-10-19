@@ -40,7 +40,6 @@ function HeroSelection:Init ()
   self.attemptedSpawnPlayers = {}
 
   local herolistFile = 'scripts/npc/herolist.txt'
-
   if self.isCM then
     herolistFile = 'scripts/npc/herolist_cm.txt'
   end
@@ -90,15 +89,21 @@ function HeroSelection:Init ()
   end
 
   CustomNetTables:SetTableValue( 'hero_selection', 'herolist', {gametype = GetMapName(), herolist = herolist})
-  for attr,data in pairs(heroAbilities) do
+  for attr, data in pairs(heroAbilities) do
     CustomNetTables:SetTableValue( 'hero_selection', 'abilities_' .. attr, data)
   end
 
-  GameEvents:OnHeroInGame(function (npc)
-    local playerId = npc:GetPlayerID()
-    DebugPrint('An NPC spawned ' .. npc:GetUnitName())
-    DebugPrint('Giving player ' .. tostring(playerId)  .. ' starting hero ' .. npc:GetUnitName())
-    HeroCosmetics:ApplySelectedArcana(npc, HeroSelection:GetSelectedArcanaForPlayer(playerId)[npc:GetUnitName()])
+  GameEvents:OnHeroInGame(function (hero)
+    local playerId = hero:GetPlayerID()
+    local hero_name = hero:GetUnitName()
+    DebugPrint('A hero (re)spawned: ' .. hero_name)
+    if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() then
+      return
+    end
+    if not HeroSelection.isARDM then
+      DebugPrint('Giving player ' .. tostring(playerId)  .. ' starting hero ' .. hero_name)
+      HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
+    end
   end)
 
   GameEvents:OnHeroSelection(function (keys)
@@ -145,14 +150,10 @@ function HeroSelection:Init ()
     end
     local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
     if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
-      DebugPrint('Giving player ' .. keys.PlayerID .. ' ' .. lockedHeroes[keys.PlayerID])
+      DebugPrint('Giving player ' .. keys.PlayerID .. ' a hero: ' .. lockedHeroes[keys.PlayerID].. ' after reconnecting.')
       HeroSelection:GiveStartingHero(keys.PlayerID, lockedHeroes[keys.PlayerID])
     end
   end)
-
-  --if self.isARDM and ARDMMode then
-    --ARDMMode:Init(herolist)
-  --end
 end
 
 -- set "empty" hero for every player and start picking phase
@@ -343,7 +344,7 @@ function HeroSelection:RankedManager (event)
     end
     if selectedtable[event.PlayerID] and selectedtable[event.PlayerID].selectedhero ~= 'empty' then
       -- already picked a hero
-      DebugPrint("This player slready selected!");
+      DebugPrint("This player already selected!");
       save()
       return
     end
@@ -806,8 +807,8 @@ function HeroSelection:RandomHero ()
 end
 
 function HeroSelection:UnsafeRandomHero ()
-  local curstate = 0
-  local rndhero = RandomInt(0, totalheroes - 1)
+  local curstate = 1
+  local rndhero = RandomInt(1, totalheroes)
   for name, _ in pairs(herolist) do
     if curstate == rndhero then
       return name
@@ -871,6 +872,9 @@ function HeroSelection:HeroSelected (event)
     DebugPrint('Cheater...')
     return
   end
+  if IsInToolsMode() then
+    GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." selected "..tostring(event.hero), 0, 0)
+  end
   if HeroSelection.isBanning then
     return HeroSelection:RankedManager(event)
   end
@@ -892,13 +896,16 @@ function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
   if hero == "random" then
     hero = self:RandomHero()
+    GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(PlayerID)).." randomed "..tostring(hero), 0, 0)
   end
   if hero == "forcerandom" then
     hero = self:ForceRandomHero(playerID)
+    GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(PlayerID)).." randomed "..tostring(hero), 0, 0)
   end
 
   if lockedHeroes[playerID] then
     hero = lockedHeroes[playerID]
+    GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(PlayerID)).." has picked "..tostring(hero), 0, 0)
   end
 
   if selectedtable[playerID] and selectedtable[playerID].selectedhero == hero then

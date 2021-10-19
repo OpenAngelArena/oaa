@@ -9,10 +9,7 @@ end
 function OAAOptions:Init ()
   --Debug:EnableDebugging()
   DebugPrint('OAAOptions module Initialization started!')
-  if self.initialized then
-    print("OAAOptions should be initialized only once -> preventing multiple times")
-    return nil
-  end
+  self.moduleName = "OAA Game Mode Options"
 
   self.settings = {}
   self.settingsDefault = {}
@@ -37,8 +34,7 @@ function OAAOptions:Init ()
 
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
 
-  self.initialized = true
-  DebugPrint('OAAOptions moduel Initialization finished!')
+  DebugPrint('OAAOptions module Initialization finished!')
 end
 
 function OAAOptions:InitializeSettingsTable()

@@ -8,16 +8,14 @@ HudTimer.exactRegisteredListeners = {}
 
 function HudTimer:Init()
   Debug:EnableDebugging()
-
+  self.moduleName = "HudTimer"
   self.isPaused = false
   self.gameTime = DOTA_CLOCK_SKEW
-  Debug:EnableDebugging()
 
   local startingOffset = math.floor(GameRules:GetDOTATime(true, true)) - self.gameTime
 
   DebugPrint('Using an initial clock skew of ' .. startingOffset .. ' at ' .. self.gameTime)
   self.IsGameInProgress = false
-
 
   Timers:CreateTimer(1 - GameRules:GetDOTATime(true, true) % 1, function()
     local gameState = GameRules:State_Get()
