@@ -101,7 +101,7 @@ function HeroSelection:Init ()
       if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() then
         return
       end
-      DebugPrint("Hero "..hero_name.."spawned for the first time": ' .. hero_name)
+      DebugPrint("Hero "..hero_name.."spawned for the first time")
       DebugPrint('Giving player ' .. tostring(playerId)  .. ' starting hero ' .. hero_name)
       HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
     end
@@ -159,7 +159,7 @@ end
 -- set "empty" hero for every player and start picking phase
 function HeroSelection:StartSelection ()
   DebugPrint("Starting HeroSelection Process")
-  DebugPrint(GetMapName())
+  --DebugPrint(GetMapName())
 
   HeroSelection.shouldBePaused = true
   HeroSelection:CheckPause()
@@ -176,7 +176,7 @@ function HeroSelection:StartSelection ()
 
   if OAAOptions and OAAOptions.settings then
     if OAAOptions.settings.small_player_pool == 1 then
-      DebugPrint("OAAOptions smaller player pool option selected")
+      --DebugPrint("OAAOptions smaller player pool option selected")
       local herolistFile = 'scripts/npc/herolist_3v3.txt'
       local herolistTable = LoadKeyValues(herolistFile)
       for key, value in pairs(herolistTable) do
@@ -185,6 +185,16 @@ function HeroSelection:StartSelection ()
         end
       end
     end
+	if OAAOptions.settings.GAME_MODE == "ARDM" then
+	  --DebugPrint("OAAOptions ARDM option selected")
+      local herolistFile = 'scripts/npc/herolist_ardm.txt'
+      local herolistTable = LoadKeyValues(herolistFile)
+      for key, value in pairs(herolistTable) do
+        if value == 0 then
+          table.insert(rankedpickorder.bans, key)
+        end
+      end
+	end
   end
 
   if self.isCM then
@@ -218,7 +228,6 @@ function HeroSelection:BuildBottlePass()
   CustomNetTables:SetTableValue( 'bottlepass', 'special_bottles', special_bottles )
   CustomNetTables:SetTableValue( 'bottlepass', 'special_arcanas', special_arcanas )
 end
-
 
 function HeroSelection:OnBottleSelected (selectedBottle)
   if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
@@ -331,9 +340,15 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'random' then
       choice = self:RandomHero()
+      if IsInToolsMode() then
+        GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..tostring(choice), 0, 0)
+      end
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
+      if IsInToolsMode() then
+        GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..tostring(choice), 0, 0)
+      end
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
@@ -468,13 +483,16 @@ function HeroSelection:ChooseBans ()
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
     end)
   elseif OAAOptions.settings.GAME_MODE == "ARDM" and ARDMMode then
-    -- 100% chance bans and don't get them on respawn
+    -- 100% chance bans 
     PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
-      if rankedpickorder.banChoices[playerID] ~= nil then
-        table.insert(ARDMMode.playedHeroes, rankedpickorder.banChoices[playerID])
-      end
     end)
+    -- Remove all bans from the hero pool
+    for k, v in pairs(rankedpickorder.bans) do
+      if v ~= nil then
+        table.insert(ARDMMode.playedHeroes, v)
+      end
+    end
   end
 end
 
@@ -665,7 +683,7 @@ end
 
 -- start heropick AP timer
 function HeroSelection:APTimer (time, message)
-  print("APTimer")
+  --print("APTimer")
   HeroSelection:CheckPause()
   if forcestop == true or time < 0 then
     for key, value in pairs(selectedtable) do
@@ -790,7 +808,7 @@ function HeroSelection:IsHeroChosen (hero)
 end
 
 function HeroSelection:ForceRandomHero (playerId)
-  if not playerId or (OAAOptions and OAAOptions.settings.GAME_MODE == "AR") then
+  if not playerId or (OAAOptions and (OAAOptions.settings.GAME_MODE == "AR" or OAAOptions.settings.GAME_MODE == "ARDM")) then
     return HeroSelection:RandomHero()
   end
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
@@ -881,7 +899,11 @@ function HeroSelection:HeroSelected (event)
     return
   end
   if IsInToolsMode() then
-    GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." selected "..tostring(event.hero), 0, 0)
+    if rankedpickorder.phase == 'bans' then
+      GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." banned "..tostring(event.hero), 0, 0)
+    elseif rankedpickorder.phase == 'picking' then
+      GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." picked "..tostring(event.hero), 0, 0)
+    end
   end
   if HeroSelection.isBanning then
     return HeroSelection:RankedManager(event)
@@ -904,16 +926,13 @@ function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
   if hero == "random" then
     hero = self:RandomHero()
-    GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(PlayerID)).." randomed "..tostring(hero), 0, 0)
   end
   if hero == "forcerandom" then
     hero = self:ForceRandomHero(playerID)
-    GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(PlayerID)).." randomed "..tostring(hero), 0, 0)
   end
 
   if lockedHeroes[playerID] then
     hero = lockedHeroes[playerID]
-    GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(PlayerID)).." has picked "..tostring(hero), 0, 0)
   end
 
   if selectedtable[playerID] and selectedtable[playerID].selectedhero == hero then

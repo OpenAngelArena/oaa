@@ -1,16 +1,18 @@
 ARDMMode = ARDMMode or class({})
 
-local PrecacheHeroEvent = Event()
+--local PrecacheHeroEvent = Event()
 
 function ARDMMode:Init ()
-  Debug:EnableDebugging()
-
   -- ARDM modifiers
   LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ardm_disable_hero", "modifiers/ardm/modifier_ardm_disable_hero.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+
+  self.playedHeroes = {}
+  self.precachedHeroes = {}
 
   -- Define the hero pool
   local ardm_heroes = {}
@@ -23,33 +25,105 @@ function ARDMMode:Init ()
   end
 
   self.allHeroes = ardm_heroes
-  self.hasPrecached = false
+  --self.hasPrecached = false
   self.addedmodifier = {}
   self.heroPool = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {}
   }
-  self.playedHeroes = {}
 
   -- Register event listeners
-  GameEvents:OnHeroInGame(ARDMMode.ApplyARDMmodifier)
-  GameEvents:OnHeroKilled(ARDMMode.ScheduleHeroChange)
-  --GameEvents:OnHeroSelection(ARDMMode.StartPrecache)
+  GameEvents:OnHeroInGame(partial(self.ApplyARDMmodifier, self))
+  GameEvents:OnHeroKilled(partial(self.ScheduleHeroChange, self))
+  --GameEvents:OnHeroSelection(partial(self.StartPrecache, self))
+  GameEvents:OnPreGame(partial(self.StartPrecache, self))
+  --GameEvents:OnGameInProgress(partial(self.PrintTables, self))
 
   self:LoadHeroPoolsForTeams()
-  self:StartPrecache()
 end
 
 function ARDMMode:StartPrecache()
-  local ardm_heroes = ARDMMode.allHeroes
-  ARDMMode:PrecacheAllHeroes(ardm_heroes, function ()
+  Debug:EnableDebugging()
+  self:PrecacheHeroes(function ()
     DebugPrint('Done precaching')
-    ARDMMode.hasPrecached = true
-    PrecacheHeroEvent.broadcast(#ardm_heroes)
+	GameRules:SendCustomMessage("Finished precaching heroes.", 0, 0)
+	PauseGame(false)
+    --ARDMMode.hasPrecached = true
+    --PrecacheHeroEvent.broadcast(true)
   end)
 end
 
-function ARDMMode.ApplyARDMmodifier(hero)
+-- Precache only heroes that need to be precached (ignore banned and starting heroes)
+function ARDMMode:PrecacheHeroes(cb)
+  --Debug:EnableDebugging()
+  PauseGame(true)
+  GameRules:SendCustomMessage("Precaching heroes. Please be patient.", 0, 0)
+  DebugPrint('Started precaching heroes')
+  local hero_count = #self.allHeroes --- #self.playedHeroes
+  local done = after(hero_count, cb)
+  for _, hero_name in pairs(self.allHeroes) do
+    local playable = true
+	for _, banned in pairs(self.playedHeroes) do
+      if banned and hero_name == banned then
+        DebugPrint(tostring(banned).." was randomed first or banned")
+        playable = false
+        break
+      end
+    end
+    local precached = false
+    for _, v in pairs(self.precachedHeroes) do
+      if v and hero_name == v then
+        DebugPrint(tostring(v).." was already precached")
+        precached = true
+        break
+      end
+    end
+    if playable and not precached and hero_name then
+      PrecacheUnitByNameAsync(hero_name, function()
+        DebugPrint("Finished precaching this hero: "..tostring(hero_name))
+		--GameRules:SendCustomMessage("Precached "..tostring(hero_name), 0, 0)
+		table.insert(ARDMMode.precachedHeroes, hero_name)
+		done()
+      end, nil)
+	else
+	  hero_count = hero_count - 1
+    end
+  end
+end
+
+-- Precache all heroes
+--[[
+function ARDMMode:PrecacheAllHeroes(cb)
+  Debug:EnableDebugging()
+  local heroCount = #self.allHeroes
+  local done = after(heroCount, cb)
+  DebugPrint('Starting precache process...')
+  for _, hero in pairs(self.allHeroes) do
+    if hero then
+      PrecacheUnitByNameAsync(hero, function ()
+        DebugPrint('precached this hero: ' .. hero)
+		done()
+      end)
+    end
+  end
+end
+]]
+
+function ARDMMode:PrintTables()
+  Debug:EnableDebugging()
+  DebugPrint("Played and banned heroes: ")
+  DebugPrintTable(self.playedHeroes)
+  DebugPrint("Precached heroes: ")
+  DebugPrintTable(self.precachedHeroes)
+  DebugPrint("All heroes: ")
+  DebugPrintTable(self.allHeroes)
+  DebugPrint("Radiant heroes: ")
+  DebugPrintTable(self.heroPool[DOTA_TEAM_GOODGUYS])
+  DebugPrint("Dire heroes: ")
+  DebugPrintTable(self.heroPool[DOTA_TEAM_BADGUYS])
+end
+
+function ARDMMode:ApplyARDMmodifier(hero)
   local hero_team = hero:GetTeamNumber()
   local hero_name = hero:GetUnitName()
 
@@ -79,7 +153,7 @@ function ARDMMode.ApplyARDMmodifier(hero)
   ARDMMode.addedmodifier[playerID] = true
 end
 
-function ARDMMode.ScheduleHeroChange(event)
+function ARDMMode:ScheduleHeroChange(event)
   if not event.killed then
     return
   end
@@ -113,6 +187,22 @@ function ARDMMode.ScheduleHeroChange(event)
   ARDMMode:RemoveHeroFromThePool(killed_hero_name, killed_team)
 
   local new_hero_name = ARDMMode:GetRandomHero(killed_team)
+  
+  if new_hero_name then
+    local precached = false
+	for _, v in pairs(ARDMMode.precachedHeroes) do
+      if v and new_hero_name == v then
+        precached = true
+		break
+      end
+    end
+    if not precached then
+      PrecacheUnitByNameAsync(new_hero_name, function()
+        DebugPrint(tostring(new_hero_name).." has been precached")
+		table.insert(ARDMMode.precachedHeroes, new_hero_name)
+      end, playerID)
+    end
+  end
 
   local ardm_mod = killed_hero:FindModifierByName("modifier_ardm")
   if ardm_mod then
@@ -123,7 +213,11 @@ end
 
 function ARDMMode:LoadHeroPoolsForTeams()
   local number_of_heroes = #self.allHeroes
-  local other_team_heroes = self.allHeroes
+  -- Copy the table
+  local other_team_heroes = {}
+  for k, v in pairs(self.allHeroes) do
+    other_team_heroes[k] = self.allHeroes[k]
+  end
   local i = 0
 
   -- Form the hero pool for the Radiant team
@@ -156,41 +250,20 @@ function ARDMMode:LoadHeroPoolsForTeams()
   end
 end
 
-function ARDMMode:ReloadHeroPoolForTeam(teamId)
-
-end
-
-function ARDMMode:PrecacheAllHeroes (heroList, cb)
-  Debug:EnableDebugging()
-  DebugPrint('Starting precache process...')
-
-  local count = 0
-  local total = #heroList
-  for _, hero in pairs(heroList) do
-    if hero then
-      PrecacheUnitByNameAsync(hero, function ()
-        DebugPrint('precached this hero: ' .. hero)
-        count = count + 1
-      end)
-    end
-  end
-  if count == total then
+--[[
+function ARDMMode:OnPrecache (cb)
+  if self.hasPrecached then
     cb()
+    -- no unlisten event to return, send noop
+    return noop
   end
+
+  return PrecacheHeroEvent.listen(cb)
 end
 
--- function ARDMMode:OnPrecache (cb)
-  -- if self.hasPrecached then
-    -- cb()
-    -- -- no unlisten event to return, send noop
-    -- return noop
-  -- end
-
-  -- return PrecacheHeroEvent.listen(cb)
--- end
-
--- function noop ()
--- end
+function noop ()
+end
+]]
 
 function ARDMMode:GetRandomHero (teamId)
   local heroPool = self.heroPool[teamId]

@@ -127,7 +127,9 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
     spark = "modifier_spark_power"
   end
 
-  --PrecacheUnitByNameAsync(new_hero_name, function()
+  -- Disabled the old hero
+  old_hero:AddNewModifier(old_hero, nil, "modifier_ardm_disable_hero", {})
+
   local new_hero = PlayerResource:ReplaceHeroWith(playerID, new_hero_name, old_hero_gold, 0)
 
   Timers:CreateTimer(0.03, function()
