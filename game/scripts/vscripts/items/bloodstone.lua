@@ -147,7 +147,7 @@ function modifier_item_bloodstone_stacking_stats:OnDestroy()
   if IsServer() then
     self.charges = self.charges or 0
     local ability = self:GetAbility()
-	if ability and not ability:IsNull() then
+    if ability and not ability:IsNull() then
       -- store our point values for later
       if ability:GetCurrentCharges() > self.charges then
         DebugPrint('gained ' .. (ability:GetCurrentCharges() - self.charges) .. ' charges')

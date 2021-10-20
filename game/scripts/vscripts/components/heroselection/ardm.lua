@@ -46,8 +46,8 @@ function ARDMMode:StartPrecache()
   Debug:EnableDebugging()
   self:PrecacheHeroes(function ()
     DebugPrint('Done precaching')
-	GameRules:SendCustomMessage("Finished precaching heroes.", 0, 0)
-	PauseGame(false)
+    GameRules:SendCustomMessage("Finishing with hero precaching...", 0, 0)
+    PauseGame(false)
     --ARDMMode.hasPrecached = true
     --PrecacheHeroEvent.broadcast(true)
   end)
@@ -55,15 +55,15 @@ end
 
 -- Precache only heroes that need to be precached (ignore banned and starting heroes)
 function ARDMMode:PrecacheHeroes(cb)
-  --Debug:EnableDebugging()
+  Debug:EnableDebugging()
   PauseGame(true)
-  GameRules:SendCustomMessage("Precaching heroes. Please be patient.", 0, 0)
+  GameRules:SendCustomMessage("Started precaching heroes. PLEASE BE PATIENT.", 0, 0)
   DebugPrint('Started precaching heroes')
   local hero_count = #self.allHeroes --- #self.playedHeroes
   local done = after(hero_count, cb)
   for _, hero_name in pairs(self.allHeroes) do
     local playable = true
-	for _, banned in pairs(self.playedHeroes) do
+    for _, banned in pairs(self.playedHeroes) do
       if banned and hero_name == banned then
         DebugPrint(tostring(banned).." was randomed first or banned")
         playable = false
@@ -81,12 +81,12 @@ function ARDMMode:PrecacheHeroes(cb)
     if playable and not precached and hero_name then
       PrecacheUnitByNameAsync(hero_name, function()
         DebugPrint("Finished precaching this hero: "..tostring(hero_name))
-		--GameRules:SendCustomMessage("Precached "..tostring(hero_name), 0, 0)
-		table.insert(ARDMMode.precachedHeroes, hero_name)
-		done()
+        --GameRules:SendCustomMessage("Precached "..tostring(hero_name), 0, 0)
+        table.insert(ARDMMode.precachedHeroes, hero_name)
+        done()
       end, nil)
-	else
-	  hero_count = hero_count - 1
+    else
+      hero_count = hero_count - 1
     end
   end
 end
@@ -102,7 +102,7 @@ function ARDMMode:PrecacheAllHeroes(cb)
     if hero then
       PrecacheUnitByNameAsync(hero, function ()
         DebugPrint('precached this hero: ' .. hero)
-		done()
+        done()
       end)
     end
   end
@@ -110,7 +110,7 @@ end
 ]]
 
 function ARDMMode:PrintTables()
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   DebugPrint("Played and banned heroes: ")
   DebugPrintTable(self.playedHeroes)
   DebugPrint("Precached heroes: ")
@@ -187,19 +187,19 @@ function ARDMMode:ScheduleHeroChange(event)
   ARDMMode:RemoveHeroFromThePool(killed_hero_name, killed_team)
 
   local new_hero_name = ARDMMode:GetRandomHero(killed_team)
-  
+
   if new_hero_name then
     local precached = false
-	for _, v in pairs(ARDMMode.precachedHeroes) do
+    for _, v in pairs(ARDMMode.precachedHeroes) do
       if v and new_hero_name == v then
         precached = true
-		break
+        break
       end
     end
     if not precached then
       PrecacheUnitByNameAsync(new_hero_name, function()
         DebugPrint(tostring(new_hero_name).." has been precached")
-		table.insert(ARDMMode.precachedHeroes, new_hero_name)
+        table.insert(ARDMMode.precachedHeroes, new_hero_name)
       end, playerID)
     end
   end

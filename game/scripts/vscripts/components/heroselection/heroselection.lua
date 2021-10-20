@@ -185,8 +185,8 @@ function HeroSelection:StartSelection ()
         end
       end
     end
-	if OAAOptions.settings.GAME_MODE == "ARDM" then
-	  --DebugPrint("OAAOptions ARDM option selected")
+	  if OAAOptions.settings.GAME_MODE == "ARDM" then
+      --DebugPrint("OAAOptions ARDM option selected")
       local herolistFile = 'scripts/npc/herolist_ardm.txt'
       local herolistTable = LoadKeyValues(herolistFile)
       for key, value in pairs(herolistTable) do
@@ -194,7 +194,7 @@ function HeroSelection:StartSelection ()
           table.insert(rankedpickorder.bans, key)
         end
       end
-	end
+	  end
   end
 
   if self.isCM then
@@ -340,15 +340,11 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'random' then
       choice = self:RandomHero()
-      if IsInToolsMode() then
-        GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..tostring(choice), 0, 0)
-      end
+      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..tostring(choice), 0, 0)
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
-      if IsInToolsMode() then
-        GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..tostring(choice), 0, 0)
-      end
+      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..tostring(choice), 0, 0)
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
@@ -483,7 +479,7 @@ function HeroSelection:ChooseBans ()
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
     end)
   elseif OAAOptions.settings.GAME_MODE == "ARDM" and ARDMMode then
-    -- 100% chance bans 
+    -- 100% chance bans
     PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
     end)
