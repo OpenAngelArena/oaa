@@ -54,7 +54,7 @@ function GameMode:_InitGameMode()
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then
     local num = math.floor(10 / MAX_NUMBER_OF_TEAMS)
     local count = 0
-    for team,number in pairs(TEAM_COLORS) do
+    for team, number in pairs(TEAM_COLORS) do
       if count >= MAX_NUMBER_OF_TEAMS then
         GameRules:SetCustomGameTeamMaxPlayers(team, 0)
       else
@@ -64,7 +64,7 @@ function GameMode:_InitGameMode()
     end
   else
     local count = 0
-    for team,number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
+    for team, number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
       if count >= MAX_NUMBER_OF_TEAMS then
         GameRules:SetCustomGameTeamMaxPlayers(team, 0)
       else
@@ -75,7 +75,7 @@ function GameMode:_InitGameMode()
   end
 
   if USE_CUSTOM_TEAM_COLORS then
-    for team,color in pairs(TEAM_COLORS) do
+    for team, color in pairs(TEAM_COLORS) do
       SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
     end
   end
