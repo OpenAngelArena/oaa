@@ -49,7 +49,7 @@ end
 function ARDMMode:StartPrecache()
   Debug:EnableDebugging()
   self:PrecacheHeroes(function ()
-    DebugPrint('Done precaching')
+    DebugPrint("StartPrecache callback - Done precaching")
     GameRules:SendCustomMessage("FINISHED with hero precaching...", 0, 0)
     --PauseGame(false)
     --ARDMMode.hasPrecached = true
@@ -62,7 +62,7 @@ function ARDMMode:PrecacheHeroes(cb)
   Debug:EnableDebugging()
   --PauseGame(true)
   GameRules:SendCustomMessage("Started precaching heroes. PLEASE BE PATIENT.", 0, 0)
-  DebugPrint('Started precaching heroes')
+  DebugPrint("PrecacheHeroes - Started precaching heroes")
 
   local hero_count = #self.allHeroes
 
@@ -77,7 +77,7 @@ function ARDMMode:PrecacheHeroes(cb)
     local playable = true
     for _, banned in pairs(self.playedHeroes) do
       if banned and hero_name == banned then
-        DebugPrint("Hero "..tostring(banned).." was randomed first or banned")
+        DebugPrint("PrecacheHeroes - Hero "..tostring(banned).." was randomed first or banned")
         playable = false
         break
       end
@@ -85,14 +85,14 @@ function ARDMMode:PrecacheHeroes(cb)
     local precached = false
     for _, v in pairs(self.precachedHeroes) do
       if v and hero_name == v then
-        DebugPrint("Hero "..tostring(v).." was already precached")
+        DebugPrint("PrecacheHeroes - Hero "..tostring(v).." was already precached")
         precached = true
         break
       end
     end
     if playable and not precached and hero_name then
       PrecacheUnitByNameAsync(hero_name, function()
-        DebugPrint("Finished precaching this hero: "..tostring(hero_name))
+        DebugPrint("PrecacheHeroes - Finished precaching this hero: "..tostring(hero_name))
         --GameRules:SendCustomMessage("Precached "..tostring(hero_name), 0, 0)
         table.insert(ARDMMode.precachedHeroes, hero_name)
         check_if_done()
@@ -123,15 +123,15 @@ end
 
 function ARDMMode:PrintTables()
   Debug:EnableDebugging()
-  DebugPrint("Played and banned heroes: ")
+  DebugPrint("PrintTables - Played and banned heroes: ")
   DebugPrintTable(self.playedHeroes)
-  DebugPrint("Precached heroes: ")
+  DebugPrint("PrintTables - Precached heroes: ")
   DebugPrintTable(self.precachedHeroes)
-  --DebugPrint("All heroes: ")
+  --DebugPrint("PrintTables - All heroes: ")
   --DebugPrintTable(self.allHeroes)
-  DebugPrint("Radiant hero pool: ")
+  DebugPrint("PrintTables - Radiant hero pool: ")
   DebugPrintTable(self.heroPool[DOTA_TEAM_GOODGUYS])
-  DebugPrint("Dire hero pool: ")
+  DebugPrint("PrintTables - Dire hero pool: ")
   DebugPrintTable(self.heroPool[DOTA_TEAM_BADGUYS])
 end
 
@@ -157,15 +157,15 @@ function ARDMMode:ApplyARDMmodifier(hero)
   end
 
   -- Mark the first spawned hero as played - needed because of some edge cases
-  DebugPrint("Adding starting hero "..hero_name.." to the list of played heroes. this_should_happen_only_once")
+  DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of played heroes. this_should_happen_only_once")
   table.insert(self.playedHeroes, hero_name)
 
   -- Mark the first spawned hero as precached - needed because of some edge cases
-  DebugPrint("Adding starting hero "..hero_name.." to the list of precached heroes. this_should_happen_only_once")
+  DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of precached heroes. this_should_happen_only_once")
   table.insert(self.precachedHeroes, hero_name)
 
   -- Add to the hero pool just in case
-  DebugPrint("Adding starting hero "..hero_name.." to the list of valid heroes for team "..tostring(hero_team)". this_should_happen_only_once")
+  DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of valid heroes for team "..tostring(hero_team)". this_should_happen_only_once")
   table.insert(self.heroPool[hero_team], hero_name)
 
   self.addedmodifier[playerID] = true
@@ -194,16 +194,16 @@ function ARDMMode:ScheduleHeroChange(event)
   end
 
   if not killed_hero:HasModifier("modifier_ardm") and not self.addedmodifier[playerID] then
-    DebugPrint("Killed hero "..tostring(killed_hero_name).." doesn't have ARDM modifier for some reason.")
+    DebugPrint("ScheduleHeroChange - Killed hero "..tostring(killed_hero_name).." doesn't have ARDM modifier for some reason.")
     return
   end
 
   -- Mark the killed hero as played
-  DebugPrint("Adding killed hero "..hero_name.." to the list of played heroes. this_should_happen_for_every_hero_death")
+  DebugPrint("ScheduleHeroChange - Adding killed hero "..hero_name.." to the list of played heroes. this_should_happen_for_every_hero_death")
   table.insert(self.playedHeroes, killed_hero_name)
 
   -- Remove the killed hero from the pool
-  DebugPrint("Removing killed hero "..hero_name.." from the list of valid heroes for team "..tostring(killed_team)..". this_should_happen_for_every_hero_death")
+  DebugPrint("ScheduleHeroChange - Removing killed hero "..hero_name.." from the list of valid heroes for team "..tostring(killed_team)..". this_should_happen_for_every_hero_death")
   self:RemoveHeroFromThePool(killed_hero_name, killed_team)
 
   local new_hero_name = self:GetRandomHero(killed_team)
@@ -211,7 +211,7 @@ function ARDMMode:ScheduleHeroChange(event)
   local ardm_mod = killed_hero:FindModifierByName("modifier_ardm")
   if ardm_mod then
     ardm_mod.hero = new_hero_name
-    DebugPrint("Killed hero "..tostring(killed_hero_name).." will be changed into "..tostring(new_hero_name))
+    DebugPrint("ScheduleHeroChange - Killed hero "..tostring(killed_hero_name).." will be changed into "..tostring(new_hero_name))
   end
 end
 
@@ -282,7 +282,7 @@ function ARDMMode:GetRandomHero (teamId)
   -- Check if heroPool has non-nil elements
   if n < 1 then
     -- This will also happen if herolist file is empty
-    DebugPrint("[GetRandomHero] Hero Pool for "..tostring(teamId).." is empty. No new hero.")
+    DebugPrint("GetRandomHero - Hero Pool for "..tostring(teamId).." is empty. No new hero.")
     return nil
   end
 
@@ -304,9 +304,12 @@ function ARDMMode:GetRandomHero (teamId)
   end
 
   if played then
+    DebugPrint("GetRandomHero - Hero "..tostring(hero_name).." was already played.")
     -- Remove the hero from the pool because it was played
-    DebugPrint("[GetRandomHero] Hero "..tostring(hero_name).." was already played. Removing from the hero pool.")
-    self.heroPool[teamId][random_number] = nil
+    if GameRules:State_Get() > DOTA_GAMERULES_STATE_TEAM_SHOWCASE then
+      DebugPrint("GetRandomHero - Hero "..tostring(hero_name).." was already played. Removing from the hero pool.")
+      self.heroPool[teamId][random_number] = nil
+    end
 
     -- Do all the above again
     return self:GetRandomHero(teamId)
@@ -322,9 +325,12 @@ function ARDMMode:GetRandomHero (teamId)
   end
 
   if not precached then
+    DebugPrint("GetRandomHero - Hero "..tostring(hero_name).." was not precached.")
     -- Remove the hero from the pool because it was not precached (TEMPORARY)
-    DebugPrint("[GetRandomHero] Hero "..tostring(hero_name).." was not precached. Removing from the hero pool.")
-    self.heroPool[teamId][random_number] = nil
+    if GameRules:State_Get() > DOTA_GAMERULES_STATE_TEAM_SHOWCASE then
+      DebugPrint("GetRandomHero - Hero "..tostring(hero_name).." was not precached. Removing from the hero pool.")
+      self.heroPool[teamId][random_number] = nil
+    end
 
     -- Do all the above again
     return self:GetRandomHero(teamId)
