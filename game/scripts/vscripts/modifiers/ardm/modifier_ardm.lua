@@ -33,7 +33,31 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
   --end
 
   local items = {}
+  -- Normal slots and backpack slots
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+    local item = old_hero:GetItemInSlot(i)
+    local item_name
+    local charges
+    local purchaser
+    local cooldown
+    if item then
+      if not item:IsNeutralDrop() then
+        item_name = item:GetName()
+        purchaser = item:GetPurchaser()
+        if purchaser == old_hero then
+          purchaser = nil
+        end
+        cooldown = item:GetCooldownTimeRemaining()
+        if item:RequiresCharges() then
+          charges = item:GetCurrentCharges()
+        end
+      end
+    end
+    items[i] = {item_name, purchaser, cooldown, charges}
+  end
+
+  -- Stash slots
+  for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
     local item = old_hero:GetItemInSlot(i)
     local item_name
     local charges
@@ -60,7 +84,7 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
     local item = old_hero:GetItemInSlot(i)
     if item then
       if item:IsNeutralDrop() then
-        -- Return the item to stash (order)
+        -- Return the item to neutral stash (order)
         local order_table = {
           UnitIndex = old_hero:GetEntityIndex(),
           OrderType = DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN,
@@ -220,7 +244,8 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
 
     -- Remove the old hero (if it stil exists)
     if old_hero and not old_hero:IsNull() then
-      UTIL_Remove(old_hero)
+      DebugPrint("Old hero still exists")
+      --UTIL_Remove(old_hero)
     end
 
     -- Important for Wanderer Sticky Napalm

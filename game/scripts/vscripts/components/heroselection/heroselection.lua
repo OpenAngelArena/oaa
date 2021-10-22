@@ -30,7 +30,7 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
-  Debug.EnabledModules['heroselection:*'] = false
+  Debug.EnabledModules['heroselection:*'] = true
   DebugPrint("Initializing HeroSelection")
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10"
@@ -52,7 +52,7 @@ function HeroSelection:Init ()
 
   local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
   local heroAbilities = {}
-  for key,value in pairs(LoadKeyValues(herolistFile)) do
+  for key, value in pairs(LoadKeyValues(herolistFile)) do
     DebugPrint("Heroes: ".. key)
     if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
       DebugPrint(key .. " is not in vanilla file!")
@@ -102,7 +102,7 @@ function HeroSelection:Init ()
         return
       end
       DebugPrint("Hero "..hero_name.."spawned for the first time")
-      DebugPrint('Giving player ' .. tostring(playerId)  .. ' starting hero ' .. hero_name)
+      DebugPrint('[OnHeroInGame] Giving player ' .. tostring(playerId)  .. ' starting hero ' .. hero_name)
       HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
     end
   end)
@@ -289,7 +289,7 @@ function HeroSelection:RankedManager (event)
       save()
 
       local banCount = 0
-      for _,a in pairs(rankedpickorder.banChoices) do
+      for _, a in pairs(rankedpickorder.banChoices) do
         banCount = banCount + 1
       end
       if PlayerResource:GetAllTeamPlayerIDs():length() == banCount then
@@ -462,7 +462,7 @@ function HeroSelection:ChooseBans ()
       -- Check if already banned
       local banned = false
       for _, v in pairs(rankedpickorder.bans) do
-        if v == hero_name then
+        if v and v == hero_name then
           banned = true
           break -- break for loop
         end
@@ -484,7 +484,7 @@ function HeroSelection:ChooseBans ()
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
     end)
     -- Remove all bans from the hero pool
-    for k, v in pairs(rankedpickorder.bans) do
+    for _, v in pairs(rankedpickorder.bans) do
       if v ~= nil then
         table.insert(ARDMMode.playedHeroes, v)
       end
@@ -682,6 +682,11 @@ function HeroSelection:APTimer (time, message)
   --print("APTimer")
   HeroSelection:CheckPause()
   if forcestop == true or time < 0 then
+    if self.isARDM and not self.alreadyStartedARDMPrecache and ARDMMode then
+      self.alreadyStartedARDMPrecache = true
+      DebugPrint("[APTimer] Started precaching")
+      ARDMMode:StartPrecache()
+    end
     for key, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
@@ -726,20 +731,24 @@ end
 function HeroSelection:SelectHero (playerId, hero)
   lockedHeroes[playerId] = hero
   loadingHeroes = loadingHeroes + 1
-  -- LoadFinishEvent
-  PrecacheUnitByNameAsync(hero, function()
-    loadedHeroes[hero] = true
-    loadingHeroes = loadingHeroes - 1
-    if loadingHeroes == 0 then
-      LoadFinishEvent.broadcast()
-    end
-    local player = PlayerResource:GetPlayer(playerId)
-    if player == nil then -- disconnected! don't give em a hero yet...
-      return
-    end
-    self:GiveStartingHero(playerId, hero)
-    DebugPrint('Giving player ' .. playerId .. ' ' .. hero)
-  end)
+  if HeroSelection.isARDM then
+    DebugPrint("[SelectHero] ARDM mode")
+  else
+    -- LoadFinishEvent
+    PrecacheUnitByNameAsync(hero, function()
+      loadedHeroes[hero] = true
+      loadingHeroes = loadingHeroes - 1
+      if loadingHeroes == 0 then
+        LoadFinishEvent.broadcast()
+      end
+      local player = PlayerResource:GetPlayer(playerId)
+      if player == nil then -- disconnected! don't give em a hero yet...
+        return
+      end
+      self:GiveStartingHero(playerId, hero)
+      DebugPrint('[SelectHero] Giving player ' .. playerId .. ' ' .. hero)
+    end)
+  end
 end
 
 function HeroSelection:GiveStartingHero (playerId, heroName)
@@ -768,24 +777,24 @@ end
 
 function HeroSelection:IsHeroDisabled (hero)
   if self.isCM then
-    for _,data in ipairs(cmpickorder["order"]) do
+    for _, data in ipairs(cmpickorder["order"]) do
       if hero == data.hero then
         return true
       end
     end
   elseif self.isBanning then
-    for _,bannedHero in pairs(rankedpickorder.bans) do
-      if hero == bannedHero then
+    for _, bannedHero in pairs(rankedpickorder.bans) do
+      if bannedHero and hero == bannedHero then
         return true
       end
     end
-    for _,data in pairs(rankedpickorder.order) do
+    for _, data in pairs(rankedpickorder.order) do
       if hero == data.hero then
         return true
       end
     end
   else
-    for _,data in pairs(selectedtable) do
+    for _, data in pairs(selectedtable) do
       if hero == data.selectedhero then
         return true
       end
@@ -795,7 +804,7 @@ function HeroSelection:IsHeroDisabled (hero)
 end
 
 function HeroSelection:IsHeroChosen (hero)
-  for _,data in pairs(selectedtable) do
+  for _, data in pairs(selectedtable) do
     if hero == data.selectedhero then
       return true
     end
@@ -853,7 +862,7 @@ function HeroSelection:EndStrategyTime ()
   GameMode:OnGameInProgress()
 
   self.hasGivenStartingGold = true
-  for _,hero in ipairs(self.spawnedHeroes) do
+  for _, hero in ipairs(self.spawnedHeroes) do
     Gold:SetGold(hero, STARTING_GOLD)
   end
 
@@ -864,11 +873,17 @@ function HeroSelection:StrategyTimer (time)
   HeroSelection:CheckPause()
   if time < 0 then
     if finishedLoading then
+      DebugPrint("[StrategyTimer] ARDM mode, finishedLoading is true")
       HeroSelection:EndStrategyTime()
     else
-      LoadFinishEvent.listen(function()
-        HeroSelection:EndStrategyTime()
-      end)
+      if not HeroSelection.isARDM then
+        LoadFinishEvent.listen(function()
+          HeroSelection:EndStrategyTime()
+        end)
+      else
+        DebugPrint("[StrategyTimer] ARDM mode finishedLoading is false")
+        self:EndStrategyTime()
+      end
     end
   else
     CustomNetTables:SetTableValue( 'hero_selection', 'time', {time = time, mode = "STRATEGY"})
@@ -941,7 +956,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   if GetMapName() == "captains_mode" then
     if hero ~= "empty" then
       local cmFound = false
-      for k,v in pairs(cmpickorder[teamID.."picks"])do
+      for k, v in pairs(cmpickorder[teamID.."picks"])do
         if v == hero then
           table.remove(cmpickorder[teamID.."picks"], k)
           cmFound = true
@@ -963,7 +978,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   -- DebugPrintTable(selectedtable)
   -- if everyone has picked, stop
   local isanyempty = false
-  for key, value in pairs(selectedtable) do --pseudocode
+  for _, value in pairs(selectedtable) do
     if GetMapName() ~= "captains_mode" and value.steamid == "0" then
       value.selectedhero = HeroSelection:RandomHero()
     end
