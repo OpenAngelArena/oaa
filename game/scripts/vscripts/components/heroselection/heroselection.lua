@@ -102,7 +102,7 @@ function HeroSelection:Init ()
         return
       end
       DebugPrint("OnHeroInGame - Hero "..hero_name.." spawned for the first time.")
-      DebugPrint("OnHeroInGame - Giving player "..tostring(playerId).." starting hero "..hero_name)
+      DebugPrint("OnHeroInGame - Player "..tostring(playerId).." has "..hero_name.." as a starting hero.")
       HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
     end
   end)
@@ -483,7 +483,7 @@ function HeroSelection:ChooseBans ()
     PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
       table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
     end)
-    -- Remove all bans from the hero pool
+    -- Remove all bans from the ARDM hero pool
     for _, v in pairs(rankedpickorder.bans) do
       if v ~= nil then
         table.insert(ARDMMode.playedHeroes, v)
@@ -748,7 +748,17 @@ function HeroSelection:SelectHero (playerId, hero)
     DebugPrint("SelectHero - ARDM mode, no hero selection, random")
 
     Timers(10, function()
-      lockedHeroes[playerId] = ARDMMode:GetRandomHero(PlayerResource:GetTeamNumber(playerId))
+      local precached = false
+      for _, v in pairs(self.precachedHeroes) do
+        if v and hero == v then
+          DebugPrint("SelectHero - Hero "..tostring(v).." was precached. It can be safely selected.")
+          precached = true
+          break
+        end
+      end
+      if not precached then
+        lockedHeroes[playerId] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerId))
+      end
       loadedHeroes[lockedHeroes[playerId]] = true
       loadingHeroes = loadingHeroes - 1
       if loadingHeroes <= 0 then
@@ -846,8 +856,9 @@ function HeroSelection:ForceRandomHero (playerId)
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
   local team = tostring(PlayerResource:GetTeam(playerId))
   local steamid = HeroSelection:GetSteamAccountID(playerId)
-  DebugPrint("ForceRandomHero - Started force random for " .. playerId .. " on team " .. team)
+  DebugPrint("ForceRandomHero - Started force random for player " .. playerId .. " on team " .. team)
   if previewTable[team] and previewTable[team][steamid] and not HeroSelection:IsHeroDisabled(previewTable[team][steamid]) then
+    DebugPrint("ForceRandomHero - Force picking highlighted hero")
     return previewTable[team][steamid]
   end
 
