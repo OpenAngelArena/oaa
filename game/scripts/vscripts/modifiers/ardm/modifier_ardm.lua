@@ -7,8 +7,8 @@ function modifier_ardm:ReplaceHero(old_hero, new_hero_name)
   end
   Debug:EnableDebugging()
   if not new_hero_name or not old_hero then
-    DebugPrint("Old hero is "..tostring(old_hero))
-    DebugPrint("New hero is "..tostring(new_hero_name))
+    DebugPrint("modifier_ardm - Old hero is "..tostring(old_hero))
+    DebugPrint("modifier_ardm - New hero is "..tostring(new_hero_name))
     return
   end
 
@@ -298,9 +298,14 @@ function modifier_ardm:OnRespawn()
   if not IsServer() then
     return
   end
-  if self.hero then
-    self:ReplaceHero(self:GetParent(), self.hero)
+
+  local parent = self:GetParent()
+  
+  if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
+    return
   end
+
+  self:ReplaceHero(parent, self.hero)
 end
 
 function modifier_ardm:IsHidden()
