@@ -28,7 +28,7 @@ function modifier_pudge_flesh_heap_oaa_ardm:GetModifierBonusStats_Strength()
 end
 
 function modifier_pudge_flesh_heap_oaa_ardm:GetModifierMagicalResistanceBonus()
-	return 10
+  return 10
 end
 
 function modifier_pudge_flesh_heap_oaa_ardm:GetTexture()

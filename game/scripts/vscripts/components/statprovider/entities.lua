@@ -6,6 +6,7 @@ if EntityStatProvider == nil then
 end
 
 function EntityStatProvider:Init()
+  self.moduleName = "EntityStatProvider (HP and mana regen override)"
   CustomGameEventManager:RegisterListener("statprovider_entities_request", Dynamic_Wrap(self, "EventHandler"))
 
   self.activeEntities = {}

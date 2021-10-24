@@ -16,6 +16,7 @@ local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in s
 local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in settings.lua
 
 function Gold:Init()
+  self.moduleName = "Gold"
   -- a table for every player
   PlayerTables:CreateTable('gold', {
     gold = {}

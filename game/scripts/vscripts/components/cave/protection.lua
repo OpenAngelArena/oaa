@@ -3,12 +3,13 @@ LinkLuaModifier('modifier_is_in_offside', 'modifiers/modifier_offside.lua', LUA_
 if ProtectionAura == nil then
   DebugPrint ( 'Creating new ProtectionAura object.' )
   ProtectionAura = class({})
-  Debug.EnabledModules['cave:protection'] = true
+  Debug.EnabledModules['cave:protection'] = false
 end
 
 local MAX_ROOMS = 0
 
 function ProtectionAura:Init ()
+  self.moduleName = "ProtectionAura (Offside protection and cave/base locking)"
   ProtectionAura.zones = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {},
@@ -40,26 +41,24 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][0].disable()
   end)
 
-  for roomID = 0,MAX_ROOMS do
+  for roomID = 0, MAX_ROOMS do
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 50,
       players = allGoodPlayers
-      -- players = {}
     })
 
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
-  for roomID = 0,MAX_ROOMS do
+  for roomID = 0, MAX_ROOMS do
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID] = ZoneControl:CreateZone('boss_bad_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 0,
       players = allBadPlayers
-      -- players = {}
     })
 
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)

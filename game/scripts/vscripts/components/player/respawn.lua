@@ -1,6 +1,7 @@
-RespawnManager = RespawnManager or {}
+RespawnManager = RespawnManager or class({})
 
 function RespawnManager:Init()
+  self.moduleName = "Player RespawnManager"
   GameEvents:OnHeroKilled(partial(self.OnHeroKilled, self))
 end
 

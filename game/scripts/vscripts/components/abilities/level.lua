@@ -6,6 +6,7 @@ if AbilityLevels == nil then
 end
 
 function AbilityLevels:Init ()
+  self.moduleName = "AbilityLevels"
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterAbilityUpgradeOrder"))
   GameEvents:OnPlayerLevelUp(partial(self.CheckAbilityLevels, self))
   GameEvents:OnPlayerLearnedAbility(partial(self.CheckAbilityLevels, self))

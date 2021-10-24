@@ -8,7 +8,7 @@ HudTimer.exactRegisteredListeners = {}
 
 function HudTimer:Init()
   --Debug:EnableDebugging()
-  self.moduleName = "HudTimer"
+  self.moduleName = "HudTimer (Clock)"
   self.isPaused = false
   self.gameTime = DOTA_CLOCK_SKEW
 

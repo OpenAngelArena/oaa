@@ -1,9 +1,10 @@
 -- Component for various chat commands useful for testing
 -- Majority of original command code by Darklord
 
-DevCheats = class({})
+DevCheats = DevCheats or class({})
 
 function DevCheats:Init()
+  self.moduleName = "DevCheats"
   ChatCommand:LinkDevCommand("-help", Dynamic_Wrap(DevCheats, "Help"), self)
   ChatCommand:LinkDevCommand("-list", Dynamic_Wrap(DevCheats, "Help"), self)
   ChatCommand:LinkDevCommand("-print_modifiers", Dynamic_Wrap(DevCheats, "PrintModifiers"), self)

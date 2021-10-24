@@ -32,6 +32,8 @@ end)
 function HeroSelection:Init ()
   Debug.EnabledModules['heroselection:*'] = true
   DebugPrint("Initializing HeroSelection")
+  self.moduleName = "HeroSelection"
+
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "oaa" or GetMapName() == "oaa_seasonal"
@@ -120,7 +122,7 @@ function HeroSelection:Init ()
         lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
       end)
       -- start ARDM precaching
-	  ARDMMode:StartPrecache()
+      ARDMMode:StartPrecache()
       -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
       ARDMMode:OnPrecache(function ()
         DebugPrint('Precache finished! Woohoo!')
@@ -750,9 +752,9 @@ function HeroSelection:SelectHero (playerId, hero)
 
   if self.isARDM and ARDMMode then
     DebugPrint("SelectHero - This isnt supposed to happen")
-	if lockedHeroes[playerId] and lockedHeroes[playerId] ~= hero_name then
+    if lockedHeroes[playerId] and lockedHeroes[playerId] ~= hero_name then
       hero_name = lockedHeroes[playerId]
-	end
+    end
   end
   if not hero_name then
     DebugPrint("SelectHero - Selected hero is nil for playerID: "..tostring(playerId))
