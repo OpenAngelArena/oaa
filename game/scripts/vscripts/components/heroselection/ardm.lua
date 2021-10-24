@@ -96,7 +96,7 @@ function ARDMMode:PrecacheHeroes(cb)
     end
     if playable and not precached and hero_name then
       PrecacheUnitByNameAsync(hero_name, function()
-        DebugPrint("PrecacheHeroes - Finished precaching this hero: "..tostring(hero_name))
+        DebugPrint("PrecacheHeroes - Finished precaching hero: "..tostring(hero_name))
         --GameRules:SendCustomMessage("Precached "..tostring(hero_name), 0, 0)
         table.insert(ARDMMode.precachedHeroes, hero_name)
         check_if_done()
@@ -140,7 +140,7 @@ function ARDMMode:PrintTables()
 end
 
 function ARDMMode:ApplyARDMmodifier(hero)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   local hero_team = hero:GetTeamNumber()
   local hero_name = hero:GetUnitName()
 
@@ -154,7 +154,7 @@ function ARDMMode:ApplyARDMmodifier(hero)
 
   local playerID = hero:GetPlayerOwnerID()
   if self.addedmodifier[playerID] then
-    DebugPrint("ApplyARDMmodifier - Already added modifier_ardm for player "..tostring(playerID))
+    --DebugPrint("ApplyARDMmodifier - Already added modifier_ardm for player "..tostring(playerID))
     return
   end
 
@@ -163,16 +163,12 @@ function ARDMMode:ApplyARDMmodifier(hero)
   end
 
   -- Mark the first spawned hero as played - needed because of some edge cases
-  DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of played heroes. this_should_happen_only_once")
+  --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of played heroes. this_should_happen_only_once")
   table.insert(self.playedHeroes, hero_name)
 
   -- Mark the first spawned hero as precached - needed because of some edge cases
-  DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of precached heroes. this_should_happen_only_once")
+  --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of precached heroes. this_should_happen_only_once")
   table.insert(self.precachedHeroes, hero_name)
-
-  -- Add to the hero pool just in case
-  --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of valid heroes for team "..tostring(hero_team)..". this_should_happen_only_once")
-  --table.insert(self.heroPool[hero_team], hero_name)
 
   self.addedmodifier[playerID] = true
 end
@@ -206,7 +202,7 @@ function ARDMMode:ScheduleHeroChange(event)
   end
 
   -- Mark the killed hero as played
-  DebugPrint("ScheduleHeroChange - Adding killed hero "..killed_hero_name.." to the list of played heroes. this_should_happen_for_every_hero_death")
+  --DebugPrint("ScheduleHeroChange - Adding killed hero "..killed_hero_name.." to the list of played heroes. this_should_happen_for_every_hero_death")
   table.insert(self.playedHeroes, killed_hero_name)
 
   -- Remove the killed hero from the pool
@@ -276,17 +272,17 @@ end
 
 function ARDMMode:GetRandomHero (teamId)
   Debug:EnableDebugging()
-  local heroPool = self.heroPool[teamId]
-  -- Count non-nil table elements
-  local n = 0
-  for _, v in pairs(heroPool) do
+  local heroPool = {}
+
+  -- Store non-nil table elements into local heroPool table
+  for _, v in pairs(self.heroPool[teamId]) do
     if v ~= nil then
-      n = n + 1
+      table.insert(heroPool, v)
     end
   end
 
-  -- Check if heroPool has non-nil elements
-  if n < 1 then
+  -- Check if heroPool has elements (I am not sure anymore if '#' counts nil elements or not but I am sure it counts non-nil elements and this table is full of them)
+  if #heroPool < 1 then
     -- This will also happen if herolist file is empty
     DebugPrint("GetRandomHero - Hero Pool for "..tostring(teamId).." is empty. No new hero.")
     return nil
@@ -297,6 +293,7 @@ function ARDMMode:GetRandomHero (teamId)
 
   -- Check if this hero name is valid, do all the above again if not
   if not hero_name or hero_name == "" then
+    -- hero_name should never be nil
     return self:GetRandomHero(teamId)
   end
 
@@ -312,7 +309,7 @@ function ARDMMode:GetRandomHero (teamId)
   if played then
     -- Remove the hero from the pool because it was played
     DebugPrint("GetRandomHero - Hero "..tostring(hero_name).." was already played. Removing from the hero pool.")
-    self.heroPool[teamId][random_number] = nil
+    self:RemoveHeroFromThePool(hero_name, teamId)
 
     -- Do all the above again
     return self:GetRandomHero(teamId)
@@ -331,7 +328,7 @@ function ARDMMode:GetRandomHero (teamId)
     if not precached then
       -- Remove the hero from the pool because it was not precached
       DebugPrint("GetRandomHero - Hero "..tostring(hero_name).." was not precached. Removing from the hero pool.")
-      self.heroPool[teamId][random_number] = nil
+      self:RemoveHeroFromThePool(hero_name, teamId)
 
       -- Do all the above again
       return self:GetRandomHero(teamId)
@@ -354,6 +351,8 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   if not new_hero_name or not old_hero then
     if old_hero then
       DebugPrint("ReplaceHero - Old hero is "..tostring(old_hero:GetUnitName()))
+    else
+      DebugPrint("ReplaceHero - Old hero is nil")
     end
     DebugPrint("ReplaceHero - New hero is "..tostring(new_hero_name))
     DebugPrint("ReplaceHero - Changing hero aborted.")
@@ -361,12 +360,12 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end
 
   local playerID = old_hero:GetPlayerID()
-  local old_hero_gold = 0
-  if Gold then
-    old_hero_gold = Gold:GetGold(playerID)
-  else
-    old_hero_gold = PlayerResource:GetGold(playerID)
-  end
+  --local old_hero_gold = 0
+  --if Gold then
+    --old_hero_gold = Gold:GetGold(playerID)
+  --else
+    --old_hero_gold = PlayerResource:GetGold(playerID)
+  --end
 
   local old_hero_xp = old_hero:GetCurrentXP() -- PlayerResource:GetTotalEarnedXP(playerID)
   local hero_lvl = old_hero:GetLevel()
@@ -511,10 +510,10 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   old_hero:RemoveModifierByName("modifier_spark_gpm")
   old_hero:RemoveModifierByName("modifier_oaa_passive_gpm")
   old_hero:RemoveModifierByName("modifier_spark_midas")
-  ARDMMode:ScheduledRemovalOfHero(old_hero)
 
   --PlayerResource:ReplaceHeroWith(playerID, new_hero_name, old_hero_gold, 0)
   local new_hero = CreateUnitByName(new_hero_name, old_loc, true, old_hero, PlayerResource:GetPlayer(playerID), old_hero:GetTeamNumber()) -- this can crash the game.
+  -- without player there are no cosmetics
   new_hero:SetPlayerID(playerID)
   new_hero:SetControllableByPlayer(playerID, true)
   if old_hero:GetPlayerOwner() and not new_hero:GetOwner() then
@@ -626,7 +625,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     -- Adding modifier_oaa_passive_gpm is probably not needed because Gold.hasPassiveGPM table adds an element for every new hero spawn
 
     -- Add ARDM modifier to the new hero
-	if not new_hero:HasModifier("modifier_ardm") then
+    if not new_hero:HasModifier("modifier_ardm") then
       new_hero:AddNewModifier(new_hero, nil, 'modifier_ardm', {})
     end
   end)
@@ -696,14 +695,11 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end)
 end
 
-function ARDMMode:ScheduledRemovalOfHero(hero)
-  local delay = 46
-  Timers:CreateTimer(delay, function()
-    if hero and not hero:IsNull() then
-      DebugPrint("Old hero still existed. Removing "..hero:GetUnitName())
-      hero:MakeIllusion() -- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
-      hero:ForceKill(true)
-      --UTIL_Remove(hero) -- causes Client crashes
-    end
-  end)
+function ARDMMode:RemoveOldHero(hero)
+  if hero and not hero:IsNull() then
+    DebugPrint("Old hero still exists. Removing "..hero:GetUnitName())
+    hero:MakeIllusion() -- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
+    hero:ForceKill(false)
+    --UTIL_Remove(hero) -- causes Client crashes
+  end
 end
