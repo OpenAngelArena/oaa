@@ -53,7 +53,7 @@ function modifier_ardm_disable_hero:GetAuraEntityReject(hEntity)
 end
 
 function modifier_ardm_disable_hero:OnCreated()
-	if not IsServer() then
+  if not IsServer() then
     return
   end
   self.counter = 0
