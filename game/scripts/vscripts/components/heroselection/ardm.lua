@@ -46,7 +46,7 @@ function ARDMMode:Init ()
 end
 
 function ARDMMode:StartPrecache()
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   if not self.alreadyStartedARDMPrecache and not self.hasPrecached then
     self.alreadyStartedARDMPrecache = true
     self:PrecacheHeroes(function ()
@@ -63,7 +63,7 @@ end
 
 -- Precache only heroes that need to be precached (ignore banned, starting heroes and already precached heroes)
 function ARDMMode:PrecacheHeroes(cb)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   --PauseGame(true)
   GameRules:SendCustomMessage("Started precaching heroes. PLEASE BE PATIENT.", 0, 0)
   DebugPrint("PrecacheHeroes - Started precaching heroes")
@@ -174,7 +174,7 @@ function ARDMMode:ApplyARDMmodifier(hero)
 end
 
 function ARDMMode:ScheduleHeroChange(event)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   if not event.killed then
     return
   end
@@ -271,7 +271,7 @@ function noop ()
 end
 
 function ARDMMode:GetRandomHero (teamId)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   local heroPool = {}
 
   -- Store non-nil table elements into local heroPool table
@@ -347,7 +347,7 @@ function ARDMMode:RemoveHeroFromThePool(hero_name, teamId)
 end
 
 function ARDMMode:ReplaceHero(old_hero, new_hero_name)
-  Debug:EnableDebugging()
+  --Debug:EnableDebugging()
   if not new_hero_name or not old_hero then
     if old_hero then
       DebugPrint("ReplaceHero - Old hero is "..tostring(old_hero:GetUnitName()))

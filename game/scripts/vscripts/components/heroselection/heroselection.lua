@@ -30,7 +30,7 @@ end)
 
 -- list all available heroes and get their primary attrs, and send it to client
 function HeroSelection:Init ()
-  Debug.EnabledModules['heroselection:*'] = true
+  Debug.EnabledModules['heroselection:*'] = false
   DebugPrint("Initializing HeroSelection")
   self.moduleName = "HeroSelection"
 
@@ -156,7 +156,7 @@ function HeroSelection:Init ()
       HeroSelection:GiveStartingHero(keys.PlayerID, lockedHeroes[keys.PlayerID])
     end
   end)
-  
+
   GameEvents:OnPreGame(function (keys)
     -- Pause the game at the start (not during strategy time) if Captain's mode
     if HeroSelection.isCM then
