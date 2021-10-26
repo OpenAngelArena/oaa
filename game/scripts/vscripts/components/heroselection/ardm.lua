@@ -228,7 +228,7 @@ function ARDMMode:LoadHeroPoolsForTeams()
 
   -- Form the hero pool for the Radiant team
   local i = 0
-  while i <= math.floor(number_of_heroes/2) do
+  while i < math.floor(number_of_heroes/2) do
     local random_number = RandomInt(1, number_of_heroes)
     local hero_name = self.allHeroes[random_number]
     if hero_name then
@@ -360,12 +360,15 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end
 
   local playerID = old_hero:GetPlayerID()
-  --local old_hero_gold = 0
-  --if Gold then
-    --old_hero_gold = Gold:GetGold(playerID)
-  --else
-    --old_hero_gold = PlayerResource:GetGold(playerID)
-  --end
+
+  --[[ -- needed only if ReplaceHeroWith was used
+  local old_hero_gold = 0
+  if Gold then
+    old_hero_gold = Gold:GetGold(playerID)
+  else
+    old_hero_gold = PlayerResource:GetGold(playerID)
+  end
+  ]]
 
   local old_hero_xp = old_hero:GetCurrentXP() -- PlayerResource:GetTotalEarnedXP(playerID)
   local hero_lvl = old_hero:GetLevel()
@@ -404,6 +407,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end
 
   -- Stash slots
+  --[[ -- needed only if ReplaceHeroWith was used
   for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
     local item = old_hero:GetItemInSlot(i)
     local item_name
@@ -425,6 +429,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     end
     items[i] = {item_name, purchaser, cooldown, charges}
   end
+  ]]
 
   -- Neutral items and TP scroll (check every slot)
   for i = DOTA_ITEM_SLOT_1, 20 do
@@ -506,10 +511,16 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   DebugPrint("ReplaceHero - Hiding the old hero")
   old_hero:AddNoDraw() -- Hiding
   old_hero:SetAbsOrigin(hidden_loc) -- Hiding
+
+  -- Remove modifiers that could create a mess
   old_hero:RemoveModifierByName("modifier_ardm")
   old_hero:RemoveModifierByName("modifier_spark_gpm")
   old_hero:RemoveModifierByName("modifier_oaa_passive_gpm")
   old_hero:RemoveModifierByName("modifier_spark_midas")
+
+  -- Preventing dropping and selling items in inventory
+  --old_hero:SetHasInventory(false)
+  old_hero:SetCanSellItems(false)
 
   --PlayerResource:ReplaceHeroWith(playerID, new_hero_name, old_hero_gold, 0)
   local new_hero = CreateUnitByName(new_hero_name, old_loc, true, old_hero, PlayerResource:GetPlayer(playerID), old_hero:GetTeamNumber()) -- this can crash the game.
@@ -662,6 +673,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
       end
     end
 
+    --[[ -- needed only if ReplaceHeroWith was used
     for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
       local item = items[i]
       local item_name = item[1]
@@ -672,7 +684,6 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
         local new_item = CreateItem(item_name, new_hero, new_hero)
         new_hero:AddItem(new_item)
         if new_item then
-          --new_item:SetStacksWithOtherOwners(true)
           -- Set purchaser
           if purchaser then
             new_item:SetPurchaser(purchaser)
@@ -690,6 +701,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
         end
       end
     end
+    ]]
 
     PlayerResource:SetOverrideSelectionEntity(playerID, nil)
   end)

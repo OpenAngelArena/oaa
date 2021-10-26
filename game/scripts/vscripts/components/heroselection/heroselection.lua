@@ -146,14 +146,15 @@ function HeroSelection:Init ()
     -- [VScript] [components\duels\duels:64] splitscreenplayer: -1
     -- [VScript] [components\duels\duels:64] userid: 3
     -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
-    if not lockedHeroes[keys.PlayerID] then
+    local playerid = keys.PlayerID or keys.player_id
+    if not lockedHeroes[playerid] then
       -- we don't care if they haven't locked in yet
       return
     end
-    local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
-    if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[keys.PlayerID]] then
-      DebugPrint('PlayerReconnected - Giving player ' .. keys.PlayerID .. ' a hero: ' .. lockedHeroes[keys.PlayerID].. ' after reconnecting.')
-      HeroSelection:GiveStartingHero(keys.PlayerID, lockedHeroes[keys.PlayerID])
+    local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+    if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[playerid]] then
+      DebugPrint('PlayerReconnected - Giving player '..tostring(playerid)..' a hero: '..lockedHeroes[playerid]..' after reconnecting.')
+      HeroSelection:GiveStartingHero(playerid, lockedHeroes[playerid])
     end
   end)
 
@@ -353,11 +354,13 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'random' then
       choice = self:RandomHero()
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed #"..tostring(choice), 0, 0)
+      local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
+      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..name, 0, 0)
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random #"..tostring(choice), 0, 0)
+      local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
+      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
@@ -775,7 +778,7 @@ function HeroSelection:SelectHero (playerId, hero)
       return
     end
     HeroSelection:GiveStartingHero(playerId, hero_name)
-    DebugPrint('SelectHero - Giving player ' .. playerId .. ' ' .. hero_name)
+    DebugPrint('SelectHero - Giving player '..tostring(playerId)..' a hero: '..hero_name)
   end)
 end
 
@@ -934,11 +937,13 @@ function HeroSelection:HeroSelected (event)
   end
   if rankedpickorder.phase == 'bans' then
     if IsInToolsMode() then
-      GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." banned #"..tostring(event.hero), 0, 0)
+      local name = string.gsub(event.hero, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
+      GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." banned "..name, 0, 0)
     end
   elseif rankedpickorder.phase == 'picking' then
     if event.hero ~= 'random' and event.hero ~= 'forcerandom' then
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." picked #"..tostring(event.hero), 0, 0)
+      local name = string.gsub(event.hero, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
+      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." picked "..name, 0, 0)
     end
   end
   if HeroSelection.isBanning then
