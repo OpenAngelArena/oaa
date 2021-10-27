@@ -31,7 +31,7 @@ function CorePointsManager:LoadState(state)
     -- CorePointsManager didn't exist when state was saved
     return
   end
-  
+
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
     if state[steamid] then
@@ -98,7 +98,7 @@ function CorePointsManager:FilterOrders(keys)
               shop_item_name = shop_item:GetName()
             end
             if shop_item_name == "item_core_info" and Gold then
-              Gold:ModifyGold(unit_with_order, 750, true, DOTA_ModifyGold_SellItem)
+              Gold:ModifyGold(unit_with_order, self:GetGoldValueOfCorePoint(), true, DOTA_ModifyGold_SellItem)
               return false
             end
           else
@@ -165,6 +165,10 @@ function CorePointsManager:GetCorePointValueOfTier(tier)
   else
     return 0
   end
+end
+
+function CorePointsManager:GetGoldValueOfCorePoint()
+  return 750
 end
 
 function CorePointsManager:GetCorePointValueOfUpdgradeCore(item_name)

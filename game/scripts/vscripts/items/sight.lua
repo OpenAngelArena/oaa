@@ -317,9 +317,9 @@ function modifier_item_far_sight_true_sight:OnCreated()
 
     self.particle1 = index1
     self.particle2 = index2
-	
-	-- Start thinking
-	self:StartIntervalThink(1)
+
+    -- Start thinking
+    self:StartIntervalThink(1)
   end
 end
 
@@ -331,22 +331,22 @@ function modifier_item_far_sight_true_sight:OnIntervalThink()
   if not ability or ability:IsNull() then
     return
   end
-  
+
   local parent = self:GetParent()
   if not parent or parent:IsNull() or not parent:IsAlive() then
     return
   end
-  
+
   local caster = ability:GetCaster()
   local dust_duration = ability:GetSpecialValueFor("dust_duration")
   local dust_radius = ability:GetSpecialValueFor("dust_radius")
-  
+
   -- Dust Particle
   local particle = ParticleManager:CreateParticle("particles/items_fx/dust_of_appearance.vpcf", PATTACH_WORLDORIGIN, parent)
   ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
   ParticleManager:SetParticleControl(particle, 1, Vector(dust_radius, dust_radius, dust_radius))
   ParticleManager:ReleaseParticleIndex(particle)
-  
+
   local enemies = FindUnitsInRadius(
     caster:GetTeamNumber(),
     parent:GetAbsOrigin(),
@@ -358,11 +358,11 @@ function modifier_item_far_sight_true_sight:OnIntervalThink()
     FIND_ANY_ORDER,
     false
   )
-  
+
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       enemy:AddNewModifier(caster, ability, "modifier_item_dustofappearance", {duration = dust_duration})
-	end
+    end
   end
 end
 
