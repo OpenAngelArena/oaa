@@ -47,6 +47,7 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
     end
   end
   -- TODO: Items on the ground
+  -- TODO: Items on Spirit Bear
 
   -- Calculate core points worth in gold
   if CorePointsManager then
