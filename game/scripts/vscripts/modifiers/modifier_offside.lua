@@ -3,7 +3,6 @@ LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFI
 LinkLuaModifier('modifier_onside_buff', 'modifiers/modifier_onside_buff.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_is_in_offside = class(ModifierBaseClass)
-modifier_offside = class(ModifierBaseClass)
 
 local TICKS_PER_SECOND = 5
 
@@ -52,7 +51,9 @@ function modifier_is_in_offside:IsPurgable()
   return false
 end
 
---------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+modifier_offside = class(ModifierBaseClass)
 
 function modifier_offside:OnCreated()
   if IsServer() then
@@ -70,8 +71,6 @@ function modifier_offside:IsPurgable()
   return false
 end
 
---------------------------------------------------------------------
---aura
 function modifier_offside:IsAura()
   return true
 end
@@ -91,8 +90,7 @@ end
 function modifier_offside:GetModifierAura()
   return "modifier_onside_buff"
 end
---------------------------------------------------------------------
---% health damage
+
 function modifier_offside:GetTexture()
   return "custom/modifier_offside"
 end
@@ -196,35 +194,47 @@ function modifier_offside:OnIntervalThink()
     return -- Don't continue (don't do damage)
   end
 
+  -- Find enemy heroes and other player-controlled units
   local defenders = FindUnitsInRadius(
     team,
     origin,
     nil,
-    2500,
+    3600,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER),
     bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
-    FIND_ANY_ORDER,
+    FIND_CLOSEST,
     false
   )
 
-  if #defenders == 0 then
-    defenders = nil
+  -- Find the damage source of offside damage - nearest non-neutral hero or player-controlled unit
+  if #defenders ~= 0 then
+    for k = 1, #defenders do
+      local defender = defenders[k]
+      if defender and not defender:IsNull() and IsValidEntity(defender) then
+        if defender:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
+          if defender.HasModifier then
+            if not defender:HasModifier("modifier_minimap") and not defender:HasModifier("modifier_oaa_thinker") then
+              self.damage_source = defender
+              break
+            end
+          end
+        end
+      end
+    end
   end
 
-  if defenders then
-    defenders = defenders[1]
-  else
-    defenders = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 10000)
+  -- Last resort (if highground is empty, there were no heroes and player-controlled units at modifier creation)
+  if not self.damage_source and not IsValidEntity(self.damage_source) then
+    self.damage_source = Entities:FindByClassnameNearest("ent_dota_fountain", origin, 6000)
   end
 
   local damageTable = {
     victim = parent,
-    attacker = defenders,
+    attacker = self.damage_source,
     damage = (h * ((0.15 * ((stackCount - 8)^2 + 10 * (stackCount - 8)))/100)) / TICKS_PER_SECOND,
     damage_type = DAMAGE_TYPE_PURE,
     damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION),
-    ability = nil
   }
 
   if stackCount >= 8 then

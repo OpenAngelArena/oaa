@@ -216,7 +216,6 @@ function HeroSelection:BuildBottlePass()
   CustomNetTables:SetTableValue( 'bottlepass', 'special_arcanas', special_arcanas )
 end
 
-
 function HeroSelection:OnBottleSelected (selectedBottle)
   if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
   HeroSelection.SelectedBottle[selectedBottle.PlayerID] = selectedBottle.BottleId
@@ -388,9 +387,9 @@ function HeroSelection:ChooseBans ()
           DebugPrint('Only suggestion was ' .. choice)
         end
       end
-	else
+    else
       DebugPrint('Rolled 0, no bans!')
-	end
+    end
   else
     local skippedBans = 0
     while banCount < totalChoices / 2 do
@@ -819,8 +818,6 @@ function HeroSelection:EndStrategyTime ()
   HeroSelection.shouldBePaused = false
   HeroSelection:CheckPause()
 
-  -- GameRules:SetTimeOfDay(0.25)
-
   if self.isCM then
     PauseGame(true)
   end
@@ -828,7 +825,6 @@ function HeroSelection:EndStrategyTime ()
   -- OnGameInProgress first happens here, I think it's not needed to be here
   DebugPrint("Initializing modules in OnGameInProgress when hero selection is over.")
   GameMode:OnGameInProgress()
-  OnGameInProgressEvent()
 
   self.hasGivenStartingGold = true
   for _,hero in ipairs(self.spawnedHeroes) do
