@@ -57,6 +57,9 @@ function modifier_ward_invisibility:GetModifierAura()
 end
 
 function modifier_ward_invisibility:GetAuraEntityReject(entity)
+  if entity:IsOAABoss() then
+    return true
+  end
   if self.isInvis then
     DebugPrint(self.id .. ': showing self')
   end
