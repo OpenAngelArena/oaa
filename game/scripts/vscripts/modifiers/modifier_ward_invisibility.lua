@@ -44,6 +44,10 @@ function modifier_ward_invisibility:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
+function modifier_ward_invisibility:GetAuraSearchFlags()
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED)
+end
+
 function modifier_ward_invisibility:GetAuraRadius()
   return POOP_WARD_RADIUS
 end
@@ -53,6 +57,9 @@ function modifier_ward_invisibility:GetModifierAura()
 end
 
 function modifier_ward_invisibility:GetAuraEntityReject(entity)
+  if entity:IsOAABoss() then
+    return true
+  end
   if self.isInvis then
     DebugPrint(self.id .. ': showing self')
   end
