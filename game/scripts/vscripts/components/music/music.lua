@@ -9,7 +9,7 @@ local backgroundTimer = nil
 
 -- Initialize
 function Music:Init ()
-  DebugPrint('Init music')
+  self.moduleName = "Music"
   Music.currentTrack = ""
   -- Set everyone unmuted
   local muteTable = {}

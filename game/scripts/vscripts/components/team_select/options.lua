@@ -9,10 +9,7 @@ end
 function OAAOptions:Init ()
   --Debug:EnableDebugging()
   DebugPrint('OAAOptions module Initialization started!')
-  if self.initialized then
-    print("OAAOptions should be initialized only once -> preventing multiple times")
-    return nil
-  end
+  self.moduleName = "OAA Game Mode Options"
 
   self.settings = {}
   self.settingsDefault = {}
@@ -37,13 +34,12 @@ function OAAOptions:Init ()
 
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
 
-  self.initialized = true
-  DebugPrint('OAAOptions moduel Initialization finished!')
+  DebugPrint('OAAOptions module Initialization finished!')
 end
 
 function OAAOptions:InitializeSettingsTable()
   self.settings = {
-    GAME_MODE = "RD",                   -- "RD", "AR", "AP"
+    GAME_MODE = "RD",                   -- "RD", "AR", "AP", "ARDM"
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
   }
 
@@ -53,9 +49,16 @@ function OAAOptions:InitializeSettingsTable()
 end
 
 function OAAOptions:AdjustGameMode()
-  --DebugPrint("OAAOptions Lock game mode settings and rules.")
+  --Debug:EnableDebugging()
+  DebugPrint("OAAOptions Lock game mode settings and rules.")
   CustomNetTables:SetTableValue("oaa_settings", "locked", OAAOptions.settings)
-  --DeepPrintTable(self.settings)
-  --DebugPrint("OAAOptions Adjusting game mode settings and rules that were set by the host.")
+  DeepPrintTable(self.settings)
+  DebugPrint("OAAOptions Adjusting game mode settings and rules that were set by the host.")
+  if self.settings.GAME_MODE == "ARDM" then
+    DebugPrint("Initializing ARDM")
+    if ARDMMode then
+      ARDMMode:Init()
+    end
+  end
   --local gamemode = GameRules:GetGameModeEntity()
 end

@@ -41,8 +41,6 @@ function CreepCamps:Init ()
   Minimap:InitializeCampIcons()
 
   ChatCommand:LinkDevCommand("-spawncamps", Dynamic_Wrap(self, 'CreepSpawnTimer'), self)
-
-  self.initialized = true
 end
 
 function CreepCamps:GetState ()

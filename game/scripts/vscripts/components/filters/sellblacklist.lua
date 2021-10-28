@@ -13,6 +13,7 @@ local ItemSellBlackList = {
 }
 
 function SellBlackList:Init ()
+  self.moduleName = "SellBlackList"
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(SellBlackList, "OrderFilter"))
 end
 

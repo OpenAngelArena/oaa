@@ -30,6 +30,7 @@ if ZoneControl == nil then
 end
 
 function ZoneControl:Init ()
+  self.moduleName = "ZoneControl"
   -- do initialization things....
 
   -- execute the zone control tester if it is enabled.

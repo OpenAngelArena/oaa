@@ -5,6 +5,7 @@ if HeroKillXP == nil then
 end
 
 function HeroKillXP:Init()
+  self.moduleName = "Hero Kill Experience"
   GameEvents:OnHeroKilled(partial(self.HeroDeathHandler, self))
   FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(HeroKillXP, "ExperienceFilter"))
   GameEvents:OnHeroInGame(partial(self.HeroSpawnNoXP, self))

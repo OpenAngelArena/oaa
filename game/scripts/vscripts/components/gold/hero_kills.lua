@@ -6,6 +6,7 @@ if HeroKillGold == nil then
 end
 
 function HeroKillGold:Init()
+  self.moduleName = "Hero Kill Gold"
   GameEvents:OnHeroKilled(partial(self.HeroDeathHandler, self))
   FilterManager:AddFilter(FilterManager.ModifyGold, self, Dynamic_Wrap(HeroKillGold, "GoldFilter"))
 end

@@ -13,7 +13,6 @@ function CorePointsManager:Init()
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
 
   self.playerID_table = {}
-  self.initialized = true
 end
 
 function CorePointsManager:GetState()

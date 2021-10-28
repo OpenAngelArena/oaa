@@ -25,7 +25,7 @@ Duels.onPreparing = DuelPreparingEvent.listen
 Duels.onEnd = DuelEndEvent.listen
 
 function Duels:Init ()
-  DebugPrint('Init duels')
+  self.moduleName = "Duels"
   self.currentDuel = nil
   self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))

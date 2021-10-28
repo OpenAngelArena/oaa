@@ -8,8 +8,8 @@ if DuelRunes == nil then
 end
 
 function DuelRunes:Init ()
-
-  for index,key in pairs(Duels.zones) do
+  self.moduleName = "DuelRunes"
+  for index, key in pairs(Duels.zones) do
     DebugPrint("Init rune hill for arena #" .. tostring(index))
 
     local runeHill = ZoneControl:CreateZone('duel_' .. tostring(index) .. '_rune_hill', {

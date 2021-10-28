@@ -14,7 +14,7 @@ PointsManager.onScoreChanged = ScoreChangedEvent.listen
 PointsManager.onLimitChanged = LimitChangedEvent.listen
 
 function PointsManager:Init ()
-  DebugPrint ( 'Initializing.' )
+  self.moduleName = "PointsManager (Score)"
 
   self.hasGameEnded = false
   self.extend_counter = 0

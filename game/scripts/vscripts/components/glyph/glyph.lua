@@ -13,9 +13,9 @@ if Glyph == nil then
 end
 
 function Glyph:Init()
+  self.moduleName = "Glyph (Poop Ward and Scan)"
   self.ward = {}
   self.scan = {}
-
 
   self.ward.cooldown = POOP_WARD_COOLDOWN
   self.scan.cooldown = SCAN_REVEAL_COOLDOWN
@@ -28,7 +28,6 @@ function Glyph:Init()
 
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(Glyph, "Filter"))
 end
-
 
 function Glyph:Filter(keys)
   local order = keys.order_type
