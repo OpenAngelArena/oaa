@@ -19,7 +19,7 @@ function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
     local hCaster = self:GetCaster()
     -- FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)
-    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, 2000, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, FIND_UNITS_EVERYWHERE, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 
     local function IsNotCaster(entity)
       return not (entity == hCaster)
@@ -27,6 +27,11 @@ function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
     local hTarget = nth(1, filter(IsNotCaster, iter(units)))
 
     if not hTarget then
+      return UF_FAIL_CUSTOM
+    end
+
+    -- Teleport target is too close and player clicked far away
+    if (hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()):Length2D() <= 800 and (targetPoint - hCaster:GetAbsOrigin()):Length2D() > 1800 then
       return UF_FAIL_CUSTOM
     end
 
@@ -63,6 +68,9 @@ function item_greater_travel_boots:OnSpellStart()
 
   -- Minimap teleport display
   MinimapEvent(casterTeam, hCaster, targetOrigin.x, targetOrigin.y, DOTA_MINIMAP_EVENT_TEAMMATE_TELEPORTING, self:GetChannelTime() + 0.5)
+
+  -- Vision
+  self:CreateVisibilityNode(targetOrigin, 400, self:GetChannelTime() + 1)
 
   -- Teleport animation
   hCaster:StartGesture(ACT_DOTA_TELEPORT)
