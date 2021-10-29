@@ -23,7 +23,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"				"0.1"
-    "AbilityCastRange"				"850"
+    "AbilityCastRange"				"800"
     "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 
     // Time
@@ -51,7 +51,7 @@
       "03"
       {
         "var_type"							"FIELD_INTEGER"
-        "max_jump_distance"					"850"
+        "max_jump_distance"					"800"
         "LinkedSpecialBonus"					"special_bonus_unique_marci_lunge_range"
       }
       "04"
