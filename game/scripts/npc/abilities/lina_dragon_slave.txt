@@ -14,7 +14,9 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1075"
@@ -42,7 +44,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "dragon_slave_speed"                              "1200"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -53,7 +54,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "dragon_slave_width_end"                          "200"
       }
-
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -61,5 +61,4 @@
       }
     }
   }
-
 }

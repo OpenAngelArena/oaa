@@ -69,19 +69,19 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bounce_range"                            "150" //OAA
-        "RequiresScepter"                                 "1"
+        "radius_explosion"                                "250"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_explosion"                                "250"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "splash_pct"                                      "100"
       }
+      // "05" // thanks Valve
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "scepter_bounce_range"                            "200"
+        // "RequiresScepter"                                 "1"
+      // }
     }
   }
 }

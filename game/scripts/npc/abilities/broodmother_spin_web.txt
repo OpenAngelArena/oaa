@@ -24,7 +24,7 @@
 
     "AbilityCooldown"                                     "0.0"
     "AbilityCharges"                                      "4 6 8 10 12 14"
-    "AbilityChargeRestoreTime"                            "40"
+    "AbilityChargeRestoreTime"                            "30"
 
     "AbilityManaCost"                                     "50"
 
@@ -73,7 +73,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "AbilityChargeRestoreTime"                        "30"
+        "AbilityChargeRestoreTime"                        "30" //OAA, Valve has it wrong
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
