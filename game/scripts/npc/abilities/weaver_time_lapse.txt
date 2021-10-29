@@ -17,7 +17,7 @@
     "HasScepterUpgrade"                                   "1"
 
     "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.2" //OAA
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "500"
 
     "AbilityCooldown"                                     "50 45 40 35 30" //OAA
     "AbilityManaCost"                                     "150 75 0 0 0"
@@ -34,7 +34,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip_scepter"                      "600"
+        "cast_range_tooltip_scepter"                      "500"
         "RequiresScepter"                                 "1"
       }
     }
