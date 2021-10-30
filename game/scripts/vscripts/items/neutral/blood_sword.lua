@@ -15,11 +15,6 @@ function item_blood_sword:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- Don't do anything if target has Linken's effect
-  if target:TriggerSpellAbsorb(self) then
-    return
-  end
-
   -- Add a lifesteal buff before the instant attack
   caster:AddNewModifier(caster, self, "modifier_item_blood_sword_lifesteal", {})
 
