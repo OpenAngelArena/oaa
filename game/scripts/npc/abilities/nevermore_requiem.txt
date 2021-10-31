@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
+    "AbilityCooldown"                                     "120 110 100 90 80"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -58,13 +58,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "requiem_slow_duration"                           "0.7" //OAA
+        "requiem_slow_duration"                           "0.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "requiem_slow_duration_max"                       "2.1" //OAA
+        "requiem_slow_duration_max"                       "2.4"
         "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
         "LinkedSpecialBonusField"                         "value2"
       }
