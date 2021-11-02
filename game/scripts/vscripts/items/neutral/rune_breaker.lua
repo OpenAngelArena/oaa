@@ -11,8 +11,8 @@ function item_rune_breaker_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- Don't do anything if target has Linken's effect or it's spell-immune
-  if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+  -- Don't do anything if target is spell-immune
+  if target:IsMagicImmune() then
     return
   end
 

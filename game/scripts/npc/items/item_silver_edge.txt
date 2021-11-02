@@ -53,15 +53,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // Shadow Blade (25) + Crystalys (32)
+      "01" // Shadow Blade (20) + Crystalys (32)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 70 90 120 160"
+        "bonus_damage"                                    "52 62 82 112 152"
       }
       "02" // Shadow Blade (35)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40 50 60 70 80"
+        "bonus_attack_speed"                              "35 45 55 65 75"
       }
       "03"
       {

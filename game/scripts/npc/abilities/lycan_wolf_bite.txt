@@ -8,15 +8,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "333"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "5"
     "FightRecapLevel"                                     "1"
     "IsGrantedByScepter"                                  "1"
     "HasScepterUpgrade"                                   "1"
@@ -29,7 +28,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "80"
+    "AbilityCooldown"                                     "120 110 100 90 80" //OAA, not sure if this will work because it could be hardcoded to be the same as Shapeshift
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +47,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "lifesteal_range"                                 "1200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range"                                    "150"
       }
     }
   }

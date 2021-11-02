@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"           "23 22 21 20 19 18" //OAA
+    "AbilityCooldown"           "24 22 20 18 17 16" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "destroy_attacks"                                 "6 6 9 9 12 15"
+        "destroy_attacks"                                 "6 6 9 9 12 12"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_4"
       }
       "05"
@@ -69,45 +69,40 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_tick"                                 "5 10 15 20 40 80"
+        "damage_per_second"                               "10 20 30 40 80 160"
+        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_8"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dps_tooltip"                                     "10 20 30 40 80 160"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_8"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
         "enemy_vision_time"                               "4"
       }
-      "09"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "tick_interval"                                   "0.5"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "infection_search_radius"                         "1000"
       }
-      "11"
+      "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "pop_damage"                                      "120 200 280 360 720 1440"
       }
-      "12"
+      "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "return_projectile_speed"                         "750"
       }
-      "13"
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "latched_unit_offset"                             "130"
       }
-      "14"
+      "13"
       {
         "var_type"                                        "FIELD_INTEGER"
         "latched_unit_offset_short"                       "95"
