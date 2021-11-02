@@ -30,7 +30,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"16 14 12 10 9 8"
+    "AbilityCooldown"				"16 14 12 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -73,13 +73,13 @@
       "07"
       {
         "var_type"							"FIELD_FLOAT"
-        "stun_duration"							"1.2 1.5 1.8 2.1 2.4 2.7"
+        "stun_duration"							"0.9 1.3 1.7 2.1 2.3 2.5"
         "LinkedSpecialBonus"						"special_bonus_unique_marci_grapple_stun_duration"
       }
       "08"
       {
         "var_type"							"FIELD_INTEGER"
-        "impact_damage"							"70 130 190 250 500 1000"
+        "impact_damage"							"70 120 170 220 440 880"
       }
     }
   }
