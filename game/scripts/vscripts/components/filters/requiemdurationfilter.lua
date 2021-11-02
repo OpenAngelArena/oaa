@@ -23,7 +23,7 @@ function RequiemDurationFilter:ModifierFilter(keys)
 
   local ability_name = ability:GetName()
 
-  if ability_name == "nevermore_requiem" and modifier_name == "modifier_nevermore_requiem_slow" then
+  if ability_name == "nevermore_requiem" and (modifier_name == "modifier_nevermore_requiem_slow" or modifier_name == "modifier_nevermore_requiem_fear") then
     if victim:HasModifier("modifier_oaa_requiem_not_allowed") then
       return false
     end
@@ -104,5 +104,7 @@ function modifier_oaa_requiem_not_allowed:OnCreated()
   if not IsServer() then
     return
   end
-  self:GetParent():RemoveModifierByName("modifier_nevermore_requiem_slow")
+  local parent = self:GetParent()
+  parent:RemoveModifierByName("modifier_nevermore_requiem_slow")
+  parent:RemoveModifierByName("modifier_nevermore_requiem_fear")
 end
