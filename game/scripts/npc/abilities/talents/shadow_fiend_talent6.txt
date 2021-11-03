@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shadow Fiend Fear Duration
+  //=================================================================================================================
+  "special_bonus_unique_nevermore_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "815"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "0.4"
+        "ad_linked_ability"                               "nevermore_requiem"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "value2"                                          "0.4" //OAA
+        "ad_linked_ability"                               "nevermore_requiem"
+      }
+    }
+  }
+}
