@@ -1,11 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // +1 Wukong's Command Ring
+  // Wukong's Command Additional ring talent - unused
   //=================================================================================================================
-  "special_bonus_unique_monkey_king_6"
+  "special_bonus_unique_monkey_king_6_oaa"
   {
-    "ID"                                                  "7025" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "87025"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -14,14 +15,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "1000" //OAA
-        "ad_linked_ability"                               "monkey_king_wukongs_command"
+        "value"                                           "1000"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "10" //OAA
-        "ad_linked_ability"                               "monkey_king_wukongs_command"
+        "value2"                                          "10"
       }
     }
   }
