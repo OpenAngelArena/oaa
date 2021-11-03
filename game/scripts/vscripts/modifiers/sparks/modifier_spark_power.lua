@@ -332,7 +332,7 @@ end
 
 function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
   if not IsServer() then
-    return
+    return 0
   end
   local parent = self:GetParent()
   local attacker = keys.attacker
