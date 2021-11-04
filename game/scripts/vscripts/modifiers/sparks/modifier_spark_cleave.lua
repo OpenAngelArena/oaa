@@ -73,8 +73,8 @@ function modifier_spark_cleave:OnAttackLanded(keys)
 
   -- Cleave Spark variables
   local splinter_radius = 400
-  local splinter_count = 4
-  local splinter_damage_percent = 50
+  local splinter_count = 5
+  local splinter_damage_percent = 35
 
   local originTarget = target:GetOrigin()
 
@@ -85,7 +85,7 @@ function modifier_spark_cleave:OnAttackLanded(keys)
     splinter_radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_BASIC,
-    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
     FIND_ANY_ORDER,
     false
   )
