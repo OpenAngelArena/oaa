@@ -61,14 +61,14 @@
       }
       "05"
       {
-        "var_type"							"FIELD_FLOAT"
-        "impact_damage"						"90 160 230 300 600 1200"
+        "var_type"                                        "FIELD_FLOAT"
+        "impact_damage"                                   "90 160 230 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_damage"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow_pct"                                       "30 40 50 60 70 80"
+        "movement_slow_pct"                               "30 40 50 60 70 80"
       }
       "07"
       {
@@ -88,22 +88,22 @@
       "10"
       {
         "var_type"							"FIELD_FLOAT"
-        "min_height_above_lowest"					"250"
+        "min_height_above_lowest"					"250.0"
       }
       "11"
       {
         "var_type"							"FIELD_FLOAT"
-        "min_height_above_highest"					"200"
+        "min_height_above_highest"					"200.0"
       }
       "12"
       {
         "var_type"							"FIELD_FLOAT"
-        "min_acceleration"						"6000"
+        "min_acceleration"						"6000.0"
       }
       "13"
       {
         "var_type"							"FIELD_FLOAT"
-        "max_acceleration"						"6000"
+        "max_acceleration"						"6000.0"
       }
       "14"
       {
@@ -113,17 +113,22 @@
       "15"
       {
         "var_type"							"FIELD_FLOAT"
-        "ally_buff_duration"						"5"
+        "ally_buff_duration"						"5.0"
       }
       "16"
       {
         "var_type"							"FIELD_FLOAT"
-        "ally_movespeed_pct"						"35"
+        "ally_movespeed_pct"						"35.0"
       }
       "17"
       {
         "var_type"							"FIELD_INTEGER"
         "impact_position_offset"					"64"
+      }
+      "18"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "target_abort_distance"          "1500"
       }
     }
   }
