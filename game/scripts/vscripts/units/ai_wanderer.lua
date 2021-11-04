@@ -272,34 +272,35 @@ end
 
 function GetNextWanderLocation (startPosition)
   local maxY = 4000
-  local maxX = 600
+  local maxX = 1000
   local minY = 0
   local minX = 0
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-  if scoreDiff < 5 then
+
+  if scoreDiff >= 20 then
+    maxX = 5600
+    minX = 2600
+  elseif scoreDiff >= 15 then
+    maxX = 2600
+    minX = 1400
+  elseif scoreDiff >= 10 then
+    maxX = 2100
+    minX = 900
+  elseif scoreDiff >= 5 then
+    maxX = 1600
+    minX = 400
+  else
     isGoodLead = RandomInt(0, 1) == 0
   end
 
-  if scoreDiff >= 5 then
-    maxX = 1600
-    minX = 200
-  end
-  if scoreDiff >= 10 then
-    maxX = 2900
-    minX = 700
-  end
-  if scoreDiff >= 20 then
-    maxX = 5600
-    minX = 2900
-  end
-  local nextPosition = nil
+  local nextPosition = Vector(0, 0, 0)
   local isValidPosition = false
 
   while not isValidPosition do
-    if nextPosition then
+    --if nextPosition then
       --print('Got a bad position option ' .. tostring(nextPosition))
-    end
+    --end
     nextPosition = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), startPosition.z)
     if RandomInt(0, 1) == 0 then
       nextPosition.y = 0 - nextPosition.y
@@ -308,9 +309,7 @@ function GetNextWanderLocation (startPosition)
       nextPosition.x = 0 - nextPosition.x
     end
     isValidPosition = true
-    if scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 2000 then
-      isValidPosition = false
-    elseif IsNearRadiantFountain(nextPosition) or IsNearDireFountain(nextPosition) then
+    if (scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 800) or (IsNearRadiantFountain(nextPosition) or IsNearDireFountain(nextPosition)) then
       isValidPosition = false
     end
   end
@@ -326,16 +325,16 @@ function IsNearRadiantFountain (pos)
   end
   local origin = radiant_fountain:GetAbsOrigin()
   local bounds = radiant_fountain:GetBounds()
-  if pos.x < bounds.Mins.x + origin.x - 500 then
+  if pos.x < bounds.Mins.x + origin.x - 400 then
     return false
   end
-  if pos.y < bounds.Mins.y + origin.y - 500 then
+  if pos.y < bounds.Mins.y + origin.y - 400 then
     return false
   end
-  if pos.x > bounds.Maxs.x + origin.x + 500 then
+  if pos.x > bounds.Maxs.x + origin.x + 400 then
     return false
   end
-  if pos.y > bounds.Maxs.y + origin.y + 500 then
+  if pos.y > bounds.Maxs.y + origin.y + 400 then
     return false
   end
 
@@ -350,16 +349,16 @@ function IsNearDireFountain (pos)
   end
   local origin = bad_fountain:GetAbsOrigin()
   local bounds = bad_fountain:GetBounds()
-  if pos.x < bounds.Mins.x + origin.x - 500 then
+  if pos.x < bounds.Mins.x + origin.x - 400 then
     return false
   end
-  if pos.y < bounds.Mins.y + origin.y - 500 then
+  if pos.y < bounds.Mins.y + origin.y - 400 then
     return false
   end
-  if pos.x > bounds.Maxs.x + origin.x + 500 then
+  if pos.x > bounds.Maxs.x + origin.x + 400 then
     return false
   end
-  if pos.y > bounds.Maxs.y + origin.y + 500 then
+  if pos.y > bounds.Maxs.y + origin.y + 400 then
     return false
   end
 
