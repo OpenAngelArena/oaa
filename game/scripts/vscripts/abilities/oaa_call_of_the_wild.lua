@@ -72,18 +72,31 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, 
   return npcCreep
 end
 
+---------------------------------------------------------------------------------------------------
+
 beastmaster_call_of_the_wild_hawk_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier( "modifier_hawk_invisibility_oaa", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_hawk_shard_truesight", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
 
+function beastmaster_call_of_the_wild_hawk_oaa:GetAOERadius()
+  return self:GetSpecialValueFor("hawk_vision")
+end
+
 function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
+  local target_loc = self:GetCursorPosition()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()
   local abilityLevel = self:GetLevel()
   local duration = self:GetSpecialValueFor("duration")
 
-  self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
+  local hawk = self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
+
+  Timers:CreateTimer(1/30, function()
+    if hawk and target_loc then
+      hawk:MoveToPosition(target_loc)
+    end
+  end)
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
@@ -144,6 +157,8 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
   end
 
   caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+
+  return hawk
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)

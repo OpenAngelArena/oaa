@@ -174,24 +174,34 @@ function monkey_king_wukongs_command_oaa:GetCooldown(level)
 end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseStart()
+  if not IsServer() then
+    return
+  end
+
   local caster = self:GetCaster()
+
   -- Sound during casting
   caster:EmitSound("Hero_MonkeyKing.FurArmy.Channel")
+
   -- Particle during casting
-  if IsServer() then
-    self.castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf", PATTACH_ABSORIGIN, caster)
-  end
+  self.castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_cast.vpcf", PATTACH_ABSORIGIN, caster)
+
   return true
 end
 
 function monkey_king_wukongs_command_oaa:OnAbilityPhaseInterrupted()
+  if not IsServer() then
+    return
+  end
+
+  -- Interrupt casting sound
   self:GetCaster():StopSound("Hero_MonkeyKing.FurArmy.Channel")
-  if IsServer() then
-    if self.castHandle then
-      ParticleManager:DestroyParticle(self.castHandle, true)
-      ParticleManager:ReleaseParticleIndex(self.castHandle)
-      self.castHandle = nil
-    end
+
+  -- Remove casting particle
+  if self.castHandle then
+    ParticleManager:DestroyParticle(self.castHandle, true)
+    ParticleManager:ReleaseParticleIndex(self.castHandle)
+    self.castHandle = nil
   end
 end
 
@@ -242,55 +252,53 @@ function monkey_king_wukongs_command_oaa:OnSpellStart()
   -- Sound (EmitSoundOn doesn't respect fog of war)
   caster:EmitSound("Hero_MonkeyKing.FurArmy")
 
-  if IsServer() then
-    local unit_name = "npc_dota_monkey_clone_oaa"
-    local spawn_interval = self:GetSpecialValueFor("ring_spawn_interval")
-    local base_damage_percent = self:GetSpecialValueFor("base_damage_percent")
+  local unit_name = "npc_dota_monkey_clone_oaa"
+  local spawn_interval = self:GetSpecialValueFor("ring_spawn_interval")
+  local base_damage_percent = self:GetSpecialValueFor("base_damage_percent")
 
-    -- Remove ability phase (cast) particle
-    if self.castHandle then
-      ParticleManager:DestroyParticle(self.castHandle, false)
-      ParticleManager:ReleaseParticleIndex(self.castHandle)
-      self.castHandle = nil
-    end
+  -- Remove ability phase (cast) particle
+  if self.castHandle then
+    ParticleManager:DestroyParticle(self.castHandle, false)
+    ParticleManager:ReleaseParticleIndex(self.castHandle)
+    self.castHandle = nil
+  end
 
-    -- Remove previos instance of Wukongs Command
-    if caster.monkeys_thinker and not caster.monkeys_thinker:IsNull() then
-      caster.monkeys_thinker:Destroy()
-    end
+  -- Remove previos instance of Wukongs Command
+  if caster.monkeys_thinker and not caster.monkeys_thinker:IsNull() then
+    caster.monkeys_thinker:Destroy()
+  end
 
-    -- Thinker
-    CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
+  -- Thinker
+  CreateModifierThinker(caster, self, "modifier_wukongs_command_oaa_thinker", {duration = self:GetSpecialValueFor("duration")}, center, caster:GetTeamNumber(), false)
 
-    if self.clones == nil then
-      print("[MONKEY KING WUKONG'S COMMAND] Clones/Soldiers were not created when Monkey King leveled up the spell for the first time!")
-      self.clones = {}
-      self.clones[1] = {}
-      self.clones[2] = {}
-      self.clones[3] = {}
-    end
+  if self.clones == nil then
+    print("[MONKEY KING WUKONG'S COMMAND] Clones/Soldiers were not created when Monkey King leveled up the spell for the first time!")
+    self.clones = {}
+    self.clones[1] = {}
+    self.clones[2] = {}
+    self.clones[3] = {}
+  end
 
-    -- Inner Ring:
-    self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
-    -- Outer Ring:
-    Timers:CreateTimer(spawn_interval, function()
-      self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
-    end)
-    -- Extra Ring with the talent:
-    if talent and talent:GetLevel() > 0 then
-      Timers:CreateTimer(2*spawn_interval, function()
-        self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
-      end)
-    end
-
-    -- Remove monkeys if they were created while caster was dead or out of the circle
-    local check_delay = spawn_interval + 1/30-- Change this if Monkey King has extra ring talent
-    Timers:CreateTimer(check_delay, function()
-      if not caster:IsAlive() or not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
-        self:RemoveMonkeys(caster)
-      end
+  -- Inner Ring:
+  self:CreateMonkeyRing(unit_name, first_ring, caster, center, first_ring_radius, 1, base_damage_percent)
+  -- Outer Ring:
+  Timers:CreateTimer(spawn_interval, function()
+    self:CreateMonkeyRing(unit_name, second_ring, caster, center, second_ring_radius, 2, base_damage_percent)
+  end)
+  -- Extra Ring with the talent:
+  if talent and talent:GetLevel() > 0 then
+    Timers:CreateTimer(2*spawn_interval, function()
+      self:CreateMonkeyRing(unit_name, third_ring, caster, center, third_ring_radius, 3, base_damage_percent)
     end)
   end
+
+  -- Remove monkeys if they were created while caster was dead or out of the circle
+  local check_delay = spawn_interval + 1/30-- Change this if Monkey King has extra ring talent
+  Timers:CreateTimer(check_delay, function()
+    if not caster:IsAlive() or not caster:HasModifier("modifier_wukongs_command_oaa_buff") then
+      self:RemoveMonkeys(caster)
+    end
+  end)
 end
 
 function monkey_king_wukongs_command_oaa:CreateMonkeyRing(unit_name, number, caster, center, radius, ringNumber, damage_pct)
@@ -406,7 +414,7 @@ end
 
 function modifier_wukongs_command_oaa_thinker:GetAuraRadius()
   local ability = self:GetAbility()
-  return ability.active_radius
+  return ability.active_radius or ability:GetAOERadius()
 end
 
 function modifier_wukongs_command_oaa_thinker:GetAuraSearchTeam()

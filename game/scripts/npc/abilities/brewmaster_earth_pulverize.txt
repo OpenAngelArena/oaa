@@ -1,25 +1,25 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Overload Damage
+  // Brewmaster Earth: Pulverize
   //=================================================================================================================
-  "special_bonus_unique_storm_spirit_6"
+  "brewmaster_earth_pulverize"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "7936"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "5406"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // percentage bonus damage against bosses
       {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "275" //OAA
-        "ad_linked_ability"			"storm_spirit_overload"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_building_damage"                           "90 120 150 210 270" //OAA
       }
     }
   }

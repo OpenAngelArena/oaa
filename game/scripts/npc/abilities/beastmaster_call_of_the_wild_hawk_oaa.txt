@@ -7,11 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "87231"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "87231"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
     "AbilityTextureName"                                  "beastmaster_call_of_the_wild_hawk"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -56,7 +56,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hawk_vision"                                     "750 800 850 900 1000 1100"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_5"
       }
       "05"
       {
