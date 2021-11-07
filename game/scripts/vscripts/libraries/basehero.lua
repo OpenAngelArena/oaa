@@ -5,25 +5,60 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
   end
 
   local hero = self
-  local networth = Gold:GetGold(hero)
+  local playerID = hero:GetPlayerOwnerID()
+  local networth = 0 --PlayerResource:GetNetWorth(playerID)
+
+  -- Gold on the hero itself
+  if Gold then
+    networth = Gold:GetGold(playerID)
+  else
+    networth = PlayerResource:GetGold(playerID)
+  end
 
   -- Iterate over item slots adding up its gold cost
-  for i = 0, 15 do
+  -- Normal slots and backpack slots
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = hero:GetItemInSlot(i)
     if item then
-      networth = networth + item:GetCost()
+      -- Don't do it for neutral items
+      if not item:IsNeutralDrop() then
+        local name = item:GetName()
+        local purchaser = item:GetPurchaser()
+        -- Don't do it for bottles and items that don't belong to the hero
+        if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
+          networth = networth + item:GetCost()
+        end
+      end
+    end
+  end
+  -- Stash slots
+  for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+    local item = hero:GetItemInSlot(i)
+    if item then
+      -- Don't do it for neutral items
+      if not item:IsNeutralDrop() then
+        local name = item:GetName()
+        local purchaser = item:GetPurchaser()
+        -- Don't do it for bottles and items that don't belong to the hero
+        if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
+          networth = networth + item:GetCost()
+        end
+      end
+    end
+  end
+  -- TODO: Items on the ground
+  -- TODO: Items on Spirit Bear
+
+  -- Calculate core points worth in gold
+  if CorePointsManager then
+    local cp_value = CorePointsManager:GetGoldValueOfCorePoint()
+    local cps = CorePointsManager:GetCorePointsOnHero(hero, playerID)
+    if cp_value and cps then
+      networth = networth + cps * cp_value
     end
   end
 
   return networth
-
-  -- Alternate way of calculating networth:
-  -- local playerID = hero:GetPlayerOwnerID()
-  -- local playerNetworth = PlayerResource:GetNetWorth(playerID)
-
-  -- if playerNetworth then
-    -- return playerNetworth
-  -- end
 end
 
 function CDOTA_BaseNPC_Hero:ModifyGold (playerID, goldAmmt, reliable, nReason)

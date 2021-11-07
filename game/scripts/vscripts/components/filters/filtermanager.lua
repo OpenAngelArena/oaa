@@ -23,6 +23,7 @@ if not FilterManager then
 end
 
 function FilterManager:Init()
+  self.moduleName = "FilterManager"
   -- Registered filter function table
   self.Filters = {}
   -- Master filter function table

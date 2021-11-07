@@ -14,6 +14,4 @@ function PassiveExperience:Init()
   local xpm_thinker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
   xpm_thinker:AddNewModifier(xpm_thinker, nil, "modifier_oaa_thinker", {})
   xpm_thinker:AddNewModifier(xpm_thinker, nil, "modifier_xpm_thinker", {})
-  
-  self.initialized = true
 end

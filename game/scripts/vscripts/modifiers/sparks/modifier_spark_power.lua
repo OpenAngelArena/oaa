@@ -37,7 +37,7 @@ function modifier_spark_power:GetModifierAura()
 end
 
 function modifier_spark_power:GetAuraRadius()
-  return 1200
+  return 1800
 end
 
 function modifier_spark_power:GetAuraSearchTeam()
@@ -188,7 +188,7 @@ function modifier_spark_power:OnStackCountChanged(old_stacks)
   if parent:IsIllusion() then
     return
   end
-  
+
   if old_stacks == self:GetStackCount() then
     return
   end
@@ -321,7 +321,7 @@ function modifier_spark_power_effect:GetModifierProcAttack_BonusDamage_Pure(even
   ]]
   local damage = self.bonus
   if parent:IsIllusion() or not parent:IsHero() then
-    damage = damage / 8
+    damage = damage / 7
   end
   if damage > 0 then
     SendOverheadEventMessage(parent, OVERHEAD_ALERT_MAGICAL_BLOCK, target, damage, parent)
@@ -331,6 +331,9 @@ function modifier_spark_power_effect:GetModifierProcAttack_BonusDamage_Pure(even
 end
 
 function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
+  if not IsServer() then
+    return 0
+  end
   local parent = self:GetParent()
   local attacker = keys.attacker
 
@@ -344,11 +347,35 @@ function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
 
   if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
     local block = self.bonus
+    -- Block value for summons (not illusions)
+    --[[
     if not parent:IsHero() then
       block = block / 2
     end
+    ]]
+    -- True Random chance
+    --[[
     if RandomInt(1, 100) <= 50 then
       return block
+    end
+    ]]
+
+    if not self.damage_block_failures then
+      self.damage_block_failures = 0
+    end
+
+    -- Get number of failures
+    local prngMult = self.damage_block_failures + 1
+
+    -- 50% chance for damage block; Pseudo-Random chance
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(0.5) * prngMult) then
+      -- Reset failure count
+      self.damage_block_failures = 0
+
+      return block
+    else
+      -- Increment number of failures
+      self.damage_block_failures = prngMult
     end
   end
 
@@ -359,7 +386,7 @@ function modifier_spark_power_effect:OnTooltip()
   local parent = self:GetParent()
   local damage = self.bonus
   if parent:IsIllusion() or not parent:IsHero() then
-    damage = damage / 8
+    damage = damage / 7
   end
   return damage
 end
@@ -367,9 +394,9 @@ end
 function modifier_spark_power_effect:OnTooltip2()
   local parent = self:GetParent()
   local block = self.bonus
-  if not parent:IsHero() then
-    block = block / 2
-  end
+  --if not parent:IsHero() then
+    --block = block / 2
+  --end
   return block
 end
 

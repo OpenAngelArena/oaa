@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "99999"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "0.1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -63,13 +63,13 @@
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "1300"
       }
-      "07"
+      "07" // unused?
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_mana_cost"                               "75"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "08" // unused?
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_remnant_speed_pct"                         "300"

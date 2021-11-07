@@ -6,6 +6,7 @@ if BountyRunePick == nil then
 end
 
 function BountyRunePick:Init()
+  self.moduleName = "BountyRunePick Filter"
   FilterManager:AddFilter(FilterManager.BountyRunePickup, self, Dynamic_Wrap(BountyRunePick, 'Filter'))
 end
 

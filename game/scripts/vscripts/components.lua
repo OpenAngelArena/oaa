@@ -10,6 +10,8 @@ Components = Components or class({})
 
 function Components:Init()
   -- Debug:EnableDebugging()
+  self.moduleName = "Components"
+
   if not self.components then
     self.components = {}
     self.initTime = {}

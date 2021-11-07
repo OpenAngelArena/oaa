@@ -2,16 +2,17 @@
 
 -- Taken from bb template
 if Courier == nil then
-  Debug.EnabledModules['courier:*'] = true
+  Debug.EnabledModules['courier:*'] = false
   DebugPrint ( 'creating new Courier object' )
   Courier = class({})
 end
 
 function Courier:Init ()
-  Courier.hasCourier = {}
+  self.moduleName = "Courier"
+  self.hasCourier = {}
   LinkLuaModifier("modifier_custom_courier_stuff", "components/courier/courier.lua", LUA_MODIFIER_MOTION_NONE)
-  Courier.enableCustomCourier = false -- if you want custom couriers just set this to true
-  if Courier.enableCustomCourier then
+  self.enableCustomCourier = false -- if you want custom couriers just set this to true
+  if self.enableCustomCourier then
     GameEvents:OnHeroInGame(Courier.SpawnCourier)
   else
     GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)

@@ -193,10 +193,9 @@ SPECIAL_BOTTLES = {
   [180650885] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Glaceon
   [165382017] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Noob322
   [312688223] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Nate
-  [184428872] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - Sunrise
   [211047291] = {3,4,5}, --steam: https://steamcommunity.com/profiles/76561198040700179 - Mungeon
   [290575742] = {3,4,5,54}, -- Obby
-
+  [858631509] = {3,4,5,54}, -- Obby
 
   -- twitch donators 50 Custom
 
@@ -216,7 +215,7 @@ SPECIAL_BOTTLES = {
   [134237802] = {3,4,5,23}, --steam: http://steamcommunity.com/profiles/76561198094503530 - twitch: TheRealXAgent
   [252879820] = {3,4,5,24}, --steam: http://steamcommunity.com/profiles/76561198213145548 - twitch: yommi1999
   [177718580] = {3,4,5,25}, --steam: http://steamcommunity.com/profiles/76561198137984308 - twitch: FabianOtten
-  [184428872] = {3,4,5,26}, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: DevilSunrise
+  [184428872] = {3,4,5,26}, --steam: http://steamcommunity.com/profiles/76561198144694600 - twitch: (Devil)SunriseSyrene
   [28215809] = {3,4,5,27}, --steam: http://steamcommunity.com/profiles/76561197988481537 - twitch: mr pootis
   [119820692] = {3,4,5,28}, --steam: http://steamcommunity.com/profiles/76561198080086420 - twitch: TokenGoat
   [59735209] = {3,4,5,29}, --steam: http://steamcommunity.com/profiles/76561198020000937 - twitch: sms77

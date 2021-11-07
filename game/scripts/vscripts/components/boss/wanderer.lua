@@ -13,7 +13,6 @@ function Wanderer:Init ()
   ChatCommand:LinkDevCommand("-spawnwanderer", Dynamic_Wrap(self, 'SpawnWanderer'), self)
   self.level = 0
   self.nextSpawn = spawn_time
-  self.initialized = true
 end
 
 function Wanderer:GetState ()
@@ -121,35 +120,35 @@ end
 
 function Wanderer:FindWhereToSpawn ()
   local maxY = 4000
-  local maxX = 500
+  local maxX = 1000
   local minY = 0
   local minX = 0
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
-  if scoreDiff >= 5 then
-    maxX = 1000
-    minX = 500
-  end
-  if scoreDiff >= 10 then
-    maxX = 1500
-    minX = 1000
-  end
-  if scoreDiff >= 15 then
-    maxX = 2500
-    minX = 1500
-  end
   if scoreDiff >= 20 then
     maxX = 5500
+    minX = 2500
+  elseif scoreDiff >= 15 then
+    maxX = 2500
+    minX = 1500
+  elseif scoreDiff >= 10 then
+    maxX = 2000
+    minX = 1000
+  elseif scoreDiff >= 5 then
+    maxX = 1500
+    minX = 500
+  else
+    isGoodLead = RandomInt(0, 1) == 0
   end
 
-  local position
+  local position = Vector(0, 0, 0)
   local isValidPosition = false
 
   while not isValidPosition do
-    if position then
-      print('Got a bad Wanderer spawn point: ' .. tostring(position))
-    end
+    --if position then
+      --print('Got a bad Wanderer spawn point: ' .. tostring(position))
+    --end
     position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
     if RandomInt(0, 1) == 0 then
       position.y = 0 - position.y

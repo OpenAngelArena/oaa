@@ -47,6 +47,7 @@ function HeroProgression:RegisterCustomLevellingPatterns()
 end
 
 function HeroProgression:Init()
+  self.moduleName = "HeroProgression"
   self.statNames = {
     "Strength",
     "Agility",

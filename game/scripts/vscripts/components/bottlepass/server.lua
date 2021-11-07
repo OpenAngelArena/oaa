@@ -14,6 +14,7 @@ end
 
 function Bottlepass:Init ()
   Debug:EnableDebugging()
+  self.moduleName = "Bottlepass"
   GameEvents:OnCustomGameSetup(partial(Bottlepass.Ready, self))
   GameEvents:OnGameInProgress(partial(Bottlepass.SendTeams, self))
   self.keepSpamming = true

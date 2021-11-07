@@ -10,9 +10,10 @@ Usage:
 created by Zarnotox with a lot of constructive help from the mod data guys https://discord.gg/Z7eCcGT (THIS IS NOT THE OAA DISCORD, THIS IS THE MODDATA DISCORD. YOU DID NOT FIND THE SECRET. check it out!)
 ]]
 
-ChatCommand = ChatCommand or {}
+ChatCommand = ChatCommand or class({})
 
 function ChatCommand:Init()
+  self.moduleName = "ChatCommand Library"
   ListenToGameEvent("player_chat", Dynamic_Wrap(ChatCommand, 'OnPlayerChat'), self)
 end
 

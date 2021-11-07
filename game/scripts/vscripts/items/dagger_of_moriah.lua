@@ -185,8 +185,9 @@ function modifier_item_dagger_of_moriah_sangromancy:IsDebuff()
   return false
 end
 
+-- this doesn't do anything since it's an aura, and auras are undispellable no matter what you set here
 function modifier_item_dagger_of_moriah_sangromancy:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_item_dagger_of_moriah_sangromancy:IsAura()

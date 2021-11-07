@@ -6,6 +6,8 @@ function CustomRuneSystem:Init()
   --Debug.EnableDebugging()
   DebugPrint('Init Custom Rune System module')
 
+  self.moduleName = "CustomRuneSystem"
+
   if USE_DEFAULT_RUNE_SYSTEM == true then
     return
   end

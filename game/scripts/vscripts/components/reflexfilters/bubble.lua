@@ -9,6 +9,7 @@ if not BubbleOrbFilter then
 end
 
 function BubbleOrbFilter:Init()
+  self.moduleName = "Bubble Orb Filter"
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(self, "ModifierGainedFilter"))
 end
 

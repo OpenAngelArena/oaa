@@ -67,7 +67,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "12 18 24 30 36"
-        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "06"
       {
@@ -83,7 +83,8 @@
       "08" // its not higher because of Satanic
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_chance"                                     "50"
+        "proc_chance"                                     "25"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_1_oaa"
       }
       "09"
       {
