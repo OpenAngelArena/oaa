@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_mirana_arrow_stun_oaa", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_special_bonus_unique_mirana_global_arrow", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_special_bonus_unique_mirana_arrow_cooldown", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -36,7 +37,7 @@ if IsServer() then
       Ability = self,
       EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf",
       vSpawnOrigin = spawn_origin,
-      fDistance = arrow_data.arrow_range,
+      fDistance = arrow_data.arrow_range + caster:GetCastRangeBonus(),
       fStartRadius = arrow_data.arrow_width,
       fEndRadius = arrow_data.arrow_width,
       Source = caster,
@@ -87,26 +88,30 @@ if IsServer() then
     end
 
     -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple arrows
-    local stunned_modifier = target:FindModifierByNameAndCaster("modifier_stunned", caster)
+    local stunned_modifier = target:FindModifierByNameAndCaster("modifier_mirana_arrow_stun_oaa", caster)
     if not stunned_modifier and not target:IsMagicImmune() then
       if target:IsCreep() and (not target:IsConsideredHero()) and (not target:IsAncient()) then
         target:Kill(self, caster)
       else
         -- Traveled distance limited to arrow_max_stunrange
-        local arrow_traveled_distance = math.min( ( self.arrow_start_position[pid] - target:GetAbsOrigin() ):Length(), data.arrow_max_stunrange )
+        local arrow_traveled_distance = math.min( (self.arrow_start_position[pid] - target:GetAbsOrigin()):Length2D(), data.arrow_max_stunrange)
+
         -- Multiplier from 0.0 to 1.0 for Arrow's stun duration (and damage based on distance)
         local dist_mult = arrow_traveled_distance / data.arrow_max_stunrange
 
         -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
         local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+
+        -- Status resistance fix
         stun_duration = target:GetValueChangedByStatusResistance(stun_duration)
 
         -- Apply Stun before damage (Applying stun after damage is bad)
-        target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
+        target:AddNewModifier(caster, self, "modifier_mirana_arrow_stun_oaa", {duration = stun_duration})
 
         -- Damage arrow_base_damage with damage based on traveled distance
         local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
-        -- Damage
+
+        -- Damage table
         local damage_table = {}
         damage_table.victim = target
         damage_table.attacker = caster
@@ -122,7 +127,7 @@ if IsServer() then
           local particle_delay = 0.8
           local damage_delay = particle_delay + 0.57
           local star_damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
-          local secondary_star_damage_reduction = 50 or starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
+          local secondary_star_damage_reduction = starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
           -- Check for Starfall bonus damage talent
           local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
           if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
@@ -422,6 +427,53 @@ function mirana_arrow_oaa:GetCastRange(location, target)
   end
 
   return self.BaseClass.GetCastRange( self, location, target )
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_mirana_arrow_stun_oaa = class(ModifierBaseClass)
+
+function modifier_mirana_arrow_stun_oaa:IsHidden()
+  return false
+end
+
+function modifier_mirana_arrow_stun_oaa:IsDebuff()
+  return true
+end
+
+function modifier_mirana_arrow_stun_oaa:IsStunDebuff()
+  return true
+end
+
+function modifier_mirana_arrow_stun_oaa:IsPurgable()
+  return true
+end
+
+function modifier_mirana_arrow_stun_oaa:GetEffectName()
+  return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+
+function modifier_mirana_arrow_stun_oaa:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_mirana_arrow_stun_oaa:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  }
+
+  return funcs
+end
+
+function modifier_mirana_arrow_stun_oaa:GetOverrideAnimation()
+  return ACT_DOTA_DISABLED
+end
+
+function modifier_mirana_arrow_stun_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_STUNNED] = true,
+  }
+  return state
 end
 
 ---------------------------------------------------------------------------------------------------
