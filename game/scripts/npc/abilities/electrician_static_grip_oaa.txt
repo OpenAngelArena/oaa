@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "channel_time"                                    "2.75 3.5 4.25 5 5.25 5.5"
+        "channel_time"                                    "1.75 2.5 3.25 4 4.25 4.5"
       }
       "02"
       {
@@ -53,18 +53,18 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20 40 60 80 160 320"
+        "damage_per_second"                               "50 60 70 80 160 320"
         "LinkedSpecialBonus"                              "special_bonus_electrician_static_grip_damage"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pull_speed"                                      "120"
+        "pull_speed"                                      "140"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pull_buffer"                                     "60"
+        "pull_buffer"                                     "150"
       }
     }
 
