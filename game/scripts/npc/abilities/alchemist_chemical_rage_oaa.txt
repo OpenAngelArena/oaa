@@ -1,23 +1,25 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Alchemist: Chemical Rage
+  // Alchemist: Chemical Rage (OAA ability that improves vanilla ability)
   //=================================================================================================================
-  "alchemist_chemical_rage"
+  "alchemist_chemical_rage_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5369"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "ID"                                                  "85369"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_alchemist_chemical_rage.lua"
+    "AbilityTextureName"                                  "alchemist_chemical_rage"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "55 50 45 40 35" //OAA
+    "AbilityCooldown"                                     "55 50 45 40 35"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,8 +50,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.2 1.15 1.1 1.05 1.0" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_3"
+        "base_attack_time"                                "1.2 1.15 1.1 1.05 1.0"
       }
       "04"
       {
@@ -59,8 +60,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "50 100 150 250 350" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_4"
+        "bonus_health_regen"                              "50 100 150 250 350"
       }
       "06"
       {
@@ -71,7 +71,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movespeed"                                 "40 50 60 70 80"
-        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_6"
       }
       "08"
       {
