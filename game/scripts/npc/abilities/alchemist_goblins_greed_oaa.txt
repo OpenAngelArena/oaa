@@ -62,6 +62,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "armor_reduction_duration"                        "4"
       }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_reduction_cap"                             "-25"
+      }
     }
   }
 }

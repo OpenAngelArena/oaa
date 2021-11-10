@@ -109,55 +109,59 @@ function modifier_alchemist_gold_corrosion_oaa_debuff:IsPurgable()
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:OnCreated()
-  if IsServer() then
-    local parent = self:GetParent()
-    local parent_worth = 0
-    if parent:IsRealHero() then
-      parent_worth = parent:GetNetworth()
-    else
-      parent_worth = parent:GetMaximumGoldBounty()
-    end
-    local caster = self:GetCaster()
-    local caster_worth = 0
-    if caster:IsRealHero() then
-      caster_worth = caster:GetNetworth()
-    else
-      return
-    end
-    -- Apply more stacks if parent has more networth than the caster
-    if caster_worth >= parent_worth then
-      self:SetStackCount(1)
-    else
-      local multiplier = self:GetAbility():GetSpecialValueFor("multiplier")
-      self:SetStackCount(math.ceil(multiplier))
-    end
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local parent_worth = 0
+  if parent:IsRealHero() then
+    parent_worth = parent:GetNetworth()
+  else
+    parent_worth = parent:GetMaximumGoldBounty()
+  end
+  local caster = self:GetCaster()
+  local caster_worth = 0
+  if caster:IsRealHero() then
+    caster_worth = caster:GetNetworth()
+  else
+    return
+  end
+  -- Apply more stacks if parent has more networth than the caster
+  if caster_worth >= parent_worth then
+    self:SetStackCount(1)
+  else
+    local multiplier = self:GetAbility():GetSpecialValueFor("multiplier")
+    self:SetStackCount(math.ceil(multiplier))
   end
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:OnRefresh()
-  if IsServer() then
-    local parent = self:GetParent()
-    local parent_worth = 0
-    if parent:IsRealHero() then
-      parent_worth = parent:GetNetworth()
-    else
-      parent_worth = parent:GetMaximumGoldBounty()
-    end
-    local caster = self:GetCaster()
-    local caster_worth = 0
-    if caster:IsRealHero() then
-      caster_worth = caster:GetNetworth()
-    else
-      return
-    end
-    -- Apply more stacks if parent has more networth than the caster
-    if caster_worth >= parent_worth then
-      self:IncrementStackCount()
-    else
-      local multiplier = self:GetAbility():GetSpecialValueFor("multiplier")
-      local old_stacks = self:GetStackCount()
-      self:SetStackCount(math.ceil(old_stacks + multiplier))
-    end
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local parent_worth = 0
+  if parent:IsRealHero() then
+    parent_worth = parent:GetNetworth()
+  else
+    parent_worth = parent:GetMaximumGoldBounty()
+  end
+  local caster = self:GetCaster()
+  local caster_worth = 0
+  if caster:IsRealHero() then
+    caster_worth = caster:GetNetworth()
+  else
+    return
+  end
+  -- Apply more stacks if parent has more networth than the caster
+  if caster_worth >= parent_worth then
+    self:IncrementStackCount()
+  else
+    local multiplier = self:GetAbility():GetSpecialValueFor("multiplier")
+    local old_stacks = self:GetStackCount()
+    self:SetStackCount(math.ceil(old_stacks + multiplier))
   end
 end
 
@@ -169,11 +173,21 @@ function modifier_alchemist_gold_corrosion_oaa_debuff:DeclareFunctions()
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:GetModifierPhysicalArmorBonus()
-  return 0 - self:GetAbility():GetSpecialValueFor("armor_reduction_per_hit") * self:GetStackCount()
+  local ability = self:GetAbility()
+  local armor_per_stack = ability:GetSpecialValueFor("armor_reduction_per_hit")
+  local armor_cap = ability:GetSpecialValueFor("armor_reduction_cap")
+  local stacks = self:GetStackCount()
+
+  return math.max(0 - armor_per_stack * stacks, armor_cap)
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:GetStatusEffectName()
-  return "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
+  -- It looks ugly on creeps
+  if self:GetParent():IsHero() then
+    return "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
+  end
+
+  return ""
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:StatusEffectPriority()

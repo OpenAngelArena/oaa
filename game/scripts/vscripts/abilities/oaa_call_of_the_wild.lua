@@ -92,8 +92,10 @@ function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
 
   local hawk = self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
 
-  Timers:CreateTimer(1/30, function()
-    if hawk and target_loc then
+  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+
+  Timers:CreateTimer(2/30, function()
+	if hawk and target_loc then
       hawk:MoveToPosition(target_loc)
     end
   end)
@@ -154,11 +156,11 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
       -- True-Sight buff
       hawk:AddNewModifier(caster, self, "modifier_hawk_shard_truesight", {})
     end
+
+    if number_of_hawks == 1 then
+	  return hawk
+    end
   end
-
-  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
-
-  return hawk
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)

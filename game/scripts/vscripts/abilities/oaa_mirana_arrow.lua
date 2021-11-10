@@ -15,7 +15,6 @@ function mirana_arrow_oaa:CastFilterResultTarget (unit)
 end
 
 if IsServer() then
-
   -- There are so many values passed (in arrow_data) to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
   function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_data)
     caster:EmitSound("Hero_Mirana.ArrowCast")
@@ -60,7 +59,8 @@ if IsServer() then
         arrow_base_damage = arrow_data.arrow_base_damage,
         arrow_damage_type = arrow_data.arrow_damage_type,
         arrow_vision = arrow_data.arrow_vision,
-        arrow_vision_duration = arrow_data.arrow_vision_duration
+        arrow_vision_duration = arrow_data.arrow_vision_duration,
+        multishot_arrow = arrow_data.multishot_arrow
       },
     }
     ProjectileManager:CreateLinearProjectile(info)
@@ -89,10 +89,13 @@ if IsServer() then
 
     -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple arrows
     local stunned_modifier = target:FindModifierByNameAndCaster("modifier_mirana_arrow_stun_oaa", caster)
-    if not stunned_modifier and not target:IsMagicImmune() then
+    if not stunned_modifier or (stunned_modifier and data.multishot_arrow == 0) then
+      -- Decrease the hit counter
+      self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
+      -- Kill non-ancient creeps instantly (doesn't matter if they are spell-immune)
       if target:IsCreep() and (not target:IsConsideredHero()) and (not target:IsAncient()) then
         target:Kill(self, caster)
-      else
+      elseif not target:IsMagicImmune() then
         -- Traveled distance limited to arrow_max_stunrange
         local arrow_traveled_distance = math.min( (self.arrow_start_position[pid] - target:GetAbsOrigin()):Length2D(), data.arrow_max_stunrange)
 
@@ -166,8 +169,6 @@ if IsServer() then
 
     -- Add hit sound
     target:EmitSound("Hero_Mirana.ArrowImpact")
-
-    self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
 
     if self.arrow_hit_count[pid] < 0 then
       self.arrow_start_position[pid] = nil
@@ -318,7 +319,8 @@ if IsServer() then
       arrow_damage_type = self:GetAbilityDamageType(),
       arrow_vision = self:GetSpecialValueFor( "arrow_vision" ), -- Arrow vision radius
       arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ), -- Vision duration after hit
-      arrow_pierce_count = self:GetSpecialValueFor("arrow_pierce_count") -- Pierce targets count
+      arrow_pierce_count = self:GetSpecialValueFor("arrow_pierce_count"), -- Pierce targets count
+      multishot_arrow = 0 -- 0 for false, 1 for true
     }
 
     if caster:HasScepter() then
@@ -348,12 +350,14 @@ if IsServer() then
         -- Rotate forward vector
         local direction_multishot = RotatePosition(Vector(0,0,0), QAngle(0, angle, 0), direction):Normalized()
 
+        -- Mark this arrow as a multishot arrow
+        arrow_data.multishot_arrow = 1
+		
         -- Send arrow
         self:SendArrow(caster, position, direction_multishot, arrow_data)
       end
     end
   end
-
 end
 
 --------------------------------------------------------------------------------

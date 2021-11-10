@@ -1,6 +1,10 @@
+LinkLuaModifier("modifier_hawk_dive_stun", "abilities/oaa_beastmaster_hawk_dive.lua", LUA_MODIFIER_MOTION_NONE)
+
 beastmaster_hawk_dive_oaa = class(AbilityBaseClass)
 
-LinkLuaModifier( "modifier_hawk_dive_stun", "abilities/oaa_beastmaster_hawk_dive.lua", LUA_MODIFIER_MOTION_NONE )
+function beastmaster_hawk_dive_oaa:Precache(context)
+  PrecacheResource("particle", "particles/beastmaster_hawk/hawk_dive_bomb_tracking_projectile.vpcf", context)
+end
 
 function beastmaster_hawk_dive_oaa:OnAbilityPhaseStart()
   if not IsServer() then
@@ -8,15 +12,23 @@ function beastmaster_hawk_dive_oaa:OnAbilityPhaseStart()
   end
 
   local caster = self:GetCaster()
+  
+  -- Possible with reflection spells and items
+  if caster:IsRealHero() then
+    return
+  end
 
   -- Remove invis
   caster:RemoveModifierByName("modifier_hawk_invisibility_oaa")
 
+  -- Make the hawk briefly visible
+  caster:MakeVisibleToTeam(caster:GetOpposingTeamNumber(), self:GetCastPoint() / 2)
+
   -- Sound during casting
-  --caster:EmitSound("")
+  caster:EmitSound("Hero_Beastmaster.Hawk.Reveal")
 
   -- Particle during casting
-  --self.cast_particle = ParticleManager:CreateParticle(".vpcf", PATTACH_ABSORIGIN, caster)
+  self.cast_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_chargeup.vpcf", PATTACH_ABSORIGIN, caster)
 
   return true
 end
@@ -34,7 +46,7 @@ function beastmaster_hawk_dive_oaa:OnAbilityPhaseInterrupted()
   end
 
   -- Interrupt casting sound
-  --caster:StopSound("")
+  caster:StopSound("Hero_Beastmaster.Hawk.Reveal")
 
   -- Remove casting particle
   if self.cast_particle then
@@ -60,15 +72,22 @@ function beastmaster_hawk_dive_oaa:OnSpellStart()
     return
   end
 
+  -- Possible with reflection spells and items
+  if caster:IsRealHero() then
+    return
+  end
+
   -- Hide the caster
   caster:AddNoDraw()
 
-  -- Create a tracking projectile
+  -- Create a tracking projectile 
+  -- Valve doesn't use a tracking projectile, they use a motion controller on the hawk
+  -- Using tracking projectile is scuffed but more stable
   local projectile_info = {
     Target = target,
     Source = caster,
     Ability = self,
-    --EffectName = ".vpcf",
+    EffectName = "particles/beastmaster_hawk/hawk_dive_bomb_tracking_projectile.vpcf",
     bDodgeable = true,
     bProvidesVision = true,
     bVisibleToEnemies = true,
@@ -84,7 +103,7 @@ end
 function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   local caster = self:GetCaster()
 
-  -- If target doesn't exist (disjointed?), unhide the caster and don't continue
+  -- If target doesn't exist (disjointed), unhide the caster and don't continue
   if not target or target:IsNull() then
     if caster and not caster:IsNull() then
       if location then
@@ -100,11 +119,20 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
     return
   end
 
+  -- Explosion particle
+  local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_impact.vpcf", PATTACH_WORLDORIGIN, caster)
+  ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+  
+  -- Bird exploding sound
+  target:EmitSound("Hero_Beastmaster.Hawk.Target")
+
   -- Check if target has spell block or spell immunity
   if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
     if caster and not caster:IsNull() and caster:IsAlive() then
       caster:ForceKill(false)
     end
+    -- Release explosion particle
+    ParticleManager:ReleaseParticleIndex(particle)
     return
   end
 
@@ -124,10 +152,16 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   damage_table.ability = self
 
   ApplyDamage(damage_table)
+  
+  -- Add vision over stunned unit
+  AddFOWViewer(caster:GetTeamNumber(), location, caster:GetCurrentVisionRange(), duration, false)
 
   if caster and not caster:IsNull() and caster:IsAlive() then
     caster:ForceKill(false)
   end
+
+  -- Release explosion particle
+  ParticleManager:ReleaseParticleIndex(particle)
 end
 
 ---------------------------------------------------------------------------------------------------
