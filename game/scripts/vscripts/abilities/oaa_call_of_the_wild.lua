@@ -9,6 +9,8 @@ function beastmaster_call_of_the_wild_boar_oaa:OnSpellStart()
 
   self:SpawnBoar(caster, playerID, abilityLevel, duration)
 
+  caster:EmitSound("Hero_Beastmaster.Call.Boar")
+
   -- if abilityLevel > 3 then
     -- local npcCreepList = {
       -- "npc_dota_neutral_alpha_wolf",
@@ -52,8 +54,6 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(particle1, 0, boar:GetOrigin())
   ParticleManager:ReleaseParticleIndex(particle1)
-
-  caster:EmitSound("Hero_Beastmaster.Call.Boar")
 end
 
 function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)

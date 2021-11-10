@@ -17,8 +17,6 @@ end
 if IsServer() then
   -- There are so many values passed (in arrow_data) to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
   function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_data)
-    caster:EmitSound("Hero_Mirana.ArrowCast")
-
     local pid = self.next_projectile_id or 0
     if self.next_projectile_id then
       self.next_projectile_id = self.next_projectile_id + 1
@@ -267,6 +265,7 @@ if IsServer() then
       end
     end
   end
+
   function mirana_arrow_oaa:OnSpellStart()
     local caster = self:GetCaster()
     local position = caster:GetAbsOrigin()
@@ -299,7 +298,7 @@ if IsServer() then
       direction = (target_position - position):Normalized()
     end
     -- Maximum arrow range
-    local arrow_range = self:GetSpecialValueFor( "arrow_range" )
+    local arrow_range = self:GetSpecialValueFor("arrow_range")
     -- Global cast range talent
     local talent1 = caster:FindAbilityByName("special_bonus_mirana_arrow_global")
     if talent1 and talent1:GetLevel() > 0 then
@@ -327,6 +326,9 @@ if IsServer() then
       self.starfall_hit = {}
     end
 
+    -- Arrow cast sound
+    caster:EmitSound("Hero_Mirana.ArrowCast")
+
     -- Send arrow
     self:SendArrow(caster, position, direction, arrow_data)
 
@@ -352,7 +354,7 @@ if IsServer() then
 
         -- Mark this arrow as a multishot arrow
         arrow_data.multishot_arrow = 1
-		
+
         -- Send arrow
         self:SendArrow(caster, position, direction_multishot, arrow_data)
       end
@@ -385,31 +387,6 @@ function mirana_arrow_oaa:GetCooldown( level )
 end
 
 --------------------------------------------------------------------------------
-
--- Because we do not have the ability to retrieve it otherwise
---[[
-function mirana_arrow_oaa:GetCastRangeIncrease()
-local cast_range_increase = 0
-
--- Bonuses from items
-for i = 0,5 do
-  for item_name, item_bonus in pairs(CAST_RANGE_BONUSES_FROM_ITEMS) do
-  if self:GetItemInSlot(i) and self:GetItemInSlot(i):GetName() == item_name then
-    cast_range_increase = math.max(cast_range_increase, item_bonus)
-  end
-  end
-end
-
--- Bonuses from talents
-for _, cast_range_value in pairs(CAST_RANGE_TALENT_VALUES) do
-  if self:FindAbilityByName("special_bonus_cast_range_"..cast_range_value) and self:FindAbilityByName("special_bonus_cast_range_"..cast_range_value):GetLevel() > 0 then
-  cast_range_increase = cast_range_increase + cast_range_value
-  end
-end
-
-return cast_range_increase
-end
-  ]]
 
 function mirana_arrow_oaa:GetCastRange(location, target)
   local caster = self:GetCaster()

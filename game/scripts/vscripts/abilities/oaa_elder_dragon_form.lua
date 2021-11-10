@@ -102,6 +102,14 @@ function dragon_knight_elder_dragon_form_oaa:OnUpgrade()
   vanilla_ability:SetLevel(ability_level)
 end
 
+function dragon_knight_elder_dragon_form_oaa:ProcsMagicStick()
+  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
+    return false
+  end
+
+  return true
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_dragon_knight_elder_dragon_form_oaa = class(ModifierBaseClass)
