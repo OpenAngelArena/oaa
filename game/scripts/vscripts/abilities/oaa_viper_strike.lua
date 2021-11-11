@@ -50,10 +50,11 @@ function viper_viper_strike_oaa:OnAbilityPhaseStart()
 end
 
 function viper_viper_strike_oaa:OnAbilityPhaseInterrupted()
-	if self.partCast then
-		ParticleManager:DestroyParticle( self.partCast, false )
-		ParticleManager:ReleaseParticleIndex( self.partCast )
-	end
+  if self.partCast then
+    ParticleManager:DestroyParticle( self.partCast, false )
+    ParticleManager:ReleaseParticleIndex( self.partCast )
+    self.partCast = nil
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -99,10 +100,11 @@ function viper_viper_strike_oaa:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local originCaster = caster:GetAbsOrigin()
 
-	-- clean up cast particle
-	if self.partCast then
-		ParticleManager:ReleaseParticleIndex( self.partCast )
-	end
+  -- clean up cast particle
+  if self.partCast then
+    ParticleManager:ReleaseParticleIndex( self.partCast )
+    self.partCast = nil
+  end
 
 	-- play the sounds
 	caster:EmitSound( "Hero_Viper.ViperStrike" )

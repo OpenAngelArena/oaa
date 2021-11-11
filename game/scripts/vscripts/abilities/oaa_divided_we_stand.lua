@@ -1,6 +1,5 @@
 --LinkLuaModifier("modifier_meepo_divided_we_stand_oaa", "abilities/oaa_divided_we_stand.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_death", "abilities/oaa_divided_we_stand.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_passive", "abilities/oaa_divided_we_stand.lua",LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_bonus_buff", "abilities/oaa_divided_we_stand.lua", LUA_MODIFIER_MOTION_NONE)
 
 meepo_divided_we_stand_oaa = class(AbilityBaseClass)
@@ -258,50 +257,6 @@ function GetAllMeepos(caster)
   else
     return {caster}
   end
-end
-]]
-
----------------------------------------------------------------------------------------------------
---[[
-modifier_meepo_divided_we_stand_oaa_passive = class(ModifierBaseClass)
-
-function modifier_meepo_divided_we_stand_oaa_passive:IsHidden()
-  return true
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:IsDebuff()
-  return false
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:IsPurgable()
-  return false
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:RemoveOnDeath()
-  return false
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:IsAura()
-	if self:GetParent():PassivesDisabled() then
-    return false
-  end
-	return true
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:GetModifierAura()
-  return "modifier_meepo_divided_we_stand_oaa_bonus_buff"
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:GetAuraSearchType()
-  return DOTA_UNIT_TARGET_HERO
-end
-
-function modifier_meepo_divided_we_stand_oaa_passive:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 ]]
 

@@ -62,12 +62,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "illusion_incoming_damage"                        "200 175 150 125 100 50" //OAA
+        "illusion_incoming_damage"                        "200 175 150 125 75 25" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_total_illusion_incoming_damage"          "300 275 250 225 200 150" //OAA
+        "tooltip_total_illusion_incoming_damage"          "300 275 250 225 175 125" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "07"

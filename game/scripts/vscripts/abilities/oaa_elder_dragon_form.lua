@@ -6,31 +6,31 @@ LinkLuaModifier( "modifier_dragon_knight_frostbite_debuff_oaa", "abilities/oaa_e
 
 -- this makes the ability passive when it hits level 5 and caster has scepter
 function dragon_knight_elder_dragon_form_oaa:GetBehavior()
-	if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
-		return DOTA_ABILITY_BEHAVIOR_PASSIVE
-	end
+  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
+    return DOTA_ABILITY_BEHAVIOR_PASSIVE
+  end
 
-	return self.BaseClass.GetBehavior(self)
+  return self.BaseClass.GetBehavior(self)
 end
 
 -- this is meant to accompany the above, removing the mana cost and cooldown
 -- from the tooltip when it becomes passive
 function dragon_knight_elder_dragon_form_oaa:GetCooldown(level)
-	local caster = self:GetCaster() or self:GetOwner()
+  local caster = self:GetCaster() or self:GetOwner()
   if (self:GetLevel() >= 5 or level >= 5) and caster:HasScepter() then
-		return 0
-	end
+    return 0
+  end
 
-	return self.BaseClass.GetCooldown(self, level)
+  return self.BaseClass.GetCooldown(self, level)
 end
 
 function dragon_knight_elder_dragon_form_oaa:GetManaCost(level)
-	local caster = self:GetCaster() or self:GetOwner()
+  local caster = self:GetCaster() or self:GetOwner()
   if (self:GetLevel() >= 5 or level >= 5) and caster:HasScepter() then
-		return 0
-	end
+    return 0
+  end
 
-	return self.BaseClass.GetManaCost(self, level)
+  return self.BaseClass.GetManaCost(self, level)
 end
 
 function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
@@ -102,24 +102,32 @@ function dragon_knight_elder_dragon_form_oaa:OnUpgrade()
   vanilla_ability:SetLevel(ability_level)
 end
 
+function dragon_knight_elder_dragon_form_oaa:ProcsMagicStick()
+  if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
+    return false
+  end
+
+  return true
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_dragon_knight_elder_dragon_form_oaa = class(ModifierBaseClass)
 
 function modifier_dragon_knight_elder_dragon_form_oaa:IsHidden()
-	return true
+  return true
 end
 
 function modifier_dragon_knight_elder_dragon_form_oaa:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_dragon_knight_elder_dragon_form_oaa:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_dragon_knight_elder_dragon_form_oaa:RemoveOnDeath()
-	return false
+  return false
 end
 
 function modifier_dragon_knight_elder_dragon_form_oaa:OnCreated()
@@ -171,7 +179,7 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
       end
     else
       -- Parent doesn't have scepter -> indirectly check if parent dropped/sold his scepter
-      -- by checking if has dragon form modifiers and by checking modifier durations
+      -- by checking if it has dragon form modifiers and by checking modifier durations
       if not modifier then
         -- Modifier doesn't exist and parent doesn't have scepter -> don't do anything
         return
@@ -266,6 +274,22 @@ function modifier_dragon_knight_max_level_oaa:RemoveOnDeath()
   return true
 end
 
+function modifier_dragon_knight_max_level_oaa:OnCreated()
+  local ability = self:GetAbility()
+  local mr_at_4 = ability:GetLevelSpecialValueFor("magic_resistance", 3)
+  local mr_at_5 = ability:GetLevelSpecialValueFor("magic_resistance", 4)
+
+  if mr_at_5 > mr_at_4 and mr_at_4 ~= 100 then
+    self.bonus_mr = 100 * (mr_at_5 - mr_at_4) / (100 - mr_at_4)
+  else
+    self.bonus_mr = 0
+  end
+end
+
+function modifier_dragon_knight_max_level_oaa:OnRefresh()
+  self:OnCreated()
+end
+
 function modifier_dragon_knight_max_level_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -276,7 +300,7 @@ function modifier_dragon_knight_max_level_oaa:DeclareFunctions()
 end
 
 function modifier_dragon_knight_max_level_oaa:GetModifierMagicalResistanceBonus()
-  return 20
+  return self.bonus_mr
 end
 
 function modifier_dragon_knight_max_level_oaa:OnAttackLanded(event)

@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5369"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "5369"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
 
@@ -17,7 +17,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "55 50 45 45 45" //OAA
+    "AbilityCooldown"                                     "55 50 45 40 35" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

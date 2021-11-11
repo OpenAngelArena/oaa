@@ -9,6 +9,8 @@ function beastmaster_call_of_the_wild_boar_oaa:OnSpellStart()
 
   self:SpawnBoar(caster, playerID, abilityLevel, duration)
 
+  caster:EmitSound("Hero_Beastmaster.Call.Boar")
+
   -- if abilityLevel > 3 then
     -- local npcCreepList = {
       -- "npc_dota_neutral_alpha_wolf",
@@ -52,8 +54,6 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(particle1, 0, boar:GetOrigin())
   ParticleManager:ReleaseParticleIndex(particle1)
-
-  caster:EmitSound("Hero_Beastmaster.Call.Boar")
 end
 
 function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
@@ -72,18 +72,33 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, 
   return npcCreep
 end
 
+---------------------------------------------------------------------------------------------------
+
 beastmaster_call_of_the_wild_hawk_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier( "modifier_hawk_invisibility_oaa", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_hawk_shard_truesight", "abilities/oaa_call_of_the_wild.lua", LUA_MODIFIER_MOTION_NONE )
 
+function beastmaster_call_of_the_wild_hawk_oaa:GetAOERadius()
+  return self:GetSpecialValueFor("hawk_vision")
+end
+
 function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
+  local target_loc = self:GetCursorPosition()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()
   local abilityLevel = self:GetLevel()
   local duration = self:GetSpecialValueFor("duration")
 
-  self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
+  local hawk = self:SpawnHawk(caster, playerID, abilityLevel, duration, 1)
+
+  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+
+  Timers:CreateTimer(2/30, function()
+	if hawk and target_loc then
+      hawk:MoveToPosition(target_loc)
+    end
+  end)
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abilityLevel, duration, number_of_hawks)
@@ -141,9 +156,11 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
       -- True-Sight buff
       hawk:AddNewModifier(caster, self, "modifier_hawk_shard_truesight", {})
     end
-  end
 
-  caster:EmitSound("Hero_Beastmaster.Call.Hawk")
+    if number_of_hawks == 1 then
+	  return hawk
+    end
+  end
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)

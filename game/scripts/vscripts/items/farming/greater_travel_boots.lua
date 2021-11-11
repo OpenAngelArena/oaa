@@ -49,6 +49,13 @@ function item_greater_travel_boots:OnSpellStart()
   local hCaster = self:GetCaster()
   local hTarget = self:GetCursorTarget()
   local casterTeam = hCaster:GetTeamNumber()
+  
+  -- Disable working on Meepo Clones
+  if hCaster:IsClone() then
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
+  end
 
   local function IsAlly(entity)
     return entity:GetTeamNumber() == casterTeam

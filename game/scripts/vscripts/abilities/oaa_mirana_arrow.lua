@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_mirana_arrow_stun_oaa", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_special_bonus_unique_mirana_global_arrow", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_special_bonus_unique_mirana_arrow_cooldown", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -14,11 +15,8 @@ function mirana_arrow_oaa:CastFilterResultTarget (unit)
 end
 
 if IsServer() then
-
   -- There are so many values passed (in arrow_data) to make sure we have values from time the arrow was sent and not on hit (may get level-up in meantime)
   function mirana_arrow_oaa:SendArrow(caster, position, direction, arrow_data)
-    caster:EmitSound("Hero_Mirana.ArrowCast")
-
     local pid = self.next_projectile_id or 0
     if self.next_projectile_id then
       self.next_projectile_id = self.next_projectile_id + 1
@@ -36,7 +34,7 @@ if IsServer() then
       Ability = self,
       EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf",
       vSpawnOrigin = spawn_origin,
-      fDistance = arrow_data.arrow_range,
+      fDistance = arrow_data.arrow_range + caster:GetCastRangeBonus(),
       fStartRadius = arrow_data.arrow_width,
       fEndRadius = arrow_data.arrow_width,
       Source = caster,
@@ -59,7 +57,8 @@ if IsServer() then
         arrow_base_damage = arrow_data.arrow_base_damage,
         arrow_damage_type = arrow_data.arrow_damage_type,
         arrow_vision = arrow_data.arrow_vision,
-        arrow_vision_duration = arrow_data.arrow_vision_duration
+        arrow_vision_duration = arrow_data.arrow_vision_duration,
+        multishot_arrow = arrow_data.multishot_arrow
       },
     }
     ProjectileManager:CreateLinearProjectile(info)
@@ -87,26 +86,33 @@ if IsServer() then
     end
 
     -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple arrows
-    local stunned_modifier = target:FindModifierByNameAndCaster("modifier_stunned", caster)
-    if not stunned_modifier and not target:IsMagicImmune() then
+    local stunned_modifier = target:FindModifierByNameAndCaster("modifier_mirana_arrow_stun_oaa", caster)
+    if not stunned_modifier or (stunned_modifier and data.multishot_arrow == 0) then
+      -- Decrease the hit counter
+      self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
+      -- Kill non-ancient creeps instantly (doesn't matter if they are spell-immune)
       if target:IsCreep() and (not target:IsConsideredHero()) and (not target:IsAncient()) then
         target:Kill(self, caster)
-      else
+      elseif not target:IsMagicImmune() then
         -- Traveled distance limited to arrow_max_stunrange
-        local arrow_traveled_distance = math.min( ( self.arrow_start_position[pid] - target:GetAbsOrigin() ):Length(), data.arrow_max_stunrange )
+        local arrow_traveled_distance = math.min( (self.arrow_start_position[pid] - target:GetAbsOrigin()):Length2D(), data.arrow_max_stunrange)
+
         -- Multiplier from 0.0 to 1.0 for Arrow's stun duration (and damage based on distance)
         local dist_mult = arrow_traveled_distance / data.arrow_max_stunrange
 
         -- Stun duration from arrow_min_stun to arrow_max_stun based on stun_mult
         local stun_duration = (data.arrow_max_stun - data.arrow_min_stun) * dist_mult + data.arrow_min_stun
+
+        -- Status resistance fix
         stun_duration = target:GetValueChangedByStatusResistance(stun_duration)
 
         -- Apply Stun before damage (Applying stun after damage is bad)
-        target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
+        target:AddNewModifier(caster, self, "modifier_mirana_arrow_stun_oaa", {duration = stun_duration})
 
         -- Damage arrow_base_damage with damage based on traveled distance
         local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
-        -- Damage
+
+        -- Damage table
         local damage_table = {}
         damage_table.victim = target
         damage_table.attacker = caster
@@ -122,7 +128,7 @@ if IsServer() then
           local particle_delay = 0.8
           local damage_delay = particle_delay + 0.57
           local star_damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
-          local secondary_star_damage_reduction = 50 or starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
+          local secondary_star_damage_reduction = starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
           -- Check for Starfall bonus damage talent
           local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
           if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
@@ -161,8 +167,6 @@ if IsServer() then
 
     -- Add hit sound
     target:EmitSound("Hero_Mirana.ArrowImpact")
-
-    self.arrow_hit_count[pid] = self.arrow_hit_count[pid] - 1
 
     if self.arrow_hit_count[pid] < 0 then
       self.arrow_start_position[pid] = nil
@@ -261,6 +265,7 @@ if IsServer() then
       end
     end
   end
+
   function mirana_arrow_oaa:OnSpellStart()
     local caster = self:GetCaster()
     local position = caster:GetAbsOrigin()
@@ -293,7 +298,7 @@ if IsServer() then
       direction = (target_position - position):Normalized()
     end
     -- Maximum arrow range
-    local arrow_range = self:GetSpecialValueFor( "arrow_range" )
+    local arrow_range = self:GetSpecialValueFor("arrow_range")
     -- Global cast range talent
     local talent1 = caster:FindAbilityByName("special_bonus_mirana_arrow_global")
     if talent1 and talent1:GetLevel() > 0 then
@@ -313,12 +318,16 @@ if IsServer() then
       arrow_damage_type = self:GetAbilityDamageType(),
       arrow_vision = self:GetSpecialValueFor( "arrow_vision" ), -- Arrow vision radius
       arrow_vision_duration = self:GetSpecialValueFor( "arrow_vision_duration" ), -- Vision duration after hit
-      arrow_pierce_count = self:GetSpecialValueFor("arrow_pierce_count") -- Pierce targets count
+      arrow_pierce_count = self:GetSpecialValueFor("arrow_pierce_count"), -- Pierce targets count
+      multishot_arrow = 0 -- 0 for false, 1 for true
     }
 
     if caster:HasScepter() then
       self.starfall_hit = {}
     end
+
+    -- Arrow cast sound
+    caster:EmitSound("Hero_Mirana.ArrowCast")
 
     -- Send arrow
     self:SendArrow(caster, position, direction, arrow_data)
@@ -343,12 +352,14 @@ if IsServer() then
         -- Rotate forward vector
         local direction_multishot = RotatePosition(Vector(0,0,0), QAngle(0, angle, 0), direction):Normalized()
 
+        -- Mark this arrow as a multishot arrow
+        arrow_data.multishot_arrow = 1
+
         -- Send arrow
         self:SendArrow(caster, position, direction_multishot, arrow_data)
       end
     end
   end
-
 end
 
 --------------------------------------------------------------------------------
@@ -377,31 +388,6 @@ end
 
 --------------------------------------------------------------------------------
 
--- Because we do not have the ability to retrieve it otherwise
---[[
-function mirana_arrow_oaa:GetCastRangeIncrease()
-local cast_range_increase = 0
-
--- Bonuses from items
-for i = 0,5 do
-  for item_name, item_bonus in pairs(CAST_RANGE_BONUSES_FROM_ITEMS) do
-  if self:GetItemInSlot(i) and self:GetItemInSlot(i):GetName() == item_name then
-    cast_range_increase = math.max(cast_range_increase, item_bonus)
-  end
-  end
-end
-
--- Bonuses from talents
-for _, cast_range_value in pairs(CAST_RANGE_TALENT_VALUES) do
-  if self:FindAbilityByName("special_bonus_cast_range_"..cast_range_value) and self:FindAbilityByName("special_bonus_cast_range_"..cast_range_value):GetLevel() > 0 then
-  cast_range_increase = cast_range_increase + cast_range_value
-  end
-end
-
-return cast_range_increase
-end
-  ]]
-
 function mirana_arrow_oaa:GetCastRange(location, target)
   local caster = self:GetCaster()
 
@@ -422,6 +408,53 @@ function mirana_arrow_oaa:GetCastRange(location, target)
   end
 
   return self.BaseClass.GetCastRange( self, location, target )
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_mirana_arrow_stun_oaa = class(ModifierBaseClass)
+
+function modifier_mirana_arrow_stun_oaa:IsHidden()
+  return false
+end
+
+function modifier_mirana_arrow_stun_oaa:IsDebuff()
+  return true
+end
+
+function modifier_mirana_arrow_stun_oaa:IsStunDebuff()
+  return true
+end
+
+function modifier_mirana_arrow_stun_oaa:IsPurgable()
+  return true
+end
+
+function modifier_mirana_arrow_stun_oaa:GetEffectName()
+  return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+
+function modifier_mirana_arrow_stun_oaa:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_mirana_arrow_stun_oaa:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  }
+
+  return funcs
+end
+
+function modifier_mirana_arrow_stun_oaa:GetOverrideAnimation()
+  return ACT_DOTA_DISABLED
+end
+
+function modifier_mirana_arrow_stun_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_STUNNED] = true,
+  }
+  return state
 end
 
 ---------------------------------------------------------------------------------------------------

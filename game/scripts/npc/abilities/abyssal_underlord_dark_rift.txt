@@ -41,12 +41,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400" // OAA, for picking screen tooltip
+        "radius"                                          "450" // OAA, for picking screen tooltip
       }
       "02" // cast point
       {
         "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "1.7" // OAA, for picking screen tooltip
+        "teleport_delay"                                  "1.6" // OAA, for picking screen tooltip
       }
       "03"
       {

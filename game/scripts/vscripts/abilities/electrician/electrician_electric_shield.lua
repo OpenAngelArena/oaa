@@ -60,7 +60,7 @@ function electrician_electric_shield:OnSpellStart()
   if caster:HasShardOAA() then
     return
   end
-  local shieldHP = self.usedCost * ( self:GetSpecialValueFor( "shield_per_mana" ) * 0.01 )
+  local shieldHP = self.usedCost * self:GetSpecialValueFor("shield_per_mana")
 
   -- create the shield modifier
   caster:AddNewModifier( caster, self, "modifier_electrician_electric_shield", {
@@ -160,12 +160,14 @@ if IsServer() then
     local blockAmount = event.damage * self.shieldRate
     local parent = self:GetParent()
     if parent:HasShardOAA() then
-      local damage_per_mana = self:GetAbility():GetSpecialValueFor("shield_per_mana") * 0.01
+      local ability = self:GetAbility()
+      local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
+      local shield_dmg_block = math.max(ability:GetSpecialValueFor("shard_shield_damage_block"), ability:GetSpecialValueFor("shield_damage_block"))
       local current_mana = parent:GetMana()
       local current_shield_hp = current_mana * damage_per_mana
 
       -- Calculate block amount
-      blockAmount = math.min(blockAmount, current_shield_hp)
+      blockAmount = math.min(event.damage * shield_dmg_block * 0.01, current_shield_hp)
 
       -- Calculate what shield hp should be after blocking
       local shield_hp_after = current_shield_hp - blockAmount

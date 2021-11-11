@@ -26,7 +26,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "5"      // Physical protection.
-    "MagicalResistance"                                   "0"      // Magical protection.
+    "MagicalResistance"                                   "25"      // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -56,8 +56,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "600"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "600"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "750"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "750"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------

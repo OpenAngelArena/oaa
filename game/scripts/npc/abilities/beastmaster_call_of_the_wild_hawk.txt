@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"					          "7231"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, for picking screen tooltip
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, for picking screen tooltip
     "AbilitySound"					"Hero_Beastmaster.Call.Hawk"
 
     "MaxLevel"                                            "6"
