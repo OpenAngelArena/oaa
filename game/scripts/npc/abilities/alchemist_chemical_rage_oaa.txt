@@ -1,0 +1,95 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Alchemist: Chemical Rage (OAA ability that improves vanilla ability)
+  //=================================================================================================================
+  "alchemist_chemical_rage_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85369"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_alchemist_chemical_rage.lua"
+    "AbilityTextureName"                                  "alchemist_chemical_rage"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "55 50 45 40 35"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50 75 100 125 150"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "25.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "0.35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.2 1.15 1.1 1.05 1.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "50 100 150 250 350"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed"                                 "40 50 60 70 80"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_gold_damage"                             "2"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "20"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_spell_amp"                               "5"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

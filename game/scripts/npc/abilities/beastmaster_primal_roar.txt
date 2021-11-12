@@ -71,12 +71,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-60"
+        "slow_movement_speed_pct"                         "-60 -65 -70 -75 -80" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed_pct"                           "-60 -80 -100 -120 -140" //OAA
+        "slow_attack_speed_pct"                           "-60 -80 -100 -150 -200" //OAA
       }
       "07"
       {
@@ -96,7 +96,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "40"
+        "movement_speed"                                  "40 45 50 55 60" //OAA
       }
       "11"
       {

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5368"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -36,7 +36,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_cap"                                  "36 42 48 54 66 102" //OAA
+        "bonus_gold_cap"                                  "30 36 42 48 60 96" //OAA
       }
       "05"
       {

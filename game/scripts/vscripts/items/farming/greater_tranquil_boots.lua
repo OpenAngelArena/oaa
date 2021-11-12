@@ -385,8 +385,8 @@ function modifier_greater_tranquils_trees_buff:OnIntervalThink()
     return
   end
 
-  -- Ignore illusions and Meepo clones
-  if parent:IsIllusion() or parent:IsClone() then
+  -- Ignore illusions
+  if parent:IsIllusion() then
     return
   end
 
@@ -450,7 +450,12 @@ function modifier_greater_tranquils_trees_buff:GetModifierIncomingDamage_Percent
   --end
 
   if self:GetStackCount() == 0 then
-    return 0-self.dmg_reduction or 0-self:GetAbility():GetSpecialValueFor("passive_damage_reduction")
+    local dmg_reduction = 0-self.dmg_reduction or 0-self:GetAbility():GetSpecialValueFor("passive_damage_reduction")
+    if self:GetParent():IsClone() then
+      return dmg_reduction / 2
+    else
+      return dmg_reduction
+    end
   end
 
   return 0

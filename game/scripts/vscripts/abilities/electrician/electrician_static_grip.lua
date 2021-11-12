@@ -299,8 +299,8 @@ if IsServer() then
 		local parent = self:GetParent()
 		local spell = self:GetAbility()
 		self.target = EntIndexToHScript( event.target )
-		self.speed = spell:GetSpecialValueFor( "pull_speed" )
-		self.pullBuffer = 150 --spell:GetSpecialValueFor( "pull_buffer" )
+		self.speed = spell:GetSpecialValueFor( "pull_speed" ) or 120
+		self.pullBuffer = spell:GetSpecialValueFor( "pull_buffer" ) or 150
 
 		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()

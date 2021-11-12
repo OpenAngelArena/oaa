@@ -5,6 +5,21 @@
   //=================================================================================================================
   "npc_dota_hero_alchemist"
   {
+    "Ability3"                                            "alchemist_goblins_greed_oaa" // replaces alchemist_goblins_greed
+    "Ability5"                                            "alchemist_goblins_greed" // replaces generic_hidden
+    "Ability6"                                            "alchemist_chemical_rage_oaa" // replaces alchemist_chemical_rage
+    "Ability8"                                            "alchemist_chemical_rage" // replaces undefined
 
+    "Ability16"                                           "special_bonus_unique_alchemist_1_oaa" // replaces special_bonus_unique_alchemist_6
+    "Ability17"                                           "special_bonus_unique_alchemist_2_oaa" // replaces special_bonus_unique_alchemist_4
+
+    // special_bonus_unique_alchemist -       +{s:value} Unstable Concoction Radius
+    // special_bonus_unique_alchemist_2 -     +{s:value} Unstable Concoction Damage
+    // special_bonus_unique_alchemist_3 -     -{s:value} Chemical Rage Base Attack Time     - overpowered
+    // special_bonus_unique_alchemist_4 -     +{s:value} Chemical Rage Regeneration
+    // special_bonus_unique_alchemist_5 -     -{s:value} Acid Spray Armor Reduction         - unused
+    // special_bonus_unique_alchemist_6 -     +{s:value} Chemical Rage Movement Speed
+    // special_bonus_unique_alchemist_1_oaa - Chemical Rage Strong Dispels
+    // special_bonus_unique_alchemist_2_oaa - +{s:value} Greevil's Greed armor reduction per hit
   }
 }

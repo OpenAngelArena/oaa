@@ -53,6 +53,9 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   -- Spell damage of the bounced projectile
   local glaives_damage = data.spell_damage * bounce_damage_reduction * 0.01
 
+  -- Number of bounces left (Data of the current projectile is read-only !!!)
+  local bounces_left = data.bounces_left
+
   -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
   if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
     local intStealDuration = self:GetSpecialValueFor("int_steal_duration")
@@ -89,7 +92,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
 
   -- Create more bounces if there are more left
-  if data.bounces_left > 0 then
+  if bounces_left > 0 then
     -- Data of the current projectile is read-only !!!
 
     local bounce_radius = self:GetSpecialValueFor("shard_bounce_range")
@@ -116,17 +119,19 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
       for _, enemy in ipairs(enemies) do
         if enemy and enemy ~= target and not enemy:IsAttackImmune() then
           local projectile_info = {
-            EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
-            Ability = damage_table.ability,
-            Source = target,
-            bProvidesVision = false,
             Target = enemy,
-            iMoveSpeed = caster:GetProjectileSpeed(),
+            Source = target,
+            Ability = damage_table.ability,
+            EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
             bDodgable = true,
+            bProvidesVision = false,
+            bVisibleToEnemies = true,
+            bReplaceExisting = false,
+            iMoveSpeed = caster:GetProjectileSpeed(),
             bIsAttack = false,
-            --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+            iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
             ExtraData = {
-              bounces_left = data.bounces_left - 1,
+              bounces_left = bounces_left - 1,
               physical_damage = bounce_damage,
               spell_damage = glaives_damage
             }
@@ -384,15 +389,17 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
         for _, enemy in ipairs(enemies) do
           if enemy and enemy ~= target and not enemy:IsAttackImmune() then
             local projectile_info = {
-              EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
-              Ability = ability,
-              Source = target,
-              bProvidesVision = false,
               Target = enemy,
-              iMoveSpeed = parent:GetProjectileSpeed(),
+              Source = target,
+              Ability = ability,
+              EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
               bDodgable = true,
+              bProvidesVision = false,
+              bVisibleToEnemies = true,
+              bReplaceExisting = false,
+              iMoveSpeed = parent:GetProjectileSpeed(),
               bIsAttack = false,
-              --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+              iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
               ExtraData = {
                 bounces_left = number_of_bounces - 1,
                 physical_damage = event.damage,

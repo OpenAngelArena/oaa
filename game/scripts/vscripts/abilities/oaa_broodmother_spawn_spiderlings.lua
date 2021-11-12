@@ -168,9 +168,9 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnDeath(event)
   local playerID = parent:GetPlayerID()
 
   -- Calculate stats
-  local summon_hp = base_hp + level * hp_per_level
-  local summon_armor = base_armor + level * armor_per_level
-  local summon_damage = base_damage + level * damage_per_level
+  local summon_hp = base_hp + (level - 1) * hp_per_level
+  local summon_armor = base_armor + (level - 1) * armor_per_level
+  local summon_damage = base_damage + (level - 1) * damage_per_level
 
   for i = 1, summon_count do
     local summon = self:SpawnUnit(unit_name, parent, playerID, summon_position, false)
@@ -307,7 +307,7 @@ function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
   local parent = self:GetParent()
   local web_radius = ability:GetSpecialValueFor("radius")
   local origin = parent:GetAbsOrigin()
-  local hp_percent = parent:GetHealth() / parent:GetMaxHealth()
+  local hp_percent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
 
   local multiplier = (hp_percent - self.hp_percent_low)/(self.hp_percent_high - self.hp_percent_low)
   local webs = Entities:FindAllByClassnameWithin("npc_dota_broodmother_web", origin, web_radius)

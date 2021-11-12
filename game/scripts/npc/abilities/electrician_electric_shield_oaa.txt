@@ -47,8 +47,8 @@
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shield_per_mana"                                 "75 95 115 135 155 175"
+        "var_type"                                        "FIELD_FLOAT"
+        "shield_per_mana"                                 "0.75 0.95 1.15 1.35 1.6 1.85"
       }
       "03"
       {
@@ -76,6 +76,17 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "aura_interval"                                   "0.25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_shield_per_mana"                           "1.9 2.1 2.3 2.5 2.75 3.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_shield_damage_block"                       "20 30 40 50 60 70"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
 

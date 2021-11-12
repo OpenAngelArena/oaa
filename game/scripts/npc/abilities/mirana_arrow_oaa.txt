@@ -82,14 +82,14 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "arrow_max_stun"                                  "3.5 4 4.5 5 5 5"
+        "arrow_max_stun"                                  "5"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_bonus_damage"                              "180 190 200 210 310 410"
       }
-      "08" // Radius around the arrow while flying
+      "08" // Radius around the arrow while flying and after hitting
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_vision"                                    "400"

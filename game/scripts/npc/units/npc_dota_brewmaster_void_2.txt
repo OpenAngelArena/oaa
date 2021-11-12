@@ -32,14 +32,14 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "5" //OAA
-    "MagicalResistance"                                   "25" //OAA
+    "MagicalResistance"                                   "20"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "65" //OAA
     "AttackDamageMax"                                     "75" //OAA
-    "AttackRate"                                          "1.0" //OAA
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
     "AttackRange"				"150"		// Range within a target can be attacked.
@@ -57,7 +57,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1600" //OAA
+    "StatusHealth"                                        "1800" //OAA
     "StatusHealthRegen"                                   "6" //OAA
     "StatusMana"                                          "750"
     "StatusManaRegen"                                     "1.5"

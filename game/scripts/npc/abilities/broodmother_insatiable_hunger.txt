@@ -20,7 +20,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "21" //OAA
+    "AbilityCooldown"                                     "24 23 22 21 20 19" //OAA
     "AbilityManaCost"                                     "50 60 70 80 90 100"
 
     // Special
@@ -30,7 +30,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 50 70 90 180 360" //OAA
+        "bonus_damage"                                    "45 60 75 90 180 360" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_1"
       }
       "02"
