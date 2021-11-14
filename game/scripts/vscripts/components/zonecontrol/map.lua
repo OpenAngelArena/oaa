@@ -2,6 +2,9 @@
 MapControl = Components:Register('MapControl', COMPONENT_STRATEGY)
 
 function MapControl:Init ()
+  if GetMapName() == "oaa_legacy" then
+    return
+  end
   ZoneControl:CreateZone('map_border_n', {
       mode = ZONE_CONTROL_INCLUSIVE,
       players = {}

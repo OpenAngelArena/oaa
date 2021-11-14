@@ -4,7 +4,7 @@
 	maps =
 	[
 		"oaa_seasonal",
-		"oaa",
+		"oaa_legacy",
 		"captains_mode",
 		"10v10",
 	]
@@ -27,7 +27,7 @@
 		},
 		{
 			MaxPlayers = 10
-			map = "oaa"
+			map = "oaa_legacy"
 		},
 	]
 	HideInTools = false
