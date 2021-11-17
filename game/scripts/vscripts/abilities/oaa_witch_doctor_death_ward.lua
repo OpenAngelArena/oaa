@@ -310,17 +310,17 @@ function modifier_death_ward_oaa:OnAttackStart(event)
     return
   end
   
-  local chronos = {}
-  local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", parent:GetAbsOrigin(), 500)
-  for _, thinker in pairs(thinkers) do
-    if thinker and thinker:HasModifier("modifier_faceless_void_chronosphere") then
-      table.insert(chronos, thinker)
-    end
-  end
+  --local chronos = {}
+  --local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", parent:GetAbsOrigin(), 500)
+  --for _, thinker in pairs(thinkers) do
+    --if thinker and thinker:HasModifier("modifier_faceless_void_chronosphere") then
+      --table.insert(chronos, thinker)
+    --end
+  --end
   
-  if #chronos > 0 then
-    return
-  end
+  --if #chronos > 0 then
+    --return
+  --end
 
   -- Attack Sound
   parent:EmitSound("Hero_WitchDoctor_Ward.Attack")
