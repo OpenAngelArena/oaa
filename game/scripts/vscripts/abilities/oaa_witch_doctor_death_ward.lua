@@ -1,6 +1,7 @@
 ﻿witch_doctor_death_ward_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_death_ward_oaa", "abilities/oaa_witch_doctor_death_ward.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_death_ward_hidden_oaa", "abilities/oaa_witch_doctor_death_ward.lua", LUA_MODIFIER_MOTION_NONE)
 
 function witch_doctor_death_ward_oaa:IsStealable()
   return true
@@ -11,7 +12,7 @@ function witch_doctor_death_ward_oaa:IsHiddenWhenStolen()
 end
 
 function witch_doctor_death_ward_oaa:OnSpellStart()
-  local unit_name = "npc_dota_witch_doctor_death_ward"
+  local unit_name = "npc_dota_witch_doctor_death_ward_oaa"
   local point = self:GetCursorPosition()
 
   if not point then
@@ -48,9 +49,9 @@ function witch_doctor_death_ward_oaa:OnSpellStart()
 end
 
 function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location, data)
-  if not self.ward_unit or self.ward_unit:IsNull() then
-    return
-  end
+  --if not self.ward_unit or self.ward_unit:IsNull() then
+    --return
+  --end
 
   -- If target doesn't exist (disjointed), don't continue
   if not target or target:IsNull() then
@@ -68,8 +69,8 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
   -- Source of the damage
   local damage_source = owner --self.ward_unit
 
-	-- Damage of the projectile
-	local damage = self:GetSpecialValueFor("ward_damage")
+  -- Damage of the projectile
+  local damage = self:GetSpecialValueFor("ward_damage")
   -- Check for bonus damage talent
   local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_5")
   if talent and talent:GetLevel() > 0 then
@@ -92,6 +93,11 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
     return
   end
 
+  local projectile_speed = 1000
+  if self.ward_unit and not self.ward_unit:IsNull() then
+    projectile_speed = self.ward_unit:GetProjectileSpeed()
+  end
+  
   -- Copy data table into new_data table
   local new_data = {}
   for k, v in pairs(data) do
@@ -99,14 +105,14 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
   end
 
   -- Mark the target as hit
-  new_data[target:GetEntityIndex()] = 1
+  new_data[tostring(target:GetEntityIndex())] = 1
 
   local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
   local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
   -- Find nearest target and fire a projectile from it
   local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-  for _, enemy in pairs(enemies) do
-    if enemy and enemy ~= target and new_data[enemy:GetEntityIndex()] ~= 1 then
+  for _, enemy in ipairs(enemies) do
+    if enemy ~= target and new_data[tostring(enemy:GetEntityIndex())] ~= 1 then
       local projectile_info = {
         Target = enemy,
         Source = target,
@@ -116,13 +122,13 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
         bProvidesVision = false,
         bVisibleToEnemies = true,
         bReplaceExisting = false,
-        iMoveSpeed = self.ward_unit:GetProjectileSpeed(),
+        iMoveSpeed = projectile_speed,
         bIsAttack = false,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
         ExtraData = new_data,
       }
 
-      ProjectileManager:CreateTrackingProjectile(projectile)
+      ProjectileManager:CreateTrackingProjectile(projectile_info)
       break
     end
   end
@@ -149,8 +155,8 @@ end
 
 function witch_doctor_death_ward_oaa:OnChannelFinish(interrupted)
   if self.ward_unit and not self.ward_unit:IsNull() then
-    self.ward_unit:AddNoDraw()
-    self.ward_unit:ForceKill(false)
+    self.ward_unit:StopSound("Hero_WitchDoctor.Death_WardBuild")
+    self.ward_unit:AddNewModifier(self:GetCaster(), self, "modifier_death_ward_hidden_oaa", {duration = 3})
   end
 end
 
@@ -196,7 +202,7 @@ function modifier_death_ward_oaa:OnCreated()
   local attack_range_bonus = 0
   -- Check for bonus attack range talent
   local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_1")
-  if talent and talent:GetLevel() > 0then
+  if talent and talent:GetLevel() > 0 then
     attack_range_bonus = talent:GetSpecialValueFor("value")
   end
 
@@ -208,6 +214,27 @@ function modifier_death_ward_oaa:OnCreated()
     -- Change Night Vision
     local night_vision = math.max(800, parent:GetAttackRange() + attack_range_bonus)
     parent:SetNightTimeVisionRange(night_vision)
+	
+    -- Start attacking AI (which targets are allowed to be attacked)
+    self:StartIntervalThink(0)
+  end
+end
+
+function modifier_death_ward_oaa:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent:GetAggroTarget() and parent:GetAggroTarget():IsConsideredHero() then
+    return
+  end
+  local ability = self:GetAbility()
+  local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
+  -- Find nearest target and attack it
+  local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), nil, parent:GetAcquisitionRange(), ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
+  if #enemies > 0 then
+    parent:SetAggroTarget(enemies[1])
+    --parent:SetForceAttackTarget(enemies[1])
   end
 end
 
@@ -282,6 +309,18 @@ function modifier_death_ward_oaa:OnAttackStart(event)
     attacker:Hold()
     return
   end
+  
+  local chronos = {}
+  local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", parent:GetAbsOrigin(), 500)
+  for _, thinker in pairs(thinkers) do
+    if thinker and thinker:HasModifier("modifier_faceless_void_chronosphere") then
+      table.insert(chronos, thinker)
+    end
+  end
+  
+  if #chronos > 0 then
+    return
+  end
 
   -- Attack Sound
   parent:EmitSound("Hero_WitchDoctor_Ward.Attack")
@@ -352,17 +391,16 @@ function modifier_death_ward_oaa:OnAttackLanded(event)
   end
 
   local data = {}
-
   -- Mark the target as hit
-  data[target:GetEntityIndex()] = 1
+  data[tostring(target:GetEntityIndex())] = 1
 
   local bounce_radius = ability:GetSpecialValueFor("scepter_bounce_radius")
   local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
 
   -- Find closest target and fire a projectile from it
   local enemies = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-  for _, enemy in pairs(enemies) do
-    if enemy and enemy ~= target then
+  for _, enemy in ipairs(enemies) do
+    if enemy ~= target then
       local projectile_info = {
         Target = enemy,
         Source = target,
@@ -404,7 +442,7 @@ witch_doctor_voodoo_switcheroo_oaa = class(AbilityBaseClass)
 LinkLuaModifier("modifier_voodoo_switcheroo_oaa", "abilities/oaa_witch_doctor_death_ward.lua", LUA_MODIFIER_MOTION_NONE)
 
 function witch_doctor_voodoo_switcheroo_oaa:OnSpellStart()
-  local unit_name = "npc_dota_witch_doctor_death_ward"
+  local unit_name = "npc_dota_witch_doctor_death_ward_oaa"
   local caster = self:GetCaster()
   local point = caster:GetAbsOrigin()
 
@@ -442,9 +480,9 @@ function witch_doctor_voodoo_switcheroo_oaa:OnSpellStart()
 end
 
 function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, location, data)
-  if not self.ward_unit or self.ward_unit:IsNull() then
-    return
-  end
+  --if not self.ward_unit or self.ward_unit:IsNull() then
+    --return
+  --end
 
   -- If target doesn't exist (disjointed), don't continue
   if not target or target:IsNull() then
@@ -462,8 +500,8 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
   -- Source of the damage
   local damage_source = owner --self.ward_unit
 
-	-- Damage of the projectile
-	local damage = self:GetSpecialValueFor("ward_damage")
+  -- Damage of the projectile
+  local damage = self:GetSpecialValueFor("ward_damage")
   -- Check for bonus damage talent
   local talent = owner:FindAbilityByName("special_bonus_unique_witch_doctor_5")
   if talent and talent:GetLevel() > 0 then
@@ -486,6 +524,11 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
     return
   end
 
+  local projectile_speed = 1000
+  if self.ward_unit and not self.ward_unit:IsNull() then
+    projectile_speed = self.ward_unit:GetProjectileSpeed()
+  end
+
   -- Copy data table into new_data table
   local new_data = {}
   for k, v in pairs(data) do
@@ -493,14 +536,14 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
   end
 
   -- Mark the target as hit
-  new_data[target:GetEntityIndex()] = 1
+  new_data[tostring(target:GetEntityIndex())] = 1
 
   local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
   local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
   -- Find nearest target and fire a projectile from it
   local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-  for _, enemy in pairs(enemies) do
-    if enemy and enemy ~= target and new_data[enemy:GetEntityIndex()] ~= 1 then
+  for _, enemy in ipairs(enemies) do
+    if enemy ~= target and new_data[tostring(enemy:GetEntityIndex())] ~= 1 then
       local projectile_info = {
         Target = enemy,
         Source = target,
@@ -510,13 +553,13 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
         bProvidesVision = false,
         bVisibleToEnemies = true,
         bReplaceExisting = false,
-        iMoveSpeed = self.ward_unit:GetProjectileSpeed(),
+        iMoveSpeed = projectile_speed,
         bIsAttack = false,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
         ExtraData = new_data,
       }
 
-      ProjectileManager:CreateTrackingProjectile(projectile)
+      ProjectileManager:CreateTrackingProjectile(projectile_info)
       break
     end
   end
@@ -579,8 +622,8 @@ if IsServer() then
     -- Remove the ward
     local ability = self:GetAbility()
     if ability.ward_unit and not ability.ward_unit:IsNull() then
-      ability.ward_unit:AddNoDraw()
-      ability.ward_unit:ForceKill(false)
+      ability.ward_unit:StopSound("Hero_WitchDoctor.Death_WardBuild")
+      ability.ward_unit:AddNewModifier(parent, ability, "modifier_death_ward_hidden_oaa", {duration = 3})
     end
   end
 end
@@ -614,6 +657,69 @@ function modifier_voodoo_switcheroo_oaa:CheckState()
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+  }
+  return state
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_death_ward_hidden_oaa = class(ModifierBaseClass)
+
+function modifier_death_ward_hidden_oaa:IsDebuff()
+  return false
+end
+
+function modifier_death_ward_hidden_oaa:IsHidden()
+  return true
+end
+
+function modifier_death_ward_hidden_oaa:IsPurgable()
+  return false
+end
+
+if IsServer() then
+  function modifier_death_ward_hidden_oaa:OnCreated()
+    local parent = self:GetParent()
+    -- Hide the parent visually
+    parent:AddNoDraw()
+  end
+
+  function modifier_death_ward_hidden_oaa:OnDestroy()
+    local parent = self:GetParent()
+    parent:ForceKill(false)
+  end
+end
+
+function modifier_death_ward_hidden_oaa:DeclareFunctions()
+  local funcs ={
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+  }
+  return funcs
+end
+
+function modifier_death_ward_hidden_oaa:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_death_ward_hidden_oaa:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_death_ward_hidden_oaa:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_death_ward_hidden_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+    [MODIFIER_STATE_DISARMED] = true,
   }
   return state
 end
