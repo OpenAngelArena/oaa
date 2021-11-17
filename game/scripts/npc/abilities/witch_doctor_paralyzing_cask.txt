@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0 18.0 16.0 14.0 14.0 14.0"
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "1000"
       }
-      "07"
+      "07" // max stun duration is (max(bounces_tooltip) + talent bonus (2)) x bounce_delay + stun duration (1 or 5) = 5.2 for heroes or 9.2 for creeps and illusions
       {
         "var_type"                                        "FIELD_FLOAT"
         "bounce_delay"                                    "0.3"

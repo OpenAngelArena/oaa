@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "100"
+    "AbilityCastRange"                                    "150" //OAA
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -45,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "proximity_threshold"                             "1.6 1.6 1.6 1.6 1.38 1.15"
+        "proximity_threshold"                             "1.6 1.6 1.6 1.6 1.3 1.15"
       }
       "03"
       {
