@@ -1,0 +1,80 @@
+"DOTAUnits"
+{
+  "npc_dota_witch_doctor_death_ward_oaa"
+  {
+    "BaseClass"                                       "npc_dota_creature" // npc_dota_witch_doctor_death_ward; npc_dota_base_additive
+    "Model"                                           "models/heroes/witchdoctor/witchdoctor_ward.vmdl"  // models/items/wards/enchantedvision_ward/enchantedvision_ward.vmdl
+    "ModelScale"                                      "1.0"
+    "SoundSet"                                        "Hero_WitchDoctor_Ward"
+
+    "Level"                                           "1"
+    "wearable"                                        "602"
+
+    "UnitLabel"                                       "death_ward"
+
+    "IsSummoned"                                      "1"
+    "IsAncient"                                       "1"
+    "ConsideredHero"  				"1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                        ""
+
+    // Protection
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                   "0"     						// Physical protection.
+    "MagicalResistance"                               "0"     						// Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                              "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                 "1"
+    "AttackDamageMax"                                 "1"
+
+    "AttackRate"                                      "0.22"
+    "AttackAnimationPoint"                            "0.0"
+    "AttackAcquisitionRange"                          "700"
+    "AttackRange"                                     "700"
+
+    "ProjectileModel"                                 "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf"
+    "ProjectileSpeed"                                 "1000"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                        "0"
+    "BountyGoldMin"                                   "0"
+    "BountyGoldMax"                                   "0"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                  "DOTA_HULL_SIZE_SIEGE"
+    "RingRadius"                                      "70"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                            "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"                                   "0"
+    "MovementTurnRate"                                "0.5"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                    "160"
+    "StatusHealthRegen"                               "0.0"
+    "StatusMana"                                      "0"
+    "StatusManaRegen"                                 "0"
+
+    // Combat
+    //----------------------------------------------------------------
+    "TeamName"                                        "DOTA_TEAM_GOODGUYS"
+    "CombatClassAttack"                               "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                               "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                           "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                              "1200"
+    "VisionNighttimeRange"                            "800"
+
+    "HasInventory"                                    "0"
+  }
+}
