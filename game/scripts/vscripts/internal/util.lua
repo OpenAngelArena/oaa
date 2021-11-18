@@ -380,22 +380,20 @@ function IsLocationInRadiantOffside(pos)
     print("Radiant Offside trigger not found or referenced name is wrong.")
     return false
   end
-  local origin = trigger:GetAbsOrigin()
-  local bounds = trigger:GetBounds()
-  if pos.x < bounds.Mins.x + origin.x then
-    return false
-  end
-  if pos.y < bounds.Mins.y + origin.y then
-    return false
-  end
-  if pos.x > bounds.Maxs.x + origin.x then
-    return false
-  end
-  if pos.y > bounds.Maxs.y + origin.y then
-    return false
+  if IsInTrigger(pos, trigger) then
+    return true
+  elseif GetMapName() == "oaa_legacy" then
+    for i = 1, 4 do
+      local triggerx = Entities:FindByName(nil, 'boss_good_zone_'..tostring(i))
+      if triggerx then
+        if IsInTrigger(pos, triggerx) then
+          return true
+        end
+      end
+    end
   end
 
-  return true
+  return false
 end
 
 function IsLocationInDireOffside(pos)
@@ -405,20 +403,18 @@ function IsLocationInDireOffside(pos)
     print("Dire Offside trigger not found or referenced name is wrong.")
     return false
   end
-  local origin = trigger:GetAbsOrigin()
-  local bounds = trigger:GetBounds()
-  if pos.x < bounds.Mins.x + origin.x then
-    return false
-  end
-  if pos.y < bounds.Mins.y + origin.y then
-    return false
-  end
-  if pos.x > bounds.Maxs.x + origin.x then
-    return false
-  end
-  if pos.y > bounds.Maxs.y + origin.y then
-    return false
+  if IsInTrigger(pos, trigger) then
+    return true
+  elseif GetMapName() == "oaa_legacy" then
+    for i = 1, 4 do
+      local triggerx = Entities:FindByName(nil, 'boss_bad_zone_'..tostring(i))
+      if triggerx then
+        if IsInTrigger(pos, triggerx) then
+          return true
+        end
+      end
+    end
   end
 
-  return true
+  return false
 end
