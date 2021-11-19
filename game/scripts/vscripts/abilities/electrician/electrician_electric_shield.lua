@@ -176,10 +176,7 @@ if IsServer() then
       local mana_after = shield_hp_after / damage_per_mana
 
       -- Calculate how much mana should be removed
-      local mana_to_remove = current_mana - mana_after
-      if mana_to_remove <= 0 then
-        mana_to_remove = current_mana
-      end
+      local mana_to_remove = math.max(0, current_mana - mana_after)
 
       -- Remove mana
       parent:ReduceMana(mana_to_remove)
