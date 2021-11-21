@@ -71,6 +71,10 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
 
     -- Calculate duration
     local duration = ability:GetSpecialValueFor("duration")
+    -- Different for ranged units
+    if target:IsRangedAttacker() then
+      duration = ability:GetSpecialValueFor("duration_ranged")
+    end
 
     -- Armor reduction and disarm duration with status resistance in mind
     local disarm_duration = target:GetValueChangedByStatusResistance(duration)
@@ -82,6 +86,7 @@ function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
     if not target:IsOAABoss() then
       target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
     else
+      -- If debuff applies only armor reduction, don't change duration with status resistance
       target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_debuff", {duration = duration})
     end
 

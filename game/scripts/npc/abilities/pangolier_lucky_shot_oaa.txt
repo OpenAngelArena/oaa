@@ -28,17 +28,22 @@
         "var_type"                                        "FIELD_INTEGER"
         "chance_pct"                                      "17"
       }
-      "02"
+      "02" // aqainst melee
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2 2.5 3 3.5 4 5"
       }
-      "03"
+      "03" // against ranged
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration_ranged"                                 "2 3 4 5 5.5 6"
+      }
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "slow"                                            "0"
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "armor"                                           "-4 -5 -6 -7 -9 -11"

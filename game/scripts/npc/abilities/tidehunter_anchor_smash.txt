@@ -60,7 +60,7 @@
       "05" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_bosses"                         "-50"
+        "damage_reduction_bosses"                         "-30 -35 -40 -45 -50 -50"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

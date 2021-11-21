@@ -19,9 +19,9 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 20 18 16 14 12"
+    "AbilityCooldown"                                     "19 18 17 16 14 12" //OAA
 
-    "AbilityManaCost"                                     "40 60 80 100 200 400"
+    "AbilityManaCost"                                     "40 60 80 100 140 260"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,12 +30,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "50 70 90 110 130 150"
+        "bonus_attack_speed"                              "50 80 110 140 170 200" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "10 12 14 16 18 20"
+        "bonus_spell_amp"                                 "10 12 14 16 20 28"
       }
       "03" // this regen is based on Io's max HP
       {

@@ -6,10 +6,15 @@ if ProtectionAura == nil then
   Debug.EnabledModules['cave:protection'] = false
 end
 
-local MAX_ROOMS = 0
-
 function ProtectionAura:Init ()
   self.moduleName = "ProtectionAura (Offside protection and cave/base locking)"
+
+  local max_rooms = 0
+  local legacy = GetMapName() == "oaa_legacy"
+  if legacy then
+    max_rooms = 4
+  end
+
   ProtectionAura.zones = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {},
@@ -17,6 +22,7 @@ function ProtectionAura:Init ()
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
+
   local function addToList (list, id)
     list[id] = true
   end
@@ -41,24 +47,28 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][0].disable()
   end)
 
-  for roomID = 0, MAX_ROOMS do
+  for roomID = 0, max_rooms do
+	local lockedPlayers = {}
+    if not legacy then lockedPlayers = allGoodPlayers end
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 50,
-      players = allGoodPlayers
+      players = lockedPlayers
     })
 
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
-  for roomID = 0, MAX_ROOMS do
+  for roomID = 0, max_rooms do
+    local lockedPlayers = {}
+    if not legacy then lockedPlayers = allBadPlayers end
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID] = ZoneControl:CreateZone('boss_bad_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 0,
-      players = allBadPlayers
+      players = lockedPlayers
     })
 
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
@@ -66,11 +76,10 @@ function ProtectionAura:Init ()
   end
 
   ProtectionAura.active = true
-
 end
 
 function ProtectionAura:IsInEnemyZone(teamID, entity)
-  for roomID = 0, MAX_ROOMS do
+  for roomID = 0, max_rooms do
     if ProtectionAura:IsInSpecificZone(teamID, roomID, entity) then
       return true
     end
