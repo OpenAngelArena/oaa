@@ -12,7 +12,7 @@ function witch_doctor_death_ward_oaa:IsHiddenWhenStolen()
 end
 
 function witch_doctor_death_ward_oaa:OnSpellStart()
-  local unit_name = "npc_dota_witch_doctor_death_ward_oaa"
+  local unit_name = "npc_dota_witch_doctor_death_ward_oaa" -- vanilla death ward unit doesn't work for some reason
   local point = self:GetCursorPosition()
 
   if not point then
@@ -97,7 +97,7 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
   if self.ward_unit and not self.ward_unit:IsNull() then
     projectile_speed = self.ward_unit:GetProjectileSpeed()
   end
-  
+
   -- Copy data table into new_data table
   local new_data = {}
   for k, v in pairs(data) do
@@ -214,7 +214,7 @@ function modifier_death_ward_oaa:OnCreated()
     -- Change Night Vision
     local night_vision = math.max(800, parent:GetAttackRange() + attack_range_bonus)
     parent:SetNightTimeVisionRange(night_vision)
-	
+
     -- Start attacking AI (which targets are allowed to be attacked)
     self:StartIntervalThink(0)
   end
@@ -309,18 +309,21 @@ function modifier_death_ward_oaa:OnAttackStart(event)
     attacker:Hold()
     return
   end
-  
-  --local chronos = {}
-  --local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", parent:GetAbsOrigin(), 500)
-  --for _, thinker in pairs(thinkers) do
-    --if thinker and thinker:HasModifier("modifier_faceless_void_chronosphere") then
-      --table.insert(chronos, thinker)
-    --end
-  --end
-  
-  --if #chronos > 0 then
-    --return
-  --end
+
+  local chronos = {}
+  local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", parent:GetAbsOrigin(), 500)
+  for _, thinker in pairs(thinkers) do
+    if thinker and thinker:HasModifier("modifier_faceless_void_chronosphere") then
+      table.insert(chronos, thinker)
+    end
+  end
+
+  if #chronos > 0 then
+    attacker:Interrupt()
+    attacker:Stop()
+    attacker:Hold()
+    return
+  end
 
   -- Attack Sound
   parent:EmitSound("Hero_WitchDoctor_Ward.Attack")
@@ -390,7 +393,9 @@ function modifier_death_ward_oaa:OnAttackLanded(event)
     return
   end
 
+  -- Initialize data table for the scepter bounce
   local data = {}
+
   -- Mark the target as hit
   data[tostring(target:GetEntityIndex())] = 1
 
@@ -423,15 +428,19 @@ function modifier_death_ward_oaa:OnAttackLanded(event)
 end
 
 function modifier_death_ward_oaa:CheckState()
-  local owner = self:GetCaster()
   local state = {
-    [MODIFIER_STATE_CANNOT_MISS] = owner:HasScepter(),
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
   }
+
+  local owner = self:GetCaster()
+  if owner:HasScepter() then
+    state[MODIFIER_STATE_CANNOT_MISS] = true
+  end
+
   return state
 end
 

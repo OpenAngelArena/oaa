@@ -16,7 +16,7 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCooldown"                                     "28 24 20 16 14 12"
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
     "AbilityManaCost"                                     "60 70 80 90 100 110"
 
     // Special
@@ -49,6 +49,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_stack"                                "10 11 12 13 26 52"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_6"
+      }
+      "10" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_prevent_percent"                            "-10 -15 -20 -25 -30 -35"
       }
     }
   }

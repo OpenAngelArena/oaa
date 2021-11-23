@@ -272,6 +272,7 @@ if IsServer() then
       parent:AddNewModifier(parent, nil, "modifier_faceless_void_time_walk_scepter_proc_oaa", {duration = remaining_duration})
     end
 
+    --[[
     -- If the unit is not actually a unit but its an entity that can gain modifiers
     if unit.HasModifier == nil then
       return
@@ -291,6 +292,7 @@ if IsServer() then
       local chrono_duration = chrono_ability:GetLevelSpecialValueFor("duration", chrono_ability:GetLevel()-1)
       unit:AddNewModifier(parent, nil, "modifier_faceless_void_chronosphere_scepter_oaa", {duration = chrono_duration})
     end
+    ]]
   end
 end
 
@@ -367,7 +369,7 @@ function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
 end
 
 ---------------------------------------------------------------------------------------------------
-
+--[[ -- modifier that disables evasion, disables healing and "freezes" ability cooldowns
 modifier_faceless_void_chronosphere_scepter_oaa = class(ModifierBaseClass)
 
 function modifier_faceless_void_chronosphere_scepter_oaa:IsHidden()
@@ -415,12 +417,16 @@ if IsServer() then
   function modifier_faceless_void_chronosphere_scepter_oaa:OnIntervalThink()
     local parent = self:GetParent()
     self:CooldownFreeze(parent)
+    -- Remove this debuff if parent is not affected by Chronosphere anymore
+    if not parent:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+      self:Destroy()
+    end
   end
 end
 
 function modifier_faceless_void_chronosphere_scepter_oaa:CooldownFreeze(target)
   -- Adds 0.1 second to the current cooldown to every spell off cooldown
-  for i = 0, target:GetAbilityCount()-1 do
+  for i = 0, target:GetAbilityCount() - 1 do
     local target_ability = target:GetAbilityByIndex(i)
     if target_ability then
       local cd = target_ability:GetCooldownTimeRemaining()
@@ -430,3 +436,4 @@ function modifier_faceless_void_chronosphere_scepter_oaa:CooldownFreeze(target)
     end
   end
 end
+]]
