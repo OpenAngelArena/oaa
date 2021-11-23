@@ -16,7 +16,7 @@ function ModifyAbilitiesFilter:Init()
 
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(ModifyAbilitiesFilter, "ModifierFilter"))
   --FilterManager:AddFilter(FilterManager.TrackingProjectile, self, Dynamic_Wrap(ModifyAbilitiesFilter, "ProjectileFilter"))
-  FilterManager:AddFilter(FilterManager.AbilityTuningValue, self, Dynamic_Wrap(ModifyAbilitiesFilter, "TuningValuesFilter"))
+  --FilterManager:AddFilter(FilterManager.AbilityTuningValue, self, Dynamic_Wrap(ModifyAbilitiesFilter, "TuningValuesFilter"))
 end
 
 function ModifyAbilitiesFilter:ModifierFilter(keys)
