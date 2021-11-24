@@ -35,7 +35,8 @@ function modifier_elder_titan_natural_order_correction_oaa:OnIntervalThink()
     return
   end
 
-  local base_magic_resist = 25 --parent:GetBaseMagicalResistanceValue()
+  local base_magic_resist = parent:GetBaseMagicalResistanceValue()
+
   local ability_level = ability:GetLevel()
   -- Natural Order works correctly for the first 4 levels:
   if ability_level < 5 then
@@ -45,7 +46,10 @@ function modifier_elder_titan_natural_order_correction_oaa:OnIntervalThink()
   end
 
   local magic_resist_reduction = ability:GetLevelSpecialValueFor("magic_resistance_pct", ability_level - 1)
-  local magic_resist = math.abs(base_magic_resist * (1 - math.abs(magic_resist_reduction) * 0.01))
+  local magic_resist = math.ceil(math.abs(base_magic_resist * (1 - math.abs(magic_resist_reduction) / 100)))
+  -- Something is seriously wrong with stacking negative magic resistance and I don't know what
+  -- The UI sometimes doesn't show the correct values, let's hope that the damage amplification is correct
+
   -- Don't set stack count if already set to the same number
   if self:GetStackCount() ~= magic_resist then
     self:SetStackCount(magic_resist)
