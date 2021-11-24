@@ -36,7 +36,6 @@ function modifier_elder_titan_natural_order_correction_oaa:OnIntervalThink()
   end
 
   local base_magic_resist = parent:GetBaseMagicalResistanceValue()
-
   local ability_level = ability:GetLevel()
   -- Natural Order works correctly for the first 4 levels:
   if ability_level < 5 then

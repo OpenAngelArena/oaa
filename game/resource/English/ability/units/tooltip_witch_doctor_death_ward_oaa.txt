@@ -29,12 +29,14 @@
 
 "DOTA_Tooltip_ability_witch_doctor_death_ward_Description"                      "#{DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Description}"
 
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa"                       "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo}"
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Description"           "Turns Witch Doctor into a Death Ward for %duration% seconds. Witch Doctor is hidden during this time."
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_duration"              "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_duration}"
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_damage"           "#{DOTA_Tooltip_ability_witch_doctor_death_ward_damage}"
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_attack_range"     "#{DOTA_Tooltip_ability_witch_doctor_death_ward_attack_range_tooltip}"
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_scepter_bounce_radius" "SCEPTER BOUNCE RADIUS:"
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Note0"                 "Voodoo Switcheroo is dispellable."
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa"                              "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo}"
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Description"                  "Turns Witch Doctor into a Death Ward for %duration% seconds. Death Ward has an attack speed penalty. Witch Doctor is hidden during this time."
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Lore"                         "Death Ward without the Witch Doctor dance."
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Note0"                        "Voodoo Switcheroo is dispellable."
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_duration"                     "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_duration}"
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_damage"                  "#{DOTA_Tooltip_ability_witch_doctor_death_ward_damage}"
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_attack_range"            "#{DOTA_Tooltip_ability_witch_doctor_death_ward_attack_range_tooltip}"
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_attack_speed_penalty"    "WARD ATTACK SPEED PENALTY:"
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_scepter_bounce_radius"        "SCEPTER BOUNCE RADIUS:"
 
 "npc_dota_witch_doctor_death_ward_oaa"                                          "#{DOTA_Tooltip_ability_witch_doctor_death_ward}"

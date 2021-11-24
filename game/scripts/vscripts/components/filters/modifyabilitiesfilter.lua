@@ -74,7 +74,3 @@ function ModifyAbilitiesFilter:ProjectileFilter(keys)
 
   return true
 end
-
-function ModifyAbilitiesFilter:TuningValuesFilter(keys)
-
-end

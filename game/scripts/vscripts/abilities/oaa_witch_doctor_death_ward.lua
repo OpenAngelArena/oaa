@@ -230,11 +230,11 @@ function modifier_death_ward_oaa:OnIntervalThink()
     self:StopAttacking(parent) -- Don't allow Death Ward to attack anything while inside Chronosphere
     return
   end
-  
+
   local target = parent:GetForceAttackTarget()
   local aggro = parent:GetAggroTarget()
   local real_target = parent:GetAttackTarget()
-  
+
   if target then
     parent:SetForceAttackTarget(nil) -- units with force attack target ignore orders so we remove that
     -- We remove force-to-attack-target but the ward should still have aggro over the target and still attack it in the next loop
@@ -244,10 +244,10 @@ function modifier_death_ward_oaa:OnIntervalThink()
   if aggro then
     if aggro:IsConsideredHero() then
       -- If aggro is on the hero-like unit, no need to continue (looking for hero-like units, force changing aggro)
-	  return
+      return
     end
   end
-  
+
   if real_target then
     if not real_target:IsConsideredHero() then
       -- If real_target is not the hero-like unit, stop attacking
