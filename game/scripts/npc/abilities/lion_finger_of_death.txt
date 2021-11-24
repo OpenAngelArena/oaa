@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
+    "AbilityCooldown"                                     "60 50 40 40 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "600 850 1100 1600 2600" //OAA
+        "damage"                                          "600 850 1100 1850 2600" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_lion_3"
       }
       "02"
@@ -57,7 +57,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_kill"                                 "50" //OAA
+        "damage_per_kill"                                 "80" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_lion_8"
         "CalculateSpellDamageTooltip"                     "0"
       }
