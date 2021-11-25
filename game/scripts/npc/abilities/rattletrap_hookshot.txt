@@ -59,9 +59,9 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 275 475 975 1675" //OAA
+        "damage"                                          "75 275 475 1075 1675" //OAA
       }
-      "06"
+      "06" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown_scepter"                                "12.0"
