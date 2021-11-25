@@ -5,6 +5,7 @@
 
 LinkLuaModifier("modifier_elixier_hybrid_active", "items/elixier_hybrid.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_elixier_hybrid_trigger", "items/elixier_hybrid.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_elixier_hybrid_not_allowed", "items/elixier_hybrid.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -217,6 +218,10 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
       return
     end
 
+    if parent:HasModifier("modifier_elixier_hybrid_not_allowed") then
+      return
+    end
+
     -- Create a damage table for proc damage
     local damage_table = {}
     damage_table.attacker = parent
@@ -237,6 +242,8 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
 
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, unit, damage_dealt, parent:GetPlayerOwner())
+
+    parent:AddNewModifier(parent, nil, "modifier_elixier_hybrid_not_allowed", {duration = 0.5})
   end
 end
 
@@ -265,4 +272,24 @@ function modifier_elixier_hybrid_trigger:OnAttackLanded(event)
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage_dealt, parent:GetPlayerOwner())
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_elixier_hybrid_not_allowed = class(ModifierBaseClass)
+
+function modifier_elixier_hybrid_not_allowed:IsHidden()
+  return true
+end
+
+function modifier_elixier_hybrid_not_allowed:IsPurgable()
+  return false
+end
+
+function modifier_elixier_hybrid_not_allowed:IsDebuff()
+  return false
+end
+
+function modifier_elixier_hybrid_not_allowed:RemoveOnDeath()
+  return false
 end

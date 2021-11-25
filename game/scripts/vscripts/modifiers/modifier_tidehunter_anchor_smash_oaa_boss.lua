@@ -19,7 +19,7 @@ function modifier_tidehunter_anchor_smash_oaa_boss:OnCreated()
 	end
 
   if not self.damage_reduction or self.damage_reduction == 0 then
-    self.damage_reduction = -50
+    self.damage_reduction = -30
   end
 end
 

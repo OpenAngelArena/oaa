@@ -9,13 +9,13 @@ end
 function ProtectionAura:Init ()
   self.moduleName = "ProtectionAura (Offside protection and cave/base locking)"
 
-  local max_rooms = 0
+  self.max_rooms = 0
   local legacy = GetMapName() == "oaa_legacy"
   if legacy then
-    max_rooms = 4
+    self.max_rooms = 4
   end
 
-  ProtectionAura.zones = {
+  self.zones = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {},
   }
@@ -47,7 +47,7 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][0].disable()
   end)
 
-  for roomID = 0, max_rooms do
+  for roomID = 0, self.max_rooms do
 	local lockedPlayers = {}
     if not legacy then lockedPlayers = allGoodPlayers end
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
@@ -61,7 +61,7 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
-  for roomID = 0, max_rooms do
+  for roomID = 0, self.max_rooms do
     local lockedPlayers = {}
     if not legacy then lockedPlayers = allBadPlayers end
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID] = ZoneControl:CreateZone('boss_bad_zone_' .. roomID, {
@@ -79,7 +79,7 @@ function ProtectionAura:Init ()
 end
 
 function ProtectionAura:IsInEnemyZone(teamID, entity)
-  for roomID = 0, max_rooms do
+  for roomID = 0, self.max_rooms do
     if ProtectionAura:IsInSpecificZone(teamID, roomID, entity) then
       return true
     end
