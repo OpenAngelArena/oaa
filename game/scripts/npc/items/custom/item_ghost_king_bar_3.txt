@@ -26,7 +26,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_ghost_king_bar_2;item_upgrade_core_4"
-      "02"                                                "item_ethereal_blade_4;item_upgrade_core_4"
+      //"02"                                                "item_ethereal_blade_4;item_upgrade_core_4"
     }
   }
 
@@ -91,17 +91,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ethereal_damage_bonus"                           "-60"
+        "ethereal_damage_bonus"                           "-60 -55 -50"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_heal_amp"                                 "60"
+        "active_heal_amp"                                 "60 65 70"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_spell_lifesteal_amp"                      "60"
+        "active_spell_lifesteal_amp"                      "60 65 70"
       }
     }
   }
