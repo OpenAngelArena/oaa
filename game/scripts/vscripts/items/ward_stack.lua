@@ -89,7 +89,7 @@ function item_ward_stack:OnSpellStart ()
   if caster[wardType .. 'Count'] == 0 then
     self:ToggleType()
   end
-  if self.mod then
+  if self.mod and not self.mod:IsNull() then
     self.mod:OnWardTypeUpdate()
   end
   EmitSoundOnLocationForAllies(target, "DOTA_Item.ObserverWard.Activate", caster)
@@ -108,7 +108,7 @@ end
 
 function item_ward_stack:SetType (ward_type)
   self.wardType = ward_type
-  if self.mod then
+  if self.mod and not self.mod:IsNull() then
     self.mod:OnWardTypeUpdate()
   end
 end
@@ -129,7 +129,7 @@ if not IsServer() then
     elseif wardType == WARD_TYPE_OBSERVER_ONLY then
       return "item_ward_observer"
     else
-      return "custom/item_ward_stack_empty"
+      return "custom/ward_stack_empty"
     end
   end
 
@@ -155,6 +155,22 @@ function item_ward_stack:CastFilterResultTarget (unit)
     return UF_SUCCESS
   end
   return UF_FAIL_INVALID_LOCATION
+end
+
+function item_ward_stack:CastFilterResultLocation(location)
+  local wardType = self.lastType or WARD_TYPE_OBSERVER
+  if self.mod and not self.mod:IsNull() then
+    wardType = self.mod:GetStackCount()
+  end
+
+  if wardType == WARD_TYPE_NONE then
+    return UF_FAIL_CUSTOM
+  end
+  return UF_SUCCESS
+end
+
+function item_ward_stack:GetCustomCastErrorLocation(location)
+  return "#oaa_hud_error_ward_stack"
 end
 
 item_ward_stack_2 = item_ward_stack
@@ -293,7 +309,7 @@ function modifier_item_ward_stack_sentries:OnIntervalThink ()
     self:SetStackCount(currentStack)
     caster:RemoveModifierByName(modifierCharger)
     if wardStack and not wardStack:IsNull() then
-      if wardStack.mod then
+      if wardStack.mod and not wardStack.mod:IsNull() then
         wardStack.mod:OnWardTypeUpdate()
       end
     end
