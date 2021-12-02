@@ -17,9 +17,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_silver_edge_4;item_upgrade_core_4"
-      "02"                                                "item_nullifier_4;item_upgrade_core_4"
-      "03"                                                "item_greater_crit_4;item_upgrade_core_4"
-      "04"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      //"02"                                                "item_nullifier_4;item_upgrade_core_4"
+      //"03"                                                "item_greater_crit_4;item_upgrade_core_4"
+      //"04"                                                "item_bloodthorn_4;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +48,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "37729"
+    "ItemCost"                                            "38454"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

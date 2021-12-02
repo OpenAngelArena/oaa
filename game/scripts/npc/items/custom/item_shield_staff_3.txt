@@ -25,8 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shield_staff_2;item_upgrade_core_2"
-      "02"                                                "item_hurricane_pike_2;item_upgrade_core_2"
-      //"03"                                                "item_pull_staff_2;item_upgrade_core_2"
+      //"02"                                                "item_hurricane_pike_2;item_upgrade_core_2"
     }
   }
 
@@ -57,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9202"
+    "ItemCost"                                            "9352"
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shield staff 3;shield 3;force 3"

@@ -25,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_mjollnir_4;item_upgrade_core_4"
-      "02"                                                "item_monkey_king_bar_4;item_upgrade_core_4"
+      //"02"                                                "item_monkey_king_bar_4;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +57,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "37979"
+    "ItemCost"                                            "38604"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
