@@ -25,8 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_pull_staff;item_upgrade_core"
-      "02"                                                "item_echo_sabre;item_upgrade_core"
-      "03"                                                "item_heavens_halberd;item_upgrade_core"
+      //"02"                                                "item_echo_sabre;item_upgrade_core"
+      //"03"                                                "item_heavens_halberd;item_upgrade_core"
     }
   }
 
@@ -66,7 +66,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "4001"
+    "ItemCost"                                            "3901"
 
     "ItemSellable"                                        "1"
     "ItemPurchasable"                                     "1"

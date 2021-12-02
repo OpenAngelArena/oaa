@@ -24,9 +24,9 @@
     "ItemResult"                                          "item_wind_waker_3"
     "ItemRequirements"
     {
-      "01"						"item_wind_waker_2;item_upgrade_core_2"
-      "02"            "item_gungir_2;item_upgrade_core_2"
-      "03"                                                "item_meteor_hammer_2;item_upgrade_core_2"
+      "01"                                                "item_wind_waker_2;item_upgrade_core_2"
+      //"02"                                                "item_gungir_2;item_upgrade_core_2"
+      //"03"                                                "item_meteor_hammer_2;item_upgrade_core_2"
     }
   }
 
@@ -65,7 +65,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"				"175"
-    "ItemCost"						"10402"
+    "ItemCost"						"11827"
     "ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"					"rare"
     "ItemAliases"                                         "cyclone 3;wind waker 3;ww 3"

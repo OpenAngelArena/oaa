@@ -25,9 +25,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_meteor_hammer_4;item_upgrade_core_4"
-      "02"                                                "item_gungir_4;item_upgrade_core_4"
-      "03"                                                "item_wind_waker_4;item_upgrade_core_4"
-      "04"                                                "item_sheepstick_4;item_upgrade_core_4"
+      //"02"                                                "item_gungir_4;item_upgrade_core_4"
+      //"03"                                                "item_wind_waker_4;item_upgrade_core_4"
+      //"04"                                                "item_sheepstick_4;item_upgrade_core_4"
     }
   }
 
@@ -65,7 +65,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "38404"
+    "ItemCost"                      "37504"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh 5;meteor hammer 5"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

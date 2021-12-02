@@ -311,7 +311,7 @@ function CorePointsManager:GetCorePointsSellValue(item)
     return self:GetCorePointsFullValue(item)
   end
 
-  return math.floor(self:GetCorePointsFullValue(item) / 2)
+  return self:GetCorePointsFullValue(item) -- full refund
 end
 
 function CorePointsManager:GetCorePointsOnHero(unit, playerID)

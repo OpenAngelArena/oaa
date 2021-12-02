@@ -25,8 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shield_staff;item_upgrade_core"
-      "02"                                                "item_hurricane_pike;item_upgrade_core"
-      //"03"                                                "item_pull_staff;item_upgrade_core"
+      //"02"                                                "item_hurricane_pike;item_upgrade_core"
     }
   }
 
@@ -57,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5701"
+    "ItemCost"                                            "5851"
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shield staff 2;shield 2;force 2"

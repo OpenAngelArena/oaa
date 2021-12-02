@@ -25,8 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_wind_waker;item_upgrade_core"
-      "02"                                                "item_gungir;item_upgrade_core"
-      "03"                                                "item_meteor_hammer_1;item_upgrade_core"
+      //"02"                                                "item_gungir;item_upgrade_core"
+      //"03"                                                "item_meteor_hammer_1;item_upgrade_core"
     }
   }
 
@@ -65,7 +65,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"				"175"
-    "ItemCost"						"6901"
+    "ItemCost"						"8326"
     "ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"					"rare"
     "ItemAliases"					"cyclone 2;wind waker 2;ww 2"

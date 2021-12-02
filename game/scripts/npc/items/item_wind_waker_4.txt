@@ -24,9 +24,9 @@
     "ItemResult"                                          "item_wind_waker_4"
     "ItemRequirements"
     {
-      "01"						"item_wind_waker_3;item_upgrade_core_3"
-      "02"            "item_gungir_3;item_upgrade_core_3"
-      "03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
+      "01"                                                "item_wind_waker_3;item_upgrade_core_3"
+      //"02"                                                "item_gungir_3;item_upgrade_core_3"
+      //"03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
     }
   }
 
@@ -65,7 +65,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"				"175"
-    "ItemCost"						"18403"
+    "ItemCost"						"19828"
     "ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"					"rare"
     "ItemAliases"					"cyclone 4;wind waker 4;ww 4"

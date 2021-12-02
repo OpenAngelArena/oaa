@@ -26,9 +26,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_silver_edge_4;item_upgrade_core_4"
-      "02"                                                "item_nullifier_4;item_upgrade_core_4"
-      "03"                                                "item_greater_crit_4;item_upgrade_core_4"
-      "04"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      "02"                                                "item_greater_crit_4;item_upgrade_core_4"
+      //"03"                                                "item_nullifier_4;item_upgrade_core_4"
+      //"04"                                                "item_bloodthorn_4;item_upgrade_core_4"
     }
   }
 
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37729"
+    "ItemCost"                                            "38154"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "imp claw;crit claw"

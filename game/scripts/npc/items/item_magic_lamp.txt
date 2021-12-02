@@ -20,8 +20,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_aeon_disk_4;item_upgrade_core_4"
-      "02"                                                "item_reflection_shard_3;item_upgrade_core_4"
-      "03"                                                "item_sphere_4;item_upgrade_core_4"
+      "02"                                                "item_sphere_4;item_upgrade_core_4"
+      //"03"                                                "item_reflection_shard_3;item_upgrade_core_4"
     }
   }
 
@@ -36,7 +36,7 @@
     "BaseClass"                                           "item_panic_button"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                                            "37604"
+    "ItemCost"                                            "36854"
     "ItemShopTags"                                        "health_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
