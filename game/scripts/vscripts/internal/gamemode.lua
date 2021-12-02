@@ -219,7 +219,7 @@ function GameMode:_CaptureGameMode()
     mode:SetStickyItemDisabled(false)
     mode:SetForceRightClickAttackDisabled(true)
     mode:SetCustomBackpackSwapCooldown(3.0)
-    mode:SetDefaultStickyItem("item_flask")
+    mode:SetDefaultStickyItem("item_aghanims_shard")
 
     self:OnFirstPlayerLoaded()
   end
