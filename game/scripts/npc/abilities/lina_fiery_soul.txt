@@ -20,20 +20,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fiery_soul_attack_speed_bonus"                   "30 50 70 90 110 130"
+        "fiery_soul_attack_speed_bonus"                   "40 65 90 115 140 165"
         "LinkedSpecialBonus"                              "special_bonus_unique_lina_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fiery_soul_move_speed_bonus"                     "4 5 6 7 9 11"
+        "fiery_soul_move_speed_bonus"                     "6 7.5 9 10.5 13.5 16.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_lina_2"
         "LinkedSpecialBonusField"                         "value2"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fiery_soul_max_stacks"                           "3"
+        "fiery_soul_max_stacks"                           "2" //OAA
       }
       "04"
       {
