@@ -13,7 +13,7 @@ function modifier_standard_capture_point_dummy_stuff:IsPurgable()
 end
 
 function modifier_standard_capture_point_dummy_stuff:OnCreated(keys)
-  self.radius = 300
+  self.radius = CAPTURE_POINT_RADIUS or 300
 end
 
 function modifier_standard_capture_point_dummy_stuff:DeclareFunctions()

@@ -58,6 +58,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
   self.NumCaptures = 0
+  self.CapturePointLocation = Vector(0, 0, 0)
 
   CapturePoints.nextCaptureTime = INITIAL_CAPTURE_POINT_DELAY
   HudTimer:At(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
@@ -88,31 +89,32 @@ function CapturePoints:IsActive ()
   return true
 end
 
+--Pings Minimap about zones
 function CapturePoints:MinimapPing()
-  --Pings Minimap about zones
-  Timers:CreateTimer(3.2, function ()
-    Minimap:SpawnCaptureIcon(CurrentZones.right)
-  end)
-  Minimap:SpawnCaptureIcon(CurrentZones.left)
+  local location = self.CapturePointLocation -- CurrentZones.left
+  --Timers:CreateTimer(3.2, function ()
+    --Minimap:SpawnCaptureIcon(CurrentZones.right)
+  --end)
+  Minimap:SpawnCaptureIcon(location)
   for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     if PlayerResource:IsValidPlayerID(playerId) then
       local player = PlayerResource:GetPlayer(playerId)
       if player and not player:IsNull() then
         if player:GetAssignedHero() then
           if player:GetTeam() == DOTA_TEAM_BADGUYS then
-            MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.left.x, CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
-            Timers:CreateTimer(3.2, function ()
-              if player and not player:IsNull() then
-                MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.right.x, CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
-              end
-            end)
+            MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), location.x, location.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+            --Timers:CreateTimer(3.2, function ()
+              --if player and not player:IsNull() then
+                --MinimapEvent(DOTA_TEAM_BADGUYS, player:GetAssignedHero(), CurrentZones.right.x, CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+              --end
+            --end)
           else
-            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.left.x, CurrentZones.left.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
-            Timers:CreateTimer(3.2, function ()
-              if player and not player:IsNull() then
-                MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x, CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
-              end
-            end)
+            MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), location.x, location.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+            --Timers:CreateTimer(3.2, function ()
+              --if player and not player:IsNull() then
+                --MinimapEvent(DOTA_TEAM_GOODGUYS, player:GetAssignedHero(), CurrentZones.right.x, CurrentZones.right.y, DOTA_MINIMAP_EVENT_HINT_LOCATION , 3)
+              --end
+            --end)
           end
         end
       end
@@ -147,7 +149,8 @@ function CapturePoints:ScheduleCapture()
   Debug:EnableDebugging()
   -- DebugPrint('Capture number... ' .. self.NumCaptures)
   -- Chooses random zone
-  CurrentZones = Zones[RandomInt(1, NumZones)]
+  --CurrentZones = Zones[RandomInt(1, NumZones)]
+  self.CapturePointLocation = self:FindBestCapturePointLocation()
   --If statemant checks for duel interference
   if not Duels.startDuelTimer then
     CapturePoints:StartCapture("blue")
@@ -187,7 +190,7 @@ function CapturePoints:StartCapture(color)
   end
 
   Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
-    self:ActuallyStartCapture()
+    CapturePoints:ActuallyStartCapture()
     CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_INTERVAL + CAPTURE_FIRST_WARN
   end)
 end
@@ -233,15 +236,17 @@ function CapturePoints:Reward(teamId)
 end
 
 function CapturePoints:ActuallyStartCapture()
-  LiveZones = 2
+  LiveZones = 1
   self.NumCaptures = self.NumCaptures + 1
   Notifications:TopToAll({text="#capturepoints_start", duration=3.0, style={color="red", ["font-size"]="80px"}})
   self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
 
-  local leftVector = GetGroundPosition(Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 384), nil)
-  local rightVector = GetGroundPosition(Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 384), nil)
+  local location = self.CapturePointLocation
+  local spawnVector = GetGroundPosition(Vector(location.x, location.y, location.z + 384), nil)
+  --local leftVector = GetGroundPosition(Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 384), nil)
+  --local rightVector = GetGroundPosition(Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 384), nil)
 
   local fountains = Entities:FindAllByClassname("ent_dota_fountain")
   local radiant_fountain
@@ -254,35 +259,53 @@ function CapturePoints:ActuallyStartCapture()
     end
   end
 
-  --local radiant_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
-  local radiant_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
-  radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_oaa_thinker", {})
-  --local capturePointModifier1 = radiant_capture_point:FindModifierByName("modifier_standard_capture_point")
-  local capturePointModifier1 = radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point", {})
-  capturePointModifier1:SetCallback(partial(self.Reward, self))
+  local closer_fountain = radiant_fountain
+  if self:DistanceFromFountain(spawnVector, DOTA_TEAM_BADGUYS) < self:DistanceFromFountain(spawnVector, DOTA_TEAM_GOODGUYS) then
+    closer_fountain = dire_fountain
+  end
 
-  -- Give the radiant_capture_point some vision so that spectators can always see the capture point
-  radiant_capture_point:SetDayTimeVisionRange(1)
-  radiant_capture_point:SetNightTimeVisionRange(1)
+  local capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", spawnVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  capture_point:AddNewModifier(closer_fountain, nil, "modifier_oaa_thinker", {})
+  local capturePointModifier = capture_point:AddNewModifier(closer_fountain, nil, "modifier_standard_capture_point", {})
+  capturePointModifier:SetCallback(partial(self.Reward, self))
+
+  -- Give the capture_point some vision so that spectators can always see the capture point
+  capture_point:SetDayTimeVisionRange(1)
+  capture_point:SetNightTimeVisionRange(1)
 
   -- Give vision to the Radiant team with a dummy unit
-  self.radiant_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
+  self.radiant_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", spawnVector, false, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
   self.radiant_dummy:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
 
-  --local dire_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, rightVector, DOTA_TEAM_SPECTATOR, false)
-  local dire_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
-  dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_oaa_thinker", {})
-  --local capturePointModifier2 = dire_capture_point:FindModifierByName("modifier_standard_capture_point")
-  local capturePointModifier2 = dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point", {})
-  capturePointModifier2:SetCallback(partial(self.Reward, self))
+  -- Give vision to the Dire team with a dummy unit
+  self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", spawnVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
+  self.dire_dummy:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
+
+  --local radiant_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  --radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier1 = radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point", {})
+  --capturePointModifier1:SetCallback(partial(self.Reward, self))
+
+  -- Give the radiant_capture_point some vision so that spectators can always see the capture point
+  --radiant_capture_point:SetDayTimeVisionRange(1)
+  --radiant_capture_point:SetNightTimeVisionRange(1)
+
+  -- Give vision to the Radiant team with a dummy unit
+  --self.radiant_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
+  --self.radiant_dummy:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
+
+  --local dire_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  --dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier2 = dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point", {})
+  --capturePointModifier2:SetCallback(partial(self.Reward, self))
 
   -- Give the dire_capture_point some vision so that spectators can always see the capture point
-  dire_capture_point:SetDayTimeVisionRange(1)
-  dire_capture_point:SetNightTimeVisionRange(1)
+  --dire_capture_point:SetDayTimeVisionRange(1)
+  --dire_capture_point:SetNightTimeVisionRange(1)
 
   -- Give vision to the Dire team with a dummy unit
-  self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
-  self.dire_dummy:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
+  --self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
+  --self.dire_dummy:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
 end
 
 function CapturePoints:EndCapture ()
@@ -299,4 +322,166 @@ function CapturePoints:EndCapture ()
   -- Remove vision over capture points
   self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_kill", {duration = 0.1})
   self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_kill", {duration = 0.1})
+end
+
+function CapturePoints:FindBestCapturePointLocation()
+  local maxDistanceFromFountain = self:DistanceFromFountain(Vector(0, 0, 0), DOTA_TEAM_GOODGUYS)
+  print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
+  local minDistanceFromFountain = 450
+  local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
+  local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+
+  if scoreDiff >= 20 then
+    maxDistanceFromFountain = 2000
+  elseif scoreDiff >= 15 then
+    maxDistanceFromFountain = 4000
+  elseif scoreDiff >= 10 then
+    maxDistanceFromFountain = 4500
+  elseif scoreDiff >= 5 then
+
+  else
+    return Vector(0, 0, 0)
+  end
+
+  local fountain_team = DOTA_TEAM_GOODGUYS
+  if isGoodLead then
+    fountain_team = DOTA_TEAM_BADGUYS
+  end
+
+  local position = Vector(0, 0, 0)
+  local isValidPosition = false
+
+  while not isValidPosition do
+    position = Vector(RandomInt(0, 5500), RandomInt(0, 5000), 100)
+    if RandomInt(0, 1) == 0 then
+      position.y = 0 - position.y
+    end
+    if not isGoodLead then
+      position.x = 0 - position.x
+    end
+    isValidPosition = true
+    if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:IsLocationInFountain(position) or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not IsZonePathable(position) then
+      isValidPosition = false
+    end
+  end
+
+  return position
+end
+
+function CapturePoints:IsLocationInFountain(location)
+  if not location then
+    return nil
+  end
+
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  local radiant_fountain
+  local dire_fountain
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      radiant_fountain = entity
+    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      dire_fountain = entity
+    end
+  end
+
+  local radiant_fountain_trigger = Entities:FindByName(nil, "fountain_good_trigger")
+  local dire_fountain_trigger = Entities:FindByName(nil, "fountain_bad_trigger")
+
+  if radiant_fountain_trigger then
+    if IsInTrigger(location, radiant_fountain_trigger) then
+      return true
+    end
+  else
+    print("Radiant fountain trigger not found or referenced name is wrong.")
+    if radiant_fountain then
+      if (radiant_fountain:GetAbsOrigin() - location):Length2D() <= 400 then
+        return true
+      end
+    end
+  end
+
+  if dire_fountain_trigger then
+    if IsInTrigger(location, dire_fountain_trigger) then
+      return true
+    end
+  else
+    print("Dire fountain trigger not found or referenced name is wrong.")
+    if dire_fountain then
+      if (dire_fountain:GetAbsOrigin() - location):Length2D() <= 400 then
+        return true
+      end
+    end
+  end
+
+  return false
+end
+
+function CapturePoints:DistanceFromFountain(location, team)
+  if not location or not team then
+    return nil
+  end
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  local fountain
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == team then
+      fountain = entity
+    end
+  end
+  if not fountain then
+    return nil
+  end
+
+  return (fountain:GetAbsOrigin() - location):Length2D()
+end
+
+function CapturePoints:IsZonePathable(location)
+  local zone_radius = CAPTURE_POINT_RADIUS or 300
+  local zone_center = location
+  local counter = 0
+  local pathable_points = math.floor(math.pi * zone_radius^2)
+  for i = 1, zone_radius do
+    for j = 1, zone_radius do
+      local pos1 = GetGroundPosition(Vector(zone_center.x + i, zone_center.y + j, 384), nil)
+      local pos2 = GetGroundPosition(Vector(zone_center.x + i, zone_center.y - j, 384), nil)
+      local pos3 = GetGroundPosition(Vector(zone_center.x - i, zone_center.y + j, 384), nil)
+      local pos4 = GetGroundPosition(Vector(zone_center.x - i, zone_center.y - j, 384), nil)
+      if (pos1.x - zone_center.x)^2 + (pos1.y - zone_center.y)^2 <= zone_radius^2 then
+        -- pos1 is inside the circle
+        if not GridNav:IsBlocked(pos1) and GridNav:IsTraversable(pos1) then
+          counter = counter + 1
+        end
+      end
+      if (pos2.x - zone_center.x)^2 + (pos2.y - zone_center.y)^2 <= zone_radius^2 then
+        -- pos2 is inside the circle
+        if not GridNav:IsBlocked(pos2) and GridNav:IsTraversable(pos2) then
+          counter = counter + 1
+        end
+      end
+      if (pos3.x - zone_center.x)^2 + (pos3.y - zone_center.y)^2 <= zone_radius^2 then
+        -- pos3 is inside the circle
+        if not GridNav:IsBlocked(pos3) and GridNav:IsTraversable(pos3) then
+          counter = counter + 1
+        end
+      end
+      if (pos4.x - zone_center.x)^2 + (pos4.y - zone_center.y)^2 <= zone_radius^2 then
+        -- test_pos is inside the circle
+        if not GridNav:IsBlocked(pos4) and GridNav:IsTraversable(pos4) then
+          counter = counter + 1
+        end
+      end
+
+      if counter >= pathable_points * 75/100 then
+        break
+      end
+    end
+    if counter >= pathable_points * 75/100 then
+      break
+    end
+  end
+
+  if counter >= pathable_points * 75/100 then
+    return true
+  end
+
+  return false
 end
