@@ -69,6 +69,7 @@ function FinalDuel:StartDuelHandler (keys)
   local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
   self.goodCanWin = goodPoints >= limit
   self.badCanWin = badPoints >= limit
+  self.pointDifference = math.abs(goodPoints - badPoints)
 
   if self.isCurrentlyFinalDuel then
     local extraMessage = ""
@@ -122,7 +123,12 @@ function FinalDuel:EndDuelHandler (currentDuel)
   PointsManager:IncreaseLimit()
 
   -- Give points to winners as a comeback compensation
-  local pointAward = math.ceil(PlayerResource:SafeGetTeamPlayerCount() / 2)
+  local playerCount = PlayerResource:SafeGetTeamPlayerCount()
+  local pointAward = math.ceil(playerCount / 20) * self.pointDifference
+  -- Capping the reward
+  if pointAward > playerCount then
+    pointAward = playerCount
+  end
   -- If the loser is DOTA_TEAM_BADGUYS and they had a chance to win, give points to DOTA_TEAM_GOODGUYS
   if loser == "bad" and self.badCanWin then
     PointsManager:AddPoints(DOTA_TEAM_GOODGUYS, pointAward)
