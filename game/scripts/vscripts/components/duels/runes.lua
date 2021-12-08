@@ -16,8 +16,7 @@ function DuelRunes:Init ()
       mode = ZONE_CONTROL_EXCLUSIVE_OUT,
       margin = 0,
       padding = 0,
-      players = {
-      }
+      players = {}
     })
 
     runeHill.onStartTouch(DuelRunes.StartTouch)
@@ -25,12 +24,12 @@ function DuelRunes:Init ()
   end
 
   Duels.onEnd(function()
+    DuelRunes.active = false
     Timers:RemoveTimer('DuelRunes')
   end)
 
   Duels.onStart(function()
     DuelRunes.active = false
-
     Timers:RemoveTimer('DuelRunes')
     Timers:CreateTimer('DuelRunes', {
       endTime = DUEL_RUNE_TIMER,

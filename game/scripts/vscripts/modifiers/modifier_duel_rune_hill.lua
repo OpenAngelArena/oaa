@@ -1,5 +1,6 @@
 LinkLuaModifier('modifier_duel_rune_hill_enemy', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_rune_hill_tripledamage', 'modifiers/modifier_rune_hill_tripledamage.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier('modifier_rune_hill_super_sight', 'modifiers/modifier_rune_hill_super_sight.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_duel_rune_hill = class(ModifierBaseClass)
 modifier_duel_rune_hill_enemy = class(ModifierBaseClass)
@@ -9,6 +10,9 @@ function modifier_duel_rune_hill_enemy:IsHidden()
 end
 
 function modifier_duel_rune_hill:OnCreated()
+  if not IsServer() then
+    return
+  end
   self:StartIntervalThink(0.1)
   self:SetStackCount(0)
 end
@@ -29,11 +33,11 @@ function modifier_duel_rune_hill:GetAuraSearchTeam()
 end
 
 function modifier_duel_rune_hill:GetAuraSearchFlags()
-  return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD)
 end
 
 function modifier_duel_rune_hill:GetAuraRadius()
-  return 2000
+  return 1200
 end
 
 function modifier_duel_rune_hill:GetModifierAura()
@@ -61,13 +65,13 @@ function modifier_duel_rune_hill:DeclareFunctions()
 end
 
 function modifier_duel_rune_hill:OnIntervalThink()
-  local unit = self:GetCaster() or self:GetParent()
-
   if not IsServer() then
     return
   end
 
-  if unit:IsClone() or unit:IsTempestDouble() then
+  local unit = self:GetParent()
+
+  if unit:IsClone() or unit:IsTempestDouble() or unit:IsInvulnerable() or unit:IsOutOfGame() then
     return
   end
 
@@ -76,14 +80,16 @@ function modifier_duel_rune_hill:OnIntervalThink()
     return
   end
 
-  if self:GetStackCount() == 130 then
+  if self:GetStackCount() == 200 then
+    return
+  end
+
+  if not DuelRunes or not DuelRunes.active then
+    self:SetStackCount(0)
     return
   end
 
   local stackCount = self:GetStackCount() + 1
-  if not DuelRunes or not DuelRunes.active then
-    stackCount = 0
-  end
 
   local rewardTable = {
     [30] = "modifier_rune_regen",
@@ -92,26 +98,28 @@ function modifier_duel_rune_hill:OnIntervalThink()
     [100] = "modifier_rune_doubledamage",
     [110] = "modifier_rune_invis",
     [120] = "modifier_rune_regen",
-    [130] = "modifier_rune_hill_tripledamage",
+    [130] = "modifier_rune_arcane",
+    [150] = "modifier_rune_hill_tripledamage",
+    [200] = "modifier_rune_hill_super_sight",
   }
 
   self:SetStackCount(stackCount)
 
   if rewardTable[stackCount] ~= nil and unit.AddNewModifier then
-    unit:AddNewModifier(unit, nil, rewardTable[stackCount], {
-      duration = 60
-    })
+    unit:AddNewModifier(unit, nil, rewardTable[stackCount], { duration = 50 })
   end
 
   local particleTable = {
-    [1]  = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_spiral_b.vpcf",
+    [1] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_spiral_b.vpcf",
     [30] = "particles/items2_fx/mekanism.vpcf",
     [80] = "particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_illlmove.vpcf",
     [90] = "particles/items2_fx/mekanism.vpcf",
-    [100]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
-    [110]= "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
-    [120]= "particles/items2_fx/mekanism.vpcf",
-    [130]= "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+    [100] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+    [110] = "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
+    [120] = "particles/items2_fx/mekanism.vpcf",
+    [130] = "particles/items2_fx/mekanism.vpcf",
+    [150] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
+    [200] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
   }
 
   if particleTable[stackCount] ~= nil and unit then
@@ -122,7 +130,15 @@ function modifier_duel_rune_hill:OnIntervalThink()
 end
 
 function modifier_duel_rune_hill:OnTakeDamage(keys)
+  if not IsServer() then
+    return
+  end
+
   if keys.unit ~= self:GetParent() then
+    return
+  end
+
+  if keys.attacker and keys.attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
     return
   end
 
