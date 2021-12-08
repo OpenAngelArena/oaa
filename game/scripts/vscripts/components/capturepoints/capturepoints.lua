@@ -6,8 +6,6 @@ CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or class({})
 
 local Zones = {
--- TODO, change this. These should be zones in the map or programatically generated
--- hard coded is a bad in-between with the disadvantages of both
   { left = Vector( -1280, -1000, 0), right = Vector( 1280, 1000, 0) }, --Zones
   { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
   { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
@@ -320,25 +318,31 @@ function CapturePoints:EndCapture ()
   self.currentCapture = nil
 
   -- Remove vision over capture points
-  self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_kill", {duration = 0.1})
-  self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_kill", {duration = 0.1})
+  if self.radiant_dummy and not self.radiant_dummy:IsNull() then
+    self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_kill", {duration = 0.1})
+  end
+  if self.dire_dummy and not self.dire_dummy:IsNull() then
+    self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_kill", {duration = 0.1})
+  end
 end
 
 function CapturePoints:FindBestCapturePointLocation()
-  local maxDistanceFromFountain = self:DistanceFromFountain(Vector(0, 0, 0), DOTA_TEAM_GOODGUYS)
-  print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
+  local maxDistanceFromFountain = self:DistanceFromFountain(Vector(0, 0, 0), DOTA_TEAM_GOODGUYS) -- 6656
+  --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
   local minDistanceFromFountain = 450
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
   if scoreDiff >= 20 then
-    maxDistanceFromFountain = 2000
+    maxDistanceFromFountain = maxDistanceFromFountain / 4
   elseif scoreDiff >= 15 then
-    maxDistanceFromFountain = 4000
+    maxDistanceFromFountain = maxDistanceFromFountain / 2
+    minDistanceFromFountain = 1000
   elseif scoreDiff >= 10 then
-    maxDistanceFromFountain = 4500
+    maxDistanceFromFountain = maxDistanceFromFountain * 3 / 4
+    minDistanceFromFountain = 2000
   elseif scoreDiff >= 5 then
-
+    minDistanceFromFountain = 3500
   else
     return Vector(0, 0, 0)
   end
@@ -360,7 +364,7 @@ function CapturePoints:FindBestCapturePointLocation()
       position.x = 0 - position.x
     end
     isValidPosition = true
-    if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:IsLocationInFountain(position) or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not IsZonePathable(position) then
+    if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:IsLocationInFountain(position) or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not self:IsZonePathable(position) then
       isValidPosition = false
     end
   end
