@@ -9,6 +9,14 @@ function modifier_rune_hill_super_sight:IsPurgable()
   return false
 end
 
+function modifier_rune_hill_super_sight:GetEffectName()
+  return "particles/econ/courier/courier_greevil_white/courier_greevil_white_ambient_3.vpcf"
+end
+
+function modifier_rune_hill_super_sight:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
 function modifier_rune_hill_super_sight:GetTexture()
   return "item_gem"
 end

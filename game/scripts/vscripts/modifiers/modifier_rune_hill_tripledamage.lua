@@ -44,6 +44,14 @@ function modifier_rune_hill_tripledamage:GetModifierBaseDamageOutgoing_Percentag
   return 200
 end
 
+function modifier_rune_hill_tripledamage:GetEffectName()
+  return "particles/generic_gameplay/rune_doubledamage_owner.vpcf"
+end
+
+function modifier_rune_hill_tripledamage:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
 function modifier_rune_hill_tripledamage:GetTexture()
   return "rune_doubledamage"
 end
