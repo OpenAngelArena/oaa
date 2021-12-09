@@ -355,6 +355,14 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_terrorblade = "power",
   }
 
+  if OAAOptions and OAAOptions.settings then
+    if OAAOptions.settings.small_player_pool == 1 then
+      if default_sparks[hero_name] == "midas" then
+        return "cleave"
+      end
+    end
+  end
+
   if default_sparks[hero_name] ~= nil then
     return default_sparks[hero_name]
   end
