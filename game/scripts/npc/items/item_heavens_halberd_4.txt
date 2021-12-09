@@ -25,8 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_heavens_halberd_3;item_upgrade_core_3"
-      "02"                                                "item_echo_sabre_3;item_upgrade_core_3"
-      "03"                                                "item_pull_staff_3;item_upgrade_core_3"
+      //"02"                                                "item_echo_sabre_3;item_upgrade_core_3"
+      //"03"                                                "item_pull_staff_3;item_upgrade_core_3"
     }
   }
 
@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "15403"
+    "ItemCost"                                            "16353"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

@@ -24,10 +24,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_power_treads;item_upgrade_core"
-      "02"                                                "item_phase_boots;item_upgrade_core"
-      "03"                                                "item_tranquil_boots;item_upgrade_core"
-      "04"                                                "item_travel_boots_oaa;item_upgrade_core"
-      "05"                                                "item_arcane_boots;item_upgrade_core"
+      //"02"                                                "item_phase_boots;item_upgrade_core"
+      //"03"                                                "item_tranquil_boots;item_upgrade_core"
+      //"04"                                                "item_travel_boots_oaa;item_upgrade_core"
+      //"05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2426"
+    "ItemCost"                                            "2901"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads;power treads;treads"
