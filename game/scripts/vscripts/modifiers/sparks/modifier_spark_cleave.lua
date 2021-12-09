@@ -73,8 +73,8 @@ function modifier_spark_cleave:OnAttackLanded(keys)
 
   -- Cleave Spark variables
   local splinter_radius = 400
-  local splinter_count = 5
-  local splinter_damage_percent = 35
+  local splinter_count = 4
+  local splinter_damage_percent = 30
 
   local originTarget = target:GetOrigin()
 
