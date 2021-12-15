@@ -58,7 +58,7 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
   if damaged_unit.GetUnitName == nil then
     return
   end
-  
+
   -- Buildings, wards and invulnerable units can't lifesteal
   if attacker:IsTower() or attacker:IsBarracks() or attacker:IsBuilding() or attacker:IsOther() or attacker:IsInvulnerable() then
     return
@@ -97,10 +97,12 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
     attacker:Heal(heal_amount, nil)
     -- Particle
     if inflictor then
+      -- Spell Lifesteal
       local particle1 = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
       ParticleManager:SetParticleControl(particle1, 0, attacker:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(particle1)
-	else
+    else
+      -- Normal Lifesteal
       local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
       ParticleManager:ReleaseParticleIndex(particle2)
     end

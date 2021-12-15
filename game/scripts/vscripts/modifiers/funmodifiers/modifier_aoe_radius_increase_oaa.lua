@@ -64,7 +64,7 @@ function modifier_aoe_radius_increase_oaa:DeclareFunctions()
 end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecial(keys)
-  if (not keys.ability) or (not keys.ability_special_value) or (not aoe_keywords) then
+  if not keys.ability or not keys.ability_special_value or not aoe_keywords then
     return 0
   end
 
@@ -85,12 +85,12 @@ function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecialValue
   local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
   for keyword, _ in pairs(aoe_keywords) do
     if string.find(keys.ability_special_value, keyword) then
-      return value * (self.aoe_multiplier or 1.5)
+      return value * self.aoe_multiplier
     end
   end
 
   if other_keywords and other_keywords[keys.ability_special_value] then
-    return value * (self.aoe_multiplier or 1.5)
+    return value * self.aoe_multiplier
   end
 
   return value

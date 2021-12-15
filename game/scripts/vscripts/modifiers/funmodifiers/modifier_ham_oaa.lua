@@ -15,16 +15,16 @@ end
 function modifier_ham_oaa:OnCreated()
   self.ignore_abilities = {
     brewmaster_primal_split = true,
-	venomancer_plague_ward = true,
     obsidian_destroyer_astral_imprisonment = true,
     phantom_lancer_doppelwalk = true,
     puck_phase_shift = true,
     riki_tricks_of_the_trade = true,
-	shadow_demon_disruption = true,
-	tusk_snowball = true,
+    shadow_demon_disruption = true,
+    tusk_snowball = true,
+    venomancer_plague_ward = true,
     void_spirit_dissimilate = true,
   }
-  
+
   self.cdr = 35
   self.mana_cost_reduction = 35
   self.status_resist = 35

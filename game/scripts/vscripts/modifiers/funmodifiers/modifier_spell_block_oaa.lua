@@ -60,10 +60,10 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
   if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
     -- Reset failure count
     self:SetStackCount(0)
-	
-	-- Sound
+
+    -- Sound
     parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
-	
+
     -- Particle
     local pfx = ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_POINT_FOLLOW, parent)
     ParticleManager:SetParticleControlEnt(pfx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
@@ -81,6 +81,10 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
   return 0
 end
 
+function modifier_spell_block_oaa:GetTexture()
+  return "item_sphere"
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_spell_block_cooldown_oaa = class(ModifierBaseClass)
@@ -95,4 +99,8 @@ end
 
 function modifier_spell_block_cooldown_oaa:IsPurgable()
   return false
+end
+
+function modifier_spell_block_cooldown_oaa:GetTexture()
+  return "item_sphere"
 end

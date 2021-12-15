@@ -31,7 +31,7 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
   if not attacker or attacker:IsNull() then
     return
   end
-  
+
   if not attacker.echo_strike_failure_counter then
     attacker.echo_strike_failure_counter = 0
   end
@@ -63,7 +63,7 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
     attacker.echo_strike_failure_counter = 0
 
     -- Perform the second attack (can trigger attack modifiers)
-    attacker:PerformAttack(target, false, true, true, false, false, false, false)
+    attacker:PerformAttack(target, false, true, true, false, true, false, false)
   else
     -- Increment number of failures
     attacker.echo_strike_failure_counter = prngMult
