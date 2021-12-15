@@ -45,6 +45,25 @@
                   <Label text="All Random Death Match" id="ARDM"/>
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="2-6 Players" onactivate="onPanelChange('small_player_pool')"/>
+				<Label class="SettingsGroupTitle" text="Fun Mode Options:"/>
+				<DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
+                  <Label text="None" id="HMN"/>
+                  <Label text="Random" id="HMR"/>
+                  <Label text="" id="HM01"/>
+                  <Label text="" id="HM02"/>
+                </DropDown>
+				<DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">
+                  <Label text="None" id="BMN"/>
+                  <Label text="Random" id="BMR"/>
+                  <Label text="" id="BM01"/>
+                  <Label text="" id="BM02"/>
+                </DropDown>
+				<DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
+                  <Label text="None" id="GMN"/>
+                  <Label text="Random" id="GMR"/>
+                  <Label text="" id="GM01"/>
+                  <Label text="" id="GM02"/>
+                </DropDown>
               </Panel>
             </Panel>
           </Panel>

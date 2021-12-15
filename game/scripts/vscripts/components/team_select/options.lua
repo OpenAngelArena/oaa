@@ -41,6 +41,9 @@ function OAAOptions:InitializeSettingsTable()
   self.settings = {
     GAME_MODE = "RD",                   -- "RD", "AR", "AP", "ARDM"
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
+    HEROES_MODS = "HMN",
+    BOSSES_MODS = "BMN",
+    GLOBAL_MODS = "GMN",
   }
 
   for k, v in pairs(self.settings) do
