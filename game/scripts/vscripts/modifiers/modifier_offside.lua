@@ -32,6 +32,7 @@ function modifier_is_in_offside:OnIntervalThink()
 
   -- Remove this offside thinker if parent is not in any offside zone
   if not IsLocationInOffside(origin) then
+    -- Don't remove this thinker if parent is still in the buffer zone
     if not ProtectionAura or not ProtectionAura:IsInBufferZone(parent) then
       self:Destroy()
     end

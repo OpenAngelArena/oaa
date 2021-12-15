@@ -92,9 +92,9 @@ function ProtectionAura:Init ()
       })
 
       radiant_zone.onStartTouch(ProtectionAura.StartTouch)
-      radiant_zone.onEndTouch(ProtectionAura.StartTouch)
+      radiant_zone.onEndTouch(ProtectionAura.StartTouch) -- StartTouch is on purpose
       dire_zone.onStartTouch(ProtectionAura.StartTouch)
-      dire_zone.onEndTouch(ProtectionAura.StartTouch)
+      dire_zone.onEndTouch(ProtectionAura.StartTouch) -- StartTouch is on purpose
     end
   end
 
