@@ -134,11 +134,29 @@ function modifier_duel_rune_hill:OnTakeDamage(keys)
     return
   end
 
-  if keys.unit ~= self:GetParent() then
+  local victim = keys.unit
+  local attacker = keys.attacker
+  local damage = keys.damage
+
+  -- Trigger only for parent
+  if victim ~= self:GetParent() then
     return
   end
 
-  if keys.attacker and keys.attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+  -- Don't trigger if attacker doesn't exist
+  if not attacker or attacker:IsNull() then
+    return
+  end
+
+  local attacker_team = attacker:GetTeamNumber()
+
+  -- Don't trigger on damage from neutrals, allies or on self damage
+  if attacker_team == DOTA_TEAM_NEUTRALS or attacker_team == victim:GetTeamNumber() then
+    return
+  end
+
+  -- Don't trigger on damage that is negative or 0 after all reductions
+  if damage <= 0 then
     return
   end
 
