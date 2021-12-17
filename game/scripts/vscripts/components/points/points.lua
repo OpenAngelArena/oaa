@@ -21,13 +21,12 @@ function PointsManager:Init ()
 
   local scoreLimit = NORMAL_KILL_LIMIT
   local scoreLimitIncrease = KILL_LIMIT_INCREASE
-  if HeroSelection.is1v1 then
-    scoreLimit = ONE_V_ONE_KILL_LIMIT
-    scoreLimitIncrease = ONE_V_ONE_LIMIT_INCREASE
-  end
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
     --scoreLimitIncrease = scoreLimitIncrease/2
+  elseif HeroSelection.is1v1 then
+    scoreLimit = ONE_V_ONE_KILL_LIMIT
+    scoreLimitIncrease = ONE_V_ONE_LIMIT_INCREASE
   end
   scoreLimit = 10 + (scoreLimit + scoreLimitIncrease) * PlayerResource:SafeGetTeamPlayerCount()
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
