@@ -115,15 +115,27 @@ end
   --return self.damageReduction * -1
 --end
 
-function modifier_item_preemptive_damage_reduction:GetModifierTotal_ConstantBlock(keys)
+function modifier_item_preemptive_damage_reduction:GetModifierTotal_ConstantBlock(event)
+  if not IsServer() then
+    return
+  end
+
   local parent = self:GetParent()
-  local damage = keys.damage
+  local damage = event.damage
 
   self.endHeal = self.endHeal + damage * self.damageheal / 100
 
   local block_amount = damage * self.damageReduction / 100
 
-  SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
+  if block_amount > 0 then
+    -- Visual effect
+    local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+    if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+      alert_type = OVERHEAD_ALERT_BLOCK
+    end
+
+    SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+  end
 
   return block_amount
 end
