@@ -48,7 +48,7 @@ function ProtectionAura:Init ()
   end)
 
   for roomID = 0, self.max_rooms do
-	local lockedPlayers = {}
+    local lockedPlayers = {}
     if not legacy then lockedPlayers = allGoodPlayers end
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
@@ -75,6 +75,29 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
+  -- Offside buffer zones - to prevent glitching inside the actual offside zone
+  if GetMapName() == "oaa_seasonal" then
+    for id = 1, 3 do
+      local radiant_zone = ZoneControl:CreateZone('radiant_offside_fix_' .. id, {
+        mode = ZONE_CONTROL_EXCLUSIVE_IN,
+        margin = 0,
+        padding = 0,
+        players = {}
+      })
+      local dire_zone = ZoneControl:CreateZone('dire_offside_fix_' .. id, {
+        mode = ZONE_CONTROL_EXCLUSIVE_IN,
+        margin = 0,
+        padding = 0,
+        players = {}
+      })
+
+      radiant_zone.onStartTouch(ProtectionAura.StartTouch)
+      radiant_zone.onEndTouch(ProtectionAura.StartTouch) -- StartTouch is on purpose
+      dire_zone.onStartTouch(ProtectionAura.StartTouch)
+      dire_zone.onEndTouch(ProtectionAura.StartTouch) -- StartTouch is on purpose
+    end
+  end
+
   ProtectionAura.active = true
 end
 
@@ -92,34 +115,6 @@ function ProtectionAura:IsInSpecificZone(teamID, roomID, entity)
   return zone.handle:IsTouching(entity)
 end
 
--- function ProtectionAura:StartTouchGood(event)
-  -- if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS and not Wanderer.radiant_offside_disabled then
-    -- if not event.activator:HasModifier("modifier_is_in_offside") then
-      -- return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
-    -- end
-  -- end
--- end
-
--- function ProtectionAura:EndTouchGood(event)
-  -- if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_GOODGUYS, event.activator) then
-    -- event.activator:RemoveModifierByName("modifier_is_in_offside")
-  -- end
--- end
-
--- function ProtectionAura:StartTouchBad(event)
-  -- if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS and not Wanderer.dire_offside_disabled then
-    -- if not event.activator:HasModifier("modifier_is_in_offside") then
-      -- return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
-    -- end
-  -- end
--- end
-
--- function ProtectionAura:EndTouchBad(event)
-  -- if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_BADGUYS, event.activator) then
-    -- event.activator:RemoveModifierByName("modifier_is_in_offside")
-  -- end
--- end
-
 function ProtectionAura:StartTouch(event)
   if not event.activator:HasModifier("modifier_is_in_offside") then
     return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
@@ -131,10 +126,31 @@ function ProtectionAura:EndTouch(event)
   local origin = activator:GetAbsOrigin()
   local team = activator:GetTeam()
 
-  -- Remove offside thinker if activator is not in offside
+  -- Remove offside thinker if activator is not in offside and not in the buffer zone
   if (team == DOTA_TEAM_GOODGUYS and not IsLocationInDireOffside(origin)) or (team == DOTA_TEAM_BADGUYS and not IsLocationInRadiantOffside(origin)) then
-    if activator:HasModifier("modifier_is_in_offside") then
+    if activator:HasModifier("modifier_is_in_offside") and not ProtectionAura:IsInBufferZone(activator) then
       activator:RemoveModifierByName("modifier_is_in_offside")
     end
   end
+end
+
+function ProtectionAura:IsInBufferZone(entity)
+  if GetMapName() == "oaa_seasonal" then
+    for i = 1, 3 do
+      local trigger_r = Entities:FindByName(nil, 'radiant_offside_fix_'..tostring(i))
+      local trigger_d = Entities:FindByName(nil, 'dire_offside_fix_'..tostring(i))
+      if trigger_r then
+        if IsInTrigger(entity, trigger_r) then
+          return true
+        end
+      end
+      if trigger_d then
+        if IsInTrigger(entity, trigger_d) then
+          return true
+        end
+      end
+    end
+  end
+
+  return false
 end

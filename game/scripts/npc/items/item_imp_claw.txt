@@ -42,6 +42,7 @@
     "ID"                                                  "8568" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_imp_claw"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/imp_claw"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

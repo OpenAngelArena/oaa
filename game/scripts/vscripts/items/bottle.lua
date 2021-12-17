@@ -59,6 +59,9 @@ local bonusNames = {
   'custom/bottles/bottle_archemagarch',
   'custom/bottles/bottle_obby',
   'custom/bottles/bottle_darkonius',
+  'custom/bottles/bottle_dota1',
+  'custom/bottles/bottle_satsaa',
+  'custom/bottles/bottle_hastedd',
 
 }
 

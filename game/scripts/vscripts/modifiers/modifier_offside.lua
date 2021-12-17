@@ -11,6 +11,7 @@ function modifier_is_in_offside:OnCreated()
     return
   end
 
+  self:OnIntervalThink()
   self:StartIntervalThink(1)
 end
 
@@ -31,7 +32,10 @@ function modifier_is_in_offside:OnIntervalThink()
 
   -- Remove this offside thinker if parent is not in any offside zone
   if not IsLocationInOffside(origin) then
-    self:Destroy()
+    -- Don't remove this thinker if parent is still in the buffer zone
+    if not ProtectionAura or not ProtectionAura:IsInBufferZone(parent) then
+      self:Destroy()
+    end
     return
   end
 
@@ -171,7 +175,7 @@ function modifier_offside:OnIntervalThink()
     self.stackOffset = self.stackOffset + 1
   end
 
-  local isInOffside = parent:HasModifier("modifier_is_in_offside") and isEnemyOffside == true
+  local isInOffside = (radiantOffside or direOffside) and isEnemyOffside == true
 
   if self.stackOffset >= TICKS_PER_SECOND then
     if isInOffside then
