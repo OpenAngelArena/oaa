@@ -4,6 +4,7 @@
 	maps =
 	[
 		"oaa_seasonal",
+		"1v1",
 		"oaa_legacy",
 		"captains_mode",
 		"10v10",
@@ -16,6 +17,10 @@
 		{
 			MaxPlayers = 10
 			map = "oaa_seasonal"
+		},
+		{
+			MaxPlayers = 2
+			map = "1v1"
 		},
 		{
 			MaxPlayers = 20
