@@ -34,11 +34,12 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 2                     -- Starting KILL_LIMIT = 10 + (NORMAL_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
-ONE_V_ONE_KILL_LIMIT = 8
-TEN_V_TEN_KILL_LIMIT = 3                  -- Starting KILL_LIMIT = 10 + (TEN_V_TEN_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
-KILL_LIMIT_INCREASE = 1                   -- Actual KILL_LIMIT_INCREASE is equal to number of players
-ONE_V_ONE_LIMIT_INCREASE = 2
+NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 10 + NORMAL_KILL_LIMIT x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
+ONE_V_ONE_KILL_LIMIT = 10                 -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 30
+TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
+KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
+TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
+ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = ONE_V_ONE_LIMIT_INCREASE x number of players: 1v1 - 4; solo - 2;
 
 -- poop wards
 POOP_WARD_DURATION = 360
