@@ -205,8 +205,12 @@ function PointsManager:IncreaseLimit(limit_increase)
   local extend_amount = 0
   if not limit_increase then
     extend_amount = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
-  else
-    extend_amount = limit_increase
+  end
+  if HeroSelection.is1v1 then
+    extend_amount = PlayerResource:SafeGetTeamPlayerCount() * ONE_V_ONE_LIMIT_INCREASE 
+  end 
+  if not limit_increase and not HeroSelection.is1v1 then
+     extend_amount = limit_increase
   end
 
   self.extend_counter = self.extend_counter + 1
@@ -255,6 +259,9 @@ function PointsManager:RefreshLimit()
   local base_limit = NORMAL_KILL_LIMIT
   if HeroSelection.is10v10 then
     base_limit = TEN_V_TEN_KILL_LIMIT
+  end
+  if HeroSelection.is1v1 then
+    base_limit = ONE_V_ONE_KILL_LIMIT
   end
   -- Expected score limit with changed number of players connected:
   -- Expected behavior: Disconnects should reduce player_count and reconnects should increase player_count.
