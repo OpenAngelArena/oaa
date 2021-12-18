@@ -43,6 +43,11 @@ function OAAOptions:InitializeSettingsTable()
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
   }
 
+  if self:FindHostID() == 7131038 then
+    -- Chris is the host
+    self.settings.GAME_MODE = "RD"
+  end
+
   for k, v in pairs(self.settings) do
     self.settingsDefault[k] = v
   end
@@ -61,4 +66,19 @@ function OAAOptions:AdjustGameMode()
     end
   end
   --local gamemode = GameRules:GetGameModeEntity()
+end
+
+function OAAOptions:FindHostID()
+  local hostId = 0
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    local steamid = PlayerResource:GetSteamAccountID(playerID)
+    if steamid ~= 0 then
+      local player = PlayerResource:GetPlayer(playerID)
+      if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+        hostId = steamid
+      end
+    end
+  end
+
+  return hostId
 end
