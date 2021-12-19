@@ -133,7 +133,7 @@ function modifier_item_bloodstone_stacking_stats:Setup(created)
     end
 
     if needsSetCharges then
-      ability:SetCurrentCharges(modifier.charges)
+      ability:SetCurrentCharges(math.max(initialCharges, modifier.charges))
     end
 
     if caster.storedCharges == modifier.charges then
