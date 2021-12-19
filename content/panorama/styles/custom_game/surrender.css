@@ -82,3 +82,36 @@
 {
 	opacity: 1;
 }
+
+#Header
+{
+  width: 100%;
+  vertical-align: top;
+  margin-top: 10px;
+  border-bottom: 2px solid #5B5B5C;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #CC9933;
+  text-align: center;
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#LoseCounter
+{
+  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+
+#Time
+{
+  width: 100%;
+  margin-top: 135px;
+  font-size: 80px;
+  color: #DDDDDD;
+  text-align: center;
+  visibility: collapse;
+}

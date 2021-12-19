@@ -121,7 +121,7 @@ end
 function Duels:RegisterZone(zoneName)
   self.zones = self.zones or {}
   local zoneExists = Entities:FindAllByName(zoneName)
-  if zoneExists and #zoneExists > 0  then
+  if zoneExists and #zoneExists > 0 then
     table.insert(
       self.zones,
       ZoneControl:CreateZone(zoneName, {

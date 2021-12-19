@@ -40,7 +40,7 @@
     "ID"                                                  "3897"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_wind_waker"
     "AbilityTextureName"                                  "item_wind_waker"
-    //"AbilityTextureName"                                  "custom/wind_waker_4"
+    "AbilityTextureName"                                  "custom/wind_waker_4"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"

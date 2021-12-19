@@ -38,7 +38,6 @@ if IsServer() then
       "modifier_item_shadow_amulet_fade",
       "modifier_item_invisibility_edge_windwalk",
       "modifier_item_silver_edge_windwalk",
-      "modifier_rune_invis",
       "modifier_item_blade_mail_reflect",
       "modifier_item_lotus_orb_active",
       "modifier_item_sphere_target",               -- Linken's Sphere transferred buff
@@ -148,6 +147,12 @@ if IsServer() then
       "modifier_windrunner_windrun_invis",
       "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
     }
+
+    local undispellable_rune_modifiers = {
+      "modifier_rune_invis",
+      "modifier_rune_hill_tripledamage",
+      "modifier_rune_hill_super_sight",
+    }
     -- These are mostly transformation buffs, add them to the list above if they don't crash or break the ability and if fair
     local problematic_modifiers = {
       "modifier_abaddon_borrowed_time",         -- transformation modifier and an ultimate
@@ -201,6 +206,7 @@ if IsServer() then
     RemoveTableOfModifiersFromUnit(self, undispellable_item_debuffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_buffs)
+    RemoveTableOfModifiersFromUnit(self, undispellable_rune_modifiers)
 
     -- Dispel stuff
     local BuffsCreatedThisFrameOnly = false
