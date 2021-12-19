@@ -124,7 +124,7 @@ function FinalDuel:EndDuelHandler (currentDuel)
 
   -- Give points to winners as a comeback compensation
   local playerCount = PlayerResource:SafeGetTeamPlayerCount()
-  local pointAward = math.ceil(playerCount / 20) * self.pointDifference
+  local pointAward = math.ceil(playerCount * self.pointDifference / 20)
   -- Capping the reward
   if pointAward > playerCount then
     pointAward = playerCount

@@ -4,9 +4,6 @@ if SurrenderManager == nil then
   SurrenderManager = class({})
 end
 
-
-local ONE_MINUTE = 60
-local FIVE_MINUTES = 60 * 5
 local lastTimeSurrenderWasCalled
 local lastTimeSurrenderWasCalledByPlayer = {}
 local votes = {}
@@ -31,19 +28,21 @@ function SurrenderManager:UpdateVisibility()
   local direScore = score.badguys
   local loserTeamID = 0
   local now = HudTimer:GetGameTime()
-  if direScore < radiantScore then loserTeamID = DOTA_TEAM_BADGUYS else loserTeamID = DOTA_TEAM_GOODGUYS end
+  if direScore < radiantScore then
+    loserTeamID = DOTA_TEAM_BADGUYS
+  else 
+    loserTeamID = DOTA_TEAM_GOODGUYS
+  end
   PlayerResource:GetPlayerIDsForTeam(loserTeamID):each(function (playerId)
     local isSurrenderEnabled = SurrenderManager:ScoreAllowsSurrender(loserTeamID) and SurrenderManager:TimeAllowsSurrender(playerId, now)
     CustomGameEventManager:Send_ServerToPlayer ( PlayerResource:GetPlayer(playerId), "surrender_visbility_changed", { visible = isSurrenderEnabled } )
   end)
 end
 
-
 function SurrenderManager:CheckSurrenderConditions(keys)
   local teamId = PlayerResource:GetTeam(keys.PlayerID)
   local now = HudTimer:GetGameTime()
-  if SurrenderManager:ScoreAllowsSurrender(teamId) and
-      SurrenderManager:TimeAllowsSurrender(keys.PlayerID, now) then
+  if SurrenderManager:ScoreAllowsSurrender(teamId) and SurrenderManager:TimeAllowsSurrender(keys.PlayerID, now) then
     lastTimeSurrenderWasCalled = GameRules:GetGameTime()
     lastTimeSurrenderWasCalledByPlayer[keys.PlayerID] = now
     teamIdToSurrender = teamId
@@ -55,7 +54,7 @@ function SurrenderManager:CheckSurrenderConditions(keys)
       CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId), "show_yes_no_poll", {pollText = text, pollTimeout = timeout, returnEventName = 'surrender_result'} )
     end)
 
--- Start a timer - just in case there's an error at a player's machine (crash etc.)
+    -- Start a timer - just in case there's an error at a player's machine (crash etc.)
     Timers:CreateTimer(timeout + 2, Dynamic_Wrap(SurrenderManager, 'CalculateVotesFromTimer'))
   end
   SurrenderManager:UpdateVisibility()
@@ -79,15 +78,9 @@ function SurrenderManager:TimeAllowsSurrender(playerId, now)
     DebugPrint("SurrenderManager:TimeAllowsSurrender --> lastTimeSurrenderWasCalled == nil")
     result = true
   else
-    if now - lastTimeSurrenderWasCalled > ONE_MINUTE then
+    if now - lastTimeSurrenderWasCalled > 60 then
       DebugPrint("SurrenderManager:TimeAllowsSurrender --> now - lastTimeSurrenderWasCalled = " .. (now - lastTimeSurrenderWasCalled))
-      if lastTimeSurrenderWasCalledByPlayer[playerId] == nil or
-          now - lastTimeSurrenderWasCalledByPlayer[playerId] > FIVE_MINUTES then
-        if lastTimeSurrenderWasCalledByPlayer[playerId] == nil then
-          DebugPrint("SurrenderManager:TimeAllowsSurrender --> lastTimeSurrenderWasCalledByPlayer[playerId] == nil")
-        else
-          DebugPrint("SurrenderManager:TimeAllowsSurrender --> now - lastTimeSurrenderWasCalled = " .. (now - lastTimeSurrenderWasCalledByPlayer[playerId]))
-        end
+      if lastTimeSurrenderWasCalledByPlayer[playerId] == nil or now - lastTimeSurrenderWasCalledByPlayer[playerId] > 2*60 then
         result = true
       else
         result = false
@@ -112,7 +105,7 @@ function SurrenderManager:PlayerVote (eventSourceIndex, args)
 end
 
 function SurrenderManager:CalculateVotesFromTimer()
-DebugPrint("numberOfVotesExpected = " .. numberOfVotesExpected)
+  DebugPrint("numberOfVotesExpected = " .. numberOfVotesExpected)
   if numberOfVotesExpected > 0 then -- if CalculateVotes has already ran this will be 0
     SurrenderManager:CalculateVotes()
   end
@@ -120,7 +113,7 @@ end
 
 function SurrenderManager:CalculateVotes()
   local yesVotesCast = 0
-  for key,value in pairs(votes) do
+  for key, value in pairs(votes) do
     yesVotesCast = yesVotesCast + value
   end
 

@@ -13,7 +13,7 @@
   </scripts>
 
   <Panel hittest="false" class="TeamSelect">
-    <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">`
+    <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">
       <!--Empty space to let the loading screen and chat be visible-->
       <Panel id="TeamsSelectEmptySpace">
         <!-- <Panel id="GameLengthPicker">

@@ -35,6 +35,7 @@
     "ID"                                                  "8569" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_panic_button"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/magic_lamp"
 
     "ItemCost"                                            "36854"
     "ItemShopTags"                                        "health_pool;hard_to_tag"
