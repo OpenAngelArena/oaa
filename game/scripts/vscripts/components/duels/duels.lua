@@ -617,7 +617,7 @@ function Duels:EndDuel ()
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
         hero:SetRespawnsDisabled(false)
-        hero:RespawnHero(false,false)
+        hero:RespawnHero(false, false)
         -- hero is changed on respawn sometimes
         hero = player:GetAssignedHero()
       else
