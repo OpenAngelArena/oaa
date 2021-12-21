@@ -48,7 +48,7 @@ function item_greater_guardian_greaves:OnSpellStart()
   local function ReplenishHealth(hero)
     local healAmount = self:GetSpecialValueFor("replenish_health")
     hero:Heal(healAmount, self)
-    hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
+    --hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
 
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
