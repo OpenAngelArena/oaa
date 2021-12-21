@@ -191,7 +191,7 @@ function Duels:CheckDuelStatus (hero)
   if hero:IsReincarnating() then
     hero:SetRespawnsDisabled(false)
     Timers:CreateTimer(1, function ()
-      hero:SetRespawnsDisabled(true)
+      --hero:SetRespawnsDisabled(true)
     end )
     return
   end
@@ -426,7 +426,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     SafeTeleportAll(hero, spawn, 250)
     MoveCameraToPlayer(hero)
     hero:Stop()
-    hero:SetRespawnsDisabled(true)
+    --hero:SetRespawnsDisabled(true)
   end
 
   if goodGuy then

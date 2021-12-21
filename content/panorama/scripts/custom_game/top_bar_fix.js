@@ -5,7 +5,7 @@ function FindDotaHudElement (panel) {
 
 function OverrideHeroImage (panel) {
   if (panel) {
-    var name = panel.heroname;
+    let name = panel.heroname;
     if (name === 'sohei' || name === 'electrician') {
       panel.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + name + '.png")';
       panel.style.backgroundSize = '100% 100%';
@@ -15,11 +15,11 @@ function OverrideHeroImage (panel) {
 
 function OverrideHeroImagesForTeam (team) {
   if (team) {
-    var i;
+    let i;
     for (i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS - 1; i++) {
-      var topBarPanel = FindDotaHudElement(team + 'Player' + i);
+      let topBarPanel = FindDotaHudElement(team + 'Player' + i);
       if (topBarPanel && Players.IsValidPlayerID(i)) {
-        var panel = topBarPanel.FindChildTraverse('HeroImage');
+        let panel = topBarPanel.FindChildTraverse('HeroImage');
         OverrideHeroImage(panel);
       }
     }
