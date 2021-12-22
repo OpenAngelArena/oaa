@@ -33,6 +33,19 @@ function OAAOptions:Init ()
   end)
 
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
+  ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
+
+  LinkLuaModifier("modifier_any_damage_lifesteal_oaa", "modifiers/funmodifiers/modifier_any_damage_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_aoe_radius_increase_oaa", "modifiers/funmodifiers/modifier_aoe_radius_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_blood_magic_oaa", "modifiers/funmodifiers/modifier_blood_magic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_debuff_duration_oaa", "modifiers/funmodifiers/modifier_debuff_duration_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_echo_strike_oaa", "modifiers/funmodifiers/modifier_echo_strike_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_ham_oaa", "modifiers/funmodifiers/modifier_ham_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_no_cast_points_oaa", "modifiers/funmodifiers/modifier_no_cast_points_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_physical_immunity_oaa", "modifiers/funmodifiers/modifier_physical_immunity_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_pro_active_oaa", "modifiers/funmodifiers/modifier_pro_active_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_spell_block_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_troll_switch_oaa", "modifiers/funmodifiers/modifier_troll_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
@@ -63,5 +76,137 @@ function OAAOptions:AdjustGameMode()
       ARDMMode:Init()
     end
   end
-  --local gamemode = GameRules:GetGameModeEntity()
+
+  if self.settings.HEROES_MODS ~= "HMN" then
+    local hero_mods = {
+      HM01 = "modifier_any_damage_lifesteal_oaa",
+      HM02 = "modifier_aoe_radius_increase_oaa",
+      HM03 = "modifier_blood_magic_oaa",
+      HM04 = "modifier_debuff_duration_oaa",
+      HM05 = "modifier_echo_strike_oaa",
+      HM06 = "modifier_ham_oaa",
+      HM07 = "modifier_no_cast_points_oaa",
+      HM08 = "modifier_physical_immunity_oaa",
+      HM09 = "modifier_pro_active_oaa",
+      HM10 = "modifier_spell_block_oaa",
+      HM11 = "modifier_troll_switch_oaa",
+    }
+    if self.settings.HEROES_MODS ~= "HMR" then
+      self.heroes_mod = hero_mods[self.settings.HEROES_MODS]
+    else
+      local hero_mod_pool = {}
+      for _, v in pairs(hero_mods) do
+        if v ~= nil then
+          table.insert(hero_mod_pool, v)
+        end
+      end
+      self.heroes_mod = hero_mod_pool[RandomInt(1, #hero_mod_pool)]
+    end
+  end
+
+  if self.settings.BOSSES_MODS ~= "BMN" then
+    local boss_mods = {
+      BM01 = "modifier_any_damage_lifesteal_oaa",
+      BM02 = "modifier_echo_strike_oaa",
+      BM03 = "modifier_physical_immunity_oaa",
+      BM04 = "modifier_spell_block_oaa",
+    }
+    if self.settings.BOSSES_MODS ~= "BMR" then
+      self.bosses_mod = boss_mods[self.settings.BOSSES_MODS]
+    else
+      local boss_mod_pool = {}
+      for _, v in pairs(boss_mods) do
+        if v ~= nil then
+          table.insert(boss_mod_pool, v)
+        end
+      end
+      self.bosses_mod = boss_mod_pool[RandomInt(1, #boss_mod_pool)]
+    end
+  end
+
+  if self.settings.GLOBAL_MODS ~= "GMN" then
+    local gamemode = GameRules:GetGameModeEntity()
+    local global_mods = {
+      GM01 = false,--"modifier_any_damage_lifesteal_oaa",
+      GM02 = "modifier_aoe_radius_increase_oaa",
+      GM03 = "modifier_blood_magic_oaa",
+      GM04 = "modifier_debuff_duration_oaa",
+      GM05 = false, --"modifier_echo_strike_oaa",
+      GM06 = "modifier_ham_oaa",
+      GM07 = "modifier_no_cast_points_oaa",
+      GM08 = "modifier_physical_immunity_oaa",
+      GM09 = "modifier_pro_active_oaa",
+      GM10 = "modifier_spell_block_oaa",
+      GM11 = "modifier_troll_switch_oaa",
+    }
+
+    if self.settings.GLOBAL_MODS ~= "GMR" then
+      self.global_mod = global_mods[self.settings.GLOBAL_MODS]
+    else
+      local global_mod_pool = {}
+      for _, v in pairs(global_mods) do
+        if v ~= nil then
+          table.insert(global_mod_pool, v)
+        end
+      end
+      self.global_mod = global_mod_pool[RandomInt(1, #global_mod_pool)]
+    end
+
+    if self.global_mod == false then
+      local global_event_mods = {
+        GM01 = "modifier_any_damage_lifesteal_oaa",
+        GM05 = "modifier_echo_strike_oaa",
+      }
+      local global_event_mod = global_event_mods[self.settings.GLOBAL_MODS]
+      if self.settings.GLOBAL_MODS == "GMR" or not global_event_mod then
+        local mod_pool = {}
+        for _, v in pairs(global_event_mods) do
+          if v ~= nil then
+            table.insert(mod_pool, v)
+          end
+        end
+        global_event_mod = mod_pool[RandomInt(1, #mod_pool)]
+      end
+      local global_thinker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+      global_thinker:AddNewModifier(global_thinker, nil, "modifier_oaa_thinker", {})
+      global_thinker:AddNewModifier(global_thinker, nil, global_event_mod, {isGlobal = 1})
+    end
+  end
+end
+
+function OAAOptions:OnUnitSpawn(event)
+  local npc
+  if event.entindex then
+    npc = EntIndexToHScript(event.entindex)
+  end
+  if not npc or npc:IsNull() then
+    return
+  end
+
+  if not npc:IsBaseNPC() then
+    -- npc is not an npc
+    return
+  end
+
+  if self.global_mod then
+    if not npc:HasModifier(self.global_mod) then
+      npc:AddNewModifier(npc, nil, self.global_mod, {})
+    end
+  end
+
+  if (npc:IsRealHero() or npc:IsTempestDouble() or npc:IsClone()) and npc:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
+    -- npc is a non-neutral hero
+    if self.heroes_mod and self.heroes_mod ~= self.global_mod then
+      if not npc:HasModifier(self.heroes_mod) then
+        npc:AddNewModifier(npc, nil, self.heroes_mod, {})
+      end
+    end
+  elseif npc:IsOAABoss() then
+    -- npc is a boss
+    if self.bosses_mod and self.bosses_mod ~= self.global_mod then
+      if not npc:HasModifier(self.bosses_mod) then
+        npc:AddNewModifier(npc, nil, self.bosses_mod, {})
+      end
+    end
+  end
 end

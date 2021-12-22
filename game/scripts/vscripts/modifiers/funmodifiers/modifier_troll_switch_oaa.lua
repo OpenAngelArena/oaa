@@ -14,7 +14,7 @@ end
 
 function modifier_troll_switch_oaa:OnCreated()
   self.atkRange = 600
-  self.projectileSpeed = 1000
+  self.projectileSpeed = 900
   self.bonus_health_per_lvl = 50
   self.bonus_attack_speed_per_lvl = 10
 

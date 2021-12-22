@@ -49,20 +49,40 @@
 				<DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="None" id="HMN"/>
                   <Label text="Random" id="HMR"/>
-                  <Label text="" id="HM01"/>
-                  <Label text="" id="HM02"/>
+                  <Label text="Hyper Lifesteal (Heroes)" id="HM01"/>
+                  <Label text="Bonus AoE/Radius" id="HM02"/>
+                  <Label text="Blood Magic" id="HM03"/>
+                  <Label text="Increased Debuff Duration" id="HM04"/>
+                  <Label text="Echo Strike (Heroes)" id="HM05"/>
+                  <Label text="Hyper Active" id="HM06"/>
+                  <Label text="No Cast Points" id="HM07"/>
+                  <Label text="Physical Immunity" id="HM08"/>
+                  <Label text="Pro-Active" id="HM09"/>
+                  <Label text="Spell Block chance" id="HM10"/>
+                  <Label text="Attack Range Switch" id="HM11"/>
                 </DropDown>
 				<DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">
                   <Label text="None" id="BMN"/>
                   <Label text="Random" id="BMR"/>
-                  <Label text="" id="BM01"/>
-                  <Label text="" id="BM02"/>
+                  <Label text="Hyper Lifesteal (Bosses)" id="BM01"/>
+                  <Label text="Echo Strike (Bosses)" id="BM02"/>
+                  <Label text="Physical Immunity" id="BM03"/>
+                  <Label text="Spell Block chance" id="BM04"/>
                 </DropDown>
 				<DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
                   <Label text="None" id="GMN"/>
                   <Label text="Random" id="GMR"/>
-                  <Label text="" id="GM01"/>
-                  <Label text="" id="GM02"/>
+                  <Label text="Hyper Lifesteal" id="GM01"/>
+                  <Label text="Bonus AoE/Radius" id="GM02"/>
+                  <Label text="Blood Magic" id="GM03"/>
+                  <Label text="Increased Debuff Duration" id="GM04"/>
+                  <Label text="Echo Strike" id="GM05"/>
+                  <Label text="Hyper Active" id="GM06"/>
+                  <Label text="No Cast Points" id="GM07"/>
+                  <Label text="Physical Immunity" id="GM08"/>
+                  <Label text="Pro-Active" id="GM09"/>
+                  <Label text="Spell Block chance" id="GM10"/>
+                  <Label text="Attack Range Switch" id="GM11"/>
                 </DropDown>
               </Panel>
             </Panel>

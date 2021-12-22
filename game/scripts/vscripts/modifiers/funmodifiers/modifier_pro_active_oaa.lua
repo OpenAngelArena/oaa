@@ -43,7 +43,7 @@ end
 
 function modifier_pro_active_oaa:GetModifierPercentageCooldown(keys)
   if keys.ability and self.ignore_abilities[keys.ability:GetName()] then
-    return nil
+    return 0
   else
     return self.cdr
   end

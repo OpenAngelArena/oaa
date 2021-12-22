@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_spell_block_cooldown_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_spell_block_oaa = class(ModifierBaseClass)
 
 function modifier_spell_block_oaa:IsHidden()
@@ -42,7 +44,7 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
   end
 
   -- No need to block if parent is invulnerable
-  if parent:IsInvulnerable() then
+  if parent:IsInvulnerable() or parent:IsOutOfGame() then
     return 0
   end
 

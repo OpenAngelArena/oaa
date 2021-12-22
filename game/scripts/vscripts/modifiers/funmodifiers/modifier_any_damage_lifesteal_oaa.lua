@@ -8,6 +8,10 @@ function modifier_any_damage_lifesteal_oaa:IsPurgable()
   return false
 end
 
+function modifier_any_damage_lifesteal_oaa:RemoveOnDeath()
+  return false
+end
+
 function modifier_any_damage_lifesteal_oaa:DeclareFunctions()
   local funcs = {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
@@ -15,9 +19,19 @@ function modifier_any_damage_lifesteal_oaa:DeclareFunctions()
   return funcs
 end
 
-function modifier_any_damage_lifesteal_oaa:OnCreated()
-  self.hero_spell_lifesteal = 100
-  self.creep_spell_lifesteal = 50
+function modifier_any_damage_lifesteal_oaa:OnCreated(kv)
+  self.hero_lifesteal = 100
+  self.creep_lifesteal = 50
+  self.global = kv.isGlobal == 1
+
+  if not self.global then
+    local global_option = OAAOptions.settings.GLOBAL_MODS
+    local global_mod = OAAOptions.global_mod
+    if global_mod == false and global_option == "GM01" then
+      print("modifier_any_damage_lifesteal_oaa - Don't create multiple modifiers if there is a global one")
+      self:Destroy()
+    end
+  end
 end
 
 modifier_any_damage_lifesteal_oaa.OnRefresh = modifier_any_damage_lifesteal_oaa.OnCreated
@@ -40,9 +54,11 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
   end
 
   -- Check if attacker has this modifier
-  --if attacker ~= parent then
-    --return
-  --end
+  if not self.global then
+    if attacker ~= parent then
+      return
+    end
+  end
 
   -- Check if damaged entity exists
   if not damaged_unit or damaged_unit:IsNull() then
@@ -87,10 +103,10 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
   -- Calculate the lifesteal (heal) amount
   local heal_amount = 0
   if damaged_unit:IsRealHero() then
-    heal_amount = damage * self.hero_spell_lifesteal / 100
+    heal_amount = damage * self.hero_lifesteal / 100
   else
     -- Illusions are treated as creeps too
-    heal_amount = damage * self.creep_spell_lifesteal / 100
+    heal_amount = damage * self.creep_lifesteal / 100
   end
 
   if heal_amount > 0 then
@@ -108,3 +124,7 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
     end
   end
 end
+
+--function modifier_any_damage_lifesteal_oaa:GetTexture()
+  --return ""
+--end

@@ -18,6 +18,19 @@ function modifier_echo_strike_oaa:DeclareFunctions()
   }
 end
 
+function modifier_echo_strike_oaa:OnCreated(kv)
+  self.global = kv.isGlobal == 1
+
+  if not self.global then
+    local global_option = OAAOptions.settings.GLOBAL_MODS
+    local global_mod = OAAOptions.global_mod
+    if global_mod == false and global_option == "GM05" then
+      print("modifier_echo_strike_oaa - Don't create multiple modifiers if there is a global one")
+      self:Destroy()
+    end
+  end
+end
+
 function modifier_echo_strike_oaa:OnAttackLanded(event)
   if not IsServer() then
     return
@@ -37,11 +50,13 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
   end
 
   -- Check if attacker has this modifier
-  --if attacker ~= parent then
-    --return
-  --end
+  if not self.global then
+    if attacker ~= parent then
+      return
+    end
+  end
 
-    -- Check if attacked unit exists
+  -- Check if attacked unit exists
   if not target or target:IsNull() then
     return
   end
