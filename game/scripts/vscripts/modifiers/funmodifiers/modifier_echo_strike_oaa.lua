@@ -21,7 +21,7 @@ end
 function modifier_echo_strike_oaa:OnCreated(kv)
   self.global = kv.isGlobal == 1
 
-  if not self.global then
+  if not self.global and IsServer() then
     local global_option = OAAOptions.settings.GLOBAL_MODS
     local global_mod = OAAOptions.global_mod
     if global_mod == false and global_option == "GM05" then

@@ -187,6 +187,10 @@ function OAAOptions:OnUnitSpawn(event)
     -- npc is not an npc
     return
   end
+  
+  if npc:HasModifier("modifier_minimap") or npc:HasModifier("modifier_oaa_thinker") then
+    return
+  end
 
   if self.global_mod then
     if not npc:HasModifier(self.global_mod) then

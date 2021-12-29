@@ -16,7 +16,7 @@ function modifier_troll_switch_oaa:OnCreated()
   self.atkRange = 600
   self.projectileSpeed = 900
   self.bonus_health_per_lvl = 50
-  self.bonus_attack_speed_per_lvl = 10
+  self.bonus_attack_speed_per_lvl = 5
 
   if not IsServer() then
     return
@@ -38,7 +38,7 @@ function modifier_troll_switch_oaa:OnCreated()
     parent:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
     -- Change attack projectile only if parent doesn't have Metamorphosis and Dragon Form
     if not parent:HasAbility("dragon_knight_elder_dragon_form") and not parent:HasAbility("dragon_knight_elder_dragon_form_oaa") and not parent:HasAbility("terrorblade_metamorphosis") then
-	    parent:SetRangedProjectileName("particles/base_attacks/ranged_tower_good.vpcf")
+      parent:SetRangedProjectileName("particles/base_attacks/ranged_tower_good.vpcf")
     end
     self.set_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
   else
@@ -79,8 +79,22 @@ end
 
 
 function modifier_troll_switch_oaa:GetModifierAttackRangeBonus()
-  if self:GetParent():IsRangedAttacker() then
+  local parent = self:GetParent()
+  if parent:IsRangedAttacker() then
     return self.atkRange
+  else
+    if self.ar_lock then
+      return 0
+    else
+      self.ar_lock = true
+      local attack_range = parent:GetAttackRange()
+      self.ar_lock = false
+      if attack_range > self.atkRange then
+        return (self.atkRange / 2) - attack_range
+      else
+        return (self.atkRange / 4) - attack_range
+      end
+    end
   end
 
   return 0
@@ -92,14 +106,16 @@ function modifier_troll_switch_oaa:GetModifierProjectileSpeedBonus()
     return 0
   end
 
-  if self.lock then
+  if self.ps_lock then
     return 0
   else
-    self.lock = true
+    self.ps_lock = true
     local projectile_speed = parent:GetProjectileSpeed()
-    self.lock = false
-    if projectile_speed > self.projectileSpeed then
+    self.ps_lock = false
+    if projectile_speed <= self.projectileSpeed then
       return self.projectileSpeed - projectile_speed
+    --elseif projectile_speed > self.projectileSpeed then
+      --return self.projectileSpeed - projectile_speed
     end
   end
 
