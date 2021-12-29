@@ -67,8 +67,8 @@ function ModifyAbilitiesFilter:ProjectileFilter(keys)
 
   local attacker
   if source_index then
-		attacker = EntIndexToHScript(source_index)
-	end
+    attacker = EntIndexToHScript(source_index)
+  end
 
   if attacker and not attacker:IsNull() then
     if attacker:IsRealHero() and attacker:HasLearnedAbility("special_bonus_unique_wisp_4") and is_an_attack_projectile == 1 then
