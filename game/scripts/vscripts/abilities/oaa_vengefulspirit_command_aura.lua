@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_vengefulspirit_command_aura_oaa", "abilities/oaa_vengefulspirit_command_aura.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vengefulspirit_command_aura_oaa_damage_buff", "abilities/oaa_vengefulspirit_command_aura.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", "abilities/oaa_vengefulspirit_command_aura.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", "abilities/oaa_vengefulspirit_command_aura.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", "abilities/oaa_vengefulspirit_command_aura.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", "abilities/oaa_vengefulspirit_command_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
 vengefulspirit_command_aura_oaa = class(AbilityBaseClass)
 
@@ -55,7 +55,7 @@ end
 function modifier_vengefulspirit_command_aura_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
-    --MODIFIER_EVENT_ON_RESPAWN
+    MODIFIER_EVENT_ON_RESPAWN
   }
 end
 
@@ -82,16 +82,19 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     outgoing_damage_structure = 0,
     outgoing_damage_roshan = 0,
   }
-  local illusion = CreateIllusions(parent, parent, illusion_table, 1, parent:GetHullRadius(), true, true)
+  local illusions = CreateIllusions(parent, parent, illusion_table, 1, parent:GetHullRadius(), true, true)
+  for _, illusion in pairs(illusions) do
+    illusion:SetHealth(illusion:GetMaxHealth())
+    illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
+    --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
+    --self.illusion = illusion
 
-  illusion:SetHealth(illusion:GetMaxHealth())
-	illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
-  illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
-
-  self.illusion = illusion
+    PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), illusion)
+	--PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+  end
 end
 
---[[
+
 function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
   local parent = self:GetParent()
   if not parent:HasScepter() or parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or not IsServer() then
@@ -101,13 +104,15 @@ function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
   if event.unit ~= parent then
     return
   end
-
+--[[
   if self.illusion and self.illusion:IsNull() then
-    self.illusion:ForceKill(false)
+    --self.illusion:ForceKill(false)
+    self.illusion:AddNoDraw()
+    self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
   end
-
+  ]]
+  PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), parent)
 end
-]]
 
 ---------------------------------------------------------------------------------------------------
 
@@ -152,7 +157,7 @@ function modifier_vengefulspirit_command_aura_oaa_damage_buff:GetModifierBaseDam
 end
 
 ---------------------------------------------------------------------------------------------------
-
+--[[ -- if 'modifier_vengefulspirit_hybrid_special' doesn't handle everything
 modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker = class(ModifierBaseClass)
 
 function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:IsHidden()
@@ -167,28 +172,9 @@ function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:IsPur
   return false
 end
 
-function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:OnCreated()
-  if not IsServer() then
-    return
-  end
-  --self:StartIntervalThink(0)
-end
-
-function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:OnIntervalThink()
-  if not IsServer() then
-    return
-  end
-  local parent = self:GetParent()
-  if not parent or parent:IsNull() then
-    return
-  end
-
-  -- If OnDeath doesn't work, then track illusion health with this maybe? Axe Cuilling Blade can be a problem
-end
-
 function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:DeclareFunctions()
   return {
-    --MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_EVENT_ON_DEATH,
   }
 end
 
@@ -309,8 +295,7 @@ function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide:CheckSta
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
     [MODIFIER_STATE_BLIND] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
-    --[MODIFIER_STATE_NO_TEAM_MOVE_TO] = true,
-    --[MODIFIER_STATE_NO_TEAM_SELECT] = true,
   }
   return state
 end
+]]
