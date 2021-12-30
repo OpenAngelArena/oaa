@@ -90,7 +90,7 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     --self.illusion = illusion
 
     PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), illusion)
-	--PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+    --PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
   end
 end
 
@@ -112,6 +112,9 @@ function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
   end
   ]]
   PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), parent)
+  Timers:CreateTimer(1/30, function()
+    PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+  end)
 end
 
 ---------------------------------------------------------------------------------------------------
