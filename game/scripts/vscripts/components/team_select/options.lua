@@ -82,6 +82,7 @@ function OAAOptions:ChangeDefaultSettings()
   if self:FindHostID() == 7131038 then
     -- Chris is the host
     self.settingsDefault.GAME_MODE = "RD"
+    self.settings.GAME_MODE = "RD"
     CustomNetTables:SetTableValue("oaa_settings", "default", OAAOptions.settingsDefault)
   end
 end
