@@ -133,7 +133,7 @@ function modifier_item_bloodstone_stacking_stats:Setup(created)
     end
 
     if needsSetCharges then
-      ability:SetCurrentCharges(modifier.charges)
+      ability:SetCurrentCharges(math.max(initialCharges, modifier.charges))
     end
 
     if caster.storedCharges == modifier.charges then
@@ -145,19 +145,19 @@ end
 
 function modifier_item_bloodstone_stacking_stats:OnDestroy()
   if IsServer() then
-    self.charges = self.charges or 0
+    local charges = self.charges or 0
     local ability = self:GetAbility()
+    local caster = self:GetCaster()
     if ability and not ability:IsNull() then
       -- store our point values for later
-      if ability:GetCurrentCharges() > self.charges then
-        DebugPrint('gained ' .. (ability:GetCurrentCharges() - self.charges) .. ' charges')
-        self.charges = ability:GetCurrentCharges()
+      if ability:GetCurrentCharges() >= charges then
+        DebugPrint('gained ' .. (ability:GetCurrentCharges() - charges) .. ' charges')
+        charges = ability:GetCurrentCharges()
       end
     end
-    local caster = self:GetCaster()
     if caster and not caster:IsNull() then
-      caster.surplusCharges = (caster.surplusCharges or 0) + self.charges
-      caster.storedCharges = self.charges
+      caster.surplusCharges = (caster.surplusCharges or 0) + charges
+      caster.storedCharges = caster.storedCharges or charges
     end
   end
 end
@@ -261,7 +261,7 @@ function modifier_item_bloodstone_stacking_stats:OnDeath(keys)
 
   local oldCharges = stone:GetCurrentCharges()
   --local newCharges = math.max(1, math.ceil(oldCharges * stone:GetSpecialValueFor("on_death_removal")))
-  local newCharges = math.max(0, math.ceil(oldCharges - stone:GetSpecialValueFor("death_charges")))
+  local newCharges = math.max(0, oldCharges - stone:GetSpecialValueFor("death_charges"))
 
   stone:SetCurrentCharges(newCharges)
   self.charges = newCharges
