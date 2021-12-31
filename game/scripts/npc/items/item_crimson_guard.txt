@@ -38,7 +38,7 @@
     "AbilityTextureName"                                  "custom/crimson_guard_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0"
+    "AbilityCooldown"                                     "20" //OAA
     "AbilitySharedCooldown"                               "guard"
     "AbilityCastRange"                                    "1200"
 
@@ -117,7 +117,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_reapply_time"                            "40"
+        "tooltip_reapply_time"                            "20" //OAA
       }
     }
   }
