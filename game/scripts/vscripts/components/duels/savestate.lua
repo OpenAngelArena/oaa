@@ -14,7 +14,9 @@ local function PurgeDuelHighgroundBuffs(hero)
     "modifier_rune_haste",
     "modifier_rune_doubledamage",
     "modifier_rune_invis",
+    "modifier_rune_arcane",
     "modifier_rune_hill_tripledamage",
+    "modifier_rune_hill_super_sight",
   }
   iter(modifierList):each(partial(hero.RemoveModifierByName, hero))
 end
