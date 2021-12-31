@@ -41,7 +41,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "6.0 4.0 2.5 1.8 1.6"
+    "AbilityCooldown"                                     "5.5 3.75 2.5 1.75 1.5" //OAA
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
@@ -103,7 +103,7 @@
       "10" //OAA
       {
         "var_type"                                        "FIELD_FLOAT"
-        "cooldown_tooltip"                                "5.0 4.0 2.5 1.8 1.6"
+        "cooldown_tooltip"                                "5.5 3.75 2.5 1.75 1.5"
       }
     }
   }
