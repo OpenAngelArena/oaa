@@ -24,6 +24,7 @@ if IsServer() then
     local parent = self:GetParent()
     ability.shieldParticleName = "particles/charger/charger_super_armor_shield.vpcf"
     ability.shieldParticle = ParticleManager:CreateParticle(ability.shieldParticleName, PATTACH_OVERHEAD_FOLLOW, parent)
+    -- shieldParticle is released and destroyed when modifier_boss_charger_pillar_debuff is created
   end
 end
 
@@ -33,10 +34,24 @@ function modifier_boss_charger_super_armor:DeclareFunctions()
   }
 end
 
-function modifier_boss_charger_super_armor:GetModifierTotal_ConstantBlock(keys)
-  if self:GetParent():HasModifier("modifier_boss_charger_pillar_debuff") then
+function modifier_boss_charger_super_armor:GetModifierTotal_ConstantBlock(event)
+  if not IsServer() then
     return
   end
+
+  local parent = self:GetParent()
+
+  if parent:HasModifier("modifier_boss_charger_pillar_debuff") then
+    return 0
+  end
+
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  return math.floor(keys.damage * damageReduction / 100)
+  local blockAmount = event.damage * damageReduction / 100
+
+  if blockAmount > 0 then
+    -- Visual effect (TODO: add unique visual effect)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, blockAmount, nil)
+  end
+
+  return blockAmount
 end

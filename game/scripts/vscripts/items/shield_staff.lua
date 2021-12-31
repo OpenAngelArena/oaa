@@ -90,10 +90,11 @@ function item_shield_staff:OnSpellStart()
     -- Damage table
     local damage_table = {}
     damage_table.attacker = caster
-    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+    damage_table.damage_type = DAMAGE_TYPE_PURE
     damage_table.ability = self
     damage_table.damage = self:GetSpecialValueFor("damage_to_enemies")
     damage_table.victim = target
+    damage_table.damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL
 
     ApplyDamage(damage_table)
   else
@@ -348,6 +349,11 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     return 0
   end
 
+  -- Don't react to damage with HP removal flag
+  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+    return 0
+  end
+
   -- Don't react on self damage
   if event.attacker == parent then
     return 0
@@ -366,9 +372,13 @@ function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_Constant
     -- Reset failure count
     self:SetStackCount(0)
 
-    local block_amount = ability:GetSpecialValueFor("passive_spell_damage_block")
+    -- Don't block more than the actual damage
+    local block_amount = math.min(ability:GetSpecialValueFor("passive_spell_damage_block"), event.damage)
 
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+    if block_amount > 0 then
+      -- Visual effect
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+    end
 
     return block_amount
   else
@@ -436,6 +446,11 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
   local block_amount = event.damage
   local barrier_hp = self:GetStackCount()
 
+  -- Don't react to damage with HP removal flag
+  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+    return 0
+  end
+
   -- Don't react on self damage
   if event.attacker == parent then
     return 0
@@ -447,8 +462,15 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
   -- Reduce barrier hp
   self:SetStackCount(barrier_hp - block_amount)
 
-  -- Visual effect
-  SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
+  if block_amount > 0 then
+    -- Visual effect
+    local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+    if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+      alert_type = OVERHEAD_ALERT_BLOCK
+    end
+
+    SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+  end
 
   -- Remove the barrier if hp is reduced to nothing
   if self:GetStackCount() <= 0 then
@@ -457,8 +479,6 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
 
   return block_amount
 end
-
-
 
 function modifier_shield_staff_barrier_buff:OnDestroy()
   if self.particle then
