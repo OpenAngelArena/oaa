@@ -140,7 +140,7 @@ function HeroKillXP:HeroDeathHandler(keys)
     local killerIsInHeroesTable = iter(heroes)
                                   :map(CallMethod("GetPlayerOwnerID"))
                                   :contains(killerPlayerID)
-    if not killerIsInHeroesTable then
+    if not killerIsInHeroesTable and killerHero:IsAlive() then
       table.insert(heroes, killerHero)
     end
 
