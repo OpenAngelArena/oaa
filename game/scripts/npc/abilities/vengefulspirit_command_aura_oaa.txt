@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Vengeful Spirit: Vengeance Aura (OAA Rework)
+  //=================================================================================================================
+  "vengefulspirit_command_aura_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85123"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_vengefulspirit_command_aura.lua"
+    "AbilityTextureName"                                  "vengefulspirit_command_aura"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_base_damage"                               "11 18 25 32 36 40"
+        "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_2"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_out_pct"                         "100"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "illusion_damage_in_pct"                          "100"
+      }
+    }
+  }
+}

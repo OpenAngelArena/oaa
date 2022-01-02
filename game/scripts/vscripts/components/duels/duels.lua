@@ -30,7 +30,7 @@ function Duels:Init ()
   self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
-  GameEvents:OnHeroDied(function (keys)
+  GameEvents:OnHeroKilled(function (keys)
     Duels:CheckDuelStatus(keys)
   end)
 
@@ -46,7 +46,7 @@ function Duels:Init ()
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if hero and not Duels.currentDuel then
-        hero:SetRespawnsDisabled(false)
+        --hero:SetRespawnsDisabled(false)
         if hero:IsAlive() then
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
@@ -184,15 +184,22 @@ function Duels:IsActive ()
   return true
 end
 
-function Duels:CheckDuelStatus (hero)
+function Duels:CheckDuelStatus (event)
   if not self:IsActive() then
     return
   end
+
+  local hero = event.killed
+
+  if hero:IsTempestDouble() then
+    return
+  end
+
   if hero:IsReincarnating() then
-    hero:SetRespawnsDisabled(false)
-    Timers:CreateTimer(1, function ()
-      hero:SetRespawnsDisabled(true)
-    end )
+    --hero:SetRespawnsDisabled(false)
+    --Timers:CreateTimer(1, function ()
+      --hero:SetRespawnsDisabled(true)
+    --end)
     return
   end
 
@@ -214,6 +221,7 @@ function Duels:CheckDuelStatus (hero)
   if player.killed then
     -- this player is already dead and shouldn't be counted again
     -- this shouldn't happen, but is nice to have here for future use cases of this method
+    -- this can happen for Meepo too
     DebugPrint('Player died twice in duel?')
     DebugPrintTable(self.currentDuel)
     DebugPrintTable(player)
@@ -426,7 +434,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     SafeTeleportAll(hero, spawn, 250)
     MoveCameraToPlayer(hero)
     hero:Stop()
-    hero:SetRespawnsDisabled(true)
+    --hero:SetRespawnsDisabled(true) -- not working properly thanks to Aghs Lab 2
   end
 
   if goodGuy then
@@ -616,8 +624,8 @@ function Duels:EndDuel ()
 
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
-        hero:SetRespawnsDisabled(false)
-        hero:RespawnHero(false,false)
+        --hero:SetRespawnsDisabled(false)
+        hero:RespawnHero(false, false)
         -- hero is changed on respawn sometimes
         hero = player:GetAssignedHero()
       else

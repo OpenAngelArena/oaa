@@ -34,9 +34,12 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 2                     -- Starting KILL_LIMIT = 10 + (NORMAL_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
-TEN_V_TEN_KILL_LIMIT = 3                  -- Starting KILL_LIMIT = 10 + (TEN_V_TEN_KILL_LIMIT + KILL_LIMIT_INCREASE) x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
-KILL_LIMIT_INCREASE = 1                   -- Actual KILL_LIMIT_INCREASE is equal to number of players
+NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 10 + NORMAL_KILL_LIMIT x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
+ONE_V_ONE_KILL_LIMIT = 10                 -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 30
+TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
+KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
+TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
+ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = ONE_V_ONE_LIMIT_INCREASE x number of players: 1v1 - 4; solo - 2;
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -69,7 +72,7 @@ DUEL_START_WARN_TIME = 10               -- How many seconds to count down before
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
 FIRST_DUEL_TIMEOUT = 80                 -- Timeout for the level 1 duel at the start of them game
-FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
+FINAL_DUEL_TIMEOUT = 180                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
 DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
