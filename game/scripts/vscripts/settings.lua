@@ -81,7 +81,7 @@ ONE_V_ONE_DUEL_INTERVAL = 360           -- time from duel ending until next duel
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
-CAPTURE_POINTS_AND_DUELS_NO_OVERLAP = true
+CAPTURE_POINTS_AND_DUELS_NO_OVERLAP = true -- Changing INITIAL_CAPTURE_POINT_DELAY, ONE_V_ONE_INITIAL_CAPTURE_POINT_DELAY, CAPTURE_INTERVAL, ONE_V_ONE_CAPTURE_INTERVAL will have no effect if this is true
 INITIAL_CAPTURE_POINT_DELAY = 660       -- how long after the clock hits 0 should the initial Capture Point start counting down. FIRST_DUEL_TIMEOUT + DUEL_INTERVAL + DUEL_TIMEOUT + 10.
 ONE_V_ONE_INITIAL_CAPTURE_POINT_DELAY = 510   -- 2 x ONE_V_ONE_DUEL_TIMEOUT + ONE_V_ONE_DUEL_INTERVAL + 10.
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
