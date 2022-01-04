@@ -109,7 +109,7 @@ function Duels:Init ()
     Duels:StartDuel({
       players = 0,
       firstDuel = true,
-      timeout = FIRST_DUEL_TIMEOUT
+      timeout = Duels:GetDuelTimeout(1)
     })
   end)
 
@@ -489,7 +489,7 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
   DuelStartEvent.broadcast(self.currentDuel)
 
   if options.timeout == nil then
-    options.timeout = DUEL_TIMEOUT
+    options.timeout = Duels:GetDuelTimeout()
   end
 
   if options.timeout ~= 0 then
@@ -559,7 +559,7 @@ function Duels:TimeoutDuel ()
 end
 
 function Duels:SetNextDuelTime()
-  Duels.nextDuelTime = HudTimer:GetGameTime() + DUEL_INTERVAL + DUEL_START_WARN_TIME
+  Duels.nextDuelTime = HudTimer:GetGameTime() + Duels:GetDuelIntervalTime() + DUEL_START_WARN_TIME
 end
 
 function Duels:GetNextDuelTime()
@@ -578,7 +578,7 @@ function Duels:CleanUpDuel ()
 
   Music:PlayBackground(1, 7)
 
-  local nextDuelIn = DUEL_INTERVAL
+  local nextDuelIn = Duels:GetDuelIntervalTime()
   Duels:SetNextDuelTime()
 
   if self.startDuelTimer then
@@ -588,7 +588,7 @@ function Duels:CleanUpDuel ()
 
   self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
     Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
-    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(self.StartDuel, self))
+    Duels.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(Duels.StartDuel, Duels))
   end)
 
   self.currentDuel = nil
@@ -692,4 +692,30 @@ function Duels:PlayerForDuel(playerId)
   end)
 
   return foundIt
+end
+
+function Duels:GetDuelIntervalTime()
+  if GetMapName() == "1v1" then
+    return ONE_V_ONE_DUEL_INTERVAL
+  end
+
+  return DUEL_INTERVAL
+end
+
+function Duels:GetDuelTimeout(duelType)
+  if GetMapName() == "1v1" then
+    return ONE_V_ONE_DUEL_TIMEOUT
+  end
+  if not duelType then
+    -- Duel is not first and not final
+    return DUEL_TIMEOUT
+  elseif duelType == 1 then
+    -- First duel
+    return FIRST_DUEL_TIMEOUT
+  elseif duelType == 2 then
+    -- Final duel
+    return FINAL_DUEL_TIMEOUT
+  end
+
+  return DUEL_TIMEOUT
 end

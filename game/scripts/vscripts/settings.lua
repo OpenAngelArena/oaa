@@ -73,17 +73,22 @@ DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
 FIRST_DUEL_TIMEOUT = 80                 -- Timeout for the level 1 duel at the start of them game
 FINAL_DUEL_TIMEOUT = 180                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
+ONE_V_ONE_DUEL_TIMEOUT = 70             -- Timeout for every duel in 1v1 mode
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
-DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
+DUEL_INTERVAL = 480                     -- time from duel ending until next duel countdown begins
+ONE_V_ONE_DUEL_INTERVAL = 360           -- time from duel ending until next duel countdown begins in 1v1 mode
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints
-INITIAL_CAPTURE_POINT_DELAY = 660       -- how long after the clock hits 0 should the initial Capture Point start counting down
+CAPTURE_POINTS_AND_DUELS_NO_OVERLAP = true
+INITIAL_CAPTURE_POINT_DELAY = 660       -- how long after the clock hits 0 should the initial Capture Point start counting down. FIRST_DUEL_TIMEOUT + DUEL_INTERVAL + DUEL_TIMEOUT + 10.
+ONE_V_ONE_INITIAL_CAPTURE_POINT_DELAY = 510   -- 2 x ONE_V_ONE_DUEL_TIMEOUT + ONE_V_ONE_DUEL_INTERVAL + 10.
 CAPTURE_FIRST_WARN = 60                 -- how many seconds before spawn of capture points the first ping on minimap will show
 CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capture points the second ping on minimap will show
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
-CAPTURE_INTERVAL = 480                  -- time from CapturePoint beginning until next CapturePoint begins
+CAPTURE_INTERVAL = 480                  -- time from CapturePoint beginning until next CapturePoint begins. DUEL_INTERVAL.
+ONE_V_ONE_CAPTURE_INTERVAL = 360        -- ONE_V_ONE_DUEL_INTERVAL
 CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
 
 -- Bosses
