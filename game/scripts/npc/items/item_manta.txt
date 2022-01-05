@@ -19,7 +19,7 @@
     "AbilityTextureName"                                  "custom/manta_style_1"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "20" //OAA
     "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "manta"
 
@@ -79,12 +79,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_melee"                  "-50 -45 -40 -35 -30"
+        "images_do_damage_percent_melee"                  "-50 -45 -40 -35 -30" //OAA
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_melee"                   "50 55 60 65 70"
+        "tooltip_damage_outgoing_melee"                   "50 55 60 65 70" //OAA
       }
       "10"
       {
@@ -99,12 +99,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "images_do_damage_percent_ranged"                 "-55 -50 -45 -40 -35"
+        "images_do_damage_percent_ranged"                 "-55 -50 -45 -40 -35" //OAA
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_damage_outgoing_ranged"                  "45 50 55 60 65"
+        "tooltip_damage_outgoing_ranged"                  "45 50 55 60 65" //OAA
       }
       "14"
       {
