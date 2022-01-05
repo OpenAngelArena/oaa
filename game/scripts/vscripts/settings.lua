@@ -35,7 +35,7 @@ ABANDON_NEEDED = 3                        -- how many total abandons you need be
 
 -- kill limits
 NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 10 + NORMAL_KILL_LIMIT x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
-ONE_V_ONE_KILL_LIMIT = 10                 -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 30
+ONE_V_ONE_KILL_LIMIT = 6                  -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 22
 TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
 KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
 TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
