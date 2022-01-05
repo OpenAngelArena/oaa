@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5105"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -21,10 +21,9 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80"
+    "AbilityCooldown"                                     "110 100 90 80 70" //OAA
     "AbilityDuration"                                     "3.0"
-    "AbilityChannelTime"                                  "2.0"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastPoint"                                    "2.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,10 +37,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // number of epicenter_radius values should be equal to max(epicenter_pulses) + talent bonus which is: 14+5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_radius"                                "275 325 375 425 475 525 575 625 675 725 775 825 875 925"
+        "epicenter_radius"                                "500 525 550 575 600 625 650 675 700 725 750 775 800 825 850 875 900 925 950"
       }
       "02"
       {
@@ -52,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "epicenter_damage"                                "110 130 150 210 310" //OAA
+        "epicenter_damage"                                "100 200 300 450 600" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_5"
       }
       "04"
@@ -64,7 +63,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "epicenter_slow_as"                               "-30 -60 -90 -120 -150" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_3"
       }
     }
   }

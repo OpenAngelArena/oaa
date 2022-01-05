@@ -29,13 +29,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 140 200 260 520 780"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 95 105 115 125 135"
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -54,6 +50,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "crush_extra_slow"                                "-20 -25 -30 -35 -45 -55"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar_8"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "03"
       {
@@ -69,7 +67,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "stun_duration"                                   "1"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
       }
       "06"
       {
@@ -83,7 +80,12 @@
         "puddle_radius"                                   "600"
         "RequiresScepter"                                 "1"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "crush_damage"                                    "70 140 210 280 560 1120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
+      }
     }
   }
-
 }

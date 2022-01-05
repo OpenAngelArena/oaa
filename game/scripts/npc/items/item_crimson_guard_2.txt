@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3198"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_crimson_guard;item_upgrade_core"
-      "02"                                                "item_heart;item_upgrade_core"
+      //"02"                                                "item_heart_oaa;item_upgrade_core"
     }
   }
 
@@ -42,7 +43,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "guard"
     "AbilityCastRange"                                    "1200"
 
@@ -51,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5300"
+    "ItemCost"                                            "5101"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard 2"
@@ -66,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 1000 1500 2000 2500"
+        "bonus_health"                                    "350 700 1050 1400 1750"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "12 20 30 40 50"
+        "bonus_health_regen"                              "12 15 18 21 24"
       }
       "03"
       {
@@ -81,17 +82,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100 150 200 300"
+        "block_damage_melee"                              "70 120 170 220 270"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 50 75 100 150"
+        "block_damage_ranged"                             "35 70 105 140 175"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "block_chance"                                    "60"
       }
       "07"
       {
@@ -106,12 +107,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "60 90 140 180 275"
+        "block_damage_melee_active"                       "100 150 200 250 300"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "60 90 140 180 275"
+        "block_damage_ranged_active"                      "100 150 200 250 300"
       }
       "11"
       {
@@ -121,7 +122,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_reapply_time"                            "40"
+        "tooltip_reapply_time"                            "20"
       }
     }
   }

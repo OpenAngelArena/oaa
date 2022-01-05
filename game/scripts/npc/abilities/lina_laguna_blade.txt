@@ -28,11 +28,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
+    "AbilityCooldown"                                     "50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "280 420 680 1060 1560"
+    "AbilityManaCost"                                     "250 400 550 1000 1450"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,17 +46,23 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "500 900 1300 2500 3700" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lina_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "600"
+        "cast_range_scepter"                              "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "damage_delay"                                    "0.25"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_width"                                   "125"
       }
     }
   }

@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "42 38 34 30 26 22"
+    "AbilityCooldown"                                     "30 28 26 24 22 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,12 +42,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "boar_hp_tooltip"                                 "450 600 750 900 2500 5000"
+        "boar_hp_tooltip"                                 "300 600 900 1200 2200 3200"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "boar_damage_tooltip"                             "20 35 50 65 250 500"
+        "boar_damage_tooltip"                             "20 40 60 80 180 280"
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
         "CalculateSpellDamageTooltip"                     "0"
       }

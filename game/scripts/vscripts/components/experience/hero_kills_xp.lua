@@ -5,6 +5,7 @@ if HeroKillXP == nil then
 end
 
 function HeroKillXP:Init()
+  self.moduleName = "Hero Kill Experience"
   GameEvents:OnHeroKilled(partial(self.HeroDeathHandler, self))
   FilterManager:AddFilter(FilterManager.ModifyExperience, self, Dynamic_Wrap(HeroKillXP, "ExperienceFilter"))
   GameEvents:OnHeroInGame(partial(self.HeroSpawnNoXP, self))
@@ -51,6 +52,8 @@ function HeroKillXP:HeroDeathHandler(keys)
 
     return
   end
+
+  -- Every entity has GetTeamNumber
   local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
 
@@ -59,7 +62,11 @@ function HeroKillXP:HeroDeathHandler(keys)
     return
   end
 
-  if killedHero:IsReincarnating() then
+  if killedHero:IsClone() then
+    killedHero = killedHero:GetCloneSource()
+  end
+
+  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() then
     return
   end
 
@@ -67,27 +74,30 @@ function HeroKillXP:HeroDeathHandler(keys)
     return
   end
 
+  -- playerID is -1 for the fountains, buildings, bottle statues, dummy units etc.
+  -- GetPlayerOwnerID will return -1 for those kind of stuff
   local killerPlayerID = killerEntity:GetPlayerOwnerID()
   local killedPlayerID = killedHero:GetPlayerOwnerID()
-  if killerPlayerID == -1 or killedPlayerID == -1 then
+
+  if killedPlayerID == -1 then
     return
   end
 
-  local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
   local killedHeroXP = killedHero:GetCurrentXP()
   local killedHeroStreak = killedHero:GetStreak()
+  local killedHeroLevel = killedHero:GetLevel()
+
   local killedHeroStreakXP = 0
 
   if killedHeroStreak > 2 then
-    killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_BASE + HERO_XP_BOUNTY_STREAK_INCREASE*(killedHeroStreak-3)
+    --killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_BASE + HERO_XP_BOUNTY_STREAK_INCREASE * (killedHeroStreak - 3)
+    killedHeroStreakXP = killedHeroStreak * killedHeroLevel * HERO_XP_BOUNTY_STREAK_BASE / 3
   end
 
-  if killedHeroStreak > 10 then
+  if killedHeroStreakXP > HERO_XP_BOUNTY_STREAK_MAX then
     killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_MAX
   end
 
-  local numAttackers = killedHero:GetNumAttackers()
-  local rewardPlayerIDs = iter({killerPlayerID})
   local rewardHeroes
   local distributeCount = 1
 
@@ -98,14 +108,17 @@ function HeroKillXP:HeroDeathHandler(keys)
     nil,
     HERO_KILL_XP_RADIUS,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_ALL,
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+    DOTA_UNIT_TARGET_HERO,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_ANY_ORDER,
     false
   )
 
-  -- Handle non-player kills (usually the fountain in OAA's case)
+  -- Handle non-player kills (when killerPlayerID is -1)
+  -- in OAA those are: fountains, buildings, bottle statues, dummy units etc.)
   if not PlayerResource:IsValidTeamPlayerID(killerPlayerID) then
+    local rewardPlayerIDs
+    local numAttackers = killedHero:GetNumAttackers()
     if numAttackers == 0 then
       -- Distribute xp to all heroes on the killer team
       rewardPlayerIDs = PlayerResource:GetPlayerIDsForTeam(killerTeam)
@@ -121,11 +134,13 @@ function HeroKillXP:HeroDeathHandler(keys)
     end
     rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
   else
-    -- When last hit by a hero from long range (>1500), that hero should always receive xp, regardless of distance
+    local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
+
+	-- When last hit by a hero from long range (>HERO_KILL_XP_RADIUS), that hero should always receive xp, regardless of distance
     local killerIsInHeroesTable = iter(heroes)
                                   :map(CallMethod("GetPlayerOwnerID"))
                                   :contains(killerPlayerID)
-    if not killerIsInHeroesTable then
+    if not killerIsInHeroesTable and killerHero:IsAlive() then
       table.insert(heroes, killerHero)
     end
 
@@ -139,15 +154,28 @@ function HeroKillXP:HeroDeathHandler(keys)
   if rewardHeroes then
     for _, hero in rewardHeroes:unwrap() do
       if hero then
-        hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
+        -- Check for XP spark
+        local spark = hero:FindModifierByName("modifier_spark_xp")
+        local specific_hero_xp = xp
+        if spark then
+          specific_hero_xp = xp + xp * spark.hero_kill_bonus_xp
+        end
+        hero:AddExperience(specific_hero_xp, DOTA_ModifyXP_RoshanKill, false, true)
       end
     end
   end
 
   -- Player kills: Give xp to the killer and to heroes around the killed hero
-  for _, hero in ipairs(heroes) do
+  -- pairs is used instead of ipairs because order doesn't matter
+  for _, hero in pairs(heroes) do
     if hero then
-      hero:AddExperience(xp, DOTA_ModifyXP_RoshanKill, false, true)
+      -- Check for XP spark
+      local spark = hero:FindModifierByName("modifier_spark_xp")
+      local specific_hero_xp = xp
+      if spark then
+        specific_hero_xp = math.floor(xp + xp * spark.hero_kill_bonus_xp)
+      end
+      hero:AddExperience(specific_hero_xp, DOTA_ModifyXP_RoshanKill, false, true)
     end
   end
 end

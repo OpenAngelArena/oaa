@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1250"
+    "ItemCost"                                            "1550"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_pipe"
     "AbilityTextureName"                                  "item_recipe"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_hood_of_defiance;item_headdress"
     }
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3425"
+    "ItemCost"                                            "3475"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"
@@ -65,7 +65,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen"                                    "8.5 10.0 13.0 16.0 18.0"
+        "health_regen"                                    "8.5 10 11 12 13"
       }
       "02"
       {
@@ -85,7 +85,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "2.0 4.0 6.0 9.0 12.0"
+        "aura_health_regen"                               "2.5 4.0 6.0 8.0 10.0"
       }
       "06"
       {

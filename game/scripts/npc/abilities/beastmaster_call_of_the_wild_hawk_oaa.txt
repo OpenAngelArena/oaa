@@ -7,15 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "87231"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "87231"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
     "AbilityTextureName"                                  "beastmaster_call_of_the_wild_hawk"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "HasShardUpgrade"                                     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -43,19 +45,32 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hawk_hp_tooltip"                                 "150 200 250 300 1250 2500"
+        "hawk_hp"                                         "150 350 550 750 1150 1550"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hawk_speed_tooltip"                              "300 340 380 420 460 500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
+        "hawk_speed"                                      "300 340 380 420 460 500"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hawk_vision_tooltip"                             "600 700 800 900 1350 1800"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_5"
+        "hawk_vision"                                     "750 800 850 900 1000 1100"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_armor"                                      "5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_gold_bounty"                                "30 40 50 60 120 240"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_magic_resistance"                           "25"
       }
     }
   }

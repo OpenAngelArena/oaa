@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3904"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_charge_bkb;item_upgrade_core_2"
-      "02"                                                "item_black_king_bar_2;item_upgrade_core_2"
     }
   }
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8975"
+    "ItemCost"                                            "9002"
     "ItemShopTags"                                        "regen_health;regen_mana;boost_health;boost_mana;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "charge bkb"

@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_sacred_skull_stacking_stats", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_sacred_skull_non_stacking_stats", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sacred_skull_dummy_stuff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_sacred_skull = class(ItemBaseClass)
 
@@ -150,7 +151,6 @@ end
 
 function modifier_item_sacred_skull_stacking_stats:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
     MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
@@ -184,8 +184,51 @@ function modifier_item_sacred_skull_stacking_stats:GetModifierMagicalResistanceB
   return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 end
 
+-------------------------------------------------------------------------
+-- Parts of Sacred Skull that should NOT stack with other Sacred Skulls
+
+modifier_item_sacred_skull_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_sacred_skull_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_sacred_skull_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_sacred_skull_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_sacred_skull_non_stacking_stats:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_EVENT_ON_DEATH,
+  }
+end
+
+-- Doesn't stack with Kaya items and Bloodstone
+function modifier_item_sacred_skull_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
+  local parent = self:GetParent()
+  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") and not parent:HasModifier("modifier_item_bloodstone_non_stacking_stats") then
+    return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+  end
+  return 0
+end
+
+-- Doesn't stack with Kaya items and Bloodstone
+function modifier_item_sacred_skull_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  local parent = self:GetParent()
+  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") and not parent:HasModifier("modifier_item_bloodstone_non_stacking_stats") then
+    return self:GetAbility():GetSpecialValueFor("spell_amp")
+  end
+  return 0
+end
+
 if IsServer() then
-  function modifier_item_sacred_skull_stacking_stats:OnDeath(event)
+  function modifier_item_sacred_skull_non_stacking_stats:OnDeath(event)
     local parent = self:GetParent()
     local dead = event.unit
     local ability = self:GetAbility()
@@ -242,49 +285,74 @@ if IsServer() then
 
     -- Add vision at death location
     --local vision_radius = ability:GetSpecialValueFor("death_vision_radius")
-    --local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
-    --AddFOWViewer(caster_team, death_location, vision_radius, vision_duration, false)
+    local vision_duration = ability:GetSpecialValueFor("death_vision_duration")
+    local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent:GetTeamNumber())
+    dummy:AddNewModifier(parent, ability, "modifier_sacred_skull_dummy_stuff", {})
+    dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
+    --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
   end
 end
 
--------------------------------------------------------------------------
--- Parts of Sacred Skull that should NOT stack with other Sacred Skulls
+---------------------------------------------------------------------------------------------------
 
-modifier_item_sacred_skull_non_stacking_stats = class(ModifierBaseClass)
+modifier_sacred_skull_dummy_stuff = class(ModifierBaseClass)
 
-function modifier_item_sacred_skull_non_stacking_stats:IsHidden()
+function modifier_sacred_skull_dummy_stuff:IsHidden()
   return true
 end
 
-function modifier_item_sacred_skull_non_stacking_stats:IsDebuff()
+function modifier_sacred_skull_dummy_stuff:IsDebuff()
   return false
 end
 
-function modifier_item_sacred_skull_non_stacking_stats:IsPurgable()
+function modifier_sacred_skull_dummy_stuff:IsPurgable()
   return false
 end
 
-function modifier_item_sacred_skull_non_stacking_stats:DeclareFunctions()
+function modifier_sacred_skull_dummy_stuff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    MODIFIER_PROPERTY_BONUS_DAY_VISION,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
   }
 end
 
--- Doesn't stack with Kaya items and Bloodstone
-function modifier_item_sacred_skull_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
-  local parent = self:GetParent()
-  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") and not parent:HasModifier("modifier_item_bloodstone_non_stacking_stats") then
-    return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
-  end
-  return 0
+function modifier_sacred_skull_dummy_stuff:GetAbsoluteNoDamagePhysical()
+  return 1
 end
 
--- Doesn't stack with Kaya items and Bloodstone
-function modifier_item_sacred_skull_non_stacking_stats:GetModifierSpellAmplify_Percentage()
-  local parent = self:GetParent()
-  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") and not parent:HasModifier("modifier_item_bloodstone_non_stacking_stats") then
-    return self:GetAbility():GetSpecialValueFor("spell_amp")
-  end
-  return 0
+function modifier_sacred_skull_dummy_stuff:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_sacred_skull_dummy_stuff:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_sacred_skull_dummy_stuff:GetBonusDayVision()
+  return self:GetAbility():GetSpecialValueFor("death_vision_radius")
+end
+
+function modifier_sacred_skull_dummy_stuff:GetBonusNightVision()
+  return self:GetAbility():GetSpecialValueFor("death_vision_radius")
+end
+
+function modifier_sacred_skull_dummy_stuff:CheckState()
+  local state = {
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_NO_TEAM_MOVE_TO] = true,
+    [MODIFIER_STATE_NO_TEAM_SELECT] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_FLYING] = true,
+  }
+  return state
 end

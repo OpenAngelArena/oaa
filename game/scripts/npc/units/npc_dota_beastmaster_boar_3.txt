@@ -25,12 +25,13 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"      // Physical protection.
+    "MagicalResistance"                                   "25"		// Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "50"    // Damage range min.
-    "AttackDamageMax"                                     "50"    // Damage range max.
+    "AttackDamageMin"                                     "60"    // Damage range min.
+    "AttackDamageMax"                                     "60"    // Damage range max.
     "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.5"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -51,12 +52,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"    // Speed.
+    "MovementSpeed"                                       "340"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "750"    // Base health.
+    "StatusHealth"                                        "900"    // Base health.
     "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
 
     // Vision

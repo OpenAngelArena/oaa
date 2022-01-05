@@ -30,6 +30,124 @@ function silencer_glaives_of_wisdom_oaa:ShouldUseResources()
   return true
 end
 
+function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, location, data)
+  -- Source of the damage
+  local caster = self:GetCaster()
+
+  -- If the caster doesn't have Aghanim Shard, don't continue
+  if not caster:HasShardOAA() then
+    return
+  end
+
+  -- If there is no target or data, don't continue
+  if not target or not data then
+    return
+  end
+
+  -- Get damage reduction
+  local bounce_damage_reduction = self:GetSpecialValueFor("shard_bounce_damage_reduction")
+
+  -- Physical damage of the bounced projectile
+  local bounce_damage = data.physical_damage * bounce_damage_reduction * 0.01
+
+  -- Spell damage of the bounced projectile
+  local glaives_damage = data.spell_damage * bounce_damage_reduction * 0.01
+
+  -- Number of bounces left (Data of the current projectile is read-only !!!)
+  local bounces_left = data.bounces_left
+
+  -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
+  if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
+    local intStealDuration = self:GetSpecialValueFor("int_steal_duration")
+    local intStealAmount = self:GetSpecialValueFor("int_steal")
+
+    if intStealAmount ~= 0 and intStealDuration ~= 0 then
+      target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
+      target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
+      caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
+      caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+    end
+  end
+
+  -- Damage table of the bounced projectile (physical part)
+  local damage_table = {}
+  damage_table.attacker = caster
+  damage_table.damage = bounce_damage
+  damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
+  damage_table.victim = target
+
+  ApplyDamage(damage_table)
+
+  -- Damage table of the bounced projectile (Glaives of Wisdom spell damage)
+  damage_table.damage = glaives_damage
+  damage_table.damage_type = self:GetAbilityDamageType()
+  damage_table.ability = self
+
+  ApplyDamage(damage_table)
+
+  -- Overhead particle message
+  SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+
+  -- Sound
+  target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
+
+  -- Create more bounces if there are more left
+  if bounces_left > 0 then
+    -- Data of the current projectile is read-only !!!
+
+    local bounce_radius = self:GetSpecialValueFor("shard_bounce_range")
+    local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
+
+    if caster:HasScepter() then
+      target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+    end
+
+    -- Find enemies near the target's hit location
+    local enemies = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      target:GetAbsOrigin(),
+      nil,
+      bounce_radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      target_flags,
+      FIND_CLOSEST,
+      false
+    )
+
+    if #enemies > 0 then
+      for _, enemy in ipairs(enemies) do
+        if enemy and enemy ~= target and not enemy:IsAttackImmune() then
+          local projectile_info = {
+            Target = enemy,
+            Source = target,
+            Ability = damage_table.ability,
+            EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
+            bDodgable = true,
+            bProvidesVision = false,
+            bVisibleToEnemies = true,
+            bReplaceExisting = false,
+            iMoveSpeed = caster:GetProjectileSpeed(),
+            bIsAttack = false,
+            iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+            ExtraData = {
+              bounces_left = bounces_left - 1,
+              physical_damage = bounce_damage,
+              spell_damage = glaives_damage
+            }
+          }
+
+          -- Create glaive bounce
+          ProjectileManager:CreateTrackingProjectile(projectile_info)
+
+          break
+        end
+      end
+    end
+	end
+end
+
+
 --------------------------------------------------------------------------------
 
 modifier_oaa_glaives_of_wisdom = class(ModifierBaseClass)
@@ -238,8 +356,66 @@ function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
     --end
 
     ApplyDamage(damageTable)
+
+    -- Overhead particle message
     SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
+
+    -- Sound
     target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
+
+    if parent:HasShardOAA() then
+      local bounce_radius = ability:GetSpecialValueFor("shard_bounce_range")
+      local number_of_bounces = ability:GetSpecialValueFor("shard_bounce_count")
+      local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
+
+      if parent:HasScepter() then
+        target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+      end
+
+      -- Find enemies near the target's hit location
+      local enemies = FindUnitsInRadius(
+        parent:GetTeamNumber(),
+        target:GetAbsOrigin(),
+        nil,
+        bounce_radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        target_flags,
+        FIND_CLOSEST,
+        false
+      )
+
+      if #enemies > 0 and number_of_bounces > 0 then
+        for _, enemy in ipairs(enemies) do
+          if enemy and enemy ~= target and not enemy:IsAttackImmune() then
+            local projectile_info = {
+              Target = enemy,
+              Source = target,
+              Ability = ability,
+              EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
+              bDodgable = true,
+              bProvidesVision = false,
+              bVisibleToEnemies = true,
+              bReplaceExisting = false,
+              iMoveSpeed = parent:GetProjectileSpeed(),
+              bIsAttack = false,
+              iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+              ExtraData = {
+                bounces_left = number_of_bounces - 1,
+                physical_damage = event.damage,
+                spell_damage = bonusDamage
+              }
+            }
+
+            -- Create glaive bounce
+            ProjectileManager:CreateTrackingProjectile(projectile_info)
+
+            break
+          end
+        end
+      end
+    end
+
     self.procRecords[event.record] = nil
   end
 end
@@ -296,8 +472,8 @@ if IsServer() then
   function modifier_oaa_int_steal:OnDeath(keys)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local stealRange = ability:GetLevelSpecialValueFor("steal_range", math.max(1, ability:GetLevel()))
-    local stealAmount = ability:GetLevelSpecialValueFor("steal_amount", math.max(1, ability:GetLevel()))
+    local stealRange = ability:GetSpecialValueFor("steal_range")
+    local stealAmount = ability:GetSpecialValueFor("steal_amount")
     local unit = keys.unit
     local filterResult = UnitFilter(
       unit,
@@ -309,14 +485,14 @@ if IsServer() then
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
     -- Check for +2 Int Steal Talent
-    if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
-      stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
-    end
+    --if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
+      --stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
+    --end
 
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
       local oldIntellect = unit:GetBaseIntellect()
       unit:SetBaseIntellect(math.max(1, oldIntellect - stealAmount))
-      unit:CalculateStatBonus()
+      unit:CalculateStatBonus(true)
       local intellectDifference = oldIntellect - unit:GetBaseIntellect()
       parent:ModifyIntellect(intellectDifference)
       self:SetStackCount(self:GetStackCount() + intellectDifference)

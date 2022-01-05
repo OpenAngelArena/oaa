@@ -13,9 +13,8 @@ function core_guy_score_limit:OnSpellStart()
   self.timesUsed = self.timesUsed + 1
 
   if IsServer() then
-    --print("Trying to increase score limit!")
-    local scoreLimitIncrease = PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
-    PointsManager:IncreaseLimit(scoreLimitIncrease)
+    -- Increase the score limit
+    PointsManager:IncreaseLimit()
   end
 end
 

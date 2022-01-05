@@ -24,11 +24,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "24 21 18 15 14 14"
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,17 +47,17 @@
       "03"
       {
         "var_type"                          "FIELD_FLOAT"
-        "jump_duration"                     "0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
+        "jump_duration"                     "0.484" //OAA "0.431 0.484 0.538 0.592" // proportional to horizontal distance
       }
       "04"
       {
         "var_type"                          "FIELD_INTEGER"
-        "jump_height"                       "257" //"228 257 285 314" // proportional to horizontal distance
+        "jump_height"                       "257" //OAA "228 257 285 314" // proportional to horizontal distance
       }
       "05"
       {
         "var_type"                          "FIELD_INTEGER"
-        "jump_horizontal_distance"          "450" //"400 450 500 550"
+        "jump_horizontal_distance"          "450" //OAA "400 450 500 550"
       }
       "06"
       {
@@ -82,7 +82,7 @@
       "10"
       {
         "var_type"                          "FIELD_FLOAT"
-        "impact_stun_duration"              "1.6 1.8 2.0 2.2 2.4 2.8"
+        "impact_stun_duration"              "1.3 1.6 1.9 2.2 2.4 2.8"
       }
       "11"
       {

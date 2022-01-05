@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5392"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
@@ -22,17 +22,16 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "4.0"
-    "AbilityCooldown"                                     "18 16 14 12 11 10" //OAA
+    "AbilityCooldown"                                     "18 16 14 12 12 12" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "300 350 400 450 500 550"
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 160 180 200 400 600"
+    "AbilityManaCost"                                     "150" // old: "140 160 180 200 400 600"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,41 +44,41 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "prison_duration"                                 "4.0"
+        "prison_duration"                                 "1.75 2.5 3.25 4 4 4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 175 250 325 700 1075"
+        "damage"                                          "120 200 280 360 720 1440"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_3"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "max_charges_scepter"                             "2"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_charges_scepter"                             "2"
+        "charge_restore_time_scepter"                     "18 16 14 12 12 12" //OAA, same as AbilityCooldown
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time_scepter"                     "18 16 14 12 11 10" //OAA, same as AbilityCooldown
+        "scepter_range_bonus"                             "0"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_range_bonus"                             "300"
-        "RequiresScepter"                                 "1"
+        "mana_capacity_steal"                             "16 18 20 22 24 26"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "counter_duration"                                "35"
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_capacity_duration"                          "30 40 50 60 70 80"
       }
     }
   }

@@ -1,13 +1,18 @@
+LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wanderer_team_buff", "modifiers/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 Wanderer = Components:Register('Wanderer', COMPONENT_STRATEGY)
 
 function Wanderer:Init ()
-  HudTimer:At(BOSS_WANDERER_SPAWN_START, partial(Wanderer.SpawnWanderer, Wanderer))
+  self.moduleName = "Wanderer Spawner"
+  local min_time = BOSS_WANDERER_MIN_SPAWN_TIME * 60
+  local max_time = BOSS_WANDERER_MAX_SPAWN_TIME * 60
+  local spawn_time = RandomInt(min_time, max_time)
+  HudTimer:At(spawn_time, partial(Wanderer.SpawnWanderer, Wanderer))
   ChatCommand:LinkDevCommand("-spawnwanderer", Dynamic_Wrap(self, 'SpawnWanderer'), self)
   self.level = 0
-  self.nextSpawn = BOSS_WANDERER_SPAWN_START
+  self.nextSpawn = spawn_time
 end
 
 function Wanderer:GetState ()
@@ -20,6 +25,10 @@ function Wanderer:GetState ()
 end
 
 function Wanderer:LoadState (state)
+  if not state then
+    -- Wanderer didn't exist when state was saved
+    return
+  end
   self.level = state.level
   if state.isAlive then
     self:SpawnWanderer()
@@ -41,34 +50,47 @@ function Wanderer:SpawnWanderer ()
 
   self.level = self.level + 1
 
-  local bossHandle = CreateUnitByName("npc_dota_boss_wanderer_" .. math.min(3, self.level), Vector(0, 0, 0), true, nil, nil, DOTA_TEAM_NEUTRALS)
-  bossHandle.BossTier = self.level + 2
+  local location = self:FindWhereToSpawn()
+  local bossHandle = CreateUnitByName("npc_dota_boss_wanderer_" .. math.min(3, self.level), location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  bossHandle.BossTier = math.min(5, self.level + 2)
   self.wanderer = bossHandle
 
   -- reward handling
   bossHandle:OnDeath(function ()
-    self.nextSpawn = HudTimer:GetGameTime() + BOSS_WANDERER_RESPAWN
+    local min_respawn_time = BOSS_WANDERER_MIN_RESPAWN_TIME * 60
+    local max_respawn_time = BOSS_WANDERER_MAX_RESPAWN_TIME * 60
+    local respawn_time = RandomInt(min_respawn_time, max_respawn_time)
+
+    -- Storing for savestate (in an edge case if teams never captured the Wanderer's capture point but the game crashed)
+    self.nextSpawn = HudTimer:GetGameTime() + respawn_time
 
     Notifications:BottomToAll({text=("#wanderer_slain_message"), duration=5.0})
 
-    -- create capture point
-    local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
-    local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+    -- Create a capture point
+    --local capturePointThinker = CreateModifierThinker(nil, nil, "modifier_boss_capture_point", nil, self.wanderer:GetAbsOrigin(), DOTA_TEAM_SPECTATOR, false)
+    local capturePointThinker = CreateUnitByName("npc_dota_custom_dummy_unit", self.wanderer:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_SPECTATOR)
+    capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_oaa_thinker", {})
+    --local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+    local capturePointModifier = capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_boss_capture_point", {})
     capturePointModifier:SetCallback(function (teamId)
-      -- give reward to capturing team
-      self.nextSpawn = HudTimer:GetGameTime() + BOSS_WANDERER_RESPAWN
+      -- Storing for savestate ...
+      self.nextSpawn = HudTimer:GetGameTime() + respawn_time
+      -- Spawn the next wanderer at ...
       HudTimer:At(self.nextSpawn, partial(Wanderer.SpawnWanderer, Wanderer))
 
+      -- Give cores and points to the capturing team
       if self.level == 1 then
-        BossAI:RewardBossKill(2, teamId)
+        BossAI:RewardBossKill(1, teamId)
         BossAI:RewardBossKill(2, teamId)
       elseif self.level == 2 then
-        BossAI:RewardBossKill(3, teamId)
+        BossAI:RewardBossKill(2, teamId)
         BossAI:RewardBossKill(3, teamId)
       elseif self.level > 2 then
-        PointsManager:AddPoints(teamId, 10)
+        BossAI:RewardBossKill(4, teamId)
+        PointsManager:AddPoints(teamId, 1)
       end
 
+      -- Apply Wanderer buff to the capturing team
       PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
         local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
@@ -86,9 +108,72 @@ function Wanderer:SpawnWanderer ()
           end
         end
       end)
+
+      -- Enable offsides if any was disabled
+      Wanderer:DisableOffside("Enable")
     end)
     -- Give the thinker some vision so that spectators can always see the capture point
     capturePointThinker:SetDayTimeVisionRange(1)
     capturePointThinker:SetNightTimeVisionRange(1)
   end)
+end
+
+function Wanderer:FindWhereToSpawn ()
+  local maxY = 4000
+  local maxX = 1000
+  local minY = 0
+  local minX = 0
+  local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
+  local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+
+  if scoreDiff >= 20 then
+    maxX = 5500
+    minX = 2500
+  elseif scoreDiff >= 15 then
+    maxX = 2500
+    minX = 1500
+  elseif scoreDiff >= 10 then
+    maxX = 2000
+    minX = 1000
+  elseif scoreDiff >= 5 then
+    maxX = 1500
+    minX = 500
+  else
+    isGoodLead = RandomInt(0, 1) == 0
+  end
+
+  local position = Vector(0, 0, 0)
+  local isValidPosition = false
+
+  while not isValidPosition do
+    --if position then
+      --print('Got a bad Wanderer spawn point: ' .. tostring(position))
+    --end
+    position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
+    if RandomInt(0, 1) == 0 then
+      position.y = 0 - position.y
+    end
+    if not isGoodLead then
+      position.x = 0 - position.x
+    end
+    isValidPosition = true
+    if IsLocationInOffside(position) then
+      isValidPosition = false
+    end
+  end
+
+  return GetGroundPosition(position, nil)
+end
+
+function Wanderer:DisableOffside(side)
+  if side == "Radiant" then
+    self.radiant_offside_disabled = true
+    self.dire_offside_disabled = false
+  elseif side == "Dire" then
+    self.radiant_offside_disabled = false
+    self.dire_offside_disabled = true
+  else
+    self.radiant_offside_disabled = false
+    self.dire_offside_disabled = false
+  end
 end

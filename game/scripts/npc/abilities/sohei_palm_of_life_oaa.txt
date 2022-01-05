@@ -1,44 +1,45 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ronin: Palm of Life
+  // Sohei: Quivering Palm
   //=================================================================================================================
-  "sohei_palm_of_life"
+  "sohei_quivering_palm"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"             "ability_lua"
-    "ID"                    "9510"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityTextureName"    "custom/ronin_palm_of_life"
-    "ScriptFile"            "abilities/sohei/sohei_palm_of_life.lua"
-    "MaxLevel"              "1"
-    "IsGrantedByScepter"    "1"
-    "HasScepterUpgrade"     "1"
+    "ID"                                                  "8600"
+    "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "custom/ronin_palm_of_life"
+    "ScriptFile"                                          "abilities/sohei/sohei_quivering_palm.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" // this is for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" // this is for UI tooltip
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" // this is for UI tooltip
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastRange"        "600"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "5"
+    "AbilityCooldown"                                     "60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "50"
+    "AbilityManaCost"                                     "100"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
-      "soundfile"         "soundevents/units/game_sounds_sohei.vsndevts"
-      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+      "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
     // Special
@@ -47,32 +48,20 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_as_heal"                                      "10"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_duration"                                    "10"
         "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dash_speed"                                      "2400"
+        "base_damage"                                     "100"
         "RequiresScepter"                                 "1"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "end_distance"                                    "70"
-        "RequiresScepter"                                 "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tree_radius"                                     "175"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "max_duration"                                    "1.5"
+        "str_diff_multiplier"                             "15"
         "RequiresScepter"                                 "1"
       }
     }

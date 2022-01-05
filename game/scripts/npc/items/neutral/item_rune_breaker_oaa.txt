@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Rune Breaker - neutral tier 4 item
+  //=================================================================================================================
+  "item_rune_breaker_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "80379" // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/neutral/rune_breaker.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityTextureName"                                  "item_the_leveller"
+
+    "AbilityCastRange"                                    "400"
+    "AbilityCooldown"                                     "25"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+
+    "ItemIsNeutralDrop"                                   "1"
+    "ItemPurchasable"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "50"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
+      }
+      "03" // percentage bonus based on base (white) dmg
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_during_duels"                       "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "4"
+      }
+    }
+  }
+}

@@ -8,11 +8,11 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "npc_dota_hero_dazzle"
-    "HeroID"                    "123"
+    "HeroID"                    "130"
     "Model"                     "models/heroes/electrician/electrician.vmdl"
     "SoundSet"                  "Hero_Electrician"
     "particle_folder"           "particles/units/heroes/hero_electrician"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
+    //"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
     //"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
 
     "BotImplemented"            "0"
@@ -26,17 +26,17 @@
     "Ability5"            "generic_hidden"
     "Ability6"            "electrician_cleansing_shock"
 
-    "Ability10"           "special_bonus_mp_regen_6"
-    "Ability11"           "special_bonus_hp_regen_10"
+    "Ability10"           "special_bonus_electrician_energy_absorption_mana"
+    "Ability11"           "special_bonus_electrician_static_grip_damage"
 
-    "Ability12"           "special_bonus_attack_damage_90"
-    "Ability13"           "special_bonus_cast_range_125"
+    "Ability12"           "special_bonus_electrician_electric_shield_damage"
+    "Ability13"           "special_bonus_spell_lifesteal_15"
 
-    "Ability14"           "special_bonus_electrician_absorption_hero_mana_restore"
-    "Ability15"           "special_bonus_electrician_shock_autoself"
+    "Ability14"           "special_bonus_electrician_energy_absorption_cooldown"
+    "Ability15"           "special_bonus_electrician_cleansing_shock_stun"
 
-    "Ability16"           "special_bonus_mp_1000"
-    "Ability17"           "special_bonus_electrician_shock_spell_immunity"
+    "Ability16"           "special_bonus_electrician_static_grip_non_channel"
+    "Ability17"           "special_bonus_electrician_cleansing_shock_pierce"
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@
     "AttributeBaseAgility"      "13"
     "AttributeAgilityGain"      "2.0"
     "AttributeBaseIntelligence" "25"
-    "AttributeIntelligenceGain" "2.5"
+    "AttributeIntelligenceGain" "3.5"
 
     // Movement
     //-------------------------------------------------------------------------------------------------------------

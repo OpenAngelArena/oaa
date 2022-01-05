@@ -22,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 10 10"
+    "AbilityCooldown"                                     "12 11 10 9 8 7"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "70 140 210 280 560 1000"
+    "AbilityDamage"                                       "75 150 225 300 600 1200"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -46,14 +46,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_distance"                                    "1950"
         "LinkedSpecialBonus"                              "special_bonus_unique_puck"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "orb_speed"                                       "651"
-        "LinkedSpecialBonus"                              "special_bonus_unique_puck"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
       "04"
       {

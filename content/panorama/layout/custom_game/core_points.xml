@@ -1,0 +1,17 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/core_points.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/core_points.js" />
+  </scripts>
+
+  <Panel hittest="false" class='ResourcePanel'>
+    <Panel class="CorePointsIconPanel" onmouseover="UIShowTextTooltip(#oaa_core_points)" onmouseout="UIHideTextTooltip()">
+      <Image id="CorePointsIcon" src="file://{images}/items/custom/upgrade_core.png"/>
+    </Panel>
+    <Panel class="CorePointsLabelPanel" onmouseover="UIShowTextTooltip(#oaa_core_points_tip)" onmouseout="UIHideTextTooltip()">
+      <Label id="CorePointsText" text="0" html="true" class="TitleFont" />
+    </Panel>
+  </Panel>
+</root>

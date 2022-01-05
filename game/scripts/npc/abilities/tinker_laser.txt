@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14" //OAA
+    "AbilityCooldown"                                     "20 18 16 14 14 14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -69,9 +69,19 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bounce_range"                            "400"
-        "RequiresScepter"                                 "1"
+        "radius_explosion"                                "250"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_pct"                                      "100"
+      }
+      // "05" // thanks Valve
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "scepter_bounce_range"                            "200"
+        // "RequiresScepter"                                 "1"
+      // }
     }
   }
 }

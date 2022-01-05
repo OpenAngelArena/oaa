@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22.0 18.0 14.0 10.0 10.0 10.0"
+    "AbilityCooldown"                                     "16 14 12 10 10 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -53,12 +53,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "60"
+        "move_slow"                                       "50"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.25 2.5 3.25 4 4.5 5.0"
+        "duration"                                        "1.25 2.5 3.25 4 4.75 5.5"
       }
       "06"
       {
@@ -69,11 +69,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "unit_distance"                                   "500.0 600.0 700.0 800.0 900.0 1000.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "rock_distance"                                   "2000.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
       }
       "09"
       {

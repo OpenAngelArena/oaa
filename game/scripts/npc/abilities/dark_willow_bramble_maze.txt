@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "1200"
+    "AbilityCastRange"                                    "1000 1100 1200 1300 1400 1500"
     "AbilityCastPoint"              "0.3"
 
     // Time
@@ -45,10 +45,10 @@
         "var_type"              "FIELD_INTEGER"
         "placement_count"           "8"
       }
-      "03"
+      "03" // calculated with values: 20s cd, -7s cd talent, 0.3s cast point, 0.5s creation delay and 0.1s inactivity delay
       {
         "var_type"              "FIELD_FLOAT"
-        "placement_duration"        "15"
+        "placement_duration"        "8" //OAA
       }
       "04"
       {
@@ -63,7 +63,7 @@
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "latch_damage"          "125 150 175 200 400 800"
+        "latch_damage"          "120 160 200 240 480 960"
       }
       "07"
       {

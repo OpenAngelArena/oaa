@@ -6,7 +6,7 @@
   "item_recipe_sheepstick"
   {
     "ID"                                                  "95"    // unique ID
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
@@ -33,7 +33,7 @@
     // Stats-------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "25" //OAA
     "AbilitySharedCooldown"                               "hex"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
@@ -41,7 +41,7 @@
 
     // Item Info---------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250"
-    "ItemCost"                                            "5575"
+    "ItemCost"                                            "5675"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
@@ -50,30 +50,30 @@
     // Special-----------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // first 3 values must be the same as Rod of Atos
+      "01" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 20 35 40 50"
+        "bonus_strength"                                  "12 17 27 42 62" //OAA
       }
-      "02" // first 3 values must be the same as Meteor Hammer
+      "02" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 25 40 50"
+        "bonus_agility"                                   "12 17 27 42 62" //OAA
       }
-      "03" // first 3 values must be the same as Eul's Scepter or Rod of Atos
+      "03" // slightly worse than Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 25 45 70 100" //OAA
+        "bonus_intellect"                                 "20 25 35 50 70" //OAA
       }
-      "04" // first 3 values must be the same as Eul's Scepter
+      "04" // first 3 values must be the same as Wind Waker, 4th value same as vanilla Sheepstick
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 5.25 5.75 9.0 10.0" //OAA
+        "bonus_mana_regen"                                "6.0 6.25 6.75 9.0 10.0" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
+        "sheep_duration"                                  "2.5 2.75 3.0 3.25 3.5" //OAA
       }
       "06"
       {

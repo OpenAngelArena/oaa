@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
+    "ItemCost"                                            "800"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -20,7 +20,7 @@
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bloodthorn"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_orchid;item_hyperstone"
     }
@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "6475"
+    "ItemCost"                                            "6275"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "orchid malevolence;bloodthorn"
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 40 60 85 115"
+        "bonus_intellect"                                 "25 35 50 70 95"
       }
       "02"
       {
@@ -98,7 +98,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "130 140 150 160 170"
+        "target_crit_multiplier"                          "125 130 140 155 175" //OAA
       }
       "08"
       {

@@ -1,0 +1,81 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Witch Doctor: Death Ward (OAA rework)
+  //=================================================================================================================
+  "witch_doctor_death_ward_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85141"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_witch_doctor_death_ward.lua"
+    "AbilityTextureName"                                  "witch_doctor_death_ward"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "5"
+
+    "HasScepterUpgrade"                                   "1"
+    "HasShardUpgrade"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityChannelAnimation"                             "ACT_DOTA_CHANNEL_ABILITY_4"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "80"
+    "AbilityChannelTime"                                  "8.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "200"
+
+    // "precache"
+    // {
+      // "model"                                             "models/heroes/witchdoctor/witchdoctor_ward.vmdl"
+      // "model"                                             "models/heroes/witchdoctor/witchdoctor_skull.vmdl"
+      // "particle"                                          "particles/units/heroes/hero_witchdoctor/witchdoctor_deathward_glow.vpcf"
+      // "particle"                                          "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf"
+      // "particle"                                          "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
+      // "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+    // }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_damage"                                     "75 100 125 200 275"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_attack_range"                               "700"
+        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bounce_radius"                           "650"
+        "RequiresScepter"                                 "1"
+      }
+      "04" // same as AbilityChannelTime
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_tooltip"                                "8"
+      }
+    }
+  }
+}

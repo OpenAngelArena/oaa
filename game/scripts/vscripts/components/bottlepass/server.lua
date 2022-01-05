@@ -14,8 +14,10 @@ end
 
 function Bottlepass:Init ()
   Debug:EnableDebugging()
+  self.moduleName = "Bottlepass"
   GameEvents:OnCustomGameSetup(partial(Bottlepass.Ready, self))
   GameEvents:OnGameInProgress(partial(Bottlepass.SendTeams, self))
+  self.keepSpamming = true
 end
 
 function Bottlepass:StateLoad (players, callback)
@@ -156,6 +158,12 @@ function Bottlepass:Ready ()
     end
   end
 
+  if hostId ~= 7131038 and IsInToolsMode() then
+    -- Stop trying to contact the server in tools when I am working, Idk how other devs tolerated this
+    self.keepSpamming = false
+    return
+  end
+
   DebugPrint('Sending auth request ' .. GameStartTime)
   DebugPrint(BATTLE_PASS_SERVER .. 'auth')
 
@@ -211,9 +219,11 @@ function Bottlepass:Request(api, data, cb)
   -- Send the request
   req:Send(function(res)
     if res.StatusCode ~= 200 then
-      DebugPrint("Failed to contact server")
-      DebugPrint("Status Code", res.StatusCode or "nil")
-      DebugPrint("Body", res.Body or "nil")
+      if Bottlepass.keepSpamming == true then
+        DebugPrint("Failed to contact server")
+        DebugPrint("Status Code", res.StatusCode or "nil")
+        DebugPrint("Body", res.Body or "nil")
+      end
       return cb(res.Body or res.StatusCode)
     end
 

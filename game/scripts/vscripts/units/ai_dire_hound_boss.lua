@@ -23,6 +23,20 @@ function DireHoundBossThink()
     thisEntity.bInitialized = true
   end
 
+  local function IsNonHostileWard(entity)
+    if entity.HasModifier then
+      return entity:HasModifier("modifier_item_buff_ward") or entity:HasModifier("modifier_ward_invisibility")
+    end
+    return false
+  end
+
+  local function IsAttackable(entity)
+    if entity:IsBaseNPC() then
+      return entity:IsAlive() and not entity:IsAttackImmune() and not entity:IsInvulnerable() and not entity:IsOutOfGame() and not IsNonHostileWard(entity) and not entity:IsCourier()
+    end
+    return false
+  end
+
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   if fDistanceToOrigin > 2000 then
@@ -32,15 +46,15 @@ function DireHoundBossThink()
     return 1
 	end
 
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	if #enemies == 0 then
 		return 1
 	end
 
 	local hAttackTarget = nil
 	local hApproachTarget = nil
-	for _,enemy in pairs( enemies ) do
-		if enemy ~= nil and enemy:IsAlive() then
+	for _, enemy in pairs( enemies ) do
+		if enemy ~= nil and enemy:IsAlive() and IsAttackable(enemy) then
 			local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 			if flDist < 400 then
 				return Retreat( enemy )
@@ -54,17 +68,18 @@ function DireHoundBossThink()
 		end
 	end
 
-
-
-	if hAttackTarget == nil and hApproachTarget ~= nil then
+	if not hAttackTarget and hApproachTarget then
 		return Approach( hApproachTarget )
 	end
 
-	if thisEntity.QuillAttack:IsCooldownReady() then
+	if thisEntity.QuillAttack:IsCooldownReady() and IsAttackable(hAttackTarget) then
 		return Attack( hAttackTarget )
 	end
 
-	thisEntity:FaceTowards( hAttackTarget:GetOrigin() )
+	if hAttackTarget then
+    thisEntity:FaceTowards( hAttackTarget:GetOrigin() )
+  end
+
 	return 0.5
 end
 
@@ -83,7 +98,6 @@ function Attack(unit)
 	return 1
 end
 
-
 function Approach(unit)
 	thisEntity.bMoving = true
 
@@ -97,8 +111,6 @@ function Approach(unit)
 	})
 	return 1
 end
-
-
 
 function Retreat(unit)
 	thisEntity.bMoving = true
@@ -114,3 +126,11 @@ function Retreat(unit)
 	return 1.25
 end
 
+function RetreatHome()
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos
+  })
+  return 6
+end

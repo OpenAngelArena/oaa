@@ -72,7 +72,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
-    -- If caster or ability don't exist -> don't continue
+    -- Don't continue If caster or ability doesn't exist
     if not caster or caster:IsNull() or not ability or ability:IsNull() then
       return
     end
@@ -82,7 +82,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
-    -- Don't continue if attacker is deleted or he is about to be deleted
+    -- Don't continue if attacker doesn't exist or it is about to be deleted
     if not attacker or attacker:IsNull() then
       return
     end
@@ -92,20 +92,19 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
+    -- Don't continue if the attacker entity doesn't have IsHero method -> attacker entity is something weird
     if attacker.IsHero == nil then
       return
     end
 
     local damage_threshold = self.threshold
     -- If the damage is below the threshold -> don't continue
-    if damage < damage_threshold then
+    if damage <= damage_threshold then
       return
     end
 
     if attacker:IsHero() then
-      if not attacker:IsMagicImmune() then
-        self:ProcStickyBlood(caster, ability, attacker)
-      end
+      self:ProcStickyBlood(caster, ability, attacker)
     else
       if attacker.GetPlayerOwner then
         local player = attacker:GetPlayerOwner()
@@ -117,9 +116,7 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
           hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
         end
         if hero_owner then
-          if not hero_owner:IsMagicImmune() then
-            self:ProcStickyBlood(caster, ability, hero_owner)
-          end
+          self:ProcStickyBlood(caster, ability, hero_owner)
         end
       end
     end
@@ -127,6 +124,11 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
 end
 
 function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability, unit)
+  -- If unit is dead, spell immune or in a duel, don't do anything
+  if not unit:IsAlive() or unit:IsMagicImmune() or Duels:IsActive() then
+    return
+  end
+
   -- Proc Sound
   caster:EmitSound("Hero_Batrider.StickyNapalm.Cast")
 
@@ -145,6 +147,18 @@ function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability,
 
   -- Start cooldown
   ability:UseResources(true, true, true)
+end
+
+function modifier_wanderer_sticky_blood_passive:CheckState()
+  local state = {
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+  }
+
+  return state
+end
+
+function modifier_wanderer_sticky_blood_passive:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -222,12 +236,12 @@ function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
 
-    -- If attacked target isnt the parent -> don't continue
+    -- If attacked target isn't the parent -> don't continue
     if target ~= parent then
       return
     end
 
-    -- If parent doesn't exist or its about to be deleted -> don't continue
+    -- If parent doesn't exist or it is about to be deleted -> don't continue
     if not parent or parent:IsNull() then
       return
     end
@@ -237,7 +251,7 @@ function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
       return
     end
 
-    -- If caster doesn't exist or its about to be deleted -> don't continue
+    -- If caster doesn't exist or it is about to be deleted -> don't continue
     if not caster or caster:IsNull() then
       return
     end

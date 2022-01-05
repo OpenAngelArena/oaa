@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "4056"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -25,8 +26,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_devastator_4;item_upgrade_core_4"
-      "02"                                                "item_desolator_4;item_upgrade_core_4"
-      "03"                                                "item_bfury_4;item_upgrade_core_4"
+      //"02"                                                "item_desolator_4;item_upgrade_core_4"
+      //"03"                                                "item_bfury_4;item_upgrade_core_4"
+      //"04"                                                "item_giant_form;item_upgrade_core_4"
     }
   }
 
@@ -48,11 +50,12 @@
 
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/devastator_5"
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0"
-    "AbilityCooldown"                                     "10"
+    "AbilityCooldown"                                     "7"
     "AbilityManaCost"                                     "75"
 
     // Stats
@@ -62,7 +65,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36500"
+    "ItemCost"                                            "36504"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator 5"
@@ -71,6 +74,7 @@
     "precache"
     {
       "particle"                                          "particles/items/devastator/devastator_active.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lina/lina_spell_dragon_slave_impact.vpcf"
     }
 
     // Special

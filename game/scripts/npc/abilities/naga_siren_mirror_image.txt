@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45 40 35 30 30 25"
+    "AbilityCooldown"                                     "40 35 30 25 25 25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,24 +36,24 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage"                                 "-75 -70 -65 -60 -30 -20"
+        "outgoing_damage"                                 "-75 -70 -65 -60 -50 -30"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "outgoing_damage_tooltip"                         "25 30 35 40 70 80"
+        "outgoing_damage_tooltip"                         "25 30 35 40 50 70"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "incoming_damage"                                 "250"
+        "incoming_damage"                                 "250 225 200 175 125 75" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_incoming_damage_total_pct"               "350"
+        "tooltip_incoming_damage_total_pct"               "350 325 300 275 225 175" //OAA
       }
       "06"
       {

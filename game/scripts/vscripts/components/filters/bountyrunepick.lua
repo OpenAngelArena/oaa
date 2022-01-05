@@ -6,6 +6,7 @@ if BountyRunePick == nil then
 end
 
 function BountyRunePick:Init()
+  self.moduleName = "BountyRunePick Filter"
   FilterManager:AddFilter(FilterManager.BountyRunePickup, self, Dynamic_Wrap(BountyRunePick, 'Filter'))
 end
 
@@ -88,11 +89,18 @@ function BountyRunePick:Filter(filter_table)
 
   allied_player_ids:each(function (playerid)
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+    local player = PlayerResource:GetPlayer(playerid)
 
     if hero then
       if xp_reward > 0 then
-        hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
-        SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_XP, hero, xp_reward, nil)
+        -- Check for XP spark
+        local xp_spark = hero:FindModifierByName("modifier_spark_xp")
+        local specific_hero_xp = xp_reward
+        if xp_spark then
+          specific_hero_xp = math.floor(xp_reward + xp_reward * xp_spark.bounty_rune_bonus_xp)
+        end
+        hero:AddExperience(specific_hero_xp, DOTA_ModifyXP_Unspecified, false, true)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, hero, specific_hero_xp, nil)
       end
       -- Check for Alchemist Greevil's Greed bounty rune gold multiplier
       local alchemist_ability = hero:FindAbilityByName("alchemist_goblins_greed")
@@ -103,9 +111,19 @@ function BountyRunePick:Filter(filter_table)
           if multiplier > 1 then
             local bonus_gold = (multiplier-1)*gold_reward
             Gold:ModifyGold(playerid, bonus_gold, true, DOTA_ModifyGold_BountyRune)
-            SendOverheadEventMessage(PlayerResource:GetPlayer(playerid), OVERHEAD_ALERT_GOLD, hero, bonus_gold, nil)
+            SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, bonus_gold, nil)
           end
         end
+      end
+      -- Check for Gold spark
+      local gold_spark = hero:FindModifierByName("modifier_spark_gold")
+      local specific_hero_gold = 0
+      if gold_spark then
+        specific_hero_gold = math.floor(gold_reward * gold_spark.bounty_rune_bonus_gold)
+      end
+      if specific_hero_gold > 0 then
+        Gold:ModifyGold(playerid, specific_hero_gold, true, DOTA_ModifyGold_BountyRune)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_hero_gold, nil)
       end
     end
   end)

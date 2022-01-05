@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3262"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -48,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18300"
+    "ItemCost"                                            "18303"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps fists;covfefe;blade of judecca"
@@ -72,17 +73,17 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "900 1125"
+        "bonus_health"                                    "650 900"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "700 950"
+        "bonus_mana"                                      "650 900"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "100"
+        "heal_prevent_percent"                            "75"
       }
       "06"
       {
@@ -93,7 +94,7 @@
 
     "precache"
     {
-      "particle"            "particles/items/trumps_fists/trumps_fists_projectile.vpcf"
+      "particle"                                          "particles/items/trumps_fists/trumps_fists_projectile.vpcf"
     }
   }
 }

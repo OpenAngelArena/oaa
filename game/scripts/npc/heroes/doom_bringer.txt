@@ -1,0 +1,32 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Doom Bringer
+  //=================================================================================================================
+  "npc_dota_hero_doom_bringer"
+  {
+    "Ability10"                                           "special_bonus_magic_resistance_12"
+    "Ability11"                                           "special_bonus_unique_doom_4"
+
+    "Ability12"                                           "special_bonus_unique_doom_5" // replaces special_bonus_unique_doom_9
+    "Ability13"                                           "special_bonus_unique_doom_2"
+
+    "Ability14"                                           "special_bonus_hp_regen_50" // replaces special_bonus_unique_doom_5
+    "Ability15"                                           "special_bonus_unique_doom_6"
+
+    "Ability16"                                           "special_bonus_unique_doom_1"
+    "Ability17"                                           "special_bonus_unique_doom_9" // replaces special_bonus_cleave_150
+
+    // special_bonus_unique_doom_1 - "+{s:value}% Infernal Blade Damage"
+    // special_bonus_unique_doom_2 - "Devour Can Target Ancients"
+    // special_bonus_unique_doom_3 - "+{s:value} Devour Bonus Gold"                 - useless
+    // special_bonus_unique_doom_4 - "+{s:value} Scorched Earth Damage"
+    // special_bonus_unique_doom_5 - "+{s:value} Doom DPS"
+    // special_bonus_unique_doom_6 - "+{s:value}% Scorched Earth Movement Speed"
+    // special_bonus_unique_doom_7 - "+{s:value} Doom Duration"                     - unused, scepter does this
+    // special_bonus_unique_doom_8 - "Permanent Scorched Earth"
+    // special_bonus_unique_doom_9 - "-{s:value}s Scorched Earth Cooldown"          - useless if special_bonus_unique_doom_8 is used
+
+    "AttackRate"                                          "1.7" // 1.9
+  }
+}

@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_mjollnir"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_maelstrom;item_hyperstone"
     }
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "65 75 85 95 105"
+        "bonus_attack_speed"                              "70 80 90 100 110"
       }
       "03"
       {
@@ -93,7 +93,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "static_damage"                                   "200 300 400 500 600"
+        "static_damage"                                   "225 325 425 525 625"
       }
       "07"
       {
@@ -118,12 +118,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_chance"                                    "25 26 27 28 30"
+        "chain_chance"                                    "30"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "170 220 320 470 670"
+        "chain_damage"                                    "180 230 330 480 680"
       }
       "13"
       {

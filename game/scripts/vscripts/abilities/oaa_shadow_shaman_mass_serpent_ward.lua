@@ -1,10 +1,27 @@
-shadow_shaman_mass_serpent_ward = class(AbilityBaseClass)
+shadow_shaman_mass_serpent_ward_oaa = class(AbilityBaseClass)
 
-function shadow_shaman_mass_serpent_ward:GetAOERadius()
+function shadow_shaman_mass_serpent_ward_oaa:GetAOERadius()
 	return self:GetSpecialValueFor("spawn_radius")
 end
 
-function shadow_shaman_mass_serpent_ward:OnSpellStart()
+-- Lazy hack to make shard work and not crash at later levels
+function shadow_shaman_mass_serpent_ward_oaa:OnUpgrade()
+  local caster = self:GetCaster()
+  local ability_level = self:GetLevel()
+  local vanilla_ability = caster:FindAbilityByName("shadow_shaman_mass_serpent_ward")
+
+  if not vanilla_ability then
+    return
+  end
+
+  if vanilla_ability:GetLevel() == 3 or ability_level >= 4 then
+    return
+  end
+
+  vanilla_ability:SetLevel(ability_level)
+end
+
+function shadow_shaman_mass_serpent_ward_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()
   local casterTeam = caster:GetTeamNumber()

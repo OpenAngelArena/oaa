@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3618"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -41,15 +42,15 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "22"
     "AbilitySharedCooldown"                               "veil"
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "3025"
+    "ItemCost"                                            "3026"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod 2;veil of discord 2;veil 2"
@@ -70,7 +71,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
+        "aura_mana_regen"                                 "1.75 2.0 2.5 3.25 4.25"
       }
       "03"
       {

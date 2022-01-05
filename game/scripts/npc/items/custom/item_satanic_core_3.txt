@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3220"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,8 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_satanic_core_2;item_upgrade_core_4"
-      "02"                                                "item_octarine_core_4;item_upgrade_core_4"
-      "03"                                                "item_refresher_4;item_upgrade_core_4"
+      //"02"                                                "item_eternal_shroud_oaa_4;item_upgrade_core_4"
     }
   }
 
@@ -40,22 +40,22 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/satanic_core_3"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35.0"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "satanic_core"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38100"
+    "ItemCost"                                            "36304"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 3"
@@ -68,12 +68,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "65 85 110"
+        "bonus_strength"                                  "50 85 120"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "25 40 60"
+        "bonus_intelligence"                              "0"
       }
       "03"
       {
@@ -83,17 +83,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "675 875 1125"
+        "bonus_mana"                                      "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_lifesteal"                                  "35"
+        "hero_spell_lifesteal"                            "32 34 36"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "15 20 25"
+        "creep_spell_lifesteal"                           "10 12 14"
       }
       "07"
       {
@@ -108,7 +108,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
+        "duration"                                        "6.0"
       }
       "10"
       {
@@ -118,7 +118,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resist"                              "10 12 14"
+        "bonus_magic_resist"                              "22 23 24"
       }
     }
   }

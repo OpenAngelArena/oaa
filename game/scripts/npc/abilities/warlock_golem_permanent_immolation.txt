@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
-"warlock_golem_permanent_immolation"
+  "warlock_golem_permanent_immolation"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5167"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "MaxLevel"                                            "3"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
     "MaxLevel"                                            "5"
 
     // Special
@@ -21,10 +21,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "aura_radius"                                     "300"
       }
-      "02"
+      "02" // reminder: damage from multiple golems fully stacks with each other.
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_damage"                                     "30 50 70 100 150"
+        "aura_damage"                                     "30 50 70 130 190"
       }
     }
   }

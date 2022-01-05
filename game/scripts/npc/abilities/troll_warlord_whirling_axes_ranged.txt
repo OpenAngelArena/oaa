@@ -20,9 +20,11 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "950"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -31,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +52,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "axe_range"                                       "1000.0"
+        "axe_range"                                       "950.0"
       }
       "04"
       {
@@ -61,7 +63,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "axe_slow_duration"                               "2.5 3 3.5 4 5.5 7.0"
+        "axe_slow_duration"                               "2.5 3 3.5 4 4.5 5"
       }
       "06"
       {
@@ -77,6 +79,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "axe_count"                                       "5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "4"
       }
     }
   }

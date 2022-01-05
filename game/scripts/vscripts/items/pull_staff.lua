@@ -9,12 +9,12 @@ function item_pull_staff:GetIntrinsicModifierName()
 end
 
 function item_pull_staff:CastFilterResultTarget(target)
-  local caster = self:GetCaster()
+  --local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
-  if target == caster then
-    return UF_FAIL_CUSTOM
-  end
+  --if target == caster then
+    --return UF_FAIL_CUSTOM
+  --end
 
   local forbidden_modifiers = {
     "modifier_enigma_black_hole_pull",
@@ -25,18 +25,18 @@ function item_pull_staff:CastFilterResultTarget(target)
   }
   for _, modifier in pairs(forbidden_modifiers) do
     if target:HasModifier(modifier) then
-	  return UF_FAIL_CUSTOM
-	end
+      return UF_FAIL_CUSTOM
+    end
   end
 
   return defaultFilterResult
 end
 
 function item_pull_staff:GetCustomCastErrorTarget(target)
-  local caster = self:GetCaster()
-  if target == caster then
-    return "#dota_hud_error_cant_cast_on_self"
-  end
+  --local caster = self:GetCaster()
+  --if target == caster then
+    --return "#dota_hud_error_cant_cast_on_self"
+  --end
   if target:HasModifier("modifier_enigma_black_hole_pull") then
     return "#oaa_hud_error_pull_staff_black_hole"
   end
@@ -63,13 +63,19 @@ function item_pull_staff:OnSpellStart()
     return
   end
 
-  -- Check if target has spell block
-  if target:TriggerSpellAbsorb(self) then
+  -- Check if target is something weird
+  if target.TriggerSpellAbsorb == nil then
     return
   end
 
   -- Interrupt enemies only
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    -- Check if the enemy target has spell block
+    if target:TriggerSpellAbsorb(self) then
+      return
+    end
+
+    -- Interrupt
     target:Stop()
   end
 
@@ -89,14 +95,22 @@ function item_pull_staff:OnSpellStart()
   local targetposition = target:GetAbsOrigin()
 
   -- Calculate direction and distance
-  local direction = casterposition - targetposition
-  local distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
-  if distance > maxDistance then
+  local direction
+  local distance = 0
+  if target ~= caster then
+    direction = casterposition - targetposition
+    distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
+    if distance > maxDistance then
+      distance = maxDistance
+    end
+    if distance < 0 then
+      distance = 0
+    end
+  else
+    direction = -caster:GetForwardVector()
     distance = maxDistance
   end
-  if distance < 0 then
-    distance = 0
-  end
+
   direction.z = 0
   direction = direction:Normalized()
 

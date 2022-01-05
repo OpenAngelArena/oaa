@@ -25,6 +25,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"      // Physical protection.
+    "MagicalResistance"                                   "25"		// Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -51,12 +52,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "350"    // Speed.
+    "MovementSpeed"                                       "320"    // Speed.
     "MovementTurnRate"                                    "0.6"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "450"    // Base health.
+    "StatusHealth"                                        "300"    // Base health.
     "StatusHealthRegen"                                   "1.5"    // Health regeneration rate.
 
     // Vision

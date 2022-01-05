@@ -1,17 +1,26 @@
 "DOTAAbilities"
 {
+  "item_recipe_butterfly"                                 "REMOVE"
+  "item_butterfly"                                        "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Butterfly
+  // Recipe: Butterfly 1
   //=================================================================================================================
-  "item_recipe_butterfly"
+  "item_recipe_butterfly_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "138"       // unique ID
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_butterfly"
+    "ID"                                                  "80138"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
+
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_butterfly_oaa"
     "ItemRequirements"
     {
       "01"                                                "item_eagle;item_talisman_of_evasion;item_quarterstaff"
@@ -19,26 +28,34 @@
   }
 
   //=================================================================================================================
-  // Butterfly
+  // Butterfly 1
   //=================================================================================================================
-  "item_butterfly"
+  "item_butterfly_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "139"       // unique ID
-    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ID"                                                  "80139"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/butterfly.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/butterfly"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15"
+    "AbilitySharedCooldown"                               "butterfly"
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_butterfly;item_butterfly_2;item_butterfly_3;item_butterfly_4"
-    "AbilityTextureName"                                  "custom/butterfly"
+    "UpgradesItems"                                       "item_butterfly_oaa;item_butterfly_2;item_butterfly_3;item_butterfly_4;item_butterfly_5"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5275"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "4975"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly;butterfly"
@@ -51,23 +68,43 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 35 50 70 95" //OAA
+        "bonus_agility"                                   "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "15 20 25 30 35" //OAA
+        "bonus_evasion"                                   "20 25 30 35 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30" //OAA
+        "bonus_attack_speed"                              "15 20 25 30 35"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 60 100 150" //OAA
+        "bonus_damage"                                    "10 30 60 100 150"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_ms_per_agility"                             "0.08"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_evasion"                                    "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "3.0"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/ui/blessing_icon_unlock_green.vpcf"
     }
   }
 }

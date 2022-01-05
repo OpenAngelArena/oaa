@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3244"       // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -25,7 +26,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
-      "02"                                                "item_blade_mail_3;item_upgrade_core_3"
+      "02"                                                "item_spiked_mail_3;item_upgrade_core_3"
     }
   }
 
@@ -41,9 +42,11 @@
     "ScriptFile"                                          "items/transformation/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
+    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15050"
+    "ItemCost"                                            "17853"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian;stoneskin"
@@ -75,12 +78,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "25 30"
+        "bonus_armor"                                     "20 25"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "90 120"
+        "bonus_intellect"                                 "75 100"
       }
       "03"
       {
@@ -90,27 +93,47 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_armor"                                     "75 90"
+        "heal_amp"                                        "25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_magic_resist"                              "20"
+        "lifesteal_amp"                                   "25"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_status_resist"                             "30"
+        "spell_lifesteal_amp"                             "25"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "stone_block_chance"                              "50"
+        "stone_armor"                                     "100"
       }
       "08"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_magic_resist"                              "0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_status_resist"                             "30"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stone_block_chance"                              "50"
+      }
+      "11"
+      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "6.0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
       }
     }
   }

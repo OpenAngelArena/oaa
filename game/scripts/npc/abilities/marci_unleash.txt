@@ -1,0 +1,103 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Marci: Unleashed
+  //=================================================================================================================
+  "marci_unleash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"8198"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+    "FightRecapLevel"				"2"
+
+    "MaxLevel"                      "5"
+    "RequiredLevel"                 "6"
+    "LevelsBetweenUpgrades"         "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"				"0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"				"80 70 60 60 60" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"				"100 125 150 175 200"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"	"0.25"	// generally used for damage only
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "16"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "charges_per_flurry"                              "3 4 5 6 7"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "flurry_bonus_attack_speed"                       "700 975 1325 1325 1325"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "time_between_flurries"                            "1.75"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pulse_radius"                                    "800"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pulse_debuff_duration"                            "2.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pulse_damage"                           	  "60 130 200 400 800"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pulse_move_slow_pct"                             "30.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "pulse_attack_slow_pct"                           "60.0 80.0 100.0 150.0 200.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_time_window_per_hit"                         "1.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed"                                 "15"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "recovery_fixed_attack_rate"                       "2.0"
+      }
+    }
+  }
+}

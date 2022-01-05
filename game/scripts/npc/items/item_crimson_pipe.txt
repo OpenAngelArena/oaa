@@ -9,10 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3204"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -47,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "13725"
+    "ItemCost"                                            "13578"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson pipe"

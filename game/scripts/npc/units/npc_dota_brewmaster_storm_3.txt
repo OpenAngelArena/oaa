@@ -22,19 +22,20 @@
     "Ability1"                                            "brewmaster_storm_dispel_magic"
     "Ability2"                                            "brewmaster_storm_cyclone"
     "Ability3"                                            "brewmaster_storm_wind_walk"
-    "Ability4"                                            "brewmaster_cinder_brew"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "6" //OAA
+    "MagicalResistance"                                   "25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "110" //OAA
-    "AttackDamageMax"                                     "110" //OAA
+    "AttackDamageMin"                                     "105" //OAA
+    "AttackDamageMax"                                     "115" //OAA
     "AttackRate"                                          "1.5"
     "AttackAnimationPoint"                                "0.4"
     "AttackAcquisitionRange"                              "600"
@@ -55,8 +56,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2800" //OAA
-    "StatusHealthRegen"                                   "2"
+    "StatusHealth"                                        "3000" //OAA
+    "StatusHealthRegen"                                   "10" //OAA
     "StatusMana"                                          "900"
     "StatusManaRegen"                                     "1.5"
 

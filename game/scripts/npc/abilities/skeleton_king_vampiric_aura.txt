@@ -1,33 +1,70 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // Ability: Wraith King Vampiric Aura (Vampiric Spirit)
+  //=================================================================================================================
   "skeleton_king_vampiric_aura"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5087"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
     "MaxLevel"                                            "6"
 
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura_radius"                            "1200"
+        "vampiric_aura"                                   "15 25 35 45 55 65" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura"                                   "8 16 24 32 40 48"
-        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_2"
+        "var_type"                                        "FIELD_FLOAT"
+        "skeleton_duration"                               "60"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vampiric_aura_ranged_pct"                        "50"
+        "max_skeleton_charges"                            "8" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spawn_interval"                                  "0.25"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "reincarnate_time"                                "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "gold_bounty"                                     "5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "xp_bounty"                                       "5"
       }
     }
   }

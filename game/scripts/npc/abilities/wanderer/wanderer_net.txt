@@ -20,7 +20,7 @@
     "MaxLevel"                                            "1"
 
     "AbilityCastRange"                                    "1000"
-    "AbilityCastPoint"                                    "0.65"
+    "AbilityCastPoint"                                    "0.85"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     "AbilityCooldown"                                     "12.0"
@@ -35,12 +35,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
+        "duration"                                        "3.5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "600"
+        "projectile_speed"                                "550"
       }
     }
   }

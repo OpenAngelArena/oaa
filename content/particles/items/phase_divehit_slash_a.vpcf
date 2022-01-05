@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -6,14 +6,100 @@
 	m_flConstantRadius = 40.0
 	m_flConstantLifespan = 0.65
 	m_ConstantColor = [ 97, 33, 188, 255 ]
-	m_Renderers = 
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 3
+	m_controlPointConfigurations = 
 	[
 		{
-			_class = "C_OP_RenderSprites"
-			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
-			m_bAdditive = true
-			m_bDisableZBuffering = true
-			m_hTexture = resource:"materials/particle/particle_flares/aircraft_white_v2.vtex"
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 6
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 10
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetControlPointFromObjectScale"
+			m_nCPOutput = 2
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 50.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RingWave"
+			m_nControlPointNumber = 1
+			m_bEvenDistribution = true
+			m_flParticlesPerOrbit = 350.0
+			m_flInitialRadius = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 140.0
+			}
+			m_flYaw = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 165.0
+			}
+		},
+		{
+			_class = "C_INIT_CreationNoise"
+			m_flNoiseScaleLoc = 0.025
+			m_nFieldOutput = 4
+			m_flOutputMax = 1000.0
+		},
+		{
+			_class = "C_INIT_CreationNoise"
+			m_flNoiseScaleLoc = 0.2
+			m_flOutputMin = 8.0
+			m_flOutputMax = 50.0
+		},
+		{
+			_class = "C_INIT_PositionWarp"
+			m_nScaleControlPointNumber = 2
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_nControlPointNumber = 1
+			m_OffsetMin = [ 120.0, 0.0, 10.0 ]
+			m_OffsetMax = [ 120.0, 0.0, 10.0 ]
+			m_bLocalCoords = true
 		},
 	]
 	m_Operators = 
@@ -41,10 +127,6 @@
 			m_flFadeInTime = 0.2
 		},
 		{
-			_class = "C_OP_SetControlPointFromObjectScale"
-			m_nCPOutput = 2
-		},
-		{
 			_class = "C_OP_PositionLock"
 			m_bLockRot = true
 			m_nControlPointNumber = 6
@@ -55,94 +137,24 @@
 			m_nControlPointNumber = 10
 		},
 	]
-	m_Initializers = 
+	m_Renderers = 
 	[
 		{
-			_class = "C_INIT_PositionWarp"
-			m_nScaleControlPointNumber = 2
-		},
-		{
-			_class = "C_INIT_RingWave"
-			m_nControlPointNumber = 1
-			m_flInitialRadius = 140.0
-			m_flYaw = 165.0
-			m_bEvenDistribution = true
-			m_flParticlesPerOrbit = 350.0
-		},
-		{
-			_class = "C_INIT_PositionOffset"
-			m_nControlPointNumber = 1
-			m_OffsetMin = [ 120.0, 0.0, 10.0 ]
-			m_OffsetMax = [ 120.0, 0.0, 10.0 ]
-			m_bLocalCoords = true
-		},
-		{
-			_class = "C_INIT_CreationNoise"
-			m_flNoiseScaleLoc = 0.025
-			m_nFieldOutput = 4
-			m_flOutputMax = 1000.0
-		},
-		{
-			_class = "C_INIT_CreationNoise"
-			m_flNoiseScaleLoc = 0.2
-			m_flOutputMin = 8.0
-			m_flOutputMax = 50.0
-		},
-	]
-	m_Emitters = 
-	[
-		{
-			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 50
+			_class = "C_OP_RenderSprites"
+			m_bDisableZBuffering = true
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/particle_flares/aircraft_white_v2.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 		},
 	]
 	m_Children = 
 	[
 		{
 			m_ChildRef = resource:"particles/items/phase_divehit_slash_b.vpcf"
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		{
-			m_name = "preview"
-			m_drivers = 
-			[
-				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 1
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 2
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 1.0, 1.0, 1.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 6
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 10
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
-					m_entityName = "self"
-				},
-			]
 		},
 	]
 }

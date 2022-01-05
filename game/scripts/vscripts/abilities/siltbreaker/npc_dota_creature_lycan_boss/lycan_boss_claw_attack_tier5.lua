@@ -1,32 +1,35 @@
-lycan_boss_claw_attack_tier5 = class(AbilityBaseClass)
-LinkLuaModifier( "modifier_lycan_boss_claw_attack", "modifiers/modifier_lycan_boss_claw_attack", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_lycan_boss_claw_attack", "modifiers/modifier_lycan_boss_claw_attack", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
---------------------------------------------------------------------------------
+lycan_boss_claw_attack_tier5 = class(AbilityBaseClass)
 
 function lycan_boss_claw_attack_tier5:OnAbilityPhaseStart()
-	if IsServer() then
-		self.animation_time = self:GetSpecialValueFor( "animation_time" )
-		self.initial_delay = self:GetSpecialValueFor( "initial_delay" )
-		self.shapeshift_animation_time = self:GetSpecialValueFor( "shapeshift_animation_time" )
-		self.shapeshift_initial_delay = self:GetSpecialValueFor( "shapeshift_initial_delay" )
+  if IsServer() then
+    local caster = self:GetCaster()
+    self.animation_time = self:GetSpecialValueFor( "animation_time" )
+    self.initial_delay = self:GetSpecialValueFor( "initial_delay" )
+    self.shapeshift_animation_time = self:GetSpecialValueFor( "shapeshift_animation_time" )
+    self.shapeshift_initial_delay = self:GetSpecialValueFor( "shapeshift_initial_delay" )
 
-		local bShapeshift = self:GetCaster():FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
-		if RandomInt( 0, 2 ) == 1 then
-			self:PlayClawAttackSpeech( bShapeshift )
-		end
+    local bShapeshift = caster:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
+    if RandomInt( 0, 2 ) == 1 then
+      self:PlayClawAttackSpeech( bShapeshift )
+    end
 
-		local kv = {}
-		if bShapeshift then
-			kv["duration"] = self.shapeshift_animation_time
-			kv["initial_delay"] = self.shapeshift_initial_delay
-		else
-			kv["duration"] = self.animation_time
-			kv["initial_delay"] = self.initial_delay
-		end
+    local kv = {}
+    if bShapeshift then
+      kv["duration"] = self.shapeshift_animation_time
+      kv["initial_delay"] = self.shapeshift_initial_delay
+    else
+      kv["duration"] = self.animation_time
+      kv["initial_delay"] = self.initial_delay
+    end
 
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_claw_attack", kv )
-	end
-	return true
+    caster:AddNewModifier(caster, self, "modifier_lycan_boss_claw_attack", kv)
+    --caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", kv)
+  end
+
+  return true
 end
 
 --------------------------------------------------------------------------------

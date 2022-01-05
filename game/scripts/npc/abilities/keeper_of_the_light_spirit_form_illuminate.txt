@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=================================================================================================================
   // Keeper of the Light: Spirit Form Illuminate
   //=================================================================================================================
@@ -23,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "11"
+    "AbilityCooldown"                                     "13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 160 170 180 190 200"
+    "AbilityManaCost"                                     "100 125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +41,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_channel_time"                                "2 2.7 3.4 4.1 5.0 5.0"
+        "max_channel_time"                                "3"
       }
       "03"
       {
@@ -57,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "speed"                                           "1050.0"
+        "speed"                                           "900" //OAA, Valve has it wrong
       }
       "06"
       {
@@ -91,23 +90,4 @@
       }
     }
   }
-
-  //=================================================================================================================
-  // Keeper of the Light: Illuminate End
-  //=================================================================================================================
-  "keeper_of_the_light_spirit_form_illuminate_end"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5503"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCastAnimation"                                "ACT_INVALID"
-
-    "MaxLevel"                                            "6"
-  }
-
 }

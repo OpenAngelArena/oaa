@@ -1,6 +1,6 @@
 GameEvents:OnEntityFatalDamage(function (keys)
   local killedUnit = EntIndexToHScript(keys.entindex_killed)
-  if not killedUnit:IsCreep() then
+  if killedUnit.IsCreep == nil or not killedUnit:IsCreep() then
     return
   end
   local attacker = EntIndexToHScript(keys.entindex_attacker)
@@ -11,6 +11,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
     return num / 100
   end
 
+  --[[
   local sharedBountyItems = {
     "item_travel_origin",
     "item_greater_travel_boots",
@@ -19,6 +20,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
     "item_greater_travel_boots_4",
     "item_greater_travel_boots_5",
   }
+  ]]
   -- table of player id to share with,
   local shareTable = {}
 
@@ -48,6 +50,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
         -- this is a really ugly hardcoded way to do this
         -- but the day valve gives us custom modifier properties
         -- is the day i know we're in the matrix
+        --[[
         if unit:HasInventory() then
           for _, itemName in pairs(sharedBountyItems) do
             local item = unit:FindItemInInventory(itemName)
@@ -63,6 +66,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
             end
           end
         end
+        ]]
       end
     end
 
@@ -99,7 +103,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
   local creepBountyMultiplier = 1
   if attacker:HasModifier("modifier_spark_cleave") then
     creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_CLEAVE/100
-  elseif attacker:HasModifier("modifier_spark_power") then
+  elseif attacker:HasModifier("modifier_spark_power") or attacker:HasModifier("modifier_spark_power_effect") then
     creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_POWER/100
   end
 

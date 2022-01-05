@@ -34,9 +34,12 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = NORMAL_KILL_LIMIT x number of players + 10 (5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16)
-TEN_V_TEN_KILL_LIMIT = 2
-KILL_LIMIT_INCREASE = 1                   -- Actual KILL_LIMIT_INCREASE is equal to number of players (for 10v10 map its 1/2 of the number of players)
+NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 10 + NORMAL_KILL_LIMIT x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
+ONE_V_ONE_KILL_LIMIT = 10                 -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 30
+TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
+KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
+TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
+ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = ONE_V_ONE_LIMIT_INCREASE x number of players: 1v1 - 4; solo - 2;
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -69,7 +72,7 @@ DUEL_START_WARN_TIME = 10               -- How many seconds to count down before
 DUEL_START_COUNTDOWN = 5                -- How many seconds to count down before each duel (added as a delay before the duel starts)
 DUEL_TIMEOUT = 90                       -- Time before the duel starts counting down to end in a stalemate
 FIRST_DUEL_TIMEOUT = 80                 -- Timeout for the level 1 duel at the start of them game
-FINAL_DUEL_TIMEOUT = 300                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
+FINAL_DUEL_TIMEOUT = 180                -- Timeout for the final duel, the game cannot end unless this duel completes without timing out
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
 DUEL_INTERVAL = 480                     -- time from duel ending until dnext duel countdown begins
@@ -87,9 +90,12 @@ CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture 
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
-BOSS_AGRO_FACTOR = 20                   -- boss must take (tier * n) damage before agro
-BOSS_WANDERER_SPAWN_START = 12 * 60     -- start time for wanderer spawn
-BOSS_WANDERER_RESPAWN = 5 * 60          -- start time for wanderer spawn
+BOSS_AGRO_FACTOR = 15                   -- boss must take (tier * n) damage before agro
+BOSS_WANDERER_MIN_SPAWN_TIME = 12       -- min time at which first Wanderer can spawn (in minutes)
+BOSS_WANDERER_MAX_SPAWN_TIME = 15       -- max time at which first Wanderer can spawn (in minutes)
+BOSS_WANDERER_MIN_RESPAWN_TIME = 4      -- min respawn time of the Wanderer (in minutes)
+BOSS_WANDERER_MAX_RESPAWN_TIME = 6      -- min respawn time of the Wanderer (in minutes)
+BOSS_WANDERER_BUFF_DURATION = 2.5       -- max duration of the Wanderer buff (in minutes)
 
 -- Creeps
 CREEP_SPAWN_INTERVAL = 60               -- number of seconds between each creep spawn
@@ -97,9 +103,9 @@ INITIAL_CREEP_DELAY = 1                 -- number of seconds to wait before spaw
 BOTTLE_DESPAWN_TIME = 60                -- Time until Bottles despawn
 CREEP_POWER_MAX = 1.5                   -- the total max power creeps will get stacked up to (1 = 100%)
 CREEP_BOUNTY_SHARE_RADIUS = 1500        -- the radius in which creep bounty is shared with allies
-CREEP_BOUNTY_SHARE_PERCENT = 40         -- the percentage of the creep's bounty that's given to shared allies
-CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 25  -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
-CREEP_BOUNTY_BONUS_PERCENT_POWER = 30   -- the bonus percentage of the creep's bounty that's given to those that kill with Power Spark
+CREEP_BOUNTY_SHARE_PERCENT = 40         -- the percentage of the creep's gold bounty that's shared with allies
+CREEP_BOUNTY_BONUS_PERCENT_CLEAVE = 0   -- the bonus percentage of the creep's bounty that's given to those that kill with Cleave Spark
+CREEP_BOUNTY_BONUS_PERCENT_POWER = 0    -- the bonus percentage of the creep's bounty that's given to those that kill with Power Spark
 
 -- Player
 GAME_ABANDON_TIME = 90                 -- Time until game ends if a team has left
@@ -128,20 +134,25 @@ LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly to
 -- XP gain and rubberband on hero kills
 USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
 
--- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP)/number_of_killers
--- Old formula: DyingHeroBaseXPBounty + (AOE_XP_LEVEL_MULTIPLIER × DyingHeroLevel) + (AOE_XP_BONUS_FACTOR × TeamXPDiff × DyingHeroXP)
+-- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP) / number_of_killers
 HERO_XP_BOUNTY_BASE = 100            -- 100 in normal dota
-HERO_XP_BOUNTY_STREAK_BASE = 50      -- lvl * 30 in normal dota (XP bonus when killing heroes with Killing Spree - 3 kills in a row)
-HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- 200 in normal dota
-HERO_XP_BOUNTY_STREAK_MAX = 800      -- 1800 in normal dota (XP bonus when killing heroes with Beyond Godlike - 10+ kills in a row)
-HERO_XP_BONUS_FACTOR = 0.13          -- 0.13 in normal dota
-HERO_KILL_XP_RADIUS = 1500           -- 1500 in normal dota
+HERO_XP_BOUNTY_STREAK_BASE = 30      -- Min amount of streak XP bonus (min streak is 3; lvl * 30 in normal dota)
+HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- not used for now
+HERO_XP_BOUNTY_STREAK_MAX = 3000     -- Max amount of streak XP bonus (lvl * streak * 10 in normal dota where lvl <= 25)
+HERO_XP_BONUS_FACTOR = 0.13          -- Multiplier for the XP of the killed hero (0.13 in normal dota)
+HERO_KILL_XP_RADIUS = 1500           -- XP range for killing heroes (1500 in normal dota)
+HERO_KILL_GOLD_RADIUS = 1500         -- Gold assist range for killing heroes (1500 in normal dota)
 
--- Bounty runes
-FIRST_BOUNTY_RUNE_SPAWN_TIME = 120        -- After what delay in seconds will the first bounty rune spawn?
-BOUNTY_RUNE_SPAWN_INTERVAL = 120        -- How long in seconds should we wait between bounty rune spawns?
+-- Runes
+USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spawn timings and the same runes as dota have?
+-- Bounty Runes
+FIRST_BOUNTY_RUNE_SPAWN_TIME = 0     -- After what delay in seconds will the first bounty rune spawn?
+BOUNTY_RUNE_SPAWN_INTERVAL = 180     -- How long in seconds should we wait between bounty rune respawns?
 BOUNTY_RUNE_INITIAL_TEAM_GOLD = 16
 BOUNTY_RUNE_INITIAL_TEAM_XP = 9
+-- Power-up Runes
+FIRST_POWER_RUNE_SPAWN_TIME = 0      -- After what delay in seconds will the first power-up rune spawn?
+POWER_RUNE_SPAWN_INTERVAL = 120      -- How long in seconds should we wait between power-up runes respawns?
 
 -- end OAA specific settings
 -----------------------------------------------------------------------------------
@@ -242,14 +253,10 @@ STARTING_GOLD = 825                     -- How much starting gold should we give
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
 DISABLE_KILLING_SPREE_ANNOUNCER = false -- Should we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?
-SKIP_TEAM_SETUP = true and IsInToolsMode()       -- Should we skip the team setup entirely?
+SKIP_TEAM_SETUP = false       -- Should we skip the team setup entirely?
 ENABLE_AUTO_LAUNCH = true               -- Should we automatically have the game complete team setup after AUTO_LAUNCH_DELAY seconds?
 AUTO_LAUNCH_DELAY = 30                  -- How long should the default team selection launch timer be?  The default for custom games is 30.  Setting to 0 will skip team selection.
 LOCK_TEAM_SETUP = false                 -- Should we lock the teams initially?  Note that the host can still unlock the teams
-
-USE_DEFAULT_RUNE_SYSTEM = false     -- Should we use the default dota rune spawn timings and the same runes as dota have?
-FIRST_POWER_RUNE_SPAWN_TIME = 120   -- After what delay in seconds will the first power-up rune spawn?
-POWER_RUNE_SPAWN_INTERVAL = 120     -- How long in seconds should we wait between power-up runes spawns?
 
 ENABLED_RUNES = {}                      -- Which runes should be enabled to spawn in our game mode?
 ENABLED_RUNES[DOTA_RUNE_DOUBLEDAMAGE] = true
@@ -277,7 +284,7 @@ TEAM_COLORS[DOTA_TEAM_CUSTOM_7] = { 199, 228, 13 }  --    Olive
 TEAM_COLORS[DOTA_TEAM_CUSTOM_8] = { 140, 42, 244 }  --    Purple
 
 -- Surrender Options
-SURRENDER_MINIMUM_KILLS_BEHIND = 50
+SURRENDER_MINIMUM_KILLS_BEHIND = 35
 SURRENDER_REQUIRED_YES_VOTES = {1, 2, 2, 3, 4}
 SURRENDER_TIME_TO_DISPLAY = 10
 

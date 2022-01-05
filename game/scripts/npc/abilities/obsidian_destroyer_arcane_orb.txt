@@ -21,8 +21,8 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 120 160 200 400 600"
-    "AbilityCooldown"                                     "0"
+    "AbilityManaCost"                                     "0" // old: "80 120 160 200 400 600"
+    "AbilityCooldown"                                     "0" //OAA, for picking screen tooltip
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -31,13 +31,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "7.5 9 10.5 12 13 14" //OAA, for picking screen tooltip
+        "mana_pool_damage_pct"                            "11 12 13 14 15 16" //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "counter_duration"                                "35"
+        "mana_cost_percentage"                            "20"
       }
     }
   }

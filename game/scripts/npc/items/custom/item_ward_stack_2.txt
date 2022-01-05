@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8523"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -36,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8524"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET  | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -52,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2000"
+    "ItemCost"                                            "2111"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -68,17 +69,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "2 10 20 30 40"
+        "bonus_health_regen"                              "2 5 8 11 14"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "50 200 700 1200 1700"
+        "bonus_health"                                    "150 400 900 1650 2650"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "4 10 15 20 25"
+        "bonus_all_stats"                                 "0"
       }
       "04"
       {
@@ -113,27 +114,27 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_reveal_radius"                            "1000"
+        "sentry_reveal_radius"                            "900"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_recharge"                               "135 120 100 80 60"
+        "observer_recharge"                               "100"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_max"                                    "2 3 4 5 6"
+        "observer_max"                                    "3"
       }
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_recharge"                                 "90 65 50 40 30"
+        "sentry_recharge"                                 "50"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_max"                                      "4"
+        "sentry_max"                                      "5"
       }
       "15"
       {

@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Trusty Shovel (OAA Rework) - neutral tier 1 item
+  //=================================================================================================================
+  "item_trusty_shovel_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "80356"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/neutral/trusty_shovel.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityTextureName"                                  "item_trusty_shovel"
+
+    "AbilityCastRange"                                    "250"
+		"AbilityCooldown"                                     "45"
+		"AbilityCastPoint"                                    "0.1"
+		"AbilityChannelTime"                                  "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+
+    "ItemIsNeutralDrop"                                   "1"
+    "ItemPurchasable"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounty_rune_drop_chance"                         "15"
+      }
+    }
+  }
+}

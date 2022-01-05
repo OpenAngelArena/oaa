@@ -1,25 +1,29 @@
 "DOTAAbilities"
 {
+  "item_recipe_travel_boots"                              "REMOVE"
+  "item_travel_boots"                                     "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Travel Boots
+  // Recipe: Travel Boots (OAA rework)
   //=================================================================================================================
-  "item_recipe_travel_boots"
+  "item_recipe_travel_boots_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "47"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "ID"                                                  "3522"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "550" //OAA
+    "ItemCost"                                            "550"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_travel_boots"
+    "ItemResult"                                          "item_travel_boots_oaa"
     "ItemRequirements"
     {
       "01"                                                "item_boots"
@@ -27,38 +31,38 @@
   }
 
   //=================================================================================================================
-  // Travel Boots
+  // Travel Boots (OAA rework)
   //=================================================================================================================
-  "item_travel_boots"
+  "item_travel_boots_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "48"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "3523"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_travel_boots.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityTextureName"                                  "item_travel_boots"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    //"AbilityCooldown"                                     "90" // OAA
-    //"AbilitySharedCooldown"                               "travel"
-    //"AbilityChannelTime"                                  "3.0"
+    "AbilityCooldown"                                     "90"
+    "AbilitySharedCooldown"                               "travel"
+    "AbilityChannelTime"                                  "3.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    //"AbilityManaCost"                                     "75"
-    "ItemCost"                                            "1050" // OAA
+    "AbilityManaCost"                                     "75"
+    "ItemCost"                                            "1050"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
     "MaxUpgradeLevel"                                     "1"
     "ItemBaseLevel"                                       "1"
-
-    "UpgradesItems"                                       "item_travel_boots"
-    "UpgradeRecipe"                                       "item_recipe_travel_boots"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,22 +71,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45" // OAA -- you get these boots a lot earlier, so lvl 1 has move speed nerf
+        "bonus_movement_speed"                            "50" // you get these boots a lot earlier,
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maximum_distance"                                "575"
+        "bonus_damage_during_duels"                       "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vision_radius"                                   "200"
+        "bonus_spell_amp_during_duels"                    "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tp_cooldown"                                     "40"
+        "bonus_boss_damage"                               "0"
       }
     }
   }

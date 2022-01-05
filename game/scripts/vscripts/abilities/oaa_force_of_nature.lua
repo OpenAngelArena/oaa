@@ -44,12 +44,14 @@ function furion_force_of_nature:OnSpellStart()
   local duration = self:GetSpecialValueFor( "duration" )
   local ability_level = self:GetLevel()
   -- Units to spawn for each ability level
-  local treant_names = {"npc_dota_furion_treant_1",
-                        "npc_dota_furion_treant_2",
-                        "npc_dota_furion_treant_3",
-                        "npc_dota_furion_treant_4",
-                        "npc_dota_furion_treant_5",
-                        "npc_dota_furion_treant_6"}
+  local treant_names = {
+    "npc_dota_furion_treant_1",
+    "npc_dota_furion_treant_2",
+    "npc_dota_furion_treant_3",
+    "npc_dota_furion_treant_4",
+    "npc_dota_furion_treant_5",
+    "npc_dota_furion_treant_6"
+  }
 
   local trees = GridNav:GetAllTreesAroundPoint( target_point, area_of_effect, true )
   local tree_count = #trees
@@ -105,8 +107,8 @@ function furion_force_of_nature:OnStolen(hSourceAbility)
     self:SetHidden(false)
     return
   end
-  local speal_steal_cast_range = spell_steal_ability:GetCastRange() or 1525
-  local spell_steal_speed = spell_steal_ability:GetSpecialValueFor("projectile_speed") or 900
+  local speal_steal_cast_range = spell_steal_ability:GetCastRange() --or spell_steal_ability:GetSpecialValueFor("cast_range_scepter") + caster:GetCastRangeBonus()
+  local spell_steal_speed = spell_steal_ability:GetSpecialValueFor("projectile_speed") or 1200
   local spell_steal_time = speal_steal_cast_range/spell_steal_speed+0.01
   Timers:CreateTimer(spell_steal_time, function()
     local wrath_of_nature_ability = caster:FindAbilityByName("furion_wrath_of_nature_oaa")

@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bear Boss: Earthshock - AoE damage, slow and knockback
+  // Notes: Doesn't pierce spell immunity;
+  //=================================================================================================================
+  "bear_boss_earthshock"
+  {
+    "ID"                                                  "3588"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/bear_boss_earthshock.lua"
+    "AbilityTextureName"                                  "ursa_earthshock"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastRange"                                    "450"
+    "AbilityCastPoint"                                    "2.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_IDLE_RARE"
+
+    "AbilityCooldown"                                     "8.0"
+
+    "AbilityManaCost"                                     "0"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "450"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "6000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow"                                 "-50"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-350"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "3.5"
+      }
+    }
+  }
+}

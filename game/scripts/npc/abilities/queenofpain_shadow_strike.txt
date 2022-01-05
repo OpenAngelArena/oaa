@@ -26,7 +26,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "10 8 6 4 4 4" //OAA
-    "AbilityDuration"                                     "15.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration_damage"                                 "30 50 70 90 180 360"
+        "duration_damage"                                 "20 40 60 80 160 320"
       }
       "03"
       {
@@ -61,6 +60,17 @@
         "var_type"                                        "FIELD_FLOAT"
         "damage_interval"                                 "3.0"
         "CalculateSpellDamageTooltip"                     "0"
+      }
+      "07" // half of the duration_damage
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_heal"                                   "10 20 30 40 80 160"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "15"
+        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
       }
     }
   }

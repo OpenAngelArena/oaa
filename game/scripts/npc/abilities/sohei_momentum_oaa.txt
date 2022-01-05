@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.15"
+    "AbilityCastPoint"                                    "0.2"
     "AbilityCastRange"                                    "0"
     "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
 
@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "65 70 75 80 85 90"
+    "AbilityManaCost"                                     "70 75 80 85 90 95"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -71,7 +71,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_damage"                                     "150 180 210 240 270 300"
+        "crit_damage"                                     "150 190 230 270 310 350"
         "LinkedSpecialBonus"                              "special_bonus_sohei_momentum_strike_crit"
         "CalculateSpellDamageTooltip"                     "0"
       }

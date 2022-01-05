@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3806"   // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -53,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16800"
+    "ItemCost"                                            "16603"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Reduction orb 2"
@@ -68,17 +69,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2000 2500 3000"
+        "bonus_health"                                    "1850"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "30 50 90"
+        "bonus_health_regen"                              "24"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 9 12"
+        "bonus_armor"                                     "12"
       }
       "04"
       {
@@ -88,12 +89,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 3.0 4.0"
+        "duration"                                        "4.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "0 25 50"
+        "damage_as_healing"                               "50"
       }
     }
   }

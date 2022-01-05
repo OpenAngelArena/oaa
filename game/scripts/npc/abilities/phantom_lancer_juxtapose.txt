@@ -13,6 +13,16 @@
 
     "MaxLevel"                                            "5"
 
+    "HasScepterUpgrade"                                   "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "40"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0" //OAA
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -20,7 +30,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_illusions"                                   "4" //OAA
+        "max_illusions"                                   "5" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_3"
       }
       "02"
@@ -67,6 +77,17 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "illusion_from_illusion_duration"                 "4"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_bonus_duration"                          "10"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_illusions"                         "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

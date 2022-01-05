@@ -10,11 +10,18 @@
 "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_max_layers"           "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_max_layers}"
 "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_recovery_time"        "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_recovery_time}"
 "DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_minimum_damage"       "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_minimum_damage}"
+"DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_shard_Description"    "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_shard_Description}"
+"DOTA_Tooltip_ability_visage_gravekeepers_cloak_oaa_max_damage_reduction" "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak_max_damage_reduction}"
 
-"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa"                     "Gravekeeper's Cloak"
-"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_Description"         "Gaining damage reduction."
+//"DOTA_Tooltip_modifier_visage_gravekeepers_cloak"                       "Gravekeeper's Cloak"
+//"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_Description"           "Gaining bonus damage reduction per stack."
+//"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_secondary"             "Gravekeeper's Cloak"
+//"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_secondary_Description" "Gaining damage reduction."
 
-"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_aura"                "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa}"
-"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_aura_Description"    "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_Description}"
+"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa"                     "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak}"
+"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_Description"         "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak_Description}"
+
+"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_aura"                "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak}"
+"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_aura_Description"    "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak_secondary_Description}"
 
 "DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_5"                  "-{s:value}s Gravekeeper's Cloak Recovery Time"

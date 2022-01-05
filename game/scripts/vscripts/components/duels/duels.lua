@@ -13,6 +13,7 @@ local zoneNames = {
   "duel_3",
   "duel_4",
   "duel_5",
+  "duel_6",
 }
 
 local DuelPreparingEvent = Event()
@@ -24,12 +25,12 @@ Duels.onPreparing = DuelPreparingEvent.listen
 Duels.onEnd = DuelEndEvent.listen
 
 function Duels:Init ()
-  DebugPrint('Init duels')
+  self.moduleName = "Duels"
   self.currentDuel = nil
   self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
-  GameEvents:OnHeroDied(function (keys)
+  GameEvents:OnHeroKilled(function (keys)
     Duels:CheckDuelStatus(keys)
   end)
 
@@ -45,7 +46,7 @@ function Duels:Init ()
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if hero and not Duels.currentDuel then
-        hero:SetRespawnsDisabled(false)
+        --hero:SetRespawnsDisabled(false)
         if hero:IsAlive() then
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
@@ -119,15 +120,18 @@ end
 
 function Duels:RegisterZone(zoneName)
   self.zones = self.zones or {}
-  table.insert(
-    self.zones,
-    ZoneControl:CreateZone(zoneName, {
-      mode = ZONE_CONTROL_INCLUSIVE,
-      margin = 500,
-      padding = 200,
-      players = {}
-    })
-  )
+  local zoneExists = Entities:FindAllByName(zoneName)
+  if zoneExists and #zoneExists > 0 then
+    table.insert(
+      self.zones,
+      ZoneControl:CreateZone(zoneName, {
+        mode = ZONE_CONTROL_INCLUSIVE,
+        margin = 500,
+        padding = 200,
+        players = {}
+      })
+    )
+  end
 end
 
 function Duels:CountPlayerDeath (player)
@@ -144,7 +148,8 @@ function Duels:CountPlayerDeath (player)
       winningTeamId = DOTA_TEAM_GOODGUYS
     end
 
-    PointsManager:AddPoints(winningTeamId, 1)
+    -- Gaining a point for winning a duel -> not intuitive
+    --PointsManager:AddPoints(winningTeamId, 1)
 
     self:AllPlayers(self.currentDuel, function (otherPlayer)
       if player.duelNumber ~= otherPlayer.duelNumber then
@@ -179,15 +184,22 @@ function Duels:IsActive ()
   return true
 end
 
-function Duels:CheckDuelStatus (hero)
+function Duels:CheckDuelStatus (event)
   if not self:IsActive() then
     return
   end
+
+  local hero = event.killed
+
+  if hero:IsTempestDouble() then
+    return
+  end
+
   if hero:IsReincarnating() then
-    hero:SetRespawnsDisabled(false)
-    Timers:CreateTimer(1, function ()
-      hero:SetRespawnsDisabled(true)
-    end )
+    --hero:SetRespawnsDisabled(false)
+    --Timers:CreateTimer(1, function ()
+      --hero:SetRespawnsDisabled(true)
+    --end)
     return
   end
 
@@ -209,6 +221,7 @@ function Duels:CheckDuelStatus (hero)
   if player.killed then
     -- this player is already dead and shouldn't be counted again
     -- this shouldn't happen, but is nice to have here for future use cases of this method
+    -- this can happen for Meepo too
     DebugPrint('Player died twice in duel?')
     DebugPrintTable(self.currentDuel)
     DebugPrintTable(player)
@@ -391,11 +404,14 @@ function Duels:ActuallyStartDuel(options)
   DebugPrint("Duel Player Split")
   DebugPrint(split.PlayerSplitOffset)
 
-  local bigArenaIndex = RandomInt(3, 5)
+  if #self.zones < 3 then
+    return
+  end
+
+  local bigArenaIndex = RandomInt(3, #self.zones)
   local smallArenaIndex = RandomInt(1, 2)
 
   local gamemode = GameRules:GetGameModeEntity()
-  gamemode:SetTPScrollSlotItemOverride("item_dust")
   gamemode:SetCustomBackpackSwapCooldown(1.0)
 
   self:SpawnPlayersOnArenas(split, smallArenaIndex, bigArenaIndex)
@@ -418,7 +434,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     SafeTeleportAll(hero, spawn, 250)
     MoveCameraToPlayer(hero)
     hero:Stop()
-    hero:SetRespawnsDisabled(true)
+    --hero:SetRespawnsDisabled(true) -- not working properly thanks to Aghs Lab 2
   end
 
   if goodGuy then
@@ -438,8 +454,6 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
-      -- Replace tp scroll with dust
-      Duels:SwapItems("item_dust", hero, player)
     end
   end
   for _,player in ipairs(playerSplit.GoodPlayers) do
@@ -449,8 +463,6 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
       hero:AddNewModifier(nil, nil, "modifier_out_of_duel", nil)
     else
       hero:AddNewModifier(nil, nil, "modifier_duel_invulnerability", {duration = DUEL_START_PROTECTION_TIME})
-      -- Replace tp scroll with dust
-      Duels:SwapItems("item_dust", hero, player)
     end
   end
 
@@ -466,6 +478,10 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
     badPlayerIndex = playerSplit.BadPlayerIndex,
     goodPlayerIndex = playerSplit.GoodPlayerIndex
   }
+
+  Timers:CreateTimer(2, function()
+    GridNav:RegrowAllTrees()
+  end)
 
   DebugPrint("Duel Info")
   DebugPrintTable(self.currentDuel)
@@ -593,7 +609,6 @@ function Duels:EndDuel ()
   end
 
   local gamemode = GameRules:GetGameModeEntity()
-  gamemode:SetTPScrollSlotItemOverride("item_tpscroll")
   gamemode:SetCustomBackpackSwapCooldown(3.0)
 
   local currentDuel = self.currentDuel
@@ -609,8 +624,8 @@ function Duels:EndDuel ()
 
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
-        hero:SetRespawnsDisabled(false)
-        hero:RespawnHero(false,false)
+        --hero:SetRespawnsDisabled(false)
+        hero:RespawnHero(false, false)
         -- hero is changed on respawn sometimes
         hero = player:GetAssignedHero()
       else
@@ -624,8 +639,6 @@ function Duels:EndDuel ()
       HeroState.RestoreState(hero, state)
       MoveCameraToPlayer(hero)
       HeroState.PurgeDuelHighgroundBuffs(hero) -- needed to remove undispellable Highground buffs
-      -- Replace dust with tp scroll
-      Duels:SwapItems("item_tpscroll", hero, player)
     end)
     -- Remove Modifier
     for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
@@ -679,19 +692,4 @@ function Duels:PlayerForDuel(playerId)
   end)
 
   return foundIt
-end
-
-function Duels:SwapItems(intendedItemname, hero, player)
-  local current = hero:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-  if current then
-    -- Set charges to 1
-    if current:GetCurrentCharges() > 1 then
-      current:SetCurrentCharges(1)
-    end
-    -- Remove the item
-    hero:RemoveItem(current)
-  end
-  -- Add the item, new item should be auto-added to tpscroll slot
-  local new = CreateItem(intendedItemname, player, player)
-  hero:AddItem(new)
 end

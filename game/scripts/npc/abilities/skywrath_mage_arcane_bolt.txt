@@ -23,7 +23,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700" //OAA
+    "AbilityCastRange"                                    "875"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -51,7 +51,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bolt_damage"                                     "60 80 100 120 240 360"
+        "bolt_damage"                                     "75 95 115 135 270 405"
       }
       "04"
       {

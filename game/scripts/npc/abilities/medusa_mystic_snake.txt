@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170 160 150 140 70 0" //OAA
+    "AbilityManaCost"                                     "170 160 150 140 70 35" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "475"
+        "radius"                                          "450"
       }
       "02"
       {
@@ -80,13 +80,13 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stone_form_scepter_base"                         "1.0"
+        "stone_form_scepter_base"                         "1.3"
         "RequiresScepter"                                 "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stone_form_scepter_increment"                    "0.3"
+        "stone_form_scepter_increment"                    "0.2"
         "RequiresScepter"                                 "1"
       }
       "11"

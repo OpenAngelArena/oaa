@@ -9,12 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8521"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "10"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_ward_stack"
     "ItemRequirements"
     {
-      "01"                                                "item_sobi_mask;item_ring_of_regen;item_branches"
+      "01"                                                "item_sobi_mask;item_ring_of_regen;item_fluffy_hat"
     }
   }
 
@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8522"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET  | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "500"
+    "ItemCost"                                            "610"
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
@@ -68,17 +68,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "2 10 20 30 40"
+        "bonus_health_regen"                              "2 5 8 11 14"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "50 200 700 1200 1700"
+        "bonus_health"                                    "150 400 900 1650 2650"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "4 10 15 20 25"
+        "bonus_all_stats"                                 "0"
       }
       "04"
       {
@@ -90,12 +90,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "aura_mana_regen"                                 "1.5 1.75 2.25 3.0 4.0"
       }
-      "06" // dota observer ward: 360
+      "06" // vanilla dota observer ward duration: 360
       {
         "var_type"                                        "FIELD_INTEGER"
         "observer_duration"                               "180"
       }
-      "07" // dota sentry ward: 480
+      "07" // vanilla dota sentry ward duration: 420
       {
         "var_type"                                        "FIELD_INTEGER"
         "sentry_duration"                                 "240"
@@ -113,27 +113,27 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_reveal_radius"                            "1000"
+        "sentry_reveal_radius"                            "900"
       }
-      "11"
+      "11" // vanilla dota observer ward restock: 135
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_recharge"                               "135 120 100 80 60"
+        "observer_recharge"                               "100" // old: 135 120 100 80 60
       }
-      "12"
+      "12" // vanilla dota observer ward max stock: 4
       {
         "var_type"                                        "FIELD_INTEGER"
-        "observer_max"                                    "2 3 4 5 6"
+        "observer_max"                                    "3"
       }
-      "13"
+      "13" // vanilla dota sentry ward restock: 70
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_recharge"                                 "90 65 50 40 30"
+        "sentry_recharge"                                 "50" // old: 75 65 50 40 30
       }
-      "14"
+      "14" // vanilla dota sentry ward max stock: 10
       {
         "var_type"                                        "FIELD_INTEGER"
-        "sentry_max"                                      "4"
+        "sentry_max"                                      "5"
       }
       "15"
       {

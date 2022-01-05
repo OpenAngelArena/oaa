@@ -27,7 +27,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 180 260 420 580" //OAA
+        "damage"                                          "100 200 300 600 900" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_7"
       }
       "02"
       {
@@ -64,26 +65,20 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "125 225 325 525 725" //OAA
-        "RequiresScepter"                                 "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "linger_duration"                                 "2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "1800"
+        "scepter_bonus_range"                             "400"
         "RequiresScepter"                                 "1"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration_scepter"                                "30"
-        "RequiresScepter"                                 "1"
-      }
-      "09"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "linger_duration"                                 "2"
+        "scepter_bonus_duration"                          "20"
+        "RequiresScepter"                                 "1"
       }
     }
   }

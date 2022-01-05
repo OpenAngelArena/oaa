@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 60 75 90 105 120"
+    "AbilityManaCost"                                     "45 55 65 75 85 95" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,12 +42,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "empower_duration"                                "38 42 46 50 54 58"
+        "empower_duration"                                "35"
+        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_4"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "11 18 25 32 39 46"
+        "bonus_damage_pct"                                "12 20 28 36 44 52"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
       }
       "03"
@@ -79,7 +80,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "self_multiplier"                                 "75"
+        "self_multiplier"                                 "100" //OAA
       }
     }
   }

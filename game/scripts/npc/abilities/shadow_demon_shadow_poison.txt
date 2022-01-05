@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityManaCost"                                     "30 35 40 45 50 55" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stack_damage"                                    "20 35 50 65 130 260"
+        "stack_damage"                                    "24 36 48 60 120 240"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }

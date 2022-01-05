@@ -1,26 +1,25 @@
-item_greater_travel_boots = class(ItemBaseClass)
-modifier_item_greater_travel_boots = class(ModifierBaseClass)
-
---LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_travel_boots_unique_passive", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+
+item_greater_travel_boots = class(ItemBaseClass)
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
-  return "modifier_item_greater_travel_boots" -- "modifier_intrinsic_multiplexer"
+  return "modifier_intrinsic_multiplexer"
 end
--- uncomment this if we plan to add more effects to Greater Travel Boots
---[[
+
 function item_greater_travel_boots:GetIntrinsicModifierNames()
   return {
     "modifier_item_greater_travel_boots",
+    "modifier_item_greater_travel_boots_unique_passive",
   }
 end
-]]
 
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
     local hCaster = self:GetCaster()
     -- FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)
-    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, 2000, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, FIND_UNITS_EVERYWHERE, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 
     local function IsNotCaster(entity)
       return not (entity == hCaster)
@@ -28,6 +27,11 @@ function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
     local hTarget = nth(1, filter(IsNotCaster, iter(units)))
 
     if not hTarget then
+      return UF_FAIL_CUSTOM
+    end
+
+    -- Teleport target is too close and player clicked far away
+    if (hTarget:GetAbsOrigin() - hCaster:GetAbsOrigin()):Length2D() <= 800 and (targetPoint - hCaster:GetAbsOrigin()):Length2D() > 1800 then
       return UF_FAIL_CUSTOM
     end
 
@@ -45,6 +49,13 @@ function item_greater_travel_boots:OnSpellStart()
   local hCaster = self:GetCaster()
   local hTarget = self:GetCursorTarget()
   local casterTeam = hCaster:GetTeamNumber()
+  
+  -- Disable working on Meepo Clones
+  if hCaster:IsClone() then
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
+  end
 
   local function IsAlly(entity)
     return entity:GetTeamNumber() == casterTeam
@@ -64,6 +75,9 @@ function item_greater_travel_boots:OnSpellStart()
 
   -- Minimap teleport display
   MinimapEvent(casterTeam, hCaster, targetOrigin.x, targetOrigin.y, DOTA_MINIMAP_EVENT_TEAMMATE_TELEPORTING, self:GetChannelTime() + 0.5)
+
+  -- Vision
+  self:CreateVisibilityNode(targetOrigin, 400, self:GetChannelTime() + 1)
 
   -- Teleport animation
   hCaster:StartGesture(ACT_DOTA_TELEPORT)
@@ -90,7 +104,7 @@ function item_greater_travel_boots:OnSpellStart()
 end
 
 function item_greater_travel_boots:OnChannelThink (delta)
-  if not self.targetEntity:IsAlive() then
+  if not self.targetEntity:IsAlive() or self:GetCaster():IsRooted() then
     self:EndChannel(true)
   end
 end
@@ -124,6 +138,15 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
 end
 
+item_greater_travel_boots_2 = class(item_greater_travel_boots)
+item_greater_travel_boots_3 = class(item_greater_travel_boots)
+item_greater_travel_boots_4 = class(item_greater_travel_boots)
+item_travel_boots_oaa = item_greater_travel_boots
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_greater_travel_boots = class(ModifierBaseClass)
+
 function modifier_item_greater_travel_boots:IsHidden()
   return true
 end
@@ -134,10 +157,6 @@ end
 
 function modifier_item_greater_travel_boots:IsPurgable()
   return false
-end
-
-function modifier_item_greater_travel_boots:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_greater_travel_boots:DeclareFunctions()
@@ -152,11 +171,70 @@ function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Bo
   end
 end
 
---------------------------------------------------------------------------------
--- All the upgrades are exactly the same
---------------------------------------------------------------------------------
-item_greater_travel_boots_2 = class(item_greater_travel_boots)
-item_greater_travel_boots_3 = class(item_greater_travel_boots)
-item_greater_travel_boots_4 = class(item_greater_travel_boots)
-item_greater_travel_boots_5 = class(item_greater_travel_boots)
---item_travel_origin = class(item_greater_travel_boots)
+---------------------------------------------------------------------------------------------------
+
+modifier_item_greater_travel_boots_unique_passive = class(ModifierBaseClass)
+
+function modifier_item_greater_travel_boots_unique_passive:IsHidden()
+  return true
+end
+
+function modifier_item_greater_travel_boots_unique_passive:IsDebuff()
+  return false
+end
+
+function modifier_item_greater_travel_boots_unique_passive:IsPurgable()
+  return false
+end
+
+function modifier_item_greater_travel_boots_unique_passive:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
+    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
+  end
+  if IsServer() then
+    self:StartIntervalThink(0)
+  end
+end
+
+function modifier_item_greater_travel_boots_unique_passive:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
+    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
+  end
+end
+
+function modifier_item_greater_travel_boots_unique_passive:OnIntervalThink()
+  if Duels:IsActive() then
+    self:SetStackCount(1)
+  else
+    self:SetStackCount(2)
+  end
+end
+
+function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+  }
+
+  return funcs
+end
+
+function modifier_item_greater_travel_boots_unique_passive:GetModifierBaseDamageOutgoing_Percentage()
+  if self:GetStackCount() == 1 then
+    return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage_during_duels")
+  end
+
+  return 0
+end
+
+function modifier_item_greater_travel_boots_unique_passive:GetModifierSpellAmplify_Percentage()
+  if self:GetStackCount() == 1 then
+    return self.spell_amp or self:GetAbility():GetSpecialValueFor("bonus_spell_amp_during_duels")
+  end
+
+  return 0
+end

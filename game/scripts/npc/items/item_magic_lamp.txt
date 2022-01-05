@@ -9,8 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8538"    // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -19,8 +20,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_aeon_disk_4;item_upgrade_core_4"
-      "02"                                                "item_reflection_shard_3;item_upgrade_core_4"
-      "03"                                                "item_sphere_4;item_upgrade_core_4"
+      "02"                                                "item_sphere_4;item_upgrade_core_4"
+      //"03"                                                "item_reflection_shard_3;item_upgrade_core_4"
     }
   }
 
@@ -34,8 +35,9 @@
     "ID"                                                  "8569" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_panic_button"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/magic_lamp"
 
-    "ItemCost"                                            "37600"
+    "ItemCost"                                            "36854"
     "ItemShopTags"                                        "health_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"

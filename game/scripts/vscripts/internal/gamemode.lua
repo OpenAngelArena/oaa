@@ -54,7 +54,7 @@ function GameMode:_InitGameMode()
   if USE_AUTOMATIC_PLAYERS_PER_TEAM then
     local num = math.floor(10 / MAX_NUMBER_OF_TEAMS)
     local count = 0
-    for team,number in pairs(TEAM_COLORS) do
+    for team, number in pairs(TEAM_COLORS) do
       if count >= MAX_NUMBER_OF_TEAMS then
         GameRules:SetCustomGameTeamMaxPlayers(team, 0)
       else
@@ -64,7 +64,7 @@ function GameMode:_InitGameMode()
     end
   else
     local count = 0
-    for team,number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
+    for team, number in pairs(CUSTOM_TEAM_PLAYER_COUNT) do
       if count >= MAX_NUMBER_OF_TEAMS then
         GameRules:SetCustomGameTeamMaxPlayers(team, 0)
       else
@@ -75,7 +75,7 @@ function GameMode:_InitGameMode()
   end
 
   if USE_CUSTOM_TEAM_COLORS then
-    for team,color in pairs(TEAM_COLORS) do
+    for team, color in pairs(TEAM_COLORS) do
       SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
     end
   end
@@ -191,7 +191,7 @@ function GameMode:_CaptureGameMode()
     if FORCE_PICKED_HERO ~= nil then
       --mode:SetCustomGameForceHero( FORCE_PICKED_HERO )
     end
-    mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME )
+    --mode:SetFixedRespawnTime( FIXED_RESPAWN_TIME )
     mode:SetFountainConstantManaRegen( FOUNTAIN_CONSTANT_MANA_REGEN )
     mode:SetFountainPercentageHealthRegen( FOUNTAIN_PERCENTAGE_HEALTH_REGEN )
     mode:SetFountainPercentageManaRegen( FOUNTAIN_PERCENTAGE_MANA_REGEN )
@@ -205,12 +205,12 @@ function GameMode:_CaptureGameMode()
     else
       -- Arcane runes are broken by Valve, if they don't fix them: use RuneSpawnFilter
       -- RuneSpawnFilter is currently broken too
-      for rune, spawn in pairs(ENABLED_RUNES) do
-        mode:SetRuneEnabled(rune, spawn)
-      end
-      mode:SetBountyRuneSpawnInterval(BOUNTY_RUNE_SPAWN_INTERVAL)
-      mode:SetPowerRuneSpawnInterval(POWER_RUNE_SPAWN_INTERVAL)
-      GameRules:SetRuneSpawnTime(0)
+      --for rune, spawn in pairs(ENABLED_RUNES) do
+        --mode:SetRuneEnabled(rune, spawn)
+      --end
+      --mode:SetBountyRuneSpawnInterval(x) -- causes all runes to spawn at 0 and 2 and every x minutes no matter what x number is
+      --mode:SetPowerRuneSpawnInterval(x) -- causes all runes to spawn at 0 and 2 and every x minutes no matter what x number is
+      --GameRules:SetRuneSpawnTime(x) -- does literally nothing no matter what x number is
     end
 
     mode:SetUnseenFogOfWarEnabled( USE_UNSEEN_FOG_OF_WAR )
@@ -219,7 +219,7 @@ function GameMode:_CaptureGameMode()
     mode:SetStickyItemDisabled(false)
     mode:SetForceRightClickAttackDisabled(true)
     mode:SetCustomBackpackSwapCooldown(3.0)
-    mode:SetDefaultStickyItem("item_flask")
+    mode:SetDefaultStickyItem("item_aghanims_shard")
 
     self:OnFirstPlayerLoaded()
   end

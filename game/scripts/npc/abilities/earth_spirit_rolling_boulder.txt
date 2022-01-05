@@ -49,13 +49,13 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "distance"                                        "800.0"
+        "distance"                                        "750.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_4"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "rock_distance"                                   "1600.0"
+        "rock_distance"                                   "1500.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_4"
         "LinkedSpecialBonusField"                         "value2"
       }
@@ -67,7 +67,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 170 240 300 600 1200" //OAA
+        "damage"                                          "100 175 250 325 650 1300" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit"
       }
       "08"

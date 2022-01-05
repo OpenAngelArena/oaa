@@ -22,6 +22,7 @@
     "LevelsBetweenUpgrades"                               "2"
 
     "HasScepterUpgrade"                                   "1"
+    "HasShardUpgrade"                                     "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -52,12 +53,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "steal_amount"                                    "2"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_2"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_damage_multiplier"                       "2"
+        "scepter_damage_multiplier"                       "1"
         "RequiresScepter"                                 "1"
       }
       "05" // INT steal on enemy hit
@@ -68,7 +68,22 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "int_steal_duration"                              "10 20 30 40 50 60"
+        "int_steal_duration"                              "15 20 25 30 35 40"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_range"                              "600"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_count"                              "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_damage_reduction"                   "50"
       }
     }
   }

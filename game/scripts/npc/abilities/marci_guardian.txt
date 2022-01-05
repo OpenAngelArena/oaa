@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Marci Sidekick
+  //=================================================================================================================
+  "marci_guardian"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"							"8234"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"				"1"
+
+    "MaxLevel"                    	"6"
+    "RequiredLevel"              	"1"
+    "LevelsBetweenUpgrades"         "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"				"700"
+    "AbilityCastPoint"				"0.0"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+    "AbilityCastGestureSlot"				"DEFAULT"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"				"18 16 14 12 11 10" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"				"45" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"							"FIELD_FLOAT"
+        "buff_duration"						"6"
+      }
+      "02"
+      {
+        "var_type"							"FIELD_FLOAT"
+        "lifesteal_pct"					"35 40 45 50 55 60"
+        "LinkedSpecialBonus"					"special_bonus_unique_marci_guardian_lifesteal"
+      }
+      "03"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "bonus_damage"					"15 30 45 60 120 180" //OAA
+      }
+      "04"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "bonus_attack_range"				"0"
+      }
+      "05"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "nearest_ally_search_range"						"700"
+      }
+    }
+  }
+}

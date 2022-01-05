@@ -23,7 +23,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "4.0"
     "AbilityCastRange"                                    "150"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.3"
 
     //------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "edge_damage"                                     "150 200 250 300 600 1200" //OAA
+        "edge_damage"                                     "120 180 240 300 600 900"
       }
       "02"
       {
@@ -46,7 +46,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "190"
+        "radius"                                          "220"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_range"                                   "500"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_str_pct"                                   "15"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_str_duration"                              "15"
       }
     }
   }

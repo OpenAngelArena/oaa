@@ -38,8 +38,8 @@ function GameMode:OnGameRulesStateChange(keys)
   elseif newState == DOTA_GAMERULES_STATE_POST_GAME then
     OnEndGameEvent(keys)
   elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    print("Modules in OnGameInProgress are trying to be initialized again when the state changes to DOTA_GAMERULES_STATE_GAME_IN_PROGRESS.")
     GameMode:OnGameInProgress()
-    OnGameInProgressEvent()
   end
 end
 
@@ -73,6 +73,33 @@ function GameMode:OnNPCSpawned(keys)
     end
   end
   ]]
+  if npc.GetUnitName then
+    if npc:GetUnitName() == "npc_dota_furion_treant_large" then
+      local playerID = UnitVarToPlayerID(npc)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      if hero then
+        local force_of_nature_ability = hero:FindAbilityByName("furion_force_of_nature")
+        if force_of_nature_ability then
+          local ability_level = force_of_nature_ability:GetLevel()
+          if ability_level > 0 then
+            local correct_damage = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_damage_bonus", ability_level-1)
+            local correct_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_hp_bonus", ability_level-1)
+            -- Fix DAMAGE
+            npc:SetBaseDamageMin(correct_damage)
+            npc:SetBaseDamageMax(correct_damage)
+            -- Fix HP
+            npc:SetBaseMaxHealth(correct_hp)
+            npc:SetMaxHealth(correct_hp)
+            npc:SetHealth(correct_hp)
+            -- Check for talent
+            if hero:HasLearnedAbility("special_bonus_unique_furion") then
+              npc:AddNewModifier(hero, force_of_nature_ability, "modifier_treant_bonus_oaa", {})
+            end
+          end
+        end
+      end
+    end
+  end
 end
 
 -- Custom event that fires when an entity takes damage that reduces its health to 0

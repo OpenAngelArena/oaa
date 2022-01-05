@@ -19,6 +19,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
@@ -31,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +52,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shock_damage"                                    "75 150 225 300 600 900"
+        "shock_damage"                                    "75 150 225 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_4"
       }
       "04"
@@ -70,21 +72,10 @@
       }
       "07"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_distance"                                "2000"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_speed"                                   "1500"
-      }
-      "09"
-      {
         "var_type"                                        "FIELD_INTEGER"
         "pull_distance"                                   "150"
       }
-      "10"
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "basic_slow_duration"                             "0.9"

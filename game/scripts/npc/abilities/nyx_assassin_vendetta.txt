@@ -19,15 +19,16 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
+    "HasShardUpgrade"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50" //OAA
+    "AbilityCooldown"                                     "70 65 60 55 50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 200 260 320 380"
+    "AbilityManaCost"                                     "180 240 300 360 420"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -51,27 +52,27 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "250 500 750 1500 2250" //OAA
+        "bonus_damage"                                    "300 600 900 1800 2700" //OAA
       }
-      "05" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "50" //OAA
-      }
-      "06"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "health_regen_rate_scepter"                       "3"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "mana_regen_rate_scepter"                         "3"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "break_duration"                                  "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_magic_resist_reduction"                    "20"
       }
     }
   }

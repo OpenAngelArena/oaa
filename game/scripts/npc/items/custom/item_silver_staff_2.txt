@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8630"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -24,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_silver_staff;item_upgrade_core_4"
-      "02"                                                "item_spirit_vessel_4;item_upgrade_core_4"
+      //"02"                                                "item_spirit_vessel_4;item_upgrade_core_4"
     }
   }
 
@@ -56,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "35940"
+    "ItemCost"                        "35844"
     "ItemAliases"                     "silver staff 2; break staff 2"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -92,7 +93,7 @@
       "06"
       {
         "var_type"                    "FIELD_INTEGER"
-        "max_hp_damage"               "5 6"
+        "max_hp_damage"               "4 5"
       }
       "07"
       {

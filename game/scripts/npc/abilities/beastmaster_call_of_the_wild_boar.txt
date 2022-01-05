@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Beastmaster: Call of the Wild Boar
+  //=================================================================================================================
+  "beastmaster_call_of_the_wild_boar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                    "7230"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilitySound"					"Hero_Beastmaster.Call.Boar"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"				"0.3"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"				"30 28 26 24 22 20" //OAA, for picking screen tooltip
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"				"60 65 70 75 80 85"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                 "FIELD_INTEGER"
+        "duration"                 "60"
+      }
+      "02"
+      {
+        "var_type"                 "FIELD_INTEGER"
+        "boar_hp_tooltip"          "300 600 900 1200 2200 3200" //OAA, for picking screen tooltip
+      }
+      "03"
+      {
+        "var_type"                 "FIELD_INTEGER"
+        "boar_damage_tooltip"      "20 40 60 80 180 280" //OAA, for picking screen tooltip
+        "LinkedSpecialBonus"       "special_bonus_unique_beastmaster_2"
+      }
+      "04"
+      {
+        "var_type"                 "FIELD_INTEGER"
+        "boar_moveslow_tooltip"    "10 20 30 40 50 60"
+      }
+      "05"
+      {
+        "var_type"                 "FIELD_FLOAT"
+        "boar_poison_duration_tooltip"	"3.0"
+      }
+    }
+  }
+}

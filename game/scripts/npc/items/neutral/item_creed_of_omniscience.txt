@@ -30,28 +30,43 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "30"
+        "bonus_move_speed"                                "25"
       }
-      "02" // ranged only
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "125"
+        "bonus_intelligence"                              "25"
       }
-      "03" // melee only
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range_melee"                        "75"
+        "bonus_hp_regen"                                  "15"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "125"
+        "bonus_turn_rate"                                 "50"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "600"
+        "bonus_cast_range"                                "100"
       }
+      // "02"
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "bonus_attack_range"                              "100"
+      // }
+      // "03"
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "bonus_attack_range_melee"                        "75"
+      // }
+      // "05"
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "bonus_attack_projectile_speed"                   "600"
+      // }
     }
   }
 }

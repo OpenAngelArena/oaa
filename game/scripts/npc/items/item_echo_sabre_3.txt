@@ -9,10 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3621"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_echo_sabre_2;item_upgrade_core_2"
-      "02"                                                "item_heavens_halberd_2;item_upgrade_core_2"
+      //"02"                                                "item_heavens_halberd_2;item_upgrade_core_2"
+      //"03"                                                "item_pull_staff_2;item_upgrade_core_2"
     }
   }
 
@@ -40,16 +42,17 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/echo_sabre_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "5.0 4.0 2.5 1.8 1.6"
+    "AbilityCooldown"                                     "5.5 3.75 2.5 1.75 1.5"
     "AbilitySharedCooldown"                               "echo"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "7500"
+    "ItemCost"                                            "7502"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -66,12 +69,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 35 65 105 155"
+        "bonus_damage"                                    "15 35 75 135 215"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 17 27 42 62"
+        "bonus_strength"                                  "15 20 30 45 65"
       }
       "03"
       {
@@ -81,12 +84,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30"
+        "bonus_attack_speed"                              "10 20 30 40 50"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.25 1.5 2.0 2.75 3.75"
+        "bonus_mana_regen"                                "1.75 2.0 2.5 3.25 4.25"
       }
       "06"
       {
@@ -102,6 +105,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "0.8"
+      }
+      "10" //OAA
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cooldown_tooltip"                                "5.5 3.75 2.5 1.75 1.5"
       }
     }
   }

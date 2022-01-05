@@ -28,11 +28,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 75 50 45 40"
+    "AbilityCooldown"                                     "70 60 50 45 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -70,19 +70,29 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "25"
+        "cooldown_scepter"                                "20"
         "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "600"
+        "cast_range_scepter"                              "500"
         "RequiresScepter"                                 "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "self_regen"                                      "3 4 5 6 7"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "extra_armor"                                     "0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "extra_damage"                                    "0"
       }
     }
   }

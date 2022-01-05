@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.69"
+    "AbilityCastPoint"                                    "0.6"
     "FightRecapLevel"                                     "1"
 
     // Time
@@ -49,13 +49,14 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "distance_scepter"                                "1100"
+        "distance_scepter"                                "950"
         "RequiresScepter"                                 "1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "aftershock_range"                                "300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
       }
       "04"
       {
@@ -80,7 +81,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_leap_duration"                           "1.0"
+        "scepter_leap_duration"                           "0.8"
       }
       "09"
       {

@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Siege Mode
+  // Recipe: Giant Form
   //=================================================================================================================
   "item_recipe_giant_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3346"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3346"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -23,40 +24,52 @@
     "ItemResult"                                          "item_giant_form"
     "ItemRequirements"
     {
-      "01"                                                "item_hurricane_pike_3;item_upgrade_core_3"
+      "01"                                                "item_desolator_3;item_upgrade_core_3"
+      "02"                                                "item_bfury_3;item_upgrade_core_3"
+      "03"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
-
   //=================================================================================================================
-  // Siege Mode
+  // Giant Form
   //=================================================================================================================
   "item_giant_form"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3348"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3348"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/transformation/giant_form.lua"
+    "ScriptFile"                                          "items/giant_form.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/giant_form_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "75"
     "AbilityCooldown"                                     "16"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17525"
+    "ItemCost"                                            "16503"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "siege mode;siege;giant form;giant"
+    "ItemAliases"                                         "giant form;giant"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_giant_form"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/items/powertreads_splash.vpcf"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,71 +78,48 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "50 70"
+        "bonus_damage"                                    "180 260"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "50 70"
+        "bonus_strength"                                  "70 95"
       }
-      "03" // ranged only
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "170 180"
+        "bonus_health_regen"                              "17 20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_attack_range"                              "500"
+        "giant_attack_damage"                             "300"
       }
-      "05"
+      "05" // percentage attack speed reduction
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_damage_bonus"                              "400 500"
+        "giant_attack_speed_reduction"                    "30"
       }
-      "06"
+      "06" // doesn't work on ranged heroes
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "giant_attack_rate"                               "0.7"
+        "var_type"                                        "FIELD_INTEGER"
+        "giant_splash_radius"                             "700"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "giant_cast_range"                                "0"
+        "giant_splash_damage"                             "150"
       }
       "08"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_aoe"                                       "300"
+        "var_type"                                        "FIELD_FLOAT"
+        "giant_scale"                                     "50"
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_splash"                                    "150"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_move_speed"                                "290"
-      }
-      "11"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "giant_scale"                                     "40"
+        "duration"                                        "8.0"
       }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-      }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
-      "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
     }
   }
 }

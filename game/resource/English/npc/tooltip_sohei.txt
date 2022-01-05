@@ -3,19 +3,18 @@
 
 "DOTA_Tooltip_Ability_sohei_dash"                                               "Dash"
 //"DOTA_Tooltip_Ability_sohei_dash_description"                                   "Consumes a charge to quickly dash %dash_distance% units in the direction you are facing. Can be used to dash over cliffs and through trees. Dash charges restore every %charge_restore_time% seconds."
-"DOTA_Tooltip_Ability_sohei_dash_Description"                                   "Consumes a charge to quickly dash to the target location. Sohei damages and slows enemies he dashed through. Dash charges restore over time."
+"DOTA_Tooltip_Ability_sohei_dash_Description"                                   "Consumes a charge to quickly dash towards the target location. Sohei damages and slows enemies he dashed through. Dash charges restore over time. Dash speed is based on Sohei's current movement speed."
 "DOTA_Tooltip_Ability_sohei_dash_Lore"                                          "Takuan likes manipulating his movement for good unlike others."
 "DOTA_Tooltip_Ability_sohei_dash_Note0"                                         "Can be used to traverse over cliffs or through trees."
-"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash without the talent."
-"dota_tooltip_ability_sohei_dash_dash_speed"                                    "DASH SPEED:"
+"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash without the Shard."
+"DOTA_Tooltip_Ability_sohei_dash_dash_speed"                                    "DASH MAX SPEED:"
 "DOTA_Tooltip_Ability_sohei_dash_dash_width"                                    "DASH WIDTH:"
 "DOTA_Tooltip_Ability_sohei_dash_damage"                                        "DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_dash_move_speed_slow_pct"                           "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_dash_slow_duration"                                 "SLOW DURATION:"
-"DOTA_Tooltip_Ability_sohei_dash_scepter_base_heal"                             "SCEPTER BASE HEAL:"
-"DOTA_Tooltip_Ability_sohei_dash_scepter_hp_as_heal"                            "%SCEPTER CURRENT HP AS HEAL:"
-"DOTA_Tooltip_Ability_sohei_dash_scepter_move_speed_slow_pct"                   "%SCEPTER MOVE SPEED SLOW:"
-"DOTA_Tooltip_Ability_sohei_dash_aghanim_description"                           "Increases move speed slow and Sohei heals allies he dashed through for a base amount plus a percentage of his current health."
+"DOTA_Tooltip_Ability_sohei_dash_shard_base_heal"                               "SHARD BASE HEAL:"
+"DOTA_Tooltip_Ability_sohei_dash_shard_hp_as_heal"                              "%SHARD CURRENT HP AS HEAL:"
+"DOTA_Tooltip_Ability_sohei_dash_shard_description"                             "Sohei heals allies he dashed through for 100 plus 10%% of his current health and pulls them along the way. Sohei and his allies are invulnerable during Dash and disjoint projectiles."
 
 "DOTA_Tooltip_Ability_sohei_guard"                                              "Guard"
 "DOTA_Tooltip_Ability_sohei_guard_description"                                  "Removes most negative effects and reflects all projectiles that would hit you for the next %guard_duration% seconds. Can be used while stunned but consumes %charges_required% charges of Dash if used while stunned.\n\nDISPEL TYPE: Strong Dispel"
@@ -57,12 +56,12 @@
 
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows"                                    "Flurry of Blows"
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_description"                        "CHANNELED - Sohei becomes invulnerable, randomly attacking one target at a time in a selected area with the intention of pushing them back into the epicenter. Each hit triggers Momentum. Ends after either the duration or the maximum amount of attacks have run out."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Description"                        "Sohei briefly becomes rooted and invulnerable, and after a delay attacks every enemy unit in the targeted area of effect at the same time with bonus damage. Some abilities and items can be used while Flurry of Blows is active."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Description"                        "Sohei briefly becomes rooted and invulnerable, and after a delay attacks every enemy unit in the targeted area of effect at the same time with bonus damage. Sohei can attack, use some abilities and items while Flurry of Blows is active."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_Lore"                               "Offensive ki feature created through meditation."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note0"                              "Targets are determined after a delay."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note1"                              "Any attack modifier that Sohei has will be applied normally."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note2"                              "Flurry of Blows' attack will not work if Sohei is disarmed."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note3"                              "Flurry of Blows' attack can crit if a target has Momentum Strike knockback."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note1"                              "Flurry of Blows delayed attack applies attack modifiers and has True Strike."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note2"                              "Flurry of Blows delayed attack will not work if Sohei is disarmed."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note3"                              "Flurry of Blows delayed attack can crit if a target is affected by Momentum Strike knockback."
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_attacks"                        "ATTACKS:"
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_attack_interval"                    "ATTACK INTERVAL:"
 //"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"                       "MAX DURATION:"
@@ -76,6 +75,12 @@
 "DOTA_Tooltip_Ability_sohei_palm_of_life_dash_speed"                            "DASH SPEED:"
 "DOTA_Tooltip_Ability_sohei_palm_of_life_Lore"                                  "Healing is more prevalent than damaging for monks like Takuan."
 
+"DOTA_Tooltip_Ability_sohei_quivering_palm"                                     "Quivering Palm"
+"DOTA_Tooltip_Ability_sohei_quivering_palm_description"                         "When activated, last attacked hero by Sohei will be affected by lesser Momentum Strike knockback and damaged based on the difference between the hero's strength and Sohei's. Can only affect heroes attacked in the last %max_duration% seconds. If there is no valid target, cooldown is reduced to 1 second."
+"DOTA_Tooltip_Ability_sohei_quivering_palm_Lore"                                "Takuan sets up lethal vibrations in someone's body."
+"DOTA_Tooltip_Ability_sohei_quivering_palm_base_damage"                         "BASE DAMAGE:"
+"DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                 "STRENGTH DIFFERENCE DAMAGE MULTIPLIER:"
+
 // modifiers
 "DOTA_Tooltip_modifier_sohei_dash_charges"                                      "Dash Charges"
 "DOTA_Tooltip_modifier_sohei_dash_slow"                                         "Dash Slow"
@@ -85,7 +90,7 @@
 "DOTA_Tooltip_modifier_sohei_guard_reflect_description"                         "Reflects incoming projectiles"
 
 "DOTA_Tooltip_modifier_sohei_wholeness_of_body_buff"                            "Wholeness of Body"
-"DOTA_Tooltip_modifier_sohei_wholeness_of_body_buff_Description"                "Magic resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Applied heal when it expires or when purged."
+"DOTA_Tooltip_modifier_sohei_wholeness_of_body_buff_Description"                "Magic resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Applies heal when it expires or when purged."
 
 "DOTA_Tooltip_modifier_sohei_momentum_passive"                                  "Momentum"
 "DOTA_Tooltip_modifier_sohei_momentum_passive_description"                      "The next attack will deal bonus damage and knockback"
@@ -93,18 +98,19 @@
 "DOTA_Tooltip_modifier_sohei_momentum_strike_slow"                              "Momentum Strike Slow"
 "DOTA_Tooltip_modifier_sohei_momentum_strike_slow_Description"                  "Movement Speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
+"DOTA_Tooltip_modifier_sohei_quivering_palm_debuff"                             "Quivering Palm"
+"DOTA_Tooltip_modifier_sohei_quivering_palm_debuff_Description"                 "Attacked by Sohei, if you were the last one attacked you will take extra magic damage if he activates the ability."
+
 // talents
 "DOTA_Tooltip_Ability_special_bonus_sohei_stun"                                 "+{s:value}s Momentum Strike Stun"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_invulnerable"                    "Dash Invulnerability"
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_invulnerable_Description"        "Sohei is invulnerable during Dash and disjoints projectiles."
+"DOTA_Tooltip_Ability_special_bonus_sohei_dash_slow"                            "+{s:value}% Dash Slow"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_recharge"                        "-{s:value}s Dash Charge Restore Time"
+"DOTA_Tooltip_Ability_special_bonus_sohei_dash_cast_range"                      "+{s:value} Dash Cast Range"
 
 "DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius"                           "+{s:value} Flurry of Blows AoE"
 
 "DOTA_Tooltip_Ability_special_bonus_sohei_momentum_strike_crit"                 "+{s:value}% Momentum Strike Crit"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback"                  "Wholeness of Body Pushes Away Enemies"
+"DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback"                  "Wholeness of Body Knockback"
 "DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback_Description"      "Whenever Wholeness of Body is applied, push all nearby enemies with Momentum Strike knockback."
-

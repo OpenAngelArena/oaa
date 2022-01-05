@@ -21,6 +21,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
@@ -32,7 +34,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,13 +47,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250"
+        "radius"                                          "275"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "24 46 68 90 180 360"
+        "damage_per_second"                               "30 50 70 90 180 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer"
       }
       "03"
@@ -62,7 +64,17 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.1"
+        "tick_interval"                                   "0.15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_charges"                                     "2"
+      }
+      "06" // unused
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_bonus_duration"                          "20"
       }
     }
   }

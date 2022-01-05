@@ -99,9 +99,7 @@ end
 
 function modifier_core_shrine:OnOrder( params )
   if IsServer() then
-    if not self:GetAbility():IsCooldownReady() then
-      return
-    end
+    local parent = self:GetParent() -- shrine entity
     local hOrderedUnit = params.unit
     local hTargetUnit = params.target
     local nOrderType = params.order_type
@@ -109,15 +107,24 @@ function modifier_core_shrine:OnOrder( params )
       return
     end
 
-    if hTargetUnit == nil or hTargetUnit ~= self:GetParent() then
+    if hTargetUnit == nil or hTargetUnit ~= parent then
       return
     end
 
-    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= parent:GetTeamNumber() then
       return
     end
 
-    local distance = (hOrderedUnit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
+    local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
+
+    if not self:GetAbility():IsCooldownReady() then
+      -- Call Grendel if ordered unit is near the shrine
+      if distance < 300 then
+        Grendel:GoNearTeam(parent:GetTeamNumber())
+      end
+
+      return
+    end
 
     if distance < 300 then
       self:GetAbility():CastAbility()

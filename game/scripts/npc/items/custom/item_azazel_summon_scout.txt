@@ -3,30 +3,31 @@
   //=================================================================================================================
   // Recipe: Azazel Summon - Scout
   //=================================================================================================================
-  "item_recipe_azazel_summon_scout"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7556"
-    "BaseClass"                             "item_datadriven"
-    "AbilityTextureName"                    "custom/recipe/recipe_3"
-    "Model"                                 "models/props_gameplay/recipe.mdl"
+  // "item_recipe_azazel_summon_scout"
+  // {
+    // // General
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ID"                                    "7556"
+    // "BaseClass"                             "item_datadriven"
+    // "AbilityTextureName"                    "custom/recipe/recipe_3"
+    // "Model"                                 "models/props_gameplay/recipe.vmdl"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1"
-    "SecretShop"                            "1"
-    "ItemShopTags"                          ""
+    // // Item Info
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ItemCorePointCost"                                   "8"
+    // "ItemCost"                                            "1"
+    // "SecretShop"                            "1"
+    // "ItemShopTags"                          ""
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                            "1"
-    "ItemResult"                            "item_azazel_summon_scout"
-    "ItemRequirements" // OAA
-    {
-      "01"                                  "item_upgrade_core_3"
-    }
-  }
+    // // Recipe
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ItemRecipe"                            "1"
+    // "ItemResult"                            "item_azazel_summon_scout"
+    // "ItemRequirements" // OAA
+    // {
+      // "01"                                  "item_upgrade_core_3"
+    // }
+  // }
 
   //=================================================================================================================
   // Azazel Summon - Scout
@@ -51,7 +52,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1"
+    "ItemCorePointCost"                                   "8"
+    "ItemCost"                                            "1"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"

@@ -9,13 +9,8 @@ end
 -- Duels.onPreparing = DuelPreparingEvent.listen
 -- Duels.onEnd = DuelEndEvent.listen
 
-local limitIncreaseAmounts = {
-  short = 7,
-  normal = 10,
-  long = 13
-}
-
 function FinalDuel:Init ()
+  self.moduleName = "FinalDuel"
   Duels.onEnd(partial(FinalDuel.EndDuelHandler, FinalDuel))
   Duels.onPreparing(partial(FinalDuel.PreparingDuelHandler, FinalDuel))
   Duels.onStart(partial(FinalDuel.StartDuelHandler, FinalDuel))
@@ -65,16 +60,17 @@ function FinalDuel:PreparingDuelHandler (keys)
     self.isCurrentlyFinalDuel = true
     self.needsFinalDuel = false
     Notifications:TopToAll({text="#duel_final_duel_imminent", duration=4.0})
-
-    local limit = PointsManager:GetLimit()
-    local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
-    local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
-    self.goodCanWin = goodPoints >= limit
-    self.badCanWin = badPoints >= limit
   end
 end
 
 function FinalDuel:StartDuelHandler (keys)
+  local limit = PointsManager:GetLimit()
+  local goodPoints = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS)
+  local badPoints = PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
+  self.goodCanWin = goodPoints >= limit
+  self.badCanWin = badPoints >= limit
+  self.pointDifference = math.abs(goodPoints - badPoints)
+
   if self.isCurrentlyFinalDuel then
     local extraMessage = ""
     if self.goodCanWin then
@@ -122,9 +118,26 @@ function FinalDuel:EndDuelHandler (currentDuel)
     PointsManager:SetWinner(DOTA_TEAM_BADGUYS)
     return
   end
+
+  -- Increase the score limit
+  PointsManager:IncreaseLimit()
+
+  -- Give points to winners as a comeback compensation
+  local playerCount = PlayerResource:SafeGetTeamPlayerCount()
+  local pointAward = math.ceil(playerCount * self.pointDifference / 20)
+  -- Capping the reward
+  if pointAward > playerCount then
+    pointAward = playerCount
+  end
+  -- If the loser is DOTA_TEAM_BADGUYS and they had a chance to win, give points to DOTA_TEAM_GOODGUYS
+  if loser == "bad" and self.badCanWin then
+    PointsManager:AddPoints(DOTA_TEAM_GOODGUYS, pointAward)
+  end
+  -- If the loser is DOTA_TEAM_GOODGUYS and they had a chance to win, give points to DOTA_TEAM_BADGUYS
+  if loser == "good" and self.goodCanWin then
+    PointsManager:AddPoints(DOTA_TEAM_BADGUYS, pointAward)
+  end
+
   self.goodCanWin = false
   self.badCanWin = false
-
-  local addToLimit = limitIncreaseAmounts[PointsManager:GetGameLength()]  -- this is 10; if you want to change put: PlayerResource:GetTeamPlayerCount() * KILL_LIMIT_INCREASE
-  PointsManager:IncreaseLimit(addToLimit)
 end

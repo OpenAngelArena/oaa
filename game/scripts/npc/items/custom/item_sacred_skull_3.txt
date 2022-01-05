@@ -7,9 +7,10 @@
   {
     "ID"                                                  "8492"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -33,11 +34,12 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/purpleskull_3"
+    "AbilityTextureName"                                  "custom/purpleskull_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "700"
     "AbilityCooldown"                                     "15"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "sacred_skull"
@@ -50,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18250"
+    "ItemCost"                                            "18753"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass 3;sacred skull 3"
@@ -75,7 +77,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "24 32 48 72"
+        "bonus_intellect"                                 "25 35 50 70"
       }
       "04"
       {
@@ -85,12 +87,12 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "0"
+        "bonus_health_regen"                              "3 6 9 12"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "10 12 14 16"
+        "bonus_magic_resistance"                          "10 11 12 13"
       }
       "07"
       {
@@ -110,17 +112,17 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_per_missing_hp"                           "10 20 30 40"
+        "damage_per_missing_hp"                           "15 20 30 45"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_per_missing_hp"                             "10 20 30 40"
+        "heal_per_missing_hp"                             "15 20 30 45"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "effect_radius"                                   "500"
+        "effect_radius"                                   "700"
       }
       "13"
       {
@@ -135,7 +137,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "death_vision_radius"                             "1200"
+        "death_vision_radius"                             "800"
       }
       "16"
       {

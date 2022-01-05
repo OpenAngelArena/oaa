@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-"viper_corrosive_skin"
+  "viper_corrosive_skin"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -9,6 +9,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
 
     // Stats
@@ -28,19 +29,21 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "8 16 24 32 40 48"
-        "LinkedSpecialBonus"  "special_bonus_unique_viper_1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_viper_6"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_magic_resistance"                          "10 15 20 25 30 35"
-        "LinkedSpecialBonus"  "special_bonus_unique_viper_1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_viper_6"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "8 16 24 32 80 128"
-        "LinkedSpecialBonus"  "special_bonus_unique_viper_1"
+        "damage"                                          "8 18 28 38 76 114" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_viper_1"
       }
       "05"
       {

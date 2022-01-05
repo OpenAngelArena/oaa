@@ -6,6 +6,7 @@ if AbilityLevels == nil then
 end
 
 function AbilityLevels:Init ()
+  self.moduleName = "AbilityLevels"
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(self, "FilterAbilityUpgradeOrder"))
   GameEvents:OnPlayerLevelUp(partial(self.CheckAbilityLevels, self))
   GameEvents:OnPlayerLearnedAbility(partial(self.CheckAbilityLevels, self))
@@ -47,6 +48,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
   if not level then
     level = hero:GetLevel()
   end
+
   local canLevelUp = {}
 
   for index = 0, hero:GetAbilityCount() - 1 do
@@ -63,15 +65,31 @@ function AbilityLevels:CheckAbilityLevels (keys)
   })
 
   self:SetTalents(hero)
+
+  local leveled_up_ability = keys.abilityname
+  if leveled_up_ability then
+    local talent = hero:FindAbilityByName(leveled_up_ability)
+    if string.find(leveled_up_ability, "special_bonus_") and talent:IsAttributeBonus() then
+      -- Ability is a talent
+
+      -- Check for hero level
+      if level >= 27 then
+        -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
+        if talent:GetLevel() == 0 or talent.granted_with_oaa_scepter then
+          -- Talent wasn't learned or was granted by Aghanim Scepter
+          -- dota_player_learned_ability event doesn't happen for abilities that are lvled with Lua: ability:SetLevel(level)
+          hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
+        end
+      end
+    end
+  end
 end
 
 function AbilityLevels:SetTalents(hero)
-
   local aghsPower = 0
 
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(i)
-
     if item then
       if string.sub(item:GetName(), 0, 22) == 'item_aghanims_scepter_' then
         local level = tonumber(string.sub(item:GetName(), 23))
@@ -136,6 +154,7 @@ function AbilityLevels:SetTalents(hero)
     if claim then
       if leftLevel == 0 then
         leftAbility:SetLevel(1)
+        leftAbility.granted_with_oaa_scepter = true
         -- Check if this talent is on problematic list, add modifier if true
         for i = 1, #problematic_talents do
           local talent = problematic_talents[i]
@@ -152,6 +171,7 @@ function AbilityLevels:SetTalents(hero)
       end
       if rightLevel == 0 then
         rightAbility:SetLevel(1)
+        rightAbility.granted_with_oaa_scepter = true
         -- Check if this talent is on problematic list, add modifier if true
         for i = 1, #problematic_talents do
           local talent = problematic_talents[i]
@@ -171,11 +191,13 @@ function AbilityLevels:SetTalents(hero)
       if hero['talentChoice' .. level] == 'left' then
         if rightLevel ~= 0 then
           rightAbility:SetLevel(0)
+          rightAbility.granted_with_oaa_scepter = nil
           hero:RemoveModifierByName(AbilityLevels:GetTalentModifier(rightAbility:GetName()))
         end
       else
         if leftLevel ~= 0 then
           leftAbility:SetLevel(0)
+          leftAbility.granted_with_oaa_scepter = nil
           hero:RemoveModifierByName(AbilityLevels:GetTalentModifier(leftAbility:GetName()))
         end
       end
@@ -194,10 +216,9 @@ function AbilityLevels:SetTalents(hero)
   end
 
   local abilityTable = {}
-
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability and ability:IsAttributeBonus() then
+    if ability and ability:IsAttributeBonus() and ability:GetName() ~= "special_bonus_attributes" and ability:GetName() ~= "attribute_bonus" then
       abilityTable[#abilityTable + 1] = ability
     end
   end
@@ -214,8 +235,7 @@ function AbilityLevels:GetTalentModifier(name)
     special_bonus_spell_immunity = "modifier_special_bonus_spell_immunity",
     special_bonus_haste = "modifier_special_bonus_haste",
     special_bonus_truestrike = "modifier_special_bonus_truestrike",
-    special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
-    special_bonus_unique_treant_3 = "modifier_special_bonus_unique_treant_3",
+    --special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",

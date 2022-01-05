@@ -23,8 +23,8 @@ end
 
 
 function LycanBossThink()
-	if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
-		return 1
+  if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
+    return 1
   end
 
   if not thisEntity.bInitialized then
@@ -37,73 +37,129 @@ function LycanBossThink()
     thisEntity.bInitialized = true
   end
 
-  local hEnemies = FindUnitsInRadius(
-    thisEntity:GetTeamNumber(),
-    thisEntity:GetOrigin(), nil,
-    thisEntity:GetCurrentVisionRange(),
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-    FIND_CLOSEST,
-    false )
-
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+  local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
-	--Agro
-  if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #hEnemies == 0) then
-    DebugPrint("Lycan Boss Deagro")
-    thisEntity.bHasAgro = false
-    thisEntity:SetIdleAcquire(false)
-    thisEntity:SetAcquisitionRange(0)
-    return 2
-  elseif (hasDamageThreshold and #hEnemies > 0) then
+  if hasDamageThreshold then
     if not thisEntity.bHasAgro then
       DebugPrint("Lycan Boss Agro")
       thisEntity.bHasAgro = true
       thisEntity:SetIdleAcquire(true)
       thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
     end
-  end
-
-  -- Leash (lycan needs more leash because his abilities)
-  if not thisEntity.bHasAgro or #hEnemies==0 or fDistanceToOrigin > 2000 then
+  else
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
     return 1
   end
 
-	thisEntity.bShapeshift = thisEntity:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
-	if thisEntity.bShapeshift then
-		if thisEntity.hClawLungeAbility ~= nil and thisEntity.hClawLungeAbility:IsFullyCastable() then
-			return CastClawLunge( hEnemies[ RandomInt( 1, #hEnemies ) ] )
-		end
-	else
-		if thisEntity:GetHealthPercent() < 50 then
-			if thisEntity.hShapeshiftAbility:IsFullyCastable() then
-				return CastShapeshift()
-			end
-		end
+  local hEnemies = {}
+  local snipers = {}
+	-- Agro
+  if thisEntity.bHasAgro then
+    hEnemies = FindUnitsInRadius(
+      thisEntity:GetTeamNumber(),
+      thisEntity.vInitialSpawnPos,
+      nil,
+      thisEntity:GetCurrentVisionRange(),
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+      FIND_CLOSEST,
+      false
+    )
+    if #hEnemies == 0 then
+      -- Check for snipers out of vision
+      snipers = FindUnitsInRadius(
+        thisEntity:GetTeamNumber(),
+        thisEntity.vInitialSpawnPos,
+        nil,
+        3*BOSS_LEASH_SIZE,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+        FIND_CLOSEST,
+        false
+      )
+      if #snipers == 0 then
+        DebugPrint("Lycan Boss Deagro")
+        thisEntity.bHasAgro = false
+        thisEntity:SetIdleAcquire(false)
+        thisEntity:SetAcquisitionRange(0)
+	  end
+    end
   end
 
-	-- Check that the children we have in our list are still valid
-	for i, hSummonedUnit in ipairs( thisEntity.LYCAN_BOSS_SUMMONED_UNITS ) do
-		if hSummonedUnit == nil or hSummonedUnit:IsNull() or hSummonedUnit:IsAlive() == false then
-			table.remove( thisEntity.LYCAN_BOSS_SUMMONED_UNITS, i )
-		end
-	end
+  -- Leash (lycan needs more leash because his abilities)
+  if not thisEntity.bHasAgro or fDistanceToOrigin > 2000 then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+    return 1
+  end
 
-	-- Have we hit our minion limit?
-	if #thisEntity.LYCAN_BOSS_SUMMONED_UNITS < thisEntity.LYCAN_BOSS_MAX_SUMMONS then
-		if thisEntity.hSummonWolvesAbility ~= nil and thisEntity.hSummonWolvesAbility:IsFullyCastable() then
-			return CastSummonWolves()
-		end
-	end
+  -- Check that the children we have in our list are still valid
+  for i, hSummonedUnit in ipairs( thisEntity.LYCAN_BOSS_SUMMONED_UNITS ) do
+    if hSummonedUnit == nil or hSummonedUnit:IsNull() or hSummonedUnit:IsAlive() == false then
+      table.remove( thisEntity.LYCAN_BOSS_SUMMONED_UNITS, i )
+    end
+  end
+
+  -- Have we hit our minion limit?
+  if #thisEntity.LYCAN_BOSS_SUMMONED_UNITS < thisEntity.LYCAN_BOSS_MAX_SUMMONS then
+    if thisEntity.hSummonWolvesAbility ~= nil and thisEntity.hSummonWolvesAbility:IsFullyCastable() and thisEntity.hSummonWolvesAbility:IsOwnersManaEnough() then
+      return CastSummonWolves()
+    end
+  end
+
+  local function FindNearestValidUnit(entity, unit_group)
+    for i = 1, #unit_group do
+      local enemy = unit_group[i]
+      if enemy and not enemy:IsNull() then
+        if enemy:IsAlive() and (not enemy:IsInvulnerable()) and (not enemy:IsOutOfGame()) and (not enemy:IsOther()) and (not enemy:IsCourier()) and ((enemy:GetAbsOrigin() - entity.vInitialSpawnPos):Length2D() < 2*BOSS_LEASH_SIZE) then
+          return enemy
+        end
+      end
+    end
+	return nil
+  end
+
+  local valid_enemy
+  if #hEnemies == 0 then
+    valid_enemy = FindNearestValidUnit(thisEntity, snipers)
+  else
+    valid_enemy = hEnemies[RandomInt(1, #hEnemies)]
+  end
+
+  if not valid_enemy then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+  end
+
+  thisEntity.bShapeshift = thisEntity:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
+  if thisEntity.bShapeshift then
+    if thisEntity.hClawLungeAbility ~= nil and thisEntity.hClawLungeAbility:IsFullyCastable() and thisEntity.hClawLungeAbility:IsOwnersManaEnough() and not thisEntity:IsRooted() then
+      return CastClawLunge(valid_enemy)
+    end
+  else
+    if thisEntity:GetHealthPercent() < 50 then
+      if thisEntity.hShapeshiftAbility:IsFullyCastable() and thisEntity.hShapeshiftAbility:IsOwnersManaEnough() then
+        return CastShapeshift()
+      end
+    end
+  end
+
+  if #hEnemies == 0 then
+    if fDistanceToOrigin > 10 then
+      return RetreatHome()
+    end
+  end
 
 	local hRuptureTargets = { }
 	for _, hEnemy in pairs( hEnemies ) do
-		if hEnemy ~= nil and hEnemy:IsAlive() and hEnemy:IsRealHero() then
+		if hEnemy and hEnemy:IsAlive() then
 			local flDist = ( hEnemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 			if flDist > 500 then
 				table.insert( hRuptureTargets, hEnemy )
@@ -135,21 +191,25 @@ function RetreatHome()
   return 6
 end
 
-
 function CastClawAttack( enemy )
-  thisEntity:CastAbilityOnTarget( enemy, thisEntity.hClawAttackAbility, thisEntity:entindex() )
-	return 2
+  if enemy and not enemy:IsNull() then
+    thisEntity:CastAbilityOnTarget( enemy, thisEntity.hClawAttackAbility, thisEntity:entindex() )
+  end
+
+  return 2
 end
 
 function CastClawLunge( enemy )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.hClawLungeAbility:entindex(),
-		Position = enemy:GetOrigin(),
-	})
+  if enemy and not enemy:IsNull() then
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = thisEntity.hClawLungeAbility:entindex(),
+      Position = enemy:GetOrigin(),
+    })
+  end
 
-	return 0.5
+  return 0.5
 end
 
 function CastSummonWolves()
@@ -162,7 +222,6 @@ function CastSummonWolves()
 	return 0.6
 end
 
-
 function CastShapeshift()
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
@@ -174,13 +233,15 @@ function CastShapeshift()
 end
 
 function CastRuptureBall( unit )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.hRuptureBallAbility:entindex(),
-		Position = unit:GetOrigin(),
-		Queue = false,
-	})
+  if unit and not unit:IsNull() then
+    ExecuteOrderFromTable({
+      UnitIndex = thisEntity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+      AbilityIndex = thisEntity.hRuptureBallAbility:entindex(),
+      Position = unit:GetOrigin(),
+      Queue = false,
+    })
+  end
 
-	return 1
+  return 1
 end

@@ -1,11 +1,10 @@
+LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_standard_capture_point_dummy_stuff", "modifiers/modifier_standard_capture_point_dummy_stuff.lua", LUA_MODIFIER_MOTION_NONE)
 
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or class({})
---local FirstZones = {
-  --left = Vector(-3584, 0, 256),
-  --right = Vector(3584, 0, 256),
---}
+
 local Zones = {
 -- TODO, change this. These should be zones in the map or programatically generated
 -- hard coded is a bad in-between with the disadvantages of both
@@ -43,7 +42,6 @@ local Zones = {
   { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
 local NumZones = 32
-local NumCaptures = 0
 local LiveZones = 0
 local Start = Event()
 local PrepareCapture = Event()
@@ -56,8 +54,10 @@ CapturePoints.onEnd = CaptureFinished.listen
 function CapturePoints:Init ()
   -- Debug.EnableDebugging()
   DebugPrint('Init capture point')
+  self.moduleName = "CapturePoints"
 
   self.currentCapture = nil
+  self.NumCaptures = 0
 
   CapturePoints.nextCaptureTime = INITIAL_CAPTURE_POINT_DELAY
   HudTimer:At(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
@@ -72,13 +72,13 @@ end
 function CapturePoints:GetState ()
   local state = {}
 
-  state.captures = NumCaptures
+  state.captures = self.NumCaptures
 
   return state
 end
 
 function CapturePoints:LoadState (state)
-  NumCaptures = state.captures
+  self.NumCaptures = state.captures
 end
 
 function CapturePoints:IsActive ()
@@ -145,14 +145,9 @@ function CapturePoints:ScheduleCapture()
 
   self.currentCapture = CAPTUREPOINT_IS_STARTING
   Debug:EnableDebugging()
-  -- DebugPrint('Capture number... ' .. NumCaptures)
-  -- if NumCaptures == 0 then
-    -- Use tier 1 zones for tier 1
-    -- CurrentZones = FirstZones
-  -- else
-    -- Chooses random zone
+  -- DebugPrint('Capture number... ' .. self.NumCaptures)
+  -- Chooses random zone
   CurrentZones = Zones[RandomInt(1, NumZones)]
-  -- end
   --If statemant checks for duel interference
   if not Duels.startDuelTimer then
     CapturePoints:StartCapture("blue")
@@ -179,10 +174,10 @@ function CapturePoints:StartCapture(color)
     y = 1
   }
   Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
-  self:MinimapPing(5)
+  self:MinimapPing()
   Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
     Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
-    CapturePoints:MinimapPing(5)
+    CapturePoints:MinimapPing()
   end)
 
   for index = 0,(CAPTURE_START_COUNTDOWN - 1) do
@@ -199,13 +194,17 @@ end
 
 
 function CapturePoints:GiveItemToWholeTeam (item, teamId)
-  PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
-    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  if CorePointsManager then
+    CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
+  else
+    PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-    if hero then
-      hero:AddItemByName(item)
-    end
-  end)
+      if hero then
+        hero:AddItemByName(item)
+      end
+    end)
+  end
 end
 
 function CapturePoints:Reward(teamId)
@@ -214,15 +213,16 @@ function CapturePoints:Reward(teamId)
     return
   end
 
-  PointsManager:AddPoints(teamId, NumCaptures)
+  local pointReWard = math.min(self.NumCaptures + 1, PlayerResource:SafeGetTeamPlayerCount())
+  PointsManager:AddPoints(teamId, pointReWard)
 
-  if NumCaptures == 1 then
+  if self.NumCaptures == 1 then
     self:GiveItemToWholeTeam("item_upgrade_core", teamId)
-  elseif NumCaptures == 2 then
+  elseif self.NumCaptures == 2 then
     self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-  elseif NumCaptures == 3 then
+  elseif self.NumCaptures == 3 then
     self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
-  elseif NumCaptures >= 4 then
+  elseif self.NumCaptures >= 4 then
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 
@@ -234,29 +234,55 @@ end
 
 function CapturePoints:ActuallyStartCapture()
   LiveZones = 2
-  NumCaptures = NumCaptures + 1
+  self.NumCaptures = self.NumCaptures + 1
   Notifications:TopToAll({text="#capturepoints_start", duration=3.0, style={color="red", ["font-size"]="80px"}})
   self:MinimapPing()
   DebugPrint ('CaptureStarted')
   Start.broadcast(self.currentCapture)
 
-  local leftVector = Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 256)
-  local rightVector = Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 256)
+  local leftVector = GetGroundPosition(Vector(CurrentZones.left.x, CurrentZones.left.y, CurrentZones.left.z + 384), nil)
+  local rightVector = GetGroundPosition(Vector(CurrentZones.right.x, CurrentZones.right.y, CurrentZones.right.z + 384), nil)
 
-  -- Create under spectator team so that spectators can always see the capture point
-  local capturePointThinker1 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
-  local capturePointModifier1 = capturePointThinker1:FindModifierByName("modifier_standard_capture_point")
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  local radiant_fountain
+  local dire_fountain
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      radiant_fountain = entity
+    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      dire_fountain = entity
+    end
+  end
+
+  --local radiant_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, leftVector, DOTA_TEAM_SPECTATOR, false)
+  local radiant_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier1 = radiant_capture_point:FindModifierByName("modifier_standard_capture_point")
+  local capturePointModifier1 = radiant_capture_point:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point", {})
   capturePointModifier1:SetCallback(partial(self.Reward, self))
-  -- Give the thinker some vision so that spectators can always see the capture point
-  capturePointThinker1:SetDayTimeVisionRange(1)
-  capturePointThinker1:SetNightTimeVisionRange(1)
 
-  local capturePointThinker2 = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil,  rightVector, DOTA_TEAM_SPECTATOR, false)
-  local capturePointModifier2 = capturePointThinker2:FindModifierByName("modifier_standard_capture_point")
+  -- Give the radiant_capture_point some vision so that spectators can always see the capture point
+  radiant_capture_point:SetDayTimeVisionRange(1)
+  radiant_capture_point:SetNightTimeVisionRange(1)
+
+  -- Give vision to the Radiant team with a dummy unit
+  self.radiant_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", leftVector, false, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
+  self.radiant_dummy:AddNewModifier(radiant_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
+
+  --local dire_capture_point = CreateModifierThinker(nil, nil, "modifier_standard_capture_point", nil, rightVector, DOTA_TEAM_SPECTATOR, false)
+  local dire_capture_point = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier2 = dire_capture_point:FindModifierByName("modifier_standard_capture_point")
+  local capturePointModifier2 = dire_capture_point:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point", {})
   capturePointModifier2:SetCallback(partial(self.Reward, self))
-  -- Give the thinker some vision so that spectators can always see the capture point
-  capturePointThinker2:SetDayTimeVisionRange(1)
-  capturePointThinker2:SetNightTimeVisionRange(1)
+
+  -- Give the dire_capture_point some vision so that spectators can always see the capture point
+  dire_capture_point:SetDayTimeVisionRange(1)
+  dire_capture_point:SetNightTimeVisionRange(1)
+
+  -- Give vision to the Dire team with a dummy unit
+  self.dire_dummy = CreateUnitByName("npc_dota_custom_dummy_unit", rightVector, false, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
+  self.dire_dummy:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
 end
 
 function CapturePoints:EndCapture ()
@@ -269,4 +295,8 @@ function CapturePoints:EndCapture ()
   CaptureFinished.broadcast(self.currentCapture)
   local currentCapture = self.currentCapture
   self.currentCapture = nil
+
+  -- Remove vision over capture points
+  self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_kill", {duration = 0.1})
+  self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_kill", {duration = 0.1})
 end

@@ -1,11 +1,10 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Generic boss resistance for % based damage
+  // Equalizing hp with the twin after a timer; both twins have this
   //=================================================================================================================
   "boss_twin_twin_empathy"
   {
-
     "ID"                                                  "9903"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/twin/boss_twin_twin_empathy.lua"
@@ -13,11 +12,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
-
     "MaxLevel"                                            "3"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "1"
-
 
     "AbilitySpecial"
     {

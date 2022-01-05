@@ -11,6 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
@@ -32,7 +33,9 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count"                                       "4"
+        "hit_count"                                       "6" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_3"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "04"
       {
@@ -48,7 +51,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "curse_attack_speed"                              "40 60 80 100 120 140"
-        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_3"
       }
     }
   }

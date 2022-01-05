@@ -1,62 +1,50 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_omniknight"
-    "Title"         "Recommended items for Omniknight"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_omniknight"
+  "Title"         "Recommended items for Omniknight"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_flask"
-            "item"      ""
-            "item"      "item_magic_wand"
-            "item"      "item_enchanted_mango"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      ""
-            "item"      "item_ward_stack"
-            "item"      ""
-            "item"      "item_holy_locket"
-            "item"      "item_aether_lens"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-          "item"      "item_ultimate_scepter"
-          "item"      ""
-          "item"      "item_octarine_core"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      ""
-            "item"      "item_lucience"
-            "item"      "item_refresher_4"
-        }
-
-        "#DOTA_Item_Build_Other_Items"
-        {
-            "item"      "item_sheepstick_4"
-            "item"      "item_shivas_guard"
-            "item"      "item_vladmir"
-            "item"      "item_ancient_janggo"
-            "item"      "item_heart"
-            "item"      "item_heart_transplant_2"
-            "item"      ""
-            "item"      "item_pipe"
-            "item"      "item_lotus_orb"
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      "item_heavens_halberd"
-            "item"      "item_martyrs_mail_4"
-            "item"      "item_regen_crystal_1"
-        }
+      "item"      "item_flask"
+      "item"      "item_ward_stack"
+      "item"      "item_magic_wand"
+      "item"      "item_enchanted_mango"
     }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"      "item_holy_locket"
+      "item"      "item_aether_lens"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_shivas_guard"
+      "item"    "item_lucience"
+      "item"    "item_refresher_4"
+      "item"    "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Other_Items"
+    {
+      "item"      "item_sheepstick_4"
+      "item"      "item_vladmir"
+      "item"      "item_ancient_janggo"
+      "item"      "item_heart_oaa"
+      "item"      "item_heart_transplant"
+      "item"      "item_pipe"
+      "item"      "item_lotus_orb"
+      "item"      "item_heavens_halberd"
+      "item"      "item_martyrs_mail_4"
+    }
+  }
 }

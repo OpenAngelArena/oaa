@@ -5,6 +5,24 @@
   //=================================================================================================================
   "npc_dota_hero_dark_willow"
   {
-    "Ability13"                                           "special_bonus_spell_lifesteal_15" // replaces special_bonus_unique_dark_willow_5
+    "Ability10"                                           "special_bonus_unique_dark_willow_7" // replaces special_bonus_unique_dark_willow_6
+    "Ability11"                                           "special_bonus_unique_dark_willow_1" // replaces special_bonus_unique_dark_willow_5
+
+    "Ability12"                                           "special_bonus_unique_dark_willow_4"
+    "Ability13"                                           "special_bonus_attack_damage_40" // replaces special_bonus_unique_dark_willow_7
+
+    "Ability14"                                           "special_bonus_spell_lifesteal_20" // replaces special_bonus_unique_dark_willow_1
+    "Ability15"                                           "special_bonus_unique_dark_willow_3"
+
+    "Ability16"                                           "special_bonus_attack_speed_110"
+    "Ability17"                                           "special_bonus_unique_dark_willow_2"
+
+    // special_bonus_unique_dark_willow_1 - "+{s:value} Shadow Realm Duration"
+    // special_bonus_unique_dark_willow_2 - "+{s:value} Terrorize Duration"
+    // special_bonus_unique_dark_willow_3 - "-{s:value}s Bramble Maze CD"
+    // special_bonus_unique_dark_willow_4 - "+{s:value} Bedlam Damage"
+    // special_bonus_unique_dark_willow_5 - "-{s:value}s Shadow Realm Cooldown"      - unused
+    // special_bonus_unique_dark_willow_6 - "+{s:value}s Cursed Crown Stun Duration" - unused
+    // special_bonus_unique_dark_willow_7 - "+{s:value} Cursed Crown AoE"
   }
 }

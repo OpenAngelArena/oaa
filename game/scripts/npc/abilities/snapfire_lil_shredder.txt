@@ -22,12 +22,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "24 20 16 12 11 10"
-    "AbilityDuration"               "8"
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityDuration"                                     "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "90"
+    "AbilityManaCost"                                     "50 65 80 95 110 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "20 40 60 80 180 280"
+        "damage"                                          "20 45 70 95 190 380"
       }
       "02"
       {
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_duration_tooltip"                           "8"
+        "buff_duration_tooltip"                           "6"
       }
       "06"
       {
@@ -65,13 +65,13 @@
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_per_attack"                      "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_reduction_per_attack"                      "0.75"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "armor_duration"                                  "4.0"
+        "armor_duration"                                  "5.0"
       }
     }
   }

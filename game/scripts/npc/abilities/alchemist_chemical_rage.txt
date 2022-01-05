@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5369"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "5369"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
 
@@ -17,7 +17,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "55 50 45 45 45" //OAA
+    "AbilityCooldown"                                     "55 50 45 40 35" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 100 150 200 250"
+    "AbilityManaCost"                                     "50 75 100 125 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.2 1.1 1.0 0.9 0.8"
+        "base_attack_time"                                "1.2 1.15 1.1 1.05 1.0" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_3"
       }
       "04"
@@ -82,13 +82,13 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_damage"                            "30"
+        "scepter_bonus_damage"                            "20"
         "RequiresScepter"                                 "1"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_spell_amp"                               "6"
+        "scepter_spell_amp"                               "5"
         "RequiresScepter"                                 "1"
       }
     }

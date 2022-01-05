@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Hoodwink: Bushwhack
+  //=================================================================================================================
+  "hoodwink_bushwhack"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "8158"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "90 100 110 120 130 140"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "trap_radius"                                     "265"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "1.5 1.8 2.1 2.4 2.5 2.6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_damage"                                    "75 150 225 300 600 1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "animation_rate"                                  "0.3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "visual_height"                                   "50"
+      }
+    }
+  }
+}

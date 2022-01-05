@@ -9,21 +9,30 @@ boss_slime_slam = class(AbilityBaseClass)
 function boss_slime_slam:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", context)
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts", context)
 end
 
 function boss_slime_slam:OnAbilityPhaseStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local width = self:GetSpecialValueFor("width")
-		local target = GetGroundPosition(self:GetCursorPosition(), caster)
-		local distance = self:GetCastRange(target, caster)
-		local castTime = self:GetCastPoint()
-		local direction = (target - caster:GetAbsOrigin()):Normalized()
+  if IsServer() then
+    local caster = self:GetCaster()
+    local width = self:GetSpecialValueFor("width")
+    local target = GetGroundPosition(self:GetCursorPosition(), caster)
+    local distance = self:GetCastRange(target, caster)
+    local castTime = self:GetCastPoint()
+    local direction = (target - caster:GetAbsOrigin()):Normalized()
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
-	end
-	return true
+    -- Warning particle
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*(distance+width))
+    ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
+    ParticleManager:ReleaseParticleIndex(FX)
+
+    --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width,0), Vector(distance,width,50), direction, Vector(255,0,0), 1, castTime)
+  end
+  return true
 end
 
 --------------------------------------------------------------------------------
@@ -89,7 +98,7 @@ function boss_slime_slam:OnSpellStart()
 		local units = self:FindTargets()
 
 		for k,v in pairs(units) do
-			DebugDrawSphere(v:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
+			--DebugDrawSphere(v:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
 
 			v:EmitSound("hero_ursa.attack")
 
@@ -130,6 +139,10 @@ modifier_boss_slime_slam_slow = class(ModifierBaseClass)
 
 function modifier_boss_slime_slam_slow:IsDebuff()
 	return true
+end
+
+function modifier_boss_slime_slam_slow:IsPurgable()
+  return true
 end
 
 ------------------------------------------------------------------------------------

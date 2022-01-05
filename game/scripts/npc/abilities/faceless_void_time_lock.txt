@@ -15,7 +15,7 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,8 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0" //OAA, for picking screen tooltip
+        "duration"                                        "1.0" //OAA, for picking screen tooltip - ignore the error with LinkedSpecialBonus
+        //"LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_8" - this is a Time Dilation talent
       }
       "02"
       {
@@ -38,12 +39,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "12 16 20 24 25 25"
+        "chance_pct"                                      "12 16 20 24 25 26"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 60 70 80 160 320"  //OAA, for picking screen tooltip
+        "bonus_damage"                                    "35 45 55 65 130 260"  //OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "05" //OAA, for picking screen tooltip

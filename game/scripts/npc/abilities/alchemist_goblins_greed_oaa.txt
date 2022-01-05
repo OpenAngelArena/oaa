@@ -1,0 +1,72 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Alchemist: Greevil's Greed (OAA ability that improves vanilla ability)
+  //=================================================================================================================
+  "alchemist_goblins_greed_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85368"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_alchemist_greevils_greed.lua"
+    "AbilityTextureName"                                  "alchemist_goblins_greed"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "36"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold"                                      "3 4 5 6 8 14"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_bonus_gold"                                "3 4 5 6 8 14"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_gold_cap"                                  "15 18 21 24 60 96"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bounty_multiplier"                               "1.5 2.0 2.5 3.0 3.5 4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_reduction_per_hit"                         "0.1 0.2 0.3 0.4 0.6 0.8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_2_oaa"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "multiplier"                                      "2"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_reduction_duration"                        "4"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "armor_reduction_cap"                             "-25"
+      }
+    }
+  }
+}

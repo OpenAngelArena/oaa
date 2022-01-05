@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5287"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -32,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30.0" //OAA
+        "duration"                                        "35" //OAA
       }
       "02"
       {
@@ -42,12 +42,13 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "14 20 26 32 40 50"
+        "slow"                                            "16 24 32 40 48 56"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_5"
       }
     }
   }

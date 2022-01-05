@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "550"
+    "ItemCost"                                            "675"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -37,7 +37,7 @@
     "AbilityTextureName"                                  "custom/monkey_king_bar_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4850"
+    "ItemCost"                                            "4975"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb;monkey king bar"
@@ -54,22 +54,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "42 62 92 132 182"
+        "bonus_damage"                                    "40 60 90 130 180"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "35 45 55 65 75"
+        "bonus_attack_speed"                              "35 45 55 65 75" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance"                                    "75"
+        "bonus_chance"                                    "80"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "100 130 190 280 400"
+        "bonus_chance_damage"                             "70 100 160 250 370"
       }
     }
   }

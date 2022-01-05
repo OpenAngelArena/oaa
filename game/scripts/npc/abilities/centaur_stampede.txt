@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 80 70 60 50" //OAA
+    "AbilityCooldown"                                     "100 90 80 70 60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,8 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
+        "duration"                                        "3.5 4 4.5 4.5 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_7"
       }
       "02"
       {
@@ -50,13 +51,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "strength_damage"                                 "1.0 2.0 3.0 4.5 6.5"
+        "strength_damage"                                 "1.75 2.5 3.25 4.0 4.75"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.3"
+        "slow_duration"                                   "2.5"
       }
       "05"
       {
@@ -73,13 +74,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage_reduction"                                "40"
         "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_tooltip_scepter"                "40"
-        "RequiresScepter"                                 "1"
-        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

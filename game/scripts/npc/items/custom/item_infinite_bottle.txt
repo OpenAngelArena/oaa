@@ -1,6 +1,7 @@
 "DOTAAbilities"
 {
-  "item_bottle"  "REMOVED"
+  "item_bottle"  "REMOVE"
+
   //=================================================================================================================
   // Bottle
   //=================================================================================================================
@@ -8,7 +9,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8041"
+    "ID"                                                  "3593"
     "BaseClass"                                           "item_lua"
     "AbilityTextureName"                                  "item_bottle"
     "ScriptFile"                                          "items/bottle.lua"
@@ -41,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_restore"                                  "80"
+        "health_restore"                                  "100"
       }
       "02"
       {
@@ -51,7 +52,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "restore_time"                                    "2.5"
+        "restore_time"                                    "2.7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_on_hero_damage"                            "1"
       }
     }
   }

@@ -3,30 +3,31 @@
   //=================================================================================================================
   // Recipe: Elixier - Sustain
   //=================================================================================================================
-  "item_recipe_elixier_sustain"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7558"
-    "BaseClass"                             "item_datadriven"
-    "AbilityTextureName"                    "custom/recipe/recipe_4"
-    "Model"                                 "models/props_gameplay/recipe.mdl"
+  // "item_recipe_elixier_sustain"
+  // {
+    // // General
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ID"                                    "7558"
+    // "BaseClass"                             "item_datadriven"
+    // "AbilityTextureName"                    "custom/recipe/recipe_4"
+    // "Model"                                 "models/props_gameplay/recipe.vmdl"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1"
-    "SecretShop"                            "1"
-    "ItemShopTags"                          ""
+    // // Item Info
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ItemCorePointCost"                                   "16"
+    // "ItemCost"                                            "1"
+    // "SecretShop"                            "1"
+    // "ItemShopTags"                          ""
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                            "1"
-    "ItemResult"                            "item_elixier_sustain"
-    "ItemRequirements" // OAA
-    {
-      "01"                                  "item_upgrade_core_4"
-    }
-  }
+    // // Recipe
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ItemRecipe"                            "1"
+    // "ItemResult"                            "item_elixier_sustain"
+    // "ItemRequirements" // OAA
+    // {
+      // "01"                                  "item_upgrade_core_4"
+    // }
+  // }
 
   //=================================================================================================================
   // Elixier - Sustain
@@ -46,12 +47,13 @@
     "AbilityCastRange"                      "0"
     "AbilityCastPoint"                      "0.0"
     "AbilitySharedCooldown"                 "elixier"
-    "AbilityCooldown"                       "60.0"
+    "AbilityCooldown"                       "1.0"
     "AbilityManaCost"                       "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1"
+    "ItemCorePointCost"                                   "16"
+    "ItemCost"                                            "1"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
@@ -92,7 +94,7 @@
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "bonus_duration"                    "60"
+        "bonus_duration"                    "180"
       }
     }
   }

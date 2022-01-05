@@ -20,7 +20,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "1 2 3 4 5 6"
+    "AbilityCharges"                                      "2 2 3 4 4 4" //OAA
     "AbilityChargeRestoreTime"                            "30" //OAA
 
     // Cost
@@ -44,7 +44,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "14"
+        "damage"                                          "16"
       }
       "02"
       {
@@ -60,12 +60,19 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_steal"                                  "4 6 8 10 12 14"
+        "movement_steal"                                  "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "siphon_buffer"                                   "250"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "AbilityChargeRestoreTime"                        ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet_5"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
     }
   }

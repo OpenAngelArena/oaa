@@ -19,6 +19,7 @@
     "MaxLevel"                                            "6"
 
     "HasScepterUpgrade"                                   "0"
+    "HasShardUpgrade"                                     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 150 160"
+    "AbilityManaCost"                                     "110 120 130 140 150 160" //OAA
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -81,13 +82,13 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "300"
+        "illusion_damage_in_pct"                          "200" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_in_pct"            "400"
+        "tooltip_illusion_total_damage_in_pct"            "300" //OAA
         "CalculateSpellDamageTooltip"                     "0"
       }
       "10"

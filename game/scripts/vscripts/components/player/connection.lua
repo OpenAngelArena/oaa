@@ -8,6 +8,7 @@ local OnPlayerAbandonEvent = CreateGameEvent('OnPlayerAbandon')
 local OnPlayerStateChangeEvent = CreateGameEvent('OnPlayerStateChange')
 
 function PlayerConnection:Init()
+  self.moduleName = "PlayerConnection"
   self.disconnectedPlayers = {}
   self.disconnectedTime = {}
   self.disconnectTime = {}

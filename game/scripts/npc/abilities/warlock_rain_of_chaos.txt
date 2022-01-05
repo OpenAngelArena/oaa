@@ -58,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 3000 5000 7500 10000" //OAA
+        "golem_hp_tooltip"                                "1000 3000 5000 9000 17000" //OAA
       }
       "05"
       {
@@ -75,7 +75,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_regen_tooltip"                             "30 60 90 150 300" //OAA
+        "golem_regen_tooltip"                             "30 60 90 120 150" //OAA
       }
       "08"
       {
@@ -83,10 +83,10 @@
         "number_of_golems_scepter"                        "2"
         "RequiresScepter"                                 "1"
       }
-      "09" // 75% of golem_hp_tooltip
+      "09" // 0.8 x golem_hp_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "750 2250 3750 5625 7500" //OAA
+        "golem_hp_tooltip_scepter"                        "800 2400 4000 7200 13600" //OAA
         "RequiresScepter"                                 "1"
       }
         "10" // at least 75% of golem_dmg_tooltip

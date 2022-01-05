@@ -1,53 +1,54 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Far Sight
+  // Recipe: Far Sight 3
   //=================================================================================================================
   "item_recipe_far_sight_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8606"    // unique ID
+    "ID"                                                  "8606"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                             "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                         "custom/recipe/recipe_4"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                        "8000"
-    "ItemShopTags"                                 ""
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                      "1"
-    "ItemResult"                                      "item_far_sight_3"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_far_sight_3"
     "ItemRequirements"
     {
       "01"                                                "item_far_sight_2;item_upgrade_core_3"
-      "02"                                                "item_ward_stack_3;item_upgrade_core_3"
+      //"02"                                                "item_ward_stack_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Far Sight
+  // Far Sight 3
   //=================================================================================================================
   "item_far_sight_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                      "8607"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_lua"
+    "ID"                                                  "8607"
+    "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sight.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityTextureName"                                  "custom/far_sight_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "900"
+    "AoERadius"                                           "800"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -58,16 +59,17 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "13500"
+    "ItemCost"                                            "13613"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
-   // "ItemDisassembleRule"                              "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
     {
-      "particle"                                          "particles/items/far_sight.vpcf"
+      "particle"                                          "particles/items/far_sight/far_sight_green.vpcf"
+      "particle"                                          "particles/items/far_sight/far_sight_red.vpcf"
     }
 
     // Special
@@ -77,32 +79,62 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "15 30 45 60"
+        "bonus_health"                                    "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 3 5 8"
+        "bonus_health_regen"                              "5 8 11 14"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "15 30 45 60"
+        "bonus_mana"                                      "0"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "15 30 45 60"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "1.75 2.25 3.0 4.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "900"
+        "bonus_armor"                                     "2 4 7 11"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "reveal_duration"                                 "10.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_to_worst_attribute"                        "15 25 40 60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_vision_percentage"                         "20 30 40 50"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_cast_range"                                "250 300 350 400"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reveal_radius"                                   "800"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "reveal_duration"                                 "8"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dust_duration"                                   "10"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dust_radius"                                     "800"
       }
     }
   }

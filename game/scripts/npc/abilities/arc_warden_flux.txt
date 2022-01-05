@@ -47,6 +47,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_second"                               "15 30 45 60 120 180"
+        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_2"
       }
       "03"
       {
@@ -61,7 +62,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow_pct"                             "20 25 30 35 40 45" //OAA
+        "move_speed_slow_pct"                             "25 30 35 40 45 50" //OAA
       }
       "06"
       {

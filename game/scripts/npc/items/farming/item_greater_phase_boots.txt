@@ -9,10 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3000"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -25,7 +27,7 @@
       "01"                                                "item_phase_boots;item_upgrade_core"
       "02"                                                "item_power_treads;item_upgrade_core"
       "03"                                                "item_tranquil_boots;item_upgrade_core"
-      "04"                                                "item_travel_boots;item_upgrade_core"
+      "04"                                                "item_travel_boots_oaa;item_upgrade_core"
       "05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
@@ -43,13 +45,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/greater_phase_boots"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2425"
+    "ItemCost"                                            "2426"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots;phase boots;phase"
@@ -58,7 +61,7 @@
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_greater_phase_boots;item_greater_phase_boots_2;item_greater_phase_boots_3;item_greater_phase_boots_4"
-    "UpgradeRecipe"                                       "item_recipe_greater_phase_boots"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -71,53 +74,33 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_melee"                              "38 68 108 158"
+        "bonus_damage"                                    "38 78 138 218"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_range"                              "32 62 102 152"
+        "bonus_armor"                                     "5 7 10 14"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_block_melee"                              "0"
+        "phase_movement_speed"                            "25 30 35 40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_block_ranged"                             "0"
+        "phase_movement_speed_range"                      "25 30 35 40"
       }
       "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "25 30 35 40"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "15 20 25 30"
-      }
-      "09"
       {
         "var_type"                                        "FIELD_FLOAT"
         "phase_duration"                                  "3.0"
       }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "0"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 10 14"
-      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items/phase_divehit.vpcf"
     }
   }
 }

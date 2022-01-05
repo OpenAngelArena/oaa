@@ -26,7 +26,7 @@ if IsServer() then
     local caster = self:GetCaster()
     --print("[CHATTERJEE CLEANSING CHOCK] OnHeroCalculateStatBonus on Server")
     -- Check for talent that allows targetting spell immune
-    local talent = caster:FindAbilityByName("special_bonus_electrician_shock_spell_immunity")
+    local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_pierce")
     if talent and talent:GetLevel() > 0 then
       if not caster:HasModifier("modifier_special_bonus_unique_electrician_cleansing_shock_pierce") then
         caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_electrician_cleansing_shock_pierce", {})
@@ -37,6 +37,16 @@ if IsServer() then
   end
 end
 
+function electrician_cleansing_shock:GetManaCost(level)
+	local caster = self:GetCaster()
+  local base_mana_cost = self.BaseClass.GetManaCost(self, level)
+  if caster:HasScepter() then
+    return self:GetSpecialValueFor("mana_cost_scepter")
+  end
+
+  return base_mana_cost
+end
+
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
@@ -44,10 +54,7 @@ function electrician_cleansing_shock:OnSpellStart()
 	-- clean up the hit list
 	self.hitTargets = {}
 
-	-- talent integration
-	local talent = self:GetCaster():FindAbilityByName( "special_bonus_electrician_shock_autoself" )
-
-	if talent and talent:GetLevel() > 0 then
+	if caster:HasScepter() then
 		self:ApplyEffect( caster )
 	end
 
@@ -56,8 +63,9 @@ function electrician_cleansing_shock:OnSpellStart()
 
 	-- cast sound
 	caster:EmitSound( "Hero_Tinker.Laser" )
+
   -- cast animation
-  caster:StartGesture( ACT_DOTA_CAST_ABILITY_1 )
+  --caster:StartGesture( ACT_DOTA_CAST_ABILITY_1 )
 
 	-- trigger and get blocked by linkens
 	if not target:TriggerSpellAbsorb( self ) then
@@ -110,10 +118,28 @@ function electrician_cleansing_shock:ApplyEffect( target )
   local duration = self:GetSpecialValueFor( "duration" )
 
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+    -- Check if the enemy target is spell-immune
+    if target:IsMagicImmune() then
+      -- Check for talent that allows targetting spell immune
+      if not caster:HasLearnedAbility("special_bonus_electrician_cleansing_shock_pierce") then
+        return
+      end
+    end
+
+    -- Basic Dispel (for enemies)
     target:Purge( true, false, false, false, false )
+
+    -- Slow debuff
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_enemy", { duration = duration } )
+
+    -- Check for mini-stun talent
+    local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_stun")
+    if talent and talent:GetLevel() > 0 then
+      target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
+    end
+
     -- Deal damage to summons, illusions and dominated units if caster has aghanim scepter
-    if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) and not target:IsMagicImmune() then
+    if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) and not target:IsStrongIllusionOAA() then
       local summon_damage = self:GetSpecialValueFor( "summon_illusion_damage_scepter" )
       local damage_table = {}
       damage_table.attacker = caster
@@ -124,7 +150,10 @@ function electrician_cleansing_shock:ApplyEffect( target )
       ApplyDamage(damage_table)
     end
   else
+    -- Basic Dispel (for allies)
     target:Purge( false, true, false, false, false )
+
+    -- Movement speed buff
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", { duration = duration } )
   end
 
@@ -153,7 +182,8 @@ end
 
 -- helper for finding a new target
 function electrician_cleansing_shock:FindBounceTarget( origin, radius )
-	local casterTeam = self:GetCaster():GetTeamNumber()
+  local caster = self:GetCaster()
+  local casterTeam = caster:GetTeamNumber()
 
 	-- helperception
 	local function FindInTable( t, target )
@@ -166,6 +196,13 @@ function electrician_cleansing_shock:FindBounceTarget( origin, radius )
 		return nil
 	end
 
+  local targetFlags = DOTA_UNIT_TARGET_FLAG_NONE
+  -- Check for talent that allows targetting spell immune
+  local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_pierce")
+  if talent and talent:GetLevel() > 0 then
+    targetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+  end
+
 	-- first, we check for heroes, then creeps
 	for targetType = DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_CREEP do
 		-- find all candidates
@@ -176,7 +213,7 @@ function electrician_cleansing_shock:FindBounceTarget( origin, radius )
 			radius,
 			self:GetAbilityTargetTeam(),
 			targetType,
-			self:GetAbilityTargetFlags(),
+			targetFlags,
 			FIND_CLOSEST,
 			false
 		)

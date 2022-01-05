@@ -59,6 +59,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage"                                          "340 560 780 1220 2100" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
       }
       "06"
       {
@@ -69,7 +70,8 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "390 610 830 1490 2590" //OAA
+        "damage_scepter"                                  "420 680 940 1720 2760" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
         "RequiresScepter"                                 "1"
       }
       "08"

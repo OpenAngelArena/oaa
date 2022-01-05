@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bonus Natures Grasp Damage
+  //=================================================================================================================
+  "special_bonus_unique_treant_9"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"340"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_INTEGER"
+        "value"				"45" //OAA
+        "ad_linked_ability"			"treant_natures_grasp"
+      }
+    }
+  }
+}

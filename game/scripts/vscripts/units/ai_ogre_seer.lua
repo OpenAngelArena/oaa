@@ -1,6 +1,3 @@
-
---------------------------------------------------------------------------------
-
 function Spawn( entityKeyValues )
 	if not IsServer() then
 		return
@@ -55,12 +52,25 @@ function OgreSeerThink()
     thisEntity.hOgreBoss = FindOgreBoss()
   end
 
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, 0, false )
-  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > BOSS_AGRO_FACTOR;
+  local agro_center = thisEntity.vInitialSpawnPos
   if thisEntity.hOgreBoss then
-    hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.hOgreBoss.BossTier * BOSS_AGRO_FACTOR;
+    agro_center = thisEntity.hOgreBoss.vInitialSpawnPos
+  end
+  local enemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    agro_center,
+    nil,
+    2*BOSS_LEASH_SIZE,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    0,
+    false
+  )
+  local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+  local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 99/100
+  if thisEntity.hOgreBoss then
+    hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   end
 
   --Agro

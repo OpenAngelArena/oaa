@@ -25,7 +25,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
-    "AbilityDuration"                                     "8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,13 +37,18 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_cost"                                     "4"
+        "health_cost"                                     "3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "5 10 15 20 45 70"
+        "burn_damage"                                     "5 10 15 20 40 80"
         "LinkedSpecialBonus"                              "special_bonus_unique_huskar_2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "8"
       }
     }
   }

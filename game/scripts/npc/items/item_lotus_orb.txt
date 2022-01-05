@@ -39,7 +39,7 @@
     "AbilityTextureName"                                  "custom/lotus_orb_1"
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "lotus"
-    "AbilityCastRange"                                    "900 1200 1500 1800 2100"
+    "AbilityCastRange"                                    "900 1000 1100 1200 1300"
     "AbilityManaCost"                                     "175"
 
     "MaxUpgradeLevel"                                     "5"
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3950"
+    "ItemCost"                                            "3850"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls;lotus orb"
@@ -67,7 +67,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.5 8.5 11.0 16.0 30.0"
+        "bonus_health_regen"                              "6.5 10 13 16 19"
       }
       "03"
       {

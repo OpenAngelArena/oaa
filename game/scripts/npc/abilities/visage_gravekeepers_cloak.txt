@@ -9,6 +9,10 @@
 
     "MaxLevel"                                            "6"
 
+    "HasShardUpgrade"                                     "1"
+
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -16,19 +20,19 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_layers"                                      "4 4 4 4 6 10"
+        "max_layers"                                      "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "8 12 16 20 14 8"
+        "damage_reduction"                                "8 12 16 20 22 24"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "recovery_time"                                   "6 5 4 3 3 3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
       }
       "04"
       {

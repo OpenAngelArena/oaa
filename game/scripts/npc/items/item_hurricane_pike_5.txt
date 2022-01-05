@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3744"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_hurricane_pike_4;item_upgrade_core_4"
-      "02"                                                "item_giant_form;item_upgrade_core_4"
+      "02"                                                "item_siege_mode;item_upgrade_core_4"
+      //"03"                                                "item_shield_staff_4;item_upgrade_core_4"
     }
   }
 
@@ -47,13 +49,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "23.0"
+    "AbilityCooldown"                                     "23 20 17 14 11"
     "AbilitySharedCooldown"                               "force"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "37525"
+    "ItemCost"                                            "37204"
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 5;pike 5"
@@ -69,17 +71,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "13 18 28 43 63"
+        "bonus_intellect"                                 "15 20 30 45 65"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "2.5 5 10 15 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "200 400 600 800 1000"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 25 35 50 70"
+        "bonus_agility"                                   "20 30 45 65 90"
       }
       "04"
       {
@@ -104,7 +106,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "range_duration"                                  "5"
+        "range_duration"                                  "6"
       }
       "09"
       {
@@ -114,12 +116,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "4 5 6 7 8"
+        "max_attacks"                                     "5 6 7 8 9"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "100 110 120 130 140"
+      }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "23 20 17 14 11"
       }
     }
   }

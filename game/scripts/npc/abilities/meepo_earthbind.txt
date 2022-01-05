@@ -12,16 +12,18 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 750 1000 1250 1350 1450"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "500 750 1000 1250 1500 1750"
+    "AbilityCastPoint"                                    "0.0" //OAA
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 16 12 8 7.5 7.0"
+    "AbilityCooldown"                                     "20 16 12 8 7 7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

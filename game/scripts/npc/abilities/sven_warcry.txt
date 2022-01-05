@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "32 28 24 20 16 16"
+    "AbilityCooldown"                                     "23 22 21 20 18 16" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,11 +35,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movespeed"                                       "8 12 16 20 24 28"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_6"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "6 9 12 15 18 21"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_7"
       }
       "03"
       {
@@ -50,6 +52,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_5"
       }
     }
   }

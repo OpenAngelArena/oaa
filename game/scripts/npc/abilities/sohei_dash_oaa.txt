@@ -20,19 +20,20 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
+    "HasShardUpgrade"                                     "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "20 18 16 14 12 10"
+    "AbilityChargeRestoreTime"                            "30 25 20 15 12 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -51,10 +52,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // max Dash speed
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dash_speed"                                      "2400"
+        "dash_speed"                                      "3000"
       }
       "02"
       {
@@ -64,35 +65,37 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 100 125 150 300 450"
+        "dash_range"                                      "575"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_dash_cast_range"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow_pct"                             "-20 -30 -40 -50 -60 -70"
+        "damage"                                          "75 100 125 150 300 450"
       }
       "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "-20 -30 -40 -50 -60 -70"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_dash_slow"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+      }
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "2.0"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_base_heal"                               "300"
-        "RequiresScepter"                                 "1"
-      }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_hp_as_heal"                              "10"
-        "RequiresScepter"                                 "1"
+        "shard_base_heal"                                 "100"
+        "RequiresShard"                                   "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_move_speed_slow_pct"                     "-40 -50 -60 -70 -80 -90"
-        "RequiresScepter"                                 "1"
+        "shard_hp_as_heal"                                "10"
+        "RequiresShard"                                   "1"
       }
     }
   }

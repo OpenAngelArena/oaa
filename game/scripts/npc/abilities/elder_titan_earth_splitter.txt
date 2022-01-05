@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100.0"
+    "AbilityCooldown"                                     "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "crack_time"                                      "3.14"
+        "crack_time"                                      "2.7182"
       }
       "02"
       {
@@ -56,22 +56,22 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow_pct"                                        "30 40 50 65 80"
+        "slow_pct"                                        "30 40 50 60 70"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "3.0 4.0 5.0 5.5 6.0"
+        "slow_duration"                                   "3.0 4.0 5.0 6.0 7.0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "910"
+        "speed"                                           "1100"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "30 40 50 55 65"
+        "damage_pct"                                      "30 40 50 55 60"
       }
       "08"
       {
@@ -98,10 +98,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "total_steps"                                     "12"
       }
-      "13"
+      "13" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow_duration_scepter"                           "4.0 5.0 6.0 6.5 7.0"
+        "slow_duration_scepter"                           "4.0 5.0 6.0 7.0 8.0"
       }
     }
   }

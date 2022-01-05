@@ -1,0 +1,21 @@
+
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa"                         "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura}"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Description"             "Gives additional mana regeneration, <font color='#FFA500'>spell amp and mana cost reduction</font> to all friendly units on the map. Mana regeneration and magic resistance bonuses are increased for Crystal Maiden."
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Lore"                    "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_Lore}"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_mana_regen"              "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_mana_regen}"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_self_factor"             "SELF MANA REGEN AND MAGIC RESIST MULTIPLIER:"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_mana_cost_reduction_pct" "%MANA COST REDUCTION:"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_magic_resistance"  "%MAGIC RESISTANCE:"
+"DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_spell_amp"         "%SPELL AMPLIFICATION:"
+
+//"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura"                          "Arcane Aura"
+"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_Description"              "#{DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_Description}"
+//"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_Lore"                     "Cold temperatures promote the essence of magic, causing Rylai's presence to allow spell usage in abundance."
+//"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_mana_regen"               "MANA REGEN:"
+//"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_self_factor"              "SELF BONUS FACTOR:"
+"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_mana_cost_reduction_pct"  "#{DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_mana_cost_reduction_pct}"
+"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_bonus_magic_resistance"   "#{DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_magic_resistance}"
+"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_bonus_spell_amp"          "#{DOTA_Tooltip_ability_crystal_maiden_arcane_magic_oaa_bonus_spell_amp}"
+
+"DOTA_Tooltip_modifier_crystal_maiden_arcane_aura_effect_oaa"                  "#{DOTA_Tooltip_ability_crystal_maiden_brilliance_aura}"
+"DOTA_Tooltip_modifier_crystal_maiden_arcane_aura_effect_oaa_Description"      "Adds %dMODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING%%% manacost reduction and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp."

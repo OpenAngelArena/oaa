@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Unit Name: Root
+  //=================================================================================================================
+  "mini_rosh_root"
+  {
+    "ID"                                                  "3595"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/neutrals/oaa_mini_rosh_root.lua"
+    "AbilityTextureName"                                  "roshan_bash"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCooldown"                                     "2.0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "root_chance"                                     "25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "root_duration"                                   "1.65"
+      }
+    }
+  }
+}

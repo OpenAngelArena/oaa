@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Omniknight: Repel
+  // Omniknight: Heavenly Grace
   //=================================================================================================================
   "omniknight_repel"
   {
@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -26,11 +26,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 130 150"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8" //OAA
+        "duration"                                        "10"
       }
       "02"
       {
@@ -53,12 +53,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "7 14 21 28 35 49"
+        "bonus_str"                                       "8 18 28 38 58 78"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen"                                        "8 12 16 20 28 52"
+        "hp_regen"                                        "8 12 16 20 28 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_5"
       }
     }

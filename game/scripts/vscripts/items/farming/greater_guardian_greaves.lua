@@ -8,8 +8,11 @@ item_greater_guardian_greaves = class(ItemBaseClass)
 function item_greater_guardian_greaves:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Disable working on Meepo Clones
   if caster:IsClone() then
-    return false
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
   end
 
   local heroes = FindUnitsInRadius(
@@ -45,7 +48,7 @@ function item_greater_guardian_greaves:OnSpellStart()
   local function ReplenishHealth(hero)
     local healAmount = self:GetSpecialValueFor("replenish_health")
     hero:Heal(healAmount, self)
-    hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
+    --hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
 
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
@@ -94,7 +97,6 @@ end
 item_greater_guardian_greaves_2 = item_greater_guardian_greaves
 item_greater_guardian_greaves_3 = item_greater_guardian_greaves
 item_greater_guardian_greaves_4 = item_greater_guardian_greaves
-item_greater_guardian_greaves_5 = item_greater_guardian_greaves
 
 ------------------------------------------------------------------------------
 

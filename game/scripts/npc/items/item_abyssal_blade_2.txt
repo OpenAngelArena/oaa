@@ -7,15 +7,16 @@
   {
     "ID"                                                  "3108"  // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_abyssal_blade_2"
     "ItemRequirements"
     {
-      "01"                                                "item_abyssal_blade;item_upgrade_core"
+      "01"                                                "item_skadi;item_upgrade_core"
     }
   }
 
@@ -39,7 +40,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "200" //OAA
+    "AbilityCastRange"                                    "200"
     "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
@@ -51,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "8125"
+    "ItemCost"                                            "6801"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,37 +66,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 35 55 85 125"
+        "bonus_damage"                                    "10 20 40 70 110"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 1000 1500 2000"
+        "bonus_health"                                    "200 300 450 650 900"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "10 20 30 40 50"
+        "bonus_health_regen"                              "3 6 9 12 15"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 100 130 160 190"
+        "block_damage_melee"                              "70 120 170 220 270"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 50 70 100 140"
+        "block_damage_ranged"                             "35 70 105 140 175"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "50"
+        "block_chance"                                    "60"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 25 30"
+        "bonus_strength"                                  "25 30 40 55 75"
       }
       "08"
       {
@@ -120,7 +121,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "100 150 225 325 475"
+        "bonus_chance_damage"                             "160 210 310 460 660"
       }
       "13"
       {

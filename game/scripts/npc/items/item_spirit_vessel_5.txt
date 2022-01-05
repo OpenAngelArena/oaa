@@ -7,13 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8429"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "3500"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -24,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_spirit_vessel_4;item_upgrade_core_4"
-      "02"                                                "item_silver_staff;item_upgrade_core_4"
+      //"02"                                                "item_silver_staff;item_upgrade_core_4"
     }
   }
 
@@ -35,7 +36,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8430"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "3501"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"       "item_spirit_vessel"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -54,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "35940"
+    "ItemCost"                        "35844"
     "ItemAliases"                     "sv 5;spirit vessel 5"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -70,7 +71,7 @@
       "02"
       {
         "var_type"                    "FIELD_FLOAT"
-        "bonus_mana_regen"            "1.5 1.75 2.25 3.0 4.0"
+        "bonus_mana_regen"            "1.75 2.0 2.5 3.25 4.25"
       }
       "03"
       {

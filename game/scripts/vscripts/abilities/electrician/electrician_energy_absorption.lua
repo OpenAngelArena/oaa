@@ -1,13 +1,38 @@
-electrician_energy_absorption = class( AbilityBaseClass )
+electrician_energy_absorption = class(AbilityBaseClass)
 
-LinkLuaModifier( "modifier_electrician_energy_absorption", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_electrician_energy_absorption", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_electrician_energy_absorption_debuff", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_electrician_bonus_mana_count", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_special_bonus_electrician_energy_absorption_cooldown", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
+
+function electrician_energy_absorption:GetCooldown(level)
+  local caster = self:GetCaster()
+  local base_cd = self.BaseClass.GetCooldown(self, level)
+  if IsServer() then
+    local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_cooldown")
+    if talent and talent:GetLevel() > 0 then
+      if not caster:HasModifier("modifier_special_bonus_electrician_energy_absorption_cooldown") then
+        caster:AddNewModifier(caster, talent, "modifier_special_bonus_electrician_energy_absorption_cooldown", {})
+      end
+      return base_cd - math.abs(talent:GetSpecialValueFor("value"))
+    else
+      caster:RemoveModifierByName("modifier_special_bonus_electrician_energy_absorption_cooldown")
+    end
+  else
+    if caster:HasModifier("modifier_special_bonus_electrician_energy_absorption_cooldown") and caster.special_bonus_electrician_energy_absorption_cooldown then
+      return base_cd - math.abs(caster.special_bonus_electrician_energy_absorption_cooldown)
+    end
+  end
+
+  return base_cd
+end
 
 function electrician_energy_absorption:OnSpellStart()
 	local caster = self:GetCaster()
 	local casterOrigin = caster:GetAbsOrigin()
-	local radius = self:GetSpecialValueFor( "radius" )
+	local radius = self:GetSpecialValueFor("radius")
 
 	-- grab all enemes around the caster
 	local units = FindUnitsInRadius(
@@ -17,175 +42,357 @@ function electrician_energy_absorption:OnSpellStart()
 		radius,
 		self:GetAbilityTargetTeam(),
 		self:GetAbilityTargetType(),
-		self:GetAbilityTargetFlags(),
+		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_ANY_ORDER,
 		false
 	)
 
-	-- make the aoe particle, it's dumbshit as of this comment's writing because
-	--
-	-- i don't need an excuse i'm not doing aesthetics
-	local part = ParticleManager:CreateParticle( "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_ABSORIGIN, caster )
-	ParticleManager:SetParticleControl( part, 1, Vector( radius, radius, radius ) )
-	ParticleManager:SetParticleControl( part, 2, Vector( 1, 1, 1 ) )
-	ParticleManager:ReleaseParticleIndex( part )
+  -- make the aoe particle, it's dumbshit as of this comment's writing because
+  -- i don't need an excuse i'm not doing aesthetics
+  local part = ParticleManager:CreateParticle( "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_ABSORIGIN, caster )
+  ParticleManager:SetParticleControl( part, 1, Vector( radius, radius, radius ) )
+  ParticleManager:SetParticleControl( part, 2, Vector( 1, 1, 1 ) )
+  ParticleManager:ReleaseParticleIndex( part )
 
-	-- play sound
-	caster:EmitSound( "Hero_StormSpirit.StaticRemnantPlant" )
-
-  -- make particle
---  caster:AddNewModifier( caster, self, "modifier_electrician_shell", {
---    duration = self:GetSpecialValueFor( "move_speed_duration" )
---  } )
+  -- play sound
+  caster:EmitSound( "Hero_StormSpirit.StaticRemnantPlant" )
 
 	-- don't bother with anything after this if we didnt' hit a single enemy
-	if #units > 0 then
-		-- grab abilityspecials
-		local damage = self:GetSpecialValueFor( "damage" )
-		local damageType = self:GetAbilityDamageType()
-		local manaBreak = self:GetSpecialValueFor( "mana_break" ) * 0.01
-		local manaRestoreCreep = self:GetSpecialValueFor( "creep_mana_restore" )
-		local manaRestoreHero = self:GetSpecialValueFor( "hero_mana_restore" )
+  if #units > 0 then
+    -- grab abilityspecials
+    local damage = self:GetSpecialValueFor("damage")
+    local damageType = self:GetAbilityDamageType()
+    local mana_absorb_base = self:GetSpecialValueFor("mana_absorb_base")
+    local mana_absorb_percent = self:GetSpecialValueFor("mana_absorb_percentage")
+    local speed_absorb_creeps = self:GetSpecialValueFor("speed_absorb_non_heroes")
+    local speed_absorb_heroes = self:GetSpecialValueFor("speed_absorb_heroes")
+    local duration = self:GetSpecialValueFor("duration")
 
-		-- talent integration
-		local talent = self:GetCaster():FindAbilityByName( "special_bonus_electrician_absorption_hero_mana_restore" )
+    -- Talent that increases mana absorb
+    local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_mana")
+    if talent and talent:GetLevel() > 0 then
+      mana_absorb_percent = mana_absorb_percent + talent:GetSpecialValueFor("value")
+    end
 
-		if talent and talent:GetLevel() > 0 then
-			manaRestoreHero = manaRestoreHero * talent:GetSpecialValueFor( "value" )
-		end
+    -- set up the amount of mana restored by this cast
+    local mana_absorbed = 0
+    local speed_absorbed = 0
 
-		-- set up the amount of mana restored by this cast
-		local manaRestored = 0
+    -- iterate through each unit struck
+    for _, target in pairs( units ) do
+      if target and not target:IsNull() then
+        -- Get mana values of the target
+        local target_max_mana = target:GetMaxMana()
+        local mana_to_remove = mana_absorb_base + target_max_mana*mana_absorb_percent*0.01
+        local target_current_mana = target:GetMana()
 
-		-- iterate through each unit struck
-		for _, target in pairs( units ) do
-			-- deal damage
-			ApplyDamage( {
-				victim = target,
-				attacker = caster,
-				damage = damage,
-				damage_type = damageType,
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
-				ability = self,
-			} )
+        -- Check if target has less mana
+        if target_current_mana < mana_to_remove then
+          mana_to_remove = target_current_mana
+        end
 
-			-- track the starting mana
-			local manaStart = target:GetMana()
+        -- Reduce/removed mana of the target (only if not an illusion)
+        -- Don't remove mana from illusions to prevent weird interactions
+        if not target:IsIllusion() then
+          target:ReduceMana(mana_to_remove)
+          mana_absorbed = mana_absorbed + mana_to_remove
+        end
 
-			-- don't bother breaking mana if they have none
-			if manaStart > 0 then
-				target:ReduceMana( target:GetMaxMana() * manaBreak )
+        if target:IsRealHero() or target:IsOAABoss() then
+          speed_absorbed = speed_absorbed + speed_absorb_heroes
+        else
+          speed_absorbed = speed_absorbed + speed_absorb_creeps
+        end
 
-				-- for the mana burn number; restricting to heroes as to
-				-- reduce spam, can't ignore illusions tho because
-				-- that'd make it too obvious
-				if target:IsHero() then
-					local manaBurnt = math.floor( manaStart - target:GetMana() )
+        -- for the mana burn number; restricting to heroes as to
+        -- reduce spam, can't ignore illusions tho because
+        -- that'd make it too obvious
+        if target:IsHero() then
+          mana_to_remove = math.floor(mana_to_remove)
+          local numLength = tostring(mana_to_remove):len() + 1
 
-					local numLength = tostring( manaBurnt ):len() + 1
+          -- Mana burn particle
+          local partNum = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
+          ParticleManager:SetParticleControl(partNum, 1, Vector( 1, mana_to_remove, 0 ))
+          ParticleManager:SetParticleControl(partNum, 2, Vector( 1, numLength, 0 ))
+          ParticleManager:ReleaseParticleIndex(partNum)
+        end
 
-					local partNum = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf", PATTACH_OVERHEAD_FOLLOW, target )
-					ParticleManager:SetParticleControl( partNum, 1, Vector( 1, manaBurnt, 0 ) )
-					ParticleManager:SetParticleControl( partNum, 2, Vector( 1, numLength, 0 ) )
-					ParticleManager:ReleaseParticleIndex( partNum )
-				end
-			end
+        -- create a projectile that's just for visual effect
+        -- would like to just have a particle here that hits the caster
+        -- after like ~0.25 seconds
+        -- ProjectileManager:CreateTrackingProjectile( {
+          -- Ability = self,
+          -- Target = caster,
+          -- Source = target,
+          -- EffectName = "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf",
+          -- iMoveSpeed = caster:GetRangeToUnit( target ) / 0.25,
+          -- iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+          -- bDodgeable = false,
+          -- flExpireTime = GameRules:GetGameTime() + 10,
+        -- } )
 
-			-- figure out the mana restore amount for this unit
-			if target:IsRealHero() then
-				manaRestored = manaRestored + manaRestoreHero
-			else
-				manaRestored = manaRestored + manaRestoreCreep
-			end
+        -- Add a speed debuff
+        local speed_debuff = target:FindModifierByNameAndCaster("modifier_electrician_energy_absorption_debuff", caster)
+        if speed_debuff then
+          speed_debuff:SetDuration(duration, true)
+          speed_debuff:SetStackCount(speed_debuff:GetStackCount() + 1)
+        else
+          speed_debuff = target:AddNewModifier(caster, self, "modifier_electrician_energy_absorption_debuff", {duration = duration})
+          if speed_debuff then
+            speed_debuff:SetStackCount(1)
+          end
+        end
 
-			-- create a projectile that's just for visual effect
-			-- would like to just have a particle here that hits the caster
-			-- after like ~0.25 seconds
-			ProjectileManager:CreateTrackingProjectile( {
-				Ability = self,
-				Target = caster,
-				Source = target,
-				EffectName = "particles/units/heroes/hero_zuus/zuus_base_attack.vpcf",
-				iMoveSpeed = caster:GetRangeToUnit( target ) / 0.25,
-				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-				bDodgeable = false,
-				flExpireTime = GameRules:GetGameTime() + 10,
-			} )
+        -- deal damage
+        ApplyDamage( {
+          victim = target,
+          attacker = caster,
+          damage = damage,
+          damage_type = damageType,
+          damage_flags = DOTA_DAMAGE_FLAG_NONE,
+          ability = self,
+        } )
 
-			-- play hit sound
-			target:EmitSound( "Hero_StormSpirit.Attack" )
-		end
+        -- play hit sound
+        target:EmitSound( "Hero_StormSpirit.Attack" )
+      end
+    end
 
-		-- now that we're done with all the hit units
-		-- add the mana restored to the caster and
-		-- do a number for all mana restored
-		caster:GiveMana( manaRestored )
-		SendOverheadEventMessage( caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, caster, manaRestored, nil )
+    -- Check how much mana does the caster have, add excess mana modifier if needed
+    local missing_mana = caster:GetMaxMana() - caster:GetMana()
+    if missing_mana < mana_absorbed then
+      local modifier = caster:FindModifierByName("modifier_electrician_bonus_mana_count")
+      if modifier then
+        modifier:SetDuration(duration, true)
+        modifier:SetStackCount(math.min(modifier:GetStackCount() + mana_absorbed - missing_mana, self:GetSpecialValueFor("bonus_mana_cap")))
+      else
+        modifier = caster:AddNewModifier(caster, self, "modifier_electrician_bonus_mana_count", {duration = duration})
+        if modifier then
+          modifier:SetStackCount(math.min(mana_absorbed - missing_mana, self:GetSpecialValueFor("bonus_mana_cap")))
+        end
+      end
+      caster:CalculateStatBonus(true)
+    end
 
-		-- give the speed modifier
-		caster:AddNewModifier( caster, self, "modifier_electrician_energy_absorption", {
-			duration = self:GetSpecialValueFor( "move_speed_duration" )
-		} )
-	end
+    -- Grant mana to the caster (equal to absorbed mana)
+    caster:GiveMana(mana_absorbed)
+
+    -- Overhead message
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_MANA_ADD, caster, mana_absorbed, nil)
+
+    -- give the speed modifier
+    local speed_modifier = caster:FindModifierByName("modifier_electrician_energy_absorption")
+    if speed_modifier then
+      speed_modifier:SetDuration(duration, true)
+      speed_modifier:SetStackCount(speed_modifier:GetStackCount() + speed_absorbed)
+    else
+      speed_modifier = caster:AddNewModifier(caster, self, "modifier_electrician_energy_absorption", {duration = duration})
+      if speed_modifier then
+        speed_modifier:SetStackCount(speed_absorbed)
+      end
+    end
+  end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
-modifier_electrician_energy_absorption = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
+modifier_electrician_energy_absorption = class(ModifierBaseClass)
 
 function modifier_electrician_energy_absorption:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_electrician_energy_absorption:IsHidden()
-	return false
+  return false
 end
 
 function modifier_electrician_energy_absorption:IsPurgable()
-	return true
+  return true
 end
 
---------------------------------------------------------------------------------
-
-function modifier_electrician_energy_absorption:OnCreated( event )
+function modifier_electrician_energy_absorption:OnCreated(event)
   local parent = self:GetParent()
-  self.partShell = ParticleManager:CreateParticle( "particles/hero/electrician/electrician_energy_absorbtion.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
-  ParticleManager:SetParticleControlEnt( self.partShell, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true )
-
-	self.moveSpeed = self:GetAbility():GetSpecialValueFor( "move_speed_bonus" )
+  self.partShell = ParticleManager:CreateParticle("particles/hero/electrician/electrician_energy_absorbtion.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+  ParticleManager:SetParticleControlEnt(self.partShell, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
 end
 
---------------------------------------------------------------------------------
-
-function modifier_electrician_energy_absorption:OnRefresh( event )
-	self.moveSpeed = self:GetAbility():GetSpecialValueFor( "move_speed_bonus" )
+function modifier_electrician_energy_absorption:OnRefresh(event)
   -- destroy the shield particles
-  ParticleManager:DestroyParticle( self.partShell, false )
-  ParticleManager:ReleaseParticleIndex( self.partShell )
-end
+  if self.partShell then
+    ParticleManager:DestroyParticle(self.partShell, false)
+    ParticleManager:ReleaseParticleIndex(self.partShell)
+  end
 
---------------------------------------------------------------------------------
+  self:OnCreated(event)
+end
 
 function modifier_electrician_energy_absorption:OnDestroy()
   -- destroy the shield particles
-  ParticleManager:DestroyParticle( self.partShell, false )
-  ParticleManager:ReleaseParticleIndex( self.partShell )
+  if self.partShell then
+    ParticleManager:DestroyParticle(self.partShell, false)
+    ParticleManager:ReleaseParticleIndex(self.partShell)
+  end
 end
-
---------------------------------------------------------------------------------
 
 function modifier_electrician_energy_absorption:DeclareFunctions()
-	local func = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-	}
+  local func = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+  }
 
-	return func
+  return func
 end
 
---------------------------------------------------------------------------------
+function modifier_electrician_energy_absorption:GetModifierMoveSpeedBonus_Constant()
+  return self:GetStackCount()
+end
 
-function modifier_electrician_energy_absorption:GetModifierMoveSpeedBonus_Constant( event )
-	return self.moveSpeed
+function modifier_electrician_energy_absorption:GetModifierAttackSpeedBonus_Constant()
+  return self:GetStackCount()
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_electrician_energy_absorption_debuff = class(ModifierBaseClass)
+
+function modifier_electrician_energy_absorption_debuff:IsDebuff()
+  return true
+end
+
+function modifier_electrician_energy_absorption_debuff:IsHidden()
+  return false
+end
+
+function modifier_electrician_energy_absorption_debuff:IsPurgable()
+  return true
+end
+
+function modifier_electrician_energy_absorption_debuff:OnCreated(event)
+  local parent = self:GetParent()
+  self.partShell = ParticleManager:CreateParticle("particles/hero/electrician/electrician_energy_absorbtion.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+  ParticleManager:SetParticleControlEnt(self.partShell, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
+
+  local ability = self:GetAbility()
+  local speed_absorb_creeps = 5
+  local speed_absorb_heroes = 10
+  if ability and not ability:IsNull() then
+    speed_absorb_creeps = ability:GetSpecialValueFor("speed_absorb_non_heroes")
+    speed_absorb_heroes = ability:GetSpecialValueFor("speed_absorb_heroes")
+  end
+
+  local stack_count = self:GetStackCount()
+  if parent:IsRealHero() or parent:IsOAABoss() then
+    self.speed = -speed_absorb_heroes * stack_count
+  else
+    self.speed = -speed_absorb_creeps * stack_count
+  end
+end
+
+function modifier_electrician_energy_absorption_debuff:OnRefresh(event)
+  -- destroy the shield particles
+  if self.partShell then
+    ParticleManager:DestroyParticle(self.partShell, false)
+    ParticleManager:ReleaseParticleIndex(self.partShell)
+  end
+
+  self:OnCreated(event)
+end
+
+function modifier_electrician_energy_absorption_debuff:OnDestroy()
+  -- destroy the shield particles
+  if self.partShell then
+    ParticleManager:DestroyParticle(self.partShell, false)
+    ParticleManager:ReleaseParticleIndex(self.partShell)
+  end
+end
+
+function modifier_electrician_energy_absorption_debuff:DeclareFunctions()
+  local func = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+  }
+
+  return func
+end
+
+function modifier_electrician_energy_absorption_debuff:GetModifierMoveSpeedBonus_Constant()
+  return self.speed
+end
+
+function modifier_electrician_energy_absorption_debuff:GetModifierAttackSpeedBonus_Constant()
+  return self.speed
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_electrician_bonus_mana_count = class(ModifierBaseClass)
+
+function modifier_electrician_bonus_mana_count:IsHidden()
+  return false
+end
+
+function modifier_electrician_bonus_mana_count:IsDebuff()
+  return false
+end
+
+function modifier_electrician_bonus_mana_count:IsPurgable()
+  return false
+end
+
+function modifier_electrician_bonus_mana_count:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_EXTRA_MANA_BONUS,
+    MODIFIER_EVENT_ON_SPENT_MANA
+  }
+  return funcs
+end
+
+function modifier_electrician_bonus_mana_count:GetModifierExtraManaBonus()
+  return self:GetStackCount()
+end
+
+function modifier_electrician_bonus_mana_count:OnSpentMana(event)
+  if IsServer() then
+    if event.unit == self:GetParent() then
+      local restore_amount = event.cost
+      if restore_amount > self:GetStackCount() then
+        self:Destroy()
+      else
+        self:SetStackCount(self:GetStackCount() - restore_amount)
+      end
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+-- Modifier on caster used for talent that improves Energy Absorption cooldown
+modifier_special_bonus_electrician_energy_absorption_cooldown = class(ModifierBaseClass)
+
+function modifier_special_bonus_electrician_energy_absorption_cooldown:IsHidden()
+  return true
+end
+
+function modifier_special_bonus_electrician_energy_absorption_cooldown:IsPurgable()
+  return false
+end
+
+function modifier_special_bonus_electrician_energy_absorption_cooldown:RemoveOnDeath()
+  return false
+end
+
+function modifier_special_bonus_electrician_energy_absorption_cooldown:OnCreated()
+  if not IsServer() then
+    local parent = self:GetParent()
+    local talent = self:GetAbility()
+    parent.special_bonus_electrician_energy_absorption_cooldown = talent:GetSpecialValueFor("value")
+  end
+end
+
+function modifier_special_bonus_electrician_energy_absorption_cooldown:OnDestroy()
+  local parent = self:GetParent()
+  if parent and parent.special_bonus_electrician_energy_absorption_cooldown then
+    parent.special_bonus_electrician_energy_absorption_cooldown = nil
+  end
 end

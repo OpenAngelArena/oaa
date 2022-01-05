@@ -36,7 +36,7 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "750"
+    "AbilityCastRange"                                    "700 775 850 925 1000 1075"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -49,22 +49,22 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "9 10 11 12 14 16" //OAA
+        "duration"                                        "9 10 11 12 12 12" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-12"
+        "slow"                                            "-12 -13 -14 -15 -16 -17"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "12"
+        "speed_bonus"                                     "12 13 14 15 16 17"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "16 24 32 40 80 120"
+        "damage_per_second"                               "16 24 32 40 140 240"
         "LinkedSpecialBonus"                              "special_bonus_unique_axe"
       }
       "05"

@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3193"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,8 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_skadi_4;item_upgrade_core_4"
-      "02"                                                "item_abyssal_blade_4;item_upgrade_core_4"
-      "03"                                                "item_trumps_fists;item_upgrade_core_4"
+      //"02"                                                "item_abyssal_blade_4;item_upgrade_core_4"
+      //"03"                                                "item_trumps_fists;item_upgrade_core_4"
     }
   }
 
@@ -42,7 +43,7 @@
     "AbilityTextureName"                                  "custom/skadi_5"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38300"
+    "ItemCost"                                            "38304"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 5;eye of skadi 5;skadi 5"
@@ -63,12 +64,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "225 450 675 900 1125"
+        "bonus_health"                                    "200 300 450 650 900"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 500 700 950"
+        "bonus_mana"                                      "200 300 450 650 900"
       }
       "04"
       {

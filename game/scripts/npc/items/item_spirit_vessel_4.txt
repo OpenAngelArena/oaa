@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"              "8427"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -53,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "15940"
+    "ItemCost"                        "15843"
     "ItemAliases"                     "sv 4;spirit vessel 4"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
@@ -69,7 +70,7 @@
       "02"
       {
         "var_type"                    "FIELD_FLOAT"
-        "bonus_mana_regen"            "1.5 1.75 2.25 3.0 4.0"
+        "bonus_mana_regen"            "1.75 2.0 2.5 3.25 4.25"
       }
       "03"
       {

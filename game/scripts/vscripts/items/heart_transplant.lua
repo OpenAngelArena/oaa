@@ -148,7 +148,7 @@ if IsServer() then
   function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local parentHasHeart = parent:HasModifier("modifier_item_heart")
+    local parentHasHeart = parent:HasModifier("modifier_item_heart_oaa_non_stacking_stats")
     local isFirstHeartTransplantModifier = parent:FindModifierByName(self:GetName()) == self
 
     if not parent:IsIllusion() and not parentHasHeart and isFirstHeartTransplantModifier then
@@ -194,7 +194,7 @@ function modifier_item_heart_transplant_debuff:OnCreated()
   local parent = self:GetParent()
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -202,7 +202,7 @@ function modifier_item_heart_transplant_debuff:OnRefresh()
   local parent = self:GetParent()
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -210,7 +210,7 @@ function modifier_item_heart_transplant_debuff:OnDestroy()
   local parent = self:GetParent()
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -247,7 +247,7 @@ function modifier_item_heart_transplant_buff:OnCreated()
   end
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 
   self:StartIntervalThink(0.5)
@@ -263,7 +263,7 @@ function modifier_item_heart_transplant_buff:OnRefresh()
   end
 
   if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -304,7 +304,7 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
   end
 
   if parent:IsHero() then
-    parent:CalculateStatBonus()
+    parent:CalculateStatBonus(true)
   end
 end
 
@@ -342,8 +342,7 @@ end
 
 function modifier_item_heart_transplant_buff:GetModifierHealthRegenPercentage()
   local parent = self:GetParent()
-  local parentHasHeart = parent:HasModifier("modifier_item_heart")
-  if self.regen and not parent:IsIllusion() and not parentHasHeart then
+  if self.regen and not parent:IsIllusion() then
     return self.regen
   end
 

@@ -331,7 +331,7 @@ function FindHeroesInRadius (...)
   local units = FindUnitsInRadius(...)
 
   local function isHero (hero)
-    if hero.IsRealHero and hero:IsRealHero() and not hero:IsTempestDouble() then
+    if hero.IsRealHero and hero:IsRealHero() and not hero:IsTempestDouble() and not hero:IsClone() then
       return true
     end
     return false
@@ -367,4 +367,54 @@ function MoveCameraToEntity(playerID, entity)
       PlayerResource:SetCameraTarget(playerID, nil)
     end)
   end
+end
+
+function IsLocationInOffside(location)
+  return IsLocationInRadiantOffside(location) or IsLocationInDireOffside(location)
+end
+
+function IsLocationInRadiantOffside(pos)
+  -- Radiant Offside trigger
+  local trigger = Entities:FindByName(nil, 'boss_good_zone_0')
+  if not trigger then
+    print("Radiant Offside trigger not found or referenced name is wrong.")
+    return false
+  end
+  if IsInTrigger(pos, trigger) then
+    return true
+  elseif GetMapName() == "oaa_legacy" then
+    for i = 1, 4 do
+      local triggerx = Entities:FindByName(nil, 'boss_good_zone_'..tostring(i))
+      if triggerx then
+        if IsInTrigger(pos, triggerx) then
+          return true
+        end
+      end
+    end
+  end
+
+  return false
+end
+
+function IsLocationInDireOffside(pos)
+  -- Dire Offside trigger
+  local trigger = Entities:FindByName(nil, 'boss_bad_zone_0')
+  if not trigger then
+    print("Dire Offside trigger not found or referenced name is wrong.")
+    return false
+  end
+  if IsInTrigger(pos, trigger) then
+    return true
+  elseif GetMapName() == "oaa_legacy" then
+    for i = 1, 4 do
+      local triggerx = Entities:FindByName(nil, 'boss_bad_zone_'..tostring(i))
+      if triggerx then
+        if IsInTrigger(pos, triggerx) then
+          return true
+        end
+      end
+    end
+  end
+
+  return false
 end

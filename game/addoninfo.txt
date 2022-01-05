@@ -3,8 +3,9 @@
 	TeamCount = 3
 	maps =
 	[
-		"oaa",
-		"oaa_winter",
+		"oaa_seasonal",
+		"1v1",
+		"oaa_legacy",
 		"captains_mode",
 		"10v10",
 	]
@@ -15,7 +16,11 @@
 	[
 		{
 			MaxPlayers = 10
-			map = "oaa_winter"
+			map = "oaa_seasonal"
+		},
+		{
+			MaxPlayers = 2
+			map = "1v1"
 		},
 		{
 			MaxPlayers = 20
@@ -27,7 +32,7 @@
 		},
 		{
 			MaxPlayers = 10
-			map = "oaa"
+			map = "oaa_legacy"
 		},
 		{ 
 		    MaxPlayers = 10
@@ -37,7 +42,7 @@
 	HideInTools = false
 	IsTemplate = false
 	CheckAFKPlayers = false
-	DefaultMap = "oaa"
+	DefaultMap = "oaa_seasonal"
 	Default_Keys = [  ]
 	DisableIK = true
 	EventGame = false

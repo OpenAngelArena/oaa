@@ -1,9 +1,11 @@
 "DOTAAbilities"
 {
+  "item_recipe_meteor_hammer"                             "REMOVE"
+  "item_meteor_hammer"                                    "REMOVE"
+
   //=================================================================================================================
   // Recipe: Meteor Hammer 1
   //=================================================================================================================
-  "item_recipe_meteor_hammer" "REMOVED"
   "item_recipe_meteor_hammer_1"
   {
     // General
@@ -15,7 +17,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "250"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "100"
     "ItemShopTags"                  ""
 
     // Recipe
@@ -24,14 +27,13 @@
     "ItemResult"                    "item_meteor_hammer_1"
     "ItemRequirements"
     {
-      "01"                        "item_pers;item_crown"
+      "01"                                                "item_pers;item_rod_of_atos"
     }
   }
 
   //=================================================================================================================
   // Meteor Hammer 1
   //=================================================================================================================
-  "item_meteor_hammer" "REMOVED"
   "item_meteor_hammer_1"
   {
     // General
@@ -58,12 +60,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"              "600"
     "AbilitySharedCooldown"         "meteor"
-    "AbilityCooldown"               "24"
+    "AbilityCooldown"               "20 19 18 17 16"
     "AbilityManaCost"               "125"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "2350"
+    "ItemCost"                      "4500"
     "ItemQuality"                   "epic"
     "ItemAliases"                   "mh;meteor hammer"
     "ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -72,30 +74,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // it should be the same as Sheepstick (Scythe of Vyse) or Eul's Scepter
+      "01" // like Wind Waker
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 25 45 70 100"
+        "bonus_intellect"                                 "35 45 60 80 105"
       }
-      "02" // it should be the same or better than Rod of Atos; better than Sheepstick (Scythe of Vyse)
+      "02" // better than Sheepstick (Scythe of Vyse)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 25 45 70 100"
+        "bonus_strength"                                  "12 22 42 72 112"
       }
-      "03" // it should be the same or worse than Rod of Atos; same or better than Sheepstick (Scythe of Vyse)
+      "03" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 25 40 60"
+        "bonus_agility"                                   "12 17 27 42 62"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.5 10.5 14.5 18.5 22.5"
+        "bonus_health_regen"                              "6.5 9 12 15 18"
       }
-      "05" // it should be the same as Eul's Scepter
+      "05" // like Wind Waker
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 5.25 5.75 6.5 7.5"
+        "bonus_mana_regen"                                "6.0 6.25 6.75 7.5 8.5"
       }
       "06"
       {
@@ -115,7 +117,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.75 2.0 2.25 2.5 2.75"
+        "stun_duration"                                   "1.5 1.75 2.0 2.25 2.5"
       }
       "10"
       {
@@ -135,14 +137,20 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_boss"                              "150 300 450 600 750"
+        "impact_damage_boss"                              "150 350 550 750 950"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "150 300 450 600 750"
+        "impact_damage"                                   "150 350 550 750 950"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "20 19 18 17 16"
       }
     }
+
     "precache"
     {
       "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"

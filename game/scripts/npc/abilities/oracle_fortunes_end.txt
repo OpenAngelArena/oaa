@@ -19,7 +19,7 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "120 150 180 210 420 630"
+        "damage"                                          "100 160 220 280 560 1120"
       }
       "03"
       {
@@ -73,22 +73,22 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "300"
       }
-      "07"
+      "07" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus_range"                             "800"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "08" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus_radius"                            "150"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "09" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_stun_percentage"                         "60" //OAA
+        "scepter_stun_percentage"                         "50"
         "RequiresScepter"                                 "1"
       }
     }

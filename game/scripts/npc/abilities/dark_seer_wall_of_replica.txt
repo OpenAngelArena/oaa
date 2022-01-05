@@ -18,7 +18,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "45.0"
+        "duration"                                        "30.0"
       }
       "02"
       {
@@ -56,12 +56,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_incoming"                         "100"
+        "replica_damage_incoming"                         "100 100 100 75 25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_replica_total_damage_incoming"           "200"
+        "tooltip_replica_total_damage_incoming"           "200 200 200 175 125"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
@@ -83,6 +83,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_duration"                                   "1"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_12"
       }
       "10"
       {

@@ -10,7 +10,7 @@
     "Model"                                               "models/heroes/lycan/summon_wolves.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_creep_neutral"
     "SoundSet"                                            "Lycan_Wolf"
-    "Level"                                               "1"
+    "Level"                                               "5"
     "IsSummoned"                                          "1"
     "ModelScale"                                          "1.05"
     "UnitLabel"                                           "lycan_wolf"
@@ -26,13 +26,13 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "1"      // Physical protection.
-    "MagicalResistance"                                   "80"    // Magical protection.
+    "MagicalResistance"                                   "70"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "170"    // Damage range min.
-    "AttackDamageMax"                                     "170"    // Damage range max.
+    "AttackDamageMin"                                     "180"    // Damage range min.
+    "AttackDamageMax"                                     "180"    // Damage range max.
     "AttackRate"                                          "0.8"    // Speed of attack.
     "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
@@ -49,8 +49,8 @@
     // Bounty
     //----------------------------------------------------------------
     "BountyXP"                                            "20"    // Experience earn.
-    "BountyGoldMin"                                       "21"    // Gold earned min.
-    "BountyGoldMax"                                       "21"    // Gold earned max.
+    "BountyGoldMin"                                       "92"    // Gold earned min.
+    "BountyGoldMax"                                       "92"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
@@ -59,7 +59,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "1500"    // Base health.
+    "StatusHealth"                                        "1625"    // Base health.
     "StatusHealthRegen"                                   "0.5"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
@@ -76,5 +76,4 @@
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
-
 }

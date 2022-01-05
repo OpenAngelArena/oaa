@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -32,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -56,7 +57,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "40 70 100 130 260 390" //OAA
+        "axe_damage"                                      "60 90 120 150 300 600" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster"
       }
       "05"
@@ -68,6 +69,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_amp"                                      "6 8 10 12 14 16"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_9"
       }
       "07"
       {

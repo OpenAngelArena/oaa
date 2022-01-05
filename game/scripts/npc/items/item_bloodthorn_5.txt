@@ -9,10 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3103"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,9 +25,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodthorn_4;item_upgrade_core_4"
-      "02"                                                "item_greater_crit_4;item_upgrade_core_4"
-      "03"                                                "item_nullifier_4;item_upgrade_core_4"
-      "04"                                                "item_imp_claw_1;item_upgrade_core_4"
+      //"02"                                                "item_greater_crit_4;item_upgrade_core_4"
+      //"03"                                                "item_nullifier_4;item_upgrade_core_4"
+      //"04"                                                "item_silver_edge_4;item_upgrade_core_4"
     }
   }
 
@@ -59,7 +60,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "37725"
+    "ItemCost"                                            "39279"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 5"
@@ -72,7 +73,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 40 60 85 115"
+        "bonus_intellect"                                 "25 35 50 70 95"
       }
       "02"
       {
@@ -102,7 +103,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "130 140 150 160 170"
+        "target_crit_multiplier"                          "125 130 140 155 175"
       }
       "08"
       {

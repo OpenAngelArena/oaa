@@ -20,11 +20,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "1100"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22"
+    "AbilityCooldown"                                     "25 24 23 22 20 18" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,13 +37,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.7 1.0 1.3 1.6 1.8 2.0"
+        "stun_duration"                                   "1 1.2 1.4 1.6 1.8 2.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_9"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "strike_crit_mult"                                "150 175 200 225 250 275"
-        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king"
+        "strike_crit_mult"                                "135 165 195 225 255 285"
       }
       "03"
       {
@@ -53,7 +53,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "strike_cast_range"                               "1200"
+        "strike_cast_range"                               "1100"
       }
     }
   }

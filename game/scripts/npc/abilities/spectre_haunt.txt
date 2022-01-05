@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "140 130 120 110 100" //OAA
+    "AbilityCooldown"                                     "120 115 110 105 100" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,12 +54,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_incoming"                        "100"
+        "illusion_damage_incoming"                        "100 100 100 75 25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_incoming"          "200"
+        "tooltip_illusion_total_damage_incoming"          "200 200 200 175 125"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"

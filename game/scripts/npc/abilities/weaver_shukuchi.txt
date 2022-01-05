@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "200 230 260 290 300 310"
-        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_2"
       }
       "03"
       {
@@ -53,6 +52,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_6"
       }
     }
   }

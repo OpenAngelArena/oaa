@@ -7,18 +7,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5433"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_divided_we_stand.lua"
-    "AbilityTextureName"                                  "meepo_divided_we_stand"
+    "ID"                                                  "5433"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+
     "DisplayAdditionalHeroes"                             "1"
     "LevelsBetweenUpgrades"                               "7"
-    "RequiredLevel"                                       "3"
+    "RequiredLevel"                                       "4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "MaxLevel"                                            "5"
-    "HasScepterUpgrade"                                   "1"
+
+    "HasShardUpgrade"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +25,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_clones"                                  "1 2 3 4 5"
+        "tooltip_clones"                                  "1 2 3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_5"
       }
       "02"
       {
@@ -48,6 +47,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_respawn"                                 "20"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "-50"
+      }
+      "08" //OAA, for picking screen tooltip
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_dmg_reduction_pct"                         "5 5 5 8 11"
       }
     }
   }

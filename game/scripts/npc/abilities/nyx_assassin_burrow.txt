@@ -31,19 +31,19 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "1.5"
+        "health_regen_rate"                               "1"
         "RequiresScepter"                                 "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_rate"                                 "1.5"
+        "mana_regen_rate"                                 "1"
         "RequiresScepter"                                 "1"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "30" //OAA
+        "damage_reduction"                                "40" //OAA
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }

@@ -30,7 +30,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "22 18 14 10 10 10"
-    "AbilityManaCost"                                     "115"
+    "AbilityManaCost"                                     "100 105 110 115 120 125"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -49,11 +49,13 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "int_multiplier"                                  "1.5 2 2.5 3 3.5 4.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "debuff_duration"                                 "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_2"
       }
       "04"
       {
@@ -63,7 +65,13 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "600"
+        "scepter_radius"                                  "500"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "0"
         "RequiresScepter"                                 "1"
       }
     }

@@ -5,25 +5,60 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
   end
 
   local hero = self
-  local networth = Gold:GetGold(hero)
+  local playerID = hero:GetPlayerOwnerID()
+  local networth = 0 --PlayerResource:GetNetWorth(playerID)
+
+  -- Gold on the hero itself
+  if Gold then
+    networth = Gold:GetGold(playerID)
+  else
+    networth = PlayerResource:GetGold(playerID)
+  end
 
   -- Iterate over item slots adding up its gold cost
-  for i = 0, 15 do
+  -- Normal slots and backpack slots
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = hero:GetItemInSlot(i)
     if item then
-      networth = networth + item:GetCost()
+      -- Don't do it for neutral items
+      if not item:IsNeutralDrop() then
+        local name = item:GetName()
+        local purchaser = item:GetPurchaser()
+        -- Don't do it for bottles and items that don't belong to the hero
+        if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
+          networth = networth + item:GetCost()
+        end
+      end
+    end
+  end
+  -- Stash slots
+  for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
+    local item = hero:GetItemInSlot(i)
+    if item then
+      -- Don't do it for neutral items
+      if not item:IsNeutralDrop() then
+        local name = item:GetName()
+        local purchaser = item:GetPurchaser()
+        -- Don't do it for bottles and items that don't belong to the hero
+        if (not purchaser or purchaser == hero) and name ~= "item_infinite_bottle" then
+          networth = networth + item:GetCost()
+        end
+      end
+    end
+  end
+  -- TODO: Items on the ground
+  -- TODO: Items on Spirit Bear
+
+  -- Calculate core points worth in gold
+  if CorePointsManager then
+    local cp_value = CorePointsManager:GetGoldValueOfCorePoint()
+    local cps = CorePointsManager:GetCorePointsOnHero(hero, playerID)
+    if cp_value and cps then
+      networth = networth + cps * cp_value
     end
   end
 
   return networth
-
-  -- Alternate way of calculating networth:
-  -- local playerID = hero:GetPlayerOwnerID()
-  -- local playerNetworth = PlayerResource:GetNetWorth(playerID)
-
-  -- if playerNetworth then
-    -- return playerNetworth
-  -- end
 end
 
 function CDOTA_BaseNPC_Hero:ModifyGold (playerID, goldAmmt, reliable, nReason)
@@ -46,10 +81,18 @@ end
 function CDOTA_BaseNPC_Hero:GetBaseRangedProjectileName()
   if not IsServer() then
     return ""
-   end
-	local unit_name = self:GetUnitName()
-	local unit_table = self:IsHero() and KeyValues.HeroKV[unit_name] or KeyValues.UnitKV[unit_name]
-	return unit_table and unit_table["ProjectileModel"] or ""
+  end
+  local unit_name = self:GetUnitName()
+  local unit_table
+  if self:IsHero() and KeyValues then
+    unit_table = KeyValues.HeroKV[unit_name] or KeyValues.UnitKV[unit_name]
+  end
+
+  if not unit_table or not unit_table["ProjectileModel"] then
+    return self:GetRangedProjectileName()
+  end
+
+  return unit_table["ProjectileModel"] or ""
 end
 
 
@@ -61,7 +104,10 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
 
   -- Priority Items > Hero Attack Modifiers > Base Attack
 
-	if unit:HasModifier("modifier_item_trumps_fists_passive") then
+  if unit:HasModifier("modifier_item_siege_mode_active") then
+    unit:SetRangedProjectileName("particles/base_attacks/ranged_tower_bad.vpcf")
+
+  elseif unit:HasModifier("modifier_item_trumps_fists_passive") then
     unit:SetRangedProjectileName("particles/items/trumps_fists/trumps_fists_projectile.vpcf")
 
   elseif unit:HasModifier("modifier_oaa_glaives_of_wisdom_fx") then
@@ -74,12 +120,14 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
     unit:SetRangedProjectileName("particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf")
 
   -- If it's one of Dragon Knight's forms, use its attack projectile instead
-  elseif unit:HasModifier("modifier_dragon_knight_corrosive_breath") then
-    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_corrosive.vpcf")
-  elseif unit:HasModifier("modifier_dragon_knight_splash_attack") then
-    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf")
   elseif unit:HasModifier("modifier_dragon_knight_frost_breath") then
     unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_frost.vpcf")
+
+  elseif unit:HasModifier("modifier_dragon_knight_splash_attack") then
+    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf")
+
+  elseif unit:HasModifier("modifier_dragon_knight_corrosive_breath") then
+    unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_corrosive.vpcf")
 
   -- If it's a metamorphosed Terrorblade, use its attack projectile instead
   elseif unit:HasModifier("modifier_terrorblade_metamorphosis") then

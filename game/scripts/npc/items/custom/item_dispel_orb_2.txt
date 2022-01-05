@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: dispel_orb_2
+  // Recipe: Dispel Orb 2
   //=================================================================================================================
   "item_recipe_dispel_orb_2"
   {
@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3807"   // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -24,12 +25,12 @@
     "ItemRequirements"
     {
       "01"                                                "item_dispel_orb_1;item_upgrade_core_3"
-      "02"                                                "item_lotus_orb_3;item_upgrade_core_3"
+      //"02"                                                "item_lotus_orb_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // dispel_orb_2
+  // Dispel Orb 2
   //=================================================================================================================
   "item_dispel_orb_2"
   {
@@ -54,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16950"
+    "ItemCost"                                            "16853"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Dispel orb 2; purge crystal 2"
@@ -74,7 +75,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "11.0 16.0 30.0"
+        "bonus_health_regen"                              "13 16 19"
       }
       "03"
       {

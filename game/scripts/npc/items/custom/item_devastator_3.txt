@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "4054"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -47,11 +48,12 @@
 
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/devastator_3"
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0"
-    "AbilityCooldown"                                     "10"
+    "AbilityCooldown"                                     "7"
     "AbilityManaCost"                                     "75"
 
     // Stats
@@ -61,7 +63,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8500"
+    "ItemCost"                                            "8502"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator;devastator 3;"
@@ -70,6 +72,7 @@
     "precache"
     {
       "particle"                                          "particles/items/devastator/devastator_active.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lina/lina_spell_dragon_slave_impact.vpcf"
     }
 
     // Special
@@ -87,7 +90,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "corruption_armor"                                "-3 -5 -8 -12 -17"
       }
-      "03"
+      "03" // like Desolator
       {
         "var_type"                                        "FIELD_FLOAT"
         "corruption_duration"                             "7.0"
@@ -122,17 +125,17 @@
         "var_type"                                        "FIELD_INTEGER"
         "devastator_movespeed_reduction"                  "-10 -20 -30 -40 -50"
       }
-      "10" // like Solar Crest
+      "10" // like Desolator
       {
         "var_type"                                        "FIELD_FLOAT"
         "devastator_movespeed_reduction_duration"         "7.0"
       }
-      "11" // better than desolator, similar to solar crest
+      "11" // better than desolator
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_armor_reduction"                      "-7 -10 -14 -19 -25"
       }
-      "12" // like Desolator and Solar Crest
+      "12" // like Desolator
       {
         "var_type"                                        "FIELD_FLOAT"
         "devastator_armor_reduction_duration"             "7.0"

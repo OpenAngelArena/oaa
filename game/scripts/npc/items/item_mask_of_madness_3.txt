@@ -7,7 +7,8 @@
   {
     "ID"                                                  "3081"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -16,7 +17,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_mask_of_madness_2;item_upgrade_core_2"
-      "02"                                                "item_satanic_2;item_upgrade_core_2"
+      //"02"                                                "item_satanic_2;item_upgrade_core_2"
     }
   }
 
@@ -45,7 +46,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "10800"
+    "ItemCost"                                            "10052"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom 3;mask of madness 3"
@@ -59,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 35 65 105 155"
+        "bonus_damage"                                    "10 30 70 130 210"
       }
       "02"
       {
@@ -74,7 +75,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "110 120 140 170 210"
+        "berserk_bonus_attack_speed"                      "100 110 130 160 200"
       }
       "05"
       {

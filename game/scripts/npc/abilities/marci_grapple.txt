@@ -1,0 +1,86 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Marci Dispose
+  //=================================================================================================================
+  "marci_grapple"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"							"8192"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"				"1"
+
+    "MaxLevel"                    	"6"
+    "RequiredLevel"              	"1"
+    "LevelsBetweenUpgrades"         "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+
+    "AbilityCastPoint"				"0.2"
+    "AbilityCastRange"				"175"
+    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+    "AbilityCastGestureSlot"				"DEFAULT"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"				"16 14 12 10 10 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"				"90"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "landing_radius"						"275"
+      }
+      "02"
+      {
+        "var_type"							"FIELD_FLOAT"
+        "air_duration"							"0.5"
+      }
+      "03"
+      {
+        "var_type"							"FIELD_FLOAT"
+        "air_height"							"150"
+      }
+      "04"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "pull_offset"							"75"
+      }
+      "05"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "throw_distance_behind"						"350"
+      }
+      "06"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "pull_angle"							"230"
+      }
+      "07"
+      {
+        "var_type"							"FIELD_FLOAT"
+        "stun_duration"							"0.9 1.3 1.7 2.1 2.3 2.5"
+        "LinkedSpecialBonus"						"special_bonus_unique_marci_grapple_stun_duration"
+      }
+      "08"
+      {
+        "var_type"							"FIELD_INTEGER"
+        "impact_damage"							"70 120 170 220 440 880"
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@
     "ID"                                    "7548"
     "BaseClass"                             "item_datadriven"
     "AbilityTextureName"                    "custom/recipe/recipe_1"
-    "Model"                                 "models/props_gameplay/recipe.mdl"
+    "Model"                                 "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "100"
+    "ItemCost"                              "101"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"

@@ -20,14 +20,16 @@
 
     "MaxLevel"                                            "5"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCastRange"                                    "500"
+    "AbilityCooldown"                                     "100" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -46,13 +48,18 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "25 40 55 130 205"
+        "damage"                                          "30 60 90 180 330" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "deniable_pct"                                    "25"
+      }
+      "04" // unused
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "100.0"
       }
     }
   }

@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250 350 450 550 650"
+    "AbilityManaCost"                                     "200 300 400 500 600"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,14 +36,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "250 600 950 2000 3750" //OAA
+        "heal_amount"                                     "275 625 975 2025 3775" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_chen_2"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "ancient_creeps_scepter"                          "1 2 3 4 5"
-        "RequiresScepter"                                 "1"
+        "RequiresShard"                                   "1"
       }
     }
   }

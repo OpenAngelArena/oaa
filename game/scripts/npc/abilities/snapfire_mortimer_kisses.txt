@@ -29,8 +29,8 @@
 
         // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "110"
-        "AbilityDuration"               "6.0"
+        "AbilityCooldown"               "120 110 100 95 90"
+        "AbilityDuration"               "5.5"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -69,7 +69,7 @@
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
-                "duration_tooltip"      "6.0"
+                "duration_tooltip"      "5.5"
             }
             "07"
             {
@@ -94,7 +94,7 @@
             "11"
             {
                 "var_type"              "FIELD_INTEGER"
-                "move_slow_pct"         "15 20 25 30 30"
+                "move_slow_pct"         "15 20 25 30 35"
                 "LinkedSpecialBonus"    "special_bonus_unique_snapfire_4"
             }
             "12"

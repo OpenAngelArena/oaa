@@ -9,10 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3010"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -23,10 +24,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_power_treads;item_upgrade_core"
-      "02"                                                "item_phase_boots;item_upgrade_core"
-      "03"                                                "item_tranquil_boots;item_upgrade_core"
-      "04"                                                "item_travel_boots;item_upgrade_core"
-      "05"                                                "item_arcane_boots;item_upgrade_core"
+      //"02"                                                "item_phase_boots;item_upgrade_core"
+      //"03"                                                "item_tranquil_boots;item_upgrade_core"
+      //"04"                                                "item_travel_boots_oaa;item_upgrade_core"
+      //"05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -40,11 +41,13 @@
     "ID"                                                  "3015"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/greater_power_treads"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2425"
+    "ItemCost"                                            "2901"
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads;power treads;treads"
@@ -57,40 +60,45 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // 45
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed"                            "50 55 60 65"
       }
-      "02"
+      "02" // 10
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_stat"                                      "25 45 70 100"
+        "primary_attribute_bonus"                         "25 40 55 70"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45"
+        "bonus_all_stats"                                 "10 15 20 25"
       }
-      "04"
+      "04" // 25
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 60 100"
+        "bonus_attack_speed"                              "30 35 40 45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "all_stats"                                       "0"
+        "bonus_damage"                                    "10 20 40 70"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "12 14 16 18"
+        "bonus_magic_resistance"                          "5 6 7 8"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "8 12 16 20"
+        "bonus_spell_amp"                                 "7 8 9 10"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "primary_attribute_multiplier"                    "2"
       }
     }
   }

@@ -5,11 +5,10 @@
   //=================================================================================================================
   "item_recipe_armlet"
   {
-
     "ID"                                                  "150"       // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "625"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_armlet"
@@ -43,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2475"
+    "ItemCost"                                            "2500"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "armlet of mordiggian;armlet"
@@ -56,7 +55,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 15 25 40 60" //OAA
+        "bonus_damage"                                    "15 20 30 45 65"
       }
       "02"
       {
@@ -66,7 +65,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 6 8 11 15"
+        "bonus_armor"                                     "6 7 9 12 16"
       }
       "04"
       {
@@ -76,7 +75,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_damage"                             "30 35 45 60 80" //OAA
+        "unholy_bonus_damage"                             "35 40 50 65 85"
       }
       "06"
       {
@@ -86,24 +85,19 @@
       "07" // 0.1 hp regen per STR
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_bonus_strength"                           "25 35 50 70 100"
+        "unholy_bonus_strength"                           "25 35 50 70 95"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "unholy_bonus_armor"                              "4 5 6 7 8"
       }
-      "09" // tick time is 0.11 seconds
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_tick"                    "6 8 11 15 20"
+        "unholy_health_drain_per_second"                  "40 65 95 130 170" // old: 50 75 105 140 180
       }
       "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_health_drain_per_second_tooltip"          "54 73 100 136 182"
-      }
-      "11"
       {
         "var_type"                                        "FIELD_FLOAT"
         "toggle_cooldown"                                 "0.036f"

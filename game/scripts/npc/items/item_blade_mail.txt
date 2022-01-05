@@ -7,20 +7,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "126"    // unique ID
+    "ID"                                                  "126"
+    //"BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "FightRecapLevel"                                     "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "500"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "575"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_blade_mail"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemRequirements"
     {
       "01"                                                "item_broadsword;item_chainmail"
@@ -34,23 +37,28 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "127"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "127"
+    //"BaseClass"                                           "item_lua"
+    //"ScriptFile"                                          "items/blade_mail.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/blade_mail_1"
+    //"AbilityTextureName"                                  "custom/blade_mail_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
+    "AbilityManaCost"                                     "25"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_blade_mail;item_blade_mail_2;item_blade_mail_3;item_blade_mail_4"
+    //"MaxUpgradeLevel"                                     "5"
+    //"ItemBaseLevel"                                       "1"
+    //"UpgradesItems"                                       "item_blade_mail;item_blade_mail_2;item_blade_mail_3;item_blade_mail_4"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "2050"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "2125"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
@@ -63,12 +71,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "28 48 88 148 228"
+        "bonus_damage"                                    "28" //"28 48 88 148 228"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 18 24"
+        "bonus_armor"                                     "6" //"6 9 13 18 24"
       }
       "03"
       {
@@ -83,7 +91,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_reflection_constant"                     "20"
+        "passive_reflection_constant"                     "20" //"20 40 80 140 220"
       }
       "06"
       {
@@ -93,7 +101,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_reflection_pct"                           "80 90 100 110 120"
+        "active_reflection_pct"                           "80" //"80 90 100 110 120"
       }
     }
   }

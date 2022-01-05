@@ -6,14 +6,13 @@
   "keeper_of_the_light_will_o_wisp"
   {
     "ID"                                                  "7316"
-    "AbilityBehavior"				                              "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"				                              "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"			                          "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"				                            "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"			                          "SPELL_DISPELLABLE_YES"
-    "AbilityType"					                                "DOTA_ABILITY_TYPE_ULTIMATE"
 
-    "MaxLevel"                                            "5"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,11 +20,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				                              "90" //OAA
+    "AbilityCooldown"				                              "60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250 350 450 550 650"
+    "AbilityManaCost"                                     "250"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -38,20 +37,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "on_count"                                        "4 5 6 7 8" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_3"
+        "on_count"                                        "5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "725"
-        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hit_count"                                       "4 6 8 10 12" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_4"
+        "hit_count"                                       "12" //OAA
       }
       "04"
       {
@@ -71,12 +67,12 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fixed_movement_speed"                            "35"
+        "fixed_movement_speed"                            "60"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounty"                                          "100 125 150 300 700"
+        "bounty"                                          "100"
       }
     }
   }

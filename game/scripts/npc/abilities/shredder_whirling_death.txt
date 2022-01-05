@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70"
+    "AbilityManaCost"                                     "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,17 +38,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "whirling_radius"                                 "300"
+        "whirling_radius"                                 "325"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "whirling_damage"                                 "90 120 150 180 500 800"
+        "whirling_damage"                                 "50 100 150 200 400 800" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_damage_scale"                               "12 18 24 30 50 100"
+        "tree_damage_scale"                               "11 18 25 32 64 128"
       }
       "04"
       {
@@ -64,7 +64,7 @@
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "14.0"
+        "duration"                                        "13 14 15 16 17 18"
       }
     }
   }

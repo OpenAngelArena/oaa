@@ -26,8 +26,8 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35.0"
-    "AbilityDuration"                                     "35.0"
+    "AbilityCooldown"                                     "35.0" //OAA
+    "AbilityDuration"                                     "40.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,6 +52,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "eidolon_hp_tooltip"                              "180 200 220 240 1240 2480"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_7"
       }
       "04"
       {

@@ -1,51 +1,49 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_visage"
-	"Title"			"Recommended items for Visage"
+  "author"		"Valve"
+  "hero"			"npc_dota_hero_visage"
+  "Title"			"Recommended items for Visage"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_boots"
-			"item"		"item_clarity"
-			"item"		"item_branches"
-			"item"		"item_magic_stick"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"		"item_boots"
+      "item"		"item_clarity"
+      "item"		"item_branches"
+      "item"		"item_magic_stick"
       "item"    "item_flask"
-		}
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_ward_stack"
-			"item"		""
-			"item"		""
-			"item"		"item_solar_crest"
-		}
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"		"item_ward_stack"
+      "item"		"item_solar_crest"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_greater_guardian_greaves"
-			"item"		"item_vladmir"
-			"item"		"item_ancient_janggo"
-			"item"		"item_heart"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"		"item_greater_guardian_greaves"
+      "item"		"item_vladmir"
+      "item"		"item_ancient_janggo"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_helm_of_the_dominator_2"
-			"item"		"item_lucience_1"
-			"item"		"item_regen_crystal_1"
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_ultimate_scepter"
+      "item"		"item_helm_of_the_dominator"
+      "item"		"item_lucience"
+      "item"		"item_regen_crystal_1"
+      "item"		"item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_radiance"
-			"item"		"item_octarine_core"
-			"item"		"item_ethereal_blade"
-			"item"		"item_bloodthorn"
-			"item"		"item_rod_of_atos"
-			"item"		"item_assault"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"		"item_radiance"
+      "item"		"item_ethereal_blade"
+      "item"		"item_bloodthorn"
+      "item"		"item_rod_of_atos"
+      "item"		"item_assault"
+    }
+  }
 }

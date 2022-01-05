@@ -3,30 +3,31 @@
   //=================================================================================================================
   // Recipe: Azazel Summon - Tank
   //=================================================================================================================
-  "item_recipe_azazel_summon_tank"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7564"
-    "BaseClass"                             "item_datadriven"
-    "AbilityTextureName"                    "custom/recipe/recipe_1"
-    "Model"                                 "models/props_gameplay/recipe.mdl"
+  // "item_recipe_azazel_summon_tank"
+  // {
+    // // General
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ID"                                    "7564"
+    // "BaseClass"                             "item_datadriven"
+    // "AbilityTextureName"                    "custom/recipe/recipe_1"
+    // "Model"                                 "models/props_gameplay/recipe.vmdl"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1"
-    "SecretShop"                            "1"
-    "ItemShopTags"                          ""
+    // // Item Info
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ItemCorePointCost"                                   "2"
+    // "ItemCost"                                            "1"
+    // "SecretShop"                            "1"
+    // "ItemShopTags"                          ""
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                            "1"
-    "ItemResult"                            "item_azazel_summon_tank"
-    "ItemRequirements" // OAA
-    {
-      "01"                                  "item_upgrade_core"
-    }
-  }
+    // // Recipe
+    // //-------------------------------------------------------------------------------------------------------------
+    // "ItemRecipe"                            "1"
+    // "ItemResult"                            "item_azazel_summon_tank"
+    // "ItemRequirements" // OAA
+    // {
+      // "01"                                  "item_upgrade_core"
+    // }
+  // }
 
   //=================================================================================================================
   // Azazel Summon - Tank
@@ -51,7 +52,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                              "1"
+    "ItemCorePointCost"                                   "2"
+    "ItemCost"                                            "1"
     "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                          "consumable"
     "ItemQuality"                           "epic"
@@ -89,7 +91,7 @@
       "04"
       {
         "var_type"                          "FIELD_INTEGER"
-        "summon_damage"                     "100"
+        "summon_damage"                     "10"
       }
       "05" // needs to be changed on the unit as well
       {

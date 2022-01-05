@@ -15,7 +15,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
@@ -25,12 +25,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"                                  "6.0"
-    "AbilityCooldown"                                     "100" //OAA
+    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -49,6 +49,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "fiend_grip_mana_drain"                           "5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bane_9"
       }
       "03"
       {
@@ -59,7 +60,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fiend_grip_damage"                               "100 200 300 600 900" //OAA
+        "fiend_grip_damage"                               "80 160 240 480 720" //OAA
       }
     }
   }

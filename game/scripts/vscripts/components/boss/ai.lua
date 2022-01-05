@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Taken from bb template
@@ -70,13 +71,17 @@ end
 ]]
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
-  PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
-    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+  if CorePointsManager then
+    CorePointsManager:GiveCorePointsToWholeTeam(CorePointsManager:GetCorePointValueOfUpdgradeCore(item), teamId)
+  else
+    PlayerResource:GetPlayerIDsForTeam(teamId):each(function (playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
 
-    if hero then
-      hero:AddItemByName(item)
-    end
-  end)
+      if hero then
+        hero:AddItemByName(item)
+      end
+    end)
+  end
 end
 
 function BossAI:RewardBossKill(state, deathEventData, teamId)
@@ -113,8 +118,8 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
     elseif not self.hasSecondBoss[team] then
       self.hasSecondBoss[team] = true
 
-      BossSpawner[team .. "Zone1"].disable()
-      BossSpawner[team .. "Zone2"].disable()
+      --BossSpawner[team .. "Zone1"].disable()
+      --BossSpawner[team .. "Zone2"].disable()
     end
   elseif tier == 2 then
     -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
@@ -150,10 +155,14 @@ function BossAI:DeathHandler (state, keys)
     return
   end
 
-  -- Create under spectator team so that spectators can always see the capture point
-  local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, DOTA_TEAM_SPECTATOR, false)
-  local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+  -- Create a capture point
+  --local capturePointThinker = CreateModifierThinker(state.handle, nil, "modifier_boss_capture_point", nil, state.origin, DOTA_TEAM_SPECTATOR, false)
+  local capturePointThinker = CreateUnitByName("npc_dota_custom_dummy_unit", state.origin, false, nil, nil, DOTA_TEAM_SPECTATOR)
+  capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_oaa_thinker", {})
+  --local capturePointModifier = capturePointThinker:FindModifierByName("modifier_boss_capture_point")
+  local capturePointModifier = capturePointThinker:AddNewModifier(capturePointThinker, nil, "modifier_boss_capture_point", {})
   capturePointModifier:SetCallback(partial(self.RewardBossKill, self, state, keys))
+
   -- Give the thinker some vision so that spectators can always see the capture point
   capturePointThinker:SetDayTimeVisionRange(1)
   capturePointThinker:SetNightTimeVisionRange(1)

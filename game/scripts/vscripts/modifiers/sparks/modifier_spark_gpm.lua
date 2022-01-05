@@ -56,7 +56,7 @@ function modifier_spark_gpm:OnIntervalThink()
   local gpm = self:CalculateGPM()
   Gold:ModifyGold(caster:GetPlayerOwnerID(), math.ceil(gpm / 60), true, DOTA_ModifyGold_GameTick)
 
-  self:SetStackCount(gpm)
+  --self:SetStackCount(gpm)
 end
 
 -- Formula for GPM scaling
@@ -68,7 +68,7 @@ function modifier_spark_gpm:CalculateGPM()
 end
 
 function modifier_spark_gpm:IsHidden()
-  return false
+  return not IsInToolsMode()
 end
 
 function modifier_spark_gpm:IsDebuff()
@@ -87,12 +87,12 @@ function modifier_spark_gpm:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_spark_gpm:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_TOOLTIP
-  }
-end
+-- function modifier_spark_gpm:DeclareFunctions()
+  -- return {
+    -- MODIFIER_PROPERTY_TOOLTIP
+  -- }
+-- end
 
-function modifier_spark_gpm:OnTooltip()
-  return self:GetStackCount()
-end
+-- function modifier_spark_gpm:OnTooltip()
+  -- return self:GetStackCount()
+-- end

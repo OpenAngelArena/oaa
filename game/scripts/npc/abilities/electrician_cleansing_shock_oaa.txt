@@ -26,12 +26,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastRange"                                    "600"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                                    "650"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0 8.0 6.0 5.0 4.0"
+    "AbilityCooldown"                                     "10 8 6 5 4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "40 60 80 85 90"
+        "slow"                                            "50 65 80 85 90"
       }
       "04"
       {
@@ -69,7 +69,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounce_range"                                    "500"
+        "bounce_range"                                    "600"
       }
       "07"
       {
@@ -80,7 +80,13 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "summon_illusion_damage_scepter"                  "1000 2000 3000 6000 9000"
+        "summon_illusion_damage_scepter"                  "700 1000 1300 2200 3700"
+        "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_scepter"                               "0"
         "RequiresScepter"                                 "1"
       }
     }

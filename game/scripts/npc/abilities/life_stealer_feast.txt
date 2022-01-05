@@ -22,13 +22,13 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_leech_percent"                                "1.5 2 2.5 3 3.5 4.0"
+        "hp_leech_percent"                                "1.6 2.2 2.8 3.4 4.0 4.6"
         "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_3"
       }
       "02"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus"                              "15 30 45 60 75 90"
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_damage_percent"                               "0.6 0.8 1 1.2 1.4 1.6"
       }
     }
   }

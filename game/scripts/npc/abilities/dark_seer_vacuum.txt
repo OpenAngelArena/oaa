@@ -18,7 +18,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -57,12 +57,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_tree"                                     "400 450 500 550 600 650" //OAA, same as radius
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "12"
-        "RequiresScepter"                                 "1"
       }
     }
   }

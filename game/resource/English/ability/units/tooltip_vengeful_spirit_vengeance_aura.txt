@@ -1,0 +1,26 @@
+//=============================================================================
+// Vengeful Spirit Vengeance Aura Rework
+//=============================================================================
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura"                              "Vengeance Aura"
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_Description"                  "Vengeful Spirit's presence increases the damage of nearby friendly heroes."
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_scepter_description"          "Upon death, creates a strong illusion of Vengeful Spirit that deals and takes 100%% damage and can cast all of her spells. Illusion has 12%% movement speed bonus. If the illusion is alive when Vengeful Spirit respawn, she will take its place. XP earned by her illusion is given to her."
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_Lore"                         "Although they may not share her undying passion for revenge, allies do draw on her fanaticism in combat."
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_Note0"                        "Vengeance Illusion keeps providing the Vengeance Aura after Vengeful Spirit's death."
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_Note1"                        "Strong Illusions are not instantly killed by spells."
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_bonus_base_damage"            "%BASE DAMAGE BONUS:"
+//"DOTA_Tooltip_ability_vengefulspirit_command_aura_aura_radius"                  "RADIUS:"
+
+//"DOTA_Tooltip_modifier_vengefulspirit_command_aura_effect"                      "Vengeance Aura"
+//"DOTA_Tooltip_modifier_vengefulspirit_command_aura_effect_Description"          "Providing  +%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% base damage."
+
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa"                              "#{DOTA_Tooltip_ability_vengefulspirit_command_aura}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_Description"                  "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_Description}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_scepter_description"          "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_scepter_description}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_Lore"                         "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_Lore}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_Note0"                        "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_Note0}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_Note1"                        "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_Note1}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_bonus_base_damage"            "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_bonus_base_damage}"
+"DOTA_Tooltip_ability_vengefulspirit_command_aura_oaa_aura_radius"                  "#{DOTA_Tooltip_ability_vengefulspirit_command_aura_aura_radius}"
+
+"DOTA_Tooltip_modifier_vengefulspirit_command_aura_oaa_damage_buff"                 "#{DOTA_Tooltip_ability_vengefulspirit_command_aura}"
+"DOTA_Tooltip_modifier_vengefulspirit_command_aura_oaa_damage_buff_Description"     "#{DOTA_Tooltip_modifier_vengefulspirit_command_aura_effect_Description}"

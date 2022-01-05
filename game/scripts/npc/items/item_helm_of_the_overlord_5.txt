@@ -1,0 +1,155 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Helm of the Overlord 5
+  //=================================================================================================================
+  "item_recipe_helm_of_the_overlord_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3947"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_helm_of_the_overlord_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_helm_of_the_overlord_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Helm of the Overlord 5
+  //=================================================================================================================
+  "item_helm_of_the_overlord_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3948"
+    "BaseClass"                                           "item_helm_of_the_overlord"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityTextureName"                                  "custom/helm_of_the_overlord_5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "45"
+    "AbilitySharedCooldown"                               "dominate"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "39329"
+    "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "hoto 5;helm of the overlord 5;helm 5;overlord 5"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_stats"                                     "6 10 15 20 25"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6 7 8 9 10"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_regen"                                     "6 9 12 15 18"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_min"                                      "1800 2800 4800 7800 11800"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_base"                                      "400"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounty_gold"                                     "250 500 1000 2000 4000"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_damage"                              "50 100 150 200 250"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_hp_regen"                            "12"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_mp_regen"                            "4"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_armor"                               "5 6 7 8 9"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale"                                     "20 30 40 50 60"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "count_limit"                                     "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "armor_aura"                                      "3.0 4.0 6.0 9.0 13.0"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mana_regen_aura"                                 "1.75 2.0 2.5 3.25 4.25"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "lifesteal_aura"                                  "15 25 35 45 55"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_aura"                                     "18 26 34 42 50"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+    }
+  }
+}

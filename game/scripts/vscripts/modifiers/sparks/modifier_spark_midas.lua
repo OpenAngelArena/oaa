@@ -33,23 +33,26 @@ function modifier_spark_midas:OnCreated()
   -- Midas Spark variables
   self.max_charges = 400
   self.charges_needed_for_kill = 100
-  self.bonus_gold = {375, 750, 1500, 3000, 4500, 7500, 15000} -- gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000} * 3/4
-  self.bonus_xp = 25 -- 1/4
+  self.bonus_gold = 0 -- {375, 750, 1500, 3000, 4500, 7500, 15000} -- gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000} * 3/4
+  self.bonus_xp = 125
+  self.passive_bonus_xp = 1/4
 end
 
-if IsServer() then
-  function modifier_spark_midas:OnIntervalThink()
-    local parent = self:GetParent()
+function modifier_spark_midas:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
 
-    -- disable everything here for illusions or during duels / pre 0:00
-    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or not Gold:IsGoldGenActive() then
-      return
-    end
+  local parent = self:GetParent()
 
-    if self.stack_count < self.max_charges then
-      self.stack_count = self.stack_count + 1
-      self:SetStackCount(self.stack_count)
-    end
+  -- disable everything here for illusions or during duels / pre 0:00
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or not Gold:IsGoldGenActive() then
+    return
+  end
+
+  if self.stack_count < self.max_charges then
+    self.stack_count = self.stack_count + 1
+    self:SetStackCount(self.stack_count)
   end
 end
 
@@ -134,14 +137,14 @@ if IsServer() then
       self.stack_count = self.stack_count - self.charges_needed_for_kill
       self:SetStackCount(self.stack_count)
 
-      local spark_level = self:GetSparkLevel()
-
-      local bonus_gold = self.bonus_gold[spark_level]
+      local bonus_gold = self.bonus_gold --self.bonus_gold[self:GetSparkLevel()]
       local bonus_xp = self.bonus_xp
 
       -- bonus gold
-      Gold:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, player)
+      if bonus_gold > 0 then
+        Gold:ModifyGold(player:GetPlayerID(), bonus_gold, false, DOTA_ModifyGold_CreepKill)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, parent, bonus_gold, player)
+      end
 
       -- bonus experience
       if bonus_xp > 0 then
@@ -165,5 +168,5 @@ if IsServer() then
 end
 
 function modifier_spark_midas:OnTooltip()
-  return self.bonus_gold[self:GetSparkLevel()]
+  return self.bonus_xp --self.bonus_gold[self:GetSparkLevel()]
 end

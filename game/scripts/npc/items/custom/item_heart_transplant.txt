@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3258"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -24,8 +25,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_3;item_upgrade_core_3"
-      "02"                                                "item_crimson_guard_3;item_upgrade_core_3"
-      "03"                                                "item_regen_crystal_1;item_upgrade_core_3"
+      //"02"                                                "item_crimson_guard_3;item_upgrade_core_3"
+      "02"                                                "item_regen_crystal_1;item_upgrade_core_3"
     }
   }
 
@@ -57,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "ItemCost"                                            "16800"
+    "ItemCost"                                            "17303"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -67,12 +68,11 @@
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_heart_transplant"
 
-    "Precache"
+    "precache"
     {
       "particle"                                          "particles/items/heart_transplant/heart_transplant.vpcf"
       "particle"                                          "particles/items/heart_transplant/heart_transplant_d.vpcf"
       "particle"                                          "particles/items/heart_transplant/heart_transplant_end.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
     }
 
     // Special
@@ -82,17 +82,17 @@
       "01" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "85 115"
+        "bonus_strength"                                  "70 95"
       }
-      "02" // same as Heart lvls 4-5
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1600 2000"
+        "bonus_health"                                    "1500 2000"
       }
       "03" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "2.5 3"
+        "health_regen_pct"                                "1.6"
       }
       "04"
       {
@@ -107,17 +107,17 @@
       "06" // same as Heart lvls 3-4
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_strength"                       "60 85"
+        "transplant_bonus_strength"                       "50 70"
       }
-      "07" // same as Heart lvls 3-4
+      "07" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_health"                         "1200 1600"
+        "transplant_bonus_health"                         "1000 1250"
       }
       "08" // same as Heart lvls 3-4
       {
         "var_type"                                        "FIELD_FLOAT"
-        "transplant_health_regen_pct"                     "2 2.5"
+        "transplant_health_regen_pct"                     "1.5"
       }
       "09"
       {

@@ -25,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 20 18 16 16 16"
+    "AbilityCooldown"                                     "13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -63,13 +63,14 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "150 220 290 360 720 1440"
+        "max_damage"                                      "160 240 320 400 800 1600" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_2"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "250"
+        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist"
       }
     }
   }

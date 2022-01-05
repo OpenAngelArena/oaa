@@ -34,15 +34,10 @@ ItemPowerTable = {
 
 function CreepItemDrop:Init ()
   DebugPrint ( '[creeps/item_drop] Initialize' )
-  if self.initialized then
-    print("CreepItemDrop is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "CreepItemDrop (Bottle Drop)"
 
   --ListenToGameEvent("entity_killed", CreepItemDrop.OnEntityKilled, self)
   Timers:CreateTimer(Dynamic_Wrap(self, 'ItemDropUpgradeTimer'), self)
-
-  self.initialized = true
 end
 
 function CreepItemDrop:SetPowerLevel (powerLevel)

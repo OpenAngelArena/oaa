@@ -6,14 +6,14 @@
   "item_recipe_octarine_core"
   {
     "ID"                                                  "228"    // unique ID
-    "ItemCost"                                            "0" //OAA
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_octarine_core"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements" //OAA
+    "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_voodoo_mask;item_soul_booster"
+      "01"                                                "item_aether_lens;item_soul_booster"
     }
   }
 
@@ -29,7 +29,7 @@
     "AbilityTextureName"                                  "custom/octarine_core_1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5100" //OAA
+    "ItemCost"                                            "5275"
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mana;mb;octarine core"
@@ -47,42 +47,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "10 15 25 40 60" // OAA
+        "bonus_cooldown"                                  "25"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 850 1275 1700 2125"
+        "cast_range_bonus"                                "250 300 350 400 450" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 525 675 875 1125"
+        "bonus_health"                                    "425 850 1275 1700 2125"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor"                             "10"
+        "bonus_mana"                                      "725 825 975 1175 1425"
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "25"
-      }
-      "06"
-      {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "25 27 29 31 33"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "5 7 9 11 13"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_duration"                                 "7"
+        "bonus_mana_regen"                                "3.0 3.25 3.75 4.5 5.5"
       }
     }
   }

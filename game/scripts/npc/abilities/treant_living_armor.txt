@@ -14,8 +14,8 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    //"AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.4"
+    //"AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.3"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 12 12" //OAA
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,13 +35,14 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_heal"                                      "60 100 140 180 360 720"
+        "total_heal"                                      "180 270 360 450 900 1800" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_8"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 6 7 8 10 16"
+        "bonus_armor"                                     "5 6 7 8 10 12"
+        "LinkedSpecialBonus"                              "special_bonus_unique_treant_13"
       }
       "03"
       {

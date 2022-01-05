@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 110 90 80 70"
+    "AbilityCooldown"                                     "120 100 80 70 60" //OAA, for picking screen tooltip
     "AbilityDuration"                                     "13.0"
 
     // Cost
@@ -44,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "second_radius"                                   "750"
+        "second_radius"                                   "700" //OAA
       }
       "03"
       {
@@ -70,7 +70,7 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_speed"                                    "1.1"
+        "attack_speed"                                    "1.2"
       }
       "08"
       {
@@ -101,13 +101,13 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "90 70 50 50 50"
+        "cooldown_scepter"                                "90 80 70 60 50" //OAA
         "RequiresScepter"                                 "1"
       }
       "14"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_spawn_interval"                          "3.5"
+        "scepter_spawn_interval"                          "4"
         "RequiresScepter"                                 "1"
       }
       "15"

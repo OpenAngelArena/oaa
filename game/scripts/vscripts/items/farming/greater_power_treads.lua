@@ -2,8 +2,7 @@ item_greater_power_treads = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_item_greater_power_treads", "items/farming/greater_power_treads.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
-
+--[[ old
 function item_greater_power_treads:GetAbilityTextureName()
   local baseName = self.BaseClass.GetAbilityTextureName( self )
 
@@ -29,15 +28,13 @@ function item_greater_power_treads:GetAbilityTextureName()
 
   return baseName .. attributeName
 end
-
---------------------------------------------------------------------------------
+]]
 
 function item_greater_power_treads:GetIntrinsicModifierName()
   return "modifier_item_greater_power_treads"
 end
 
---------------------------------------------------------------------------------
-
+--[[ old
 function item_greater_power_treads:OnSpellStart()
   if self.treadMod then
     local attribute = self.treadMod:GetStackCount()
@@ -53,21 +50,22 @@ function item_greater_power_treads:OnSpellStart()
 
     local caster = self:GetCaster()
 
-    caster:CalculateStatBonus()
+    caster:CalculateStatBonus(false)
   end
 end
-
---------------------------------------------------------------------------------
 
 function item_greater_power_treads:IsSwappable()
   return self:GetSpecialValueFor("bonus_stat") > 0
 end
+]]
 
---------------------------------------------------------------------------------
+item_greater_power_treads_2 = class(item_greater_power_treads)
+item_greater_power_treads_3 = class(item_greater_power_treads)
+item_greater_power_treads_4 = class(item_greater_power_treads)
+
+---------------------------------------------------------------------------------------------------
 
 modifier_item_greater_power_treads = class(ModifierBaseClass)
-
---------------------------------------------------------------------------------
 
 function modifier_item_greater_power_treads:IsHidden()
   return true
@@ -81,42 +79,11 @@ function modifier_item_greater_power_treads:IsPurgable()
   return false
 end
 
-function modifier_item_greater_power_treads:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
+--function modifier_item_greater_power_treads:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
 
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:OnCreated( event )
-  local spell = self:GetAbility()
-
-  if not spell then
-    return
-  end
-
-  if spell.attribute then
-    self:SetStackCount( spell.attribute )
-  end
-
-  spell.treadMod = self
-
-  self.moveSpd = spell:GetSpecialValueFor( "bonus_movement_speed" )
-  self.atkSpd = spell:GetSpecialValueFor( "bonus_attack_speed" )
-  self.stat = spell:GetSpecialValueFor( "bonus_stat" )
-  self.bonus_damage = spell:GetSpecialValueFor( "bonus_damage" )
-  self.all_stats = spell:GetSpecialValueFor( "all_stats" )
-  self.magic_resistance = spell:GetSpecialValueFor( "bonus_magic_resistance" )
-  self.spell_amp = spell:GetSpecialValueFor( "bonus_spell_amp" )
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:OnRefresh( event )
-  return self:OnCreated( event )
-end
-
---------------------------------------------------------------------------------
-
+--[[ old
 function modifier_item_greater_power_treads:OnRemoved()
   local spell = self:GetAbility()
 
@@ -128,8 +95,65 @@ function modifier_item_greater_power_treads:OnRemoved()
     spell.treadMod = nil
   end
 end
+]]
 
 --------------------------------------------------------------------------------
+
+function modifier_item_greater_power_treads:OnCreated()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  --if ability.attribute then
+    --self:SetStackCount( ability.attribute )
+  --end
+
+  --ability.treadMod = self
+
+  self.moveSpd = ability:GetSpecialValueFor("bonus_movement_speed")
+  self.atkSpd = ability:GetSpecialValueFor("bonus_attack_speed")
+  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
+  self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
+  self.str = ability:GetSpecialValueFor("bonus_all_stats")
+  self.agi = ability:GetSpecialValueFor("bonus_all_stats")
+  self.int = ability:GetSpecialValueFor("bonus_all_stats")
+  self.multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
+  self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+
+  if IsServer() then
+    local attribute = parent:GetPrimaryAttribute()
+    self:SetStackCount(attribute)
+  end
+end
+
+function modifier_item_greater_power_treads:OnRefresh()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  self.moveSpd = ability:GetSpecialValueFor("bonus_movement_speed")
+  self.atkSpd = ability:GetSpecialValueFor("bonus_attack_speed")
+  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
+  self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
+  self.str = ability:GetSpecialValueFor("bonus_all_stats")
+  self.agi = ability:GetSpecialValueFor("bonus_all_stats")
+  self.int = ability:GetSpecialValueFor("bonus_all_stats")
+  self.multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
+  self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+
+  if IsServer() then
+    local attribute = parent:GetPrimaryAttribute()
+    self:SetStackCount(attribute)
+  end
+end
 
 function modifier_item_greater_power_treads:DeclareFunctions()
   local funcs = {
@@ -147,7 +171,122 @@ function modifier_item_greater_power_treads:DeclareFunctions()
   return funcs
 end
 
+function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Boots()
+  return self.moveSpd
+end
+
+function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant()
+  return self.atkSpd
+end
+
+function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.str + self.bonus_to_primary_stat
+  end
+  return self.str
+end
+
+function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.agi + self.bonus_to_primary_stat
+  end
+  return self.agi
+end
+
+function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.int + self.bonus_to_primary_stat
+  end
+  return self.int
+end
+
+function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.multiplier * self.magic_resistance
+  end
+  return self.magic_resistance
+end
+
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.multiplier * self.bonus_damage
+  end
+  return self.bonus_damage
+end
+
+function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.multiplier * self.spell_amp
+  end
+  return self.spell_amp
+end
+
 --------------------------------------------------------------------------------
+--[[ old
+function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  local bonus = self.all_stats
+
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    bonus = bonus + self.stat
+  end
+
+  return bonus
+end
+
+function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  local bonus = self.all_stats
+
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    bonus = bonus + self.stat
+  end
+
+  return bonus
+end
+
+function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  local bonus = self.all_stats
+
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    bonus = bonus + self.stat
+  end
+
+  return bonus
+end
+
+function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.magic_resistance
+  end
+  return 0
+end
+
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.bonus_damage
+  end
+  return 0
+end
+
+function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
+  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
+
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.spell_amp
+  end
+  return 0
+end
+]]
 
 -- farewell power treads splash
 -- i loved you
@@ -250,86 +389,3 @@ if IsServer() then
   end
 end
 --]]
-
-
-function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Boots()
-  return self.moveSpd
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant()
-  return self.atkSpd
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  local bonus = self.all_stats
-
-  if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    bonus = bonus + self.stat
-  end
-
-  return bonus
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  local bonus = self.all_stats
-
-  if attribute == DOTA_ATTRIBUTE_AGILITY then
-    bonus = bonus + self.stat
-  end
-
-  return bonus
-end
-
---------------------------------------------------------------------------------
-
-function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  local bonus = self.all_stats
-
-  if attribute == DOTA_ATTRIBUTE_INTELLECT then
-    bonus = bonus + self.stat
-  end
-
-  return bonus
-end
-
-function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    return self.magic_resistance
-  end
-  return 0
-end
-
-function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  if attribute == DOTA_ATTRIBUTE_AGILITY then
-    return self.bonus_damage
-  end
-  return 0
-end
-
-function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-
-  if attribute == DOTA_ATTRIBUTE_INTELLECT then
-    return self.spell_amp
-  end
-  return 0
-end
-
---------------------------------------------------------------------------------
-
-item_greater_power_treads_2 = class(item_greater_power_treads)
-item_greater_power_treads_3 = class(item_greater_power_treads)
-item_greater_power_treads_4 = class(item_greater_power_treads)
-item_greater_power_treads_5 = class(item_greater_power_treads)
---item_power_origin = class(item_greater_power_treads)

@@ -7,7 +7,8 @@
   {
     "ID"                                                  "3076"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
@@ -16,8 +17,8 @@
     "ItemRequirements"
     {
       "01"                                                "item_bfury_3;item_upgrade_core_3"
-      "02"                                                "item_desolator_3;item_upgrade_core_3"
-      "03"                                                "item_devastator_3;item_upgrade_core_3"
+      //"02"                                                "item_desolator_3;item_upgrade_core_3"
+      //"03"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
@@ -33,10 +34,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "4.0"
     "AbilityTextureName"                                  "custom/battle_fury_4"
+
     //Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -45,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16500"
+    "ItemCost"                                            "17133"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver 4"
@@ -58,17 +61,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "55 75 115 175 255"
+        "bonus_damage"                                    "60 80 120 180 260"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "7.5 14.0 20.0 25.0 32.0"
+        "bonus_health_regen"                              "7.5 11 14 17 20"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.25 3.5 4.0 4.75 5.75"
+        "bonus_mana_regen"                                "2.75 3.0 3.5 4.25 5.25"
       }
       "04" // Cleave against heroes
       {
@@ -78,17 +81,17 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent_creep"                     "30 50 70 90 110" //OAA
+        "cleave_damage_percent_creep"                     "40 60 80 100 120"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "18"
+        "quelling_bonus"                                  "15"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "18" //OAA
+        "quelling_bonus_ranged"                           "15" //OAA
       }
       "08"
       {

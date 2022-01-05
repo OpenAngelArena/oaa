@@ -62,7 +62,7 @@ if not BossProtectionFilter then
     monkey_king_boundless_strike = true,
     morphling_adaptive_strike_str = true,
     naga_siren_song_of_the_siren = true,
-    necrolyte_reapers_scythe = true,
+    --necrolyte_reapers_scythe = true,
     nyx_assassin_spiked_carapace = true,
     nyx_assassin_impale = true,
     obsidian_destroyer_astral_imprisonment = true,
@@ -98,15 +98,19 @@ if not BossProtectionFilter then
   }
 
   BossProtectionFilter.ProblematicSpells = {
-    death_prophet_spirit_siphon = true,
-    doom_bringer_infernal_blade = true,
-    huskar_life_break = true,
-    winter_wyvern_arctic_burn = true
+    death_prophet_spirit_siphon = false,
+    doom_bringer_infernal_blade = false,
+    huskar_life_break = false,
+    jakiro_liquid_ice = false,
+    necrolyte_reapers_scythe = false,
+    tinker_shrink_ray = false,
+    winter_wyvern_arctic_burn = false
   }
 
 end
 
 function BossProtectionFilter:Init()
+  self.moduleName = "Boss Protection Filter"
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(self, "ModifierGainedFilter"))
   LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifier_tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 end

@@ -3,19 +3,26 @@ LinkLuaModifier('modifier_is_in_offside', 'modifiers/modifier_offside.lua', LUA_
 if ProtectionAura == nil then
   DebugPrint ( 'Creating new ProtectionAura object.' )
   ProtectionAura = class({})
-  Debug.EnabledModules['cave:protection'] = true
+  Debug.EnabledModules['cave:protection'] = false
 end
 
-local MAX_ROOMS = 0
-
 function ProtectionAura:Init ()
-  ProtectionAura.zones = {
+  self.moduleName = "ProtectionAura (Offside protection and cave/base locking)"
+
+  self.max_rooms = 0
+  local legacy = GetMapName() == "oaa_legacy"
+  if legacy then
+    self.max_rooms = 4
+  end
+
+  self.zones = {
     [DOTA_TEAM_GOODGUYS] = {},
     [DOTA_TEAM_BADGUYS] = {},
   }
 
   local allGoodPlayers = {}
   local allBadPlayers = {}
+
   local function addToList (list, id)
     list[id] = true
   end
@@ -40,38 +47,62 @@ function ProtectionAura:Init ()
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][0].disable()
   end)
 
-  for roomID = 0,MAX_ROOMS do
+  for roomID = 0, self.max_rooms do
+    local lockedPlayers = {}
+    if not legacy then lockedPlayers = allGoodPlayers end
     ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID] = ZoneControl:CreateZone('boss_good_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 50,
-      players = allGoodPlayers
-      -- players = {}
+      players = lockedPlayers
     })
 
-    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouchGood)
-    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouchGood)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
+    ProtectionAura.zones[DOTA_TEAM_GOODGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
   end
 
-  for roomID = 0,MAX_ROOMS do
+  for roomID = 0, self.max_rooms do
+    local lockedPlayers = {}
+    if not legacy then lockedPlayers = allBadPlayers end
     ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID] = ZoneControl:CreateZone('boss_bad_zone_' .. roomID, {
       mode = ZONE_CONTROL_EXCLUSIVE_IN,
       margin = 0,
       padding = 0,
-      players = allBadPlayers
-      -- players = {}
+      players = lockedPlayers
     })
 
-    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouchBad)
-    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouchBad)
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onStartTouch(ProtectionAura.StartTouch)
+    ProtectionAura.zones[DOTA_TEAM_BADGUYS][roomID].onEndTouch(ProtectionAura.EndTouch)
+  end
+
+  -- Offside buffer zones - to prevent glitching inside the actual offside zone
+  if GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" then
+    for id = 1, 3 do
+      local radiant_zone = ZoneControl:CreateZone('radiant_offside_fix_' .. id, {
+        mode = ZONE_CONTROL_EXCLUSIVE_IN,
+        margin = 0,
+        padding = 0,
+        players = {}
+      })
+      local dire_zone = ZoneControl:CreateZone('dire_offside_fix_' .. id, {
+        mode = ZONE_CONTROL_EXCLUSIVE_IN,
+        margin = 0,
+        padding = 0,
+        players = {}
+      })
+
+      radiant_zone.onStartTouch(ProtectionAura.StartTouch)
+      radiant_zone.onEndTouch(ProtectionAura.StartTouch) -- StartTouch is on purpose
+      dire_zone.onStartTouch(ProtectionAura.StartTouch)
+      dire_zone.onEndTouch(ProtectionAura.StartTouch) -- StartTouch is on purpose
+    end
   end
 
   ProtectionAura.active = true
-
 end
 
 function ProtectionAura:IsInEnemyZone(teamID, entity)
-  for roomID = 0,MAX_ROOMS do
+  for roomID = 0, self.max_rooms do
     if ProtectionAura:IsInSpecificZone(teamID, roomID, entity) then
       return true
     end
@@ -84,30 +115,42 @@ function ProtectionAura:IsInSpecificZone(teamID, roomID, entity)
   return zone.handle:IsTouching(entity)
 end
 
-function ProtectionAura:StartTouchGood(event)
-  if event.activator:GetTeam() ~= DOTA_TEAM_GOODGUYS then
-    if not event.activator:HasModifier("modifier_is_in_offside") then
-      return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
+function ProtectionAura:StartTouch(event)
+  if not event.activator:HasModifier("modifier_is_in_offside") then
+    return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
+  end
+end
+
+function ProtectionAura:EndTouch(event)
+  local activator = event.activator
+  local origin = activator:GetAbsOrigin()
+  local team = activator:GetTeam()
+
+  -- Remove offside thinker if activator is not in offside and not in the buffer zone
+  if (team == DOTA_TEAM_GOODGUYS and not IsLocationInDireOffside(origin)) or (team == DOTA_TEAM_BADGUYS and not IsLocationInRadiantOffside(origin)) then
+    if activator:HasModifier("modifier_is_in_offside") and not ProtectionAura:IsInBufferZone(activator) then
+      activator:RemoveModifierByName("modifier_is_in_offside")
     end
   end
 end
 
-function ProtectionAura:EndTouchGood(event)
-  if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_GOODGUYS, event.activator) then
-    event.activator:RemoveModifierByName("modifier_is_in_offside")
-  end
-end
-
-function ProtectionAura:StartTouchBad(event)
-  if event.activator:GetTeam() ~= DOTA_TEAM_BADGUYS then
-    if not event.activator:HasModifier("modifier_is_in_offside") then
-      return event.activator:AddNewModifier(event.activator, nil, "modifier_is_in_offside", {})
+function ProtectionAura:IsInBufferZone(entity)
+  if GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" then
+    for i = 1, 3 do
+      local trigger_r = Entities:FindByName(nil, 'radiant_offside_fix_'..tostring(i))
+      local trigger_d = Entities:FindByName(nil, 'dire_offside_fix_'..tostring(i))
+      if trigger_r then
+        if IsInTrigger(entity, trigger_r) then
+          return true
+        end
+      end
+      if trigger_d then
+        if IsInTrigger(entity, trigger_d) then
+          return true
+        end
+      end
     end
   end
-end
 
-function ProtectionAura:EndTouchBad(event)
-  if not ProtectionAura:IsInEnemyZone(DOTA_TEAM_BADGUYS, event.activator) then
-    event.activator:RemoveModifierByName("modifier_is_in_offside")
-  end
+  return false
 end

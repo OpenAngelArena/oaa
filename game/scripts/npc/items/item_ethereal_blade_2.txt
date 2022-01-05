@@ -9,10 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3142"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
@@ -57,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "6000"
+    "ItemCost"                                            "5801"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -76,12 +77,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 13 16 20 24"
+        "bonus_strength"                                  "10 15 20 25 30"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 13 16 20 24"
+        "bonus_intellect"                                 "10 15 20 25 30"
       }
       "04"
       {
@@ -101,7 +102,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_damage_base"                               "125 150 200 275 375"
+        "blast_damage_base"                               "125 225 325 425 525"
       }
       "08"
       {
@@ -111,7 +112,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ethereal_damage_bonus"                           "-40 -50 -60 -70 -80"
+        "ethereal_damage_bonus"                           "-40 -45 -50 -55 -60"
       }
       "10"
       {

@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3370"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,9 +25,10 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_blade_mail_4;item_upgrade_core_4"
+      "01"                                                "item_spiked_mail_4;item_upgrade_core_4"
       "02"                                                "item_shivas_guard_4;item_upgrade_core_4"
       "03"                                                "item_stoneskin;item_upgrade_core_4"
+      "04"                                                "item_assault_4;item_upgrade_core_4"
     }
   }
 
@@ -47,6 +49,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18.0"
     "AbilitySharedCooldown"                               "martyr"
+    "AbilityManaCost"                                     "25"
+    "AbilityCastRange"                                    "900"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -55,8 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "35050"
+    "ItemCost"                                            "37854"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mm 4;martyrs mail 4;martyrsmail 4"
@@ -74,12 +77,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "17 20 24 29"
+        "bonus_armor"                                     "12 15 19 24"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "45 65 90 120"
+        "bonus_intellect"                                 "40 55 75 100"
       }
       "04"
       {
@@ -96,6 +99,22 @@
         "var_type"                                        "FIELD_INTEGER"
         "martyr_heal_percent"                             "100"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_attack_speed"                               "100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items_fx/blademail.vpcf"
+      "particle"                                          "particles/world_shrine/radiant_shrine_active_ray.vpcf"
     }
   }
 }

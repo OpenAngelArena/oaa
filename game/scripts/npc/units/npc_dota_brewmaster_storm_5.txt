@@ -25,20 +25,21 @@
     "Ability1"                                            "brewmaster_storm_dispel_magic"    // Ability 1
     "Ability2"                                            "brewmaster_storm_cyclone"      // Ability 2
     "Ability3"                                            "brewmaster_storm_wind_walk"    // Ability 3
-    "Ability4"                                            "brewmaster_cinder_brew"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"            // Ability 6
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "10"      // Physical protection.
+    "ArmorPhysical"                                       "18"      // lvl 3 + 2 x 6
+    "MagicalResistance"                                   "25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "430"    // Damage range min.
-    "AttackDamageMax"                                     "430"    // Damage range max.
-    "AttackRate"                                          "1.5"    // Speed of attack.
+    "AttackDamageMin"                                     "345"    // lvl 3 + 40 x 6
+    "AttackDamageMax"                                     "355"    // lvl 3 + 40 x 6
+    "AttackRate"                                          "1.5"    // BAT
     "AttackAnimationPoint"                                "0.4"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
     "AttackRange"                                         "600"    // Range within a target can be attacked.
@@ -58,9 +59,9 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"    // Base health.
-    "StatusHealthRegen"                                   "20"      // Health regeneration rate.
-    "StatusMana"                                          "1500"    // Base mana.
+    "StatusHealth"                                        "9000"    // lvl 3 + 1000 x 6
+    "StatusHealthRegen"                                   "18"      // Health regeneration rate.
+    "StatusMana"                                          "900"    // Base mana.
     "StatusManaRegen"                                     "1.5"    // Mana regeneration rate.
 
     // Vision

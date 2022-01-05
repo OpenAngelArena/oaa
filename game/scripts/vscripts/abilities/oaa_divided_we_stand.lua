@@ -1,55 +1,119 @@
-LinkLuaModifier("modifier_meepo_divided_we_stand_oaa","abilities/oaa_divided_we_stand.lua",LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_death","abilities/oaa_divided_we_stand.lua",LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_meepo_divided_we_stand_oaa", "abilities/oaa_divided_we_stand.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_death", "abilities/oaa_divided_we_stand.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_meepo_divided_we_stand_oaa_bonus_buff", "abilities/oaa_divided_we_stand.lua", LUA_MODIFIER_MOTION_NONE)
 
-meepo_divided_we_stand = class(AbilityBaseClass)
+meepo_divided_we_stand_oaa = class(AbilityBaseClass)
 
-function meepo_divided_we_stand:constructor()
+function meepo_divided_we_stand_oaa:GetIntrinsicModifierName()
+  return "modifier_meepo_divided_we_stand_oaa_bonus_buff"
 end
 
-function meepo_divided_we_stand:OnUpgrade()
-    if self.isScepterUpgraded == nil then
-      self.isScepterUpgraded = false
-    end
-    local caster = self:GetCaster()
-    local PID = caster:GetPlayerOwnerID()
-    local mainMeepo = PlayerResource:GetSelectedHeroEntity(PID)
-    local list = mainMeepo.meepoList or {}
-    if caster~=mainMeepo then
-        return nil
-    end
-    if not mainMeepo.meepoList then
-        table.insert(list, mainMeepo)
-        mainMeepo.meepoList=list
-        mainMeepo:AddNewModifier(mainMeepo,self,"modifier_meepo_divided_we_stand_oaa",{})
-    end
-    local newMeepo = CreateUnitByName(caster:GetUnitName(),mainMeepo:GetAbsOrigin(),true,mainMeepo,mainMeepo:GetPlayerOwner(),mainMeepo:GetTeamNumber())
-    newMeepo:SetControllableByPlayer(PID,false)
-    newMeepo:SetOwner(caster:GetOwner())
-    newMeepo:AddNewModifier(mainMeepo,self,"modifier_phased",{["duration"]=0.1})
-    local ability = newMeepo:FindAbilityByName(self:GetAbilityName())
-    newMeepo:AddNewModifier(mainMeepo,self,"modifier_meepo_divided_we_stand_oaa",{})
-    list=mainMeepo.meepoList
-    table.insert(list, newMeepo)
-    mainMeepo.meepoList=list
-end
+function meepo_divided_we_stand_oaa:OnUpgrade()
+  local caster = self:GetCaster()
 
-function meepo_divided_we_stand:OnInventoryContentsChanged()
-  for i=0,5,1 do
-    local item = self:GetCaster():GetItemInSlot(i)
-    if item and (string.find(item:GetAbilityName(), "item_ultimate_scepter")) then
-        item:SetDroppable(false)
-        item:SetSellable(false)
-        item:SetCanBeUsedOutOfInventory(false)
-        if not self.isScepterUpgraded then
-          self.isScepterUpgraded=true
-          self:OnUpgrade()
-        end
-        break
-    end
+  -- Don't allow illusions to have clones
+  if caster:IsIllusion() then
+    return
   end
+
+  -- Find Meepo Prime if we are lvling up this ability from the clone
+  if caster:IsClone() then
+    caster = caster:GetCloneSource()
+  end
+
+  --[[
+  local PID = caster:GetPlayerOwnerID()
+  local mainMeepo = PlayerResource:GetSelectedHeroEntity(PID)
+
+  mainMeepo.meepoList = mainMeepo.meepoList or GetAllMeepos(mainMeepo)
+
+  if caster ~= mainMeepo then
+    return nil
+  end
+
+  -- Create a clone
+  local newMeepo = CreateUnitByName(caster:GetUnitName(), caster:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+  newMeepo:SetPlayerID(PID)
+  newMeepo:SetControllableByPlayer(PID, false)
+  newMeepo:SetOwner(caster:GetOwner())
+  FindClearSpaceForUnit(newMeepo, caster:GetAbsOrigin(), false)
+
+  -- Preventing dropping and selling items in inventory
+  newMeepo:SetHasInventory(false)
+  newMeepo:SetCanSellItems(false)
+
+  -- Disabling bounties because clone can die
+  newMeepo:SetMaximumGoldBounty(0)
+  newMeepo:SetMinimumGoldBounty(0)
+  newMeepo:SetDeathXP(0)
+
+  newMeepo:AddNewModifier(caster, self, "modifier_meepo_divided_we_stand_oaa", {})
+
+  table.insert(caster.meepoList, newMeepo)
+  ]]
+
+  local ability_level = self:GetLevel()
+  local vanilla_ability = caster:FindAbilityByName("meepo_divided_we_stand")
+
+  if not vanilla_ability then
+    return
+  end
+
+  -- Max level for vanilla ability is 3 -> check if its 3 already, if yes don't continue
+  if vanilla_ability:GetLevel() == 3  or ability_level >= 4 then
+    self:RefreshMeepos(caster)
+    return
+  end
+
+  vanilla_ability:SetLevel(ability_level)
+
+  self:RefreshMeepos(caster)
 end
 
+function meepo_divided_we_stand_oaa:RefreshMeepos(caster)
+  if not IsServer() then
+    return
+  end
+
+  local ability = self
+
+  Timers:CreateTimer(0.5, function()
+    -- Find ally heroes everywhere
+    local heroes = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      caster:GetAbsOrigin(),
+      nil,
+      FIND_UNITS_EVERYWHERE,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      DOTA_UNIT_TARGET_HERO,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+      FIND_ANY_ORDER,
+      false
+    )
+
+    -- Find all meepos (clones and meepo prime)
+    local meepos = {}
+    for _, hero in pairs(heroes) do
+      if hero and not hero:IsNull() then
+        if hero:GetUnitName() == "npc_dota_hero_meepo" and not hero:IsIllusion() then
+          table.insert(meepos, hero)
+        end
+      end
+    end
+
+    -- Adding the modifier to refresh
+    for _, meepo in pairs(meepos) do
+      if meepo and not meepo:IsNull() then
+        meepo:AddNewModifier(caster, ability, "modifier_meepo_divided_we_stand_oaa_bonus_buff", {})
+      end
+    end
+  end)
+end
+
+---------------------------------------------------------------------------------------------------
+--[[
 modifier_meepo_divided_we_stand_oaa = class(ModifierBaseClass)
+
 function modifier_meepo_divided_we_stand_oaa:IsHidden()
 	return true
 end
@@ -66,191 +130,123 @@ function modifier_meepo_divided_we_stand_oaa:IsPermanent()
   return true
 end
 
-function modifier_meepo_divided_we_stand_oaa:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
 function modifier_meepo_divided_we_stand_oaa:DeclareFunctions()
-    return {MODIFIER_EVENT_ON_ORDER,MODIFIER_EVENT_ON_RESPAWN,MODIFIER_EVENT_ON_TAKEDAMAGE}
+  return {
+    MODIFIER_EVENT_ON_RESPAWN,
+    MODIFIER_EVENT_ON_DEATH,
+  }
 end
 
 function modifier_meepo_divided_we_stand_oaa:OnCreated(kv)
-    if IsServer() then
-        self:StartIntervalThink(0.5)
-    end
+  if IsServer() then
+    self:StartIntervalThink(0.5)
+  end
 end
 
 function modifier_meepo_divided_we_stand_oaa:OnIntervalThink()
-    local meepo = self:GetParent()
-    local mainMeepo = self:GetCaster()
-    local ability = self:GetAbility()
-    if mainMeepo~=meepo then
-        local boots = {
-          "item_travel_boots2",
-          "item_travel_boots",
-          "item_guardian_greaves",
-          "item_power_treads",
-          "item_arcane_boots",
-          "item_phase_boots",
-          "item_tranquil_boots",
-          "item_boots",
-          "item_greater_phase_boots",
-          "item_greater_power_treads",
-          "item_greater_tranquil_boots",
-          "item_greater_travel_boots",
-          "item_greater_guardian_greaves",
-          "item_greater_arcane_boots"
-        }
+  local meepo = self:GetParent()
+  local mainMeepo = self:GetCaster()
 
-        local item = ""
-        for _, name in pairs(boots) do
-            if item=="" then
-                for j=0,5,1 do
-                    local it = mainMeepo.GetItemInSlot(mainMeepo,j)
-                    if it and (string.find(it.GetAbilityName(it), name)) then
-                        item=it.GetAbilityName(it)
-                    end
-                end
-            else
-                break
-            end
-        end
-        if item~="" then
-            if meepo["item"] then
-                if meepo["item"]~=item then
-                    UTIL_Remove(meepo["itemHandle"])
-                    local itemHandle = meepo.AddItemByName(meepo,item)
-                    itemHandle.SetDroppable(itemHandle,false)
-                    itemHandle.SetSellable(itemHandle,false)
-                    itemHandle.SetCanBeUsedOutOfInventory(itemHandle,false)
-                    meepo["itemHandle"]=itemHandle
-                    meepo["item"]=item
-                end
-            else
-                meepo["itemHandle"]=meepo.AddItemByName(meepo,item)
-                meepo["item"]=item
-            end
-        end
-        for j=0,5,1 do
-            local itemToCheck = meepo.GetItemInSlot(meepo,j)
-            if itemToCheck then
-                local name = itemToCheck.GetAbilityName(itemToCheck)
-                if name~=item then
-                    UTIL_Remove(itemToCheck)
-                end
-            end
-        end
-        meepo.SetBaseStrength(meepo,mainMeepo.GetStrength(mainMeepo))
-        meepo.SetBaseAgility(meepo,mainMeepo.GetAgility(mainMeepo))
-        meepo.SetBaseIntellect(meepo,mainMeepo.GetIntellect(mainMeepo))
-        meepo.CalculateStatBonus(meepo)
-        while meepo.GetLevel(meepo)<mainMeepo.GetLevel(mainMeepo) do
-            meepo.AddExperience(meepo,10,1,false,false)
-        end
-    else
-        LevelAbilitiesForAllMeepos(meepo)
-    end
+  -- Set stats the same as main meepo
+  meepo:SetBaseStrength(mainMeepo:GetStrength())
+  meepo:SetBaseAgility(mainMeepo:GetAgility())
+  meepo:SetBaseIntellect(mainMeepo:GetIntellect())
+  meepo:CalculateStatBonus(true)
+
+  -- Set clone level the same as main meepo
+  --while meepo.GetLevel(meepo) < mainMeepo.GetLevel(mainMeepo) do
+    --meepo:AddExperience(10, DOTA_ModifyXP_Unspecified, false, false)
+  --end
+
+  -- Preventing clone from respawning
+  --meepo:SetRespawnsDisabled(true)
+
+  --LevelAbilitiesForAllMeepos(mainMeepo) -- This should be done only on the main meepo
 end
 
-function modifier_meepo_divided_we_stand_oaa:OnTakeDamage(keys)
-  local mainMeepo = self:GetCaster()
+function modifier_meepo_divided_we_stand_oaa:OnDeath(event)
   local parent = self:GetParent()
-  if keys.unit==parent then
-    if parent:GetHealth() <= 0 then
-      if parent~=mainMeepo then
-        local oldLocation = mainMeepo:GetAbsOrigin()
-        mainMeepo:SetAbsOrigin(parent:GetAbsOrigin())
-        mainMeepo:Kill(keys.inflictor,keys.attacker)
-        mainMeepo:SetAbsOrigin(oldLocation)
-        parent:SetHealth(parent:GetMaxHealth())
-        Timers:CreateTimer(0.1, function()
-          parent:AddNewModifier(mainMeepo,self:GetAbility(),"modifier_meepo_divided_we_stand_oaa_death",{})
-        end)
-      end
-      for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
-        if meepo~=mainMeepo then
-          meepo:AddNewModifier(mainMeepo,self:GetAbility(),"modifier_meepo_divided_we_stand_oaa_death",{})
-        end
-      end
+
+  if event.unit ~= parent then
+    return
+  end
+
+  local mainMeepo = self:GetCaster()
+  for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+    if meepo ~= mainMeepo then
+      meepo:AddNewModifier(mainMeepo, self:GetAbility(), "modifier_meepo_divided_we_stand_oaa_death", {})
+      meepo:AddNoDraw()
     end
   end
 end
 
-function modifier_meepo_divided_we_stand_oaa:OnRespawn(keys)
-    local parent = self:GetParent()
-    local mainMeepo = self:GetCaster()
-    for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
-      if meepo~=mainMeepo then
-        meepo:RemoveModifierByName("modifier_meepo_divided_we_stand_oaa_death")
-        meepo:RemoveNoDraw()
-        FindClearSpaceForUnit(meepo,mainMeepo:GetAbsOrigin(),true)
-        meepo:AddNewModifier(meepo,self:GetAbility(),"modifier_phased",{["duration"]=0.1})
-      end
+function modifier_meepo_divided_we_stand_oaa:OnRespawn(event)
+  local parent = self:GetParent()
+  local mainMeepo = self:GetCaster()
+  for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+    if meepo ~= mainMeepo then
+      meepo:RemoveModifierByName("modifier_meepo_divided_we_stand_oaa_death")
+      meepo:RemoveNoDraw()
+      FindClearSpaceForUnit(meepo, mainMeepo:GetAbsOrigin(), true)
+      meepo:AddNewModifier(meepo, self:GetAbility(), "modifier_phased", {["duration"] = 0.1})
     end
+  end
 end
+]]
 
+---------------------------------------------------------------------------------------------------
+--[[
 modifier_meepo_divided_we_stand_oaa_death = class(ModifierBaseClass)
 
-function modifier_meepo_divided_we_stand_oaa_death:IsPermanent()
-    return true
-end
-
 function modifier_meepo_divided_we_stand_oaa_death:IsHidden()
-    return true
-end
-
-function modifier_meepo_divided_we_stand_oaa_death:IsPurgable()
   return false
 end
 
 function modifier_meepo_divided_we_stand_oaa_death:IsDebuff()
-	return false
+  return false
 end
 
-function modifier_meepo_divided_we_stand_oaa_death:OnCreated()
-  if IsServer() then
-    self:GetParent():StartGesture(ACT_DOTA_DIE)
-    self:StartIntervalThink(1.5)
-  end
+function  modifier_meepo_divided_we_stand_oaa_death:IsPurgable()
+  return false
 end
 
-function modifier_meepo_divided_we_stand_oaa_death:OnIntervalThink()
-  local parent = self:GetParent()
-  parent:RemoveGesture(ACT_DOTA_DIE)
-  parent:AddNoDraw()
-  if parent:GetTeamNumber()==DOTA_TEAM_GOODGUYS then
-      parent:SetAbsOrigin(Vector(-10000,-10000,0))
-  else
-      parent:SetAbsOrigin(Vector(10000,10000,0))
-  end
-  parent:SetHealth(parent:GetMaxHealth())
-  parent:SetMana(parent:GetMaxMana())
-  self:StartIntervalThink(-1)
+function modifier_meepo_divided_we_stand_oaa_death:CheckState()
+  return {
+    [MODIFIER_STATE_STUNNED] = true,
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+  }
 end
+]]
 
-function modifier_meepo_divided_we_stand_oaa_death.CheckState(self)
-    return {[MODIFIER_STATE_STUNNED]=true,[MODIFIER_STATE_UNSELECTABLE]=true,[MODIFIER_STATE_INVULNERABLE]=true,[MODIFIER_STATE_OUT_OF_GAME]=true,[MODIFIER_STATE_NO_HEALTH_BAR]=true,[MODIFIER_STATE_NOT_ON_MINIMAP]=true}
-end
-
-function LevelAbilitiesForAllMeepos(caster)
-  local PID = caster:GetPlayerOwnerID()
+---------------------------------------------------------------------------------------------------
+-- Helper functions
+--[[
+function LevelAbilitiesForAllMeepos(unit)
+  local PID = unit:GetPlayerOwnerID()
   local mainMeepo = PlayerResource:GetSelectedHeroEntity(PID)
-  if caster==mainMeepo then
-    for a=0,caster:GetAbilityCount()-1,1 do
-      local ability = caster:GetAbilityByIndex(a)
-      if ability then
-        for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+  for a = 0, mainMeepo:GetAbilityCount() - 1 do
+    local ability = mainMeepo:GetAbilityByIndex(a)
+    if ability then
+      for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+        if meepo ~= mainMeepo then
           local cloneAbility = meepo:FindAbilityByName(ability:GetAbilityName())
           if ability:GetLevel() > cloneAbility:GetLevel() then
             cloneAbility:SetLevel(ability:GetLevel())
-            meepo:SetAbilityPoints(meepo:GetAbilityPoints()-1)
-          end
-          if ability:GetLevel() < cloneAbility:GetLevel() then
+          elseif ability:GetLevel() < cloneAbility:GetLevel() then
             ability:SetLevel(cloneAbility:GetLevel())
-            mainMeepo:SetAbilityPoints(mainMeepo:GetAbilityPoints()-1)
+            --mainMeepo:SetAbilityPoints(mainMeepo:GetAbilityPoints()-1)
           end
         end
       end
+    end
+  end
+  for _, meepo in pairs(GetAllMeepos(mainMeepo)) do
+    if meepo ~= mainMeepo then
+      meepo:SetAbilityPoints(0)
     end
   end
 end
@@ -262,59 +258,214 @@ function GetAllMeepos(caster)
     return {caster}
   end
 end
+]]
 
-function MeepoExperience(filterTable)
-  local PID = filterTable.player_id_const
-  local reason = filterTable.reason_const
-  local experience = filterTable.experience
-  local hero = PlayerResource:GetSelectedHeroEntity(PID)
-  if (hero and hero:HasAbility("meepo_divided_we_stand")) and (reason~=DOTA_ModifyXP_Unspecified) then
-    filterTable.experience=0
-    hero:AddExperience(experience,DOTA_ModifyXP_Unspecified,true,false)
-  end
-  return filterTable
+---------------------------------------------------------------------------------------------------
+
+modifier_meepo_divided_we_stand_oaa_bonus_buff = class(ModifierBaseClass)
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:IsHidden()
+  return false
 end
 
-function MeepoOrderFilter(filterTable)
-  local entindex_ability = filterTable.entindex_ability
-  local sequence_number_const = filterTable.sequence_number_const
-  local queue = filterTable.sequence_number_const
-  local units = filterTable.units
-  local entindex_target = filterTable.entindex_target
-  local position = Vector(filterTable.position_y,filterTable.position_y,filterTable.position_z)
-  local order_type = filterTable.order_type
-  local issuer_player_id_const = filterTable.issuer_player_id_const
-  local ability = EntIndexToHScript(entindex_ability)
-  local target = EntIndexToHScript(entindex_target)
-  for _, entindex_unit in pairs(units) do
-    local unit = EntIndexToHScript(entindex_unit)
-    if unit:HasModifier("modifier_meepo_divided_we_stand_oaa") and (unit~=PlayerResource:GetSelectedHeroEntity(unit:GetPlayerOwnerID())) then
-      if order_type==DOTA_UNIT_ORDER_PICKUP_ITEM then
-        return false
-      end
-    end
-    if ((target and target.HasModifier) and target:HasModifier("modifier_meepo_divided_we_stand_oaa")) and (target~=PlayerResource:GetSelectedHeroEntity(target:GetPlayerOwnerID())) then
-      if order_type==DOTA_UNIT_ORDER_GIVE_ITEM then
-        return false
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:IsDebuff()
+  return false
+end
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:IsPurgable()
+  return false
+end
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnCreated()
+  local parent = self:GetParent()
+  if parent:IsIllusion() or parent:GetUnitName() ~= "npc_dota_hero_meepo" or not IsServer() then
+    self.total_dmg_reduction = 0
+    return
+  end
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg_reduction_per_meepo = ability:GetLevelSpecialValueFor("bonus_dmg_reduction_pct", ability:GetLevel()-1)
+    self.radius = ability:GetSpecialValueFor("aura_radius")
+  else
+    self.dmg_reduction_per_meepo = 3
+    self.radius = 700
+  end
+  self:StartIntervalThink(0)
+end
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnRefresh()
+  local parent = self:GetParent()
+  if parent:IsIllusion() or parent:GetUnitName() ~= "npc_dota_hero_meepo" or not IsServer() then
+    self.total_dmg_reduction = 0
+    return
+  end
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.dmg_reduction_per_meepo = ability:GetLevelSpecialValueFor("bonus_dmg_reduction_pct", ability:GetLevel()-1)
+    self.radius = ability:GetSpecialValueFor("aura_radius")
+  else
+    self.dmg_reduction_per_meepo = 3
+    self.radius = 700
+  end
+end
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnIntervalThink()
+  local parent = self:GetParent()
+
+  if parent:PassivesDisabled() or parent:IsIllusion() or parent:GetUnitName() ~= "npc_dota_hero_meepo" then
+    return
+  end
+
+  if not IsServer() then
+    return
+  end
+
+  -- Find allied heroes
+  local heroes = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    parent:GetAbsOrigin(),
+    nil,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  -- Find all meepos (clones and meepo prime)
+  local meepos = {}
+  for _, hero in pairs(heroes) do
+    if hero and not hero:IsNull() then
+      if hero:GetUnitName() == "npc_dota_hero_meepo" and not hero:IsIllusion() then
+        table.insert(meepos, hero)
       end
     end
   end
-  return true
+
+  self.total_dmg_reduction = #meepos * self.dmg_reduction_per_meepo
+
+  -- Failsafe if something goes wrong
+  if self.total_dmg_reduction == 0 then
+    self.total_dmg_reduction = self.dmg_reduction_per_meepo
+  end
+
+  self:SetStackCount(self.total_dmg_reduction)
+
+  local vanilla_boots = {
+    "item_phase_boots",
+    "item_power_treads",
+    "item_tranquil_boots",
+    "item_arcane_boots",
+    "item_guardian_greaves",
+  }
+
+  local custom_boots = {
+    "item_travel_boots_oaa",
+
+    "item_greater_guardian_greaves",
+    "item_greater_tranquil_boots",
+    "item_greater_travel_boots",
+    "item_greater_phase_boots",
+    "item_greater_power_treads",
+
+    "item_greater_guardian_greaves_2",
+    "item_greater_tranquil_boots_2",
+    "item_greater_travel_boots_2",
+    "item_greater_phase_boots_2",
+    "item_greater_power_treads_2",
+
+    "item_greater_guardian_greaves_3",
+    "item_greater_tranquil_boots_3",
+    "item_greater_travel_boots_3",
+    "item_greater_phase_boots_3",
+    "item_greater_power_treads_3",
+    "item_sonic",
+
+    "item_greater_guardian_greaves_4",
+    "item_greater_tranquil_boots_4",
+    "item_greater_travel_boots_4",
+    "item_greater_phase_boots_4",
+    "item_greater_power_treads_4",
+    "item_sonic_2",
+    "item_force_boots_1",
+  }
+
+  if not parent:IsClone() then
+    return
+  end
+
+  local meepo_prime = parent:GetCloneSource()
+  local found_boots = false
+  local has_vanilla_boots = false
+
+  for _, boots in pairs(vanilla_boots) do
+    if parent:HasItemInInventory(boots) then
+      has_vanilla_boots = true
+      break -- Breaks the for loop
+    end
+  end
+
+  -- If clone doesnt have vanilla boots check Meepo Prime for custom boots
+  if has_vanilla_boots == false then
+    for _, boots in pairs(custom_boots) do
+      for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local item = meepo_prime:GetItemInSlot(item_slot)
+        if item then
+          if item:GetAbilityName() == boots then
+            meepo_prime.main_boots = item
+            found_boots = true
+            break -- Breaks the for loop with item slots
+          end
+        end
+      end
+
+      if found_boots == true then
+        break -- Breaks the for loop with custom boots
+      end
+    end
+  end
+
+  -- If Meepo Prime has custom boots -> copy them to the clone
+  if found_boots == true then
+    local meepo_prime_boots = meepo_prime.main_boots
+    local boots_name = meepo_prime_boots:GetAbilityName()
+    -- Check if the clone has those boots
+    if not parent:HasItemInInventory(boots_name) then
+      self.cloned_boots = parent:AddItemByName(boots_name)
+      -- Check the slot of the cloned boots
+      if self.cloned_boots and parent:HasItemInInventory(boots_name) and self.cloned_boots:GetItemSlot() ~= meepo_prime_boots:GetItemSlot() then
+        parent:SwapItems(self.cloned_boots:GetItemSlot(), meepo_prime_boots:GetItemSlot())
+      end
+    end
+  else
+    for _, boots in pairs(custom_boots) do
+      for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        local item = parent:GetItemInSlot(item_slot)
+        if item then
+          if item:GetAbilityName() == boots then
+            parent:RemoveItem(item)
+            break
+          end
+        end
+      end
+    end
+  end
+
+  parent:CalculateStatBonus(true)
 end
 
-if IsServer() then
-    GameRules.GetGameModeEntity(GameRules).SetExecuteOrderFilter(GameRules.GetGameModeEntity(GameRules),function(f,filterTable)
-        if MeepoOrderFilter then
-            if not MeepoOrderFilter(filterTable) then
-                return false
-            end
-        end
-        return true
-    end ,GameRules.GetGameModeEntity(GameRules))
-    GameRules.GetGameModeEntity(GameRules).SetModifyExperienceFilter(GameRules.GetGameModeEntity(GameRules),function(f,filterTable)
-        if MeepoExperience then
-            filterTable=MeepoExperience(filterTable)
-        end
-        return true
-    end ,GameRules.GetGameModeEntity(GameRules))
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
+  }
+end
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:GetModifierIncomingDamage_Percentage()
+  return -self.total_dmg_reduction
+end
+
+function modifier_meepo_divided_we_stand_oaa_bonus_buff:OnTooltip()
+  return self:GetStackCount()
 end

@@ -51,6 +51,15 @@ function ColorToHexCode (color) {
   var red = (color & 0xff).toString(16);
   var green = ((color & 0xff00) >> 8).toString(16);
   var blue = ((color & 0xff0000) >> 16).toString(16);
+  if (red === '0') {
+    red = '00';
+  }
+  if (green === '0') {
+    green = '00';
+  }
+  if (blue === '0') {
+    blue = '00';
+  }
   return '#' + red + green + blue;
 }
 function ColoredText (colorCode, text) {

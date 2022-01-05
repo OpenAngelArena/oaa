@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8449"        // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,9 +25,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_regen_crystal_2;item_upgrade_core_4"
-      "02"                                                "item_heart_4;item_upgrade_core_4"
-      "03"                                                "item_crimson_guard_4;item_upgrade_core_4"
-      "04"                                                "item_heart_transplant;item_upgrade_core_4"
+      //"02"                                                "item_heart_4;item_upgrade_core_4"
+      //"03"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      //"04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -44,7 +45,7 @@
     "AbilityTextureName"                                  "custom/regen_crystal_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "25"
     "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "regen_crystal"
 
@@ -54,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "36800"
+    "ItemCost"                                            "37304"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "regen crystal 3"
@@ -68,27 +69,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1600 2100 2700"
+        "bonus_health"                                    "1750 2450 3150"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "40 60 80"
+        "bonus_strength"                                  "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_mana_to_hp_regen"                            "3"
+        "max_mana_to_hp_regen"                            "5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen"                                 "500"
+        "active_hp_regen"                                 "400 500 600"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen_amp"                             "100"
+        "active_hp_regen_amp"                             "50"
       }
       "06"
       {
@@ -102,6 +103,7 @@
     "precache"
     {
       "particle"                                          "particles/items/regen_crystal/regen_ambient.vpcf"
+      "particle"                                          "particles/items5_fx/essence_ring.vpcf"
     }
   }
 }

@@ -34,9 +34,21 @@ end
 
 modifier_elixier_sustain_active = class(ModifierBaseClass)
 
-function modifier_elixier_sustain_active:IsHidden() return false end
-function modifier_elixier_sustain_active:IsPurgable() return false end
-function modifier_elixier_sustain_active:IsDebuff() return false end
+function modifier_elixier_sustain_active:IsHidden()
+  return false
+end
+
+function modifier_elixier_sustain_active:IsPurgable()
+  return false
+end
+
+function modifier_elixier_sustain_active:IsDebuff()
+  return false
+end
+
+function modifier_elixier_sustain_active:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_sustain_active:GetEffectName()
   return "particles/generic_gameplay/rune_regeneration_sparks.vpcf"

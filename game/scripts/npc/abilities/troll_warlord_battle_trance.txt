@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  //  Troll Warlord: Battle Trance
+  // Troll Warlord: Battle Trance
   //=================================================================================================================
   "troll_warlord_battle_trance"
   {
@@ -18,7 +18,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90"
+    "AbilityCooldown"                                     "90 80 70 60 50"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,6 +42,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "trance_duration"                                 "6.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_7"
       }
       "02"
       {
@@ -56,26 +57,26 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "30 35 40 45 50"
+        "movement_speed"                                  "25 30 35 40 45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "range"                                           "900"
       }
-      "06"
+      "06" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "35"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "07" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_duration_enemies"                        "3.25"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "08" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_cast_range_tooltip"                      "525"

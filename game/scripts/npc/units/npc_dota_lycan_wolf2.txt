@@ -1,0 +1,79 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Lycan Wolf 2
+  //=================================================================================
+  "npc_dota_lycan_wolf2"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/heroes/lycan/summon_wolves.vmdl"
+    "BaseClass"					"npc_dota_creep_neutral"
+    "SoundSet"					"Lycan_Wolf"
+    "Level"						"2"
+    "IsSummoned"				"1"
+    "ModelScale" 					"0.95"
+    "UnitLabel"			"lycan_wolf"
+    "UseNeutralCreepBehavior"	"0"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"					""			// Ability 1
+    "Ability2"					""			// Ability 2
+    "Ability3"					""			// Ability 3
+    "Ability4"					""			// Ability 4
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"				"0"			// Physical protection.
+    "MagicalResistance"                                   "70"		// Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "44" // OAA
+    "AttackDamageMax"                                     "44" // OAA
+    "AttackRate"				"1.1"		// Speed of attack.
+    "AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+    "AttackRange"				"90"		// Range within a target can be attacked.
+    "ProjectileModel"			""			// Particle system model for projectile.
+    "ProjectileSpeed"			"0"			// Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"				"70"
+    "HealthBarOffset"			"160"
+    "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"		// Experience earn.
+    "BountyGoldMin"                                       "26"		// Gold earned min.
+    "BountyGoldMax"                                       "26"		// Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"				"420"		// Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "425" // OAA
+    "StatusHealthRegen"			"0.5"		// Health regeneration rate.
+    "StatusMana"				"0"			// Base mana.
+    "StatusManaRegen"			"0"			// Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"		"1200"		// Range of vision during day light.
+    "VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }
+}

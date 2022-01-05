@@ -18,7 +18,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "20 50 80 110 170 290"
+    "AbilityDamage"                                       "20 50 80 110 220 330"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "knockback_distance"                              "10"
-        "LinkedSpecialBonus"	                            "special_bonus_unique_sniper_3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_3"
       }
       "04"
       {

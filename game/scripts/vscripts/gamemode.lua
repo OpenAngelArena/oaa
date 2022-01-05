@@ -40,7 +40,7 @@ require('libraries/containers')
 -- This library provides an automatic graph construction of path_corner entities within the map
 --require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua
-require('libraries/selection')
+--require('libraries/selection')
 -- Helpful math functions from the internet
 require('libraries/math')
 -- chat command registry made easy
@@ -51,8 +51,6 @@ require('libraries/playerresource')
 require('libraries/basenpc')
 -- Extensions to CDOTA_BaseNPC_Hero
 require('libraries/basehero')
--- extension functions to GameRules
-require('libraries/gamerules')
 -- Pseudo-random distribution C constant calculator
 require('libraries/cfinder')
 -- Library for handling buildings (OAA custom or DOTA original)
@@ -154,7 +152,6 @@ function GameMode:OnPreGame()
   InitModule(ZoneControl)
   InitModule(AbilityLevels)
   InitModule(HeroProgression)
-  InitModule(SellBlackList)
   InitModule(Glyph)
   InitModule(BubbleOrbFilter)
   InitModule(BossProtectionFilter)
@@ -166,12 +163,13 @@ function GameMode:OnPreGame()
   InitModule(EntityStatProvider)
   InitModule(RespawnManager)
   InitModule(BountyRunePick)
-  --InitModule(WispProjectileFilter)
+  InitModule(ModifyAbilitiesFilter)
   InitModule(HudTimer)
   InitModule(Duels)
   InitModule(DuelRunes)
   InitModule(PlayerConnection)
   InitModule(ProtectionAura)
+  InitModule(CustomRuneSystem)
 
   CheckCheatMode()
 end
@@ -195,17 +193,21 @@ function GameMode:OnGameInProgress()
   InitModule(FinalDuel)
   --InitModule(StatusResistance)
   InitModule(SaveLoadState)
-  InitModule(Runes)
+  InitModule(PassiveExperience)
 
-  -- xpm stuff
-  LinkLuaModifier( "modifier_xpm_thinker", "modifiers/modifier_xpm_thinker.lua", LUA_MODIFIER_MOTION_NONE )
-  CreateModifierThinker( nil, nil, "modifier_xpm_thinker", {}, Vector( 0, 0, 0 ), DOTA_TEAM_NEUTRALS, false )
+  -- valve is a really great company that totally cares about custom game mode creators and it's a breath of fresh air
+  GameRules:SetTimeOfDay( 0.251 )
 end
 
 function InitModule(myModule)
   if myModule ~= nil then
+    if myModule.initialized == true then
+      print("Module "..tostring(myModule.moduleName).." is already initialized and there was an attempt to initialize it again -> preventing")
+      return
+    end
     local status, err = pcall(function ()
       myModule:Init()
+      myModule.initialized = true
     end)
     if err then
       local info = debug.getinfo(2, "Sl")
@@ -237,13 +239,20 @@ function GameMode:InitGameMode()
   InitModule(Bottlepass)
   InitModule(Courier)
   --InitModule(StartingItems)
+  InitModule(OAAOptions)
   InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
   --InitModule(VectorTarget)
+  InitModule(CorePointsManager)
 
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
+
+  -- Remove spectating delay
+  if GetMapName() ~= "captains_mode" then
+    Convars:SetInt('tv_delay', 0)
+  end
 
   -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
   -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )

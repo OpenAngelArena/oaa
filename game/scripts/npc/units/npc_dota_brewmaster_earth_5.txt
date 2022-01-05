@@ -24,19 +24,19 @@
     "Ability1"                                            "brewmaster_earth_hurl_boulder"    // Ability 1
     "Ability2"                                            "brewmaster_earth_spell_immunity"  // Ability 2
     "Ability3"                                            "brewmaster_earth_pulverize"    // Ability 3
-    "Ability4"                                            "brewmaster_thunder_clap"
+    "Ability4"                                            "generic_hidden"
     "Ability5"                                            "generic_hidden"
-    "Ability6"                                            "generic_hidden"            // Ability 6
+    "Ability6"                                            "brewmaster_primal_split_cancel"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "15"      // Physical protection.
+    "ArmorPhysical"                                       "35"      // lvl 3 + 4 x 6
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "625"    // Damage range min.
-    "AttackDamageMax"                                     "635"    // Damage range max.
+    "AttackDamageMin"                                     "505"    // lvl 3 + 60 x 6
+    "AttackDamageMax"                                     "515"    // lvl 3 + 60 x 6
     "AttackRate"                                          "1.25"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
@@ -55,9 +55,9 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "15000"    // Base health.
-    "StatusHealthRegen"                                   "20"    // Health regeneration rate.
-    "StatusMana"                                          "1800"    // Base mana.
+    "StatusHealth"                                        "15800"    // lvl 3 + 1800 x 6
+    "StatusHealthRegen"                                   "18"    // Health regeneration rate.
+    "StatusMana"                                          "1200"    // Base mana.
     "StatusManaRegen"                                     "2"      // Mana regeneration rate.
 
     // Vision

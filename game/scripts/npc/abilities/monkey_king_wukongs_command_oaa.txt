@@ -33,7 +33,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 110 90 80 70"
+    "AbilityCooldown"                                     "120 100 80 70 60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -67,12 +67,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_armor"                                     "12 18 24 30 36"
-        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "attack_interval"                                 "1.1"
+        "attack_interval"                                 "1.2"
       }
       "07"
       {
@@ -80,10 +80,11 @@
         "base_damage_percent"                             "100"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "08"
+      "08" // its not higher because of Satanic
       {
         "var_type"                                        "FIELD_INTEGER"
-        "proc_chance"                                     "50"
+        "proc_chance"                                     "25"
+        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_1_oaa"
       }
       "09"
       {
@@ -103,7 +104,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "110 90 70 60 50"
+        "cooldown_scepter"                                "90 80 70 60 50"
         "RequiresScepter"                                 "1"
       }
       "13"
@@ -112,7 +113,6 @@
         "num_first_soldiers_scepter"                      "6"
         "RequiresScepter"                                 "1"
       }
-
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -122,7 +122,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "num_third_soldiers_scepter"                      "10"
+        "num_third_soldiers_scepter"                      "12"
         "RequiresScepter"                                 "1"
       }
     }

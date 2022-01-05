@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85229"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85229"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_elder_dragon_form.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -16,7 +16,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "dragon_knight_elder_dragon_form"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -52,6 +51,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_range"                              "350"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_7"
       }
       "04"
       {
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20 40 60 120 180"
+        "corrosive_breath_damage"                         "20 40 60 120 120"
       }
       "06"
       {
@@ -71,22 +71,25 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "300"
+        "splash_radius"                                   "350"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "75 75 75 115 200"
+        "splash_damage_percent"                           "75 75 75 100 115"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_6"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -70"
+        "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -60"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-40 -40 -40 -60 -70"
+        "frost_bonus_attack_speed"                        "-40 -40 -40 -80 -80"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "11"
       {
@@ -101,22 +104,27 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "0 0 0 40 40"
+        "magic_resistance"                                "0 0 0 25 40"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 0 0 30 35"
+        "model_scale"                                     "0 0 0 30 30"
       }
-      "15"
+      "15" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "rage_chance"                                     "40"
       }
-      "16"
+      "16" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "rage_duration"                                   "2.0"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_suppression_pct"                            "50"
       }
     }
   }

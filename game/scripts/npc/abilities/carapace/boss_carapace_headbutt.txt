@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"              "2.0"
+    "AbilityCastPoint"              "2.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -59,12 +59,12 @@
       "05" // length of the rectangle
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage_range"              "200"
+        "damage_range"              "300"
       }
       "06"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage"                    "1500"
+        "damage"                    "2000"
       }
       "07" // width of the rectangle
       {
@@ -76,14 +76,6 @@
         "var_type"                  "FIELD_INTEGER"
         "range"                     "150"
       }
-    }
-
-    "precache"
-    {
-      "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
-      "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
-      "particle"                    "particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_smoke.vpcf"
-      "particle"                    "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf"
     }
   }
 }

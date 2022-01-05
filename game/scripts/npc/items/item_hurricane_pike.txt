@@ -13,14 +13,14 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "450"
+    "ItemCost"                                            "100" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hurricane_pike"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
       "01"                                                "item_force_staff;item_dragon_lance"
     }
@@ -44,13 +44,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "23.0"
+    "AbilityCooldown"                                     "23 20 17 14 11" //OAA
     "AbilitySharedCooldown"                               "force"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "4525"
+    "ItemCost"                                            "4200" //OAA
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "fs;force staff;hurricane pike;pike"
@@ -66,17 +66,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "13 18 28 43 63"
+        "bonus_intellect"                                 "15 20 30 45 65"
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "2.5 5 10 15 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "200 400 600 800 1000"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 25 35 50 70"
+        "bonus_agility"                                   "20 30 45 65 90"
       }
       "04"
       {
@@ -101,7 +101,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "range_duration"                                  "5"
+        "range_duration"                                  "6"
       }
       "09"
       {
@@ -111,12 +111,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "4 5 6 7 8"
+        "max_attacks"                                     "5 6 7 8 9"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "100 110 120 130 140"
+      }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "23 20 17 14 11"
       }
     }
   }

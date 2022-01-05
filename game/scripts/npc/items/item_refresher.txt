@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "375"
+    "AbilityManaCost"                                     "300"
     "ItemCost"                                            "5000"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -67,7 +67,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13 19 27 42 62"
+        "bonus_health_regen"                              "13 16 19 22 25"
       }
       "02"
       {
@@ -77,7 +77,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 525 675 875 1125"
+        "bonus_mana"                                      "725 825 975 1175 1425"
       }
     }
   }

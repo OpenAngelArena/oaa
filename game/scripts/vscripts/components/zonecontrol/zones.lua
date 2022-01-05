@@ -25,11 +25,12 @@ ZONE_CONTROL_INCLUSIVE = 3
 
 -- Taken from bb template
 if ZoneControl == nil then
-    DebugPrint ( 'creating new zone control object' )
-    ZoneControl = class({})
+  DebugPrint ( 'creating new zone control object' )
+  ZoneControl = class({})
 end
 
 function ZoneControl:Init ()
+  self.moduleName = "ZoneControl"
   -- do initialization things....
 
   -- execute the zone control tester if it is enabled.

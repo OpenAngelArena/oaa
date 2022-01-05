@@ -27,14 +27,14 @@ ZoneCleaner.ForbiddenEntities = {
   "npc_dota_templar_assassin_psionic_trap",
   "npc_dota_earth_spirit_stone",
   "npc_dota_ember_spirit_remnant",
-  "npc_dota_healing_mine",
+  --"npc_dota_treant_eyes",
 }
 
 function ZoneCleaner:CleanZone(state)
   --DebugDrawBox(state.origin, state.bounds.Mins, state.bounds.Maxs, 255, 100, 0, 0, 30)
   --DebugDrawSphere(state.origin, Vector(255, 100, 0), 0, max(state.bounds.Maxs.x + state.bounds.Maxs.y, state.bounds.Mins.x + state.bounds.Mins.y), true, 30)
-
-  local entities = Entities:FindAllInSphere(state.origin, max(max(state.bounds.Mins.x, state.bounds.Maxs.x),max(state.bounds.Mins.y, state.bounds.Maxs.y)))
+  local radius = math.max(math.max(math.abs(state.bounds.Mins.x), math.abs(state.bounds.Maxs.x)), math.max(math.abs(state.bounds.Mins.y), math.abs(state.bounds.Maxs.y))) + 600
+  local entities = Entities:FindAllInSphere(state.origin, radius)
 
   for _,entity in pairs(entities) do
     for _,entry in pairs(ZoneCleaner.ForbiddenEntities) do
@@ -45,4 +45,7 @@ function ZoneCleaner:CleanZone(state)
       end
     end
   end
+
+  -- Clean up trees
+  GridNav:DestroyTreesAroundPoint(state.origin, radius, true)
 end

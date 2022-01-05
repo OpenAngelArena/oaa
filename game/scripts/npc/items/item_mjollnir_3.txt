@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3093"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_mjollnir_2;item_upgrade_core_2"
-      "02"                                                "item_monkey_king_bar_2;item_upgrade_core_2"
+      //"02"                                                "item_monkey_king_bar_2;item_upgrade_core_2"
     }
   }
 
@@ -57,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
-    "ItemCost"                                            "9850"
+    "ItemCost"                                            "10602"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -76,7 +77,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "65 75 85 95 105"
+        "bonus_attack_speed"                              "70 80 90 100 110"
       }
       "03"
       {
@@ -96,7 +97,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "static_damage"                                   "200 300 400 500 600"
+        "static_damage"                                   "225 325 425 525 625"
       }
       "07"
       {
@@ -121,12 +122,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_chance"                                    "25 26 27 28 30"
+        "chain_chance"                                    "30"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "170 220 320 470 670"
+        "chain_damage"                                    "180 230 330 480 680"
       }
       "13"
       {

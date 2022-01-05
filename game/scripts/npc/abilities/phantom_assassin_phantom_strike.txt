@@ -36,18 +36,25 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "90 115 140 165 190 215"  //OAA
+        "bonus_attack_speed"                              "120 130 140 150 160 170"  //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_4"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "abilitycastrange"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_9"
       }
     }
   }

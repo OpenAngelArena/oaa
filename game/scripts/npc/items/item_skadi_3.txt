@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3191"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -24,6 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_skadi_2;item_upgrade_core_2"
+      //"02"                                                "item_abyssal_blade_2;item_upgrade_core_2"
     }
   }
 
@@ -41,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10300"
+    "ItemCost"                                            "10302"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 3;eye of skadi 3;skadi 3"
@@ -63,12 +65,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "225 450 675 900 1125"
+        "bonus_health"                                    "200 300 450 650 900"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250 350 500 700 950"
+        "bonus_mana"                                      "200 300 450 650 900"
       }
       "04"
       {

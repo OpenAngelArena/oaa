@@ -15,7 +15,8 @@
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
+    "HasShardUpgrade"                                     "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +39,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 240 390 900 1600" //OAA
+        "damage"                                          "75 100 125 200 275" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
         "CalculateSpellDamageTooltip"                     "0"
       }

@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dash talent: Reduces Dash charges cooldown - unused and doesn't work with Valve charge system
+  // Dash talent: Increases cast range
   //=================================================================================================================
-  "special_bonus_sohei_dash_recharge"
+  "special_bonus_sohei_dash_cast_range"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9507"
+    "ID"                                                  "8625"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "3"
+        "value"                                           "275"
       }
     }
   }

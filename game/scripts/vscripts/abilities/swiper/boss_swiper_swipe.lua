@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_swiper_anti_stun", "abilities/swiper/boss_swiper_swipe.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -50,64 +50,73 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_backswipe_base:OnAbilityPhaseStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
-		local hit = {}
+  if IsServer() then
+    local caster = self:GetCaster()
+    local caster_loc = caster:GetAbsOrigin()
+    local range = self:GetCastRange(caster_loc, caster)
+    local hit = {}
 
-		caster:AddNewModifier(caster, self, "modifier_boss_swiper_anti_stun", {duration = self:GetCastPoint()})
+    --self:DebugRange(caster, range)
 
-		self:DebugRange(caster, range)
+    local delay = self:GetSpecialValueFor("delay") or self:GetCastPoint()
 
-		local actualCastPoint = self:GetCastPoint()/2
+    -- Make the caster uninterruptible while casting this ability
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
 
-		Timers:CreateTimer(actualCastPoint, function()
-			local swipe = ParticleManager:CreateParticle(self.particleName, PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(swipe, 0, caster:GetAbsOrigin() + (caster:GetForwardVector() * 50) + Vector(0,0,100))
-			ParticleManager:SetParticleControl(swipe, 1, caster:GetAbsOrigin() + (caster:GetForwardVector() * 100) + Vector(0,0,100))
-			ParticleManager:SetParticleControl(swipe, 2, Vector(1.25,0,0))
-			ParticleManager:SetParticleControl(swipe, 3, Vector(0.8,0,0))
-			ParticleManager:ReleaseParticleIndex(swipe)
-		end)
+    local position2 = caster_loc + (caster:GetForwardVector() * range)
+    local position1 = RotatePosition(caster_loc, QAngle(0, 45, 0), position2)
+    local position3 = RotatePosition(caster_loc, QAngle(0, -45, 0), position2)
+    local forward1 = (position1 - caster_loc):Normalized()
+    local forward3 = (position3 - caster_loc):Normalized()
+    local width = (position2 - position1):Length2D() / 2
 
-		local position2 = caster:GetAbsOrigin() + (caster:GetForwardVector() * range)
-		local position1 = RotatePosition(caster:GetAbsOrigin(), QAngle(0,45,0), position2)
-		local position3 = RotatePosition(caster:GetAbsOrigin(), QAngle(0,-45,0), position2)
-		local forward1 = (position1 - caster:GetAbsOrigin()):Normalized()
-		local forward3 = (position3 - caster:GetAbsOrigin()):Normalized()
-		local width = (position2 - position1):Length2D() / 2
+    -- Particle
+    Timers:CreateTimer(delay/2, function()
+      if caster:IsAlive() then
+        local swipe = ParticleManager:CreateParticle(self.particleName, PATTACH_CUSTOMORIGIN, caster)
+        ParticleManager:SetParticleControl(swipe, 0, caster_loc + (caster:GetForwardVector() * 50) + Vector(0, 0, 100))
+        ParticleManager:SetParticleControl(swipe, 1, caster_loc + (caster:GetForwardVector() * 100) + Vector(0, 0, 100))
+        ParticleManager:SetParticleControl(swipe, 2, Vector(1.25, 0, 0))
+        ParticleManager:SetParticleControl(swipe, 3, Vector(0.8, 0, 0))
+        ParticleManager:ReleaseParticleIndex(swipe)
+      end
+    end)
 
 		local directions = {}
 		table.insert(directions, forward1)
 		table.insert(directions, caster:GetForwardVector())
 		table.insert(directions, forward3)
 
-		local function Impact(v)
-			v:EmitSound("Hero_Juggernaut.BladeDance")
+    local function Impact(v)
+      if caster:IsAlive() then
+        v:EmitSound("Hero_Juggernaut.BladeDance")
 
-			local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, v)
-			ParticleManager:ReleaseParticleIndex(impact)
-			local damageTable = {
-				victim = v,
-				attacker = caster,
-				damage = self:GetSpecialValueFor("damage"),
-				damage_type = self:GetAbilityDamageType(),
-				ability = self
-			}
-			ApplyDamage(damageTable)
-		end
+        -- Damage particle
+        local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, v)
+        ParticleManager:ReleaseParticleIndex(impact)
+
+        local damageTable = {
+          victim = v,
+          attacker = caster,
+          damage = self:GetSpecialValueFor("damage"),
+          damage_type = self:GetAbilityDamageType(),
+          ability = self
+        }
+
+        ApplyDamage(damageTable)
+      end
+    end
 
 		local isFront = string.match(self:GetName(), "frontswipe")
 		local modifier = 0
 		if isFront then
 			modifier = 4
 		end
-		local delay = actualCastPoint / 3 / 2
 
-		for k,direction in pairs(directions) do
-			Timers:CreateTimer((delay * math.abs(k - modifier)) + actualCastPoint, function ()
+		for k, direction in pairs(directions) do
+			Timers:CreateTimer(delay/2 + (delay * math.abs(k - modifier))/12, function()
 				local units = self:FindUnitsInCone(
-					caster:GetAbsOrigin(),
+					caster_loc,
 					direction,
 					range,
 					width,
@@ -132,35 +141,6 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_backswipe_base:OnSpellStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
-	end
-end
-
-------------------------------------------------------------------------------------
-
-modifier_boss_swiper_anti_stun = class(ModifierBaseClass)
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_swiper_anti_stun:GetPriority()
-	return MODIFIER_PRIORITY_SUPER_ULTRA
-end
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_swiper_anti_stun:IsPurgable()
-	return false
-end
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_swiper_anti_stun:CheckState()
-	local state =
-	{
-		[MODIFIER_STATE_STUNNED] = false
-	}
-
-	return state
+  local caster = self:GetCaster()
+  local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
 end

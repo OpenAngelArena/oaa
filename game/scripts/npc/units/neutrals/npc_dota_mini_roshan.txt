@@ -4,37 +4,34 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral"
+    "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
-    "SoundSet"                                            "Roshan"        // Name of sound set.
+    "SoundSet"                                            "n_creep_Ranged"
     "ModelScale"                                          "0.25"
-    "Level"                                               "30"
+    "Level"                                               "6"
     "IsAncient"                                           "1"
-    "ConsideredHero"                                      "1"
+    "ConsideredHero"                                      "0"
+    "IsNeutralUnitType"                                   "1"
+    "UseNeutralCreepBehavior"                             "1"     // If you want to use a custom behavior (AI), set to 0
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "roshan_spell_block"		// Ability 1.
-    "Ability2"                                            "roshan_bash"			// Ability 2.
-    "Ability3"                                            "roshan_slam"			// Ability 3.
-    "Ability4"                                            "boss_cliffwalk"		// Ability 4.
-    "Ability5"                                            ""		// Ability 5
-    "Ability6"                                  					"necronomicon_warrior_sight"			// Ability 6
+    "Ability1"                                            "mini_rosh_root"          // Ability 1.
+    "Ability2"                                            "mini_rosh_passives"      // Ability 2.
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "15.0"      // Physical protection.
-    "MagicalResistance"                                   "55"                  // Magical protection (percentage).
+    "MagicalResistance"                                   "50"                  // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "4.0"      // Speed of attack.
+    "AttackRate"                                          "1.7"     // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "1000"    // Speed of projectile.
@@ -73,11 +70,11 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1400"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "1400"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
     // Inventory
     //----------------------------------------------------------------
-    "HasInventory"                                        "1"
+    "HasInventory"                                        "0"
   }
 }

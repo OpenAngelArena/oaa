@@ -9,12 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8468"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "FightRecapLevel"                                     "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -25,7 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_octarine_core_3;item_upgrade_core_3"
-      "02"                                                "item_satanic_core;item_upgrade_core_3"
     }
   }
 
@@ -52,8 +52,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "275"
-    "ItemCost"                                            "18100"
+    "AbilityManaCost"                                     "300"
+    "ItemCost"                                            "18278"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 4;refresher 4"
@@ -68,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13 19 27 42 62"
+        "bonus_health_regen"                              "13 16 19 22 25"
       }
       "02" // same as Octarine Core
       {
@@ -78,7 +78,7 @@
       "03" // same as Octarine Core
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 525 675 875 1125"
+        "bonus_mana"                                      "725 825 975 1175 1425"
       }
     }
   }

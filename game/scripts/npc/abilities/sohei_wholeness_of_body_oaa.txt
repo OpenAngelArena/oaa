@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ID"                                                  "9511"
+    "ID"                                                  "3587"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "85"
+    "AbilityManaCost"                                     "80 85 90 95 100 105"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "90"
+        "bonus_magic_resistance"                          "50"
       }
       "02"
       {
@@ -60,7 +60,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "post_heal"                                       "90 160 230 300 600 900"
+        "post_heal"                                       "100 150 200 250 500 1000"
       }
       "04"
       {

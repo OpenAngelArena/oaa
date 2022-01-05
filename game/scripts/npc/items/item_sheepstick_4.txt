@@ -7,17 +7,18 @@
   {
     "ID"                                                  "3068"      // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick_4"
     "ItemRequirements"
     {
-      "01"                                                "item_rod_of_atos_3;item_upgrade_core_3"
-      "02"                                                "item_meteor_hammer_3;item_upgrade_core_3"
-      "03"                                                "item_cyclone_3;item_upgrade_core_3"
+      "01"                                                "item_gungir_3;item_upgrade_core_3"
+      "02"                                                "item_wind_waker_3;item_upgrade_core_3"
+      //"03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
     }
   }
 
@@ -37,7 +38,7 @@
     // Stats-------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "hex"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
@@ -45,7 +46,7 @@
 
     // Item Info---------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250"
-    "ItemCost"                                            "15725"
+    "ItemCost"                                            "19153"
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 4;sheepstick 4;scythe of vyse 4"
@@ -54,30 +55,30 @@
     // Special-----------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 20 35 40 50"
+        "bonus_strength"                                  "12 17 27 42 62"
       }
-      "02"
+      "02" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 15 25 40 50"
+        "bonus_agility"                                   "12 17 27 42 62"
       }
-      "03"
+      "03" // like Gleipnir
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 25 45 70 100"
+        "bonus_intellect"                                 "20 25 35 50 70"
       }
-      "04"
+      "04" // first 3 values must be the same as Wind Waker, 4th value same as vanilla Sheepstick
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 5.25 5.75 9.0 10.0"
+        "bonus_mana_regen"                                "6.0 6.25 6.75 9.0 10.0"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "sheep_duration"                                  "3.5 3.6 3.7 3.8 4.0"
+        "sheep_duration"                                  "2.5 2.75 3.0 3.25 3.5"
       }
       "06"
       {

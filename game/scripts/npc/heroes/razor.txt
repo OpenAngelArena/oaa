@@ -1,0 +1,11 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Razor
+  //=================================================================================================================
+  "npc_dota_hero_razor"
+  {
+    "Ability3"                                            "razor_storm_surge_oaa" // replaces razor_unstable_current
+    "Ability5"                                            "razor_unstable_current" // replaces generic_hidden
+  }
+}

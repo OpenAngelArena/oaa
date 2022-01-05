@@ -1,50 +1,52 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_ogre_magi"
-    "Title"         "Recommended items for Ogre Magi"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_ogre_magi"
+  "Title"         "Recommended items for Ogre Magi"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_boots"
-            "item"      "item_clarity"
-            "item"      "item_flask"
-            "item"      "item_mango"
-            "item"      "item_mango"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_arcane_boots"
-            "item"      "item_hand_of_midas_1"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_rod_of_atos"
-            "item"      "item_aether_lens"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      "item_pipe"
-            "item"      "item_heavens_halberd"
-            "item"      "item_ethereal_blade"
-            "item"      "item_bloodstone_1"
-            "item"      "item_sheepstick_4"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_ultimate_scepter"
-            "item"      "item_octarine_core"
-            "item"      "item_lotus_orb"
-            "item"      "item_dagon"
-            "item"      "item_guardian_greaves"
-            "item"      "item_veil_of_discord"
-            "item"      "item_pull_staff"
-        }
+      "item"      "item_boots"
+      "item"      "item_clarity"
+      "item"      "item_flask"
+      "item"      "item_mango"
+      "item"      "item_mango"
     }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"      "item_arcane_boots"
+      "item"      "item_hand_of_midas_1"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_rod_of_atos"
+      "item"      "item_aether_lens"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_heavens_halberd"
+      "item"    "item_ethereal_blade"
+      "item"    "item_octarine_core"
+      "item"    "item_sheepstick_4"
+      "item"    "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"    "item_pipe"
+      "item"    "item_ultimate_scepter"
+      "item"    "item_lotus_orb"
+      "item"    "item_bloodstone_1"
+      "item"    "item_dagon_oaa"
+      "item"    "item_guardian_greaves"
+      "item"    "item_veil_of_discord"
+      "item"    "item_pull_staff"
+      "item"    "item_devastator_3"
+    }
+  }
 }

@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dash talent: Sohei becomes invulnerable during Dash
+  // Dash talent: Increases slow
   //=================================================================================================================
-  "special_bonus_sohei_dash_invulnerable"
+  "special_bonus_sohei_dash_slow"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9506"
+    "ID"                                                  "8510"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "1"
+        "value"                                           "20"
       }
     }
   }

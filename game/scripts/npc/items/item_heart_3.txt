@@ -7,13 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4025"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4025"
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_2;item_upgrade_core_2"
-      "02"                                                "item_crimson_guard_2;item_upgrade_core_2"
+      //"02"                                                "item_crimson_guard_2;item_upgrade_core_2"
     }
   }
 
@@ -35,25 +36,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4029"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_heart"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "4029"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/heart.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/heart_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "heart_of_tarrasque"
+    "AbilityManaCost"                                     "0"
+    "AbilityCastRange"                                    "400"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_heart_3;item_heart_4;item_heart_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8800"
+    "ItemCorePointCost"                                   "6"
+    "ItemCost"                                            "9302"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot 3;heart of tarrasque 3;heart 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "UpgradesItems"                                       "item_heart_3;item_heart_4;item_heart_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -62,32 +71,57 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 40 60 85 115"
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 1600 2000"
+        "bonus_health"                                    "250 500 750 1000 1250"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "50"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_pct"                                "1.6"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "1 1.5 2 2.5 3"
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_bonus_strength"                             "20 30 45 65 90"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "5"
+        "buff_bonus_base_damage"                          "20 30 50 80 120"
       }
       "06"
       {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "8.0"
+      }
+      "07"
+      {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "7"
+        "radius"                                          "400"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.3"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "250"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "nuke_base_dmg"                                   "200 300 400 500 600"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "nuke_str_dmg"                                    "1.75"
       }
     }
   }

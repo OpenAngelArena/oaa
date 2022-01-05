@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Vengefulspirit Nether Swap
+  // Ability: Vengeful Spirit Nether Swap
   //=================================================================================================================
   "vengefulspirit_nether_swap"
   {
@@ -12,6 +12,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "FightRecapLevel"                                     "2"
 
@@ -19,18 +20,16 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 850 1000 1300 1600"
+    "AbilityCastRange"                                    "800 950 1100 1250 1400"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "2"
-    "AbilityChargeRestoreTime"                            "70 60 50 40 30" //OAA
+    "AbilityCooldown"                                     "50 40 30 28 26"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,17 +39,32 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_radius"                                  "700"
         "RequiresScepter"                                 "1"
       }
-      "02"
+      "02" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "2"
+        "scepter_charge_reduction"                        "2"
         "RequiresScepter"                                 "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reduction"                                "20 25 30 40 50" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reduction_duration"                       "3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "50"
       }
     }
   }

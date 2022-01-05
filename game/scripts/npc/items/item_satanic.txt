@@ -5,11 +5,10 @@
   //=================================================================================================================
   "item_recipe_satanic"
   {
-
     "ID"                                                  "155"    // unique ID
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemCost"                                            "500"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_satanic"
@@ -30,9 +29,11 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/satanic"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35.0"
+    "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "satanic"
 
     // Spicy Parameters
@@ -44,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5800"
+    "ItemCost"                                            "5050"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic"
@@ -62,7 +63,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 35 55 85 125"
+        "bonus_damage"                                    "20 40 80 140 220" //OAA
       }
       "04"
       {
@@ -72,7 +73,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "175 170 165 160 155" //OAA
+        "unholy_lifesteal_percent"                        "175 170 165 160 155"
       }
       "06"
       {
@@ -82,13 +83,8 @@
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "5.0"
+        "unholy_duration"                                 "6.0"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "22 24 26 28 30" //OAA
-			}
     }
   }
 }

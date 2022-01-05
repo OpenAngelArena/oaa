@@ -111,7 +111,7 @@ end
 if IsServer() then
   function modifier_boss_regen:OnTakeDamage( event )
     local parent = self:GetParent()
-    local damage_threshold = BOSS_AGRO_FACTOR or 20
+    local damage_threshold = BOSS_AGRO_FACTOR or 15
 
     if event.unit ~= parent then
       return
@@ -132,6 +132,12 @@ if IsServer() then
     end
 
     local spell = self:GetAbility()
+
+    local inflictor = event.inflictor
+    if parent:CheckForAccidentalDamage(inflictor) then
+      -- Don't react to damage if it was accidental
+      return
+    end
 
     -- Don't trigger bleeding when damage is below min aggro dmg (tier * BOSS_AGRO_FACTOR)
     if event.damage > damage_threshold then

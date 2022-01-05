@@ -8,7 +8,9 @@ function item_greater_arcane_boots:OnSpellStart()
 
   -- Prevent Meepo Clones from activating Greater Arcane Boots
   if caster:IsClone() then
-    return false
+    self:RefundManaCost()
+    self:EndCooldown()
+    return
   end
 
   local heroes = FindUnitsInRadius(
@@ -65,4 +67,3 @@ end
 item_greater_arcane_boots_2 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_3 = class(item_greater_arcane_boots)
 item_greater_arcane_boots_4 = class(item_greater_arcane_boots)
-item_greater_arcane_boots_5 = class(item_greater_arcane_boots)

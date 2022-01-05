@@ -8,21 +8,21 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "227"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "450"
+    "ItemCost"                                            "900"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_solar_crest"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_medallion_of_courage;item_ultimate_orb;item_wind_lace"
+      "01"                                                "item_medallion_of_courage;item_crown;item_wind_lace"
     }
   }
 
@@ -42,12 +42,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "12.0"
     "AbilitySharedCooldown"                               "medallion"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3775"
+    "ItemCost"                                            "2625"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -64,17 +64,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 8 12 17 23" //OAA
+        "bonus_armor"                                     "6 9 13 18 24"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 15 20 25 30"
+        "bonus_all_stats"                                 "5 10 15 20 25"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed"                             "20 22 28 34 40"
+        "self_movement_speed"                             "20 25 30 35 40"
       }
       "04"
       {
@@ -89,12 +89,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_attack_speed"                             "50 60 70 80 90" //OAA
+        "target_attack_speed"                             "60 70 80 90 100" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "7"
+        "duration"                                        "12"
       }
     }
   }

@@ -1,56 +1,70 @@
 "DOTAAbilities"
 {
+  "item_recipe_heart"                                     "REMOVE"
+  "item_heart"                                            "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Heart of Tarrasque
+  // Recipe: Heart of Tarrasque 1
   //=================================================================================================================
-  "item_recipe_heart"
+  "item_recipe_heart_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "113"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "ID"                                                  "80113"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "500"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_heart"
+    "ItemResult"                                          "item_heart_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_ring_of_tarrasque;item_vitality_booster;item_reaver"
+      "01"                                                "item_vitality_booster;item_reaver"
     }
   }
 
   //=================================================================================================================
-  // Heart of Tarrasque
+  // Heart of Tarrasque 1
   //=================================================================================================================
-  "item_heart"
+  "item_heart_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "114"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "80114"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/heart.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/heart"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "20"
+    "AbilitySharedCooldown"                               "heart_of_tarrasque"
+    "AbilityManaCost"                                     "0"
+    "AbilityCastRange"                                    "400"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_heart_oaa;item_heart_2;item_heart_3;item_heart_4;item_heart_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5400"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "4300"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "UpgradesItems"                                       "item_heart;item_heart_2;item_heart_3;item_heart_4;item_heart_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,33 +73,64 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 40 60 85 115" //OAA
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 1600 2000"
+        "bonus_health"                                    "250 500 750 1000 1250"
       }
       "03"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "50"
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen_pct"                                "1.6"
       }
       "04"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "1 1.5 2 2.5 3"
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_bonus_strength"                             "20 30 45 65 90"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "5"
+        "buff_bonus_base_damage"                          "20 30 50 80 120"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged_tooltip"                         "7"
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "8.0"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.3"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "250"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "nuke_base_dmg"                                   "200 300 400 500 600"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "nuke_str_dmg"                                    "1.75"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items5_fx/havoc_hammer.vpcf"
+      "particle"                                          "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
     }
   }
 }

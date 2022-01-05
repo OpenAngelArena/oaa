@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Dragon Scale (OAA Rework) - neutral tier 2 item
+  //=================================================================================================================
+  "item_dragon_scale_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "80358" // unique ID
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/neutral/dragon_scale.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "item_dragon_scale"
+
+    "AbilityCooldown"                                     "0.5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+
+    "ItemIsNeutralDrop"                                   "1"
+    "ItemPurchasable"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp_regen"                                  "5"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "afterburn_damage"                                "50"
+      }
+    }
+  }
+}

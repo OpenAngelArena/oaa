@@ -11,13 +11,15 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.5"
+    "AbilityCastPoint"                                    "1.5 1.5 1.5 1.5 1.0 0.75"
     "AbilityChannelTime"                                  "0.0"
 
     // Time
@@ -35,13 +37,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+        "radius"                                          "400"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "poof_damage"       "70 90 110 130 240 400"
-        "LinkedSpecialBonus"    "special_bonus_unique_meepo_2"
+        "var_type"                                        "FIELD_INTEGER"
+        "poof_damage"                                     "45 60 75 90 180 270"
+        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_2"
       }
     }
   }

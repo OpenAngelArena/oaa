@@ -11,16 +11,17 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "450"
     "ItemShopTags"          ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
     "ItemResult"          "item_glimmer_cape"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"            "item_shadow_amulet;item_cloak;item_gloves"
+      "01"            "item_shadow_amulet;item_cloak"
     }
   }
 
@@ -47,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "1900"
+    "ItemCost"                    "1950"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemAliases"                 "glimmer cape;glimmer"
@@ -61,33 +62,28 @@
     {
       "01"
       {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_attack_speed"      "20 25 30 35 40"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magical_armor"                             "16 17 18 19 20" //OAA
       }
       "02"
       {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_magical_armor"     "15 16 17 18 20"
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "0.65 0.6 0.55 0.5 0.45" //OAA
       }
       "03"
       {
-        "var_type"                "FIELD_FLOAT"
-        "fade_delay"              "0.6 0.55 0.5 0.45 0.4"
+        "var_type"                                        "FIELD_INTEGER"
+        "active_magical_armor"                            "40 45 50 55 60" //OAA
       }
       "04"
       {
-        "var_type"                "FIELD_INTEGER"
-        "active_magical_armor"    "45 48 51 55 60"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
       }
       "05"
       {
-        "var_type"                "FIELD_FLOAT"
-        "duration"                "5"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "building_duration_limit"     "180"
+        "var_type"                                        "FIELD_FLOAT"
+        "building_duration_limit"                         "180"
       }
     }
   }

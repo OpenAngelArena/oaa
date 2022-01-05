@@ -38,16 +38,17 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "chill_duration"                                  "6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_7"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus"                                 "17 23 29 35 41 47"
+        "movespeed_bonus"                                 "15 20 25 30 35 40"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attackspeed_bonus"                               "34 46 58 70 82 94"
+        "attackspeed_bonus"                               "40 50 60 70 90 110" //OAA
       }
       "04"
       {

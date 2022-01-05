@@ -1,0 +1,18 @@
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite"                          "Incapacitating Bite"
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite_Description"              "Broodmother's venom cripples enemy units, causing her attacks to slow and giving the affected unit a chance to miss its attacks."
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite_Lore"                     "Paralytic toxins come from Black Arachnia's fangs, causing a slow and painful death to those who intrude on her webs."
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite_Note0"                    "The miss chance stacks with evasion and terrain dodge chance."
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite_miss_chance"              "%MISS CHANCE:"
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite_bonus_movespeed"          "%MOVE SLOW:"
+// "DOTA_Tooltip_ability_broodmother_incapacitating_bite_duration"                 "DURATION:"
+
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa"                          "Paralyzing Bite"
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa_Description"              "Broodmother's venom paralyzes enemy units, applying max hp damage, root, disarm and disabling evasion, damage block and turning."
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa_Lore"                     "#{DOTA_Tooltip_ability_broodmother_incapacitating_bite_Lore}"
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa_Note0"                    ""
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa_base_damage"              "BASE DAMAGE:"
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa_max_hp_percent_dmg"       "%MAX HP DAMAGE:"
+"DOTA_Tooltip_ability_broodmother_incapacitating_bite_oaa_duration"                 "DURATION:"
+
+"DOTA_Tooltip_modifier_broodmother_incapacitating_bite_debuff_oaa"                  "Paralyzed"
+"DOTA_Tooltip_modifier_broodmother_incapacitating_bite_debuff_oaa_Description"      "Rooted, disarmed, disabled evasion, disabled damage block and disabled turning."

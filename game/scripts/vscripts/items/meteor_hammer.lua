@@ -13,23 +13,23 @@ function item_meteor_hammer_1:GetAOERadius()
 end
 
 function item_meteor_hammer_1:OnSpellStart()
-
   local caster = self:GetCaster()
+  local target_location = self:GetCursorPosition()
+  local vision_duration = math.max(self:GetChannelTime() + self:GetSpecialValueFor("land_time") + self:GetSpecialValueFor("stun_duration"), 3.8)
+  local radius = self:GetSpecialValueFor("impact_radius")
 
   caster:EmitSound("DOTA_Item.MeteorHammer.Channel")
 
   caster:StartGesture(ACT_DOTA_TELEPORT)
 
-  if IsServer() then
-    self:CreateVisibilityNode(self:GetCursorPosition(),self:GetSpecialValueFor("impact_radius"), 3.8 )
+  self:CreateVisibilityNode(target_location, radius, vision_duration)
 
-    --Particle that surrounds caster
-    self.channel_particle_caster = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_cast.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
-    --Particle that surrounds meteor_hammer's aoe.
-    self.channel_particle = ParticleManager:CreateParticleForTeam("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster(), self:GetCaster():GetTeam())
-    ParticleManager:SetParticleControl(self.channel_particle, 0, self:GetCursorPosition())
-    ParticleManager:SetParticleControl(self.channel_particle, 1, Vector(self:GetSpecialValueFor("impact_radius"), 0, 0))
-  end
+  --Particle that surrounds caster
+  self.channel_particle_caster = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_cast.vpcf", PATTACH_ABSORIGIN, caster)
+  --Particle that surrounds meteor_hammer's aoe.
+  self.channel_particle = ParticleManager:CreateParticleForTeam("particles/items4_fx/meteor_hammer_aoe.vpcf", PATTACH_CUSTOMORIGIN, caster, caster:GetTeam())
+  ParticleManager:SetParticleControl(self.channel_particle, 0, target_location)
+  ParticleManager:SetParticleControl(self.channel_particle, 1, Vector(radius, 0, 0))
 end
 
 function item_meteor_hammer_1:OnChannelFinish(bInterrupted)
@@ -39,7 +39,7 @@ function item_meteor_hammer_1:OnChannelFinish(bInterrupted)
 
   if not bInterrupted then
     caster:EmitSound("DOTA_Item.MeteorHammer.Cast")
-    CreateModifierThinker(caster, self, "modifier_item_meteor_hammer_thinker", {},self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
+    CreateModifierThinker(caster, self, "modifier_item_meteor_hammer_thinker", {}, self:GetCursorPosition(), caster:GetTeamNumber(), false)
   else
     caster:StopSound("DOTA_Item.MeteorHammer.Channel")
     ParticleManager:DestroyParticle(self.channel_particle_caster, true)
@@ -59,7 +59,6 @@ end
 modifier_item_meteor_hammer_thinker = class(ModifierBaseClass)
 
 function modifier_item_meteor_hammer_thinker:OnCreated()
-
   if IsServer() then
     local ability = self:GetAbility()
     local parent = self:GetParent()
@@ -74,7 +73,7 @@ function modifier_item_meteor_hammer_thinker:OnCreated()
     --landtime should not be a negative number
     self:StartIntervalThink(self.land_time)
 
-    local impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf",PATTACH_WORLDORIGIN, nil )
+    local impact_particle = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_spell.vpcf", PATTACH_WORLDORIGIN, nil)
 
     --Controls the metoer position to origin
     ParticleManager:SetParticleControl(impact_particle, 0, parent:GetOrigin() + Vector(0, 0, 1000))
@@ -95,36 +94,37 @@ function modifier_item_meteor_hammer_thinker:OnIntervalThink()
     GridNav:DestroyTreesAroundPoint(parent:GetOrigin(), self.impact_radius, true)
 
     local ability = self:GetAbility()
-    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), caster, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE , FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), caster, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
     if enemies then
       for _, enemy in pairs(enemies) do
-        local damage = {
+        -- Debuffs first, then damage
+        -- Apply damage-over-time debuff (duration is not affected by status resistance)
+        enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_damage_over_time", {duration = self.burn_duration})
+        -- Apply stun debuff (duration is affected by status resistance)
+        local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+        enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+
+        local damage_table = {
           victim = enemy,
           attacker = caster,
+          damage = self.impact_damage,
           damage_type = DAMAGE_TYPE_MAGICAL,
-          ability = self.ability
+          ability = ability,
         }
         -- Is the enemy a boss?
         if enemy:IsOAABoss() then
-          damage.damage = self.impact_damage_bosses
-        else
-          damage.damage = self.impact_damage
+          damage_table.damage = self.impact_damage_bosses
         end
 
-        ApplyDamage( damage )
-        -- Apply damage-over-time debuff (duration is not affected by status resistance)
-        enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_damage_over_time", {duration = self.burn_duration} )
-        -- Apply stun debuff (duration is affected by status resistance)
-        local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
-        enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration} )
+        ApplyDamage(damage_table)
       end-- end of for enemy pairs
     end-- end of if enemies statemnt
 
     self:StartIntervalThink(-1)
   end-- end of if server
 
-  UTIL_Remove(self:GetParent() )
+  UTIL_Remove(self:GetParent())
 end-- end of function
 
 function modifier_item_meteor_hammer_thinker:IsPurgable()
@@ -141,38 +141,51 @@ modifier_item_meteor_hammer_damage_over_time = class(ModifierBaseClass)
 
 function modifier_item_meteor_hammer_damage_over_time:OnCreated(params)
   if IsServer() then
-    local caster = self:GetCaster()
     local enemy = self:GetParent()
+    local caster = self:GetCaster()
     local ability = self:GetAbility()
 
     self.burn_dps = ability:GetSpecialValueFor("burn_dps")
     self.burn_dps_boss = ability:GetSpecialValueFor("burn_dps_boss")
-
     self.burn_interval = ability:GetSpecialValueFor("burn_interval")
 
-    self.damage = {
+    local damage_table = {
       victim = enemy,
       attacker = caster,
+      damage = self.burn_dps * self.burn_interval,
       damage_type = DAMAGE_TYPE_MAGICAL,
-      ability = ability
+      ability = ability,
     }
 
-     if enemy:FindAbilityByName("boss_resistance") then
-       self.damage.damage = self.burn_dps_boss
-     else
-       self.damage.damage = self.burn_dps
+    if enemy:IsOAABoss() then
+      damage_table.damage = self.burn_dps_boss * self.burn_interval
     end
+
+    ApplyDamage(damage_table)
+
     self:StartIntervalThink(self.burn_interval)
   end
 end
 
 function modifier_item_meteor_hammer_damage_over_time:OnIntervalThink()
-
-  local enemy = self:GetParent()
-  local caster = self:GetCaster()
-
   if IsServer() then
-    ApplyDamage(self.damage)
+    local enemy = self:GetParent()
+    local caster = self:GetCaster()
+    local ability = self:GetAbility()
+
+    local damage_table = {
+      victim = enemy,
+      attacker = caster,
+      damage = self.burn_dps * self.burn_interval,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+      ability = ability,
+    }
+
+    if enemy:IsOAABoss() then
+      damage_table.damage = self.burn_dps_boss * self.burn_interval
+    end
+
+    ApplyDamage(damage_table)
   end
 end
 
@@ -187,6 +200,3 @@ end
 function modifier_item_meteor_hammer_damage_over_time:IsPurgable()
   return not self:GetParent():IsOAABoss()
 end
-
------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------

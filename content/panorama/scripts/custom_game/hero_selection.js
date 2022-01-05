@@ -1,5 +1,7 @@
 /* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
 
+'use strict';
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     SelectHero: SelectHero,
@@ -64,7 +66,6 @@ var hilariousLoadingPhrases = [
   'Pay no attention to the man behind the curtain',
   'Reticulating Splines',
   'Bugfixing waveshines and fun-canceling',
-  'Daydreaming about standalone',
   'Donating $1 to tournament prize pool',
   'Selling arcanas to afford custom bottle',
   'Finding a 5-stack on Discord',
@@ -83,18 +84,47 @@ var hilariousLoadingPhrases = [
   'Actually playing Auto Chess instead',
   'Remember to poop aggressively',
   'Sneaking loading screen text into the game simply because I can',
-  'Forgetting to upgrade boots',
   'Hope everyone is having a great day',
-  'Wards cannot be bought individually, instead the Ward Stack item is used to generate both observer and sentry wards passively',
+  'Wards cannot be bought individually, but an item called Ward Stack gives some stats and passively generates both Observer and Sentry wards',
   'Upgrade cores allow you to upgrade your items',
-  'You can split an upgrade core into 2 of a lower tier',
-  'Heroes are invulnerable for 2 seconds at the start of every duel',
   'Each capture point is worth more points than the previous',
   'Each hero on a capture point speeds up the capture time',
   'Use your glyph hotkey to drop a free ward',
   'Before -0:10 on the clock, you cannot leave base',
   'Bosses spawn into the map at 3:00',
-  'The wandering boss spawns at 12:00'
+  'First Wanderer spawns between 12:00 and 15:00',
+  'If you think you found a bug or a weird interaction, please share it on our discord server. Thank you',
+  'Every hero has a Town Portal Scroll and it will not disappear when used',
+  'Heroes are purged and invulnerable for 2 seconds at the start of every duel',
+  'Open Angel Arena games can be spectated live with no delay',
+  'You cannot buyback in Open Angel Arena',
+  'Passive experience gain doesn\'t work in Duels',
+  'You have questions about the game? Check out our discord server. We might know a few new tricks for your favorite hero',
+  'You gain all talents at level 50',
+  'Open Angel Arena is best enjoyed with friends (even if they are imaginary)',
+  '4 bounty runes will spawn when the game begins and respawn every 3 minutes',
+  'Bosses have True Sight when damaged',
+  'GPM Spark is overpowered',
+  'If Private Pigeon is on your team, farm everything',
+  'Bosses are much easier to kill with attack speed slows and magic damage',
+  'If you see this text, we will give you an incorporeal bag full of nothing',
+  'Protect your team\'s couriers from Mr Fahrenheit at all costs',
+  'In Open Angel Arena there are 2 currencies: gold and core points',
+  'Unclaimed Runes will be destroyed in developer\'s pits of darkness',
+  'You cannot block neutral creep camps from respawning at the minute mark. Griefers get rekt',
+  'Scan reveals invisible enemy units and heroes but not wards',
+  'Aghanim\'s Shard cannot be purchased until the 15 minute mark',
+  'Azazel\'s Scout, unit that can be purchased from the Azazel shop, has flying vision, true sight and 100% magic resistance',
+  'You can sell core points for gold by right-clicking on the special item in the main shop',
+  'Bosses start regenerating rapidly to full health if not damaged for 5 seconds',
+  'Sometimes it is easier to yell at devs to fix the game, than helping them instead',
+  'Demon Stone can summon a demon that has True Sight',
+  'Tooltips usually provide answers to all your questions. But also keep in mind that Valve is a small indie company and we are not obligated to fix all their errors',
+  'Remember that this is only a game',
+  'Never question Darkonius\' item builds',
+  'Lich can use Frost Shield on Techies mines',
+  'Dark Seer can use Ion Shell on invulnerable allies',
+  'Ten years since chrisinajar stream'
 ];
 
 init();
@@ -267,9 +297,11 @@ function onPlayerStatChange (table, key, data) {
         });
       }
       Object.keys(data).forEach(function (nkey) {
-        var currentplayer = FindDotaHudElement(data[nkey].steamid);
-        currentplayer.heroname = data[nkey].selectedhero;
-        currentplayer.RemoveClass('PreviewHero');
+        let currentplayer = FindDotaHudElement(data[nkey].steamid);
+        if (currentplayer !== null) {
+          currentplayer.heroname = data[nkey].selectedhero;
+          currentplayer.RemoveClass('PreviewHero');
+        }
 
         DisableHero(data[nkey].selectedhero);
         if (iscm && FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero)) {
@@ -540,23 +572,53 @@ function FillTopBarPlayer (TeamContainer) {
 }
 
 function EnableChatWindow () {
-  var pregamePanel = FindDotaHudElement('PreGame');
+  let pregamePanel = FindDotaHudElement('PreGame');
   pregamePanel.style.zIndex = 10;
   pregamePanel.style.backgroundColor = 'transparent';
-  var contentPanel = pregamePanel.FindChildTraverse('MainContents');
-  contentPanel.style.visibility = 'collapse';
-  var backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
-  backgroundPanel.style.visibility = 'collapse';
-  var backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
-  backgroundDashboardPanel.style.visibility = 'collapse';
-  var radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
-  radiantTeamPanel.style.visibility = 'collapse';
-  var direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
-  direTeamPanel.style.visibility = 'collapse';
-  var headerPanel = pregamePanel.FindChildTraverse('Header');
-  headerPanel.style.visibility = 'collapse';
-  var minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
-  minimapPanel.style.visibility = 'collapse';
+  let contentPanel = pregamePanel.FindChildTraverse('MainContents');
+  if (contentPanel) {
+    contentPanel.style.visibility = 'collapse';
+  }
+  let backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
+  if (backgroundPanel) {
+    backgroundPanel.style.visibility = 'collapse';
+  }
+  let backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
+  if (backgroundDashboardPanel) {
+    backgroundDashboardPanel.style.visibility = 'collapse';
+  }
+  let radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
+  if (radiantTeamPanel) {
+    radiantTeamPanel.style.visibility = 'collapse';
+  }
+  let direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
+  if (direTeamPanel) {
+    direTeamPanel.style.visibility = 'collapse';
+  }
+  let headerPanel = pregamePanel.FindChildTraverse('Header');
+  if (headerPanel) {
+    headerPanel.style.visibility = 'collapse';
+  }
+  let minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
+  if (minimapPanel) {
+    minimapPanel.style.visibility = 'collapse';
+  }
+  let friendsAndFoesPanel = pregamePanel.FindChildTraverse('FriendsAndFoes');
+  if (friendsAndFoesPanel) {
+    friendsAndFoesPanel.style.visibility = 'collapse';
+  }
+  let panel2 = pregamePanel.FindChildTraverse('HeroPickingTeamComposition');
+  if (panel2) {
+    panel2.style.visibility = 'collapse';
+  }
+  let panel3 = pregamePanel.FindChildTraverse('PlusChallengeSelector');
+  if (panel3) {
+    panel3.style.visibility = 'collapse';
+  }
+  let panel4 = pregamePanel.FindChildTraverse('AvailableItemsContainer');
+  if (panel4) {
+    panel4.style.visibility = 'collapse';
+  }
 }
 
 function UpdatePreviews (data) {
@@ -595,7 +657,7 @@ function ReloadCMStatus (data) {
     return;
   }
   // reset all data for people, who lost it
-  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  let teamID = Players.GetTeam(Game.GetLocalPlayerID());
   stepsCompleted = {
     2: 0,
     3: 0
@@ -615,7 +677,7 @@ function ReloadCMStatus (data) {
   if (data['currentstage'] === data['totalstages']) {
     FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
     Object.keys(data['order']).forEach(function (nkey) {
-      var obj = data['order'][nkey];
+      let obj = data['order'][nkey];
       // FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
       if (obj.hero !== 'empty') {
         DisableHero(obj.hero);
@@ -625,14 +687,14 @@ function ReloadCMStatus (data) {
       if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
         $('#MainContent').SetHasClass('CMHeroChoices', true);
 
-        var newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
+        let newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
         newbutton.group = 'CMHeroChoises';
         newbutton.AddClass('CMHeroPreviewItem');
         newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
-        newbutton.BCreateChildren('<Label class="HeroPickLabel" text="#' + obj.hero + '" />');
+        $.CreatePanelWithProperties('Label', newbutton, '', {class: 'HeroPickLabel', text: '#' + obj.hero});
 
         CreateHeroPanel(newbutton, obj.hero);
-        var newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
+        let newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
         newlabel.style.visibility = 'collapse';
         newlabel.steamid = null;
       }
@@ -742,8 +804,8 @@ function UpdateBottlePassArcana (heroName) {
   }
   $('#ArcanaPanel').SetHasClass('HasArcana', true);
 
-  var selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
-  var selectedArcana = 'DefaultSet';
+  let selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
+  let selectedArcana = 'DefaultSet';
 
   if (selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined) {
     selectedArcana = selectedArcanas[playerID.toString()][heroName];
@@ -805,24 +867,62 @@ function UpdateBottlePassArcana (heroName) {
 }
 
 function SelectArcana () {
-  var arcanasList = $('#ArcanaSelection');
+  let arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
-    var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+    let selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
 
-    var id = 'Scene' + ~~(Math.random() * 100);
-    var preview = FindDotaHudElement('HeroPreview');
+    if (!selectedArcana) {
+      $.Schedule(0.1, SelectArcana);
+      return;
+    }
+
+    let id = 'Scene' + ~~(Math.random() * 100);
+    let preview = FindDotaHudElement('HeroPreview');
     preview.RemoveAndDeleteChildren();
     if (selectedArcana.setName !== 'DefaultSet') {
-      preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\' + selectedArcana.setName + '"  renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+      $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
+        style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+        map: 'prefabs\\heroes\\' + selectedArcana.setName,
+        particleonly: 'false',
+        renderdeferred: 'false',
+        camera: 'camera1',
+        rotateonhover: 'true',
+        yawmin: '-10',
+        yawmax: '10',
+        pitchmin: '-10',
+        pitchmax: '10'
+      });
     } else {
       if (selectedArcana.hero === 'npc_dota_hero_sohei') {
-        preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\sohei" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+        $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
+          style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+          map: 'prefabs\\heroes\\sohei',
+          particleonly: 'false',
+          renderdeferred: 'false',
+          camera: 'camera1',
+          rotateonhover: 'true',
+          yawmin: '-10',
+          yawmax: '10',
+          pitchmin: '-10',
+          pitchmax: '10'
+        });
       } else if (selectedArcana.hero === 'npc_dota_hero_electrician') {
-        preview.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\electrician" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+        $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
+          style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+          map: 'prefabs\\heroes\\electrician',
+          particleonly: 'false',
+          renderdeferred: 'false',
+          camera: 'camera1',
+          rotateonhover: 'true',
+          yawmin: '-10',
+          yawmax: '10',
+          pitchmin: '-10',
+          pitchmax: '10'
+        });
       }
     }
 
-    var data = {
+    let data = {
       Hero: selectedArcana.hero,
       Arcana: selectedArcana.setName
     };
@@ -875,12 +975,12 @@ function CreateBottleRadioElement (id, isChecked) {
 }
 
 function SelectBottle () {
-  var bottleId = 0;
-  var btn = $('#Bottle0');
+  let bottleId = 0;
+  let btn = $('#Bottle0');
   if (btn != null) {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
-  var data = {
+  let data = {
     BottleId: bottleId
   };
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
@@ -979,14 +1079,48 @@ function RandomHero () {
 }
 
 function CreateHeroPanel (parent, hero) {
-  var id = 'Scene' + ~~(Math.random() * 100);
-  var scene = null;
+  let id = 'Scene' + ~~(Math.random() * 100);
+  let scene = null;
   if (hero === 'npc_dota_hero_sohei') {
-    scene = parent.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\sohei" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+    scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
+      style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+      map: 'prefabs\\heroes\\sohei',
+      particleonly: 'false',
+      renderdeferred: 'false',
+      camera: 'camera1',
+      rotateonhover: 'true',
+      yawmin: '-10',
+      yawmax: '10',
+      pitchmin: '-10',
+      pitchmax: '10'
+    });
   } else if (hero === 'npc_dota_hero_electrician') {
-    scene = parent.BCreateChildren('<DOTAScenePanel particleonly="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" map="prefabs\\heroes\\electrician" renderdeferred="false"  camera="camera1" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10"/>');
+    scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
+      style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+      map: 'prefabs\\heroes\\electrician',
+      particleonly: 'false',
+      renderdeferred: 'false',
+      camera: 'camera1',
+      rotateonhover: 'true',
+      yawmin: '-10',
+      yawmax: '10',
+      pitchmin: '-10',
+      pitchmax: '10'
+    });
   } else {
-    scene = parent.BCreateChildren('<DOTAScenePanel hittest="false" id="' + id + '" style="opacity-mask: url(\'s2r://panorama/images/masks/softedge_box_png.vtex\');" drawbackground="0" renderdeferred="false" particleonly="false" unit="' + hero + '" rotateonhover="true" yawmin="-10" yawmax="10" pitchmin="-10" pitchmax="10" />');
+    scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
+      style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
+      hittest: 'false',
+      drawbackground: '0',
+      renderdeferred: 'false',
+      particleonly: 'false',
+      unit: hero,
+      rotateonhover: 'true',
+      yawmin: '-10',
+      yawmax: '10',
+      pitchmin: '-10',
+      pitchmax: '10'
+    });
     $.DispatchEvent('DOTAGlobalSceneSetCameraEntity', id, 'camera_end_top', 1.0);
   }
 
@@ -994,9 +1128,9 @@ function CreateHeroPanel (parent, hero) {
 }
 
 function CreateAbilityPanel (parent, ability) {
-  var id = 'Ability_' + ability;
-  parent.BCreateChildren('<DOTAAbilityImage abilityname="' + ability + '" id="' + id + '" />');
-  var icon = $('#' + id);
+  let id = 'Ability_' + ability;
+  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, {abilityname: ability});
+  let icon = $('#' + id);
   icon.SetPanelEvent('onmouseover', function () {
     $.DispatchEvent('DOTAShowAbilityTooltip', icon, ability);
   });

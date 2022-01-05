@@ -13,7 +13,7 @@
         "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_claw_lunge.lua"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "FightRecapLevel"               "1"
@@ -25,12 +25,11 @@
 
         // Time
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "20.0"
-
+        "AbilityCooldown"               "30.0"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "50"
+        "AbilityManaCost"               "100"
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "lunge_damage"          "3000"
+                "lunge_damage"          "6000"
             }
             "02"
             {

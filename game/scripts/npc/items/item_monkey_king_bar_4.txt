@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3628"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -24,7 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_monkey_king_bar_3;item_upgrade_core_3"
-      "02"                                                "item_mjollnir_3;item_upgrade_core_3"
+      //"02"                                                "item_mjollnir_3;item_upgrade_core_3"
     }
   }
 
@@ -41,7 +42,7 @@
     "AbilityTextureName"                                  "custom/monkey_king_bar_4"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17850"
+    "ItemCost"                                            "17978"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb 4;monkey king bar 4"
@@ -58,7 +59,7 @@
 			"01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "42 62 92 132 182"
+        "bonus_damage"                                    "40 60 90 130 180"
       }
       "02"
       {
@@ -68,12 +69,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance"                                    "75"
+        "bonus_chance"                                    "80"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "100 130 190 280 400"
+        "bonus_chance_damage"                             "70 100 160 250 370"
       }
     }
   }

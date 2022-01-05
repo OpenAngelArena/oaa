@@ -17,17 +17,18 @@ function CreepPower:GetBasePowerForMinute (minute)
       (30 * ((minute/100) ^ 2) + 3 * (minute/100)) + 1,                                                                 -- mana
       (48 * ((minute/100) ^ 2) + 4.5 * (minute/100)) + 1,                                                               -- damage
       (minute / 6) + 1,                                                                                                 -- armor
-      (9 * (minute/100)) + 1,                                                                                           -- gold
+      (10 * (minute/100)) + 1,                                                                                          -- gold
       ((9 * minute ^ 2 + 17 * minute + 607)/607) * 2/3                                                                  -- xp
     }
   end
 
-  values[1] = self.numPlayersStatsFactor * values[1]
+  -- Lua tables start at 1; values[1] is minute;
   values[2] = self.numPlayersStatsFactor * values[2]
   values[3] = self.numPlayersStatsFactor * values[3]
   values[4] = self.numPlayersStatsFactor * values[4]
-  values[5] = self.BootGoldFactor * values[5]
-  values[6] = self.numPlayersXPFactor * values[6]
+  --values[5] = self.numPlayersStatsFactor * values[5] -- Don't scale armor
+  values[6] = self.BootGoldFactor * values[6]
+  values[7] = self.numPlayersXPFactor * values[7]
 
   return values
 end
@@ -50,21 +51,18 @@ function CreepPower:GetBaseCavePowerForMinute (minute)
 end
 
 function CreepPower:Init ()
-  if self.initialized then
-    print("CreepPower is already initialized and there was an attempt to initialize it again -> preventing")
-    return nil
-  end
+  self.moduleName = "CreepPower (Creep Scaling)"
+
   local maxTeamPlayerCount = 10 -- TODO: Make maxTeamPlayerCount based on values set in settings.lua (?)
   if HeroSelection.is10v10 then
     maxTeamPlayerCount = 20
   end
-  self.numPlayersXPFactor = 1 -- PlayerResource:GetTeamPlayerCount() / maxTeamPlayerCount
-  self.numPlayersStatsFactor = (PlayerResource:GetTeamPlayerCount() + 5) / (maxTeamPlayerCount + 5)
+  self.numPlayersXPFactor = 1 -- PlayerResource:SafeGetTeamPlayerCount() / maxTeamPlayerCount
+  self.numPlayersStatsFactor = (PlayerResource:SafeGetTeamPlayerCount() + 5) / (maxTeamPlayerCount + 5)
 
-  if PlayerResource:GetTeamPlayerCount() == 1 then
+  if PlayerResource:SafeGetTeamPlayerCount() == 1 then
     self.numPlayersStatsFactor = 1
   end
 
   self.BootGoldFactor = _G.BOOT_GOLD_FACTOR or 1
-  self.initialized = true
 end

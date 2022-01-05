@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 13 13"
+    "AbilityCooldown"                                     "16 15 14 13 13 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,17 +42,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "silence_duration"                                "2.0 2.5 3.0 3.5 4.0 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_puck_7"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "70 140 210 280 560 1000"
+        "damage"                                          "70 140 210 280 560 1120" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_puck_4"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "275"
+        "max_distance"                                    "300"
         "LinkedSpecialBonus"                              "special_bonus_unique_puck_6"
       }
     }

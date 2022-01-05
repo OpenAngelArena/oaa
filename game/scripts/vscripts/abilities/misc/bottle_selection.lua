@@ -66,6 +66,11 @@ function modifier_bottle_selection:OnOrder( params )
 		local hOrderedUnit = params.unit
 		local hTargetUnit = params.target
 		local nOrderType = params.order_type
+
+    if GetMapName() ~= "captains_mode" then
+      return
+    end
+
 		if nOrderType ~= DOTA_UNIT_ORDER_MOVE_TO_TARGET then
 			return
 		end

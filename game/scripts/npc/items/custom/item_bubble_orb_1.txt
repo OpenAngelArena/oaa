@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: bubble_orb_1
+  // Recipe: Bubble Orb 1
   //=================================================================================================================
   "item_recipe_bubble_orb_1"
   {
@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3823"   // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
@@ -29,7 +30,7 @@
   }
 
   //=================================================================================================================
-  // bubble_orb_1
+  // Bubble Orb 1
   //=================================================================================================================
   "item_bubble_orb_1"
   {
@@ -48,13 +49,14 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "AbilityCooldown"                                     "40"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "300"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16950"
+    "ItemCost"                                            "16853"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bubble orb"
@@ -74,7 +76,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "16.0 30.0"
+        "bonus_health_regen"                              "16 19"
       }
       "03"
       {
@@ -94,7 +96,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "150"
+        "radius"                                          "300"
       }
       "07"
       {
@@ -104,7 +106,7 @@
       }
     }
 
-    "Precache"
+    "precache"
     {
       "particle"                                          "particles/items/bubble_orb_base.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"

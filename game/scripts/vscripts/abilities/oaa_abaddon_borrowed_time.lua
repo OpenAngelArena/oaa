@@ -8,6 +8,19 @@ function abaddon_borrowed_time_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_borrowed_time_passive"
 end
 
+function abaddon_borrowed_time_oaa:GetCooldown(level)
+  local caster = self:GetCaster()
+  local base_cd = self.BaseClass.GetCooldown(self, level)
+
+  -- Let's see if Valve made FindAbilityByName available on the client
+  local talent = caster:FindAbilityByName("special_bonus_unique_abaddon_5")
+  if talent and talent:GetLevel() > 0 then
+    return base_cd - math.abs(talent:GetSpecialValueFor("value"))
+  end
+
+  return base_cd
+end
+
 function abaddon_borrowed_time_oaa:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
@@ -176,7 +189,7 @@ function modifier_oaa_borrowed_time_buff_caster:GetModifierTotal_ConstantBlock(k
     ParticleManager:ReleaseParticleIndex(heal_particle)
 
     -- Heal amount is equal to the damage amount (damage after reductions, not original damage)
-    parent:Heal(kv.damage, parent)
+    parent:Heal(kv.damage, self:GetAbility())
 
     -- Block the damage
     return kv.damage

@@ -24,19 +24,20 @@
     "Ability4"                                            "wanderer_point_aversion"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_regen"
+    "Ability7"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"      // Physical protection.
-    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+    "ArmorPhysical"                                       "25"     // Physical protection.
+    "MagicalResistance"                                   "-50"    // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "3500"    // Damage range min.
-    "AttackDamageMax"                                     "3500"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "1.0"      // Speed of attack.
+    "AttackDamageMin"                                     "3000"   // Damage range min.
+    "AttackDamageMax"                                     "3000"   // Damage range max.
+    "AttackRate"                                          "1.0"    // BAT
+    "BaseAttackSpeed"                                     "100"    // Attack Speed
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -63,7 +64,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "17000"    // Base health
-    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "2500"    // Base mana.
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
@@ -123,19 +124,20 @@
     "Ability4"                                            "wanderer_point_aversion"
     "Ability5"                                            "boss_resistance"
     "Ability6"                                            "boss_regen"
+    "Ability7"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"      // Physical protection.
-    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+    "ArmorPhysical"                                       "25"     // Physical protection.
+    "MagicalResistance"                                   "-50"    // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "6500"    // Damage range min.
-    "AttackDamageMax"                                     "6500"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "1.0"      // Speed of attack.
+    "AttackDamageMin"                                     "6000"   // Damage range min.
+    "AttackDamageMax"                                     "6000"   // Damage range max.
+    "AttackRate"                                          "1.0"    // BAT
+    "BaseAttackSpeed"                                     "100"    // Attack Speed
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -162,7 +164,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "35000"    // Base health
-    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "2500"    // Base mana.
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
@@ -226,16 +228,16 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"      // Physical protection.
-    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+    "ArmorPhysical"                                       "25"     // Physical protection.
+    "MagicalResistance"                                   "-50"    // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "10000"    // Damage range min.
-    "AttackDamageMax"                                     "10000"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
-    "AttackRate"                                          "1.0"      // Speed of attack.
+    "AttackDamageMin"                                     "10000"  // Damage range min.
+    "AttackDamageMax"                                     "10000"  // Damage range max.
+    "AttackRate"                                          "1.0"    // BAT
+    "BaseAttackSpeed"                                     "100"    // Attack Speed
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
     "AttackRange"                                         "128"    // Range within a target can be attacked.
@@ -262,7 +264,7 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "50000"    // Base health
-    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "2500"    // Base mana.
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 

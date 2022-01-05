@@ -5,6 +5,7 @@
 
 LinkLuaModifier("modifier_elixier_hybrid_active", "items/elixier_hybrid.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_elixier_hybrid_trigger", "items/elixier_hybrid.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_elixier_hybrid_not_allowed", "items/elixier_hybrid.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -35,9 +36,21 @@ end
 
 modifier_elixier_hybrid_active = class(ModifierBaseClass)
 
-function modifier_elixier_hybrid_active:IsHidden() return false end
-function modifier_elixier_hybrid_active:IsPurgable() return false end
-function modifier_elixier_hybrid_active:IsDebuff() return false end
+function modifier_elixier_hybrid_active:IsHidden()
+  return false
+end
+
+function modifier_elixier_hybrid_active:IsPurgable()
+  return false
+end
+
+function modifier_elixier_hybrid_active:IsDebuff()
+  return false
+end
+
+function modifier_elixier_hybrid_active:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_hybrid_active:GetEffectName()
   return "particles/items/elixiers/elixier_hybrid_lesser.vpcf"
@@ -54,7 +67,6 @@ end
 function modifier_elixier_hybrid_active:OnCreated()
   if IsServer() then
     self.regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
-    --self.damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
     self:SetStackCount(self.regen)
   end
 end
@@ -83,9 +95,21 @@ end
 
 modifier_elixier_hybrid_trigger = class(ModifierBaseClass)
 
-function modifier_elixier_hybrid_trigger:IsHidden() return false end
-function modifier_elixier_hybrid_trigger:IsPurgable() return false end
-function modifier_elixier_hybrid_trigger:IsDebuff() return false end
+function modifier_elixier_hybrid_trigger:IsHidden()
+  return false
+end
+
+function modifier_elixier_hybrid_trigger:IsPurgable()
+  return false
+end
+
+function modifier_elixier_hybrid_trigger:IsDebuff()
+  return false
+end
+
+function modifier_elixier_hybrid_trigger:RemoveOnDeath()
+  return false
+end
 
 function modifier_elixier_hybrid_trigger:GetEffectName()
   return "particles/items/elixiers/elixier_hybrid.vpcf"
@@ -100,9 +124,13 @@ function modifier_elixier_hybrid_trigger:GetTexture()
 end
 
 function modifier_elixier_hybrid_trigger:OnCreated(keys)
-  if IsServer() then
-    self.magic_damage = self:GetAbility():GetSpecialValueFor("bonus_magic_damage")
-    self.physical_damage = self:GetAbility():GetSpecialValueFor("bonus_physical_damage")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.magic_damage = ability:GetSpecialValueFor("bonus_magic_damage")
+    self.physical_damage = ability:GetSpecialValueFor("bonus_physical_damage")
+  else
+    self.magic_damage = 200
+    self.physical_damage = 300
   end
 end
 
@@ -155,13 +183,42 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
     -- Don't proc on damage from attacks (we use OnAttackLanded for that);
     -- it also prevents procing on itself (prevents infinite loop)
     -- because source of proc damage is nil
-    if not event.inflictor then
+    local inflictor = event.inflictor
+    if not inflictor then
       return
     end
 
-    -- Don't proc on Sticky Napalm because Sticky Napalm procs on any damage
+    -- Don't proc on stuff that procs on any damage
     -- it prevents infinite damage loop (proc on damage proc)
-    if event.inflictor:GetName() == "batrider_sticky_napalm" then
+    local non_trigger_inflictors = {
+      ["batrider_sticky_napalm"] = true,
+      ["batrider_sticky_napalm_oaa"] = true,
+      --["item_orb_of_venom"] = true,
+      --["item_orb_of_corrosion"] = true,
+      --["item_radiance"] = true,
+      --["item_radiance_2"] = true,
+      --["item_radiance_3"] = true,
+      --["item_radiance_4"] = true,
+      --["item_radiance_5"] = true,
+      --["item_urn_of_shadows"] = true,
+      --["item_spirit_vessel"] = true,
+      --["item_spirit_vessel_2"] = true,
+      --["item_spirit_vessel_3"] = true,
+      --["item_spirit_vessel_4"] = true,
+      --["item_spirit_vessel_5"] = true,
+      --["item_cloak_of_flames"] = true,
+      ["item_trumps_fists"] = true,           -- Blade of Judecca
+      ["item_trumps_fists_2"] = true,
+      --["item_silver_staff"] = true,
+      --["item_silver_staff_2"] = true,
+      --["item_paintball"] = true,              -- Fae Grenade
+    }
+
+    if non_trigger_inflictors[inflictor:GetName()] then
+      return
+    end
+
+    if parent:HasModifier("modifier_elixier_hybrid_not_allowed") then
       return
     end
 
@@ -185,6 +242,8 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
 
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, unit, damage_dealt, parent:GetPlayerOwner())
+
+    parent:AddNewModifier(parent, nil, "modifier_elixier_hybrid_not_allowed", {duration = 0.5})
   end
 end
 
@@ -213,4 +272,24 @@ function modifier_elixier_hybrid_trigger:OnAttackLanded(event)
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage_dealt, parent:GetPlayerOwner())
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_elixier_hybrid_not_allowed = class(ModifierBaseClass)
+
+function modifier_elixier_hybrid_not_allowed:IsHidden()
+  return true
+end
+
+function modifier_elixier_hybrid_not_allowed:IsPurgable()
+  return false
+end
+
+function modifier_elixier_hybrid_not_allowed:IsDebuff()
+  return false
+end
+
+function modifier_elixier_hybrid_not_allowed:RemoveOnDeath()
+  return false
 end

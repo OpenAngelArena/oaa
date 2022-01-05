@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: bubble_orb_2
+  // Recipe: Bubble Orb 2
   //=================================================================================================================
   "item_recipe_bubble_orb_2"
   {
@@ -9,11 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8446"   // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,13 +25,13 @@
     "ItemRequirements"
     {
       "01"                                                "item_bubble_orb_1;item_upgrade_core_4"
-      "02"                                                "item_lotus_orb_4;item_upgrade_core_4"
-      "03"                                                "item_dispel_orb_2;item_upgrade_core_4"
+      //"02"                                                "item_lotus_orb_4;item_upgrade_core_4"
+      //"03"                                                "item_dispel_orb_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // bubble_orb_2
+  // Bubble Orb 2
   //=================================================================================================================
   "item_bubble_orb_2"
   {
@@ -49,13 +50,14 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200"
-    "AbilityCooldown"                                     "40"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "bubble"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "300"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36950"
+    "ItemCost"                                            "36854"
     "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bubble orb 2"
@@ -75,7 +77,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "16.0 30.0"
+        "bonus_health_regen"                              "16 19"
       }
       "03"
       {
@@ -95,7 +97,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "150"
+        "radius"                                          "300"
       }
       "07"
       {
@@ -105,7 +107,7 @@
       }
     }
 
-    "Precache"
+    "precache"
     {
       "particle"                                          "particles/items/bubble_orb_base.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"

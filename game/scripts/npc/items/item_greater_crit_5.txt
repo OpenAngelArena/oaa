@@ -9,10 +9,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3061"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
@@ -24,9 +25,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_crit_4;item_upgrade_core_4"
-      "02"                                                "item_bloodthorn_4;item_upgrade_core_4"
-      "03"                                                "item_nullifier_4;item_upgrade_core_4"
-      "04"                                                "item_imp_claw_1;item_upgrade_core_4"
+      //"02"                                                "item_bloodthorn_4;item_upgrade_core_4"
+      //"03"                                                "item_nullifier_4;item_upgrade_core_4"
+      //"04"                                                "item_silver_edge_4;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37725"
+    "ItemCost"                                            "38154"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus 5;crit 5"
@@ -71,7 +72,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "175 205 235 265 295"
+        "crit_multiplier"                                 "180 210 240 270 300"
       }
     }
   }

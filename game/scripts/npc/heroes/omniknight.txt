@@ -5,6 +5,7 @@
   //=================================================================================================================
   "npc_dota_hero_omniknight"
   {
-    "Ability13"   "special_bonus_all_stats_20" // replaces special_bonus_attack_damage_70
+    "Ability3"                                            "omniknight_degen_aura_oaa"// replaces omniknight_degen_aura
+    "Ability5"                                            "omniknight_degen_aura" // replaces generic_hidden
   }
 }

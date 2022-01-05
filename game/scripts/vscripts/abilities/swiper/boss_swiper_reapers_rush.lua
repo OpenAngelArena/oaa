@@ -4,19 +4,53 @@ boss_swiper_reapers_rush = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
-function boss_swiper_reapers_rush:OnAbilityPhaseStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local width = self:GetSpecialValueFor("radius")
-		local target = self:GetCursorPosition()
-		local distance = (target - caster:GetAbsOrigin()):Length2D()
-		local castTime = self:GetCastPoint()
-		local direction = (target - caster:GetAbsOrigin()):Normalized()
+function boss_swiper_reapers_rush:Precache(context)
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
+  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_swipe.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts", context)
+end
 
-		DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
-		DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)
-	end
-	return true
+function boss_swiper_reapers_rush:OnAbilityPhaseStart()
+  if IsServer() then
+    local caster = self:GetCaster()
+    local width = self:GetSpecialValueFor("radius")
+    local target = self:GetCursorPosition()
+    local distance = (target - caster:GetAbsOrigin()):Length2D()
+    local castTime = self:GetCastPoint()
+    local direction = (target - caster:GetAbsOrigin()):Normalized()
+
+    -- Warning particle
+    local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(FX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(FX, 2, caster:GetAbsOrigin() + direction*(distance+width))
+    ParticleManager:SetParticleControl(FX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(FX, 4, Vector(255, 0, 0))
+    ParticleManager:ReleaseParticleIndex(FX)
+
+    -- Destination indicator particle
+    local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(indicator, 0, target)
+    ParticleManager:SetParticleControl(indicator, 1, Vector(width, width, width))
+    ParticleManager:SetParticleControl(indicator, 15, Vector(255, 26, 26))
+
+    self.indicator = indicator
+
+    --DebugDrawBoxDirection(caster:GetAbsOrigin(), Vector(0,-width / 2,0), Vector(distance,width / 2,50), direction, Vector(255,0,0), 1, castTime)
+    --DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 128, width, false, castTime + 2.0)
+  end
+  return true
+end
+
+function boss_swiper_reapers_rush:OnAbilityPhaseInterrupted()
+  if IsServer() then
+    if self.indicator then
+      ParticleManager:DestroyParticle(self.indicator, true)
+      ParticleManager:ReleaseParticleIndex(self.indicator)
+      self.indicator = nil
+    end
+  end
 end
 
 --------------------------------------------------------------------------------
@@ -28,19 +62,24 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_reapers_rush:OnSpellStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local target = self:GetCursorPosition()
-		local distance = (target - caster:GetAbsOrigin()):Length2D()
-		local direction = (target - caster:GetAbsOrigin()):Normalized()
+  -- Remove ability phase (indicator) particle
+  if self.indicator then
+    ParticleManager:DestroyParticle(self.indicator, true)
+    ParticleManager:ReleaseParticleIndex(self.indicator)
+    self.indicator = nil
+  end
 
-		caster:Stop()
+  local caster = self:GetCaster()
+  local target = self:GetCursorPosition()
+  local distance = (target - caster:GetAbsOrigin()):Length2D()
+  local direction = (target - caster:GetAbsOrigin()):Normalized()
 
-		local modifierTable = {}
-		modifierTable.speed = self:GetSpecialValueFor("speed")
-		modifierTable.distance = distance
-		caster:AddNewModifier(caster, self, "modifier_boss_swiper_reapers_rush_active", modifierTable)
-	end
+  caster:Stop()
+
+  local modifierTable = {}
+  modifierTable.speed = self:GetSpecialValueFor("speed")
+  modifierTable.distance = distance
+  caster:AddNewModifier(caster, self, "modifier_boss_swiper_reapers_rush_active", modifierTable)
 end
 
 ------------------------------------------------------------------------------------
@@ -56,53 +95,52 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:GetActivityTranslationModifiers()
-    return "haste"
+  return "haste"
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimationRate()
-	return 2.0
+  return 2.0
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimation()
-	return ACT_DOTA_RUN
+  return ACT_DOTA_RUN
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimationWeight(params)
-    return 1.0
+  return 1.0
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:DeclareFunctions()
-	local funcs = {
-        MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-        MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
-        MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
-		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
-	}
+  local funcs = {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
+    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
+  }
 
-	return funcs
+  return funcs
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:CheckState()
-    local state = {
-        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-        [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-        [MODIFIER_STATE_STUNNED] = true,
-        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-        -- [MODIFIER_STATE_INVULNERABLE] = true,
-    }
+  local state = {
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+    [MODIFIER_STATE_STUNNED] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+  }
 
-    return state
+  return state
 end
 
 ------------------------------------------------------------------------------------

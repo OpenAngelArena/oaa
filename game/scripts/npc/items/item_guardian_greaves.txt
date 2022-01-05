@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1600"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,7 +24,7 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_mekansm;item_arcane_boots"
+      "01"                                                "item_mekansm;item_arcane_boots;item_buckler"
     }
   }
 
@@ -41,13 +41,13 @@
     "AbilityTextureName"                                  "item_guardian_greaves"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40"
+    "AbilityCooldown"                                     "25" //OAA
     "AbilityCastRange"                                    "1200"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "4975"
+    "ItemCost"                                            "5100"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "guardian greaves"

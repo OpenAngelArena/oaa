@@ -1,68 +1,57 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_pudge"
-    "Title"         "Recommended items for Pudge"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_pudge"
+  "Title"         "Recommended items for Pudge"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_ward_stack"
-            "item"      "item_wind_lace"
-            "item"      "item_flask"
-            "item"      "item_enchanted_mango"
-            "item"      ""
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_magic_wand"
-            "item"      ""
-            "item"      "item_ultimate_scepter"
-            "item"      "item_blink"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_aether_lens"
-            "item"      "item_shivas_guard"
-            "item"      "item_heart"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      ""
-            "item"      ""
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_ethereal_blade"
-            "item"      "item_spirit_vessel"
-            "item"      ""
-            "item"      "item_far_sight"
-            "item"      "item_glimmer_cape_2"
-            "item"      "item_pipe"
-            "item"      "item_crimson_guard"
-            "item"      ""
-            "item"      "item_heavens_halberd"
-            "item"      "item_martyrs_mail_4"
-            "item"      ""
-            "item"      "item_sheepstick_4"
-            "item"      "item_lucience"
-            "item"      "item_lotus_orb"
-            "item"      "item_veil_of_discord"
-            "item"      "item_octarine_core"
-            "item"      ""
-            "item"      "item_black_king_bar_1"
-            "item"      "item_radiance"
-            "item"      "item_kaya_and_sange"
-            "item"      "item_satanic_core"
-        }
+      "item"      "item_ward_stack"
+      "item"      "item_wind_lace"
+      "item"      "item_flask"
+      "item"      "item_enchanted_mango"
     }
+
+    "#DOTA_Item_Build_Early_Game"
+    {
+      "item"      "item_magic_wand"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_blink"
+    }
+
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_aether_lens"
+      "item"      "item_shivas_guard"
+      "item"      "item_heart_oaa"
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"    "item_ethereal_blade"
+      "item"    "item_octarine_core"
+      "item"    "item_black_king_bar_1"
+      "item"    "item_bubble_orb_1"
+      "item"    "item_sheepstick_4"
+      "item"    "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_spirit_vessel"
+      "item"      "item_glimmer_cape_2"
+      "item"      "item_pipe"
+      "item"      "item_crimson_guard"
+      "item"      "item_heavens_halberd"
+      "item"      "item_martyrs_mail_4"
+      "item"      "item_lucience"
+      "item"      "item_lotus_orb"
+      "item"      "item_veil_of_discord"
+      "item"      "item_radiance"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_satanic_core"
+    }
+  }
 }

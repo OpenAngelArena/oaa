@@ -1,6 +1,3 @@
-LinkLuaModifier("ogre_tank_boss_jump_smash", "abilities/siltbreaker/npc_dota_creature_ogre_tank_boss/ogre_tank_boss_jump_smash.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("ogre_tank_boss_melee_smash", "abilities/siltbreaker/npc_dota_creature_ogre_tank_boss/ogre_tank_boss_melee_smash.lua", LUA_MODIFIER_MOTION_NONE)
-
 function Spawn( entityKeyValues )
 	if not IsServer() then
 		return
@@ -20,7 +17,7 @@ end
 function FrendlyHasAgro()
   for i, hSummonedUnit in ipairs( thisEntity.OgreSummonSeers ) do
     if ( IsValidEntity(hSummonedUnit) and hSummonedUnit:IsAlive() and hSummonedUnit.bHasAgro) then
-      local hasDamageThreshold = hSummonedUnit:GetMaxHealth() - hSummonedUnit:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+      local hasDamageThreshold = hSummonedUnit:GetHealth() / hSummonedUnit:GetMaxHealth() < 98/100
       if hasDamageThreshold then
         return true
       end
@@ -48,15 +45,17 @@ function OgreTankBossThink()
 
   local enemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
-    thisEntity:GetOrigin(),
+    thisEntity.vInitialSpawnPos,
     nil,
-    thisEntity:GetCurrentVisionRange(),
+    BOSS_LEASH_SIZE,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     FIND_CLOSEST,
-    false )
+    false
+  )
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+  local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   --Agro

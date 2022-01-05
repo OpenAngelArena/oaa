@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Upgrade Core
+  // Core Points to Gold
   //=================================================================================================================
   "item_core_info"
   {
@@ -11,18 +11,15 @@
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/core_info"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-
-    "ItemCost"                                            "0"
-    "ItemPurchasable"                                     "0"
+    "ItemCorePointCost"                                   "1"
+    "ItemCost"                                            "1"
+    "ItemPurchasable"                                     "1"
     //"ItemSellable"                                      "0"
-    "ItemKillable"                                        "0"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+    "ItemKillable"                                        "1"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0" // OAA
+    "AbilityCooldown"                                     "90" // OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,6 +37,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "20 22 24 26 28 30" // OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
       }
       "02"
       {
@@ -51,19 +52,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_range"                                     "400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
+        "bonus_range"                                     "340 360 380 400 420 440"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_attack_range"                            "550"
-        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_3"
+        "tooltip_attack_range"                            "490 510 530 550 570 590"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 40 60 80 180 280"
+        "bonus_damage"                                    "15 30 45 60 120 240"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "07"
@@ -76,36 +75,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "metamorph_aura_tooltip"                          "1200"
       }
-      "09" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "fear_duration"                                   "3.75"
-        "RequiresScepter"                                 "1"
-      }
-      "10" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown_reduction"                      "0"
-      }
-      "11" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "1600"
-        "RequiresScepter"                                 "1"
-      }
-      "12" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_speed"                                   "1000"
-        "RequiresScepter"                                 "1"
-      }
-      "13" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_spawn_delay"                             "0.6"
-        "RequiresScepter"                                 "1"
-      }
     }
   }
-
 }
