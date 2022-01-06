@@ -59,8 +59,8 @@ function CapturePoints:Init ()
   self.currentCapture = nil
   self.NumCaptures = 0
 
-  CapturePoints.nextCaptureTime = INITIAL_CAPTURE_POINT_DELAY
-  HudTimer:At(INITIAL_CAPTURE_POINT_DELAY - 60, function ()
+  self.nextCaptureTime = self:GetInitialDelay()
+  HudTimer:At(CapturePoints:GetInitialDelay() - 60, function ()
     CapturePoints:ScheduleCapture()
   end)
 
@@ -132,9 +132,9 @@ function CapturePoints:ScheduleCapture()
   end
   PrepareCapture.broadcast(true)
 
-  CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_INTERVAL + CAPTURE_FIRST_WARN
+  self.nextCaptureTime = HudTimer:GetGameTime() + self:GetCapturePointIntervalTime() + CAPTURE_FIRST_WARN
 
-  self.scheduleCaptureTimer = Timers:CreateTimer(CAPTURE_INTERVAL, function ()
+  self.scheduleCaptureTimer = Timers:CreateTimer(CapturePoints:GetCapturePointIntervalTime(), function ()
     CapturePoints:ScheduleCapture()
   end)
 
@@ -188,7 +188,7 @@ function CapturePoints:StartCapture(color)
 
   Timers:CreateTimer(CAPTURE_FIRST_WARN, function ()
     self:ActuallyStartCapture()
-    CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CAPTURE_INTERVAL + CAPTURE_FIRST_WARN
+    CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CapturePoints:GetCapturePointIntervalTime() + CAPTURE_FIRST_WARN
   end)
 end
 
@@ -299,4 +299,42 @@ function CapturePoints:EndCapture ()
   -- Remove vision over capture points
   self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_kill", {duration = 0.1})
   self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_kill", {duration = 0.1})
+end
+
+function CapturePoints:GetInitialDelay()
+  if CAPTURE_POINTS_AND_DUELS_NO_OVERLAP then
+    if Duels then
+      return Duels:GetDuelTimeout(1) + Duels:GetDuelIntervalTime() + Duels:GetDuelTimeout() + 10
+    else
+      if GetMapName() == "1v1" then
+        return ONE_V_ONE_DUEL_TIMEOUT + ONE_V_ONE_DUEL_INTERVAL + ONE_V_ONE_DUEL_TIMEOUT + 10
+      end
+      return FIRST_DUEL_TIMEOUT + DUEL_INTERVAL + DUEL_TIMEOUT + 10
+    end
+  end
+
+  if GetMapName() == "1v1" then
+    return ONE_V_ONE_INITIAL_CAPTURE_POINT_DELAY
+  end
+
+  return INITIAL_CAPTURE_POINT_DELAY
+end
+
+function CapturePoints:GetCapturePointIntervalTime()
+  if CAPTURE_POINTS_AND_DUELS_NO_OVERLAP then
+    if Duels then
+      return Duels:GetDuelIntervalTime()
+    else
+      if GetMapName() == "1v1" then
+        return ONE_V_ONE_DUEL_INTERVAL
+      end
+      return DUEL_INTERVAL
+    end
+  end
+
+  if GetMapName() == "1v1" then
+    return ONE_V_ONE_CAPTURE_INTERVAL
+  end
+
+  return CAPTURE_INTERVAL
 end
