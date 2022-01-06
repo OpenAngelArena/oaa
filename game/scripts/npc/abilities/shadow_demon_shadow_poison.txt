@@ -54,7 +54,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_stack_damage"                              "50"
+        "bonus_stack_damage"                              "50 50 50 50 100 200"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
@@ -71,7 +71,7 @@
       "06" // Damage that is applied every time shadow poison is applied.
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hit_damage"                                      "26 34 42 50 100 150"
+        "hit_damage"                                      "26 34 42 50 100 200"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_4"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }

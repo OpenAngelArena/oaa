@@ -25,14 +25,14 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 }());
 
 if (Game.GetMapInfo().map_display_name === '1v1') {
-    let smallPlayerPoolButton = $('#small_player_pool')
-    if (smallPlayerPoolButton) {
-      smallPlayerPoolButton.enabled = false;
-      smallPlayerPoolButton.style.opacity = 0;
-      smallPlayerPoolButton.style.visibility = 'collapse';
-    }
+  let smallPlayerPoolButton = $('#small_player_pool');
+  if (smallPlayerPoolButton) {
+    smallPlayerPoolButton.enabled = false;
+    smallPlayerPoolButton.style.opacity = 0;
+    smallPlayerPoolButton.style.visibility = 'collapse';
   }
-  
+}
+
 function MMRShuffle () {
   $.Msg('Clicked shuffle!');
   if (!IsHost) {
