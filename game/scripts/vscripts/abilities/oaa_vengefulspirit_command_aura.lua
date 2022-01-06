@@ -85,12 +85,15 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
   local illusions = CreateIllusions(parent, parent, illusion_table, 1, parent:GetHullRadius(), true, true)
   for _, illusion in pairs(illusions) do
     illusion:SetHealth(illusion:GetMaxHealth())
+    illusion:SetMana(illusion:GetMaxMana())
     illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
     --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
     --self.illusion = illusion
 
     PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), illusion)
-    --PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+    Timers:CreateTimer(2/30, function()
+      PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+    end)
   end
 end
 
@@ -104,15 +107,14 @@ function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
   if event.unit ~= parent then
     return
   end
---[[
-  if self.illusion and self.illusion:IsNull() then
-    --self.illusion:ForceKill(false)
+  --[[
+  if self.illusion and not self.illusion:IsNull() then
     self.illusion:AddNoDraw()
     self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
   end
   ]]
   PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), parent)
-  Timers:CreateTimer(1/30, function()
+  Timers:CreateTimer(2/30, function()
     PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
   end)
 end
