@@ -684,6 +684,11 @@ function buildItemTree (t, data, cb) {
     var itemData = items[item];
     var requirements = itemData.recipes;
 
+    var file = itemFileMap[item];
+    var string = fs.readFileSync(file, { encoding: 'utf8' });
+    string = string.replace('DECLARE_PURCHASES_TO_TEAMMATES | ', '');
+    fs.writeFileSync(file, string, { encoding: 'utf8' });
+
     requirements.forEach(function (reqList) {
       var cost = Number(itemData.recipe.values.ItemCost);
       var totalCost = Number(itemData.recipe.values.ItemCost);
