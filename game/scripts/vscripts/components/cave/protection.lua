@@ -76,7 +76,7 @@ function ProtectionAura:Init ()
   end
 
   -- Offside buffer zones - to prevent glitching inside the actual offside zone
-  if GetMapName() == "oaa_seasonal" then
+  if GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" then
     for id = 1, 3 do
       local radiant_zone = ZoneControl:CreateZone('radiant_offside_fix_' .. id, {
         mode = ZONE_CONTROL_EXCLUSIVE_IN,
@@ -135,7 +135,7 @@ function ProtectionAura:EndTouch(event)
 end
 
 function ProtectionAura:IsInBufferZone(entity)
-  if GetMapName() == "oaa_seasonal" then
+  if GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" then
     for i = 1, 3 do
       local trigger_r = Entities:FindByName(nil, 'radiant_offside_fix_'..tostring(i))
       local trigger_d = Entities:FindByName(nil, 'dire_offside_fix_'..tostring(i))

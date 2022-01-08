@@ -20,12 +20,14 @@ function PointsManager:Init ()
   self.extend_counter = 0
 
   local scoreLimit = NORMAL_KILL_LIMIT
-  local scoreLimitIncrease = KILL_LIMIT_INCREASE
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
-    --scoreLimitIncrease = scoreLimitIncrease/2
+  elseif HeroSelection.is1v1 then
+    scoreLimit = ONE_V_ONE_KILL_LIMIT
   end
-  scoreLimit = 10 + (scoreLimit + scoreLimitIncrease) * PlayerResource:SafeGetTeamPlayerCount()
+
+  scoreLimit = 10 + scoreLimit * PlayerResource:SafeGetTeamPlayerCount()
+
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
 
   CustomNetTables:SetTableValue( 'team_scores', 'score', {
@@ -201,7 +203,13 @@ end
 function PointsManager:IncreaseLimit(limit_increase)
   local extend_amount = 0
   if not limit_increase then
-    extend_amount = PlayerResource:SafeGetTeamPlayerCount() * KILL_LIMIT_INCREASE
+    local player_count = PlayerResource:SafeGetTeamPlayerCount()
+    extend_amount = player_count * KILL_LIMIT_INCREASE
+    if HeroSelection.is10v10 then
+      extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
+    elseif HeroSelection.is1v1 then
+      extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
+    end
   else
     extend_amount = limit_increase
   end
@@ -250,12 +258,18 @@ function PointsManager:RefreshLimit()
   local limit = self:GetLimit()
   local maxPoints = math.max(self:GetPoints(DOTA_TEAM_GOODGUYS), self:GetPoints(DOTA_TEAM_BADGUYS))
   local base_limit = NORMAL_KILL_LIMIT
+  local current_player_count = PlayerResource:SafeGetTeamPlayerCount()
+  local extend_amount = KILL_LIMIT_INCREASE * current_player_count
   if HeroSelection.is10v10 then
     base_limit = TEN_V_TEN_KILL_LIMIT
+    extend_amount = TEN_V_TEN_LIMIT_INCREASE * current_player_count
+  elseif HeroSelection.is1v1 then
+    base_limit = ONE_V_ONE_KILL_LIMIT
+    extend_amount = ONE_V_ONE_LIMIT_INCREASE * current_player_count
   end
   -- Expected score limit with changed number of players connected:
   -- Expected behavior: Disconnects should reduce player_count and reconnects should increase player_count.
-  local newLimit = 10 + (base_limit + (self.extend_counter + 1) * KILL_LIMIT_INCREASE) * PlayerResource:SafeGetTeamPlayerCount()
+  local newLimit = 10 + base_limit * current_player_count + self.extend_counter * extend_amount
   if newLimit < limit then
     local limitChange = limit - newLimit -- this used to be constant 10 and not dependent on number of players
     newLimit = math.min(limit, math.max(maxPoints + limitChange, limit - limitChange))

@@ -37,6 +37,7 @@ function HeroSelection:Init ()
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10"
   self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy"
+  self.is1v1 = GetMapName() == "1v1"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
   self.attemptedSpawnPlayers = {}
@@ -48,7 +49,10 @@ function HeroSelection:Init ()
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
-  if self.isRanked or self.is10v10 then
+  if self.is1v1 then
+    herolistFile = 'scripts/npc/herolist_1v1.txt'
+  end
+  if self.isRanked or self.is10v10 or self.is1v1 then
     self.isBanning = true
   end
 

@@ -156,6 +156,11 @@ if IsServer() then
   ]]
 
   function modifier_electrician_electric_shield:GetModifierTotal_ConstantBlock( event )
+    -- Do nothing if damage has HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
     -- start with the maximum block amount
     local blockAmount = event.damage * self.shieldRate
     local parent = self:GetParent()
@@ -190,13 +195,15 @@ if IsServer() then
       -- remove shield hp
       self:SetStackCount( hp - blockAmount )
 
-      -- do the little block visual effect
-      SendOverheadEventMessage( nil, 8, parent, blockAmount, nil )
-
       -- destroy the modifier if hp is reduced to nothing
       if self:GetStackCount() <= 0 then
         self:Destroy()
       end
+    end
+
+    if blockAmount > 0 then
+      -- do the little block visual effect (TODO: add unique visual effect)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, blockAmount, nil)
     end
 
     return blockAmount

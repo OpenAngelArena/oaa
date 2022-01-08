@@ -179,6 +179,11 @@ if IsServer() then
       return 0
     end
 
+    -- Don't interact with damage that has HP removal flag
+    if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
     local stackCount = self:GetStackCount()
 
     local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction")
@@ -204,7 +209,15 @@ if IsServer() then
         self:IncreaseStacks()
       end)
     end
-    return keys.damage * damageReduction / 100
+
+    local block_amount = keys.damage * damageReduction / 100
+
+    if block_amount > 0 then
+      -- Visual effect (TODO: add vanilla visual effect)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
+    end
+
+    return block_amount
   end
 end
 
@@ -265,8 +278,18 @@ function modifier_visage_gravekeepers_cloak_oaa_aura:DeclareFunctions()
 end
 
 function modifier_visage_gravekeepers_cloak_oaa_aura:GetModifierTotal_ConstantBlock(keys)
+  if not IsServer() then
+    return
+  end
+
   local caster = self:GetCaster()
   local ability = self:GetAbility()
+
+  -- Ignore damage that has HP removal flag
+  if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+    return 0
+  end
+
   local mod = caster:FindModifierByName("modifier_visage_gravekeepers_cloak_oaa")
   if mod and ability then
     local stackCount = mod:GetStackCount()
@@ -274,7 +297,14 @@ function modifier_visage_gravekeepers_cloak_oaa_aura:GetModifierTotal_ConstantBl
     local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction")
     local damageReduction = math.min(max_damage_reduction, damage_reduction_per_layer * stackCount)
 
-    return keys.damage * damageReduction / 100
+    local block_amount = keys.damage * damageReduction / 100
+
+    if block_amount > 0 then
+      -- Visual effect (TODO: add unique visual effect)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, self:GetParent(), block_amount, nil)
+    end
+
+    return block_amount
   end
 
   return 0

@@ -56,7 +56,7 @@ function item_sacred_skull:OnSpellStart()
     radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     target_units,
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
   )

@@ -44,7 +44,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40.0"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "guard"
     "AbilityCastRange"                                    "1200"
 
@@ -123,7 +123,7 @@
       "12"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "tooltip_reapply_time"                            "40"
+        "tooltip_reapply_time"                            "20"
       }
     }
   }

@@ -30,7 +30,7 @@ function Duels:Init ()
   self.allowExperienceGain = 0 -- 0 is no; 1 is yes; 2 is first duel (special no)
   iter(zoneNames):foreach(partial(self.RegisterZone, self))
 
-  GameEvents:OnHeroDied(function (keys)
+  GameEvents:OnHeroKilled(function (keys)
     Duels:CheckDuelStatus(keys)
   end)
 
@@ -46,7 +46,7 @@ function Duels:Init ()
     if playerID then
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if hero and not Duels.currentDuel then
-        hero:SetRespawnsDisabled(false)
+        --hero:SetRespawnsDisabled(false)
         if hero:IsAlive() then
           hero:RemoveModifierByName("modifier_out_of_duel")
         else
@@ -109,7 +109,7 @@ function Duels:Init ()
     Duels:StartDuel({
       players = 0,
       firstDuel = true,
-      timeout = FIRST_DUEL_TIMEOUT
+      timeout = Duels:GetDuelTimeout(1)
     })
   end)
 
@@ -184,15 +184,22 @@ function Duels:IsActive ()
   return true
 end
 
-function Duels:CheckDuelStatus (hero)
+function Duels:CheckDuelStatus (event)
   if not self:IsActive() then
     return
   end
+
+  local hero = event.killed
+
+  if hero:IsTempestDouble() then
+    return
+  end
+
   if hero:IsReincarnating() then
-    hero:SetRespawnsDisabled(false)
-    Timers:CreateTimer(1, function ()
-      hero:SetRespawnsDisabled(true)
-    end )
+    --hero:SetRespawnsDisabled(false)
+    --Timers:CreateTimer(1, function ()
+      --hero:SetRespawnsDisabled(true)
+    --end)
     return
   end
 
@@ -214,6 +221,7 @@ function Duels:CheckDuelStatus (hero)
   if player.killed then
     -- this player is already dead and shouldn't be counted again
     -- this shouldn't happen, but is nice to have here for future use cases of this method
+    -- this can happen for Meepo too
     DebugPrint('Player died twice in duel?')
     DebugPrintTable(self.currentDuel)
     DebugPrintTable(player)
@@ -426,7 +434,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     SafeTeleportAll(hero, spawn, 250)
     MoveCameraToPlayer(hero)
     hero:Stop()
-    hero:SetRespawnsDisabled(true)
+    --hero:SetRespawnsDisabled(true) -- not working properly thanks to Aghs Lab 2
   end
 
   if goodGuy then
@@ -481,7 +489,7 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
   DuelStartEvent.broadcast(self.currentDuel)
 
   if options.timeout == nil then
-    options.timeout = DUEL_TIMEOUT
+    options.timeout = Duels:GetDuelTimeout()
   end
 
   if options.timeout ~= 0 then
@@ -551,7 +559,7 @@ function Duels:TimeoutDuel ()
 end
 
 function Duels:SetNextDuelTime()
-  Duels.nextDuelTime = HudTimer:GetGameTime() + DUEL_INTERVAL + DUEL_START_WARN_TIME
+  Duels.nextDuelTime = HudTimer:GetGameTime() + Duels:GetDuelIntervalTime() + DUEL_START_WARN_TIME
 end
 
 function Duels:GetNextDuelTime()
@@ -570,7 +578,7 @@ function Duels:CleanUpDuel ()
 
   Music:PlayBackground(1, 7)
 
-  local nextDuelIn = DUEL_INTERVAL
+  local nextDuelIn = Duels:GetDuelIntervalTime()
   Duels:SetNextDuelTime()
 
   if self.startDuelTimer then
@@ -580,7 +588,7 @@ function Duels:CleanUpDuel ()
 
   self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
     Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
-    self.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(self.StartDuel, self))
+    Duels.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(Duels.StartDuel, Duels))
   end)
 
   self.currentDuel = nil
@@ -616,8 +624,8 @@ function Duels:EndDuel ()
 
       local hero = player:GetAssignedHero()
       if not hero:IsAlive() then
-        hero:SetRespawnsDisabled(false)
-        hero:RespawnHero(false,false)
+        --hero:SetRespawnsDisabled(false)
+        hero:RespawnHero(false, false)
         -- hero is changed on respawn sometimes
         hero = player:GetAssignedHero()
       else
@@ -684,4 +692,30 @@ function Duels:PlayerForDuel(playerId)
   end)
 
   return foundIt
+end
+
+function Duels:GetDuelIntervalTime()
+  if GetMapName() == "1v1" then
+    return ONE_V_ONE_DUEL_INTERVAL
+  end
+
+  return DUEL_INTERVAL
+end
+
+function Duels:GetDuelTimeout(duelType)
+  if GetMapName() == "1v1" then
+    return ONE_V_ONE_DUEL_TIMEOUT
+  end
+  if not duelType then
+    -- Duel is not first and not final
+    return DUEL_TIMEOUT
+  elseif duelType == 1 then
+    -- First duel
+    return FIRST_DUEL_TIMEOUT
+  elseif duelType == 2 then
+    -- Final duel
+    return FINAL_DUEL_TIMEOUT
+  end
+
+  return DUEL_TIMEOUT
 end
