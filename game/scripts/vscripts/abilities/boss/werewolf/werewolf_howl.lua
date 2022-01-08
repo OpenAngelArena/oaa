@@ -2,8 +2,8 @@ werewolf_howl = class(AbilityBaseClass)
 
 ----------------------------------------
 
-LinkLuaModifier( "modifier_werewolf_howl_aura", "modifiers/modifier_werewolf_howl_aura", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_werewolf_howl_aura_effect", "modifiers/modifier_werewolf_howl_aura_effect", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_werewolf_howl_aura", "abilities/boss/werewolf/modifier_werewolf_howl_aura", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_werewolf_howl_aura_effect", "abilities/boss/werewolf/modifier_werewolf_howl_aura_effect", LUA_MODIFIER_MOTION_NONE )
 
 ----------------------------------------
 
@@ -18,4 +18,4 @@ function werewolf_howl:OnSpellStart()
 	caster:AddNewModifier( caster, self, "modifier_werewolf_howl_aura", { duration = self:GetSpecialValueFor( "duration" ) } )
 end
 
-----------------------------------------
+werewolf_howl_tier5 = werewolf_howl
