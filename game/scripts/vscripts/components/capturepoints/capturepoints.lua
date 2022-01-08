@@ -356,7 +356,7 @@ function CapturePoints:FindBestCapturePointLocation()
   local isValidPosition = false
 
   while not isValidPosition do
-    position = Vector(RandomInt(0, 5500), RandomInt(0, 5000), 100)
+    position = Vector(RandomInt(0, 6100), RandomInt(0, 4100), 100)
     if RandomInt(0, 1) == 0 then
       position.y = 0 - position.y
     end
@@ -364,7 +364,7 @@ function CapturePoints:FindBestCapturePointLocation()
       position.x = 0 - position.x
     end
     isValidPosition = true
-    if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:IsLocationInFountain(position) or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not self:IsZonePathable(position) then
+    if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not self:IsZonePathable(position) then
       isValidPosition = false
     end
   end
