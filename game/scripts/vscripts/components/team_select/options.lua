@@ -33,6 +33,7 @@ function OAAOptions:Init ()
   end)
 
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
+  GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
   LinkLuaModifier("modifier_any_damage_lifesteal_oaa", "modifiers/funmodifiers/modifier_any_damage_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -52,7 +53,7 @@ end
 
 function OAAOptions:InitializeSettingsTable()
   self.settings = {
-    GAME_MODE = "RD",                   -- "RD", "AR", "AP", "ARDM"
+    GAME_MODE = "AP",                   -- "RD", "AR", "AP", "ARDM"
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
     HEROES_MODS = "HMN",
     BOSSES_MODS = "BMN",
@@ -212,5 +213,28 @@ function OAAOptions:OnUnitSpawn(event)
         npc:AddNewModifier(npc, nil, self.bosses_mod, {})
       end
     end
+  end
+end
+
+function OAAOptions:FindHostID()
+  local hostId = 0
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    local steamid = PlayerResource:GetSteamAccountID(playerID) -- PlayerResource:GetSteamID(playerID)
+    local player = PlayerResource:GetPlayer(playerID)
+    if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+      hostId = steamid
+      break
+    end
+  end
+
+  return hostId
+end
+
+function OAAOptions:ChangeDefaultSettings()
+  if self:FindHostID() == 7131038 then
+    -- Chris is the host
+    self.settingsDefault.GAME_MODE = "RD"
+    self.settings.GAME_MODE = "RD"
+    CustomNetTables:SetTableValue("oaa_settings", "default", OAAOptions.settingsDefault)
   end
 end

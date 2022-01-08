@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 30 30" //OAA
+    "AbilityCooldown"                                     "50 40 30 20 10" //OAA
     "AbilityDuration"                                     "20.0"
 
     // Cost
@@ -42,7 +42,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "focusfire_damage_reduction"                      "-50 -40 -30 -20 -10"
+        "focusfire_damage_reduction"                      "-50 -40 -30 -15 0"
         "LinkedSpecialBonus"                              "special_bonus_unique_windranger_8"
       }
       "03"
