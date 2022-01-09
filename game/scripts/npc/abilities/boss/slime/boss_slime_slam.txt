@@ -10,7 +10,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
     "AbilityTextureName"            "earthshaker_fissure"
-    "ScriptFile"                    "abilities/slime/boss_slime_slam.lua"
+    "ScriptFile"                    "abilities/boss/slime/boss_slime_slam.lua"
     "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"

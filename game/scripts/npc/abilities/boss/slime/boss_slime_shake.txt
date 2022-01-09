@@ -10,7 +10,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
     "AbilityTextureName"            "abyssal_underlord_firestorm"
-    "ScriptFile"                    "abilities/slime/boss_slime_shake.lua"
+    "ScriptFile"                    "abilities/boss/slime/boss_slime_shake.lua"
     "AbilityCastAnimation"          "ACT_DOTA_IDLE"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"

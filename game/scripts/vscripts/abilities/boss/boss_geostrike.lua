@@ -1,7 +1,7 @@
 boss_geostrike = class(AbilityBaseClass)
 
-LinkLuaModifier("modifier_boss_geostrike", "abilities/boss_geostrike.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_geostrike_debuff", "abilities/boss_geostrike.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_geostrike", "abilities/boss/boss_geostrike.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_geostrike_debuff", "abilities/boss/boss_geostrike.lua", LUA_MODIFIER_MOTION_NONE)
 
 function boss_geostrike:GetIntrinsicModifierName()
   return "modifier_boss_geostrike"
@@ -34,25 +34,21 @@ function modifier_boss_geostrike:DeclareFunctions()
 end
 
 function modifier_boss_geostrike:OnAttackLanded(event)
+  if not IsServer() then
+    return
+  end
+
   local parent = self:GetParent()
   local ability = self:GetAbility()
   local target = event.target
 
-  -- Don't proc on units that dont have this modifier, don't proc on illusion or if broken
-  if parent ~= event.attacker or parent:IsIllusion() or parent:PassivesDisabled() then
+  -- Don't proc on units that dont have this modifier or if broken
+  if parent ~= event.attacker or parent:PassivesDisabled() then
     return
   end
 
   -- To prevent crashes:
-  if not target then
-    return
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  if not IsServer() then
+  if not target or target:IsNull() then
     return
   end
 

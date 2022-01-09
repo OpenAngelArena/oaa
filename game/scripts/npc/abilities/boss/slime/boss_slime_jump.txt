@@ -10,7 +10,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
     "AbilityTextureName"            "techies_suicide"
-    "ScriptFile"                    "abilities/slime/boss_slime_jump.lua"
+    "ScriptFile"                    "abilities/boss/slime/boss_slime_jump.lua"
     "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"

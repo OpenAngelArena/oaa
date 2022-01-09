@@ -10,7 +10,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_lycan_boss/lycan_boss_claw_attack.lua"
+        "ScriptFile"                    "abilities/boss/lycan_boss/lycan_boss_claw_attack.lua"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

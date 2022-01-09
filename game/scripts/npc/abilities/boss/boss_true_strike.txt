@@ -5,10 +5,10 @@
   //=================================================================================================================
   "boss_true_strike"
   {
-    "ID"                                                  ""
+    "ID"                                                  "3636"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/boss_true_strike.lua"
-    "AbilityTextureName"                                  ""
+    "AbilityTextureName"                                  "custom/boss_true_strike"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "1"

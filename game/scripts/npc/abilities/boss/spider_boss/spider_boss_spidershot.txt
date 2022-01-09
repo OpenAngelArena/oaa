@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Second Day Spiders: Spidershot
+  // Spider Boss: Spidershot
   //=================================================================================================================
   "spider_boss_spidershot"
   {
@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/spiders/boss_spiders_spidershot.lua"
+    "ScriptFile"                    "abilities/boss/spider_boss/spider_boss_spidershot.lua"
     "AbilityTextureName"            "broodmother_spawn_spiderlings"
 
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -17,7 +17,6 @@
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"               "1"
 
     "MaxLevel"                      "1"
     "RequiredLevel"                 "1"

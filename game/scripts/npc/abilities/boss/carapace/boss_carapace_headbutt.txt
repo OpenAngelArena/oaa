@@ -10,7 +10,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
     "AbilityTextureName"            "weaver_shukuchi"
-    "ScriptFile"                    "abilities/carapace/boss_carapace_headbutt.lua"
+    "ScriptFile"                    "abilities/boss/carapace/boss_carapace_headbutt.lua"
     "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"

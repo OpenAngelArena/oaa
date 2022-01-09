@@ -2,23 +2,23 @@ LinkLuaModifier("modifier_generic_projectile", "modifiers/modifier_generic_proje
 
 ------------------------------------------------------------------------------------
 
-boss_spiders_cannonshot = class(AbilityBaseClass)
+boss_alchemist_cannonshot = class(AbilityBaseClass)
 
 ------------------------------------------------------------------------------------
 
-function boss_spiders_cannonshot:GetCastAnimation()
+function boss_alchemist_cannonshot:GetCastAnimation()
 	return ACT_DOTA_CAST_ABILITY_1
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_spiders_cannonshot:OnSpellStart(keys)
+function boss_alchemist_cannonshot:OnSpellStart()
 	local caster = self:GetCaster()
 
 	if self.target_points then
 		caster:EmitSound("hero_ursa.attack")
 
-		for k,target in pairs(self.target_points) do
+		for _, target in pairs(self.target_points) do
 			local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/wards_area_view.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(indicator, 0, target + Vector(0,0,32))
 			ParticleManager:SetParticleControl(indicator, 15, Vector(255,55,55))
@@ -48,7 +48,7 @@ end
 
 ------------------------------------------------------------------------------------
 
-function boss_spiders_cannonshot:Explode(explosive)
+function boss_alchemist_cannonshot:Explode(explosive)
 	local radius = self:GetSpecialValueFor("radius")
 
 	local units = FindUnitsInRadius(

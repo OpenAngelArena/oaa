@@ -1,17 +1,17 @@
-boss_spiders_spider_cold_combustion = class( AbilityBaseClass )
+spider_cold_combustion = class( AbilityBaseClass )
 
-LinkLuaModifier( "modifier_boss_spiders_spider_cold_combustion", "abilities/spiders/boss_spiders_spider_cold_combustion.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_felfrost", "modifiers/modifier_felfrost.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spider_cold_combustion", "abilities/boss/spider_boss/spider_cold_combustion.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_felfrost", "abilities/boss/spider_boss/modifier_felfrost.lua", LUA_MODIFIER_MOTION_NONE )
 
-function boss_spiders_spider_cold_combustion:OnSpellStart()
+function spider_cold_combustion:OnSpellStart()
   self:Boom(self:GetCaster())
 end
 
-function boss_spiders_spider_cold_combustion:GetIntrinsicModifierName()
-	return "modifier_boss_spiders_spider_cold_combustion"
+function spider_cold_combustion:GetIntrinsicModifierName()
+	return "modifier_spider_cold_combustion"
 end
 
-function boss_spiders_spider_cold_combustion:Boom(parent)
+function spider_cold_combustion:Boom(parent)
   if parent and not parent:IsNull() then
     local damage = self:GetSpecialValueFor( "damage" )
     local radius = self:GetSpecialValueFor( "radius" )
@@ -68,30 +68,30 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_boss_spiders_spider_cold_combustion = class( ModifierBaseClass )
+modifier_spider_cold_combustion = class( ModifierBaseClass )
 
 --------------------------------------------------------------------------------
 
-function modifier_boss_spiders_spider_cold_combustion:IsHidden()
+function modifier_spider_cold_combustion:IsHidden()
 	return true
 end
 
-function modifier_boss_spiders_spider_cold_combustion:IsDebuff()
+function modifier_spider_cold_combustion:IsDebuff()
 	return false
 end
 
-function modifier_boss_spiders_spider_cold_combustion:IsPurgable()
+function modifier_spider_cold_combustion:IsPurgable()
 	return false
 end
 
-function modifier_boss_spiders_spider_cold_combustion:GetAttributes()
+function modifier_spider_cold_combustion:GetAttributes()
 	return bit.bor( MODIFIER_ATTRIBUTE_PERMANENT, MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE )
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
-	function modifier_boss_spiders_spider_cold_combustion:DeclareFunctions()
+	function modifier_spider_cold_combustion:DeclareFunctions()
 		local funcs = {
 			MODIFIER_EVENT_ON_DEATH,
 		}
@@ -101,7 +101,7 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-  function modifier_boss_spiders_spider_cold_combustion:OnDeath( event )
+  function modifier_spider_cold_combustion:OnDeath( event )
     local parent = self:GetParent()
 
     if event.unit == parent then

@@ -3,13 +3,13 @@
   //=================================================================================================================
   // Ability: Spider Cold Combustion
   //=================================================================================================================
-  "boss_spiders_spider_cold_combustion"
+  "spider_cold_combustion"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                        "8485"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                        "8485"
     "BaseClass"                 "ability_lua"
-    "ScriptFile"                "abilities/spiders/boss_spiders_spider_cold_combustion.lua"
+    "ScriptFile"                "abilities/boss/spider_boss/spider_cold_combustion.lua"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"

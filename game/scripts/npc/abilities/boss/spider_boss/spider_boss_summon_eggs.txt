@@ -9,7 +9,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/siltbreaker/npc_dota_creature_spider_boss/spider_boss_summon_eggs.lua"
+    "ScriptFile"                    "abilities/boss/spider_boss/spider_boss_summon_eggs.lua"
     "AbilityTextureName"            "broodmother_spawn_spiderlings"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"

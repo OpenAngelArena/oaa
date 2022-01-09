@@ -10,7 +10,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
     "AbilityTextureName"            "bloodseeker_bloodrage"
-    "ScriptFile"                    "abilities/carapace/boss_carapace_crystals.lua"
+    "ScriptFile"                    "abilities/boss/carapace/boss_carapace_crystals.lua"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -35,7 +35,7 @@
       "03" // max hp of the crystal
       {
         "var_type"                  "FIELD_INTEGER"
-        "threshold_max"             "140"
+        "threshold_max"             "200"
       }
       "04"
       {
@@ -45,7 +45,7 @@
       "05" // damage done to enemies that destroy the crystal
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage"                    "1000"
+        "damage"                    "200"
       }
       "06"
       {
@@ -55,12 +55,12 @@
       "07" // starting number of crystals
       {
         "var_type"                  "FIELD_INTEGER"
-        "initial"                   "2"
+        "initial"                   "5"
       }
       "08"
       {
         "var_type"                  "FIELD_INTEGER"
-        "additional"                "7"
+        "additional"                "4"
       }
       "09"
       {

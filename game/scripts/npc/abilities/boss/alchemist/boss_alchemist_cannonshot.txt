@@ -3,13 +3,13 @@
   //=================================================================================================================
   // Alchemist Boss: Cannonshot
   //=================================================================================================================
-  "boss_spiders_cannonshot"
+  "boss_alchemist_cannonshot"
   {
     "ID"                            "8484"
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/spiders/boss_spiders_cannonshot.lua"
+    "ScriptFile"                    "abilities/boss/alchemist/boss_alchemist_cannonshot.lua"
     "AbilityTextureName"            "sniper_shrapnel"
 
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -43,7 +43,7 @@
       "01"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage"                    "1500"
+        "damage"                    "2000"
       }
       "02"
       {

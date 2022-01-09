@@ -1,19 +1,19 @@
 LinkLuaModifier("modifier_generic_projectile", "modifiers/modifier_generic_projectile.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_spiders_spiderball_slow", "abilities/spiders/boss_spiders_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_spiders_spiderball_slow", "abilities/boss/spider_boss/spider_boss_spidershot.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 
-boss_spiders_spidershot = class(AbilityBaseClass)
+spider_boss_spidershot = class(AbilityBaseClass)
 
 ------------------------------------------------------------------------------------
 
-function boss_spiders_spidershot:GetCastAnimation()
+function spider_boss_spidershot:GetCastAnimation()
 	return ACT_DOTA_CAST_ABILITY_1
 end
 
 ------------------------------------------------------------------------------------
 
-function boss_spiders_spidershot:OnSpellStart(keys)
+function spider_boss_spidershot:OnSpellStart(keys)
   local caster = self:GetCaster()
   local explode_delay = self:GetSpecialValueFor("explode_time")
   local number_of_spiders = self:GetSpecialValueFor("spiders_count")
@@ -21,7 +21,7 @@ function boss_spiders_spidershot:OnSpellStart(keys)
 	if self.target_points then
 		caster:EmitSound("hero_ursa.attack")
 
-		for k,target in pairs(self.target_points) do
+		for _, target in pairs(self.target_points) do
 			local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/range_finder_generic_wardspot_model.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControl(indicator, 2, target)
 

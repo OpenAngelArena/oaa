@@ -22,8 +22,13 @@ function modifier_boss_true_strike_oaa:IsPurgable()
   return false
 end
 
-function modifier_boss_true_strike_oaa:DeclareFunctions()
-  return {
-    
+function modifier_boss_true_strike_oaa:RemoveOnDeath()
+  return true
+end
+
+function modifier_boss_true_strike_oaa:CheckState()
+  local state = {
+    [MODIFIER_STATE_CANNOT_MISS] = true,
   }
+  return state
 end
