@@ -98,7 +98,6 @@ if not BossProtectionFilter then
   }
 
   BossProtectionFilter.ProblematicSpells = {
-    anti_mage_mana_void = true
     death_prophet_spirit_siphon = false,
     doom_bringer_infernal_blade = false,
     huskar_life_break = false,
