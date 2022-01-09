@@ -65,9 +65,9 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "7500"    // Base health
-    "StatusHealthRegen"                                   "0"    // Health regeneration rate.
-    "StatusMana"                                          "2500"    // Base mana.
-    "StatusManaRegen"                                     "5"    // Mana regeneration rate.
+    "StatusHealthRegen"                                   "0"       // Health regeneration rate.
+    "StatusMana"                                          "3750"    // Base mana.
+    "StatusManaRegen"                                     "37.5"      // Mana regeneration rate.
 
     // Creature data
     "Creature"

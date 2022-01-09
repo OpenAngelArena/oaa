@@ -34,8 +34,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "1000"    // Damage range min.
-    "AttackDamageMax"                                     "1000"    // Damage range max.
+    "AttackDamageMin"                                     "800"    // Damage range min.
+    "AttackDamageMax"                                     "800"    // Damage range max.
     "AttackRate"                                          "2.0"    // BAT
     "BaseAttackSpeed"                                     "200"    // Attack Speed
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
@@ -62,10 +62,10 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2500"    // Base health
+    "StatusHealth"                                        "2000"    // Base health
     "StatusHealthRegen"                                   "0"    // Health regeneration rate.
-    "StatusMana"                                          "0"    // Base mana.
-    "StatusManaRegen"                                     "0"    // Mana regeneration rate.
+    "StatusMana"                                          "1000"    // Base mana.
+    "StatusManaRegen"                                     "10"    // Mana regeneration rate.
 
     // Team
     //----------------------------------------------------------------
