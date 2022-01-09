@@ -66,7 +66,7 @@
     "StatusHealth"                                        "2500"    // Base health (Total HP of the boss because of the split is x3)
     "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "2500"    // Base mana.
-    "StatusManaRegen"                                     "25"    // Mana regeneration rate.
+    "StatusManaRegen"                                     "10000"    // Mana regeneration rate.
 
     // Creature data
     "Creature"
