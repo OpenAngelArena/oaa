@@ -36,9 +36,11 @@ function HeroSelection:Init ()
 
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10"
+
   self.isUnranked = false
 
-  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "oaa2"
+
+  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "alternative_oaa"
   self.is1v1 = GetMapName() == "1v1"
   self.spawnedHeroes = {}
   self.spawnedPlayers = {}
