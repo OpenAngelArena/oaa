@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_wanderer_team_buff", "modifiers/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_wanderer_team_buff = class(ModifierBaseClass)
 

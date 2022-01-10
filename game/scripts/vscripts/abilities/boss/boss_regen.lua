@@ -1,7 +1,7 @@
 boss_regen = class( AbilityBaseClass )
 
-LinkLuaModifier( "modifier_boss_regen", "abilities/boss_regen.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_boss_regen_degen", "abilities/boss_regen.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_boss_regen", "abilities/boss/boss_regen.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_boss_regen_degen", "abilities/boss/boss_regen.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 

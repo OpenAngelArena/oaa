@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_unslowable_attack_speed", "abilities/boss_unslowable_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_unslowable_attack_speed", "abilities/boss/boss_unslowable_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_unslowable_attack_speed = class(AbilityBaseClass)
 

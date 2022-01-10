@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_temple_guardian_statue", "modifiers/modifier_temple_guardian_statue", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_temple_guardian_statue", "abilities/boss/temple_guardian/modifier_temple_guardian_statue", LUA_MODIFIER_MOTION_NONE )
 
 function Spawn( entityKeyValues )
 	if not IsServer() then

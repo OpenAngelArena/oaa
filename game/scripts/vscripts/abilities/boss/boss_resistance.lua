@@ -1,5 +1,5 @@
-LinkLuaModifier("modifier_boss_resistance", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_resistance", "abilities/boss/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
+LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_resistance = class(AbilityBaseClass)
 

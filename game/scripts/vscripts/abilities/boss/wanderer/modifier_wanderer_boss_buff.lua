@@ -1,6 +1,4 @@
 
-LinkLuaModifier("modifier_wanderer_boss_buff", "modifiers/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
-
 modifier_wanderer_boss_buff = class(ModifierBaseClass)
 
 function modifier_wanderer_boss_buff:DeclareFunctions()
