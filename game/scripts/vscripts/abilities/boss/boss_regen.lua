@@ -81,7 +81,7 @@ if IsServer() then
 			end
 		end
 
-		if not spell:IsCooldownReady() then
+		if not spell:IsCooldownReady() or parent:IsInvulnerable() then
 			return
 		end
 

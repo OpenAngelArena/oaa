@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_slime_split_passive", "abilities/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_slime_split_passive", "abilities/boss/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ function modifier_boss_slime_split_passive:OnTakeDamage(keys)
 						UnitIndex = caster:entindex(),
 						OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 						AbilityIndex = shakeAbility:entindex(),
-                    })
+          })
 					caster:AddNewModifier(caster, shakeAbility, "modifier_invulnerable", {})
 					Timers:CreateTimer(shakeAbility:GetChannelTime(), function ()
 						self.readyToDie = true
@@ -99,9 +99,10 @@ function modifier_boss_slime_split_passive:OnDeath(keys)
     if keys.unit:entindex() == caster:entindex() then
       local unitName = caster:GetUnitName()
       if caster.SetClones then
-	    caster:SetClones(
+        caster:SetClones(
           self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),
-          self:CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0)))
+          self:CreateClone(caster:GetAbsOrigin() + Vector(-100,0,0))
+        )
       end
       caster:AddNoDraw()
     end

@@ -1,7 +1,7 @@
-spider_cold_combustion = class( AbilityBaseClass )
-
 LinkLuaModifier( "modifier_spider_cold_combustion", "abilities/boss/spider_boss/spider_cold_combustion.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_felfrost", "abilities/boss/spider_boss/modifier_felfrost.lua", LUA_MODIFIER_MOTION_NONE )
+
+spider_cold_combustion = class( AbilityBaseClass )
 
 function spider_cold_combustion:OnSpellStart()
   self:Boom(self:GetCaster())

@@ -1,7 +1,21 @@
 
 modifier_spider_boss_rage = class( ModifierBaseClass )
 
---------------------------------------------------------------------------------
+function modifier_spider_boss_rage:IsHidden()
+  return false
+end
+
+function modifier_spider_boss_rage:IsDebuff()
+  return false
+end
+
+function modifier_spider_boss_rage:IsPurgable()
+  return false
+end
+
+function modifier_spider_boss_rage:RemoveOnDeath()
+  return true
+end
 
 function modifier_spider_boss_rage:OnCreated( kv )
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
@@ -80,6 +94,4 @@ end
 function modifier_spider_boss_rage:Tooltip()
 	return self.lifesteal_pct
 end
-
---------------------------------------------------------------------------------
 

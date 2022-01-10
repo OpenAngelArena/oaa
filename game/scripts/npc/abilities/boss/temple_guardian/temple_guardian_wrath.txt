@@ -14,10 +14,9 @@
 
     "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL" // it's actually pure
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"               "2"
 
     "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
 
@@ -27,11 +26,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "30"
-    "AbilityChannelTime"            "6.0"
-    "AbilityCastPoint"              "1.0"
+    "AbilityCooldown"               "60"
+    "AbilityChannelTime"            "5.0"
+    "AbilityCastPoint"              "0.4"
 
-      // Special
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -53,12 +52,12 @@
       "04"
       {
         "var_type"                  "FIELD_INTEGER"
-        "blast_damage"              "1200" // 19200 dps
+        "blast_damage"              "1200"
       }
       "05"
       {
         "var_type"                  "FIELD_FLOAT"
-        "channel_duration"          "6.0"
+        "channel_duration"          "5.0"
       }
       "06"
       {

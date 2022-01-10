@@ -31,6 +31,3 @@ end
 function modifier_temple_guardian_immunity:GetPriority()
 	return MODIFIER_PRIORITY_SUPER_ULTRA
 end
-
------------------------------------------------------------------------------------------
-

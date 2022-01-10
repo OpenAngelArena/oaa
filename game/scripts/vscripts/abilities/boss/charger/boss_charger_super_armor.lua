@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_charger_super_armor", "abilities/charger/boss_charger_super_armor.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_charger_super_armor", "abilities/boss/charger/boss_charger_super_armor.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_charger_super_armor = class(AbilityBaseClass)
 

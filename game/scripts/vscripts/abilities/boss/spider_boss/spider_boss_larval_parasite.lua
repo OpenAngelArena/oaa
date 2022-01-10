@@ -1,7 +1,6 @@
+LinkLuaModifier( "modifier_spider_boss_larval_parasite", "abilities/boss/spider_boss/modifier_spider_boss_larval_parasite", LUA_MODIFIER_MOTION_NONE )
 
 spider_boss_larval_parasite = class( AbilityBaseClass )
-
-LinkLuaModifier( "modifier_spider_boss_larval_parasite", "modifiers/modifier_spider_boss_larval_parasite", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 

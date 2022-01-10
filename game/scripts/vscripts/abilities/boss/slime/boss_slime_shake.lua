@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_slime_shake_slow", "abilities/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_slime_shake_slow", "abilities/boss/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
@@ -151,34 +151,28 @@ function boss_slime_shake:OnChannelThink(flInterval)
 	end
 end
 
-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_boss_slime_shake_slow = class(ModifierBaseClass)
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_shake_slow:IsDebuff()
-	return true
+  return true
 end
 
 function modifier_boss_slime_shake_slow:IsPurgable()
   return true
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_shake_slow:DeclareFunctions()
-	local funcs =
-	{
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-	}
+  local funcs =
+  {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
 
-	return funcs
+  return funcs
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_shake_slow:GetModifierMoveSpeedBonus_Percentage()
-	if not self:GetAbility() then return end
-	return self:GetAbility():GetSpecialValueFor("slow")
+  if not self:GetAbility() then return end
+  return self:GetAbility():GetSpecialValueFor("slow")
 end

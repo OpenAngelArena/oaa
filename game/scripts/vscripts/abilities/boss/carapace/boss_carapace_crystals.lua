@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_carapace_crystals_passive", "abilities/carapace/boss_carapace_crystals.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_carapace_crystals_passive", "abilities/boss/carapace/boss_carapace_crystals.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 

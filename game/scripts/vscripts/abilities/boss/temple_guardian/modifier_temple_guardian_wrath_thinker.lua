@@ -32,11 +32,10 @@ function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
 
 		parent:EmitSound("TempleGuardian.Wrath.Explosion")
-		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-		for _,enemy in pairs( enemies ) do
-			if enemy ~= nil and enemy:IsInvulnerable() == false then
-				local damageInfo =
-				{
+		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+		for _, enemy in pairs( enemies ) do
+			if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
+				local damageInfo = {
 					victim = enemy,
 					attacker = self:GetCaster(),
 					damage = self.blast_damage,
@@ -47,8 +46,8 @@ function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
 			end
 		end
 
-		UTIL_Remove( parent )
+		if parent and not parent:IsNull() then
+      UTIL_Remove(parent)
+    end
 	end
 end
-
------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_shielder_shielded_buff", "abilities/shielder/modifier_boss_shielder_shielded.lua", LUA_MODIFIER_MOTION_NONE) --- BATHS HEAVY IMPORTED
+LinkLuaModifier("modifier_boss_shielder_shielded_buff", "abilities/boss/shielder/modifier_boss_shielder_shielded.lua", LUA_MODIFIER_MOTION_NONE) --- BATHS HEAVY IMPORTED
 
 boss_shielder_shield = class(AbilityBaseClass)
 

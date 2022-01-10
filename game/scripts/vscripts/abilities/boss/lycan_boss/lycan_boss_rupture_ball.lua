@@ -45,12 +45,12 @@ function lycan_boss_rupture_ball:OnSpellStart()
     self.nPreviewFX = nil
   end
 
-  self.attack_speed = self:GetSpecialValueFor( "attack_speed" )
-  self.attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
-  self.attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
-  self.attack_distance = self:GetSpecialValueFor( "attack_distance" )
+  local attack_speed = self:GetSpecialValueFor( "attack_speed" )
+  local attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
+  local attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
+  local attack_distance = self:GetSpecialValueFor( "attack_distance" )
 
-  local vPos = nil
+  local vPos
   if self:GetCursorTarget() then
     vPos = self:GetCursorTarget():GetOrigin()
   else
@@ -61,16 +61,16 @@ function lycan_boss_rupture_ball:OnSpellStart()
   vDirection.z = 0.0
   vDirection = vDirection:Normalized()
 
-  self.attack_speed = self.attack_speed * ( self.attack_distance / ( self.attack_distance - self.attack_width_initial ) )
+  attack_speed = attack_speed * ( attack_distance / ( attack_distance - attack_width_initial ) )
 
   local info = {
     EffectName = "particles/lycanboss_ruptureball_gale.vpcf",
     Ability = self,
     vSpawnOrigin = caster:GetOrigin(),
-    fStartRadius = self.attack_width_initial,
-    fEndRadius = self.attack_width_end,
-    vVelocity = vDirection * self.attack_speed,
-    fDistance = self.attack_distance,
+    fStartRadius = attack_width_initial,
+    fEndRadius = attack_width_end,
+    vVelocity = vDirection * attack_speed,
+    fDistance = attack_distance,
     Source = caster,
     iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
     iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
@@ -83,7 +83,7 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_rupture_ball:OnProjectileHit( hTarget, vLocation )
-  if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
+  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
     -- Reduce number of sounds
     if hTarget:IsRealHero() then
       hTarget:EmitSound("Lycan.RuptureBall.Impact")

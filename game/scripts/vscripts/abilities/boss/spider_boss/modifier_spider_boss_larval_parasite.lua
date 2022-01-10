@@ -113,6 +113,3 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 	end
 end
 
---------------------------------------------------------------------------------
-
-

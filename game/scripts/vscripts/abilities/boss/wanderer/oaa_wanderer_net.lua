@@ -1,7 +1,7 @@
-wanderer_net = class(AbilityBaseClass)
+LinkLuaModifier("modifier_wanderer_net_target", "abilities/boss/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wanderer_net_debuff", "abilities/boss/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_wanderer_net_target", "abilities/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_net_debuff", "abilities/wanderer/oaa_wanderer_net.lua", LUA_MODIFIER_MOTION_NONE)
+wanderer_net = class(AbilityBaseClass)
 
 function wanderer_net:Precache(context)
   PrecacheResource("particle", "particles/generic_gameplay/generic_has_quest.vpcf", context)

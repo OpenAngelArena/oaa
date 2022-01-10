@@ -1,7 +1,7 @@
 
-modifier_ogre_tank_melee_smash_thinker = class(ModifierBaseClass)
+modifier_temple_guardian_hammer_smash_thinker = class(ModifierBaseClass)
 
-function modifier_ogre_tank_melee_smash_thinker:OnCreated(kv)
+function modifier_temple_guardian_hammer_smash_thinker:OnCreated(kv)
   if IsServer() then
     local ability = self:GetAbility()
     if ability and not ability:IsNull() then
@@ -14,7 +14,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnCreated(kv)
   end
 end
 
-function modifier_ogre_tank_melee_smash_thinker:OnIntervalThink()
+function modifier_temple_guardian_hammer_smash_thinker:OnIntervalThink()
   if IsServer() then
     local caster = self:GetCaster()
     if caster == nil or caster:IsNull() or (not caster:IsAlive()) or caster:IsStunned() then
@@ -28,7 +28,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnIntervalThink()
   end
 end
 
-function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
+function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
   if IsServer() then
     local caster = self:GetCaster()
     local parent = self:GetParent()
@@ -40,7 +40,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
       ParticleManager:ReleaseParticleIndex(smashParticle)
 
       local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), parent, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-      for _,enemy in pairs(enemies) do
+      for _, enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() not enemy:IsInvulnerable() then
           local damageInfo =
           {

@@ -269,11 +269,12 @@ function modifier_boss_shielder_jump:OnDestroy()
     local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent_origin, nil, radius, target_team, target_type, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
     local damage_type = ability:GetAbilityDamageType()
     local damage_table = {
-			attacker = parent,
-			damage = damage,
-			damage_type = damage_type,
-			ability = ability,
-		}
+      attacker = parent,
+      damage = damage,
+      damage_type = damage_type,
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+      ability = ability,
+    }
 
     for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() then

@@ -100,6 +100,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
           attacker = caster,
           damage = self:GetSpecialValueFor("damage"),
           damage_type = self:GetAbilityDamageType(),
+          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
           ability = self
         }
 
@@ -123,11 +124,11 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 					caster:GetTeamNumber(),
 					DOTA_UNIT_TARGET_TEAM_ENEMY,
 					DOTA_UNIT_TARGET_ALL,
-					DOTA_UNIT_TARGET_FLAG_NONE,
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					FIND_CLOSEST
 				)
-				for __,target in pairs(units) do
-					if not hit[target:entindex()] then
+				for _, target in pairs(units) do
+					if target and not target:IsNull() not hit[target:entindex()] then
 						hit[target:entindex()] = true
 						Impact(target)
 					end

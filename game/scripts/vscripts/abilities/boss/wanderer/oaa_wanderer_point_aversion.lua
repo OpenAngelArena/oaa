@@ -1,6 +1,6 @@
-wanderer_point_aversion = class(AbilityBaseClass)
+LinkLuaModifier("modifier_wanderer_point_aversion_passive", "abilities/boss/wanderer/oaa_wanderer_point_aversion.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_wanderer_point_aversion_passive", "abilities/wanderer/oaa_wanderer_point_aversion.lua", LUA_MODIFIER_MOTION_NONE)
+wanderer_point_aversion = class(AbilityBaseClass)
 
 function wanderer_point_aversion:GetIntrinsicModifierName()
   return "modifier_wanderer_point_aversion_passive"

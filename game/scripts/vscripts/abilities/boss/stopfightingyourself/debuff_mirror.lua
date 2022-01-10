@@ -1,5 +1,5 @@
 
-LinkLuaModifier("modifier_boss_stopfightingyourself_debuff_mirror", "abilities/stopfightingyourself/debuff_mirror.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_stopfightingyourself_debuff_mirror", "abilities/boss/stopfightingyourself/debuff_mirror.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_stopfightingyourself_debuff_mirror = class(AbilityBaseClass)

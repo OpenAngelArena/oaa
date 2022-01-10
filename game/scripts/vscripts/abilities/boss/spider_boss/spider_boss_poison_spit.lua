@@ -1,6 +1,4 @@
-spider_boss_poison_spit = class( AbilityBaseClass )
-
---------------------------------------------------------------------------------
+spider_boss_poison_spit = class(AbilityBaseClass)
 
 function spider_boss_poison_spit:OnSpellStart()
   local caster = self:GetCaster()
@@ -9,7 +7,7 @@ function spider_boss_poison_spit:OnSpellStart()
   local attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
   local attack_distance = self:GetSpecialValueFor( "attack_distance" )
 
-  local vPos = nil
+  local vPos
   if self:GetCursorTarget() then
     vPos = self:GetCursorTarget():GetOrigin()
   else
@@ -36,22 +34,24 @@ function spider_boss_poison_spit:OnSpellStart()
   }
 
   ProjectileManager:CreateLinearProjectile( info )
+
   caster:EmitSound("Spider.PoisonSpit")
 end
 
 function spider_boss_poison_spit:OnProjectileHit( hTarget, vLocation )
-	if IsServer() then
-		local caster = self:GetCaster()
-    if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
-			hTarget:AddNewModifier( caster, self, "modifier_venomancer_venomous_gale", { duration = self:GetSpecialValueFor( "duration" ) } )
+  local caster = self:GetCaster()
+  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
+    hTarget:AddNewModifier( caster, self, "modifier_venomancer_venomous_gale", { duration = self:GetSpecialValueFor( "duration" ) } )
+    hTarget:AddNewModifier( caster, self, "modifier_disarmed", { duration = self:GetSpecialValueFor( "duration" ) } )
 
-			local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget )
-      ParticleManager:ReleaseParticleIndex(particle)
-			hTarget:EmitSound("Spider.PoisonSpit.Impact")
+    local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget )
+    ParticleManager:ReleaseParticleIndex(particle)
 
-			hTarget:AddNewModifier( caster, self, "modifier_disarmed", { duration = self:GetSpecialValueFor( "duration" ) } )
-		end
+    -- Reduce number of sounds
+    if hTarget:IsRealHero() then
+      hTarget:EmitSound("Spider.PoisonSpit.Impact")
+    end
+  end
 
-		return true
-	end
+  return false
 end

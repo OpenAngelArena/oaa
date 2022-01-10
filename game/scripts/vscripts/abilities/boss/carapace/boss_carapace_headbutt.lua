@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_boss_carapace_headbutt_slow", "abilities/carapace/boss_carapace_headbutt.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_carapace_headbutt_slow", "abilities/boss/carapace/boss_carapace_headbutt.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------

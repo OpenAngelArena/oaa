@@ -171,6 +171,3 @@ function spider_boss_summon_eggs:PlaySummonEggsSpeech()
 		caster.nLastSummonEggsSound = nSound
 	end
 end
-
---------------------------------------------------------------------------------
-

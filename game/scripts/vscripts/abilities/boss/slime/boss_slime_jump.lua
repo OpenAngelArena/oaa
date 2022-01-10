@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_generic_projectile", "modifiers/modifier_generic_projectile.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_slime_jump_slow", "abilities/slime/boss_slime_jump.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_slime_jump_slow", "abilities/boss/slime/boss_slime_jump.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 
@@ -128,34 +128,28 @@ function boss_slime_jump:OnSpellStart()
   projectileModifier:InitProjectile(projectileTable)
 end
 
-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_boss_slime_jump_slow = class(ModifierBaseClass)
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_jump_slow:IsDebuff()
-	return true
+  return true
 end
 
 function modifier_boss_slime_jump_slow:IsPurgable()
   return true
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_jump_slow:DeclareFunctions()
-	local funcs =
-	{
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-	}
+  local funcs =
+  {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
 
-	return funcs
+  return funcs
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_jump_slow:GetModifierMoveSpeedBonus_Percentage()
-	if not self:GetAbility() then return end
-	return self:GetAbility():GetSpecialValueFor("slow")
+  if not self:GetAbility() then return end
+  return self:GetAbility():GetSpecialValueFor("slow")
 end

@@ -1,7 +1,7 @@
-wanderer_sticky_blood = class(AbilityBaseClass)
+LinkLuaModifier("modifier_wanderer_sticky_blood_passive", "abilities/boss/wanderer/oaa_wanderer_sticky_blood.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wanderer_sticky_blood_debuff", "abilities/boss/wanderer/oaa_wanderer_sticky_blood.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_wanderer_sticky_blood_passive", "abilities/wanderer/oaa_wanderer_sticky_blood.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_sticky_blood_debuff", "abilities/wanderer/oaa_wanderer_sticky_blood.lua", LUA_MODIFIER_MOTION_NONE)
+wanderer_sticky_blood = class(AbilityBaseClass)
 
 function wanderer_sticky_blood:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", context)

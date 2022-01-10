@@ -1,4 +1,5 @@
-LinkLuaModifier("modifier_boss_swiper_reapers_rush_active", "abilities/swiper/boss_swiper_reapers_rush.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_swiper_reapers_rush_active", "abilities/boss/swiper/boss_swiper_reapers_rush.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_swiper_reapers_rush_slow", "abilities/boss/swiper/boss_swiper_reapers_rush.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_swiper_reapers_rush = class(AbilityBaseClass)
 
@@ -158,26 +159,33 @@ if IsServer() then
 			radius,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_NONE,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 			FIND_CLOSEST,
 			false
 		)
 
-		for k,v in pairs(units) do
-			local damageTable = {
-				victim = v,
-				attacker = caster,
-				damage = ability:GetSpecialValueFor("max_damage"),
-				damage_type = ability:GetAbilityDamageType(),
-				ability = ability
-			}
-			ApplyDamage(damageTable)
+    for _, v in pairs(units) do
+      if v and not v:IsNull() then
+        local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
+        ParticleManager:ReleaseParticleIndex(impact)
 
-			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
-			ParticleManager:ReleaseParticleIndex(impact)
+        v:EmitSound("hero_ursa.attack")
 
-			v:EmitSound("hero_ursa.attack")
-		end
+        if not v:IsMagicImmune() then
+          v:AddNewModifier(caster, ability, "modifier_boss_swiper_reapers_rush_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
+        end
+
+        local damageTable = {
+          victim = v,
+          attacker = caster,
+          damage = ability:GetSpecialValueFor("max_damage"),
+          damage_type = ability:GetAbilityDamageType(),
+          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+          ability = ability
+        }
+        ApplyDamage(damageTable)
+      end
+    end
 
 		local swipe = ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_swipe.vpcf", PATTACH_POINT, caster)
 		ParticleManager:ReleaseParticleIndex(swipe)
@@ -229,41 +237,70 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_ALL,
-		DOTA_UNIT_TARGET_FLAG_NONE,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		FIND_CLOSEST,
 		false
 	)
 
-	for k,v in pairs(units) do
-		if not self.hit[v:entindex()] then
-			self.hit[v:entindex()] = true
+  for _, v in pairs(units) do
+    if v and not v:IsNull() and not self.hit[v:entindex()] then
+      self.hit[v:entindex()] = true
 
-			local point = caster:GetAbsOrigin()
-			local knockbackModifierTable = {
-				should_stun = 1,
-				knockback_duration = 1.0,
-				duration = 1.0,
-				knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D(),
-				knockback_height = ability:GetSpecialValueFor("push_length"),
-				center_x = point.x,
-				center_y = point.y,
-				center_z = point.z
-			}
-			v:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
+      local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
+      ParticleManager:ReleaseParticleIndex(impact)
 
-			local damageTable = {
-				victim = v,
-				attacker = caster,
-				damage = ability:GetSpecialValueFor("min_damage"),
-				damage_type = ability:GetAbilityDamageType(),
-				ability = ability
-			}
-			ApplyDamage(damageTable)
+      v:EmitSound("hero_ursa.attack")
 
-			v:EmitSound("hero_ursa.attack")
+      local point = caster:GetAbsOrigin()
+      local knockbackModifierTable = {
+        should_stun = 1,
+        knockback_duration = 1.0,
+        duration = 1.0,
+        knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D(),
+        knockback_height = ability:GetSpecialValueFor("push_length"),
+        center_x = point.x,
+        center_y = point.y,
+        center_z = point.z
+      }
+      if not v:IsMagicImmune() then
+        v:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
+      end
 
-			local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, v)
-			ParticleManager:ReleaseParticleIndex(impact)
-		end
+      local damageTable = {
+        victim = v,
+        attacker = caster,
+        damage = ability:GetSpecialValueFor("min_damage"),
+        damage_type = ability:GetAbilityDamageType(),
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = ability
+      }
+      ApplyDamage(damageTable)
+    end
 	end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_boss_swiper_reapers_rush_slow = class(ModifierBaseClass)
+
+function modifier_boss_swiper_reapers_rush_slow:IsDebuff()
+  return true
+end
+
+function modifier_boss_swiper_reapers_rush_slow:IsPurgable()
+  return true
+end
+
+function modifier_boss_swiper_reapers_rush_slow:DeclareFunctions()
+  local funcs =
+  {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+
+  return funcs
+end
+
+function modifier_boss_swiper_reapers_rush_slow:GetModifierMoveSpeedBonus_Percentage()
+  if not self:GetAbility() then return end
+  return self:GetAbility():GetSpecialValueFor("slow")
 end

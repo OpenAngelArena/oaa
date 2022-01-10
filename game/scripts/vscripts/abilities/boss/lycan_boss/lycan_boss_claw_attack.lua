@@ -1,5 +1,5 @@
-LinkLuaModifier("modifier_lycan_boss_claw_attack", "modifiers/modifier_lycan_boss_claw_attack", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lycan_boss_claw_attack", "abilities/boss/lycan_boss/modifier_lycan_boss_claw_attack", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 lycan_boss_claw_attack = class(AbilityBaseClass)
 

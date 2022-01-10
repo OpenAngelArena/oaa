@@ -1,7 +1,6 @@
-lycan_boss_claw_lunge_tier5 = class(AbilityBaseClass)
-LinkLuaModifier( "modifier_lycan_boss_claw_lunge", "modifiers/modifier_lycan_boss_claw_lunge", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier( "modifier_lycan_boss_claw_lunge", "abilities/boss/lycan_boss/modifier_lycan_boss_claw_lunge", LUA_MODIFIER_MOTION_HORIZONTAL )
 
---------------------------------------------------------------------------------
+lycan_boss_claw_lunge_tier5 = class(AbilityBaseClass)
 
 function lycan_boss_claw_lunge_tier5:OnAbilityPhaseStart()
   if IsServer() then

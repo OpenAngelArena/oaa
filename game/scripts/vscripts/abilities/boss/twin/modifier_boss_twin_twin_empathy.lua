@@ -1,4 +1,3 @@
---LinkLuaModifier("modifier_boss_twin_twin_empathy_buff", "abilities/twin/boss_twin_twin_empathy.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_boss_twin_twin_empathy_buff = class(AbilityBaseClass)
 

@@ -43,8 +43,8 @@ function modifier_ogre_seer_area_ignite_thinker:OnIntervalThink()
 
     local parent = self:GetParent()
 		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-		for _,enemy in pairs( enemies ) do
-			if enemy ~= nil then
+		for _, enemy in pairs( enemies ) do
+			if enemy and not enemy:IsNull() then
 				enemy:AddNewModifier( parent, self:GetAbility(), "modifier_ogre_seer_ignite_debuff", { duration = self.duration } )
 			end
 		end
