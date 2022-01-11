@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Generic Boss Frostbite ability - reduce target's regeneration and healing by a percent on attack
+  //=================================================================================================================
+  "boss_frostbite"
+  {
+    "ID"                                                  "3638"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/boss_frostbite.lua"
+    "AbilityTextureName"                                  "ghost_frost_attack"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    "precache"
+    {
+      "particle"                                          "particles/ghost_frostbite_ground_elec.vpcf"
+      "particle"                                          "particles/ghost_frostbite_ring.vpcf"
+      "particle"                                          "particles/ghost_frostbite_ring_base.vpcf"
+      "particle"                                          "particles/ghost_frostbite_ring_detail.vpcf"
+      "particle"                                          "particles/ghost_frostbite.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_prevent_percent"                            "-40"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_prevent_duration"                           "5.0"
+      }
+    }
+  }
+}

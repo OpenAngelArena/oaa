@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Generic Boss Kraken Shell ability
+  //=================================================================================================================
+  "boss_kraken_shell"
+  {
+    "ID"                                                  "3637"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/boss_kraken_shell.lua"
+    "AbilityTextureName"                                  "tidehunter_kraken_shell"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "AbilitySpecial"
+    {
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_cleanse"                                  "200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_reset_interval"                           "6.0"
+      }
+    }
+  }
+}
