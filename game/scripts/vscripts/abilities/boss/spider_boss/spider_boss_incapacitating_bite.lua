@@ -80,7 +80,7 @@ function modifier_spider_boss_incapacitating_bite_debuff:IsPurgable()
 end
 
 function modifier_spider_boss_incapacitating_bite_debuff:RemoveOnDeath()
-	return true
+  return true
 end
 
 function modifier_spider_boss_incapacitating_bite_debuff:OnCreated()
@@ -127,7 +127,7 @@ function modifier_spider_boss_incapacitating_bite_debuff:GetModifierAttackSpeedB
 end
 
 function modifier_spider_boss_incapacitating_bite_debuff:GetModifierMiss_Percentage()
-	if self.miss_chance or self:GetAbility() then
+  if self.miss_chance or self:GetAbility() then
     return self.miss_chance or self:GetAbility():GetSpecialValueFor("miss_chance")
   end
 

@@ -27,16 +27,16 @@ function modifier_roshan_custom_passive:RemoveOnDeath()
 end
 
 function modifier_roshan_custom_passive:OnCreated()
-	local ability = self:GetAbility()
+  local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-	  self.damage = ability:GetSpecialValueFor("bonus_damage")
+    self.damage = ability:GetSpecialValueFor("bonus_damage")
   end
 end
 
 function modifier_roshan_custom_passive:OnRefresh()
-	local ability = self:GetAbility()
+  local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-	  self.damage = ability:GetSpecialValueFor("bonus_damage")
+    self.damage = ability:GetSpecialValueFor("bonus_damage")
   end
 end
 
@@ -47,9 +47,9 @@ function modifier_roshan_custom_passive:DeclareFunctions()
 end
 
 function modifier_roshan_custom_passive:GetModifierPreAttack_BonusDamage()
-	if self.damage or self:GetAbility() then
+  if self.damage or self:GetAbility() then
     return self.damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
   end
 
-  return 100
+  return 450
 end
