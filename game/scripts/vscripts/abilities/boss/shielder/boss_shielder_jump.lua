@@ -159,7 +159,7 @@ function modifier_boss_shielder_jump:OnCreated(event)
   local height = ability:GetSpecialValueFor("jump_height")
 
   -- Get speed and travel distance
-  self.speed = math.max(hor_distance, height) / duration
+  self.speed = math.max(hor_distance, 2*height) / duration
   self.hor_distance = 0
   self.ver_distance = 0
 
@@ -249,10 +249,17 @@ function modifier_boss_shielder_jump:OnVerticalMotionInterrupted()
 end
 
 function modifier_boss_shielder_jump:OnDestroy()
+  if not IsServer() then
+    return
+  end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
-    parent:RemoveHorizontalMotionController(self)
-    parent:RemoveVerticalMotionController(self)
+    if self.hor_distance > 0 then
+      parent:RemoveHorizontalMotionController(self)
+    end
+    if self.ver_distance > 0 then
+      parent:RemoveVerticalMotionController(self)
+    end
     FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), false)
     local parent_origin = parent:GetAbsOrigin()
     ResolveNPCPositions(parent_origin, 128)

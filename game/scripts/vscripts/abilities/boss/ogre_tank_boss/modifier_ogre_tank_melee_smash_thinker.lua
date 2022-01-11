@@ -41,7 +41,7 @@ function modifier_ogre_tank_melee_smash_thinker:OnDestroy()
 
       local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), parent, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
       for _,enemy in pairs(enemies) do
-        if enemy and not enemy:IsNull() not enemy:IsInvulnerable() then
+        if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() then
           local damageInfo =
           {
             victim = enemy,

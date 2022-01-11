@@ -65,7 +65,7 @@ function modifier_charger_pillar_passive:CheckState()
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    --[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
     --[MODIFIER_STATE_NO_TEAM_MOVE_TO] = true,
     --[MODIFIER_STATE_NO_TEAM_SELECT] = true,

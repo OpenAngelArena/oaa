@@ -128,7 +128,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 					FIND_CLOSEST
 				)
 				for _, target in pairs(units) do
-					if target and not target:IsNull() not hit[target:entindex()] then
+					if target and not target:IsNull() and not hit[target:entindex()] then
 						hit[target:entindex()] = true
 						Impact(target)
 					end

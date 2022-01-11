@@ -1,4 +1,4 @@
-require('abilities/swiper/boss_swiper_swipe')
+require('abilities/boss/swiper/boss_swiper_swipe')
 
 function Spawn( entityKeyValues )
 	if thisEntity == nil then
