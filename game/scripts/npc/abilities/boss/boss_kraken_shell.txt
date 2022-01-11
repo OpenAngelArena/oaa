@@ -17,15 +17,10 @@
 
     "AbilitySpecial"
     {
-      "02"
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_cleanse"                                  "200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_reset_interval"                           "6.0"
+        "damage_threshold"                                "200"
       }
     }
   }

@@ -1,7 +1,8 @@
-LinkLuaModifier("modifier_boss_charger_charge", "abilities/boss/charger/boss_charger_charge.lua", LUA_MODIFIER_MOTION_BOTH) --- BATHS HEAVY IMPORTED
+LinkLuaModifier("modifier_boss_charger_charge", "abilities/boss/charger/boss_charger_charge.lua", LUA_MODIFIER_MOTION_NONE) --- BATHS HEAVY IMPORTED
 LinkLuaModifier("modifier_boss_charger_pillar_debuff", "abilities/boss/charger/modifier_boss_charger_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PARTH WEVY IMPARTAYT
 LinkLuaModifier("modifier_boss_charger_hero_pillar_debuff", "abilities/boss/charger/modifier_boss_charger_hero_pillar_debuff.lua", LUA_MODIFIER_MOTION_NONE) --- PITH YEVY IMPARTIAL
-LinkLuaModifier("modifier_boss_charger_trampling", "abilities/boss/charger/modifier_boss_charger_trampling.lua", LUA_MODIFIER_MOTION_BOTH) --- MARTH FAIRY IPARTY
+LinkLuaModifier("modifier_boss_charger_trampling", "abilities/boss/charger/modifier_boss_charger_trampling.lua", LUA_MODIFIER_MOTION_NONE) --- MARTH FAIRY IPARTY
+LinkLuaModifier("modifier_boss_charger_glanced", "abilities/boss/charger/boss_charger_charge.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_charger_charge = class(AbilityBaseClass)
 
@@ -31,7 +32,7 @@ function boss_charger_charge:OnOwnerDied()
   self:GetCaster():StopSound("Boss_Charger.Charge.Movement")
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_boss_charger_charge = class(ModifierBaseClass)
 
@@ -54,7 +55,39 @@ function modifier_boss_charger_charge:OnIntervalThink()
   caster:SetAbsOrigin(origin + (self.direction * self.speed))
   self.distance_traveled = self.distance_traveled + (self.direction * self.speed):Length2D()
 
-  -- FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, creepSearchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+  local glance_candidates = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    caster:GetAbsOrigin(),
+    nil,
+    self.glancing_width,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_CLOSEST,
+    false
+  )
+
+  for _, v in pairs(glance_candidates) do
+    if v and not v:IsNull() and not self.glanced[v:entindex()] then
+      self.glanced[v:entindex()] = true
+
+      -- Slow debuff
+      if not v:IsMagicImmune() then
+        v:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_glanced", {duration = self.glancing_duration})
+      end
+
+      -- Damage
+      ApplyDamage({
+        victim = v,
+        attacker = caster,
+        damage = self.glancing_damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+        ability = self:GetAbility()
+      })
+    end
+  end
+
   local units = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
@@ -62,7 +95,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
     50,
     DOTA_UNIT_TARGET_TEAM_BOTH,
     bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_CLOSEST,
     false
   )
@@ -71,30 +104,31 @@ function modifier_boss_charger_charge:OnIntervalThink()
     return tower:GetUnitName() == "npc_dota_boss_charger_pillar"
   end
 
-  local function isHero (hero)
-    -- intentionally don't call it, i just want to make sure it has the method
-    -- we're gonna blow up the non-heroes with charge because fuck your shit PA
-    if hero:GetTeam() == caster:GetTeam() then
+  local function isValidTarget (unit)
+    if unit:GetTeam() == caster:GetTeam() then
       return false
     end
-    if hero.IsRealHero == nil then
+    if unit.IsRealHero == nil then
+      return false
+    end
+    if (unit:IsInvulnerable() or unit:IsOutOfGame()) and not isTower(unit) then
       return false
     end
     return true
   end
 
   local towers = filter(isTower, iter(units))
-  local heroes = filter(isHero, iter(units))
+  local targets = filter(isValidTarget, iter(units))
 
-  if heroes:length() > 0 then
-    heroes:each(function (hero)
-      if not hero:IsRealHero() then
-        hero:Kill(self:GetAbility(), caster)
+  if targets:length() > 0 then
+    targets:each(function (target)
+      if not target:IsRealHero() then
+        target:Kill(self:GetAbility(), caster)
         return
       end
-      if not hero:HasModifier('modifier_boss_charger_trampling') then
-        hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_trampling", {})
-        table.insert(self.draggedHeroes, hero)
+      if not target:HasModifier('modifier_boss_charger_trampling') then
+        target:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_trampling", {})
+        table.insert(self.draggedHeroes, target)
         caster:EmitSound("Boss_Charger.Charge.HeroImpact")
       end
     end)
@@ -115,7 +149,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
           attacker = caster,
           damage = self.hero_pillar_damage,
           damage_type = DAMAGE_TYPE_PHYSICAL,
-          damage_flags = DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
+          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
           ability = self:GetAbility()
         })
       end)
@@ -146,6 +180,7 @@ function modifier_boss_charger_charge:OnCreated(keys)
   end
 
   self.draggedHeroes = {}
+  self.glanced = {}
 
   local ability = self:GetAbility()
   local cursorPosition = ability:GetCursorPosition()
@@ -164,9 +199,34 @@ function modifier_boss_charger_charge:OnCreated(keys)
   self.hero_stun_duration = ability:GetSpecialValueFor( "hero_stun_duration" )
   self.hero_pillar_damage = ability:GetSpecialValueFor( "hero_pillar_damage" )
   self.glancing_damage = ability:GetSpecialValueFor( "glancing_damage" )
-  self.glancing_slow = ability:GetSpecialValueFor( "glancing_slow" )
   self.glancing_duration = ability:GetSpecialValueFor( "glancing_duration" )
-  self.glancing_knockback = ability:GetSpecialValueFor( "glancing_knockback" )
+  self.glancing_width = ability:GetSpecialValueFor( "glancing_width" )
 
   self:StartIntervalThink(0.01)
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_boss_charger_glanced = class(ModifierBaseClass)
+
+function modifier_boss_charger_glanced:IsDebuff()
+  return true
+end
+
+function modifier_boss_charger_glanced:IsPurgable()
+  return true
+end
+
+function modifier_boss_charger_glanced:DeclareFunctions()
+  local funcs =
+  {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+
+  return funcs
+end
+
+function modifier_boss_charger_glanced:GetModifierMoveSpeedBonus_Percentage()
+  if not self:GetAbility() then return end
+  return self:GetAbility():GetSpecialValueFor("glancing_slow")
 end

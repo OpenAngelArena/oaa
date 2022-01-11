@@ -20,7 +20,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown"                                        "6 4 0" // Put cooldown in AbilitySpecial to avoid triggering cooldown on channel start
+        "cooldown"                                        "6 4 1" // Put cooldown in AbilitySpecial to avoid triggering cooldown on channel start
       }
       "02"
       {
@@ -56,7 +56,7 @@
       }
       "07"
       {
-        "var_type"                                        "FIELD_FLOAT"
+        "var_type"                                        "FIELD_INTEGER"
         "hero_pillar_damage"                              "18000 19000 20000"
       }
       //----------------------------------
@@ -64,13 +64,13 @@
       //----------------------------------
       "08"
       {
-        "var_type"                                        "FIELD_FLOAT"
+        "var_type"                                        "FIELD_INTEGER"
         "glancing_damage"                                 "2000 2500 3000"
       }
       "09"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "glancing_slow"                                   "10 30 50"
+        "var_type"                                        "FIELD_INTEGER"
+        "glancing_slow"                                   "-40 -50 -60"
       }
       "10"
       {
@@ -79,8 +79,8 @@
       }
       "11"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "glancing_knockback"                              "200 250 300"
+        "var_type"                                        "FIELD_INTEGER"
+        "glancing_width"                                  "200 250 300"
       }
     }
   }

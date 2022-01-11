@@ -55,3 +55,23 @@ function modifier_boss_charger_super_armor:GetModifierTotal_ConstantBlock(event)
 
   return blockAmount
 end
+
+function modifier_boss_charger_super_armor:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+function modifier_boss_charger_super_armor:CheckState()
+  local parent = self:GetParent()
+  local state = {
+    [MODIFIER_STATE_FROZEN] = false,
+    [MODIFIER_STATE_FEARED] = false,
+    [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+  }
+
+  if not parent:HasModifier("modifier_boss_charger_pillar_debuff") then
+    state[MODIFIER_STATE_HEXED] = false
+    state[MODIFIER_STATE_SILENCED] = false
+  end
+
+  return state
+end
