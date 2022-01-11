@@ -162,6 +162,7 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
 -- [   VScript              ]: mkb_tested: false
 
   local percentDamageSpells = {
+    anti_mage_mana_void = true,
     bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
     death_prophet_spirit_siphon = true,     -- doesn't work on vanilla Roshan
     doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
