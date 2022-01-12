@@ -33,7 +33,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "3000"       // Damage range min.
     "AttackDamageMax"                                     "3000"       // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"

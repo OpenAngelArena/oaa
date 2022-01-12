@@ -10,8 +10,8 @@ function Spawn( entityKeyValues )
     return
   end
 
-  thisEntity.SpidershotAbility = thisEntity:FindAbilityByName("")
-  thisEntity.PoisonSpitAbility = thisEntity:FindAbilityByName("")
+  thisEntity.SpidershotAbility = thisEntity:FindAbilityByName("spider_boss_spidershot")
+  thisEntity.PoisonSpitAbility = thisEntity:FindAbilityByName("spider_boss_poison_spit")
   thisEntity.RageAbility = thisEntity:FindAbilityByName("spider_boss_rage")
 
   thisEntity:SetContextThink("SpiderBossThink", SpiderBossThink, 1)

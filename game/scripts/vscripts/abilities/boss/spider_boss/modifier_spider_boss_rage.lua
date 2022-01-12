@@ -18,33 +18,33 @@ function modifier_spider_boss_rage:RemoveOnDeath()
 end
 
 function modifier_spider_boss_rage:OnCreated( kv )
-	local parent = self:GetParent()
+  local parent = self:GetParent()
   local ability = self:GetAbility()
 
   self.bonus_damage = ability:GetSpecialValueFor( "bonus_damage" )
-	self.bonus_movespeed_pct = ability:GetSpecialValueFor( "bonus_movespeed_pct" )
-	self.lifesteal_pct = ability:GetSpecialValueFor( "lifesteal_pct" )
+  self.bonus_movespeed_pct = ability:GetSpecialValueFor( "bonus_movespeed_pct" )
+  self.lifesteal_pct = ability:GetSpecialValueFor( "lifesteal_pct" )
 
   if IsServer() then
-		parent.enraged = true
+    parent.enraged = true
 
-		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, parent )
-		ParticleManager:SetParticleControlEnt( nFXIndex, 0, parent, PATTACH_POINT_FOLLOW, "attach_thorax", parent:GetAbsOrigin(), true )
-		self:AddParticle( nFXIndex, false, false, -1, false, false  )
+    local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, parent )
+    ParticleManager:SetParticleControlEnt( nFXIndex, 0, parent, PATTACH_POINT_FOLLOW, "attach_thorax", parent:GetAbsOrigin(), true )
+    self:AddParticle( nFXIndex, false, false, -1, false, false  )
 
-		parent:EmitSound("Dungeon.SpiderBoss.Rage")
-	end
+    parent:EmitSound("Dungeon.SpiderBoss.Rage")
+  end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_spider_boss_rage:OnDestroy()
+  if not IsServer() then
+    return
+  end
   local parent = self:GetParent()
-	parent:StopSound("Dungeon.SpiderBoss.Rage")
-
-	if IsServer() then
-		parent.enraged = false
-	end
+  parent:StopSound("Dungeon.SpiderBoss.Rage")
+  parent.enraged = false
 end
 
 --------------------------------------------------------------------------------

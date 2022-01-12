@@ -18,7 +18,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"              "0.0"
-    "AbilityCooldown"               "25"
+    "AbilityCooldown"               "40"
     "AbilityManaCost"               "0"
 
     // Special
@@ -33,17 +33,17 @@
       "02"
       {
           "var_type"              "FIELD_INTEGER"
-          "lifesteal_pct"         "10"
+          "lifesteal_pct"         "25"
       }
       "03"
       {
           "var_type"              "FIELD_FLOAT"
-          "duration"              "15"
+          "duration"              "25"
       }
       "04"
       {
           "var_type"              "FIELD_FLOAT"
-          "bonus_movespeed_pct"   "15"
+          "bonus_movespeed_pct"   "25"
       }
     }
   }

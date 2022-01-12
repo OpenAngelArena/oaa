@@ -17,7 +17,7 @@ function Baneling:Init(entity)
   -- thisEntity
   self.entity = entity
 
-  self.boom = self.entity:FindAbilityByName("boss_spiders_spider_cold_combustion")
+  self.boom = self.entity:FindAbilityByName("spider_cold_combustion")
 
   Timers:CreateTimer(1, function()
     return self:Think()
