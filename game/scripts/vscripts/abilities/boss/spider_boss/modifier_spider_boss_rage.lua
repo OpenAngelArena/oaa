@@ -18,15 +18,15 @@ function modifier_spider_boss_rage:RemoveOnDeath()
 end
 
 function modifier_spider_boss_rage:OnCreated( kv )
-	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
-	self.bonus_movespeed_pct = self:GetAbility():GetSpecialValueFor( "bonus_movespeed_pct" )
-	self.lifesteal_pct = self:GetAbility():GetSpecialValueFor( "lifesteal_pct" )
+	local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  self.bonus_damage = ability:GetSpecialValueFor( "bonus_damage" )
+	self.bonus_movespeed_pct = ability:GetSpecialValueFor( "bonus_movespeed_pct" )
+	self.lifesteal_pct = ability:GetSpecialValueFor( "lifesteal_pct" )
 
   if IsServer() then
-    local parent = self:GetParent()
-		parent.bIsEnraged = true
-
-		parent:SetModelScale( parent.fOrigModelScale * 1.25 )
+		parent.enraged = true
 
 		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf", PATTACH_CUSTOMORIGIN, parent )
 		ParticleManager:SetParticleControlEnt( nFXIndex, 0, parent, PATTACH_POINT_FOLLOW, "attach_thorax", parent:GetAbsOrigin(), true )
@@ -43,22 +43,23 @@ function modifier_spider_boss_rage:OnDestroy()
 	parent:StopSound("Dungeon.SpiderBoss.Rage")
 
 	if IsServer() then
-		parent:SetModelScale( parent.fOrigModelScale )
-		parent.bIsEnraged = false
+		parent.enraged = false
 	end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_spider_boss_rage:DeclareFunctions()
-	local funcs =
-	{
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_EVENT_ON_ATTACKED,
-		MODIFIER_PROPERTY_TOOLTIP,
-	}
-	return funcs
+  local funcs =
+  {
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
+    MODIFIER_PROPERTY_MODEL_SCALE,
+    MODIFIER_EVENT_ON_ATTACKED,
+    MODIFIER_PROPERTY_TOOLTIP,
+  }
+  return funcs
 end
 
 --------------------------------------------------------------------------------
@@ -73,13 +74,21 @@ function modifier_spider_boss_rage:GetModifierMoveSpeedBonus_Percentage( params 
 	return self.bonus_movespeed_pct
 end
 
+function modifier_spider_boss_rage:GetModifierAttackSpeedReductionPercentage()
+  return 0
+end
+
+function modifier_spider_boss_rage:GetModifierModelScale()
+  return 25
+end
+
 --------------------------------------------------------------------------------
 
 function modifier_spider_boss_rage:OnAttacked( params )
 	if IsServer() then
 		if params.attacker == self:GetParent() then
 			local hTarget = params.target
-			if hTarget and hTarget:IsIllusion() == false and hTarget:IsBuilding() == false then
+			if hTarget and not hTarget:IsNull() and not hTarget:IsBuilding() and not hTarget:IsOther() then
 				local fHealAmt = math.min( params.damage, hTarget:GetHealth() ) * self.lifesteal_pct / 100
 				--print( "fHealAmt == " .. fHealAmt )
 				self:GetCaster():Heal( fHealAmt, self:GetAbility() )

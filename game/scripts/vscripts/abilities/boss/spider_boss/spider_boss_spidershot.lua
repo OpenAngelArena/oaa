@@ -8,7 +8,7 @@ spider_boss_spidershot = class(AbilityBaseClass)
 ------------------------------------------------------------------------------------
 
 function spider_boss_spidershot:GetCastAnimation()
-	return ACT_DOTA_CAST_ABILITY_1
+	return ACT_DOTA_CAST_ABILITY_4
 end
 
 ------------------------------------------------------------------------------------

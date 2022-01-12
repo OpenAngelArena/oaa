@@ -42,7 +42,6 @@ function spider_boss_poison_spit:OnProjectileHit( hTarget, vLocation )
   local caster = self:GetCaster()
   if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
     hTarget:AddNewModifier( caster, self, "modifier_venomancer_venomous_gale", { duration = self:GetSpecialValueFor( "duration" ) } )
-    hTarget:AddNewModifier( caster, self, "modifier_disarmed", { duration = self:GetSpecialValueFor( "duration" ) } )
 
     local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget )
     ParticleManager:ReleaseParticleIndex(particle)

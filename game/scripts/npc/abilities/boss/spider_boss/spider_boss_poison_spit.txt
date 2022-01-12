@@ -31,7 +31,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "5.0"
+    "AbilityCooldown"               "8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,18 +44,18 @@
       "01"
       {
           "var_type"                  "FIELD_INTEGER"
-          "attack_speed"              "400"
+          "attack_speed"              "500"
       }
 
       "02"
       {
           "var_type"                  "FIELD_INTEGER"
-          "attack_width_initial"      "75"
+          "attack_width_initial"      "100"
       }
       "03"
       {
           "var_type"                  "FIELD_INTEGER"
-          "attack_width_end"          "75"
+          "attack_width_end"          "100"
       }
 
       "04"
@@ -65,28 +65,28 @@
       }
       "05"
       {
-          "var_type"                  "FIELD_INTEGER"
-          "strike_damage"             "1000"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "7.0"
       }
       "06"
       {
-          "var_type"                  "FIELD_FLOAT"
-          "duration"                  "1.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "strike_damage"                                   "1000"
       }
       "07"
       {
-          "var_type"                  "FIELD_INTEGER"
-          "movement_slow"             "20"
+        "var_type"                                        "FIELD_INTEGER"
+        "tick_damage"                                     "50"
       }
       "08"
       {
-          "var_type"                  "FIELD_INTEGER"
-          "tick_damage"               "300"
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.25"
       }
       "09"
       {
-          "var_type"                  "FIELD_FLOAT"
-          "tick_interval"             "0.25"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "-30"
       }
     }
   }
