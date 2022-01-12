@@ -9,12 +9,13 @@
     //
     "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
     "Model"                                               "models/heroes/doom/doom.vmdl"  // Model.
-    "vscripts"                                            "units/shielder.lua"
+    "vscripts"                                            "units/shielder.lua" // uses neutral creep AI
     "SoundSet"                                            "axe"                    // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "60"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    //"UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -67,11 +68,11 @@
     "StatusManaRegen"                                     "5000"     // Mana regeneration rate.
 
     // Creature data
-    "Creature"
-    {
+    //"Creature"
+    //{
       // Makes it only have 50% remaining of applied crowd control
-      "DisableResistance"                                 "50.0"
-    }
+      //"DisableResistance"                                 "80.0"
+    //}
 
     // Team
     //----------------------------------------------------------------

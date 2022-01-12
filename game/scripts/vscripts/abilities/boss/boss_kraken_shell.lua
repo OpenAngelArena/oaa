@@ -1,6 +1,11 @@
+LinkLuaModifier("modifier_boss_kraken_shell_passive", "abilities/boss/boss_kraken_shell.lua", LUA_MODIFIER_MOTION_NONE)
+
 boss_kraken_shell = class(AbilityBaseClass)
 
-LinkLuaModifier("modifier_boss_kraken_shell_passive", "abilities/boss/boss_kraken_shell.lua", LUA_MODIFIER_MOTION_NONE)
+function boss_kraken_shell:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts", context)
+end
 
 function boss_kraken_shell:GetIntrinsicModifierName()
   return "modifier_boss_kraken_shell_passive"

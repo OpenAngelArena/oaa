@@ -1,7 +1,15 @@
+LinkLuaModifier("modifier_boss_frostbite_applier", "abilities/boss/boss_frostbite.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_frostbite_effect", "abilities/boss/boss_frostbite.lua", LUA_MODIFIER_MOTION_NONE)
+
 boss_frostbite = class(AbilityBaseClass)
 
-LinkLuaModifier("modifier_boss_frostbite_applier", "abilities/boss/boss_frostbite.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_boss_frostbite_effect", "abilities/boss/boss_frostbite.lua", LUA_MODIFIER_MOTION_NONE )
+function boss_frostbite:Precache(context)
+  PrecacheResource("particle", "particles/ghost_frostbite_ground_elec.vpcf", context)
+  PrecacheResource("particle", "particles/ghost_frostbite_ring.vpcf", context)
+  PrecacheResource("particle", "particles/ghost_frostbite_ring_base.vpcf", context)
+  PrecacheResource("particle", "particles/ghost_frostbite_ring_detail.vpcf", context)
+  PrecacheResource("particle", "particles/ghost_frostbite.vpcf", context)
+end
 
 function boss_frostbite:GetIntrinsicModifierName()
   return "modifier_boss_frostbite_applier"

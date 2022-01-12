@@ -4,6 +4,12 @@ LinkLuaModifier("modifier_boss_shielder_shield_crash_debuff", "abilities/boss/sh
 
 boss_shielder_jump = class(AbilityBaseClass)
 
+function boss_shielder_jump:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_pangolier/pangolier_tailthump_shield_impact.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_pangolier/pangolier_tailthump.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_pangolier.vsndevts", context)
+end
+
 function boss_shielder_jump:GetIntrinsicModifierName()
   return "modifier_boss_shielder_shield_crash_passive"
 end
@@ -97,7 +103,7 @@ function modifier_boss_shielder_shield_crash_passive:OnTakeDamage(event)
     self:SetStackCount(0)
 
     -- Interrupt existing motion controllers
-    if parent:IsCurrentlyVerticalMotionControlled() then
+    if parent:IsCurrentlyVerticalMotionControlled() or parent:IsCurrentlyHorizontalMotionControlled() then
       parent:InterruptMotionControllers(false)
     end
 
@@ -181,6 +187,9 @@ function modifier_boss_shielder_jump:OnCreated(event)
 end
 
 function modifier_boss_shielder_jump:UpdateHorizontalMotion(parent, deltaTime)
+  if not IsServer() then
+    return
+  end
   local parentOrigin = parent:GetAbsOrigin()
   local tickTraveled = deltaTime * self.speed
   tickTraveled = math.min(tickTraveled, self.hor_distance)
@@ -199,6 +208,9 @@ function modifier_boss_shielder_jump:UpdateHorizontalMotion(parent, deltaTime)
 end
 
 function modifier_boss_shielder_jump:UpdateVerticalMotion(parent, deltaTime)
+  if not IsServer() then
+    return
+  end
   if self.ver_distance <= 0 then
     --self:Destroy()
     return
@@ -223,7 +235,7 @@ function modifier_boss_shielder_jump:UpdateVerticalMotion(parent, deltaTime)
       local tickOriginZ = parentOrigin.z - tickTraveled
       local tickOrigin = Vector(parentOrigin.x, parentOrigin.y, tickOriginZ)
 
-      if tickOriginZ <= GetGroundHeight(tickOrigin, parent) then
+      if tickOriginZ < GetGroundHeight(tickOrigin, parent) then
         self:Destroy()
         return
       end
@@ -290,7 +302,7 @@ function modifier_boss_shielder_jump:OnDestroy()
 
         -- Apply damage
         damage_table.victim = enemy
-        ApplyDamage(damageTable)
+        ApplyDamage(damage_table)
 
         -- Particle (on hit enemies)
         local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump_shield_impact.vpcf", PATTACH_ABSORIGIN, target)
@@ -299,7 +311,7 @@ function modifier_boss_shielder_jump:OnDestroy()
     end
 
     -- Particle (on parent, always)
-    local particle_always = ParticleManager:CreateParticle( "particles/units/heroes/hero_pangolier/pangolier_tailthump.vpcf", PATTACH_WORLDORIGIN, parent)
+    local particle_always = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump.vpcf", PATTACH_WORLDORIGIN, parent)
     ParticleManager:SetParticleControl(particle_always, 0, parent_origin)
     ParticleManager:ReleaseParticleIndex(particle_always)
 

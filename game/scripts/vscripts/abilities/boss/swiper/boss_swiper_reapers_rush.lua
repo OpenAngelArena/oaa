@@ -77,9 +77,12 @@ function boss_swiper_reapers_rush:OnSpellStart()
 
   caster:Stop()
 
-  local modifierTable = {}
-  modifierTable.speed = self:GetSpecialValueFor("speed")
-  modifierTable.distance = distance
+  local modifierTable = {
+    speed = self:GetSpecialValueFor("speed"),
+    distance = distance,
+    direction_x = direction.x,
+    direction_y = direction.y
+  }
   caster:AddNewModifier(caster, self, "modifier_boss_swiper_reapers_rush_active", modifierTable)
 end
 
@@ -196,20 +199,23 @@ end
 
 ------------------------------------------------------------------------------------
 
-if IsServer() then
-	function modifier_boss_swiper_reapers_rush_active:OnCreated(keys)
-		if keys then
-			self.speed = keys.speed
-			self.distance = keys.distance
-			self.traveled = 0
-			self.step = self.speed / 30
-			self.hit = {}
+function modifier_boss_swiper_reapers_rush_active:OnCreated(keys)
+  if not IsServer() then
+    return
+  end
 
-			self:SetDuration(self.distance / self.speed, false)
+  self.speed = keys.speed
+  self.distance = keys.distance
+  self.direction = Vector(keys.direction_x, keys.direction_y, 0)
 
-			self:StartIntervalThink(0.03)
-		end
-	end
+  self.traveled = 0
+  self.interval = 1 / 30
+  self.step = self.speed * self.interval
+  self.hit = {}
+
+  self:SetDuration(self.distance / self.speed, false)
+
+  self:StartIntervalThink(self.interval)
 end
 
 ------------------------------------------------------------------------------------
@@ -226,7 +232,7 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 		return
 	end
 
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + (caster:GetForwardVector() * self.step))
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + (self.direction * self.step))
 
 	DebugDrawSphere(caster:GetAbsOrigin(), Vector(255,0,0), 255, radius, false, 0.03)
 

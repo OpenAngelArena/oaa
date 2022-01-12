@@ -7,7 +7,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models\creeps\item_creeps\i_creep_necro_archer\necro_archer.vmdl"
     "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Meepo"          // Name of sound set.
@@ -71,7 +71,7 @@
     "Creature"
     {
       // Makes it only have 50% remaining of applied crowd control
-      "DisableResistance"                                 "50.0"
+      "DisableResistance"                                 "80.0"
     }
 
     // Team

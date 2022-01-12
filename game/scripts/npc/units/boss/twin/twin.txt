@@ -15,6 +15,7 @@
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
+    //"UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -65,11 +66,11 @@
     "StatusManaRegen"                                     "5"    // Mana regeneration rate.
 
     // Creature data
-    "Creature"
-    {
+    //"Creature"
+    //{
       // Makes it only have 50% remaining of applied crowd control
-      "DisableResistance"                                 "50.0"
-    }
+      //"DisableResistance"                                 "50.0"
+    //}
 
     // Team
     //----------------------------------------------------------------

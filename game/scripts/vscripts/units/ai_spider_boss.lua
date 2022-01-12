@@ -2,9 +2,9 @@
 ---------------------------------------------------------------------------
 
 function Spawn( entityKeyValues )
-	if thisEntity == nil then
-		return
-	end
+	if not thisEntity or not IsServer() then
+    return
+  end
 
 	thisEntity.hSummonedUnits = { }
 	thisEntity.nMaxSummonedUnits = 40
@@ -23,13 +23,13 @@ end
 ---------------------------------------------------------------------------
 
 function SpiderBossThink()
-	if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) then
-		return -1
-	end
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
 
-	if GameRules:IsGamePaused() == true then
-		return 1
-	end
+  if GameRules:IsGamePaused() then
+    return 1
+  end
 
 	-- Clean up our spawned units list if necessary
 	for i, hSummonedUnit in ipairs( thisEntity.hSummonedUnits ) do
