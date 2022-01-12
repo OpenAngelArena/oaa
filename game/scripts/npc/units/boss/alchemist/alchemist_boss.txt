@@ -9,7 +9,7 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/alchemist/alchemist.vmdl"  // Model.
-    "vscripts"                                            "units/ai_spiders.lua"
+    "vscripts"                                            "units/ai_alchemist.lua"
     "SoundSet"                                            "sniper"                    // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
@@ -19,11 +19,12 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_alchemist_cannonshot"
-    "Ability2"                                            "boss_alchemist_chemical_rage"
-    "Ability3"                                            "boss_resistance"
-    "Ability4"                                            "boss_cliffwalk"
-    "Ability5"                                            "boss_regen"
-    "Ability6"                                            "siltbreaker_boss_protection"
+    "Ability2"                                            "boss_alchemist_acid_spray"
+    "Ability3"                                            "boss_alchemist_chemical_rage"
+    "Ability4"                                            "boss_resistance"
+    "Ability5"                                            "boss_cliffwalk"
+    "Ability6"                                            "boss_regen"
+    "Ability7"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
