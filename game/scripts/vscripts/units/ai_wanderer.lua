@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_wanderer_boss_buff", "modifiers/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wanderer_boss_buff", "abilities/boss/wanderer/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- the range at which we consider outselves basically attacking them
 local CLOSE_FOLLOW_RANGE = 300
@@ -27,7 +27,11 @@ function Spawn( entityKeyValues )
 end
 
 function WandererThink ()
-  if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if GameRules:IsGamePaused() then
     return 1
   end
 

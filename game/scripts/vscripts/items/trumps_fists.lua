@@ -124,7 +124,7 @@ function modifier_item_trumps_fists_passive:OnTakeDamage(event)
   end
 
   -- Check if attacker is an illusion
-  if attacker:IsIllusion() then
+  if attacker:IsIllusion() or not attacker:IsAlive() then
     return
   end
 
@@ -220,7 +220,7 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
     local unit = kv.unit
     local caster = self:GetCaster()
     if unit == self:GetParent() and kv.gain and not unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
-      if kv.gain > 0 then
+      if kv.gain > 0 and caster:IsAlive() then
         local heal_to_damage = self.heal_prevent_percent / 100
         local damage = kv.gain * heal_to_damage
         local damage_table = {
@@ -228,7 +228,7 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
           attacker = caster,
           damage = damage,
           damage_type = DAMAGE_TYPE_MAGICAL,
-          damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
+          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL)
           ability = self:GetAbility()
         }
         ApplyDamage(damage_table)

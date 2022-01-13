@@ -46,7 +46,7 @@
     "ItemShopTags"                                        "int;str;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "necronomicon 5;necro 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "7"
     "ItemBaseLevel"                                       "5"
 

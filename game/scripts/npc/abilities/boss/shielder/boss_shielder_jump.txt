@@ -1,0 +1,73 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shielder: Shield Crash - Jumps in place, damages enemies around and reduces their attack dmg
+  //=================================================================================================================
+  "boss_shielder_jump"
+  {
+    "ID"                                                  "86461"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/shielder/boss_shielder_jump.lua"
+    "AbilityTextureName"                                  "pangolier_shield_crash"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastRange"                                    "500"
+
+    "AbilityCooldown"                                     "10"
+
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "1250"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_damage_reduction"                         "40"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "proc_chance"                                     "25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "8.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_duration"                                   "0.4"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_height"                                     "250"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "jump_horizontal_distance"                        "0"
+      }
+    }
+  }
+}

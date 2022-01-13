@@ -15,38 +15,38 @@
 		"#DOTA_Item_Build_Early_Game"
 		{
 			"item"		"item_boots"
-			"item"		"item_blade_mail"
-			"item"		"item_blink"
+			"item"		"item_vanguard"
 		}
 
 		"#DOTA_Item_Build_Mid_Items"
 		{
 			"item"		"item_bloodstone_1"
 			"item"		"item_heart_oaa"
-			"item"		"item_shivas_guard"
+      		"item"		"item_shield_staff"
 		}
 
 		"#DOTA_Item_Build_Late_Items"
 		{
-      			"item"		"item_guardian_greaves"
-      			"item"    	"item_arcane_blink"
-      			"item"		"item_spiked_mail_1"
-      			"item"    	"item_sacred_skull"
-      			"item"    	"item_stoneskin"
-      			"item"		"item_aghanims_shard"
+			"item"		"item_shivas_guard"
+      		"item"		"item_guardian_greaves"
+      		"item"    	"item_far_sight"
+      		"item"    	"item_sacred_skull"
+      		"item"    	"item_stoneskin"
+      		"item"		"item_aghanims_shard"
 		}
 
 		"#DOTA_Item_Build_Luxury"
 		{
-      "item"		"item_black_king_bar_1"
-      "item"		"item_ultimate_scepter"
-      "item"		"item_lotus_orb"
-      "item"		"item_radiance"
-      "item"		"item_sheepstick_4"
-      "item"		"item_helm_of_the_overlord"
-      "item"		"item_pipe"
-      "item"		"item_crimson_guard"
-      "item"		"item_silver_staff"
+      		"item"		"item_black_king_bar_1"
+      		"item"		"item_ultimate_scepter"
+      		"item"		"item_lotus_orb"
+			"item"		"item_arcane_blink"
+      		"item"		"item_radiance"
+      		"item"		"item_sheepstick_4"
+      		"item"		"item_helm_of_the_overlord"
+      		"item"		"item_pipe"
+      		"item"		"item_crimson_guard"
+      		"item"		"item_silver_staff"
 		}
 	}
 }

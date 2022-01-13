@@ -1,6 +1,6 @@
 
 function Spawn( entityKeyValues )
-	if thisEntity == nil then
+	if not thisEntity or not IsServer() then
 		return
 	end
 
@@ -9,12 +9,11 @@ function Spawn( entityKeyValues )
 end
 
 function DireHoundBossThink()
-
-  if ( not IsValidEntity(thisEntity) ) or ( not thisEntity:IsAlive()) or (thisEntity:IsDominated()) then
+  if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() or thisEntity:IsDominated() then
 		return -1
   end
 
-	if GameRules:IsGamePaused() == true then
+	if GameRules:IsGamePaused() then
 		return 1
   end
 

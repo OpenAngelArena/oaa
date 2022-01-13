@@ -364,7 +364,7 @@ function HeroSelection:RankedManager (event)
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
       local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
+      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then

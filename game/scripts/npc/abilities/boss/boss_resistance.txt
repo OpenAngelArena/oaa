@@ -7,8 +7,8 @@
   {
     "ID"                                                  "9900"
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/boss_resistance.lua"
-    "AbilityTextureName"                                  "tidehunter_kraken_shell"
+    "ScriptFile"                                          "abilities/boss/boss_resistance.lua"
+    "AbilityTextureName"                                  "custom/boss_resistance"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "1"

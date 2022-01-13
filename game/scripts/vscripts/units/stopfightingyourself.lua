@@ -31,13 +31,21 @@ local function UseAbility(ability, caster, target, maxRange)
     })
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
     -- point
-    if randomPosition then
+    if IsValidEntity(target) then
+      ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+        AbilityIndex = ability:entindex(),
+        Position = target:GetAbsOrigin(),
+        Queue = 1
+      })
+    elseif randomPosition then
       ExecuteOrderFromTable({
         UnitIndex = caster:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
         AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
         Position = randomPosition,
-        Queue = true --Optional.  Used for queueing up abilities
+        Queue = 1 --Optional.  Used for queueing up abilities
       })
     end
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
@@ -50,13 +58,15 @@ local function UseAbility(ability, caster, target, maxRange)
     })
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
     -- target
-    ExecuteOrderFromTable({
-      UnitIndex = caster:entindex(),
-      OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-      TargetIndex = target:entindex(), --Optional.  Only used when targeting units
-      AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
+    if IsValidEntity(target) then
+      ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+        TargetIndex = target:entindex(), --Optional.  Only used when targeting units
+        AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
+    end
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) ~= 0 and not ability:IsActivated() then
     -- toggle
     ExecuteOrderFromTable({
@@ -87,12 +97,10 @@ local function UseRandomItem()
 
   if item ~= nil and item:IsItem() and not item:IsRecipe() then
     if item:IsFullyCastable() and item:IsOwnersManaEnough() then
-      local target = ClosestHeroInRange(thisEntity:GetAbsOrigin(), 1000)
-      --local range = item:GetCastRange(thisEntity:GetAbsOrigin(), target)
-      --local range = item:GetCastRange(nil, nil)
+      local target = ClosestHeroInRange(thisEntity:GetAbsOrigin(), BOSS_LEASH_SIZE)
 
       if target then
-        UseAbility(item, thisEntity, target, 800)
+        UseAbility(item, thisEntity, target, BOSS_LEASH_SIZE)
         return true
       end
     end
@@ -113,19 +121,13 @@ local function IsHeroInRange(position, range)
   )[1] ~= nil
 end
 
-local function Think(state, target)
-  -- NOTE: I'm thinking too long
-  if not thisEntity:IsAlive() then
-    if thisEntity.illusions then
-      for entindex, illusion in pairs(thisEntity.illusions) do
-        illusion:ForceKill(false)
-        if not illusion:IsNull() then -- I'm not sure if this is needed.
-          illusion:RemoveSelf()
-        end
-      end
-      thisEntity.illusions = nil
-    end
-    return 0
+function StopFightingYourselfThink()
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if GameRules:IsGamePaused() then
+    return 1
   end
 
   -- Leash
@@ -133,7 +135,7 @@ local function Think(state, target)
     GLOBAL_origin = thisEntity:GetAbsOrigin()
   else
     local distance = (GLOBAL_origin - thisEntity:GetAbsOrigin()):Length()
-    if distance > 1000 then
+    if distance > BOSS_LEASH_SIZE then
       ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
@@ -144,14 +146,21 @@ local function Think(state, target)
     end
   end
 
-  if thisEntity:IsIdle() and IsHeroInRange(thisEntity:GetAbsOrigin(), 900) then
+  local healthpct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+  if healthpct >= 99/100 then
+    return 1
+  end
+
+  if IsHeroInRange(thisEntity:GetAbsOrigin(), BOSS_LEASH_SIZE) then
     local dice = RandomFloat(0, 1)
-    local healthpct = thisEntity:GetMaxHealth() / thisEntity:GetHealth()
-    if dice <= 0.33 and healthpct <= 33 then
+    if dice <= 0.33 and healthpct <= 50/100 then
       UseRandomItem()
       return 0.5
-    elseif dice <= 0.66 and healthpct <= 66 then
+    elseif dice <= 0.66 and healthpct <= 75/100 then
       -- IllusionsCast()
+      if thisEntity:GetUnitName() == "npc_dota_boss_stopfightingyourself_tier5" then
+        UseRandomItem()
+      end
       return 1
     end
   end
@@ -186,13 +195,12 @@ end
 
 -- Entry Function
 function Spawn(entityKeyValues) --luacheck: ignore Spawn
-  local disabled = false
-  if disabled then
+  if not thisEntity or not IsServer() then
     return
   end
 
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
-  thisEntity:SetContextThink('StopFightingYourselfThink', partial(Think, thisEntity), 1)
-
   ABILITY_dupe_heroes = thisEntity:FindAbilityByName('boss_stopfightingyourself_dupe_heroes')
+
+  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  thisEntity:SetContextThink('StopFightingYourselfThink', StopFightingYourselfThink, 1)
 end

@@ -1,4 +1,4 @@
-require('abilities/swiper/boss_swiper_swipe')
+require('abilities/boss/swiper/boss_swiper_swipe')
 
 function Spawn( entityKeyValues )
 	if thisEntity == nil then
@@ -20,13 +20,13 @@ function Spawn( entityKeyValues )
 end
 
 function SwiperBossThink()
-	if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
-		return 1
-	end
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
 
-	-- if not thisEntity:IsIdle() then
-	-- 	return 1.0
-	-- end
+  if GameRules:IsGamePaused() then
+    return 1
+  end
 
   if not thisEntity.bInitialized then
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
