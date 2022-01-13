@@ -15,9 +15,13 @@ function Spawn( entityKeyValues )
 end
 
 function SlimeBossThink()
-	if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
-		return 1
-	end
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if GameRules:IsGamePaused() then
+    return 1
+  end
 
 	if thisEntity:IsChanneling() then
 		return 2.0

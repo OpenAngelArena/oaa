@@ -17,7 +17,7 @@ function Baneling:Init(entity)
   -- thisEntity
   self.entity = entity
 
-  self.boom = self.entity:FindAbilityByName("boss_spiders_spider_cold_combustion")
+  self.boom = self.entity:FindAbilityByName("spider_cold_combustion")
 
   Timers:CreateTimer(1, function()
     return self:Think()
@@ -25,9 +25,14 @@ function Baneling:Init(entity)
 end
 
 function Baneling:Think()
-  if self.entity:IsNull() or not self.entity:IsAlive() then
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or self.entity:IsNull() or not IsValidEntity(self.entity) or not self.entity:IsAlive() then
     return
   end
+
+  if GameRules:IsGamePaused() then
+    return 1
+  end
+
   local targetLocation = self:FindBestBlastLocation()
   if not targetLocation then
     return 1

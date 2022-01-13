@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Boss: Incapacitating Bite passive
+  //=================================================================================================================
+  "spider_boss_incapacitating_bite"
+  {
+    "ID"                                                  "3635"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/spider_boss/spider_boss_incapacitating_bite.lua"
+    "AbilityTextureName"                                  "broodmother_incapacitating_bite"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_chance"                                     "60"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow"                                 "-30"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "2"
+      }
+    }
+  }
+}

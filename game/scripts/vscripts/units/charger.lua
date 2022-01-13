@@ -12,7 +12,7 @@ local function GetAllPillars ()
     1500,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
     DOTA_UNIT_TARGET_BASIC,
-    DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
     FIND_CLOSEST,
     false
   )
@@ -85,10 +85,15 @@ local function ChargeHero ()
   return true
 end
 
-local function ChargerThink (state, target)
-  if not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
-    return 0
+function ChargerThink ()
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
   end
+
+  if GameRules:IsGamePaused() then
+    return 1
+  end
+
   if not GLOBAL_origin then
     GLOBAL_origin = thisEntity:GetAbsOrigin()
   else
@@ -102,6 +107,10 @@ local function ChargerThink (state, target)
       })
       return 5
     end
+  end
+
+  if thisEntity:GetHealth() / thisEntity:GetMaxHealth() >= 99/100 then
+    return 1
   end
 
   if not thisEntity:IsIdle() then
@@ -125,10 +134,11 @@ local function ChargerThink (state, target)
 end
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  thisEntity:FindAbilityByName("boss_charger_summon_pillar")
+  if not thisEntity or not IsServer() then
+    return
+  end
 
-  thisEntity:SetContextThink( "ChargerThink", partial(ChargerThink, thisEntity) , 1)
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  thisEntity.BossTier = thisEntity.BossTier or 2
 
   local chargeAbilityName = "boss_charger_charge"
   if not thisEntity:HasAbility( chargeAbilityName ) then
@@ -137,6 +147,9 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
 
   ABILITY_charge = thisEntity:FindAbilityByName(chargeAbilityName)
   ABILITY_summon_pillar = thisEntity:FindAbilityByName("boss_charger_summon_pillar")
+
+  thisEntity:SetContextThink( "ChargerThink", ChargerThink , 1)
+  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
 
   local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_charge, "modifier_boss_phase_controller", {})
   phaseController:SetPhases({ 66, 33 })

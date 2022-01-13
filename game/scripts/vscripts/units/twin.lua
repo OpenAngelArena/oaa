@@ -2,20 +2,39 @@ LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phas
 
 local ABILITY_empathy = nil
 
-local function SpawnDumbTwin()
+function SpawnDumbTwin()
   local twin = CreateUnitByName("npc_dota_boss_twin_dumb", thisEntity:GetAbsOrigin(), true, thisEntity, thisEntity:GetOwner(), thisEntity:GetTeam())
   twin:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_twin_twin_empathy_buff", {})
 end
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  thisEntity:SetContextThink( "SpawnDumbTwin", partial(SpawnDumbTwin, thisEntity) , 1)
-  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+  if not thisEntity or not IsServer() then
+    return
+  end
 
   ABILITY_empathy = thisEntity:FindAbilityByName("boss_twin_twin_empathy")
 
-  local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_phase_controller", {})
-  phaseController:SetPhases({ 75, 50 })
-  phaseController:SetAbilities({
-    "boss_twin_twin_empathy"
-  })
+  thisEntity:SetContextThink( "TwinThink", TwinThink , 1)
+  print("Starting AI for " .. thisEntity:GetUnitName() .. " " .. thisEntity:GetEntityIndex())
+end
+
+function TwinThink()
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if GameRules:IsGamePaused() then
+    return 1
+  end
+
+  if not thisEntity.initialized then
+    thisEntity.BossTier = thisEntity.BossTier or 2
+    SpawnDumbTwin()
+    local phaseController = thisEntity:AddNewModifier(thisEntity, ABILITY_empathy, "modifier_boss_phase_controller", {})
+      phaseController:SetPhases({ 75, 50 })
+      phaseController:SetAbilities({
+        "boss_twin_twin_empathy"
+      })
+    thisEntity.initialized = true
+  end
 end

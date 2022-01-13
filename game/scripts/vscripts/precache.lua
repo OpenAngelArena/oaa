@@ -48,10 +48,7 @@ g_UnitPrecache = {
   --"npc_azazel_tower_watch",
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
-  --"npc_dota_boss_simple_3",
   "npc_dota_boss_simple_5",
-  --"npc_dota_boss_simple_6",
-  --"npc_dota_boss_simple_7",
 
   "npc_dota_boss_twin",
   "npc_dota_boss_twin_dumb",
@@ -72,7 +69,7 @@ g_UnitPrecache = {
   "npc_dota_creature_temple_guardian_spawner",
 
   --"npc_dota_creature_small_lycosidae",
-  --"npc_dota_creature_spider_boss",
+  "npc_dota_creature_spider_boss",
   "npc_dota_boss_spiders",
   "npc_dota_boss_swiper",
   "npc_dota_boss_wanderer_1",
