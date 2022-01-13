@@ -59,7 +59,7 @@
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shield staff;shield;force"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"

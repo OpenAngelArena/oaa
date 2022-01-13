@@ -76,7 +76,7 @@
     "ItemShopTags"                                        "str;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pull staff 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemStackable"                                       "0"
     "ItemPermanent"                                       "1"

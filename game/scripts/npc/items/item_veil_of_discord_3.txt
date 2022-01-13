@@ -54,7 +54,7 @@
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vod 3;veil of discord 3;veil 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
     "UpgradesItems"                                       "item_veil_of_discord;item_veil_of_discord_2;item_veil_of_discord_3;item_veil_of_discord_4;item_veil_of_discord_5"
