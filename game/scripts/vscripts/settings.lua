@@ -89,7 +89,8 @@ CAPTURE_SECOND_WARN = 30                -- how many seconds before spawn of capt
 CAPTURE_START_COUNTDOWN = 5             -- How many seconds to count down before each CapturePoint (added as a delay before the duel starts)
 CAPTURE_INTERVAL = 480                  -- time from CapturePoint beginning until next CapturePoint begins. DUEL_INTERVAL.
 ONE_V_ONE_CAPTURE_INTERVAL = 360        -- ONE_V_ONE_DUEL_INTERVAL
-CAPTURE_LENTGH = 30                     -- amount of time for 1 hero to capture the point (less with more)
+CAPTURE_LENTGH = 20                     -- amount of time for 1 hero to capture the point (less with more)
+CAPTURE_POINT_RADIUS = 300
 
 -- Bosses
 BOSS_RESPAWN_TIMER = 60                 -- time after boss death before spawning the next tier boss
