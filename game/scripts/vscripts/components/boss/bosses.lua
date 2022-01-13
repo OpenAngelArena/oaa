@@ -24,7 +24,7 @@ Bosses = {
       "npc_dota_boss_simple_7" -- Dire Creep Boss (Kraken Shell)
     },
     {
-      "npc_dota_boss_twin",
+      --"npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Bear Boss (Fury Swipes)
       "npc_dota_creature_slime_spawner",
@@ -33,7 +33,7 @@ Bosses = {
       "npc_dota_boss_carapace"
     },
     {
-      "npc_dota_creature_ogre_tank_boss",
+      --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders"
     },
@@ -67,7 +67,7 @@ Bosses = {
       "npc_dota_boss_simple_7" -- Kraken Shell
     },
     {
-      "npc_dota_boss_twin",
+      --"npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_creature_slime_spawner",
@@ -76,7 +76,7 @@ Bosses = {
       "npc_dota_boss_carapace"
     },
     {
-      "npc_dota_creature_ogre_tank_boss",
+      --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
     },
@@ -105,7 +105,7 @@ Bosses = {
   -----------------------------
   {
     {
-      "npc_dota_boss_twin",
+      --"npc_dota_boss_twin",
       "npc_dota_boss_shielder",
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_creature_slime_spawner",
@@ -114,7 +114,7 @@ Bosses = {
       "npc_dota_boss_carapace"
     },
     {
-      "npc_dota_creature_ogre_tank_boss",
+      --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
     },
@@ -143,7 +143,7 @@ Bosses = {
   -----------------------------
   {
     {
-      "npc_dota_creature_ogre_tank_boss",
+      --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
     },
