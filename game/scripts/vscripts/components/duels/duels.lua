@@ -244,7 +244,7 @@ function Duels:StartDuel(options)
   options = options or {}
   if not options.firstDuel then
     Music:SetMusic(12)
-    self.allowExperienceGain = 0
+    self.allowExperienceGain = 1
   else
     self.allowExperienceGain = 2
   end
