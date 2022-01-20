@@ -141,13 +141,15 @@ LOGGLY_ACCOUNT_ID = 'afa7c97f-1110-4738-9e10-4423f3675386'      -- The Loggly to
 USE_CUSTOM_HERO_LEVELS = true  -- Should the heroes give a custom amount of XP when killed? Set to true if you don't want DotA default values.
 
 -- Formula for XP on hero kill: (HERO_XP_BOUNTY_BASE + HERO_XP_BOUNTY_STREAK + HERO_XP_BONUS_FACTOR x DyingHeroXP) / number_of_killers
-HERO_XP_BOUNTY_BASE = 100            -- 100 in normal dota
+HERO_XP_BOUNTY_BASE = 80             -- 100 in normal dota
 HERO_XP_BOUNTY_STREAK_BASE = 30      -- Min amount of streak XP bonus (min streak is 3; lvl * 30 in normal dota)
 HERO_XP_BOUNTY_STREAK_INCREASE = 100 -- not used for now
 HERO_XP_BOUNTY_STREAK_MAX = 3000     -- Max amount of streak XP bonus (lvl * streak * 10 in normal dota where lvl <= 25)
-HERO_XP_BONUS_FACTOR = 0.13          -- Multiplier for the XP of the killed hero (0.13 in normal dota)
+HERO_XP_BONUS_FACTOR = 0.12          -- Multiplier for the XP of the killed hero (0.13 in normal dota)
+HERO_XP_BOUNTY_PER_HERO_LVL = 20     -- Multiplier for the lvl of the killed hero (not in normal dota)
 HERO_KILL_XP_RADIUS = 1500           -- XP range for killing heroes (1500 in normal dota)
 HERO_KILL_GOLD_RADIUS = 1500         -- Gold assist range for killing heroes (1500 in normal dota)
+HERO_DYING_STREAK_MAX = 5            -- After how many deaths, hero stops giving bonus xp to the killer
 
 -- Runes
 USE_DEFAULT_RUNE_SYSTEM = false      -- Should we use the default dota rune spawn timings and the same runes as dota have?

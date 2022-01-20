@@ -57,20 +57,11 @@ function HeroKillXP:HeroDeathHandler(keys)
   local killerTeam = killerEntity:GetTeamNumber()
   local killedTeam = killedHero:GetTeamNumber()
 
-  if killerTeam == killedTeam then
-    -- Hero is denied
-    return
-  end
-
   if killedHero:IsClone() then
     killedHero = killedHero:GetCloneSource()
   end
 
-  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() then
-    return
-  end
-
-  if killerTeam == DOTA_TEAM_NEUTRALS or killedTeam == DOTA_TEAM_NEUTRALS then
+  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() or killedTeam == DOTA_TEAM_NEUTRALS then
     return
   end
 
@@ -83,20 +74,35 @@ function HeroKillXP:HeroDeathHandler(keys)
     return
   end
 
+  -- Init dying streak
+  if not killedHero.DyingStreak then
+    killedHero.DyingStreak = 0
+  end
+
+  -- Hero is denied by neutrals or by his own team
+  if killerTeam == DOTA_TEAM_NEUTRALS or killerTeam == killedTeam then
+    killedHero.DyingStreak = 0
+    return
+  end
+
   local killedHeroXP = killedHero:GetCurrentXP()
   local killedHeroStreak = killedHero:GetStreak()
   local killedHeroLevel = killedHero:GetLevel()
 
+  -- Calculate killing streak xp
   local killedHeroStreakXP = 0
-
   if killedHeroStreak > 2 then
     --killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_BASE + HERO_XP_BOUNTY_STREAK_INCREASE * (killedHeroStreak - 3)
     killedHeroStreakXP = killedHeroStreak * killedHeroLevel * HERO_XP_BOUNTY_STREAK_BASE / 3
   end
 
+  -- Cap the killing streak xp
   if killedHeroStreakXP > HERO_XP_BOUNTY_STREAK_MAX then
     killedHeroStreakXP = HERO_XP_BOUNTY_STREAK_MAX
   end
+
+  -- Increase dying streak
+  killedHero.DyingStreak = killedHero.DyingStreak + 1
 
   local rewardHeroes
   local distributeCount = 1
@@ -133,10 +139,16 @@ function HeroKillXP:HeroDeathHandler(keys)
       distributeCount = numAttackers
     end
     rewardHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), rewardPlayerIDs)
+
+    -- Reset dying streak to 1 if the killer is not a hero
+    killedHero.DyingStreak = 1
   else
     local killerHero = PlayerResource:GetSelectedHeroEntity(killerPlayerID)
 
-	-- When last hit by a hero from long range (>HERO_KILL_XP_RADIUS), that hero should always receive xp, regardless of distance
+    -- Reset dying streak for the killer
+    killerHero.DyingStreak = 0
+
+    -- When last hit by a hero from long range (>HERO_KILL_XP_RADIUS), that hero should always receive xp, regardless of distance
     local killerIsInHeroesTable = iter(heroes)
                                   :map(CallMethod("GetPlayerOwnerID"))
                                   :contains(killerPlayerID)
@@ -147,7 +159,9 @@ function HeroKillXP:HeroDeathHandler(keys)
     distributeCount = #heroes
   end
 
-  local xp = math.floor((HERO_XP_BOUNTY_BASE + killedHeroStreakXP + (killedHeroXP * HERO_XP_BONUS_FACTOR)) / distributeCount)
+  local killedHeroDyingStreak = killedHero.DyingStreak
+  local bonus = math.max(0, killedHeroXP * HERO_XP_BONUS_FACTOR * (HERO_DYING_STREAK_MAX + 1 - killedHeroDyingStreak) / HERO_DYING_STREAK_MAX)
+  local xp = math.floor((HERO_XP_BOUNTY_BASE + killedHeroStreakXP + killedHeroLevel * HERO_XP_BOUNTY_PER_HERO_LVL + bonus) / distributeCount)
   xp = math.max(0, xp)
 
   -- Non-player kills
