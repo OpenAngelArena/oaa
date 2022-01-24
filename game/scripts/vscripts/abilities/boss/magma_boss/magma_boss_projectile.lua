@@ -1,7 +1,7 @@
 magma_boss_projectile = class(AbilityBaseClass)
 
 function magma_boss_projectile:Precache(context)
-  PrecacheResource("particle", "particles/creatures/magma_golem/magma_golem_projectile.vpcf", context)
+  --PrecacheResource("particle", "particles/creatures/magma_golem/magma_golem_projectile.vpcf", context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
   PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
@@ -57,7 +57,7 @@ function magma_boss_projectile:OnSpellStart()
   attack_speed = attack_speed * ( attack_distance / ( attack_distance - attack_width_initial ) )
 
   local info = {
-    EffectName = "particles/creatures/magma_golem/magma_golem_projectile.vpcf",
+    --EffectName = "particles/creatures/magma_golem/magma_golem_projectile.vpcf",
     Ability = self,
     vSpawnOrigin = caster:GetOrigin(),
     fStartRadius = attack_width_initial,
@@ -66,18 +66,18 @@ function magma_boss_projectile:OnSpellStart()
     fDistance = attack_distance,
     Source = caster,
     iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-    iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    iUnitTargetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
   }
 
   ProjectileManager:CreateLinearProjectile( info )
-  caster:EmitSound( "MagmaGolem.Projectile")
+  --caster:EmitSound( "MagmaGolem.Projectile")
 end
 
 function magma_boss_projectile:OnProjectileHit( hTarget, vLocation )
   if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
     -- Reduce number of sounds
     if hTarget:IsRealHero() then
-      hTarget:EmitSound("MagmaGolem.Projectile.Impact")
+      --hTarget:EmitSound("MagmaGolem.Projectile.Impact")
     end
 
     local damageTable = {
@@ -93,4 +93,3 @@ function magma_boss_projectile:OnProjectileHit( hTarget, vLocation )
 
   return false
 end
-

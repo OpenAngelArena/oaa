@@ -226,7 +226,7 @@ function SpiderBossThink()
     end
 
     if thisEntity.enraged == false and thisEntity.RageAbility and thisEntity.RageAbility:IsFullyCastable() then
-		  if current_hp_pct <= 25/100 then
+      if current_hp_pct <= 25/100 then
         return CastRage()
       end
     end

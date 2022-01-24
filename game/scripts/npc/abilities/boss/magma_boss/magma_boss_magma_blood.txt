@@ -20,7 +20,7 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityCooldown"                                     "1.0"
+    "AbilityCooldown"                                     "2.0"
 
     "AbilityManaCost"                                     "0"
 
@@ -36,7 +36,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "projectile_speed"                                "700"
       }
       "03"
       {
@@ -46,7 +46,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "1300"
+        "impact_damage"                                   "1000"
       }
       "05"
       {

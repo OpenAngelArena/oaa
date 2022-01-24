@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_magma_boss_volcano_burning_effect", "abilities/boss/ma
 magma_boss_volcano = class(AbilityBaseClass)
 
 function magma_boss_volcano:Precache(context)
-  PrecacheResource("particle", "particles/magma_boss/magma_boss_volcano_burning.vpcf", context)
-  PrecacheResource("particle", "particles/magma_boss/magma_boss_volcano_indicator1.vpcf", context)
-  PrecacheResource("particle", "particles/magma_boss/magma_boss_volcano_embers.vpcf", context)
-  PrecacheResource("particle", "particles/magma_boss/magma_boss_volcano1.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_burning.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano1.vpcf", context)
   PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 
@@ -225,7 +225,7 @@ end
 function modifier_magma_boss_volcano_burning_effect:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
-    local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/magma_boss_volcano_burning.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_burning.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControlEnt(nFXIndex, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
     ParticleManager:SetParticleControl(nFXIndex, 2, Vector(2,0,0))
     self.nFXIndex = nFXIndex
@@ -290,10 +290,10 @@ function modifier_magma_boss_volcano_thinker:OnCreated()
     self.magma_radius =  hAbility:GetSpecialValueFor("magma_initial_radius")
     self.max_radius = hAbility:GetSpecialValueFor("magma_radius_max")
 
-    self.nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/magma_boss_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)
+    self.nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)
     ParticleManager:SetParticleControl(self.nFXIndex, 0, parent:GetAbsOrigin())
     ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.radius, self.delay, 0))
-    self.nFXIndex2 = ParticleManager:CreateParticle("particles/magma_boss/magma_boss_volcano_embers.vpcf", PATTACH_WORLDORIGIN, parent)
+    self.nFXIndex2 = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", PATTACH_WORLDORIGIN, parent)
     ParticleManager:SetParticleControl(self.nFXIndex2, 2, parent:GetAbsOrigin())
 
     self.bErupted = false
@@ -388,7 +388,7 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
   ParticleManager:DestroyParticle(self.nFXIndex, false)
   ParticleManager:ReleaseParticleIndex(self.nFXIndex)
 
-  local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/magma_boss_volcano1.vpcf", PATTACH_WORLDORIGIN, hParent)
+  local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano1.vpcf", PATTACH_WORLDORIGIN, hParent)
   ParticleManager:SetParticleControl(nFXIndex, 0, center)
   ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius, 0, 0))
 
@@ -416,7 +416,7 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
   end
 
   -- Particle for the actual magma pool
-  self.nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/magma_boss_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, hParent)
+  self.nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, hParent)
   ParticleManager:SetParticleControl(self.nFXIndex, 0, center)
   ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.magma_radius, 0, 0))
 
@@ -459,7 +459,7 @@ function modifier_magma_boss_volcano_thinker:GetAbsoluteNoDamagePure()
 end
 
 function modifier_magma_boss_volcano_thinker:GetDisableHealing()
-	return 1
+  return 1
 end
 
 function modifier_magma_boss_volcano_thinker:GetMagmaRadius()
@@ -468,7 +468,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_magma_boss_volcano_thinker_child = class (ModifierBaseClass)
+modifier_magma_boss_volcano_thinker_child = class(ModifierBaseClass)
 
 function modifier_magma_boss_volcano_thinker_child:IsHidden()
   return true
@@ -503,6 +503,7 @@ function modifier_magma_boss_volcano_thinker_child:CheckState()
   local state = {
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
   }
   return state
 end

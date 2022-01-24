@@ -100,12 +100,12 @@
       "13"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "totem_model_scale"                               "0.4"
+        "totem_model_scale"                               "0.5"
       }
       "14" // max volcano duration in seconds
       {
         "var_type"                                        "FIELD_INTEGER"
-        "totem_duration_max"                              "120"
+        "totem_duration_max"                              "60"
       }
     }
   }

@@ -35,15 +35,15 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "3000"
-    "AttackDamageMax"                                     "3000"
+    "AttackDamageMin"                                     "2000"
+    "AttackDamageMax"                                     "2000"
     "AttackRate"                                          "1.0"
     "BaseAttackSpeed"                                     "150"
     "AttackAnimationPoint"                                "0.2"
-    "AttackAcquisitionRange"                              "300"
-    "AttackRange"                                         "300"
+    "AttackAcquisitionRange"                              "500"
+    "AttackRange"                                         "500"
     "ProjectileModel"                                     "particles/magma_boss/sniper_big_attack.vpcf"
-    "ProjectileSpeed"                                     "1000"
+    "ProjectileSpeed"                                     "700"
 
     // Bounty
     //----------------------------------------------------------------

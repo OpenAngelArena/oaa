@@ -113,14 +113,14 @@ modifier_magma_boss_magma_blood_passive.OnRefresh = modifier_magma_boss_magma_bl
 
 function modifier_magma_boss_magma_blood_passive:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MODEL_CHANGE,
+    --MODIFIER_PROPERTY_MODEL_CHANGE,
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
 function modifier_magma_boss_magma_blood_passive:GetModifierModelChange()
-	if not IsServer() then
+  if not IsServer() then
     return
   end
   local parent = self:GetParent()
