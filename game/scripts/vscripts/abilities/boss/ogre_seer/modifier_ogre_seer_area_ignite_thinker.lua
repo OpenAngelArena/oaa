@@ -17,11 +17,11 @@ end
 function modifier_ogre_seer_area_ignite_thinker:OnImpact()
   if IsServer() then
     local parent = self:GetParent()
-		local nFXIndex = ParticleManager:CreateParticle( "particles/neutral_fx/black_dragon_fireball.vpcf", PATTACH_WORLDORIGIN, nil );
-		ParticleManager:SetParticleControl( nFXIndex, 0, parent:GetOrigin() );
-		ParticleManager:SetParticleControl( nFXIndex, 1, parent:GetOrigin() );
-		ParticleManager:SetParticleControl( nFXIndex, 2, Vector( self.area_duration, 0, 0 ) );
-		ParticleManager:ReleaseParticleIndex( nFXIndex );
+		local nFXIndex = ParticleManager:CreateParticle( "particles/neutral_fx/black_dragon_fireball.vpcf", PATTACH_WORLDORIGIN, nil )
+		ParticleManager:SetParticleControl( nFXIndex, 0, parent:GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 1, parent:GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 2, Vector( self.area_duration, 0, 0 ) )
+		ParticleManager:ReleaseParticleIndex( nFXIndex )
 
 		parent:EmitSound("OgreMagi.Ignite.Target")
 

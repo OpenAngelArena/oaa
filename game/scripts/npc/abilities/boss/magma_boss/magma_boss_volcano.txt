@@ -1,27 +1,32 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magma Mage Boss - Create Volcano - volcano deals damage on eruption and creates magma (lava) that does damage to enemies and heals the boss
+  // Magma Boss - Create Volcano - volcano deals damage on eruption and creates magma (lava) that does damage to enemies
   //=================================================================================================================
-  "boss_magma_mage_volcano"
+  "magma_boss_volcano"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "88728"
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/magma_mage/boss_magma_mage_volcano.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/magma_boss_volcano"
+    "ScriptFile"                                          "abilities/boss/magma_boss/magma_boss_volcano.lua"
+
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityTextureName"                                  "custom/boss_magma_mage_volcano"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10"
+    "AbilityCooldown"                                     "8"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1300"
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -57,22 +62,22 @@
         "var_type"                                        "FIELD_FLOAT"
         "torrent_stun_duration"                           "2.0"
       }
-      "06" // cast range (max distance from caster and volcano)
+      "06" // During this time totem is invulnerable
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "torrent_range"                                   "1000"
+        "var_type"                                        "FIELD_FLOAT"
+        "totem_rising_duration"                           "2.0"
       }
-      "07" // 8 damage from heroes, 1 damage from non-heroes
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "totem_health"                                    "32"
+        "magma_initial_radius"                            "200"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_initial_aoe"                               "225"
+        "magma_radius_max"                                "1000"
       }
-      "09" // currently AREA per second not distance (to look more natural)
+      "09" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
       {
         "var_type"                                        "FIELD_INTEGER"
         "magma_spread_speed"                              "10000"
@@ -80,34 +85,24 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_damage_per_second"                         "360"
+        "magma_damage_per_second"                         "400"
       }
       "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magma_heal_per_second"                           "150"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "torrent_knockup_duration"                        "2.0"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "volcano_model_scale"                             "0.4"
-      }
-      "14"
       {
         "var_type"                                        "FIELD_FLOAT"
         "magma_damage_interval"                           "0.2"
       }
-      "15"
+      "12" // 8 damage from heroes, 1 damage from non-heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_radius_max"                                "1000"
+        "totem_health"                                    "32"
       }
-      "16" // max volcano duration in seconds
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "totem_model_scale"                               "0.4"
+      }
+      "14" // max volcano duration in seconds
       {
         "var_type"                                        "FIELD_INTEGER"
         "totem_duration_max"                              "120"

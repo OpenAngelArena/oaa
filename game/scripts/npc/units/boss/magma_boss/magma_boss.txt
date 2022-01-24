@@ -1,49 +1,48 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Magma Mage Boss
+  // Magma Boss
   //=================================================================================
-  "npc_dota_creature_magma_mage_boss"
+  "npc_dota_creature_magma_boss"
   {
     // General
     //----------------------------------------------------------------
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/items/invoker/forge_spirit/infernus/infernus.vmdl"
-    "vscripts"                                            "units/ai_magma_mage_boss.lua"
+	//"Model"                                               "models/items/invoker/forge_spirit/cadenza_spirit/cadenza_spirit.vmdl"
+    "vscripts"                                            "units/ai_magma_boss.lua"
     "SoundSet"                                            "Hero_Lina"
-    "Level"                                               "1"
-    "ModelScale"                                          "2.0"
+    "ModelScale"                                          "1.0"
+    "Level"                                               "30"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
-    "IsBossMonster"                                       "1"
-
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "450"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "boss_magma_mage_volcano"
-    "Ability2"                                            ""
-    "Ability3"                                            "boss_resistance"
-    "Ability4"                                            "boss_cliffwalk"
-    "Ability5"                                            "boss_regen"
-    "Ability6"                                            "siltbreaker_boss_protection"
+    "Ability1"                                            "magma_boss_volcano"
+    "Ability2"                                            "magma_boss_projectile"
+    "Ability3"                                            "magma_boss_magma_blood"
+    "Ability4"                                            "boss_resistance"
+    "Ability5"                                            "boss_cliffwalk"
+    "Ability6"                                            "boss_regen"
+    "Ability7"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "33"
+    "ArmorPhysical"                                       "32"
     "MagicalResistance"                                   "-50"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "2400"
-    "AttackDamageMax"                                     "2400"
+    "AttackDamageMin"                                     "3000"
+    "AttackDamageMax"                                     "3000"
     "AttackRate"                                          "1.0"
+    "BaseAttackSpeed"                                     "150"
     "AttackAnimationPoint"                                "0.2"
-    "AttackAcquisitionRange"                              "1000"
+    "AttackAcquisitionRange"                              "300"
     "AttackRange"                                         "300"
-    "ProjectileModel"                                     "particles/sniper_big_attack.vpcf"
+    "ProjectileModel"                                     "particles/magma_boss/sniper_big_attack.vpcf"
     "ProjectileSpeed"                                     "1000"
 
     // Bounty
@@ -54,22 +53,22 @@
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"                                      "DOTA_HULL_SIZE_HUGE"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
     "RingRadius"                                          "100"
     "HealthBarOffset"                                     "280"
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "240"
+    "MovementSpeed"                                       "520"
     "MovementTurnRate"                                    "0.8"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "12000"
-    "StatusHealthRegen"                                   "5"
-    "StatusMana"                                          "1000"
-    "StatusManaRegen"                                     "5"
+    "StatusHealth"                                        "10000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "5000"
+    "StatusManaRegen"                                     "10"
 
     // Vision
     //----------------------------------------------------------------
@@ -87,11 +86,19 @@
     //----------------------------------------------------------------
     "HasInventory"                                        "1"
 
+    "precache"
+    {
+      "particle"                                          "particles/magma_boss/sniper_big_attack.vpcf"
+    }
+
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
     {
       "DisableResistance"                                 "50.0"
     }
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
   }
 }

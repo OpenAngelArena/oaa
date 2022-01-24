@@ -3,15 +3,15 @@
   //=================================================================================
   // Magma Mage Volcano
   //=================================================================================
-  "npc_dota_magma_mage_volcano"
+  "npc_dota_magma_boss_volcano"
   {
     // General
     "BaseClass"                                           "npc_dota_shadowshaman_serpentward"   // Class of entity of link to.
     "Model"                                               "models/heroes/undying/undying_tower.vmdl"    // Model.
-    "ModelScale"                                          "0.3"
+    "ModelScale"                                          "0.4"
     "SoundSet"                                            "Creep_Good_Range"                  // Name of sound set.
     "Level"                                               "1"
-    "UnitLabel"                                           "magma_mage_volcano"
+    "UnitLabel"                                           "magma_boss_volcano"
     "IsAncient"                                           "1"
     "CanBeDominated"                                      "0"     // Helm of Dominator interaction
 
@@ -76,8 +76,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "500"       // Range of vision during day light.
-    "VisionNighttimeRange"      "500"       // Range of vision at night time.
+    "VisionDaytimeRange"        "1000"       // Range of vision during day light.
+    "VisionNighttimeRange"      "1000"       // Range of vision at night time.
 
     // Bots
     //----------------------------------------------------------------

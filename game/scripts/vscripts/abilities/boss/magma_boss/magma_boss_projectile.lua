@@ -1,12 +1,12 @@
-spider_boss_poison_spit = class(AbilityBaseClass)
+magma_boss_projectile = class(AbilityBaseClass)
 
-function spider_boss_poison_spit:Precache( context )
-  PrecacheResource( "particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf", context )
-  PrecacheResource( "particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", context )
-  PrecacheResource( "particle", "particles/darkmoon_creep_warning.vpcf", context )
+function magma_boss_projectile:Precache(context)
+  PrecacheResource("particle", "particles/creatures/magma_golem/magma_golem_projectile.vpcf", context)
+  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 
-function spider_boss_poison_spit:OnAbilityPhaseStart()
+function magma_boss_projectile:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
     -- Warning Particle
@@ -19,7 +19,7 @@ function spider_boss_poison_spit:OnAbilityPhaseStart()
   return true
 end
 
-function spider_boss_poison_spit:OnAbilityPhaseInterrupted()
+function magma_boss_projectile:OnAbilityPhaseInterrupted()
 	if IsServer() then
     if self.nPreviewFX then
       ParticleManager:DestroyParticle(self.nPreviewFX, false)
@@ -29,8 +29,8 @@ function spider_boss_poison_spit:OnAbilityPhaseInterrupted()
   end
 end
 
-function spider_boss_poison_spit:OnSpellStart()
-  local caster = self:GetCaster()
+function magma_boss_projectile:OnSpellStart()
+	local caster = self:GetCaster()
   if self.nPreviewFX then
     ParticleManager:DestroyParticle(self.nPreviewFX, true)
     ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
@@ -41,6 +41,7 @@ function spider_boss_poison_spit:OnSpellStart()
   local attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
   local attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
   local attack_distance = self:GetSpecialValueFor( "attack_distance" )
+  --local damage = self:GetSpecialValueFor( "damage_impact" )
 
   local vPos
   if self:GetCursorTarget() then
@@ -50,13 +51,13 @@ function spider_boss_poison_spit:OnSpellStart()
   end
 
   local vDirection = vPos - caster:GetOrigin()
-  vDirection.z = 0
+  vDirection.z = 0.0
   vDirection = vDirection:Normalized()
 
   attack_speed = attack_speed * ( attack_distance / ( attack_distance - attack_width_initial ) )
 
   local info = {
-    EffectName = "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf",
+    EffectName = "particles/creatures/magma_golem/magma_golem_projectile.vpcf",
     Ability = self,
     vSpawnOrigin = caster:GetOrigin(),
     fStartRadius = attack_width_initial,
@@ -69,23 +70,27 @@ function spider_boss_poison_spit:OnSpellStart()
   }
 
   ProjectileManager:CreateLinearProjectile( info )
-
-  caster:EmitSound("Spider.PoisonSpit")
+  caster:EmitSound( "MagmaGolem.Projectile")
 end
 
-function spider_boss_poison_spit:OnProjectileHit( hTarget, vLocation )
-  local caster = self:GetCaster()
+function magma_boss_projectile:OnProjectileHit( hTarget, vLocation )
   if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
-    hTarget:AddNewModifier( caster, self, "modifier_venomancer_venomous_gale", { duration = self:GetSpecialValueFor( "duration" ) } )
-
-    local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget )
-    ParticleManager:ReleaseParticleIndex(particle)
-
     -- Reduce number of sounds
     if hTarget:IsRealHero() then
-      hTarget:EmitSound("Spider.PoisonSpit.Impact")
+      hTarget:EmitSound("MagmaGolem.Projectile.Impact")
     end
+
+    local damageTable = {
+      victim = hTarget,
+      attacker = self:GetCaster(),
+      damage = self:GetSpecialValueFor( "damage_impact" ),
+      damage_type = self:GetAbilityDamageType(),
+      ability = self
+    }
+
+    ApplyDamage( damageTable )
   end
 
   return false
 end
+
