@@ -22,11 +22,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8"
+    "AbilityCooldown"                                     "10"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
+    "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -42,60 +42,60 @@
         "var_type"                                        "FIELD_INTEGER"
         "torrent_aoe"                                     "225"
       }
-      "02" // 3 phases
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "torrents_casted"                                 "1 2 3"
-      }
-      "03"
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "torrent_damage"                                  "500"
       }
-      "04"
+      "03"
       {
         "var_type"                                        "FIELD_FLOAT"
         "torrent_delay"                                   "2.0"
       }
-      "05"
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "torrent_stun_duration"                           "2.0"
       }
-      "06" // During this time totem is invulnerable
+      "05" // During this time totem is invulnerable
       {
         "var_type"                                        "FIELD_FLOAT"
         "totem_rising_duration"                           "2.0"
       }
-      "07"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "magma_initial_radius"                            "200"
       }
-      "08"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "magma_radius_max"                                "800"
       }
-      "09" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
+      "08" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
       {
         "var_type"                                        "FIELD_INTEGER"
         "magma_spread_speed"                              "5000"
       }
-      "10"
+      "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "magma_damage_per_second"                         "400"
       }
-      "11"
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
         "magma_damage_interval"                           "0.2"
       }
-      "12" // 8 damage from heroes, 1 damage from non-heroes
+      "11" // 8 damage from heroes, 1 damage from non-heroes
       {
         "var_type"                                        "FIELD_INTEGER"
         "totem_health"                                    "32"
+      }
+      "12" // advice: totem_health should be divideable with totem_hero_attacks_to_destroy
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "totem_hero_attacks_to_destroy"                   "4"
       }
       "13"
       {

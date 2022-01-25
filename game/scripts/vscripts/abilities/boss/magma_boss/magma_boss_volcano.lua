@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_magma_boss_volcano_burning_effect", "abilities/boss/ma
 magma_boss_volcano = class(AbilityBaseClass)
 
 function magma_boss_volcano:Precache(context)
-  PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_burning.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano1.vpcf", context)
@@ -22,7 +22,7 @@ function magma_boss_volcano:OnOwnerDied()
 end
 
 function magma_boss_volcano:OnSpellStart()
-  local hCaster = self:GetCaster()
+  local caster = self:GetCaster()
   local mainTarget = self:GetCursorPosition()
   local vTargetPositions = {}
   if not mainTarget then
@@ -39,8 +39,8 @@ function magma_boss_volcano:OnSpellStart()
   end
 
   for _, vLoc in ipairs(vTargetPositions) do
-    local hUnit = CreateUnitByName("npc_dota_magma_boss_volcano", vLoc, false, hCaster, hCaster, hCaster:GetTeamNumber())
-    hUnit:AddNewModifier(hCaster, self, "modifier_magma_boss_volcano_thinker", {duration = self:GetSpecialValueFor("totem_duration_max")})
+    local hUnit = CreateUnitByName("npc_dota_magma_boss_volcano", vLoc, false, caster, caster, caster:GetTeamNumber())
+    hUnit:AddNewModifier(caster, self, "modifier_magma_boss_volcano_thinker", {duration = self:GetSpecialValueFor("totem_duration_max")})
     hUnit:SetModelScale(0.01)
     local nMaxHealth = self:GetSpecialValueFor("totem_health")
     hUnit:SetBaseMaxHealth(nMaxHealth)
@@ -167,8 +167,8 @@ end
 
 function modifier_magma_boss_volcano:OnRefresh( kv )
   if IsServer() then
-    local hParent = self:GetParent()
-    hParent:RemoveVerticalMotionController(self)
+    local parent = self:GetParent()
+    parent:RemoveVerticalMotionController(self)
     self.speed = kv.duration*GRAVITY_DECEL/2
     if self:ApplyVerticalMotionController() == false then
       self:Destroy()
@@ -178,8 +178,8 @@ end
 
 function modifier_magma_boss_volcano:OnDestroy()
   if IsServer() then
-    local hParent = self:GetParent()
-    hParent:RemoveVerticalMotionController(self)
+    local parent = self:GetParent()
+    parent:RemoveVerticalMotionController(self)
   end
 end
 
@@ -224,23 +224,12 @@ function modifier_magma_boss_volcano_burning_effect:RemoveOnDeath()
   return true
 end
 
-function modifier_magma_boss_volcano_burning_effect:OnCreated()
-  if IsServer() then
-    local parent = self:GetParent()
-    local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_burning.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(nFXIndex, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
-    ParticleManager:SetParticleControl(nFXIndex, 2, Vector(2,0,0))
-    self.nFXIndex = nFXIndex
-  end
+function modifier_magma_boss_volcano_burning_effect:GetEffectName()
+  return "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 end
 
-function modifier_magma_boss_volcano_burning_effect:OnDestroy()
-  if IsServer() then
-    if self.nFXIndex then
-      ParticleManager:DestroyParticle(self.nFXIndex, false)
-      ParticleManager:ReleaseParticleIndex(self.nFXIndex)
-    end
-  end
+function modifier_magma_boss_volcano_burning_effect:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -275,70 +264,82 @@ function modifier_magma_boss_volcano_thinker:DeclareFunctions()
 end
 
 function modifier_magma_boss_volcano_thinker:OnCreated()
-  if IsServer() then
-    local parent = self:GetParent()
-    local hAbility = self:GetAbility()
-
-    self.delay = hAbility:GetSpecialValueFor("torrent_delay")
-    self.interval = hAbility:GetSpecialValueFor("magma_damage_interval")
-    self.radius = hAbility:GetSpecialValueFor("torrent_aoe")
-    self.torrent_damage = hAbility:GetSpecialValueFor("torrent_damage")
-    self.damage_type = hAbility:GetAbilityDamageType() or DAMAGE_TYPE_MAGICAL
-    self.stun_duration = hAbility:GetSpecialValueFor("torrent_stun_duration")
-    self.totem_rising_duration = hAbility:GetSpecialValueFor("totem_rising_duration")
-    self.damage_per_second = hAbility:GetSpecialValueFor("magma_damage_per_second")
-    --self.heal_per_second = hAbility:GetSpecialValueFor("magma_heal_per_second")
-    self.aoe_per_second = hAbility:GetSpecialValueFor("magma_spread_speed")
-    self.magma_radius =  hAbility:GetSpecialValueFor("magma_initial_radius")
-    self.max_radius = hAbility:GetSpecialValueFor("magma_radius_max")
-
-    self.nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)
-    ParticleManager:SetParticleControl(self.nFXIndex, 0, parent:GetAbsOrigin())
-    ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.radius, self.delay, 0))
-    self.nFXIndex2 = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", PATTACH_WORLDORIGIN, parent)
-    ParticleManager:SetParticleControl(self.nFXIndex2, 2, parent:GetAbsOrigin())
-
-    self.bErupted = false
-    self:StartIntervalThink(self.delay)
+  if not IsServer() then
+    return
   end
+
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local center = parent:GetAbsOrigin()
+
+  self.delay = ability:GetSpecialValueFor("torrent_delay")
+  self.interval = ability:GetSpecialValueFor("magma_damage_interval")
+  self.radius = ability:GetSpecialValueFor("torrent_aoe")
+  self.torrent_damage = ability:GetSpecialValueFor("torrent_damage")
+  self.stun_duration = ability:GetSpecialValueFor("torrent_stun_duration")
+  self.totem_rising_duration = ability:GetSpecialValueFor("totem_rising_duration")
+  self.damage_per_second = ability:GetSpecialValueFor("magma_damage_per_second")
+  --self.heal_per_second = ability:GetSpecialValueFor("magma_heal_per_second")
+  self.aoe_per_second = ability:GetSpecialValueFor("magma_spread_speed")
+  self.magma_radius =  ability:GetSpecialValueFor("magma_initial_radius")
+  self.max_radius = ability:GetSpecialValueFor("magma_radius_max")
+
+  self.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_MAGICAL
+
+  -- Warning particle
+  self.warning_particle = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)
+  ParticleManager:SetParticleControl(self.warning_particle, 0, center)
+  ParticleManager:SetParticleControl(self.warning_particle, 1, Vector(self.radius, self.delay, 0))
+
+  self.ember_particle = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", PATTACH_WORLDORIGIN, parent)
+  ParticleManager:SetParticleControl(self.ember_particle, 2, center)
+
+  -- Warning Sound
+  EmitSoundOnLocationWithCaster(center, "Magma_Boss.VolcanoAnnounce", self:GetCaster())
+
+  self.bErupted = false
+  self:StartIntervalThink(self.delay)
 end
 
 function modifier_magma_boss_volcano_thinker:OnDestroy()
-  if IsServer() then
-    if self.nFXIndex then
-      ParticleManager:DestroyParticle(self.nFXIndex, false)
-      ParticleManager:ReleaseParticleIndex(self.nFXIndex)
-    end
-    if self.nFXIndex2 then
-      ParticleManager:DestroyParticle(self.nFXIndex2, false)
-      ParticleManager:ReleaseParticleIndex(self.nFXIndex2)
-    end
-	if self.particle1 then
-      ParticleManager:DestroyParticle(self.particle1, false)
-      ParticleManager:ReleaseParticleIndex(self.particle1)
-    end
-	if self.particle2 then
-      ParticleManager:DestroyParticle(self.particle2, false)
-      ParticleManager:ReleaseParticleIndex(self.particle2)
-    end
-	if self.particle3 then
-      ParticleManager:DestroyParticle(self.particle3, false)
-      ParticleManager:ReleaseParticleIndex(self.particle3)
-    end
-	if self.particle4 then
-      ParticleManager:DestroyParticle(self.particle4, false)
-      ParticleManager:ReleaseParticleIndex(self.particle4)
-    end
-	if self.particle5 then
-      ParticleManager:DestroyParticle(self.particle5, false)
-      ParticleManager:ReleaseParticleIndex(self.particle5)
-    end
-    -- Instead of UTIL_Remove(self:GetParent())
-    local parent = self:GetParent()
-    if parent and not parent:IsNull() then
-      parent:AddNoDraw()
-      parent:ForceKill(false)
-    end
+  if not IsServer() then
+    return
+  end
+
+  if self.warning_particle then
+    ParticleManager:DestroyParticle(self.warning_particle, false)
+    ParticleManager:ReleaseParticleIndex(self.warning_particle)
+  end
+  if self.ember_particle then
+    ParticleManager:DestroyParticle(self.ember_particle, false)
+    ParticleManager:ReleaseParticleIndex(self.ember_particle)
+  end
+  if self.eruption_particle then
+    ParticleManager:DestroyParticle(self.eruption_particle, false)
+    ParticleManager:ReleaseParticleIndex(self.eruption_particle)
+  end
+  if self.lava_bits then
+    ParticleManager:DestroyParticle(self.lava_bits, false)
+    ParticleManager:ReleaseParticleIndex(self.lava_bits)
+  end
+  if self.volcano_crater then
+    ParticleManager:DestroyParticle(self.volcano_crater, false)
+    ParticleManager:ReleaseParticleIndex(self.volcano_crater)
+  end
+  if self.lava_pool_inner then
+    ParticleManager:DestroyParticle(self.lava_pool_inner, false)
+    ParticleManager:ReleaseParticleIndex(self.lava_pool_inner)
+  end
+  if self.lava_pool_outer then
+    ParticleManager:DestroyParticle(self.lava_pool_outer, false)
+    ParticleManager:ReleaseParticleIndex(self.lava_pool_outer)
+  end
+
+  -- Instead of UTIL_Remove(self:GetParent())
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    parent:AddNoDraw()
+    parent:ForceKill(false)
   end
 end
 
@@ -348,7 +349,7 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
     --local heal_per_interval = self.heal_per_second*self.interval
     local damage_per_interval = self.damage_per_second*self.interval
 
-    local hParent = self:GetParent()
+    local parent = self:GetParent()
     local ability = self:GetAbility()
     local damage_table = {
         attacker = self:GetCaster(),
@@ -356,7 +357,7 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
         damage_type = self.damage_type,
         ability = ability,
     }
-    local units = FindUnitsInRadius(hParent:GetTeamNumber(), hParent:GetAbsOrigin(), hParent, self.magma_radius, DOTA_UNIT_TARGET_TEAM_BOTH, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local units = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), parent, self.magma_radius, DOTA_UNIT_TARGET_TEAM_BOTH, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
     for _, unit in pairs(units) do
       if unit and not unit:IsNull() then
@@ -366,7 +367,7 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
         local ground_z = ground_origin.z
         if not unit:HasFlyMovementCapability() and unit_z - ground_z < 10 then
           -- Heals allies, damages enemies only if touching the magma on the ground or underground
-          if unit:GetTeamNumber() == hParent:GetTeamNumber() then
+          if unit:GetTeamNumber() == parent:GetTeamNumber() then
             --unit:Heal(heal_per_interval, ability)
           elseif not unit:HasModifier("modifier_magma_boss_volcano") then
             -- Visual Effect
@@ -381,35 +382,34 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
 
     self.magma_radius = math.min(self.magma_radius + math.sqrt(aoe_per_interval/math.pi), self.max_radius)
 
-    -- Particles
-	-- Remove the eruption
-    if self.particle1 then
-      ParticleManager:DestroyParticle(self.particle1, false)
-      ParticleManager:ReleaseParticleIndex(self.particle1)
-      self.particle1 = nil
+    -- Remove the eruption particle
+    if self.eruption_particle then
+      ParticleManager:DestroyParticle(self.eruption_particle, false)
+      ParticleManager:ReleaseParticleIndex(self.eruption_particle)
+      self.eruption_particle = nil
     end
-    -- Update other particles
-	ParticleManager:SetParticleControl(self.particle2, 1, Vector(self.magma_radius, 0, 0))
 
-    if self.magma_radius >= self.max_radius / 2 and not self.particle4 then
-	  self.particle4 = ParticleManager:CreateParticle("particles/magma_boss/magma.vpcf", PATTACH_WORLDORIGIN, hParent)
-      ParticleManager:SetParticleControl(self.particle4, 0, hParent:GetAbsOrigin())
-	  ParticleManager:SetParticleControl(self.particle4, 4, Vector(self.magma_radius, 0, 0))
-      ParticleManager:SetParticleControl(self.particle4, 2, Vector(self:GetRemainingTime(), 0, 0))
-	end
-    if self.magma_radius == self.max_radius and not self.particle5 then
-	  self.particle5 = ParticleManager:CreateParticle("particles/magma_boss/magma.vpcf", PATTACH_WORLDORIGIN, hParent)
-      ParticleManager:SetParticleControl(self.particle5, 0, hParent:GetAbsOrigin())
-	  ParticleManager:SetParticleControl(self.particle5, 4, Vector(self.max_radius-50, 0, 0))
-      ParticleManager:SetParticleControl(self.particle5, 2, Vector(self:GetRemainingTime(), 0, 0))
-	end
+    -- Magma/Lava particles
+    ParticleManager:SetParticleControl(self.lava_bits, 1, Vector(self.magma_radius, 0, 0))
+
+    if self.magma_radius >= self.max_radius / 2 and not self.lava_pool_inner then
+      self.lava_pool_inner = ParticleManager:CreateParticle("particles/magma_boss/magma.vpcf", PATTACH_WORLDORIGIN, parent)
+      ParticleManager:SetParticleControl(self.lava_pool_inner, 0, parent:GetAbsOrigin())
+      ParticleManager:SetParticleControl(self.lava_pool_inner, 4, Vector(self.magma_radius, 0, 0))
+      ParticleManager:SetParticleControl(self.lava_pool_inner, 2, Vector(self:GetRemainingTime(), 0, 0))
+    end
+    if self.magma_radius == self.max_radius and not self.lava_pool_outer then
+      self.lava_pool_outer = ParticleManager:CreateParticle("particles/magma_boss/magma.vpcf", PATTACH_WORLDORIGIN, parent)
+      ParticleManager:SetParticleControl(self.lava_pool_outer, 0, parent:GetAbsOrigin())
+      ParticleManager:SetParticleControl(self.lava_pool_outer, 4, Vector(self.max_radius-50, 0, 0))
+      ParticleManager:SetParticleControl(self.lava_pool_outer, 2, Vector(self:GetRemainingTime(), 0, 0))
+    end
   else
     self:MagmaErupt()
     self.bErupted = true
     self:StartIntervalThink(self.interval)
   end
 end
-
 
 function modifier_magma_boss_volcano_thinker:CheckState()
   local state = {
@@ -425,41 +425,41 @@ function modifier_magma_boss_volcano_thinker:CheckState()
 end
 
 function modifier_magma_boss_volcano_thinker:MagmaErupt()
-  local hParent = self:GetParent()
-  local hCaster = self:GetCaster()
-  local hAbility = self:GetAbility()
-  local center = hParent:GetAbsOrigin()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+  local center = parent:GetAbsOrigin()
 
   -- Remove the indicator
-  if self.nFXIndex then
-    ParticleManager:DestroyParticle(self.nFXIndex, false)
-    ParticleManager:ReleaseParticleIndex(self.nFXIndex)
-    self.nFXIndex = nil
+  if self.warning_particle then
+    ParticleManager:DestroyParticle(self.warning_particle, false)
+    ParticleManager:ReleaseParticleIndex(self.warning_particle)
+    self.warning_particle = nil
   end
 
   -- Eruption particle
-  self.particle1 = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano1.vpcf", PATTACH_WORLDORIGIN, hParent)
-  ParticleManager:SetParticleControl(self.particle1, 0, center)
-  ParticleManager:SetParticleControl(self.particle1, 1, Vector(self.radius, 0, 0))
+  self.eruption_particle = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano1.vpcf", PATTACH_WORLDORIGIN, parent)
+  ParticleManager:SetParticleControl(self.eruption_particle, 0, center)
+  ParticleManager:SetParticleControl(self.eruption_particle, 1, Vector(self.radius, 0, 0))
 
   -- Eruption sound
-  EmitSoundOnLocationWithCaster(center, "Magma_Boss.VolcanoErupt", hCaster)
+  EmitSoundOnLocationWithCaster(center, "Magma_Boss.VolcanoErupt", caster)
 
-  hParent:AddNewModifier(hCaster, hAbility, "modifier_magma_boss_volcano_thinker_child", {duration = self.totem_rising_duration})
+  parent:AddNewModifier(caster, ability, "modifier_magma_boss_volcano_thinker_child", {duration = self.totem_rising_duration})
 
-  local enemies = FindUnitsInRadius(hParent:GetTeamNumber(), center, hParent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+  local enemies = FindUnitsInRadius(parent:GetTeamNumber(), center, parent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
   local damage_table = {
-    attacker = hCaster,
+    attacker = caster,
     damage = self.torrent_damage,
     damage_type = self.damage_type,
-    ability = hAbility,
+    ability = ability,
   }
 
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Apply stun and motion controller
-      enemy:AddNewModifier(hCaster, hAbility, "modifier_magma_boss_volcano", {duration = self.stun_duration})
+      enemy:AddNewModifier(caster, ability, "modifier_magma_boss_volcano", {duration = self.stun_duration})
 
       -- Apply damage
       damage_table.victim = enemy
@@ -467,16 +467,17 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
     end
   end
 
-  local duration = hAbility:GetSpecialValueFor("totem_duration_max")
+  local duration = ability:GetSpecialValueFor("totem_duration_max")
 
-  -- Magma particles 
-  self.particle2 = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, hParent)
-  ParticleManager:SetParticleControl(self.particle2, 0, center)
-  ParticleManager:SetParticleControl(self.particle2, 1, Vector(self.magma_radius, 0, 0))
-  
-  self.particle3 = ParticleManager:CreateParticle("particles/magma_boss/magma_center.vpcf", PATTACH_WORLDORIGIN, hParent)
-  ParticleManager:SetParticleControl(self.particle3, 0, center)
-  ParticleManager:SetParticleControl(self.particle3, 2, Vector(duration, 0, 0))
+  -- Magma/Lava bits particle
+  self.lava_bits = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)
+  ParticleManager:SetParticleControl(self.lava_bits, 0, center)
+  ParticleManager:SetParticleControl(self.lava_bits, 1, Vector(self.magma_radius, 0, 0))
+
+  -- Volcano center particle
+  self.volcano_crater = ParticleManager:CreateParticle("particles/magma_boss/magma_center.vpcf", PATTACH_WORLDORIGIN, parent)
+  ParticleManager:SetParticleControl(self.volcano_crater, 0, center)
+  ParticleManager:SetParticleControl(self.volcano_crater, 2, Vector(self:GetRemainingTime(), 0, 0))
 
   -- Destroy trees
   GridNav:DestroyTreesAroundPoint(center, self.radius, false)
@@ -484,20 +485,24 @@ end
 
 function modifier_magma_boss_volcano_thinker:OnAttackLanded(params)
   if IsServer() then
-    local hParent = self:GetParent()
-    if params.target == hParent then
-      local hAttacker = params.attacker
-      if hAttacker then
+    local parent = self:GetParent()
+    if params.target == parent and not parent:IsNull() then
+      local ability = self:GetAbility()
+      local attacker = params.attacker
+      if attacker and not attacker:IsNull() then
         local damage_dealt = 1
-        if hAttacker:IsRealHero() then
-          -- This is correct if HP is 32
-          damage_dealt = 8
+        if attacker:IsRealHero() then
+          if ability and not ability:IsNull() then
+            damage_dealt = math.ceil(ability:GetSpecialValueFor("totem_health") / ability:GetSpecialValueFor("totem_hero_attacks_to_destroy"))
+          else
+            damage_dealt = 8
+          end
         end
         -- To prevent dead staying in memory (preventing SetHealth(0) or SetHealth(-value) )
-        if hParent:GetHealth() - damage_dealt <= 0 then
-          hParent:Kill(self:GetAbility(), hAttacker)
+        if parent:GetHealth() - damage_dealt <= 0 then
+          parent:Kill(ability, attacker)
         else
-          hParent:SetHealth(hParent:GetHealth() - damage_dealt)
+          parent:SetHealth(parent:GetHealth() - damage_dealt)
         end
       end
     end
