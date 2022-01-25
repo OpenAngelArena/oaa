@@ -75,12 +75,12 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_radius_max"                                "1000"
+        "magma_radius_max"                                "800"
       }
       "09" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_spread_speed"                              "10000"
+        "magma_spread_speed"                              "5000"
       }
       "10"
       {
@@ -100,7 +100,7 @@
       "13"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "totem_model_scale"                               "0.5"
+        "totem_model_scale"                               "0.8"
       }
       "14" // max volcano duration in seconds
       {

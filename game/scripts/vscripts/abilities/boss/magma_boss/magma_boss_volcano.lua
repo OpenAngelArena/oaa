@@ -10,6 +10,8 @@ function magma_boss_volcano:Precache(context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano1.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/magma_center.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/magma.vpcf", context)
   PrecacheResource("soundfile", "soundevents/bosses/magma_boss.vsndevts", context)
 end
 
@@ -311,6 +313,26 @@ function modifier_magma_boss_volcano_thinker:OnDestroy()
       ParticleManager:DestroyParticle(self.nFXIndex2, false)
       ParticleManager:ReleaseParticleIndex(self.nFXIndex2)
     end
+	if self.particle1 then
+      ParticleManager:DestroyParticle(self.particle1, false)
+      ParticleManager:ReleaseParticleIndex(self.particle1)
+    end
+	if self.particle2 then
+      ParticleManager:DestroyParticle(self.particle2, false)
+      ParticleManager:ReleaseParticleIndex(self.particle2)
+    end
+	if self.particle3 then
+      ParticleManager:DestroyParticle(self.particle3, false)
+      ParticleManager:ReleaseParticleIndex(self.particle3)
+    end
+	if self.particle4 then
+      ParticleManager:DestroyParticle(self.particle4, false)
+      ParticleManager:ReleaseParticleIndex(self.particle4)
+    end
+	if self.particle5 then
+      ParticleManager:DestroyParticle(self.particle5, false)
+      ParticleManager:ReleaseParticleIndex(self.particle5)
+    end
     -- Instead of UTIL_Remove(self:GetParent())
     local parent = self:GetParent()
     if parent and not parent:IsNull() then
@@ -358,7 +380,29 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
     end
 
     self.magma_radius = math.min(self.magma_radius + math.sqrt(aoe_per_interval/math.pi), self.max_radius)
-    ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.magma_radius, 0, 0))
+
+    -- Particles
+	-- Remove the eruption
+    if self.particle1 then
+      ParticleManager:DestroyParticle(self.particle1, false)
+      ParticleManager:ReleaseParticleIndex(self.particle1)
+      self.particle1 = nil
+    end
+    -- Update other particles
+	ParticleManager:SetParticleControl(self.particle2, 1, Vector(self.magma_radius, 0, 0))
+
+    if self.magma_radius >= self.max_radius / 2 and not self.particle4 then
+	  self.particle4 = ParticleManager:CreateParticle("particles/magma_boss/magma.vpcf", PATTACH_WORLDORIGIN, hParent)
+      ParticleManager:SetParticleControl(self.particle4, 0, hParent:GetAbsOrigin())
+	  ParticleManager:SetParticleControl(self.particle4, 4, Vector(self.magma_radius, 0, 0))
+      ParticleManager:SetParticleControl(self.particle4, 2, Vector(self:GetRemainingTime(), 0, 0))
+	end
+    if self.magma_radius == self.max_radius and not self.particle5 then
+	  self.particle5 = ParticleManager:CreateParticle("particles/magma_boss/magma.vpcf", PATTACH_WORLDORIGIN, hParent)
+      ParticleManager:SetParticleControl(self.particle5, 0, hParent:GetAbsOrigin())
+	  ParticleManager:SetParticleControl(self.particle5, 4, Vector(self.max_radius-50, 0, 0))
+      ParticleManager:SetParticleControl(self.particle5, 2, Vector(self:GetRemainingTime(), 0, 0))
+	end
   else
     self:MagmaErupt()
     self.bErupted = true
@@ -383,24 +427,28 @@ end
 function modifier_magma_boss_volcano_thinker:MagmaErupt()
   local hParent = self:GetParent()
   local hCaster = self:GetCaster()
+  local hAbility = self:GetAbility()
   local center = hParent:GetAbsOrigin()
 
-  ParticleManager:DestroyParticle(self.nFXIndex, false)
-  ParticleManager:ReleaseParticleIndex(self.nFXIndex)
+  -- Remove the indicator
+  if self.nFXIndex then
+    ParticleManager:DestroyParticle(self.nFXIndex, false)
+    ParticleManager:ReleaseParticleIndex(self.nFXIndex)
+    self.nFXIndex = nil
+  end
 
   -- Eruption particle
-  local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano1.vpcf", PATTACH_WORLDORIGIN, hParent)
-  ParticleManager:SetParticleControl(nFXIndex, 0, center)
-  ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius, 0, 0))
+  self.particle1 = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano1.vpcf", PATTACH_WORLDORIGIN, hParent)
+  ParticleManager:SetParticleControl(self.particle1, 0, center)
+  ParticleManager:SetParticleControl(self.particle1, 1, Vector(self.radius, 0, 0))
 
   -- Eruption sound
   EmitSoundOnLocationWithCaster(center, "Magma_Boss.VolcanoErupt", hCaster)
 
-  hParent:AddNewModifier(hCaster, self:GetAbility(), "modifier_magma_boss_volcano_thinker_child", {duration = self.totem_rising_duration})
+  hParent:AddNewModifier(hCaster, hAbility, "modifier_magma_boss_volcano_thinker_child", {duration = self.totem_rising_duration})
 
   local enemies = FindUnitsInRadius(hParent:GetTeamNumber(), center, hParent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
-  local hAbility = self:GetAbility()
   local damage_table = {
     attacker = hCaster,
     damage = self.torrent_damage,
@@ -419,10 +467,16 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
     end
   end
 
-  -- Particle for the actual magma pool
-  self.nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, hParent)
-  ParticleManager:SetParticleControl(self.nFXIndex, 0, center)
-  ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.magma_radius, 0, 0))
+  local duration = hAbility:GetSpecialValueFor("totem_duration_max")
+
+  -- Magma particles 
+  self.particle2 = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, hParent)
+  ParticleManager:SetParticleControl(self.particle2, 0, center)
+  ParticleManager:SetParticleControl(self.particle2, 1, Vector(self.magma_radius, 0, 0))
+  
+  self.particle3 = ParticleManager:CreateParticle("particles/magma_boss/magma_center.vpcf", PATTACH_WORLDORIGIN, hParent)
+  ParticleManager:SetParticleControl(self.particle3, 0, center)
+  ParticleManager:SetParticleControl(self.particle3, 2, Vector(duration, 0, 0))
 
   -- Destroy trees
   GridNav:DestroyTreesAroundPoint(center, self.radius, false)

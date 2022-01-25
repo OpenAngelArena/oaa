@@ -101,16 +101,7 @@
 
   Magma_Boss.VolcanoErupt =
 	{
-		type = "dota_update_default"
-		volume = 1.000000
-		pitch = 1.000000
-		soundlevel = 81.000000
-		mixgroup = "Ultimates"
-		spread_radius = 600.000000
-		vsnd_files =
-		[
-			"sounds/weapons/hero/warlock/rain_of_chaos_cast.vsnd",
-		]
+
 	}
 
 }

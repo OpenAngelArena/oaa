@@ -1,7 +1,7 @@
 magma_boss_projectile = class(AbilityBaseClass)
 
 function magma_boss_projectile:Precache(context)
-  --PrecacheResource("particle", "particles/creatures/magma_golem/magma_golem_projectile.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/fireball_linear.vpcf", context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
   PrecacheResource("soundfile", "soundevents/bosses/magma_boss.vsndevts", context)
 end
@@ -56,7 +56,7 @@ function magma_boss_projectile:OnSpellStart()
   attack_speed = attack_speed * ( attack_distance / ( attack_distance - attack_width_initial ) )
 
   local info = {
-    --EffectName = "particles/creatures/magma_golem/magma_golem_projectile.vpcf",
+    EffectName = "particles/magma_boss/fireball_linear.vpcf",
     Ability = self,
     vSpawnOrigin = caster:GetOrigin(),
     fStartRadius = attack_width_initial,

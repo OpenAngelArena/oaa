@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magma Boss: Magma Blood - Passive, egg when full hp, decreases in size when losing hp, sends pool of Lava to the source of damage
+  // Magma Boss: Magma Blood - Passive, decreases in size when losing hp, sends pool of Lava to the source of damage
   //=================================================================================================================
   "magma_boss_magma_blood"
   {
@@ -46,9 +46,9 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "1000"
+        "impact_damage"                                   "1200"
       }
-      "05"
+      "05" // blob is just a visual effect
       {
         "var_type"                                        "FIELD_FLOAT"
         "blob_duration"                                   "3.0"
