@@ -9,9 +9,9 @@
     //----------------------------------------------------------------
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/items/invoker/forge_spirit/infernus/infernus.vmdl"
-	//"Model"                                               "models/items/invoker/forge_spirit/cadenza_spirit/cadenza_spirit.vmdl"
+    //"Model"                                               "models/items/invoker/forge_spirit/cadenza_spirit/cadenza_spirit.vmdl"
     "vscripts"                                            "units/ai_magma_boss.lua"
-    "SoundSet"                                            "Hero_Lina"
+    "SoundSet"                                            "Magma_Boss"
     "ModelScale"                                          "1.0"
     "Level"                                               "30"
     "ConsideredHero"                                      "1"
@@ -38,7 +38,7 @@
     "AttackDamageMin"                                     "2000"
     "AttackDamageMax"                                     "2000"
     "AttackRate"                                          "1.0"
-    "BaseAttackSpeed"                                     "150"
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.2"
     "AttackAcquisitionRange"                              "500"
     "AttackRange"                                         "500"
@@ -89,6 +89,7 @@
     "precache"
     {
       "particle"                                          "particles/magma_boss/sniper_big_attack.vpcf"
+      "soundfile"                                         "soundevents/bosses/magma_boss.vsndevts"
     }
 
     // Creature Data

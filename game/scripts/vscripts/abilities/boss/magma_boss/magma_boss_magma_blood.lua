@@ -1,8 +1,19 @@
 LinkLuaModifier("modifier_magma_boss_magma_blood_passive", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_magma_boss_magma_blood_debuff", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_magma_boss_magma_blood_warning", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 
 magma_boss_magma_blood = class(AbilityBaseClass)
+
+function magma_boss_magma_blood:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_impact.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_linger.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_snapfire/hero_snapfire_burn_debuff.vpcf", context)
+  PrecacheResource("particle", "particles/status_fx/status_effect_snapfire_magma.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts", context)
+end
 
 function magma_boss_magma_blood:GetIntrinsicModifierName()
   return "modifier_magma_boss_magma_blood_passive"
@@ -73,7 +84,6 @@ function magma_boss_magma_blood:OnProjectileHit(target, location)
   end
 end
 
-
 function magma_boss_magma_blood:ShouldUseResources()
   return true
 end
@@ -113,23 +123,9 @@ modifier_magma_boss_magma_blood_passive.OnRefresh = modifier_magma_boss_magma_bl
 
 function modifier_magma_boss_magma_blood_passive:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_MODEL_CHANGE,
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-end
-
-function modifier_magma_boss_magma_blood_passive:GetModifierModelChange()
-  if not IsServer() then
-    return
-  end
-  local parent = self:GetParent()
-  local current_hp_pct = parent:GetHealth() / parent:GetMaxHealth()
-  if current_hp_pct == 1 then
-    return "models/heroes/phoenix/phoenix_egg.vmdl"
-  end
-
-  return
 end
 
 function modifier_magma_boss_magma_blood_passive:GetModifierModelScale()
@@ -220,7 +216,7 @@ function modifier_magma_boss_magma_blood_passive:ProcMagmaBlood(caster, ability,
   end
 
   local target_loc = unit:GetAbsOrigin()
-  local radius = ability:GetSpecialValueFor("impact_radius")
+
   local delay = ability:GetSpecialValueFor("proc_delay")
   local travel_distance = (target_loc - caster:GetAbsOrigin()):Length()
   local travel_speed = ability:GetSpecialValueFor("projectile_speed")
@@ -229,14 +225,7 @@ function modifier_magma_boss_magma_blood_passive:ProcMagmaBlood(caster, ability,
   -- Create a dummy
   local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, DOTA_TEAM_NEUTRALS)
   dummy:AddNewModifier(caster, ability, "modifier_oaa_thinker", {})
-
-  -- Warning particle
-  local particle_name = "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
-  local indicator = ParticleManager:CreateParticle(particle_name, PATTACH_WORLDORIGIN, caster)
-  ParticleManager:SetParticleControl(indicator, 0, target_loc)
-  ParticleManager:SetParticleControl(indicator, 1, Vector(radius, 0, -radius))
-  ParticleManager:SetParticleControl(indicator, 2, Vector(travel_time + delay, 0, 0))
-  ParticleManager:ReleaseParticleIndex(indicator)
+  dummy:AddNewModifier(caster, ability, "modifier_magma_boss_magma_blood_warning", {travel_time = travel_time, delay = delay, duration = travel_time + delay + 0.1})
 
   -- Initial tracking projectile info
   self.info = {
@@ -273,6 +262,50 @@ function modifier_magma_boss_magma_blood_passive:OnIntervalThink()
 
   -- Stop thinking
   self:StartIntervalThink(-1)
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_magma_boss_magma_blood_warning = class(ModifierBaseClass)
+
+function modifier_magma_boss_magma_blood_warning:IsHidden()
+  return true
+end
+
+function modifier_magma_boss_magma_blood_warning:IsDebuff()
+  return false
+end
+
+function modifier_magma_boss_magma_blood_warning:IsPurgable()
+  return false
+end
+
+function modifier_magma_boss_magma_blood_warning:OnCreated(kv)
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  local loc = parent:GetAbsOrigin()
+  local radius = ability:GetSpecialValueFor("impact_radius")
+  local travel_time = kv.travel_time
+  local delay = kv.delay
+
+  -- Warning particle
+  local particle_name = "particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
+  self.indicator = ParticleManager:CreateParticle(particle_name, PATTACH_WORLDORIGIN, caster)
+  ParticleManager:SetParticleControl(self.indicator, 0, loc)
+  ParticleManager:SetParticleControl(self.indicator, 1, Vector(radius, 0, -radius))
+  ParticleManager:SetParticleControl(self.indicator, 2, Vector(travel_time + delay, 0, 0))
+end
+
+function modifier_magma_boss_magma_blood_warning:OnDestroy()
+  if self.indicator then
+    ParticleManager:DestroyParticle(self.indicator, true)
+    ParticleManager:ReleaseParticleIndex(self.indicator)
+  end
 end
 
 ---------------------------------------------------------------------------------------------------

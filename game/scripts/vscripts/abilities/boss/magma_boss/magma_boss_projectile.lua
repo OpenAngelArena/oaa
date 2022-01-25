@@ -3,7 +3,7 @@ magma_boss_projectile = class(AbilityBaseClass)
 function magma_boss_projectile:Precache(context)
   --PrecacheResource("particle", "particles/creatures/magma_golem/magma_golem_projectile.vpcf", context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
-  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/bosses/magma_boss.vsndevts", context)
 end
 
 function magma_boss_projectile:OnAbilityPhaseStart()
@@ -41,7 +41,6 @@ function magma_boss_projectile:OnSpellStart()
   local attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
   local attack_width_end = self:GetSpecialValueFor( "attack_width_end" )
   local attack_distance = self:GetSpecialValueFor( "attack_distance" )
-  --local damage = self:GetSpecialValueFor( "damage_impact" )
 
   local vPos
   if self:GetCursorTarget() then
@@ -70,14 +69,16 @@ function magma_boss_projectile:OnSpellStart()
   }
 
   ProjectileManager:CreateLinearProjectile( info )
-  --caster:EmitSound( "MagmaGolem.Projectile")
+
+  -- Sound
+  caster:EmitSound("Magma_Boss.AbilityProjectile.Cast1")
 end
 
 function magma_boss_projectile:OnProjectileHit( hTarget, vLocation )
   if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
     -- Reduce number of sounds
     if hTarget:IsRealHero() then
-      --hTarget:EmitSound("MagmaGolem.Projectile.Impact")
+      hTarget:EmitSound("Magma_Boss.AbilityProjectile.Impact")
     end
 
     local damageTable = {

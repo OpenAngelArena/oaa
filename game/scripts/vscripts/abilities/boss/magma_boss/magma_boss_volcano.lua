@@ -10,7 +10,7 @@ function magma_boss_volcano:Precache(context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano1.vpcf", context)
-  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/bosses/magma_boss.vsndevts", context)
 end
 
 function magma_boss_volcano:OnOwnerDied()
@@ -388,9 +388,13 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
   ParticleManager:DestroyParticle(self.nFXIndex, false)
   ParticleManager:ReleaseParticleIndex(self.nFXIndex)
 
+  -- Eruption particle
   local nFXIndex = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano1.vpcf", PATTACH_WORLDORIGIN, hParent)
   ParticleManager:SetParticleControl(nFXIndex, 0, center)
   ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius, 0, 0))
+
+  -- Eruption sound
+  EmitSoundOnLocationWithCaster(center, "Magma_Boss.VolcanoErupt", hCaster)
 
   hParent:AddNewModifier(hCaster, self:GetAbility(), "modifier_magma_boss_volcano_thinker_child", {duration = self.totem_rising_duration})
 
