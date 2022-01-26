@@ -11,6 +11,7 @@ function magma_boss_volcano:Spawn()
 end
 
 function magma_boss_volcano:Precache(context)
+  PrecacheResource("model", "models/heroes/undying/undying_tower.vmdl", context)
   PrecacheResource("particle", "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", context)

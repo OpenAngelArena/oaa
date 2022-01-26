@@ -1,16 +1,16 @@
-LinkLuaModifier("modifier_bear_boss_earthshock_debuff", "abilities/boss/bear_boss/bear_boss_earthshock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_killer_tomato_clap_debuff", "abilities/boss/killer_tomato/boss_killer_tomato_clap.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
-bear_boss_earthshock = class(AbilityBaseClass)
+boss_killer_tomato_clap = class(AbilityBaseClass)
 
-function bear_boss_earthshock:Precache(context)
+function boss_killer_tomato_clap:Precache(context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
-  PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", context)
+  PrecacheResource("particle", "particles/neutral_fx/ursa_thunderclap.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_earthshock_modifier.vpcf", context)
-  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts", context)
+  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 
-function bear_boss_earthshock:OnAbilityPhaseStart()
+function boss_killer_tomato_clap:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
     local radius = self:GetSpecialValueFor("radius")
@@ -29,7 +29,7 @@ function bear_boss_earthshock:OnAbilityPhaseStart()
   return true
 end
 
-function bear_boss_earthshock:OnAbilityPhaseInterrupted()
+function boss_killer_tomato_clap:OnAbilityPhaseInterrupted()
   if IsServer() then
     if self.nPreviewFX then
       ParticleManager:DestroyParticle(self.nPreviewFX, true)
@@ -39,7 +39,11 @@ function bear_boss_earthshock:OnAbilityPhaseInterrupted()
   end
 end
 
-function bear_boss_earthshock:OnSpellStart()
+function boss_killer_tomato_clap:GetPlaybackRateOverride()
+  return 0.5
+end
+
+function boss_killer_tomato_clap:OnSpellStart()
   -- Remove ability phase (cast) particle
   if self.nPreviewFX then
     ParticleManager:DestroyParticle(self.nPreviewFX, true)
@@ -52,17 +56,6 @@ function bear_boss_earthshock:OnSpellStart()
   local damage = self:GetSpecialValueFor("damage")
 
   local caster_location = caster:GetAbsOrigin()
-
-  local knockback_table = {
-    should_stun = 1,
-    knockback_duration = 0.5,
-    duration = 0.5,
-    knockback_distance = radius/2,
-    knockback_height = 100,
-    center_x = caster_location.x,
-    center_y = caster_location.y,
-    center_z = caster_location.z
-  }
 
   -- Find enemies in a radius
   local enemies = FindUnitsInRadius(
@@ -81,18 +74,14 @@ function bear_boss_earthshock:OnSpellStart()
   local damage_table = {}
   damage_table.attacker = caster
   damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+  --damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
   damage_table.ability = self
   damage_table.damage = damage
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() then
-      if not enemy:IsMagicImmune() then
-        -- Apply knockback
-        enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
-        -- Apply Slow
-        enemy:AddNewModifier(caster, self, "modifier_bear_boss_earthshock_debuff", {duration = self:GetSpecialValueFor("slow_duration")})
-      end
+    if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
+      -- Apply Slow
+      enemy:AddNewModifier(caster, self, "modifier_boss_killer_tomato_clap_debuff", {duration = self:GetSpecialValueFor("slow_duration")})
       -- Damage table variables
       damage_table.victim = enemy
       -- Apply Damage
@@ -104,47 +93,46 @@ function bear_boss_earthshock:OnSpellStart()
   GridNav:DestroyTreesAroundPoint(caster_location, radius, true)
 
   -- Sound
-  EmitSoundOnLocationWithCaster(caster_location, "Hero_Ursa.Earthshock", caster)
+  EmitSoundOnLocationWithCaster(caster_location, "Hellbear.Smash", caster)
 
   -- Particle
-  local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", PATTACH_WORLDORIGIN, nil)
-  ParticleManager:SetParticleControl(particle, 0, caster_location)
-  ParticleManager:SetParticleControlForward(particle, 0, caster:GetForwardVector())
-  ParticleManager:SetParticleControl(particle, 1, Vector(radius/2, radius/2, radius/2))
+  local particle = ParticleManager:CreateParticle("particles/neutral_fx/ursa_thunderclap.vpcf", PATTACH_ABSORIGIN, nil)
+  ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
+  ParticleManager:SetParticleControlEnt(particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
   ParticleManager:ReleaseParticleIndex(particle)
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_bear_boss_earthshock_debuff = class(ModifierBaseClass)
+modifier_boss_killer_tomato_clap_debuff = class(ModifierBaseClass)
 
-function modifier_bear_boss_earthshock_debuff:IsDebuff()
+function modifier_boss_killer_tomato_clap_debuff:IsDebuff()
   return true
 end
 
-function modifier_bear_boss_earthshock_debuff:IsPurgable()
+function modifier_boss_killer_tomato_clap_debuff:IsPurgable()
   return true
 end
 
-function modifier_bear_boss_earthshock_debuff:DeclareFunctions()
+function modifier_boss_killer_tomato_clap_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
   }
 end
 
-function modifier_bear_boss_earthshock_debuff:GetModifierMoveSpeedBonus_Percentage()
+function modifier_boss_killer_tomato_clap_debuff:GetModifierMoveSpeedBonus_Percentage()
   return self:GetAbility():GetSpecialValueFor("move_speed_slow")
 end
 
-function modifier_bear_boss_earthshock_debuff:GetModifierAttackSpeedBonus_Constant()
+function modifier_boss_killer_tomato_clap_debuff:GetModifierAttackSpeedBonus_Constant()
   return self:GetAbility():GetSpecialValueFor("attack_speed_slow")
 end
 
-function modifier_bear_boss_earthshock_debuff:GetEffectName()
+function modifier_boss_killer_tomato_clap_debuff:GetEffectName()
   return "particles/units/heroes/hero_ursa/ursa_earthshock_modifier.vpcf"
 end
 
-function modifier_bear_boss_earthshock_debuff:GetEffectAttachType()
+function modifier_boss_killer_tomato_clap_debuff:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end

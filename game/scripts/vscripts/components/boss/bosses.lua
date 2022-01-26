@@ -23,7 +23,7 @@ Bosses = {
     {
       "npc_dota_boss_simple_1", -- Skeleton Boss (Geostrike)
       "npc_dota_boss_simple_5", -- Dire Creep Boss (Great Cleave)
-      "npc_dota_boss_simple_7" -- Dire Creep Boss (Kraken Shell)
+      "npc_dota_boss_simple_7", -- Dire Creep Boss (Kraken Shell)
     },
     {
       --"npc_dota_boss_twin",
@@ -32,12 +32,12 @@ Bosses = {
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
       "npc_dota_boss_swiper",
-      "npc_dota_boss_carapace"
+      "npc_dota_boss_carapace",
     },
     {
       --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
-      "npc_dota_boss_spiders",
+      "npc_dota_boss_spiders", -- Alchemist Boss
       "npc_dota_creature_magma_boss",
     },
     {
@@ -45,7 +45,7 @@ Bosses = {
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_6"
+      "npc_dota_boss_tier_6", -- Spooky Ghost
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Tier 5 Skeleton Boss (Geostrike)
@@ -67,7 +67,7 @@ Bosses = {
     {
       "npc_dota_boss_simple_1", -- Geostrike
       "npc_dota_boss_simple_5", -- Great Cleave
-      "npc_dota_boss_simple_7" -- Kraken Shell
+      "npc_dota_boss_simple_7", -- Kraken Shell
     },
     {
       --"npc_dota_boss_twin",
@@ -76,7 +76,7 @@ Bosses = {
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
       "npc_dota_boss_swiper",
-      "npc_dota_boss_carapace"
+      "npc_dota_boss_carapace",
     },
     {
       --"npc_dota_creature_ogre_tank_boss",
@@ -89,7 +89,7 @@ Bosses = {
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_6"
+      "npc_dota_boss_tier_6",
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
@@ -115,7 +115,7 @@ Bosses = {
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
       "npc_dota_boss_swiper",
-      "npc_dota_boss_carapace"
+      "npc_dota_boss_carapace",
     },
     {
       --"npc_dota_creature_ogre_tank_boss",
@@ -128,7 +128,7 @@ Bosses = {
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_6"
+      "npc_dota_boss_tier_6",
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
@@ -158,7 +158,7 @@ Bosses = {
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_6"
+      "npc_dota_boss_tier_6",
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
@@ -188,7 +188,7 @@ Bosses = {
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_6"
+      "npc_dota_boss_tier_6",
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
@@ -218,7 +218,7 @@ Bosses = {
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
-      "npc_dota_boss_tier_6"
+      "npc_dota_boss_tier_6",
     },
     {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
