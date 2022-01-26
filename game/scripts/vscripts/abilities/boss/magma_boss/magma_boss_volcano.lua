@@ -5,6 +5,11 @@ LinkLuaModifier("modifier_magma_boss_volcano_burning_effect", "abilities/boss/ma
 
 magma_boss_volcano = class(AbilityBaseClass)
 
+function magma_boss_volcano:Spawn()
+  self.volcano_name = "npc_dota_magma_boss_volcano"
+  self.modifier_name = "modifier_magma_boss_volcano_thinker"
+end
+
 function magma_boss_volcano:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
@@ -28,14 +33,16 @@ function magma_boss_volcano:OnSpellStart()
   if not mainTarget then
     return
   end
+
+  table.insert(vTargetPositions, mainTarget)
+
   if self.target_points then
     for _, target in pairs(self.target_points) do
       if target then
         table.insert(vTargetPositions, target)
       end
     end
-  else
-    table.insert(vTargetPositions, mainTarget)
+    self.target_points = nil
   end
 
   for _, vLoc in ipairs(vTargetPositions) do
@@ -46,9 +53,7 @@ function magma_boss_volcano:OnSpellStart()
     hUnit:SetBaseMaxHealth(nMaxHealth)
     hUnit:SetMaxHealth(nMaxHealth)
     hUnit:SetHealth(nMaxHealth)
-    if not self.zVolcanoName then
-      self.zVolcanoName = hUnit:GetName()
-    end
+    self.volcano_name = hUnit:GetName()
   end
 end
 
@@ -56,10 +61,9 @@ end
 
 function magma_boss_volcano:KillAllVolcanos(team) --kill all volcanos created by this ability's caster
   if IsServer() then
-    local volcanos = Entities:FindAllByName(self.zVolcanoName)
-    local zModName = "modifier_magma_boss_volcano_thinker"
+    local volcanos = Entities:FindAllByName(self.volcano_name)
     for _, volcano in pairs(volcanos) do
-      if volcano:HasModifier(zModName) and volcano:GetTeamNumber() == team then
+      if volcano:HasModifier(self.modifier_name) and volcano:GetTeamNumber() == team then
         volcano:ForceKill(false)
       end
     end
@@ -68,13 +72,12 @@ end
 
 function magma_boss_volcano:FindClosestMagmaPool() --returns the location (Vector) of the closest magma (edge of a magma pool)
   if IsServer() then
-    local volcanos = Entities:FindAllByName(self.zVolcanoName)
-    local zModName = "modifier_magma_boss_volcano_thinker"
+    local volcanos = Entities:FindAllByName(self.volcano_name)
     local hClosestVolcano
     local nClosestEdgeDistance = math.huge
     for _, volcano in pairs(volcanos) do
-      if volcano:HasModifier(zModName) and (volcano:GetTeamNumber() == self:GetCaster():GetTeamNumber()) then
-        local EdgeDistance = (self:GetOwner():GetOrigin() - volcano:GetOrigin()):Length2D() - volcano:FindModifierByName(zModName):GetMagmaRadius()
+      if volcano:HasModifier(self.modifier_name) and (volcano:GetTeamNumber() == self:GetCaster():GetTeamNumber()) then
+        local EdgeDistance = (self:GetOwner():GetOrigin() - volcano:GetOrigin()):Length2D() - volcano:FindModifierByName(self.modifier_name):GetMagmaRadius()
         if EdgeDistance < nClosestEdgeDistance then
           nClosestEdgeDistance = EdgeDistance
           hClosestVolcano = volcano
@@ -92,18 +95,68 @@ end
 
 function magma_boss_volcano:GetNumVolcanos()
   if IsServer() then
-    local volcanos = Entities:FindAllByName(self.zVolcanoName)
+    local volcanos = Entities:FindAllByName(self.volcano_name)
     local NumVolcanos = 0
     if #volcanos > 0 then
-      local zModName = "modifier_magma_boss_volcano_thinker"
       for _, volcano in pairs(volcanos) do
-        if volcano and volcano:HasModifier(zModName) and (volcano:FindModifierByName(zModName):GetCaster():GetTeamNumber() == self:GetCaster():GetTeamNumber()) then
+        if volcano and volcano:HasModifier(self.modifier_name) and volcano:FindModifierByName(self.modifier_name):GetCaster() == self:GetCaster() then
           NumVolcanos = NumVolcanos + 1
         end
       end
     end
     return NumVolcanos
   end
+end
+
+function magma_boss_volcano:FindValidTarget(potential_target, main_target)
+  if not IsServer() then
+    return
+  end
+
+  local caster = self:GetCaster()
+  local caster_loc = caster:GetAbsOrigin()
+
+  local nearby = Entities:FindAllByNameWithin(self.volcano_name, potential_target, self:GetSpecialValueFor("magma_radius_max"))
+  if #nearby == 0 then
+    return potential_target
+  end
+
+  local overlapping = {}
+  for _, volcano in pairs(nearby) do
+    if volcano and not volcano:IsNull() and volcano:HasModifier(self.modifier_name) then
+      table.insert(overlapping, volcano)
+    end
+  end
+  if #overlapping == 0 then
+    return potential_target
+  end
+
+  if main_target and (potential_target - main_target):Length2D() >= self:GetSpecialValueFor("torrent_aoe") and (potential_target - caster_loc):Length2D() <= 1500 then
+    return potential_target
+  end
+
+  -- Try not to overlap locations, but use the last position attempted if we spend too long in the loop
+  local nMaxAttempts = 7
+  local nAttempts = 0
+  local position
+
+  repeat
+    position = potential_target + RandomVector(RandomInt(self:GetSpecialValueFor("torrent_aoe"), 1500))
+    nearby = Entities:FindAllByNameWithin(self.volcano_name, position, self:GetSpecialValueFor("magma_radius_max"))
+    overlapping = {}
+    for _, volcano in pairs(nearby) do
+      if volcano and not volcano:IsNull() and volcano:HasModifier(self.modifier_name) then
+        table.insert(overlapping, volcano)
+      end
+    end
+
+    nAttempts = nAttempts + 1
+    if nAttempts >= nMaxAttempts then
+      break
+    end
+  until (#overlapping == 0 and (position - caster_loc):Length2D() <= 1500)
+
+  return position
 end
 
 ---------------------------------------------------------------------------------------------------

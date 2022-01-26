@@ -92,8 +92,8 @@ function MagmaBossThink()
     return 1
   end
 
-  local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-  local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
+  local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+  local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
@@ -170,7 +170,28 @@ function MagmaBossThink()
     end
 
     if thisEntity.VolcanoAbility and thisEntity.VolcanoAbility:IsFullyCastable() then
-
+      local ability = thisEntity.VolcanoAbility
+      local active_volcanos = ability:GetNumVolcanos()
+      local max_number_of_volcanos = 0
+      local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+      if current_hp_pct > 0.75 then -- phase 1
+        max_number_of_volcanos = 1
+      elseif current_hp_pct > 0.5 then -- phase 2
+        max_number_of_volcanos = 2
+      else -- phase 3
+        max_number_of_volcanos = 3
+      end
+      if #enemies > 0 and active_volcanos < max_number_of_volcanos then
+        local main_target = FindValidTarget(enemies[1]:GetAbsOrigin())
+        if max_number_of_volcanos > 1 then
+          ability.target_points = {}
+          for i = 1, math.max(max_number_of_volcanos - active_volcanos - 1, 0) do
+            local next_target = ability:FindValidTarget(enemies[math.max(#enemies + 1 - i, 1)]:GetAbsOrigin(), main_target)
+            table.insert(ability.target_points, next_target)
+          end
+        end
+        CastOnPoint(ability, main_target)
+      end
     end
 
     if thisEntity.ProjectileAbility and thisEntity.ProjectileAbility:IsFullyCastable() then
