@@ -182,7 +182,7 @@ function MagmaBossThink()
         max_number_of_volcanos = 3
       end
       if #enemies > 0 and active_volcanos < max_number_of_volcanos then
-        local main_target = FindValidTarget(enemies[1]:GetAbsOrigin())
+        local main_target = ability:FindValidTarget(enemies[1]:GetAbsOrigin())
         if max_number_of_volcanos > 1 then
           ability.target_points = {}
           for i = 1, math.max(max_number_of_volcanos - active_volcanos - 1, 0) do
