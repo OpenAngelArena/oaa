@@ -5,7 +5,7 @@ boss_killer_tomato_clap = class(AbilityBaseClass)
 
 function boss_killer_tomato_clap:Precache(context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
-  PrecacheResource("particle", "particles/neutral_fx/ursa_thunderclap.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_earthshock_modifier.vpcf", context)
   PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
@@ -18,6 +18,10 @@ function boss_killer_tomato_clap:OnAbilityPhaseStart()
 
     -- Make the caster uninterruptible while casting this ability
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+	
+    Timers:CreateTimer(delay/2, function()
+      caster:EmitSound("n_creep_Ursa.Clap")
+    end)
 
     -- Warning particle
     local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -36,6 +40,7 @@ function boss_killer_tomato_clap:OnAbilityPhaseInterrupted()
       ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
       self.nPreviewFX = nil
     end
+    caster:StopSound("n_creep_Ursa.Clap")
   end
 end
 
@@ -96,9 +101,10 @@ function boss_killer_tomato_clap:OnSpellStart()
   EmitSoundOnLocationWithCaster(caster_location, "Hellbear.Smash", caster)
 
   -- Particle
-  local particle = ParticleManager:CreateParticle("particles/neutral_fx/ursa_thunderclap.vpcf", PATTACH_ABSORIGIN, nil)
-  ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
-  ParticleManager:SetParticleControlEnt(particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
+  local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", PATTACH_WORLDORIGIN, nil)
+  ParticleManager:SetParticleControl(particle, 0, caster_location)
+  ParticleManager:SetParticleControlForward(particle, 0, caster:GetForwardVector())
+  ParticleManager:SetParticleControl(particle, 1, Vector(radius*3/4, radius*3/4, radius/2))
   ParticleManager:ReleaseParticleIndex(particle)
 end
 

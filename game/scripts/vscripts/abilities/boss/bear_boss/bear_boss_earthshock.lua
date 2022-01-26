@@ -110,7 +110,7 @@ function bear_boss_earthshock:OnSpellStart()
   local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", PATTACH_WORLDORIGIN, nil)
   ParticleManager:SetParticleControl(particle, 0, caster_location)
   ParticleManager:SetParticleControlForward(particle, 0, caster:GetForwardVector())
-  ParticleManager:SetParticleControl(particle, 1, Vector(radius/2, radius/2, radius/2))
+  ParticleManager:SetParticleControl(particle, 1, Vector(radius*3/4, radius*3/4, radius/2))
   ParticleManager:ReleaseParticleIndex(particle)
 end
 
