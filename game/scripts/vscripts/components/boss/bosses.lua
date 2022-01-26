@@ -11,7 +11,9 @@ Bosses = {
       "npc_dota_boss_tier_1_tier5", -- Tier 5 Roshan
       "npc_dota_boss_twin_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
-      "npc_dota_creature_temple_guardian_spawner_tier5",
+      --"npc_dota_creature_temple_guardian_spawner_tier5",
+      "npc_dota_boss_shielder_tier5",
+      "npc_dota_boss_charger_tier5",
     }
   },
   -----------------------------
@@ -35,7 +37,8 @@ Bosses = {
     {
       --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
-      "npc_dota_boss_spiders"
+      "npc_dota_boss_spiders",
+      "npc_dota_creature_magma_boss",
     },
     {
       "npc_dota_boss_tier_4", -- Killer Tomato
@@ -79,6 +82,7 @@ Bosses = {
       --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
+      "npc_dota_creature_magma_boss",
     },
     {
       "npc_dota_boss_tier_4",
@@ -117,6 +121,7 @@ Bosses = {
       --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
+      "npc_dota_creature_magma_boss",
     },
     {
       "npc_dota_boss_tier_4",
@@ -146,6 +151,7 @@ Bosses = {
       --"npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
+      "npc_dota_creature_magma_boss",
     },
     {
       "npc_dota_boss_tier_4",
@@ -175,6 +181,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
+      "npc_dota_creature_magma_boss",
     },
     {
       "npc_dota_boss_tier_4",
@@ -204,6 +211,7 @@ Bosses = {
       "npc_dota_creature_ogre_tank_boss",
       "npc_dota_creature_lycan_boss",
       "npc_dota_boss_spiders",
+      "npc_dota_creature_magma_boss",
     },
     {
       "npc_dota_boss_tier_4",

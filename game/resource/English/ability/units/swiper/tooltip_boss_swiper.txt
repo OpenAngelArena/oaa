@@ -1,8 +1,6 @@
 //=============================================================================
 // Swiper abilities
 //=============================================================================
-
-
 "DOTA_Tooltip_Ability_boss_swiper_thrust"                               "Thrust"
 "DOTA_Tooltip_Ability_boss_swiper_thrust_Description"                   "Sends out a line of spikes which damages enemies is passes through."
 "DOTA_Tooltip_Ability_boss_swiper_thrust_damage"               		    	"DAMAGE:"
@@ -14,11 +12,14 @@
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_speed"                 	"SPEED:"
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_max_range"           		"RANGE:"
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_push_length"          	  "PUSH DISTANCE:"
-//  "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_slow"             	 			"%SLOW:"
+"DOTA_Tooltip_Ability_boss_swiper_reapers_rush_slow"             	 			"%SLOW:"
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_slow_duration"          	"STUN DURATION:"
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_max_damage"              "DAMAGE MAX:"
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_min_damage"             	"DAMAGE MIN:"
 "DOTA_Tooltip_Ability_boss_swiper_reapers_rush_radius"             			"RADIUS:"
+
+"DOTA_Tooltip_modifier_boss_swiper_reapers_rush_slow"                   "Slowed"
+"DOTA_Tooltip_modifier_boss_swiper_reapers_rush_slow_Description"       ""
 
 "DOTA_Tooltip_Ability_boss_swiper_frontswipe"                   			  "Frontswipe"
 "DOTA_Tooltip_Ability_boss_swiper_frontswipe_Description"       			  "Attacks nearby units with a devastating cleave attack."
