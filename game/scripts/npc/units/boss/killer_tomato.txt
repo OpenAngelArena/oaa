@@ -7,11 +7,11 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl" // Model.
-    "vscripts"                                            "units/ai_simple.lua"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl" // Model.
+    "vscripts"                                            "units/ai_killer_tomato.lua"
     "SoundSet"                                            "n_creep_Melee"
-    "Level"                                               "100"
+    "Level"                                               "30"
     "ModelScale"                                          "2.0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -19,9 +19,11 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "boss_resistance"
-    "Ability2"                                            "boss_cliffwalk"
-    "Ability3"                                            "boss_regen"
+    "Ability1"                                            "boss_killer_tomato_clap"
+    "Ability2"                                            "boss_killer_tomato_berserk"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_cliffwalk"
+    "Ability5"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -31,9 +33,9 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "7000"      // Damage range min.
-    "AttackDamageMax"                                     "7000"      // Damage range max.
-    "AttackRate"                                          "1.0"     // Speed of attack.
+    "AttackDamageMin"                                     "6000"      // Damage range min.
+    "AttackDamageMax"                                     "6000"      // Damage range max.
+    "AttackRate"                                          "1.0"       // BAT
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "800"       // Range within a target can be acquired.
     "AttackRange"                                         "128"       // Range within a target can be attacked.

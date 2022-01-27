@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Killer Tomato: Berserker
+  //=================================================================================================================
+  "boss_killer_tomato_berserk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85273"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/killer_tomato/boss_killer_tomato_berserk.lua"
+    "AbilityTextureName"                                  "custom/boss_killer_tomato_berserk"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "maximum_attack_speed"                            "300"
+      }
+    }
+  }
+}

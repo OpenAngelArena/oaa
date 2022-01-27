@@ -1,7 +1,6 @@
 //=============================================================================
 // Carapace abilities
 //=============================================================================
-
 "DOTA_Tooltip_Ability_boss_carapace_crystals"                               "Crystal Shell"
 "DOTA_Tooltip_Ability_boss_carapace_crystals_Description"                   "Carapace Boss takes bonus damage if damaged from the side which has crystals. Crystals have random health and they deal damage to enemies when destroyed. Number of crystals increases when Carapace Boss loses health."
 "DOTA_Tooltip_Ability_boss_carapace_crystals_damage_amplification"          "%BONUS DAMAGE TAKEN:"
@@ -18,3 +17,6 @@
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_slow_duration"                 "DEBUFF SLOW DURATION:"
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_self_stun"                     "SELF STUN DURATION:"
 "DOTA_Tooltip_Ability_boss_carapace_headbutt_damage"                        "DAMAGE:"
+
+"Dota_Tooltip_modifier_boss_carapace_headbutt_slow"                         "Headbutt Slow"
+"Dota_Tooltip_modifier_boss_carapace_headbutt_slow_description"             "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

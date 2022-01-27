@@ -10,7 +10,7 @@
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/alchemist/alchemist.vmdl"  // Model.
     "vscripts"                                            "units/ai_alchemist.lua"
-    "SoundSet"                                            "sniper"                    // Name of sound set.
+    "SoundSet"                                            "Hero_Alchemist"
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
@@ -36,7 +36,6 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "3000"       // Damage range min.
     "AttackDamageMax"                                     "3000"       // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "2.5"       // BAT
     "BaseAttackSpeed"                                     "300"       // Attack Speed
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.

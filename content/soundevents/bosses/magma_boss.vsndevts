@@ -1,0 +1,128 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+  Magma_Boss.PreAttack =
+	{
+		type = "dota_src1_3d"
+		volume = 1.000000
+		pitch_rand_min = -0.100000
+		pitch_rand_max = 0.100000
+		pitch = 1.000000
+		soundlevel = 78.000000
+		distance_max = 1500.000000
+		limiter_on = 0.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/warlock/demon_preattack.vsnd",
+		]
+	}
+
+  Magma_Boss.Attack =
+	{
+		type = "dota_src1_3d"
+		volume = 0.599609
+		pitch_rand_min = -0.075000
+		pitch_rand_max = 0.075000
+		pitch = 1.025000
+		soundlevel = 81.000000
+		distance_max = 2500.000000
+		event_type = 1.000000
+		vsnd_files =
+		[
+			"sounds/weapons/towers/attack_dire.vsnd",
+		]
+	}
+
+	Magma_Boss.ProjectileImpact =
+	{
+		type = "dota_src1_3d"
+		volume = 1.000000
+		pitch_rand_min = -0.075000
+		pitch_rand_max = 0.075000
+		pitch = 1.000000
+		soundlevel = 75.000000
+		distance_max = 2500.000000
+		mixgroup = "BaseAttacks"
+		vsnd_files =
+		[
+			"sounds/physics/damage/npc/tower_projectile.vsnd",
+		]
+	}
+
+  Magma_Boss.AbilityProjectile.Cast1 =
+	{
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		mixgroup = "Weapons"
+		volume_fade_out = 0.500000
+		spread_radius = 100.000000
+		use_entity_position = 0.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/batrider/batrider_flamebreak_cast.vsnd",
+		]
+	}
+
+  Magma_Boss.AbilityProjectile.Cast2 =
+	{
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		mixgroup = "Ultimates"
+		spread_radius = 300.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/jakiro/macropyre_cast.vsnd",
+		]
+		vsnd_duration = 2.173469
+	}
+
+	Magma_Boss.AbilityProjectile.Impact =
+	{
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		mixgroup = "Weapons"
+		spread_radius = 600.000000
+		vsnd_files =
+		[
+			"sounds/weapons/hero/batrider/batrider_flamebreak_impact_01.vsnd",
+		]
+	}
+
+  Magma_Boss.VolcanoAnnounce =
+	{
+		type = "dota_update_default"
+		volume = 1.000000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		mixgroup = "Ultimates"
+		spread_radius = 300.000000
+		vsnd_files = "sounds/weapons/hero/nevermore/ros_cast_flames.vsnd"
+		vsnd_duration = 3.651338
+	}
+
+  Magma_Boss.VolcanoErupt =
+	{
+    type = "dota_update_default"
+		volume = 1.000000
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 81.000000
+		mixgroup = "Ultimates"
+		spread_radius = 1200.000000
+		vsnd_files = "sounds/weapons/hero/nevermore/ros_flames.vsnd"
+		vsnd_duration = 3.912676
+	}
+
+}

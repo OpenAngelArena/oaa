@@ -80,7 +80,7 @@ function bear_boss_earthshock:OnSpellStart()
   -- Damage table constants
   local damage_table = {}
   damage_table.attacker = caster
-  damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
+  damage_table.damage_type = self:GetAbilityDamageType()
   damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
   damage_table.ability = self
   damage_table.damage = damage
@@ -110,7 +110,7 @@ function bear_boss_earthshock:OnSpellStart()
   local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", PATTACH_WORLDORIGIN, nil)
   ParticleManager:SetParticleControl(particle, 0, caster_location)
   ParticleManager:SetParticleControlForward(particle, 0, caster:GetForwardVector())
-  ParticleManager:SetParticleControl(particle, 1, Vector(radius/2, radius/2, radius/2))
+  ParticleManager:SetParticleControl(particle, 1, Vector(radius*3/4, radius*3/4, radius/2))
   ParticleManager:ReleaseParticleIndex(particle)
 end
 
