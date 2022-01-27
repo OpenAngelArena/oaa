@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Chilling Touch Damage
+  // Scream of Pain Fear
   //=================================================================================================================
-  "special_bonus_unique_ancient_apparition_2"
+  "special_bonus_unique_queen_of_pain_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6291"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"715"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"100" //OAA
-        "ad_linked_ability"			"ancient_apparition_chilling_touch"
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2.0" //OAA
+        "ad_linked_ability"			"queenofpain_sonic_wave"
       }
     }
   }
