@@ -2,7 +2,7 @@
 {
   //=================================================================================================================
   // Bear Boss: Earthshock - AoE damage, slow and knockback
-  // Notes: Doesn't pierce spell immunity;
+  // Notes: Slow doesn't pierce spell immunity;
   //=================================================================================================================
   "bear_boss_earthshock"
   {
@@ -15,6 +15,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "1"
 

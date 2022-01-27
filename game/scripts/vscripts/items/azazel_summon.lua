@@ -100,7 +100,9 @@ end
 
 modifier_azazel_summon_farmer_innate = class(ModifierBaseClass)
 
-function modifier_azazel_summon_farmer_innate:IsHidden() return true end
+function modifier_azazel_summon_farmer_innate:IsHidden()
+  return true
+end
 function modifier_azazel_summon_farmer_innate:IsPurgable() return false end
 function modifier_azazel_summon_farmer_innate:IsDebuff() return false end
 

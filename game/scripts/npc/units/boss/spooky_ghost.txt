@@ -1,17 +1,17 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Boss tier 6
+  // Boss tier 6 - Spooky Ghost
   //=================================================================================
   "npc_dota_boss_tier_6"
   {
     // General
     //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
     "vscripts"                                            "units/ai_simple.lua"
-    "BaseClass"                                           "npc_dota_creep_neutral"
     "SoundSet"                                            "n_creep_Melee"
-    "Level"                                               "150"
+    "Level"                                               "30"
     "ModelScale"                                          "3.0"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -36,8 +36,8 @@
     "AttackDamageMax"                                     "6000"      // Damage range max.
     "AttackRate"                                          "0.7"     // Speed of attack.
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"       // Range within a target can be acquired.
-    "AttackRange"                                         "250"       // Range within a target can be attacked.
+    "AttackAcquisitionRange"                              "500"       // Range within a target can be acquired.
+    "AttackRange"                                         "500"       // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/neutral_fx/ghost_base_attack.vpcf"          // Particle system model for projectile.
     "ProjectileSpeed"                                     "700"         // Speed of projectile.
 

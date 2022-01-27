@@ -1,0 +1,15 @@
+
+"dota_tooltip_ability_boss_killer_tomato_clap"                                  "Killer Clap"
+"dota_tooltip_ability_boss_killer_tomato_clap_Description"                      "The Killer Tomato claps his massive hands together, creating a deafening blast. The blast damages nearby enemies and throws them off their footing."
+"DOTA_Tooltip_ability_boss_killer_tomato_clap_radius"                           "RADIUS:"
+"DOTA_Tooltip_ability_boss_killer_tomato_clap_damage"                           "DAMAGE:"
+"DOTA_Tooltip_ability_boss_killer_tomato_clap_move_speed_slow"                  "%MOVE SPEED SLOW:"
+"DOTA_Tooltip_ability_boss_killer_tomato_clap_attack_speed_slow"                "%ATTACK SPEED SLOW:"
+"DOTA_Tooltip_ability_boss_killer_tomato_clap_slow_duration"                    "SLOW DURATION:"
+
+"DOTA_Tooltip_modifier_boss_killer_tomato_clap_debuff"                          "#{dota_tooltip_ability_boss_killer_tomato_clap}"
+"DOTA_Tooltip_modifier_boss_killer_tomato_clap_debuff_Description"              "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
+"DOTA_Tooltip_ability_boss_killer_tomato_berserk"                               "Berserk"
+"DOTA_Tooltip_ability_boss_killer_tomato_berserk_Description"                   "Killer Tomato's gains power when injured. Bonus attack speed based on missing health."
+"DOTA_Tooltip_ability_boss_killer_tomato_berserk_maximum_attack_speed"          "MAXIMUM ATTACK SPEED BONUS:"

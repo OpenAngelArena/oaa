@@ -228,8 +228,8 @@ function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
           attacker = caster,
           damage = damage,
           damage_type = DAMAGE_TYPE_MAGICAL,
-          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL)
-          ability = self:GetAbility()
+          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL),
+          ability = self:GetAbility(),
         }
         ApplyDamage(damage_table)
       end
