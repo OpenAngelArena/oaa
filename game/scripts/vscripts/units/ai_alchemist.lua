@@ -5,66 +5,7 @@ local SIMPLE_AI_STATE_LEASH = 2
 local SIMPLE_BOSS_LEASH_SIZE = BOSS_LEASH_SIZE or 1200
 local SIMPLE_BOSS_AGGRO_HP_PERCENT = 99
 
-local function FindCannonshotLocations(thisEntity)
-  local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
-  local entityOrigin = thisEntity:GetAbsOrigin()
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), entityOrigin, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
-
-  local target1, target2
-  local count = 0
-  local closest
-  local closest2
-
-  for k,v in pairs(enemies) do
-    local distance = (v:GetAbsOrigin() - entityOrigin):Length2D()
-
-    if distance > count then
-      count = distance
-      closest2 = closest
-      closest = v
-    elseif not closest2 then
-      closest2 = v
-    end
-  end
-
-  if closest then
-    target1 = closest:GetAbsOrigin()
-
-    if closest2 then
-      target2 = closest:GetAbsOrigin()
-    else
-      target2 = target1 + RandomVector(256)
-    end
-  end
-  if target1 and target2 then
-    local direction = (target1 - entityOrigin):Normalized()
-    local direction2 = (target2 - entityOrigin):Normalized()
-
-    local pushDistance = 100
-
-    target1 = target1 + (pushDistance * direction)
-    target2 = target2 + (pushDistance * direction2)
-  end
-
-  return target1, target2
-end
-
-local function Cast(ability, target)
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    AbilityIndex = ability:entindex(),
-    Position = target,
-  })
-end
-
-local function PointOnCircle(radius, angle)
-  local x = radius * math.cos(angle * math.pi / 180)
-  local y = radius * math.sin(angle * math.pi / 180)
-  return Vector(x,y,0)
-end
-
-function Spawn( entityKeyValues )
+function Spawn(entityKeyValues)
   if not IsServer() then
     return
   end
@@ -77,9 +18,7 @@ function Spawn( entityKeyValues )
   thisEntity.AcidSprayAbility = thisEntity:FindAbilityByName( "boss_alchemist_acid_spray" )
   thisEntity.ChemicalRageAbility = thisEntity:FindAbilityByName( "boss_alchemist_chemical_rage" )
 
-  thisEntity.roamRadius = 250
-
-  thisEntity:SetContextThink( "AlchemistThink", AlchemistThink, 1 )
+  thisEntity:SetContextThink("AlchemistThink", AlchemistThink, 1)
 end
 
 function AlchemistThink()
@@ -95,17 +34,21 @@ function AlchemistThink()
     thisEntity.aggro_target = nil
   end
 
+  local function PointOnCircle(radius, angle)
+    local x = radius * math.cos(angle * math.pi / 180)
+    local y = radius * math.sin(angle * math.pi / 180)
+    return Vector(x,y,0)
+  end
+
   if not thisEntity.initialized then
     thisEntity.spawn_position = thisEntity:GetAbsOrigin()
     thisEntity.vPath = {}
-    for i=1,13 do
-      table.insert(thisEntity.vPath, thisEntity:GetOrigin() + PointOnCircle(thisEntity.roamRadius, 360 / 12 * i))
+    for i = 1, 13 do
+      table.insert(thisEntity.vPath, thisEntity:GetOrigin() + PointOnCircle(250, 360 / 12 * i))
     end
-    thisEntity.vPathPoint = 0
-    thisEntity.bHasAgro = false
-    thisEntity.BossTier = thisEntity.BossTier or 3
-    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
-    thisEntity.state = SIMPLE_AI_STATE_AGGRO -- triggered when Alchemist gains Chemical Rage
+    thisEntity.lastRoamPoint = thisEntity.spawn_position
+    thisEntity.BossTier = thisEntity.BossTier or 3 -- not used
+    thisEntity.state = SIMPLE_AI_STATE_IDLE
     thisEntity.aggro_target = nil
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
@@ -165,44 +108,99 @@ function AlchemistThink()
     return 1
   end
 
-  if thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
-    local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-    local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
-    if thisEntity.state == SIMPLE_AI_STATE_IDLE then
-      if current_hp_pct < aggro_hp_pct then
+  local function FindCannonshotLocations(thisEntity)
+    local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
+    local entityOrigin = thisEntity:GetAbsOrigin()
+    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), entityOrigin, nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false)
+
+    local target1, target2
+    local count = 0
+    local closest
+    local closest2
+
+    for k, v in pairs(enemies) do
+      local distance = (v:GetAbsOrigin() - entityOrigin):Length2D()
+
+      if distance > count then
+        count = distance
+        closest2 = closest
+        closest = v
+      elseif not closest2 then
+        closest2 = v
+      end
+    end
+
+    if closest then
+      target1 = closest:GetAbsOrigin()
+
+      if closest2 then
+        target2 = closest:GetAbsOrigin()
+      else
+        target2 = target1 + RandomVector(256)
+      end
+    end
+    if target1 and target2 then
+      local direction = (target1 - entityOrigin):Normalized()
+      local direction2 = (target2 - entityOrigin):Normalized()
+
+      local pushDistance = 100
+
+      target1 = target1 + (pushDistance * direction)
+      target2 = target2 + (pushDistance * direction2)
+    end
+
+    return target1, target2
+  end
+
+  local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+  local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
+  if thisEntity.state == SIMPLE_AI_STATE_IDLE then
+    if current_hp_pct < aggro_hp_pct then
+      if thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
         -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
         -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
         -- the same as true aggro target (unit that is boss actually attacking at the moment)
         AttackNearestTarget(thisEntity)
-        thisEntity.state = SIMPLE_AI_STATE_AGGRO
       else
-        -- Check if the boss was messed around with displacing abilities (Force Staff for example)
-        if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() > 10 then
-          thisEntity:MoveToPosition(thisEntity.spawn_position)
-          thisEntity.state = SIMPLE_AI_STATE_LEASH
-        end
+        -- Start roaming around spawn location
+        thisEntity.lastRoamPoint = thisEntity.vPath[RandomInt(1, 13)]
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+          Position = thisEntity.lastRoamPoint,
+          Queue = 0,
+        })
       end
-    elseif thisEntity.state == SIMPLE_AI_STATE_AGGRO then
-      -- Check how far did the boss go from the spawn position
-      if (thisEntity:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > SIMPLE_BOSS_LEASH_SIZE then
-        -- Check for actual aggro target
-        if thisEntity:GetAggroTarget() and not thisEntity:GetAggroTarget():IsNull() then
-          local true_aggro_target = thisEntity:GetAggroTarget()
-          -- Prevent bosses chasing Snipers all over the map (its funny though)
-          if (true_aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > 2*SIMPLE_BOSS_LEASH_SIZE then
-            return StartLeashing(thisEntity)
-          elseif (true_aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > SIMPLE_BOSS_LEASH_SIZE then
-            -- Check attack range of true aggro target, if its less than leash/aggro range, start leashing
-            if true_aggro_target:GetAttackRange() <= SIMPLE_BOSS_LEASH_SIZE then
-              return StartLeashing(thisEntity)
-            end
-          end
-        else
-          -- Boss is outside of leash range and the unit he was attacking doesnt exist, start leashing
+      thisEntity.state = SIMPLE_AI_STATE_AGGRO
+    else
+      -- Check if the boss was messed around with displacing abilities (Force Staff for example)
+      if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() > 10 then
+        thisEntity:MoveToPosition(thisEntity.spawn_position)
+        thisEntity.state = SIMPLE_AI_STATE_LEASH
+      end
+    end
+  elseif thisEntity.state == SIMPLE_AI_STATE_AGGRO then
+    -- Check how far did the boss go from the spawn position
+    if (thisEntity:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > SIMPLE_BOSS_LEASH_SIZE then
+      -- Check for actual aggro target
+      if thisEntity:GetAggroTarget() and not thisEntity:GetAggroTarget():IsNull() and thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
+        local true_aggro_target = thisEntity:GetAggroTarget()
+        -- Prevent bosses chasing Snipers all over the map (its funny though)
+        if (true_aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > 2*SIMPLE_BOSS_LEASH_SIZE then
           return StartLeashing(thisEntity)
+        elseif (true_aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() > SIMPLE_BOSS_LEASH_SIZE then
+          -- Check attack range of true aggro target, if its less than leash/aggro range, start leashing
+          if true_aggro_target:GetAttackRange() <= SIMPLE_BOSS_LEASH_SIZE then
+            return StartLeashing(thisEntity)
+          end
         end
+      else
+        -- Boss is outside of leash range and the unit he was attacking doesnt exist, start leashing
+        return StartLeashing(thisEntity)
       end
+    end
 
+    if thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
       -- Check if aggro_target exists
       if thisEntity.aggro_target then
         --print(thisEntity.aggro_target:GetUnitName())
@@ -235,8 +233,8 @@ function AlchemistThink()
         -- OLD: if not thisEntity.aggro_target:IsAttackingEntity(thisEntity) then
         -- OLD: thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
       else
-        -- Check HP of the boss and if its able to attack
-        if current_hp_pct < aggro_hp_pct then -- not thisEntity:IsOutOfGame() and not thisEntity:IsDisarmed() then
+        -- Check HP of the boss
+        if current_hp_pct < aggro_hp_pct then
           AttackNearestTarget(thisEntity)
         end
 
@@ -244,23 +242,71 @@ function AlchemistThink()
           thisEntity.state = SIMPLE_AI_STATE_LEASH
         end
       end
+    end
 
-      -- Phase 4
+    if current_hp_pct > 75/100 then -- phase 1
+      -- Check if still aggroed
+      if current_hp_pct > aggro_hp_pct then
+        return StartLeashing(thisEntity)
+      end
+
+      local ability
+      local target1, target2 = FindCannonshotLocations(thisEntity)
+      if RandomInt(1, 2) == 1 then
+        ability = thisEntity.AcidSprayAbility
+      else
+        ability = thisEntity.CannonshotAbility
+      end
+
+      if ability:IsCooldownReady() then
+        if target1 then
+          ability.target_points = { target1 = target1, target2 = target2 }
+          CastOnPoint(ability, target1)
+        end
+      end
+    elseif current_hp_pct > 50/100 then -- phase 2
+      local ability
+      local target1, target2 = FindCannonshotLocations(thisEntity)
+      if RandomInt(1, 2) == 1 then
+        ability = thisEntity.AcidSprayAbility
+      else
+        ability = thisEntity.CannonshotAbility
+      end
+
+      if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.AcidSprayAbility:IsCooldownReady() or thisEntity.bDouble then
+        if target1 then
+          thisEntity.AcidSprayAbility:EndCooldown()
+          thisEntity.CannonshotAbility:EndCooldown()
+
+          ability.target_points = { target1 = target1, target2 = target2 }
+          if target2 then
+            CastOnPoint(ability, target2)
+          end
+
+          thisEntity.bDouble = not thisEntity.bDouble
+        end
+      end
+    elseif current_hp_pct > 30/100 then -- phase 3
       if thisEntity.CannonshotAbility:IsCooldownReady() then
-        local cannonshots = RandomInt(1,3)
+        local cannonshots = RandomInt(1, 3)
         thisEntity.lastCannonShots = cannonshots
         local ability = thisEntity.CannonshotAbility
         local target1, target2 = FindCannonshotLocations(thisEntity)
+
+        -- end acid spray CD whenever we shoot a cannon
+        thisEntity.AcidSprayAbility:EndCooldown()
 
         if cannonshots == 1 then
           ability.target_points = { target1 = target1 }
         elseif cannonshots == 2 then
           ability.target_points = { target1 = target1, target2 = target2 }
         elseif cannonshots == 3 then
-          ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
+          if target2 then
+            ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
+          end
         end
-        if ability.target_points then
-          Cast(ability, target1)
+        if target1 then
+          CastOnPoint(ability, target1)
         end
       elseif thisEntity.AcidSprayAbility:IsCooldownReady() then
         local acidshots = 4 - (thisEntity.lastCannonShots or 0)
@@ -271,7 +317,9 @@ function AlchemistThink()
         table.insert(acidpoints, target2)
         if #acidpoints < acidshots then
           for i = #acidpoints, acidshots-1 do
-            table.insert(acidpoints, target1 + RandomVector(200))
+            if target1 then
+              table.insert(acidpoints, target1 + RandomVector(200))
+            end
           end
         elseif #acidpoints > acidshots then
           local i = #acidpoints
@@ -282,167 +330,102 @@ function AlchemistThink()
             #acidpoints == acidshots
         end
 
-        ability.target_points = acidpoints
-        Cast(ability, target1)
+        if target1 then
+          ability.target_points = acidpoints
+          CastOnPoint(ability, target1)
+        end
       end
-    elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
-      -- Actual leashing
-      thisEntity:MoveToPosition(thisEntity.spawn_position)
-      -- Check if boss reached the spawn_position
-      if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() < 10 then
-        -- Go into the idle state if the boss is back to the spawn position
-        thisEntity:SetIdleAcquire(false)
-        thisEntity:SetAcquisitionRange(0)
-        thisEntity.state = SIMPLE_AI_STATE_IDLE
+    else -- Phase 4
+      if not thisEntity:HasModifier("modifier_alchemist_chemical_rage") and thisEntity.ChemicalRageAbility and thisEntity.ChemicalRageAbility:IsFullyCastable() then
+        CastRage()
+        AttackNearestTarget(thisEntity)
+        return 0.5
+      elseif thisEntity.CannonshotAbility:IsCooldownReady() then
+        local cannonshots = RandomInt(1, 3)
+        thisEntity.lastCannonShots = cannonshots
+        local ability = thisEntity.CannonshotAbility
+        local target1, target2 = FindCannonshotLocations(thisEntity)
+
+        if cannonshots == 1 then
+          ability.target_points = { target1 = target1 }
+        elseif cannonshots == 2 then
+          ability.target_points = { target1 = target1, target2 = target2 }
+        elseif cannonshots == 3 then
+          if target2 then
+            ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
+          end
+        end
+        if target1 then
+          CastOnPoint(ability, target1)
+        end
+      elseif thisEntity.AcidSprayAbility:IsCooldownReady() then
+        local acidshots = 4 - (thisEntity.lastCannonShots or 0)
+        local ability = thisEntity.AcidSprayAbility
+        local target1, target2 = FindCannonshotLocations(thisEntity)
+        local acidpoints = {}
+        table.insert(acidpoints, target1)
+        table.insert(acidpoints, target2)
+        if #acidpoints < acidshots then
+          for i = #acidpoints, acidshots-1 do
+            if target1 then
+              table.insert(acidpoints, target1 + RandomVector(200))
+            end
+          end
+        elseif #acidpoints > acidshots then
+          local i = #acidpoints
+          repeat
+            table.remove(acidpoints, i)
+            i = i - 1
+          until
+            #acidpoints == acidshots
+        end
+
+        if target1 then
+          ability.target_points = acidpoints
+          CastOnPoint(ability, target1)
+        end
       end
     end
-  else
-    local enemies = FindUnitsInRadius(
-      thisEntity:GetTeamNumber(),
-      thisEntity:GetOrigin(), nil,
-      BOSS_LEASH_SIZE,
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_HERO,
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-      FIND_CLOSEST,
-      false
-    )
 
-    local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
-    local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.spawn_position ):Length2D()
-
-    if (fDistanceToOrigin < 10 and thisEntity.bHasAgro and #enemies == 0) then
-      thisEntity.bHasAgro = false
-      thisEntity:SetIdleAcquire(false)
-      thisEntity:SetAcquisitionRange(0)
-      return 2
-    elseif (hasDamageThreshold and #enemies > 0) then
-      if not thisEntity.bHasAgro then
-        thisEntity.bHasAgro = true
-        thisEntity:SetIdleAcquire(true)
-        thisEntity:SetAcquisitionRange(thisEntity.fAgroRange)
+    -- Roam without Chemical Rage
+    if not thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
+      local next_location = thisEntity.vPath[RandomInt(1, 13)]
+      if next_location == thisEntity.lastRoamPoint then
+        next_location = next_location + RandomVector(100)
       end
-    end
 
-    if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
-      if fDistanceToOrigin > 10 then
-        return RetreatHome()
-      end
-      return 1
-    end
+      thisEntity.lastRoamPoint = next_location
 
-    if not thisEntity:IsIdle() then
-      return 0.03
-    else
-      thisEntity.vPathPoint = thisEntity.vPathPoint + 1
-      if thisEntity.vPathPoint == 13 then
-        thisEntity.vPathPoint = 1
-      end
       ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-        Position = thisEntity.vPath[thisEntity.vPathPoint]
+        Position = thisEntity.lastRoamPoint,
+        Queue = 0,
       })
     end
-  end
-
-  if thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.75 then -- phase 1
-    local ability
-    local target1, target2 = FindCannonshotLocations(thisEntity)
-    if math.random(0, 1) == 0 then
-      ability = thisEntity.AcidSprayAbility
-      DebugPrint('Trying to cast acid spray')
-    else
-      ability = thisEntity.CannonshotAbility
-      DebugPrint('Trying to cast cannon')
-    end
-
-    if ability:IsCooldownReady() then
-      if target1 then
-        ability.target_points = { target1 = target1, target2 = target2 }
-        Cast(ability, target1)
-      end
-    end
-  elseif thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.5 then -- phase 2
-    local ability
-    local target1, target2 = FindCannonshotLocations(thisEntity)
-    if math.random(0, 1) == 0 then
-      ability = thisEntity.AcidSprayAbility
-    else
-      ability = thisEntity.CannonshotAbility
-    end
-
-    if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.AcidSprayAbility:IsCooldownReady() or thisEntity.bDouble then
-      if target1 then
-        thisEntity.AcidSprayAbility:EndCooldown()
-        thisEntity.CannonshotAbility:EndCooldown()
-
-        ability.target_points = { target1 = target1, target2 = target2 }
-        Cast(ability, target2)
-
-        thisEntity.bDouble = not thisEntity.bDouble
-      end
-    end
-  elseif thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.25 then -- phase 3
-    if thisEntity.CannonshotAbility:IsCooldownReady() then
-      local cannonshots = RandomInt(1,3)
-      thisEntity.lastCannonShots = cannonshots
-      local ability = thisEntity.CannonshotAbility
-      local target1, target2 = FindCannonshotLocations(thisEntity)
-
-      -- end acid spray CD whenever we shoot a cannon
-      thisEntity.AcidSprayAbility:EndCooldown()
-
-      if cannonshots == 1 then
-        ability.target_points = { target1 = target1 }
-      elseif cannonshots == 2 then
-        ability.target_points = { target1 = target1, target2 = target2 }
-      elseif cannonshots == 3 then
-        ability.target_points = { target1 = target1, target2 = target2, target3 = target2 + RandomVector(200) }
-      end
-      if ability.target_points then
-        Cast(ability, target1)
-      end
-    elseif thisEntity.AcidSprayAbility:IsCooldownReady() then
-      local acidshots = 4 - (thisEntity.lastCannonShots or 0)
-      local ability = thisEntity.AcidSprayAbility
-      local target1, target2 = FindCannonshotLocations(thisEntity)
-      local acidpoints = {}
-      table.insert(acidpoints, target1)
-      table.insert(acidpoints, target2)
-      if #acidpoints < acidshots then
-        for i = #acidpoints, acidshots-1 do
-          table.insert(acidpoints, target1 + RandomVector(200))
-        end
-      elseif #acidpoints > acidshots then
-        local i = #acidpoints
-        repeat
-          table.remove(acidpoints, i)
-          i = i - 1
-        until
-          #acidpoints == acidshots
-      end
-
-      ability.target_points = acidpoints
-      Cast(ability, target1)
-    end
-  else
-    if not thisEntity:HasModifier("modifier_alchemist_chemical_rage") and thisEntity.ChemicalRageAbility and thisEntity.ChemicalRageAbility:IsFullyCastable() then
-      CastRage()
+  elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
+    -- Actual leashing
+    thisEntity:MoveToPosition(thisEntity.spawn_position)
+    -- Check if boss reached the spawn_position
+    if (thisEntity.spawn_position - thisEntity:GetAbsOrigin()):Length2D() < 10 then
+      -- Go into the idle state if the boss is back to the spawn position
+      thisEntity:SetIdleAcquire(false)
+      thisEntity:SetAcquisitionRange(0)
+      thisEntity.state = SIMPLE_AI_STATE_IDLE
     end
   end
 
   return 0.5
 end
 
-function RetreatHome()
+function CastOnPoint(ability, target)
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = thisEntity.spawn_position
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    AbilityIndex = ability:entindex(),
+    Position = target,
+    Queue = 1,
   })
-
-  return 1.0
 end
 
 function CastRage()
