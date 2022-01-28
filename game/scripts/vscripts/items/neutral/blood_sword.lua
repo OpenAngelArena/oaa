@@ -3,9 +3,9 @@ LinkLuaModifier("modifier_item_blood_sword_lifesteal", "items/neutral/blood_swor
 
 item_blood_sword = class(ItemBaseClass)
 
-function item_blood_sword:GetCastRange(location, target)
-  return self:GetCaster():GetAttackRange()
-end
+--function item_blood_sword:GetCastRange(location, target)
+  --return self:GetCaster():GetAttackRange()
+--end
 
 function item_blood_sword:GetIntrinsicModifierName()
   return "modifier_item_blood_sword_passive"
