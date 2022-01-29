@@ -19,13 +19,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5 10 15 20 40 60" //OAA
+        "bonus_health_regen"                              "5 10 15 20 30 40" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 8 12 16 24 32" //OAA
+        "bonus_armor"                                     "4 7 10 13 19 25" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
       }
     }
