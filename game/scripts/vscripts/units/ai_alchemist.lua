@@ -111,22 +111,21 @@ function AlchemistThink()
   local function FindCannonshotLocations(thisEntity)
     local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
     local entityOrigin = thisEntity:GetAbsOrigin()
-    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), entityOrigin, nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false)
+    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), entityOrigin, nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), flags, FIND_CLOSEST, false)
 
     local target1, target2
-    local count = 0
     local closest
     local closest2
 
-    for k, v in pairs(enemies) do
-      local distance = (v:GetAbsOrigin() - entityOrigin):Length2D()
-
-      if distance > count then
-        count = distance
+    -- Find the closest one
+    local closest_distance = 3 * SIMPLE_BOSS_LEASH_SIZE
+    for _, unit in ipairs(enemies) do
+      -- Calculating distance
+      local distance = (unit:GetAbsOrigin() - entityOrigin):Length2D()
+      if distance < closest_distance then
+        closest_distance = distance
         closest2 = closest
-        closest = v
-      elseif not closest2 then
-        closest2 = v
+        closest = unit
       end
     end
 
@@ -134,7 +133,7 @@ function AlchemistThink()
       target1 = closest:GetAbsOrigin()
 
       if closest2 then
-        target2 = closest:GetAbsOrigin()
+        target2 = closest2:GetAbsOrigin()
       else
         target2 = target1 + RandomVector(256)
       end
