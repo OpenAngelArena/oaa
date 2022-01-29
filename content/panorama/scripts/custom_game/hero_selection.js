@@ -757,7 +757,6 @@ function IsHeroDisabled (name) {
 }
 
 function PreviewHero (name) {
-  $.Msg('PreviewHero called with ' + name);
   var lockButton = null;
   if (iscm) {
     lockButton = FindDotaHudElement('CaptainLockIn');
