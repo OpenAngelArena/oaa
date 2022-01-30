@@ -137,7 +137,7 @@ function AlchemistThink()
       if closest2 then
         target2 = closest2:GetAbsOrigin()
       else
-        target2 = target1 + RandomVector(256)
+        target2 = target1 + RandomVector(200)
       end
     end
     if target1 and target2 then
@@ -347,7 +347,7 @@ function AlchemistThink()
       if not thisEntity:HasModifier("modifier_alchemist_chemical_rage") and thisEntity.ChemicalRageAbility and thisEntity.ChemicalRageAbility:IsFullyCastable() then
         CastRage()
         AttackNearestTarget(thisEntity)
-        return 0.5
+        return 1
       elseif thisEntity.CannonshotAbility:IsCooldownReady() then
         local cannonshots = RandomInt(1, 3)
         thisEntity.lastCannonShots = cannonshots

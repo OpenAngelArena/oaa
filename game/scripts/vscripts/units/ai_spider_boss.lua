@@ -247,18 +247,18 @@ function SpiderBossThink()
       thisEntity.state = SIMPLE_AI_STATE_IDLE
     end
   end
-  return 1
+  return 0.5
 end
 
 function FindSpidershotLocations(thisEntity)
   local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
+  local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false)
 
   local target1, target2
   local count = 0
 
-  for k,v in pairs(enemies) do
-    local closeEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), v:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
+  for _, v in pairs(enemies) do
+    local closeEnemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), v:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false)
 
     if #closeEnemies > count then
       count = #closeEnemies
@@ -268,7 +268,7 @@ function FindSpidershotLocations(thisEntity)
   end
 
   if target1 and not target2 then
-    target2 = target1 + RandomVector(256)
+    target2 = target1 + RandomVector(200)
   end
 
   return target1, target2
@@ -280,7 +280,7 @@ function CastOnPoint(ability, target)
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
     AbilityIndex = ability:entindex(),
     Position = target,
-    --Queue = 0,
+    Queue = 1,
   })
 end
 
