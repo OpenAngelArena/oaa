@@ -93,8 +93,8 @@ function SpiderBossThink()
     return 1
   end
 
-  local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-  local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
+  local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+  local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
@@ -173,27 +173,34 @@ function SpiderBossThink()
     if thisEntity.SpidershotAbility and thisEntity.SpidershotAbility:IsFullyCastable() then
       local ability = thisEntity.SpidershotAbility
       local target1, target2 = FindSpidershotLocations(thisEntity)
-      if current_hp_pct > 75/100 then
-        if target1 then
+      if target1 then
+        if current_hp_pct > 75/100 then
           ability.target_points = { target1 = target1, target2 = target2 }
           CastOnPoint(ability, target1)
-        end
-      elseif current_hp_pct > 50/100 then
-        if target1 then
-          thisEntity.PoisonSpitAbility:EndCooldown()
-
-          ability.target_points = { target1 = target1, target2 = target2 }
+        elseif current_hp_pct > 50/100 then
+          ability.target_points = { target1 = target1, target2 = target2, target3 = target1 + RandomVector(200) }
           CastOnPoint(ability, target2)
-        end
-      elseif current_hp_pct > 25/100 then
-        if target1 then
+        elseif current_hp_pct > 30/100 then
           local spiderTargetPoints = {}
-          table.insert(spiderTargetPoints, target1)
-          table.insert(spiderTargetPoints, target2)
           local spiderTarget1 = target1 + RandomVector(200)
           local spiderTarget2 = target2 + RandomVector(200)
+          table.insert(spiderTargetPoints, target1)
+          table.insert(spiderTargetPoints, target2)
           table.insert(spiderTargetPoints, spiderTarget1)
           table.insert(spiderTargetPoints, spiderTarget2)
+
+          ability.target_points = spiderTargetPoints
+          CastOnPoint(ability, target1)
+        else
+          local spiderTargetPoints = {}
+          local spiderTarget1 = target1 + RandomVector(200)
+          local spiderTarget2 = target2 + RandomVector(200)
+          local spiderTarget3 = thisEntity:GetAbsOrigin() - 350 * thisEntity:GetForwardVector()
+          table.insert(spiderTargetPoints, target1)
+          table.insert(spiderTargetPoints, target2)
+          table.insert(spiderTargetPoints, spiderTarget1)
+          table.insert(spiderTargetPoints, spiderTarget2)
+          table.insert(spiderTargetPoints, spiderTarget3)
 
           ability.target_points = spiderTargetPoints
           CastOnPoint(ability, target1)
@@ -219,15 +226,14 @@ function SpiderBossThink()
         local randomTarget = poisonTargets[RandomInt(1, #poisonTargets)]
         local targetLoc = randomTarget:GetAbsOrigin()
         CastOnPoint(ability, targetLoc)
-        if current_hp_pct > 50/100 and current_hp_pct <= 75/100 then
-          thisEntity.SpidershotAbility:EndCooldown()
-        end
       end
     end
 
     if thisEntity.enraged == false and thisEntity.RageAbility and thisEntity.RageAbility:IsFullyCastable() then
-      if current_hp_pct <= 25/100 then
-        return CastRage()
+      if current_hp_pct <= 30/100 then
+        CastRage()
+        AttackNearestTarget(thisEntity)
+        return 1
       end
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
@@ -246,7 +252,7 @@ end
 
 function FindSpidershotLocations(thisEntity)
   local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
+  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, FIND_FARTHEST, false )
 
   local target1, target2
   local count = 0
@@ -287,8 +293,6 @@ function CastRage()
 		AbilityIndex = thisEntity.RageAbility:entindex(),
     Queue = 0,
 	})
-
-	return 1.8
 end
 
 function PlayHungerSpeech()

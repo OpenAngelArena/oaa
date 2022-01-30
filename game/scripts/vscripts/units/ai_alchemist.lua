@@ -109,16 +109,16 @@ function AlchemistThink()
   end
 
   local function FindCannonshotLocations(thisEntity)
+    local closest_distance = SIMPLE_BOSS_LEASH_SIZE
     local flags = bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS)
     local entityOrigin = thisEntity:GetAbsOrigin()
-    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), entityOrigin, nil, SIMPLE_BOSS_LEASH_SIZE, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), flags, FIND_CLOSEST, false)
+    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), entityOrigin, nil, closest_distance, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), flags, FIND_CLOSEST, false)
 
     local target1, target2
     local closest
     local closest2
 
-    -- Find the closest one
-    local closest_distance = 3 * SIMPLE_BOSS_LEASH_SIZE
+    -- Find 2 closest units
     for _, unit in ipairs(enemies) do
       -- Calculating distance
       local distance = (unit:GetAbsOrigin() - entityOrigin):Length2D()
@@ -126,6 +126,8 @@ function AlchemistThink()
         closest_distance = distance
         closest2 = closest
         closest = unit
+      elseif not closest2 then
+        closest2 = unit
       end
     end
 
@@ -257,7 +259,7 @@ function AlchemistThink()
         ability = thisEntity.CannonshotAbility
       end
 
-      if ability:IsCooldownReady() then
+      if ability and ability:IsCooldownReady() then
         if target1 then
           ability.target_points = { target1 = target1, target2 = target2 }
           CastOnPoint(ability, target1)
@@ -265,25 +267,33 @@ function AlchemistThink()
       end
     elseif current_hp_pct > 50/100 then -- phase 2
       local ability
+      local other_ability
       local target1, target2 = FindCannonshotLocations(thisEntity)
       if RandomInt(1, 2) == 1 then
         ability = thisEntity.AcidSprayAbility
+        other_ability = thisEntity.CannonshotAbility
       else
         ability = thisEntity.CannonshotAbility
+        other_ability = thisEntity.AcidSprayAbility
       end
 
-      if thisEntity.CannonshotAbility:IsCooldownReady() and thisEntity.AcidSprayAbility:IsCooldownReady() or thisEntity.bDouble then
-        if target1 then
-          thisEntity.AcidSprayAbility:EndCooldown()
-          thisEntity.CannonshotAbility:EndCooldown()
-
+      if thisEntity.bDouble then
+        ability:EndCooldown()
+        other_ability:EndCooldown()
+        if target1 and target2 then
           ability.target_points = { target1 = target1, target2 = target2 }
-          if target2 then
-            CastOnPoint(ability, target2)
-          end
-
-          thisEntity.bDouble = not thisEntity.bDouble
+          other_ability.target_points = { target1 = target1, target2 = target2 }
+          CastOnPoint(ability, target1)
+          CastOnPoint(other_ability, target2)
         end
+        thisEntity.bDouble = not thisEntity.bDouble
+      elseif ability:IsCooldownReady() then
+        other_ability:EndCooldown()
+        if target2 then
+          ability.target_points = { target1 = target1, target2 = target2 }
+          CastOnPoint(ability, target2)
+        end
+        thisEntity.bDouble = not thisEntity.bDouble
       end
     elseif current_hp_pct > 30/100 then -- phase 3
       if thisEntity.CannonshotAbility:IsCooldownReady() then
@@ -325,8 +335,7 @@ function AlchemistThink()
           repeat
             table.remove(acidpoints, i)
             i = i - 1
-          until
-            #acidpoints == acidshots
+          until (#acidpoints == acidshots or i == 0)
         end
 
         if target1 then
@@ -375,8 +384,7 @@ function AlchemistThink()
           repeat
             table.remove(acidpoints, i)
             i = i - 1
-          until
-            #acidpoints == acidshots
+          until (#acidpoints == acidshots or i == 0)
         end
 
         if target1 then
