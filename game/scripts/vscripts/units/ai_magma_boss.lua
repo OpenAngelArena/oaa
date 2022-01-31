@@ -234,6 +234,6 @@ function CastOnPoint(ability, target)
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
     AbilityIndex = ability:entindex(),
     Position = target,
-    --Queue = 0,
+    Queue = false,
   })
 end

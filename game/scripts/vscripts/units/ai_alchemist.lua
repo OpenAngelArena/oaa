@@ -277,23 +277,20 @@ function AlchemistThink()
         other_ability = thisEntity.AcidSprayAbility
       end
 
-      if thisEntity.bDouble then
-        ability:EndCooldown()
-        other_ability:EndCooldown()
-        if target1 and target2 then
-          ability.target_points = { target1 = target1, target2 = target2 }
-          other_ability.target_points = { target1 = target1, target2 = target2 }
-          CastOnPoint(ability, target1)
-          CastOnPoint(other_ability, target2)
-        end
-        thisEntity.bDouble = not thisEntity.bDouble
-      elseif ability:IsCooldownReady() then
-        other_ability:EndCooldown()
+      if ability and ability:IsCooldownReady() and other_ability then
         if target2 then
           ability.target_points = { target1 = target1, target2 = target2 }
           CastOnPoint(ability, target2)
         end
-        thisEntity.bDouble = not thisEntity.bDouble
+        local chance_for_double = 15
+        if RandomInt(1, 100) <= chance_for_double then
+          -- End CD of the other ability
+          other_ability:EndCooldown()
+          if target1 then
+            other_ability.target_points = { target1 = target1, target2 = target2 }
+            CastOnPoint(other_ability, target1)
+          end
+        end
       end
     elseif current_hp_pct > 30/100 then -- phase 3
       if thisEntity.CannonshotAbility:IsCooldownReady() then
@@ -301,9 +298,6 @@ function AlchemistThink()
         thisEntity.lastCannonShots = cannonshots
         local ability = thisEntity.CannonshotAbility
         local target1, target2 = FindCannonshotLocations(thisEntity)
-
-        -- end acid spray CD whenever we shoot a cannon
-        thisEntity.AcidSprayAbility:EndCooldown()
 
         if cannonshots == 1 then
           ability.target_points = { target1 = target1 }
@@ -335,7 +329,7 @@ function AlchemistThink()
           repeat
             table.remove(acidpoints, i)
             i = i - 1
-          until (#acidpoints == acidshots or i == 0)
+          until (#acidpoints == acidshots)
         end
 
         if target1 then
@@ -384,7 +378,7 @@ function AlchemistThink()
           repeat
             table.remove(acidpoints, i)
             i = i - 1
-          until (#acidpoints == acidshots or i == 0)
+          until (#acidpoints == acidshots)
         end
 
         if target1 then
@@ -395,20 +389,23 @@ function AlchemistThink()
     end
 
     -- Roam without Chemical Rage
-    if not thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
-      local next_location = thisEntity.vPath[RandomInt(1, 13)]
-      if next_location == thisEntity.lastRoamPoint then
-        next_location = next_location + RandomVector(100)
+    if not thisEntity:HasModifier("modifier_alchemist_chemical_rage") and current_hp_pct < aggro_hp_pct then
+      if not thisEntity.bRoamed then
+        local next_location = thisEntity.vPath[RandomInt(1, 13)]
+        if next_location == thisEntity.lastRoamPoint then
+          next_location = next_location + RandomVector(100)
+        end
+
+        thisEntity.lastRoamPoint = next_location
+
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+          Position = thisEntity.lastRoamPoint,
+          --Queue = true,
+        })
       end
-
-      thisEntity.lastRoamPoint = next_location
-
-      ExecuteOrderFromTable({
-        UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-        Position = thisEntity.lastRoamPoint,
-        Queue = 0,
-      })
+      thisEntity.bRoamed = not thisEntity.bRoamed
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
     -- Actual leashing
@@ -431,15 +428,15 @@ function CastOnPoint(ability, target)
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
     AbilityIndex = ability:entindex(),
     Position = target,
-    Queue = 1,
+    Queue = false,
   })
 end
 
 function CastRage()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.ChemicalRageAbility:entindex(),
-    Queue = 0,
-	})
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = thisEntity.ChemicalRageAbility:entindex(),
+    Queue = false,
+  })
 end

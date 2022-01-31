@@ -280,19 +280,19 @@ function CastOnPoint(ability, target)
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
     AbilityIndex = ability:entindex(),
     Position = target,
-    Queue = 1,
+    Queue = false,
   })
 end
 
 function CastRage()
-	PlayHungerSpeech()
+  PlayHungerSpeech()
 
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.RageAbility:entindex(),
-    Queue = 0,
-	})
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = thisEntity.RageAbility:entindex(),
+    Queue = false,
+  })
 end
 
 function PlayHungerSpeech()
