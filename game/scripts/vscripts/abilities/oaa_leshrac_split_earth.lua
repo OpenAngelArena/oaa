@@ -3,8 +3,13 @@ leshrac_split_earth_oaa = class(AbilityBaseClass)
 LinkLuaModifier("modifier_leshrac_split_earth_oaa_debuff", "abilities/oaa_leshrac_split_earth.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_leshrac_split_earth_oaa_thinker", "abilities/oaa_leshrac_split_earth.lua", LUA_MODIFIER_MOTION_NONE)
 
+function leshrac_split_earth_oaa:Precache(context)
+  PrecacheResource("particle", "particles/leshrac/leshrac_split_earth_aoe_indicator.vpcf", context)
+end
+
 function leshrac_split_earth_oaa:GetAOERadius()
-	local radius = ability:GetSpecialValueFor("radius")
+  local caster = self:GetCaster()
+  local radius = self:GetSpecialValueFor("radius")
 
   -- Talent that increases radius
   local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
@@ -18,9 +23,8 @@ end
 function leshrac_split_earth_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target_pos = self:GetCursorPosition()
-  --local radius = self:GetSpecialValueFor("radius")
 
-  CreateModifierThinker(caster, self, "modifier_leshrac_split_earth_oaa_thinker", {}, target_pos, caster:GetTeamNumber(), false )
+  CreateModifierThinker(caster, self, "modifier_leshrac_split_earth_oaa_thinker", {}, target_pos, caster:GetTeamNumber(), false)
 end
 
 function leshrac_split_earth_oaa:ProcsMagicStick()
@@ -51,8 +55,6 @@ function modifier_leshrac_split_earth_oaa_thinker:OnCreated()
   local delay = self:GetAbility():GetSpecialValueFor("delay")
 
   self:StartIntervalThink(delay)
-
-  --EmitSoundOnLocationForAllies( self:GetParent():GetOrigin(), "n_creep_SatyrHellcaller.Shockwave", self:GetCaster() )
 end
 
 function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
@@ -138,18 +140,21 @@ function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
   EmitSoundOnLocationWithCaster(target_pos, "Hero_Leshrac.Split_Earth", caster)
 
   if caster:HasShardOAA() then
-    -- Indicator particle
-    local new_radius = radius + ability:GetSpecialValueFor("shard_extra_radius_per_instance")
-    self.particle = ParticleManager:CreateParticle("particles/creatures/leshrac/split_earth_ground_preview.vpcf", PATTACH_CUSTOMORIGIN, caster)
-    ParticleManager:SetParticleControl(self.particle, 0, target_pos)
-    ParticleManager:SetParticleControl(self.particle, 1, Vector(new_radius, new_radius, new_radius))
+    local interval = ability:GetSpecialValueFor("shard_interval")
+    if not self.shard_split_earth_count or self.shard_split_earth_count < ability:GetSpecialValueFor("shard_extra_instances") then
+      -- Indicator particle
+      local new_radius = radius + ability:GetSpecialValueFor("shard_extra_radius_per_instance")
+      self.particle = ParticleManager:CreateParticle("particles/leshrac/leshrac_split_earth_aoe_indicator.vpcf", PATTACH_CUSTOMORIGIN, caster)
+      ParticleManager:SetParticleControl(self.particle, 0, target_pos)
+      ParticleManager:SetParticleControl(self.particle, 1, Vector(new_radius, 0, 0))
+      ParticleManager:SetParticleControl(self.particle, 2, Vector(interval + 0.1, 0, 0))
+    end
 
     if not self.shard_split_earth then
       self.shard_split_earth = true
       self.shard_split_earth_count = 0
 
       -- Start with the new interval
-      local interval = ability:GetSpecialValueFor("shard_interval")
       self:StartIntervalThink(interval)
     end
   else
