@@ -2,7 +2,7 @@
 // Tinker Rearm
 //=============================================================================
 "DOTA_Tooltip_ability_oaa_rearm"                        "#{DOTA_Tooltip_ability_tinker_rearm}"
-"DOTA_Tooltip_ability_oaa_rearm_Description"            "CHANNELED - Reduces all cooldowns by %cooldown_rate% seconds for each second channeled. Multiple cooldowns have a %split_pct%%% sharing penalty. Costs %mana_cost_pct%%% of max mana per second channeled."
+"DOTA_Tooltip_ability_oaa_rearm_Description"            "CHANNELED - Reduces all cooldowns by %cooldown_rate% seconds for each second channeled. Multiple cooldowns have a %split_pct%%% sharing penalty. Costs %mana_cost_pct%%% of max mana per second channeled.\n<font color=\"#ff0000\">Does not reduce cooldown of Blink Daggers.</font>"
 "DOTA_Tooltip_ability_oaa_rearm_Lore"                   "#{DOTA_Tooltip_ability_tinker_rearm_Lore}"
 "DOTA_Tooltip_ability_oaa_rearm_Note0"                  "Rearm doesn't reduce cooldown of every item."
 

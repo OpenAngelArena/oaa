@@ -108,7 +108,23 @@ local exempt_item_table = {
   item_far_sight_4 = true,
   item_ghost_king_bar = true,
   item_ghost_king_bar_2 = true,
-  item_ghost_king_bar_3 = true
+  item_ghost_king_bar_3 = true,
+  item_blink = true,
+  item_overwhelming_blink = true,
+  item_overwhelming_blink_2 = true,
+  item_overwhelming_blink_3 = true,
+  item_overwhelming_blink_4 = true,
+  item_overwhelming_blink_5 = true,
+  item_arcane_blink = true,
+  item_arcane_blink_2 = true,
+  item_arcane_blink_3 = true,
+  item_arcane_blink_4 = true,
+  item_arcane_blink_5 = true,
+  item_swift_blink = true,
+  item_swift_blink_2 = true,
+  item_swift_blink_3 = true,
+  item_swift_blink_4 = true,
+  item_swift_blink_5 = true
 }
 
 
