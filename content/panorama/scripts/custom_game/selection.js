@@ -1,25 +1,25 @@
 /* global  GameEvents, GameUI, Players */
 
 function AddToAndRemoveFromSelection (event) {
-  let to_add = event.entity_to_add;
-  let to_remove = event.entity_to_remove;
-  let already_selected = Players.GetSelectedEntities(Players.GetLocalPlayer());
-  
-  if (to_remove !== undefined) {
-    GameUI.SelectUnit(to_add, false);
+  let toAdd = event.entity_to_add;
+  let toRemove = event.entity_to_remove;
+  let alreadySelected = Players.GetSelectedEntities(Players.GetLocalPlayer());
 
-    if (already_selected !== undefined) {
-      for (let i in already_selected) {
-        if (already_selected[i] !== to_remove) {
-          GameUI.SelectUnit(already_selected[i], true);
-        };
-      };
-    };
+  if (toRemove !== undefined) {
+    GameUI.SelectUnit(toAdd, false);
+
+    if (alreadySelected !== undefined) {
+      for (let i in alreadySelected) {
+        if (alreadySelected[i] !== toRemove) {
+          GameUI.SelectUnit(alreadySelected[i], true);
+        }
+      }
+    }
   } else {
-    GameUI.SelectUnit(to_add, true);
-  };
+    GameUI.SelectUnit(toAdd, true);
+  }
 }
 
 (function () {
-  GameEvents.Subscribe("AddRemoveSelection", AddToAndRemoveFromSelection);
+  GameEvents.Subscribe('AddRemoveSelection', AddToAndRemoveFromSelection);
 })();
