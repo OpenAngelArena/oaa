@@ -193,6 +193,9 @@ function modifier_offside:OnIntervalThink()
   -- Don't continue (don't do location checks, don't increment or decrement the stacks, don't do damage etc.) if the parent is dead
   -- It also prevents parent's corpse from gaining more stacks if the parent died in offside
   if not parent:IsAlive() then
+    if self.BloodOverlay then
+      ParticleManager:SetParticleControl(self.BloodOverlay, 1, Vector( 0, 0, 0 ))
+    end
     return
   end
 

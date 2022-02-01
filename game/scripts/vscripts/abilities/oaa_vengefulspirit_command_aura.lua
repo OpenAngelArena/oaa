@@ -90,13 +90,13 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     illusion:SetMana(illusion:GetMaxMana())
     illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
     --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
-    --self.illusion = illusion
+    self.illusion = illusion
 
     Timers:CreateTimer(1/30, function()
-      PlayerResource:SetOverrideSelectionEntity(playerID, illusion)
-    end
-    Timers:CreateTimer(6/30, function()
-      PlayerResource:SetOverrideSelectionEntity(playerID, nil)
+      local player = PlayerResource:GetPlayer(playerID)
+      if player then
+        CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = illusion:GetEntityIndex(), entity_to_remove = parent:GetEntityIndex()})
+      end
     end)
   end
 end
@@ -118,12 +118,10 @@ function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
   end
   ]]
   local playerID = parent:GetPlayerOwnerID()
-  Timers:CreateTimer(1/30, function()
-    PlayerResource:SetOverrideSelectionEntity(playerID, parent)
+  local player = PlayerResource:GetPlayer(playerID)
+  if player then
+    CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = parent:GetEntityIndex(), entity_to_remove = self.illusion:GetEntityIndex()})
   end
-  Timers:CreateTimer(6/30, function()
-    PlayerResource:SetOverrideSelectionEntity(playerID, nil)
-  end)
 end
 
 ---------------------------------------------------------------------------------------------------
