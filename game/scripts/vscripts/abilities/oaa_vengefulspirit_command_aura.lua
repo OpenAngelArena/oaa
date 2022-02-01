@@ -74,6 +74,8 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     return
   end
 
+  local playerID = parent:GetPlayerOwnerID()
+
   local illusion_table = {
     outgoing_damage = 100 - ability:GetSpecialValueFor("illusion_damage_out_pct"),
     incoming_damage = ability:GetSpecialValueFor("illusion_damage_in_pct") - 100,
@@ -90,9 +92,11 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
     --self.illusion = illusion
 
-    PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), illusion)
-    Timers:CreateTimer(2/30, function()
-      PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+    Timers:CreateTimer(1/30, function()
+      PlayerResource:SetOverrideSelectionEntity(playerID, illusion)
+    end
+    Timers:CreateTimer(6/30, function()
+      PlayerResource:SetOverrideSelectionEntity(playerID, nil)
     end)
   end
 end
@@ -113,9 +117,12 @@ function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
     self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
   end
   ]]
-  PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), parent)
-  Timers:CreateTimer(2/30, function()
-    PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+  local playerID = parent:GetPlayerOwnerID()
+  Timers:CreateTimer(1/30, function()
+    PlayerResource:SetOverrideSelectionEntity(playerID, parent)
+  end
+  Timers:CreateTimer(6/30, function()
+    PlayerResource:SetOverrideSelectionEntity(playerID, nil)
   end)
 end
 
