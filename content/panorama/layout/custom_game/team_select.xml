@@ -34,10 +34,10 @@
             <Label id="Host" class="SettingsSubtitle" text="#game_options_host"/>
             <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">
               <Panel class="SettingsGroup">
-                <Label class="SettingsGroupTitle" text="#game_options_hero_selection"/>
                 <Button id="RESET" class="SettingsItem" onactivate="onPanelChange('RESET')">
                   <Label id="ResetLabel" text="#game_options_reset"/>
                 </Button>
+				<Label class="SettingsGroupTitle" text="#game_options_hero_selection"/>
                 <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
                   <Label text="#game_option_ar" id="AR"/>
                   <Label text="#game_option_ap" id="AP"/>
