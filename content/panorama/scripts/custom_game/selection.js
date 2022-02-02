@@ -7,7 +7,6 @@ function AddToAndRemoveFromSelection (event) {
 
   if (toRemove !== undefined) {
     GameUI.SelectUnit(toAdd, false);
-
     if (alreadySelected !== undefined) {
       for (let i in alreadySelected) {
         if (alreadySelected[i] !== toRemove) {
