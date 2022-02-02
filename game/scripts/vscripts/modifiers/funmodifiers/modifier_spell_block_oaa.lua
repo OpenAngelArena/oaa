@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_spell_block_cooldown_oaa", "modifiers/funmodifiers/mod
 modifier_spell_block_oaa = class(ModifierBaseClass)
 
 function modifier_spell_block_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_spell_block_oaa:IsDebuff()
@@ -21,6 +21,7 @@ end
 function modifier_spell_block_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSORB_SPELL,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
   }
 end
 
@@ -83,8 +84,12 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
   return 0
 end
 
+function modifier_spell_block_oaa:GetModifierStatusResistanceStacking()
+  return 25
+end
+
 function modifier_spell_block_oaa:GetTexture()
-  return "item_sphere"
+  return "roshan_spell_block"
 end
 
 ---------------------------------------------------------------------------------------------------

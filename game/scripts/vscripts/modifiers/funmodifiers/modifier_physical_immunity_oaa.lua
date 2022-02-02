@@ -1,7 +1,7 @@
 modifier_physical_immunity_oaa = class(ModifierBaseClass)
 
 function modifier_physical_immunity_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_physical_immunity_oaa:IsDebuff()
@@ -26,6 +26,6 @@ function modifier_physical_immunity_oaa:GetAbsoluteNoDamagePhysical()
   return 1
 end
 
---function modifier_physical_immunity_oaa:GetTexture()
-  --return ""
---end
+function modifier_physical_immunity_oaa:GetTexture()
+  return "omniknight_guardian_angel"
+end

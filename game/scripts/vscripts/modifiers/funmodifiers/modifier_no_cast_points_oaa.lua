@@ -1,7 +1,7 @@
 modifier_no_cast_points_oaa = class(ModifierBaseClass)
 
 function modifier_no_cast_points_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_no_cast_points_oaa:IsPurgable()
@@ -22,6 +22,6 @@ function modifier_no_cast_points_oaa:GetModifierPercentageCasttime()
   return 100
 end
 
---function modifier_no_cast_points_oaa:GetTexture()
-  --return ""
---end
+function modifier_no_cast_points_oaa:GetTexture()
+  return "wisp_spirits"
+end

@@ -1,0 +1,74 @@
+//=============================================================================
+// Game Options UI
+//=============================================================================
+"game_options_host"              "Host:"
+"game_options_reset"             "Reset"
+"game_options_hero_selection"    "Hero Selection Mode:"
+"game_option_ar"                 "All Random"
+"game_option_ap"                 "All Pick"
+"game_option_rd"                 "Random Draft"
+"game_option_ardm"               "All Random Death Match"
+"game_option_spp"                "2-6 Players"
+"game_option_none"               "None"
+"game_option_random"             "Random"
+
+"hero_options_title"             "Hero Modifiers:"
+"boss_options_title"             "Boss Modifiers:"
+"units_options_title"            "All Units Modifiers:"
+
+"game_option_lifesteal"          "Hyper Lifesteal"
+"game_option_aoe_radius"         "Bonus AoE/Radius"
+"game_option_blood_magic"        "Blood Magic"
+"game_option_timeless_relic"     "Timeless Relic"
+"game_option_echo_strike"        "Echo Strike"
+"game_option_hyper_active"       "Hyper Active"
+"game_option_no_cast_points"     "No Cast Points"
+"game_option_physical_immune"    "Physical Immunity"
+"game_option_pro_active"         "Pro-Active"
+"game_option_spell_block"        "Spell Resistance"
+"game_option_troll_switch"       "Attack Range Switch"
+
+"game_option_lifesteal_description"          "100% lifesteal and spell lifesteal against heroes. 50% against creeps and illusions."
+"game_option_aoe_radius_description"         "Most spells' and items' radius (AoE) increased by 50%."
+"game_option_blood_magic_description"        "All mana turned into health. All mana regen turned into health regen. Spells use health instead of mana."
+"game_option_timeless_relic_description"     "Bonus 25% debuff duration and bonus 25% spell amplification."
+"game_option_echo_strike_description"        "25% chance for every attack to proc another attack. Can proc on any attack."
+"game_option_hyper_active_description"       "35% cooldown reduction, 35% mana-cost reduction and 35% status resistance."
+"game_option_no_cast_points_description"     "Casting spells is instant. Channelling spells still have channel time."
+"game_option_physical_immune_description"    "Immune to attack damage and spells that deal physical damage."
+"game_option_pro_active_description"         "50% cooldown reduction. Affected by permanent Break (passives-disabled)."
+"game_option_spell_block_description"        "25% chance to block a single-targeted spell and 25% status resistance."
+"game_option_troll_switch_description"       "Melee heroes become ranged and ranged heroes become melee. Melee heroes gain 50 bonus hp per level and ranged heroes gain 5 bonus attack speed per level."
+
+"DOTA_Tooltip_modifier_any_damage_lifesteal_oaa"                      "#{game_option_lifesteal}"
+"DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"          "100%% lifesteal and spell lifesteal against heroes. 50%% against creeps and illusions."
+"DOTA_Tooltip_modifier_aoe_radius_increase_oaa"                       "#{game_option_aoe_radius}"
+"DOTA_Tooltip_modifier_aoe_radius_increase_oaa_Description"           "Most spells' and items' radius (AoE) increased by 50%%."
+"DOTA_Tooltip_modifier_blood_magic_oaa"                               "#{game_option_blood_magic}"
+"DOTA_Tooltip_modifier_blood_magic_oaa_Description"                   "#{game_option_blood_magic_description}"
+"DOTA_Tooltip_modifier_debuff_duration_oaa"                           "#{game_option_timeless_relic}"
+"DOTA_Tooltip_modifier_debuff_duration_oaa_Description"               "Bonus 25%% debuff duration and bonus 25%% spell amplification."
+"DOTA_Tooltip_modifier_echo_strike_oaa"                               "#{game_option_echo_strike}"
+"DOTA_Tooltip_modifier_echo_strike_oaa_Description"                   "25%% chance for every attack made by this unit to proc another attack. Can proc on procced attack."
+"DOTA_Tooltip_modifier_ham_oaa"                                       "#{game_option_hyper_active}"
+"DOTA_Tooltip_modifier_ham_oaa_Description"                           "35%% cooldown reduction, 35%% mana-cost reduction and 35%% status resistance."
+"DOTA_Tooltip_modifier_no_cast_points_oaa"                            "#{game_option_no_cast_points}"
+"DOTA_Tooltip_modifier_no_cast_points_oaa_Description"                "#{game_option_no_cast_points_description}"
+"DOTA_Tooltip_modifier_physical_immunity_oaa"                         "#{game_option_physical_immune}"
+"DOTA_Tooltip_modifier_physical_immunity_oaa_Description"             "#{game_option_physical_immune_description}"
+"DOTA_Tooltip_modifier_pro_active_oaa"                                "#{game_option_pro_active}"
+"DOTA_Tooltip_modifier_pro_active_oaa_Description"                    "50%% cooldown reduction. Most passive abilities are disabled."
+"DOTA_Tooltip_modifier_spell_block_oaa"                               "#{game_option_spell_block}"
+"DOTA_Tooltip_modifier_spell_block_oaa_Description"                   "25%% chance to block a single-targeted spell and 25%% status resistance."
+"DOTA_Tooltip_modifier_spell_block_cooldown_oaa"                      "Spell Block Cooldown."
+"DOTA_Tooltip_modifier_spell_block_cooldown_oaa_Description"          "Cannot block speels while having this debuff."
+"DOTA_Tooltip_modifier_troll_switch_oaa"                              "#{game_option_troll_switch}"
+"DOTA_Tooltip_modifier_troll_switch_oaa_Description"                  "Switched attack capability. If melee, gains 50 bonus hp per level and if ranged, gains 5 bonus attack speed per level."
+
+
+
+
+
+
+
+

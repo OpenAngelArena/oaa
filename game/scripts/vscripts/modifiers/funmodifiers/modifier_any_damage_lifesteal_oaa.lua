@@ -1,7 +1,7 @@
 modifier_any_damage_lifesteal_oaa = class(ModifierBaseClass)
 
 function modifier_any_damage_lifesteal_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_any_damage_lifesteal_oaa:IsPurgable()
@@ -125,6 +125,6 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
   end
 end
 
---function modifier_any_damage_lifesteal_oaa:GetTexture()
-  --return ""
---end
+function modifier_any_damage_lifesteal_oaa:GetTexture()
+  return "item_lifesteal"
+end

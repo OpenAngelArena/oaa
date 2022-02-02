@@ -1,7 +1,7 @@
 modifier_pro_active_oaa = class(ModifierBaseClass)
 
 function modifier_pro_active_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_pro_active_oaa:IsPurgable()
@@ -49,6 +49,6 @@ function modifier_pro_active_oaa:GetModifierPercentageCooldown(keys)
   end
 end
 
---function modifier_pro_active_oaa:GetTexture()
-  --return ""
---end
+function modifier_pro_active_oaa:GetTexture()
+  return "dazzle_bad_juju"
+end

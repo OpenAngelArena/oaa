@@ -1,7 +1,7 @@
 modifier_ham_oaa = class(ModifierBaseClass)
 
 function modifier_ham_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_ham_oaa:IsPurgable()
@@ -54,6 +54,6 @@ function modifier_ham_oaa:GetModifierStatusResistanceStacking()
   return self.status_resist
 end
 
---function modifier_ham_oaa:GetTexture()
-  --return ""
---end
+function modifier_ham_oaa:GetTexture()
+  return "modifier_rune_arcane"
+end

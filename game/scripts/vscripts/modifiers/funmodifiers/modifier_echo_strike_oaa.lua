@@ -1,7 +1,7 @@
 modifier_echo_strike_oaa = class(ModifierBaseClass)
 
 function modifier_echo_strike_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_echo_strike_oaa:IsPurgable()
@@ -85,6 +85,10 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
   end
 end
 
---function modifier_echo_strike_oaa:GetTexture()
-  --return ""
---end
+function modifier_echo_strike_oaa:GetTexture()
+  if self:GetParent():IsRangedAttacker() then
+    return "weaver_geminate_attack"
+  else
+    return "item_echo_sabre"
+  end
+end

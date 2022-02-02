@@ -1,7 +1,7 @@
 modifier_troll_switch_oaa = class(ModifierBaseClass)
 
 function modifier_troll_switch_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_troll_switch_oaa:IsPurgable()

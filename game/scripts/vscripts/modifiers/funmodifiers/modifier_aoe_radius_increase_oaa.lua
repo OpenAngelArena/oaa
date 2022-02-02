@@ -1,7 +1,7 @@
 modifier_aoe_radius_increase_oaa = class(ModifierBaseClass)
 
 function modifier_aoe_radius_increase_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_aoe_radius_increase_oaa:IsPurgable()
@@ -96,6 +96,6 @@ function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecialValue
   return value
 end
 
---function modifier_aoe_radius_increase_oaa:GetTexture()
-  --return ""
---end
+function modifier_aoe_radius_increase_oaa:GetTexture()
+  return "void_spirit_dissimilate"
+end

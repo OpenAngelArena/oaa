@@ -97,7 +97,7 @@ function OAAOptions:AdjustGameMode()
     else
       local hero_mod_pool = {}
       for _, v in pairs(hero_mods) do
-        if v ~= nil then
+        if v then
           table.insert(hero_mod_pool, v)
         end
       end
@@ -117,7 +117,7 @@ function OAAOptions:AdjustGameMode()
     else
       local boss_mod_pool = {}
       for _, v in pairs(boss_mods) do
-        if v ~= nil then
+        if v then
           table.insert(boss_mod_pool, v)
         end
       end

@@ -1,7 +1,7 @@
 modifier_blood_magic_oaa = class(ModifierBaseClass)
 
 function modifier_blood_magic_oaa:IsHidden()
-  return true
+  return false
 end
 function modifier_blood_magic_oaa:IsDebuff()
   return false
@@ -76,9 +76,9 @@ function modifier_blood_magic_oaa:GetModifierManaBonus()
 end
 
 function modifier_blood_magic_oaa:GetModifierSpellsRequireHP()
-	return 1
+  return 1
 end
 
---function modifier_blood_magic_oaa:GetTexture()
-  --return ""
---end
+function modifier_blood_magic_oaa:GetTexture()
+  return "custom/stonework_pendant"
+end
