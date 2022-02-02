@@ -118,8 +118,8 @@ function modifier_item_trumps_fists_passive:OnTakeDamage(event)
     return
   end
 
-  -- Ignore self damage
-  if damaged_unit == attacker then
+  -- Ignore self damage and allies
+  if damaged_unit == attacker or damaged_unit:GetTeamNumber() == attacker:GetTeamNumber() then
     return
   end
 

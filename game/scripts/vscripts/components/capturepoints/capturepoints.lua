@@ -333,22 +333,38 @@ end
 function CapturePoints:FindBestCapturePointLocation()
   local maxDistanceFromFountain = self:DistanceFromFountain(Vector(0, 0, 0), DOTA_TEAM_GOODGUYS) -- 6656
   --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
-  local minDistanceFromFountain = 450
+  local minDistanceFromFountain = 450 -- X: 6206
+  local maxY = 4100
+  local maxX = maxDistanceFromFountain - 500 -- 6156
+  local minY = 0
+  local minX = 0
+  local default_pos = Vector(0, 0, 0)
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
   if scoreDiff >= 20 then
-    maxDistanceFromFountain = maxDistanceFromFountain / 4
+    maxDistanceFromFountain = maxDistanceFromFountain / 3.8 -- 1751.58 -> X: 4904.22
+    minX = math.floor(maxX * 4 / 5) -- 4924
   elseif scoreDiff >= 15 then
-    maxDistanceFromFountain = maxDistanceFromFountain / 2
-    minDistanceFromFountain = 1000
+    minDistanceFromFountain = maxDistanceFromFountain / 5 -- 1331.2 -> X: 5324.8
+    maxDistanceFromFountain = maxDistanceFromFountain / 1.5 -- 4437.34 -> X: 2218.67
+    minX = math.floor(maxX * 2 / 5) -- 2462
+    maxX = math.ceil(maxX * 4 / 5)  -- 4925
   elseif scoreDiff >= 10 then
-    maxDistanceFromFountain = maxDistanceFromFountain * 3 / 4
-    minDistanceFromFountain = 2000
+    minDistanceFromFountain = maxDistanceFromFountain / 1.7 -- 3915.3 -> X: 2740.7
+    maxDistanceFromFountain = maxDistanceFromFountain / 1.2 -- 5546.67 -> X: 1109.34
+    minX = math.floor(maxX / 5) -- 1231
+    maxX = math.ceil(maxX * 2 / 5)  -- 2462
   elseif scoreDiff >= 5 then
-    minDistanceFromFountain = 3500
+    minDistanceFromFountain = maxDistanceFromFountain / 1.25 -- 5324.8 -> X: 1331.2
+    maxX = math.ceil(maxX / 5) -- 1232
   else
-    return Vector(0, 0, 0)
+    return default_pos
+  end
+
+  default_pos = Vector(math.floor((minX + maxX) / 2), minY, 0)
+  if not isGoodLead then
+    default_pos.x = 0 - default_pos.x
   end
 
   local fountain_team = DOTA_TEAM_GOODGUYS
@@ -356,11 +372,12 @@ function CapturePoints:FindBestCapturePointLocation()
     fountain_team = DOTA_TEAM_BADGUYS
   end
 
-  local position = Vector(0, 0, 0)
+  local position = default_pos
   local isValidPosition = false
+  local loop_count = 0
 
-  while not isValidPosition do
-    position = Vector(RandomInt(0, 6100), RandomInt(0, 4100), 100)
+  while (not isValidPosition and loop_count <= 8) do
+    position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
     if RandomInt(0, 1) == 0 then
       position.y = 0 - position.y
     end
@@ -371,6 +388,7 @@ function CapturePoints:FindBestCapturePointLocation()
     if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not self:IsZonePathable(position) then
       isValidPosition = false
     end
+    loop_count = loop_count + 1
   end
 
   return position

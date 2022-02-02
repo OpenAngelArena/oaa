@@ -647,7 +647,7 @@ function UpdatePreviews (data) {
   });
 }
 
-function ChangeHeroImage(container, hero) {
+function ChangeHeroImage (container, hero) {
   // if you give this long "npc_dota_hero_blah" or short "blah" names they both work
   container.heroname = hero;
   // when we read the value, it's always the short-hand version without the prefix

@@ -74,6 +74,8 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     return
   end
 
+  local playerID = parent:GetPlayerOwnerID()
+
   local illusion_table = {
     outgoing_damage = 100 - ability:GetSpecialValueFor("illusion_damage_out_pct"),
     incoming_damage = ability:GetSpecialValueFor("illusion_damage_in_pct") - 100,
@@ -88,11 +90,13 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
     illusion:SetMana(illusion:GetMaxMana())
     illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
     --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
-    --self.illusion = illusion
+    self.illusion = illusion
 
-    PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), illusion)
-    Timers:CreateTimer(2/30, function()
-      PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
+    Timers:CreateTimer(1/30, function()
+      local player = PlayerResource:GetPlayer(playerID)
+      if player then
+        CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = illusion:GetEntityIndex(), entity_to_remove = parent:GetEntityIndex()})
+      end
     end)
   end
 end
@@ -113,10 +117,11 @@ function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
     self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
   end
   ]]
-  PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), parent)
-  Timers:CreateTimer(2/30, function()
-    PlayerResource:SetOverrideSelectionEntity(parent:GetPlayerOwnerID(), nil)
-  end)
+  local playerID = parent:GetPlayerOwnerID()
+  local player = PlayerResource:GetPlayer(playerID)
+  if player then
+    CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = parent:GetEntityIndex(), entity_to_remove = self.illusion:GetEntityIndex()})
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
