@@ -45,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "torrent_damage"                                  "500"
+        "torrent_damage"                                  "2700"
       }
       "03"
       {
@@ -95,7 +95,7 @@
       "12" // advice: totem_health should be divideable with totem_hero_attacks_to_destroy
       {
         "var_type"                                        "FIELD_INTEGER"
-        "totem_hero_attacks_to_destroy"                   "4"
+        "totem_hero_attacks_to_destroy"                   "8"
       }
       "13"
       {

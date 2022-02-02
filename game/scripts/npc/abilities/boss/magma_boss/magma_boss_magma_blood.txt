@@ -20,7 +20,7 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityCooldown"                                     "5.0"
+    "AbilityCooldown"                                     "3.0"
 
     "AbilityManaCost"                                     "0"
 
@@ -46,7 +46,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "1200"
+        "impact_damage"                                   "1700"
       }
       "05" // blob is just a visual effect
       {
