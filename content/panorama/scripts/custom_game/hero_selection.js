@@ -180,7 +180,7 @@ function handleOAASettingsChange(n, key, settings) {
 
   lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
   lines.push('')
-  $.Msg(settings);
+
   if (settings.HEROES_MODS !== 'HMN') {
     const modifierNames = {
       HM01: "#game_option_lifesteal",

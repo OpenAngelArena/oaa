@@ -186,19 +186,16 @@ function onPanelChange (name) {
     GameEvents.SendCustomGameEventToServer('oaa_setting_changed', {setting: name, value: val});
   }
   if (panelType === 'Button') {
-    $.Msg('')
     GameEvents.SendCustomGameEventToServer('oaa_button_clicked', {button: name});
   }
 }
 
 function updatePanel (kv) {
-  $.Msg(kv);
   let name = kv.setting;
   let val = kv.value;
   let panel = $('#' + name);
   if (panel) {
     let panelType = panel.paneltype;
-    $.Msg(name + ' is ' + panelType + ' setting to ' + val)
     switch (panelType) {
       case 'DropDown':
         panel.SetSelected(val);
