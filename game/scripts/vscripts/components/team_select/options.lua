@@ -6,6 +6,42 @@ if OAAOptions == nil then
   OAAOptions = class({})
 end
 
+local hero_mods = {
+  HMN  = false,
+  HM01 = "modifier_any_damage_lifesteal_oaa",
+  HM02 = "modifier_aoe_radius_increase_oaa",
+  HM03 = "modifier_blood_magic_oaa",
+  HM04 = "modifier_debuff_duration_oaa",
+  HM05 = "modifier_echo_strike_oaa",
+  HM06 = "modifier_ham_oaa",
+  HM07 = "modifier_no_cast_points_oaa",
+  HM08 = "modifier_physical_immunity_oaa",
+  HM09 = "modifier_pro_active_oaa",
+  HM10 = "modifier_spell_block_oaa",
+  HM11 = "modifier_troll_switch_oaa",
+}
+local boss_mods = {
+  BMN  = false,
+  BM01 = "modifier_any_damage_lifesteal_oaa",
+  BM02 = "modifier_echo_strike_oaa",
+  BM03 = "modifier_physical_immunity_oaa",
+  BM04 = "modifier_spell_block_oaa",
+}
+local global_mods = {
+  GMN  = false,
+  GM01 = false,--"modifier_any_damage_lifesteal_oaa",
+  GM02 = "modifier_aoe_radius_increase_oaa",
+  GM03 = "modifier_blood_magic_oaa",
+  GM04 = "modifier_debuff_duration_oaa",
+  GM05 = false, --"modifier_echo_strike_oaa",
+  GM06 = "modifier_ham_oaa",
+  GM07 = "modifier_no_cast_points_oaa",
+  GM08 = "modifier_physical_immunity_oaa",
+  GM09 = "modifier_pro_active_oaa",
+  GM10 = "modifier_spell_block_oaa",
+  GM11 = "modifier_troll_switch_oaa",
+}
+
 function OAAOptions:Init ()
   --Debug:EnableDebugging()
   DebugPrint('OAAOptions module Initialization started!')
@@ -15,20 +51,28 @@ function OAAOptions:Init ()
   self.settingsDefault = {}
 
   self:InitializeSettingsTable()
-
-  CustomNetTables:SetTableValue("oaa_settings", "default", OAAOptions.settings)
+  self:SaveSettings()
 
   CustomGameEventManager:RegisterListener("oaa_setting_changed", function(_, kv)
-    OAAOptions.settings[kv.setting] = kv.value
+    self.settings[kv.setting] = kv.value
+    self:SaveSettings()
     DebugPrint(kv.setting, ":", kv.value)
   end)
 
   CustomGameEventManager:RegisterListener("oaa_button_clicked", function(_, kv)
     local name = kv.button
+    DebugPrint('Received button press ' .. name)
     if name == "RESET" then
-      for k, v in pairs(OAAOptions.settingsDefault) do
-        CustomGameEventManager:Send_ServerToAllClients("oaa_setting_changed", {setting = k, value = v})
-      end
+      self:RestoreDefaults()
+      self:SaveSettings()
+      return
+    end
+    if name == "RANDOMIZE" then
+      self.settings.HEROES_MODS = self:GetRandomHeroModifier()
+      self.settings.BOSSES_MODS = self:GetRandomBossModifier()
+      self.settings.GLOBAL_MODS = self:GetRandomGlobalModifier()
+      self:SaveSettings()
+      return
     end
   end)
 
@@ -49,6 +93,17 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_troll_switch_oaa", "modifiers/funmodifiers/modifier_troll_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
+end
+
+function OAAOptions:RestoreDefaults()
+  for k, v in pairs(self.settingsDefault) do
+    self.settings[k] = v
+  end
+  CustomNetTables:SetTableValue("oaa_settings", "settings", self.settings)
+end
+
+function OAAOptions:SaveSettings()
+  CustomNetTables:SetTableValue("oaa_settings", "settings", self.settings)
 end
 
 function OAAOptions:InitializeSettingsTable()
@@ -79,79 +134,24 @@ function OAAOptions:AdjustGameMode()
   end
 
   if self.settings.HEROES_MODS ~= "HMN" then
-    local hero_mods = {
-      HM01 = "modifier_any_damage_lifesteal_oaa",
-      HM02 = "modifier_aoe_radius_increase_oaa",
-      HM03 = "modifier_blood_magic_oaa",
-      HM04 = "modifier_debuff_duration_oaa",
-      HM05 = "modifier_echo_strike_oaa",
-      HM06 = "modifier_ham_oaa",
-      HM07 = "modifier_no_cast_points_oaa",
-      HM08 = "modifier_physical_immunity_oaa",
-      HM09 = "modifier_pro_active_oaa",
-      HM10 = "modifier_spell_block_oaa",
-      HM11 = "modifier_troll_switch_oaa",
-    }
-    if self.settings.HEROES_MODS ~= "HMR" then
-      self.heroes_mod = hero_mods[self.settings.HEROES_MODS]
-    else
-      local hero_mod_pool = {}
-      for _, v in pairs(hero_mods) do
-        if v then
-          table.insert(hero_mod_pool, v)
-        end
-      end
-      self.heroes_mod = hero_mod_pool[RandomInt(1, #hero_mod_pool)]
+    if self.settings.HEROES_MODS == "HMR" then
+      self.settings.HEROES_MODS = self:GetRandomHeroModifier()
     end
+    self.heroes_mod = hero_mods[self.settings.HEROES_MODS]
   end
 
   if self.settings.BOSSES_MODS ~= "BMN" then
-    local boss_mods = {
-      BM01 = "modifier_any_damage_lifesteal_oaa",
-      BM02 = "modifier_echo_strike_oaa",
-      BM03 = "modifier_physical_immunity_oaa",
-      BM04 = "modifier_spell_block_oaa",
-    }
-    if self.settings.BOSSES_MODS ~= "BMR" then
-      self.bosses_mod = boss_mods[self.settings.BOSSES_MODS]
-    else
-      local boss_mod_pool = {}
-      for _, v in pairs(boss_mods) do
-        if v then
-          table.insert(boss_mod_pool, v)
-        end
-      end
-      self.bosses_mod = boss_mod_pool[RandomInt(1, #boss_mod_pool)]
+    if self.settings.BOSSES_MODS == "BMR" then
+      self.settings.BOSSES_MODS = self:GetRandomBossModifier()
     end
+    self.bosses_mod = boss_mods[self.settings.BOSSES_MODS]
   end
 
   if self.settings.GLOBAL_MODS ~= "GMN" then
-    local gamemode = GameRules:GetGameModeEntity()
-    local global_mods = {
-      GM01 = false,--"modifier_any_damage_lifesteal_oaa",
-      GM02 = "modifier_aoe_radius_increase_oaa",
-      GM03 = "modifier_blood_magic_oaa",
-      GM04 = "modifier_debuff_duration_oaa",
-      GM05 = false, --"modifier_echo_strike_oaa",
-      GM06 = "modifier_ham_oaa",
-      GM07 = "modifier_no_cast_points_oaa",
-      GM08 = "modifier_physical_immunity_oaa",
-      GM09 = "modifier_pro_active_oaa",
-      GM10 = "modifier_spell_block_oaa",
-      GM11 = "modifier_troll_switch_oaa",
-    }
-
-    if self.settings.GLOBAL_MODS ~= "GMR" then
-      self.global_mod = global_mods[self.settings.GLOBAL_MODS]
-    else
-      local global_mod_pool = {}
-      for _, v in pairs(global_mods) do
-        if v ~= nil then
-          table.insert(global_mod_pool, v)
-        end
-      end
-      self.global_mod = global_mod_pool[RandomInt(1, #global_mod_pool)]
+    if self.settings.GLOBAL_MODS == "GMR" then
+      self.settings.GLOBAL_MODS = self:GetRandomGlobalModifier()
     end
+    self.global_mod = global_mods[self.settings.GLOBAL_MODS]
 
     if self.global_mod == false then
       local global_event_mods = {
@@ -159,20 +159,40 @@ function OAAOptions:AdjustGameMode()
         GM05 = "modifier_echo_strike_oaa",
       }
       local global_event_mod = global_event_mods[self.settings.GLOBAL_MODS]
-      if self.settings.GLOBAL_MODS == "GMR" or not global_event_mod then
-        local mod_pool = {}
-        for _, v in pairs(global_event_mods) do
-          if v ~= nil then
-            table.insert(mod_pool, v)
-          end
-        end
-        global_event_mod = mod_pool[RandomInt(1, #mod_pool)]
+      if global_event_mod then
+        local global_thinker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+        global_thinker:AddNewModifier(global_thinker, nil, "modifier_oaa_thinker", {})
+        global_thinker:AddNewModifier(global_thinker, nil, global_event_mod, {isGlobal = 1})
       end
-      local global_thinker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
-      global_thinker:AddNewModifier(global_thinker, nil, "modifier_oaa_thinker", {})
-      global_thinker:AddNewModifier(global_thinker, nil, global_event_mod, {isGlobal = 1})
     end
   end
+
+  self:SaveSettings()
+end
+
+function OAAOptions:GetRandomHeroModifier()
+  local options = {}
+  for k,v in pairs(hero_mods) do
+    table.insert(options, k)
+  end
+  return self:GetRandomModifierFromOptions(options)
+end
+function OAAOptions:GetRandomBossModifier()
+  local options = {}
+  for k,v in pairs(boss_mods) do
+    table.insert(options, k)
+  end
+  return self:GetRandomModifierFromOptions(options)
+end
+function OAAOptions:GetRandomGlobalModifier()
+  local options = {}
+  for k,v in pairs(global_mods) do
+    table.insert(options, k)
+  end
+  return self:GetRandomModifierFromOptions(options)
+end
+function OAAOptions:GetRandomModifierFromOptions(options)
+  return options[RandomInt(1, #options)]
 end
 
 function OAAOptions:OnUnitSpawn(event)
@@ -234,7 +254,8 @@ function OAAOptions:ChangeDefaultSettings()
   if self:FindHostID() == 7131038 then
     -- Chris is the host
     self.settingsDefault.GAME_MODE = "RD"
-    self.settings.GAME_MODE = "RD"
-    CustomNetTables:SetTableValue("oaa_settings", "default", OAAOptions.settingsDefault)
   end
+
+  self:RestoreDefaults()
+  self:SaveSettings()
 end

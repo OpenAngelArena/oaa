@@ -37,7 +37,7 @@
                 <Button id="RESET" class="SettingsItem" onactivate="onPanelChange('RESET')">
                   <Label id="ResetLabel" text="#game_options_reset"/>
                 </Button>
-				<Label class="SettingsGroupTitle" text="#game_options_hero_selection"/>
+                <Label class="SettingsGroupTitle" text="#game_options_hero_selection"/>
                 <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
                   <Label text="#game_option_ar" id="AR"/>
                   <Label text="#game_option_ap" id="AP"/>
@@ -45,8 +45,8 @@
                   <Label text="#game_option_ardm" id="ARDM"/>
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="#game_option_spp" onactivate="onPanelChange('small_player_pool')"/>
-				<Label class="SettingsGroupTitle" text="#hero_options_title"/>
-				<DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
+                <Label class="SettingsGroupTitle" text="#hero_options_title"/>
+                <DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
                   <Label text="#game_option_lifesteal" id="HM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/>
@@ -61,8 +61,8 @@
                   <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_troll_switch" id="HM11" onmouseover="UIShowTextTooltip(#game_option_troll_switch_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
-				<Label class="SettingsGroupTitle" text="#boss_options_title"/>
-				<DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">
+                <Label class="SettingsGroupTitle" text="#boss_options_title"/>
+                <DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">
                   <Label text="#game_option_none" id="BMN"/>
                   <Label text="#game_option_random" id="BMR"/>
                   <Label text="#game_option_lifesteal" id="BM01"/>
@@ -70,8 +70,8 @@
                   <Label text="#game_option_physical_immune" id="BM03"/>
                   <Label text="#game_option_spell_block" id="BM04"/>
                 </DropDown>
-				<Label class="SettingsGroupTitle" text="#units_options_title"/>
-				<DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
+                <Label class="SettingsGroupTitle" text="#units_options_title"/>
+                <DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
                   <Label text="#game_option_none" id="GMN"/>
                   <Label text="#game_option_random" id="GMR"/>
                   <Label text="#game_option_lifesteal" id="GM01"/>
@@ -86,6 +86,9 @@
                   <Label text="#game_option_spell_block" id="GM10"/>
                   <Label text="#game_option_troll_switch" id="GM11"/>
                 </DropDown>
+                <Button id="RANDOMIZE" class="SettingsItem" onactivate="onPanelChange('RANDOMIZE')">
+                  <Label text="Randomize Modifiers" />
+                </Button>
               </Panel>
             </Panel>
           </Panel>

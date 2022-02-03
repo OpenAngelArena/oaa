@@ -16,13 +16,7 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
     listenToGameEvent('oaa_state_change', onStateChange);
   }
 
-  function onStateChange (data) {
-    hideShowUI(data.newState);
-  }
-
   hostTitle();
-  loadSettings(CustomNetTables.GetTableValue('oaa_settings', 'default'));
-  loadAverageMMRValues(CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
 
   if (Game.GetMapInfo().map_display_name === '1v1') {
     let smallPlayerPoolButton = $('#small_player_pool');
@@ -35,31 +29,39 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 
   $.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');
 
-  if (!IsHost) {
-    $('#SettingsBody').enabled = false;
-  }
+  $('#SettingsBody').enabled = IsHost;
 
-
-  CustomNetTables.SubscribeNetTableListener('oaa_settings', function (t, key, kv) {
-    if (key === 'locked') {
-      $.Msg('oaa_settings :' + key);
-      $('#SettingsBody').enabled = false;
-      loadSettings(kv);
-      return;
-    }
-    if (key === 'average_team_mmr') {
-      $.Msg('oaa_settings :' + key);
-      loadAverageMMRValues(kv);
-      return
-    }
-  });
-
-  GameEvents.Subscribe('oaa_setting_changed', updatePanel);
+  CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
+  handleOAASettingsChange(null, 'settings', CustomNetTables.GetTableValue('oaa_settings', 'settings'));
+  handleOAASettingsChange(null, 'average_team_mmr', CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
 }());
 
+function onStateChange (data) {
+  hideShowUI(data.newState);
+}
+
+function handleOAASettingsChange(t, key, kv) {
+  if (key === 'settings') {
+    $.Msg('oaa_settings :' + key);
+    loadSettings(kv);
+    return;
+  }
+  if (key === 'locked') {
+    $.Msg('oaa_settings :' + key);
+    $('#SettingsBody').enabled = false;
+    loadSettings(kv);
+    return;
+  }
+  if (key === 'average_team_mmr') {
+    $.Msg('oaa_settings :' + key);
+    loadAverageMMRValues(kv);
+    return
+  }
+}
+
 function loadAverageMMRValues(values) {
-  $('#RadiantAverageMMR').text = 'Average MMR: ' + values.radiant
-  $('#DireAverageMMR').text = 'Average MMR: ' + values.dire
+  $('#RadiantAverageMMR').text = 'Average MMR: ' + Math.round(values.radiant)
+  $('#DireAverageMMR').text = 'Average MMR: ' + Math.round(values.dire)
 }
 
 function MMRShuffle () {
@@ -140,18 +142,11 @@ function hostTitle () {
 }
 
 function loadSettings (kv, secondTime) {
-  $.Msg(kv);
   if (kv) {
     for (let i in kv) {
       updatePanel({setting: i, value: kv[i]});
     }
     $.Msg('Succesfully loaded/changed Game Settings.');
-  } else {
-    // didnt happen, lua loads before clients?
-    if (!secondTime) {
-      $.Msg('Failed to load Game Settings. Trying again one more time.');
-      $.Schedule(0.1, loadSettings(kv, true));
-    }
   }
 }
 
@@ -186,22 +181,24 @@ function onPanelChange (name) {
 }
 
 function updatePanel (kv) {
+  $.Msg(kv);
   let name = kv.setting;
   let val = kv.value;
   let panel = $('#' + name);
   if (panel) {
     let panelType = panel.paneltype;
-    switch (true) {
-      case (panelType === 'DropDown'):
+    $.Msg(name + ' is ' + panelType + ' setting to ' + val)
+    switch (panelType) {
+      case 'DropDown':
         panel.SetSelected(val);
         break;
-      case (panelType === 'Label'):
+      case 'Label':
         panel.text = val;
         break;
-      case (panelType === 'ToggleButton'):
+      case 'ToggleButton':
         panel.checked = val;
         break;
-      case (panelType === 'TextEntry'):
+      case 'TextEntry':
         panel.text = val + panel.GetAttributeString('unit', '');
         if (parseFloat(val) !== parseFloat(panel.text)) {
           panel.text = val;
