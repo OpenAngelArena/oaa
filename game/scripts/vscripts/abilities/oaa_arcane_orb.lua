@@ -277,7 +277,7 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       local splash_damage = bonus_damage * splash_pct * 0.01
       damage_table.damage = splash_damage
 
-      local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_CLOSEST, false)
+      local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
       for _, enemy in ipairs(enemies) do
         if enemy ~= target then
           damage_table.victim = enemy
