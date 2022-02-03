@@ -225,7 +225,7 @@ function handleOAASettingsChange(n, key, settings) {
       GM11: "#game_option_troll_switch",
     };
 
-    lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));
+    lines.push($.Localize('#units_options_title') + ' ' + $.Localize(modifierNames[settings.GLOBAL_MODS] + '_description'));
     lines.push('');
   }
 
