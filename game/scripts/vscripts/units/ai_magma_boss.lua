@@ -237,3 +237,18 @@ function CastOnPoint(ability, target)
     Queue = false,
   })
 end
+
+-- Unused, maybe for future use
+function GoToMagma()
+  local vPosition = thisEntity.hVolcanoAbility:FindClosestMagmaPool()
+  if vPosition == nil then
+    return 0.3
+  end
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = vPosition,
+    Queue = false,
+  })
+  return 2
+end
