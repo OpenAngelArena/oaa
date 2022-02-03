@@ -138,6 +138,7 @@ function init () {
 
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
   CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
+  CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
 
   // load hero selection
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
@@ -152,15 +153,83 @@ function init () {
   onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
   ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
   UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+
+  handleOAASettingsChange(null, 'locked', CustomNetTables.GetTableValue('oaa_settings', 'locked'));
+
   changeHilariousLoadingText();
   UpdateBottleList();
 
-  // I will figure out how to fix chat in captain's mode some other time
-  if (currentMap !== 'captains_mode') {
-    EnableChatWindow();
-  }
+  // there are rumors this makes CM worse but i'll believe it when i see it
+  EnableChatWindow();
 
   $('#ARDMLoading').style.opacity = 0;
+}
+
+function handleOAASettingsChange(n, key, settings) {
+  if (key !== "locked") {
+    return;
+  }
+
+  const infoPanel = $("#ExtraInfo");
+
+  if (!infoPanel) {
+    return;
+  }
+
+  const lines = [];
+
+  lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
+  lines.push('')
+  $.Msg(settings);
+  if (settings.HEROES_MODS !== 'HMN') {
+    const modifierNames = {
+      HM01: "#game_option_lifesteal",
+      HM02: "#game_option_aoe_radius",
+      HM03: "#game_option_blood_magic",
+      HM04: "#game_option_timeless_relic",
+      HM05: "#game_option_echo_strike",
+      HM06: "#game_option_hyper_active",
+      HM07: "#game_option_no_cast_points",
+      HM08: "#game_option_physical_immune",
+      HM09: "#game_option_pro_active",
+      HM10: "#game_option_spell_block",
+      HM11: "#game_option_troll_switch",
+    };
+
+    lines.push($.Localize('#hero_options_title') + ' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
+    lines.push('');
+  }
+  if (settings.BOSSES_MODS !== 'BMN') {
+    const modifierNames = {
+      BM01: "#game_option_lifesteal",
+      BM02: "#game_option_echo_strike",
+      BM03: "#game_option_physical_immune",
+      BM04: "#game_option_spell_block",
+    };
+
+    lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));
+    lines.push('');
+  }
+  if (settings.GLOBAL_MODS !== 'GMN') {
+    const modifierNames = {
+      GM01: "#game_option_lifesteal",
+      GM02: "#game_option_aoe_radius",
+      GM03: "#game_option_blood_magic",
+      GM04: "#game_option_timeless_relic",
+      GM05: "#game_option_echo_strike",
+      GM06: "#game_option_hyper_active",
+      GM07: "#game_option_no_cast_points",
+      GM08: "#game_option_physical_immune",
+      GM09: "#game_option_pro_active",
+      GM10: "#game_option_spell_block",
+      GM11: "#game_option_troll_switch",
+    };
+
+    lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));
+    lines.push('');
+  }
+
+  infoPanel.text = lines.join('\n');
 }
 
 function changeHilariousLoadingText () {

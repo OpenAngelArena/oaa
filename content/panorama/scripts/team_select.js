@@ -36,6 +36,16 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
   handleOAASettingsChange(null, 'average_team_mmr', CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
 }());
 
+function RandomizeModifiers() {
+  $.Msg('Clicked randomize!');
+  if (!IsHost) {
+    return;
+  }
+  GameEvents.SendCustomGameEventToServer('randomizeModifiers', {
+    shuffle: true
+  });
+}
+
 function onStateChange (data) {
   hideShowUI(data.newState);
 }
@@ -176,6 +186,7 @@ function onPanelChange (name) {
     GameEvents.SendCustomGameEventToServer('oaa_setting_changed', {setting: name, value: val});
   }
   if (panelType === 'Button') {
+    $.Msg('')
     GameEvents.SendCustomGameEventToServer('oaa_button_clicked', {button: name});
   }
 }
