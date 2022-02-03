@@ -106,7 +106,8 @@
         <!-- Mid -->
         <Panel id="Mid">
           <Panel id="MidImages">
-            <Panel id="Radiant"/>
+            <Panel id="Radiant">
+            </Panel>
             <Panel id="Vs"/>
             <Panel id="Dire"/>
           </Panel>
@@ -115,6 +116,10 @@
 
         <!-- Footer -->
         <Panel id="Footer">
+          <Panel id="MMRLabelContainer">
+            <Label text="Average MMR: 1234" class="mmrLabel" id="RadiantAverageMMR" />
+            <Label text="Average MMR: 4321" class="mmrLabel" id="DireAverageMMR" />
+          </Panel>
           <Button id="ShuffleTeamAssignmentButton" onactivate="MMRShuffle()">
             <Label text="#custom_game_team_select_shuffle" />
           </Button>

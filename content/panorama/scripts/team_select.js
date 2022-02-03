@@ -22,15 +22,44 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 
   hostTitle();
   loadSettings(CustomNetTables.GetTableValue('oaa_settings', 'default'));
+  loadAverageMMRValues(CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
+
+  if (Game.GetMapInfo().map_display_name === '1v1') {
+    let smallPlayerPoolButton = $('#small_player_pool');
+    if (smallPlayerPoolButton) {
+      smallPlayerPoolButton.enabled = false;
+      smallPlayerPoolButton.style.opacity = 0;
+      smallPlayerPoolButton.style.visibility = 'collapse';
+    }
+  }
+
+  $.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');
+
+  if (!IsHost) {
+    $('#SettingsBody').enabled = false;
+  }
+
+
+  CustomNetTables.SubscribeNetTableListener('oaa_settings', function (t, key, kv) {
+    if (key === 'locked') {
+      $.Msg('oaa_settings :' + key);
+      $('#SettingsBody').enabled = false;
+      loadSettings(kv);
+      return;
+    }
+    if (key === 'average_team_mmr') {
+      $.Msg('oaa_settings :' + key);
+      loadAverageMMRValues(kv);
+      return
+    }
+  });
+
+  GameEvents.Subscribe('oaa_setting_changed', updatePanel);
 }());
 
-if (Game.GetMapInfo().map_display_name === '1v1') {
-  let smallPlayerPoolButton = $('#small_player_pool');
-  if (smallPlayerPoolButton) {
-    smallPlayerPoolButton.enabled = false;
-    smallPlayerPoolButton.style.opacity = 0;
-    smallPlayerPoolButton.style.visibility = 'collapse';
-  }
+function loadAverageMMRValues(values) {
+  $('#RadiantAverageMMR').text = 'Average MMR: ' + values.radiant
+  $('#DireAverageMMR').text = 'Average MMR: ' + values.dire
 }
 
 function MMRShuffle () {
@@ -97,12 +126,6 @@ function listenToGameEvent (event, handler) {
   }
 }
 
-$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');
-
-if (!IsHost) {
-  $('#SettingsBody').enabled = false;
-}
-
 function hostTitle () {
   if ($('#Host')) {
     for (let i of Game.GetAllPlayerIDs()) {
@@ -117,6 +140,7 @@ function hostTitle () {
 }
 
 function loadSettings (kv, secondTime) {
+  $.Msg(kv);
   if (kv) {
     for (let i in kv) {
       updatePanel({setting: i, value: kv[i]});
@@ -130,14 +154,6 @@ function loadSettings (kv, secondTime) {
     }
   }
 }
-
-CustomNetTables.SubscribeNetTableListener('oaa_settings', function (t, k, kv) {
-  if (k === 'locked') {
-    $.Msg('oaa_settings :', k);
-    $('#SettingsBody').enabled = false;
-    loadSettings(kv);
-  }
-});
 
 function onPanelChange (name) {
   if (!IsHost) {
@@ -168,8 +184,6 @@ function onPanelChange (name) {
     GameEvents.SendCustomGameEventToServer('oaa_button_clicked', {button: name});
   }
 }
-
-GameEvents.Subscribe('oaa_setting_changed', updatePanel);
 
 function updatePanel (kv) {
   let name = kv.setting;
