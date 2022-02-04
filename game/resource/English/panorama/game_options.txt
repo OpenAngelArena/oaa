@@ -27,6 +27,7 @@
 "game_option_pro_active"         "Pro-Active"
 "game_option_spell_block"        "Spell Resistance"
 "game_option_troll_switch"       "Attack Range Switch"
+"game_option_hyper_experience"   "Hyper Experience"
 
 "game_option_lifesteal_description"          "100% lifesteal and spell lifesteal against heroes. 50% against creeps and illusions."
 "game_option_aoe_radius_description"         "Most spells' and items' radius (AoE) increased by 50%."
@@ -39,6 +40,7 @@
 "game_option_pro_active_description"         "50% cooldown reduction. Affected by permanent Break (passives-disabled)."
 "game_option_spell_block_description"        "25% chance to block a single-targeted spell and 25% status resistance."
 "game_option_troll_switch_description"       "Melee heroes become ranged and ranged heroes become melee. Melee heroes gain 50 bonus hp per level and ranged heroes gain 5 bonus attack speed per level."
+"game_option_hyper_experience_description"	 "Heroes gain 3x experience from all sources"
 
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa"                      "#{game_option_lifesteal}"
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"          "100%% lifesteal and spell lifesteal against heroes. 50%% against creeps and illusions."
@@ -64,3 +66,5 @@
 "DOTA_Tooltip_modifier_spell_block_cooldown_oaa_Description"          "Cannot block speels while having this debuff."
 "DOTA_Tooltip_modifier_troll_switch_oaa"                              "#{game_option_troll_switch}"
 "DOTA_Tooltip_modifier_troll_switch_oaa_Description"                  "Switched attack capability. If melee, gains 50 bonus hp per level and if ranged, gains 5 bonus attack speed per level."
+"DOTA_Tooltip_modifier_hyper_experience_oaa"                  		  "Hyper Experience"
+"DOTA_Tooltip_modifier_hyper_experience_oaa_Description"              "Gaining 300% experience from all sources"
