@@ -181,8 +181,7 @@ function handleOAASettingsChange(n, key, settings) {
   lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
   lines.push('')
 
-  if (settings.HEROES_MODS !== 'HMN') {
-    const modifierNames = {
+    const heroModifierNames = {
       HM01: "#game_option_lifesteal",
       HM02: "#game_option_aoe_radius",
       HM03: "#game_option_blood_magic",
@@ -198,7 +197,15 @@ function handleOAASettingsChange(n, key, settings) {
       HM13: "#game_option_diarrhetic",
     };
 
+  if (settings.HEROES_MODS !== 'HMN') {
+    const modifierNames = heroModifierNames;
     lines.push($.Localize('#hero_options_title') + ' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
+    lines.push('');
+  }
+
+  if (settings.HEROES_MODS_2 !== 'HMN') {
+    const modifierNames = heroModifierNames;
+    lines.push($.Localize('#hero_options_title') + ' ' + $.Localize(modifierNames[settings.HEROES_MODS_2] + '_description'));
     lines.push('');
   }
   if (settings.BOSSES_MODS !== 'BMN') {

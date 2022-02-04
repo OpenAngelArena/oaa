@@ -71,6 +71,7 @@ function OAAOptions:Init ()
     end
     if name == "RANDOMIZE" then
       self.settings.HEROES_MODS = self:GetRandomHeroModifier()
+      self.settings.HEROES_MODS_2 = self:GetRandomHeroModifier()
       self.settings.BOSSES_MODS = self:GetRandomBossModifier()
       self.settings.GLOBAL_MODS = self:GetRandomGlobalModifier()
       self:SaveSettings()
@@ -113,7 +114,7 @@ function OAAOptions:SaveSettings()
 end
 
 function OAAOptions:SetupGame()
-  if self.settings.HEROES_MODS == "HM13" then
+  if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
     Glyph.ward.cooldown = 30
     Glyph:ResetWardCooldowns()
@@ -125,6 +126,7 @@ function OAAOptions:InitializeSettingsTable()
     GAME_MODE = "AP",                   -- "RD", "AR", "AP", "ARDM"
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
     HEROES_MODS = "HMN",
+    HEROES_MODS_2 = "HMN",
     BOSSES_MODS = "BMN",
     GLOBAL_MODS = "GMN",
   }
@@ -152,6 +154,13 @@ function OAAOptions:AdjustGameMode()
       self.settings.HEROES_MODS = self:GetRandomHeroModifier()
     end
     self.heroes_mod = hero_mods[self.settings.HEROES_MODS]
+  end
+
+  if self.settings.HEROES_MODS_2 ~= "HMN" and self.settings.HEROES_MODS_2 ~= self.settings.HEROES_MODS then
+    if self.settings.HEROES_MODS_2 == "HMR" then
+      self.settings.HEROES_MODS_2 = self:GetRandomHeroModifier()
+    end
+    self.heroes_mod_2 = hero_mods[self.settings.HEROES_MODS_2]
   end
 
   if self.settings.BOSSES_MODS ~= "BMN" then
@@ -238,6 +247,12 @@ function OAAOptions:OnUnitSpawn(event)
     if self.heroes_mod and self.heroes_mod ~= self.global_mod then
       if not npc:HasModifier(self.heroes_mod) then
         npc:AddNewModifier(npc, nil, self.heroes_mod, {})
+      end
+    end
+
+    if self.heroes_mod_2 and self.heroes_mod_2 ~= self.global_mod then
+      if not npc:HasModifier(self.heroes_mod_2) then
+        npc:AddNewModifier(npc, nil, self.heroes_mod_2, {})
       end
     end
   elseif npc:IsOAABoss() then
