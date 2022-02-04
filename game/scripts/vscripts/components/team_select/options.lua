@@ -19,7 +19,8 @@ local hero_mods = {
   HM09 = "modifier_pro_active_oaa",
   HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
-  HM12 = "modifier_hyper_experience_oaa"
+  HM12 = "modifier_hyper_experience_oaa",
+  HM13 = "modifier_diarrhetic_oaa"
 }
 local boss_mods = {
   BMN  = false,
@@ -79,6 +80,8 @@ function OAAOptions:Init ()
 
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
+  GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
+
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
   LinkLuaModifier("modifier_any_damage_lifesteal_oaa", "modifiers/funmodifiers/modifier_any_damage_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -93,6 +96,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_spell_block_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_troll_switch_oaa", "modifiers/funmodifiers/modifier_troll_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hyper_experience_oaa", "modifiers/funmodifiers/modifier_hyper_experience_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_diarrhetic_oaa", "modifiers/funmodifiers/modifier_diarrhetic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
@@ -106,6 +110,14 @@ end
 
 function OAAOptions:SaveSettings()
   CustomNetTables:SetTableValue("oaa_settings", "settings", self.settings)
+end
+
+function OAAOptions:SetupGame()
+  if self.settings.HEROES_MODS == "HM13" then
+    POOP_WARD_COOLDOWN = 30
+    Glyph.ward.cooldown = 30
+    Glyph:ResetWardCooldowns()
+  end
 end
 
 function OAAOptions:InitializeSettingsTable()

@@ -194,7 +194,8 @@ function handleOAASettingsChange(n, key, settings) {
       HM09: "#game_option_pro_active",
       HM10: "#game_option_spell_block",
       HM11: "#game_option_troll_switch",
-      HM12: "#game_option_hyper_experience"
+      HM12: "#game_option_hyper_experience",
+      HM13: "#game_option_diarrhetic",
     };
 
     lines.push($.Localize('#hero_options_title') + ' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
