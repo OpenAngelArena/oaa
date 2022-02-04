@@ -148,24 +148,26 @@ function CapturePoints:ScheduleCapture()
   -- DebugPrint('Capture number... ' .. self.NumCaptures)
   -- Chooses random zone
   --CurrentZones = Zones[RandomInt(1, NumZones)]
-  self.CapturePointLocation = self:FindBestCapturePointLocation()
-  --If statemant checks for duel interference
-  if not Duels.startDuelTimer then
-    CapturePoints:StartCapture("blue")
-  elseif Timers.timers[Duels.startDuelTimer] and Timers:RemainingTime(Duels.startDuelTimer) > 90 then
-    CapturePoints:StartCapture("red")
-  else
-    CapturePoints.unlistenDuel = Duels.onEnd(function ()
-      Timers:CreateTimer(15, function ()
-        CapturePoints:StartCapture("red")
+  self:FindBestCapturePointLocation(function(point)
+    self.CapturePointLocation = point
+    --If statemant checks for duel interference
+    if not Duels.startDuelTimer then
+      CapturePoints:StartCapture("blue")
+    elseif Timers.timers[Duels.startDuelTimer] and Timers:RemainingTime(Duels.startDuelTimer) > 90 then
+      CapturePoints:StartCapture("red")
+    else
+      CapturePoints.unlistenDuel = Duels.onEnd(function ()
+        Timers:CreateTimer(15, function ()
+          CapturePoints:StartCapture("red")
+        end)
+        if CapturePoints.unlistenDuel then
+          local unlisten = CapturePoints.unlistenDuel
+          CapturePoints.unlistenDuel = nil
+          unlisten()
+        end
       end)
-      if CapturePoints.unlistenDuel then
-        local unlisten = CapturePoints.unlistenDuel
-        unlisten()
-        CapturePoints.unlistenDuel = nil
-      end
-    end)
-  end
+    end
+  end)
 end
 
 function CapturePoints:StartCapture(color)
@@ -330,7 +332,7 @@ function CapturePoints:EndCapture ()
   end
 end
 
-function CapturePoints:FindBestCapturePointLocation()
+function CapturePoints:FindBestCapturePointLocation(callback)
   local maxDistanceFromFountain = self:DistanceFromFountain(Vector(0, 0, 0), DOTA_TEAM_GOODGUYS) -- 6656
   --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
   local minDistanceFromFountain = 450 -- X: 6206
@@ -359,7 +361,7 @@ function CapturePoints:FindBestCapturePointLocation()
     minDistanceFromFountain = maxDistanceFromFountain / 1.25 -- 5324.8 -> X: 1331.2
     maxX = math.ceil(maxX / 5) -- 1232
   else
-    return default_pos
+    return callback(default_pos)
   end
 
   default_pos = Vector(math.floor((minX + maxX) / 2), minY, 0)
@@ -376,7 +378,7 @@ function CapturePoints:FindBestCapturePointLocation()
   local isValidPosition = false
   local loop_count = 0
 
-  while (not isValidPosition and loop_count <= 8) do
+  local function findNextPoint()
     position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
     if RandomInt(0, 1) == 0 then
       position.y = 0 - position.y
@@ -391,7 +393,28 @@ function CapturePoints:FindBestCapturePointLocation()
     loop_count = loop_count + 1
   end
 
-  return position
+  local function timerLoop()
+    -- find next possible spot
+    findNextPoint()
+    -- return if it's valid
+    if isValidPosition then
+      DebugPrint('Found capture point location after ' .. loop_count .. ' tries')
+      callback(position)
+      return
+    end
+    -- allow up to 2 seconds of searching
+    if loop_count > 20 then
+      DebugPrint('Couldn\'t find a valid capture point location, using center...')
+      callback(position)
+      return
+    end
+    -- otherwise, schedule the next search
+    Timers:CreateTimer(0.1, timerLoop)
+    return
+  end
+
+  -- start the loop
+  timerLoop()
 end
 
 function CapturePoints:IsLocationInFountain(location)
