@@ -44,9 +44,32 @@ function TempleGuardianThink()
     thisEntity.bInitialized = true
   end
 
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
+  local function IsValidTarget(target)
+    return not target:IsNull() and target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
+  end
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+  local function FindValidTarget(candidates)
+    for _, enemy in ipairs(candidates) do
+      if IsValidTarget(enemy) then
+        return enemy
+      end
+    end
+    return nil
+  end
+
+  local enemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE),
+    FIND_CLOSEST,
+    false
+  )
+
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   --Agro
@@ -71,7 +94,7 @@ function TempleGuardianThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
+  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
@@ -94,15 +117,15 @@ function TempleGuardianThink()
 		thisEntity.fTimeEnrageStarted = GameRules:GetGameTime()
 	end
 
-	if thisEntity.WrathAbility ~= nil and thisEntity.WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
+	if thisEntity.WrathAbility and thisEntity.WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
 		if thisEntity.fTimeEnrageStarted and ( GameRules:GetGameTime() > ( thisEntity.fTimeEnrageStarted + 5 ) ) then
 			return Wrath()
 		end
 	end
 
-	if thisEntity.HammerThrowAbility ~= nil and thisEntity.HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
+	if thisEntity.HammerThrowAbility and thisEntity.HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
 		local hLastEnemy = enemies[ #enemies ]
-		if hLastEnemy ~= nil then
+		if hLastEnemy then
 			local flDist = (hLastEnemy:GetOrigin() - thisEntity:GetOrigin()):Length2D()
 			if flDist > 450 then
 				return Throw( hLastEnemy )
@@ -111,18 +134,18 @@ function TempleGuardianThink()
 	end
 
 	for _, hGuardian in pairs( hGuardians ) do
-		if hGuardian ~= nil and hGuardian:IsAlive() and ( hGuardian ~= thisEntity or #hGuardians == 1 ) and ( hGuardian:GetHealthPercent() < 80 ) and thisEntity.PurificationAbility ~= nil and thisEntity.PurificationAbility:IsFullyCastable() then
+		if hGuardian ~= nil and hGuardian:IsAlive() and ( hGuardian ~= thisEntity or #hGuardians == 1 ) and ( hGuardian:GetHealthPercent() < 80 ) and thisEntity.PurificationAbility and thisEntity.PurificationAbility:IsFullyCastable() then
 			return Purification( hGuardian )
 		end
 	end
 
 	if not thisEntity.bIsEnraged then
-		if thisEntity.HammerSmashAbility ~= nil and thisEntity.HammerSmashAbility:IsCooldownReady() then
-			return Smash( enemies[ 1 ] )
+		if thisEntity.HammerSmashAbility and thisEntity.HammerSmashAbility:IsCooldownReady() then
+			return Smash(FindValidTarget(enemies))
 		end
 	else
-		if thisEntity.RageHammerSmashAbility ~= nil and thisEntity.RageHammerSmashAbility:IsFullyCastable() then
-			return RageSmash( enemies[ 1 ] )
+		if thisEntity.RageHammerSmashAbility and thisEntity.RageHammerSmashAbility:IsFullyCastable() then
+			return RageSmash(FindValidTarget(enemies))
 		end
 	end
 
@@ -154,7 +177,6 @@ function RetreatHome()
 end
 
 function Wrath()
-	--print( "ai_temple_guardian - Wrath" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -165,7 +187,6 @@ function Wrath()
 end
 
 function Throw( enemy )
-	--print( "ai_temple_guardian - Throw" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
@@ -177,7 +198,6 @@ function Throw( enemy )
 end
 
 function Purification( friendly )
-	--print( "ai_temple_guardian - Purification" )
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -189,27 +209,43 @@ function Purification( friendly )
 end
 
 function Smash( enemy )
-	--print( "ai_temple_guardian - Smash" )
-	ExecuteOrderFromTable({
+	if enemy == nil then
+		return 0.5
+	end
+
+	if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+		--print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+		thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = 1.5 } )
+	end
+
+  ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
 		AbilityIndex = thisEntity.HammerSmashAbility:entindex(),
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
+
 	return 1.4 + thisEntity.fFuzz
 end
 
 function RageSmash( enemy )
-	--print( "ai_temple_guardian - RageSmash" )
-	ExecuteOrderFromTable({
+	if enemy == nil then
+		return 0.5
+	end
+
+	if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+		--print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+		thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = 1.5 } )
+	end
+
+  ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
 		AbilityIndex = thisEntity.RageHammerSmashAbility:entindex(),
 		Position = enemy:GetOrigin(),
 		Queue = false,
 	})
+
 	return 1.1 + thisEntity.fFuzz
 end
-
-

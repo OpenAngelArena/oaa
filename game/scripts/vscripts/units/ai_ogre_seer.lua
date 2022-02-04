@@ -16,9 +16,9 @@ end
 --------------------------------------------------------------------------------
 
 function FindOgreBoss()
-  local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, 0, false )
-  for _,friendly in pairs ( friendlies ) do
-    if friendly ~= nil then
+  local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
+  for _, friendly in pairs ( friendlies ) do
+    if friendly then
       if friendly:GetUnitName() == "npc_dota_creature_ogre_tank_boss" then
         return friendly
       end
@@ -40,7 +40,7 @@ function OgreSeerThink()
   if not thisEntity.bInitialized then
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
-    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange(  )
+    thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.hOgreBoss = FindOgreBoss()
@@ -48,12 +48,12 @@ function OgreSeerThink()
     thisEntity.bInitialized = true
   end
 
-  if thisEntity.hOgreBoss == nil or not thisEntity.hOgreBoss:IsAlive() then
+  if not thisEntity.hOgreBoss or thisEntity.hOgreBoss:IsNull() or not thisEntity.hOgreBoss:IsAlive() then
     thisEntity.hOgreBoss = FindOgreBoss()
   end
 
   local agro_center = thisEntity.vInitialSpawnPos
-  if thisEntity.hOgreBoss then
+  if thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() then
     agro_center = thisEntity.hOgreBoss.vInitialSpawnPos
   end
   local enemies = FindUnitsInRadius(
@@ -64,23 +64,23 @@ function OgreSeerThink()
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-    0,
+    FIND_ANY_ORDER,
     false
   )
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
   local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 99/100
-  if thisEntity.hOgreBoss then
+  if thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() then
     hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
   end
 
-  --Agro
-  if (IsValidEntity(thisEntity.hOgreBoss) and thisEntity.hOgreBoss:IsAlive() and not thisEntity.hOgreBoss.bHasAgro and thisEntity.bHasAgro and #enemies == 0) then
+  -- Agro
+  if thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() and thisEntity.hOgreBoss:IsAlive() and not thisEntity.hOgreBoss.bHasAgro and thisEntity.bHasAgro and #enemies == 0 then
     DebugPrint("Ogre Seer Deagro")
     thisEntity.bHasAgro = false
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     return 2
-  elseif thisEntity.hOgreBoss==nil or not thisEntity.hOgreBoss:IsAlive() or (hasDamageThreshold and #enemies > 0) or (thisEntity.hOgreBoss~=nil and thisEntity.hOgreBoss.bHasAgro) then
+  elseif not thisEntity.hOgreBoss or thisEntity.hOgreBoss:IsNull() or not thisEntity.hOgreBoss:IsAlive() or (hasDamageThreshold and #enemies > 0) or (thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() and thisEntity.hOgreBoss.bHasAgro) then
     if not thisEntity.bHasAgro then
       DebugPrint("Ogre Seer Agro")
       thisEntity.bHasAgro = true
@@ -90,19 +90,19 @@ function OgreSeerThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > 800 then
+  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > 800 then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
     return 1
   end
 
-	if thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsChanneling() then
+	if thisEntity.BloodlustAbility and thisEntity.BloodlustAbility:IsChanneling() then
 		return 0.5
 	end
 
-  local bIgniteReady = ( #enemies > 0 and thisEntity.IgniteAbility ~= nil and thisEntity.IgniteAbility:IsFullyCastable() )
-  local bBloodlustReady = ( thisEntity.hOgreBoss ~= nil and thisEntity.BloodlustAbility ~= nil and thisEntity.BloodlustAbility:IsFullyCastable() )
+  local bIgniteReady = #enemies > 0 and thisEntity.IgniteAbility and thisEntity.IgniteAbility:IsFullyCastable()
+  local bBloodlustReady = thisEntity.hOgreBoss and not thisEntity.hOgreBoss:IsNull() and thisEntity.BloodlustAbility and thisEntity.BloodlustAbility:IsFullyCastable()
   local fBloodlustCastRange = thisEntity.BloodlustAbility:GetCastRange( thisEntity:GetOrigin(), nil )
 
 	if bIgniteReady then

@@ -72,7 +72,6 @@ function SlimeBossThink()
 	end
 
 	-- Slam
-
 	if thisEntity.hSlamAbility and thisEntity.hSlamAbility:IsCooldownReady() then
 		local target
 		local count = 0
@@ -90,7 +89,6 @@ function SlimeBossThink()
 	end
 
 	-- Jump
-
 	if thisEntity.hJumpAbility and thisEntity.hJumpAbility:IsCooldownReady() then
 		local target
 		local count = 0

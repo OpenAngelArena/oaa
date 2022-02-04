@@ -36,7 +36,6 @@ function MagmaBossThink()
     thisEntity.BossTier = thisEntity.BossTier or 3
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
-    thisEntity.enraged = false
     thisEntity.initialized = true
   end
 
@@ -131,7 +130,6 @@ function MagmaBossThink()
 
     -- Check if aggro_target exists
     if thisEntity.aggro_target then
-      --print(thisEntity.aggro_target:GetUnitName())
       -- Check if aggro_target is getting deleted soon from c++
       if thisEntity.aggro_target:IsNull() then
         thisEntity.aggro_target = nil
@@ -159,7 +157,7 @@ function MagmaBossThink()
         thisEntity.aggro_target = nil
       end
     else
-      -- Check HP of the boss and if its able to attack
+      -- Check HP of the boss
       if current_hp_pct < aggro_hp_pct then
         AttackNearestTarget(thisEntity)
       end
@@ -225,6 +223,7 @@ function MagmaBossThink()
       thisEntity.state = SIMPLE_AI_STATE_IDLE
     end
   end
+
   return 1
 end
 

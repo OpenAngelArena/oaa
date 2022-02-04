@@ -27,7 +27,7 @@ function FrendlyHasAgro()
 end
 
 function OgreTankBossThink()
-	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME and not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
 		return -1
 	end
 
@@ -44,17 +44,16 @@ function OgreTankBossThink()
   end
 
   local function IsValidTarget(target)
-    return target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
+    return not target:IsNull() and target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
   end
 
   local function FindValidTarget(candidates)
-    for i, enemy in pairs(candidates) do
-      if enemy and not enemy:IsNull() then
-        if IsValidTarget(enemy) then
-          return enemy
-        end
+    for _, enemy in ipairs(candidates) do
+      if IsValidTarget(enemy) then
+        return enemy
       end
     end
+    return nil
   end
 
   local enemies = FindUnitsInRadius(
@@ -63,7 +62,7 @@ function OgreTankBossThink()
     nil,
     BOSS_LEASH_SIZE,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     FIND_CLOSEST,
     false
@@ -85,7 +84,7 @@ function OgreTankBossThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
+  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
