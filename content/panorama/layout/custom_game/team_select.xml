@@ -39,9 +39,9 @@
                 </Button>
                 <Label class="SettingsGroupTitle" text="#game_options_hero_selection"/>
                 <DropDown class="SettingsItem" id="GAME_MODE" oninputsubmit="onPanelChange('GAME_MODE')">
-                  <Label text="#game_option_ar" id="AR"/>
                   <Label text="#game_option_ap" id="AP"/>
                   <Label text="#game_option_rd" id="RD"/>
+                  <Label text="#game_option_ar" id="AR"/>
                   <Label text="#game_option_ardm" id="ARDM"/>
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="#game_option_spp" onactivate="onPanelChange('small_player_pool')"/>
