@@ -39,11 +39,11 @@
     "item"                                                "item_blade_of_alacrity"
     "item"                                                "item_staff_of_wizardry"
 
-    "item"                                                "item_ultimate_orb"
+    "item"                                                "item_ultimate_orb" // moved from secretshop
 
-    "item"                                                "item_reaver"
-    "item"                                                "item_eagle"
-    "item"                                                "item_mystic_staff"
+    "item"                                                "item_reaver" // moved from secretshop
+    "item"                                                "item_eagle" // moved from secretshop
+    "item"                                                "item_mystic_staff" // moved from secretshop
   }
 
   "weapons_armor"
@@ -61,8 +61,12 @@
     "item"                                                "item_broadsword"
     "item"                                                "item_blitz_knuckles"
     "item"                                                "item_javelin"
+    "item"                                                "item_talisman_of_evasion" // moved from secretshop
+    "item"                                                "item_platemail" // moved from secretshop
     "item"                                                "item_claymore"
     "item"                                                "item_mithril_hammer"
+    "item"                                                "item_hyperstone" // moved from secretshop
+    "item"                                                "item_demon_edge" // moved from secretshop
   }
 
   "misc"
@@ -73,13 +77,17 @@
     "item"                                                "item_wind_lace"
     "item"                                                "item_cloak"
     "item"                                                "item_boots"
-    "item"                                                "item_ring_of_health"
-    "item"                                                "item_void_stone"
+    "item"                                                "item_energy_booster" // moved from secretshop
+    "item"                                                "item_ring_of_health" // moved from secretshop
+    "item"                                                "item_void_stone" // moved from secretshop
     "item"                                                "item_lifesteal"
     "item"                                                "item_voodoo_mask"
+    "item"                                                "item_vitality_booster" // moved from secretshop
     "item"                                                "item_shadow_amulet"
+    "item"                                                "item_point_booster" // moved from secretshop
     "item"                                                "item_ghost"
     "item"                                                "item_blink"
+    "item"                                                "item_relic" // moved from secretshop
   }
 
   "secretshop"
@@ -245,10 +253,10 @@
   }
 
   "sideshop2"
-	{
+  {
     "item"                                                "item_clarity"
     "item"                                                "item_flask"
-	}
+  }
 
   // Strategy Screen
   "pregame"
