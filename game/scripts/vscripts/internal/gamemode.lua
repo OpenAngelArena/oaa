@@ -220,6 +220,7 @@ function GameMode:_CaptureGameMode()
     mode:SetForceRightClickAttackDisabled(true)
     mode:SetCustomBackpackSwapCooldown(3.0)
     mode:SetDefaultStickyItem("item_aghanims_shard")
+    mode:DisableHudFlip(true)
 
     self:OnFirstPlayerLoaded()
   end
