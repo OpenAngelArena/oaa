@@ -9,7 +9,11 @@ function modifier_aoe_radius_increase_oaa:IsPurgable()
 end
 
 function modifier_aoe_radius_increase_oaa:RemoveOnDeath()
-  return false
+  local parent = self:GetParent()
+  if parent:IsRealHero() and not parent:IsOAABoss() then
+    return false
+  end
+  return true
 end
 
 local aoe_keywords = {

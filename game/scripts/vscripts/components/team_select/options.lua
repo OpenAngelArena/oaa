@@ -68,15 +68,12 @@ function OAAOptions:Init ()
     if name == "RESET" then
       self:RestoreDefaults()
       self:SaveSettings()
-      return
-    end
-    if name == "RANDOMIZE" then
+    elseif name == "RANDOMIZE" then
       self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
       self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
       self.settings.BOSSES_MODS = self:GetRandomModifier(boss_mods)
       self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
       self:SaveSettings()
-      return
     end
   end)
 
@@ -161,7 +158,9 @@ function OAAOptions:AdjustGameMode()
     if self.settings.HEROES_MODS_2 == "HMR" then
       self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
     end
-    self.heroes_mod_2 = hero_mods[self.settings.HEROES_MODS_2]
+    if self.settings.HEROES_MODS_2 ~= self.settings.HEROES_MODS then
+      self.heroes_mod_2 = hero_mods[self.settings.HEROES_MODS_2]
+    end
   end
 
   if self.settings.BOSSES_MODS ~= "BMN" then

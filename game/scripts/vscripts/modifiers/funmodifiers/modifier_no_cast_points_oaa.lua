@@ -9,7 +9,11 @@ function modifier_no_cast_points_oaa:IsPurgable()
 end
 
 function modifier_no_cast_points_oaa:RemoveOnDeath()
-  return false
+  local parent = self:GetParent()
+  if parent:IsRealHero() and not parent:IsOAABoss() then
+    return false
+  end
+  return true
 end
 
 function modifier_no_cast_points_oaa:DeclareFunctions()

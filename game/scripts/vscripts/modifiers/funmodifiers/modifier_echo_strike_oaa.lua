@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_echo_strike_cooldown_oaa", "modifiers/funmodifiers/modifier_echo_strike_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_echo_strike_oaa = class(ModifierBaseClass)
 
 function modifier_echo_strike_oaa:IsHidden()
@@ -9,7 +11,11 @@ function modifier_echo_strike_oaa:IsPurgable()
 end
 
 function modifier_echo_strike_oaa:RemoveOnDeath()
-  return false
+  local parent = self:GetParent()
+  if parent:IsRealHero() and not parent:IsOAABoss() then
+    return false
+  end
+  return true
 end
 
 function modifier_echo_strike_oaa:DeclareFunctions()
@@ -19,6 +25,8 @@ function modifier_echo_strike_oaa:DeclareFunctions()
 end
 
 function modifier_echo_strike_oaa:OnCreated(kv)
+  self.chance = 25
+  self.cooldown = 0.5
   self.global = kv.isGlobal == 1
 
   if not self.global and IsServer() then
@@ -45,10 +53,6 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
     return
   end
 
-  if not attacker.echo_strike_failure_counter then
-    attacker.echo_strike_failure_counter = 0
-  end
-
   -- Check if attacker has this modifier
   if not self.global then
     if attacker ~= parent then
@@ -67,21 +71,30 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
     return
   end
 
-  local chance = 25/100
+  -- No need to proc if target is invulnerable
+  if target:IsInvulnerable() or target:IsOutOfGame() then
+    return
+  end
 
-  -- Get number of failures
-  local prngMult = attacker.echo_strike_failure_counter + 1
+  -- Don't proc if passive is on cooldown
+  if attacker:HasModifier("modifier_echo_strike_cooldown_oaa") then
+    return
+  end
 
-  -- compared prng to slightly less prng
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
-    -- Reset failure count
-    attacker.echo_strike_failure_counter = 0
+  if RandomInt(1, 100) <= self.chance then
+    local useCastAttackOrb = false
+    local processProcs = true
+    local skipCooldown = false
+    local ignoreInvis = false
+    local useProjectile = attacker:IsRangedAttacker() -- only ranged units need a projectile
+    local fakeAttack = false
+    local neverMiss = not attacker:IsRangedAttacker() -- only ranged units can miss
 
     -- Perform the second attack (can trigger attack modifiers)
-    attacker:PerformAttack(target, false, true, true, false, true, false, false)
-  else
-    -- Increment number of failures
-    attacker.echo_strike_failure_counter = prngMult
+    attacker:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+
+    -- Start cooldown by adding a modifier
+    attacker:AddNewModifier(attacker, nil, "modifier_echo_strike_cooldown_oaa", {duration = self.cooldown})
   end
 end
 
@@ -91,4 +104,20 @@ function modifier_echo_strike_oaa:GetTexture()
   else
     return "item_echo_sabre"
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_echo_strike_cooldown_oaa = class(ModifierBaseClass)
+
+function modifier_echo_strike_cooldown_oaa:IsHidden()
+  return true
+end
+
+function modifier_echo_strike_cooldown_oaa:IsDebuff()
+  return true
+end
+
+function modifier_echo_strike_cooldown_oaa:IsPurgable()
+  return false
 end

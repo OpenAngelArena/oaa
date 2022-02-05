@@ -15,7 +15,11 @@ function modifier_spell_block_oaa:IsPurgable()
 end
 
 function modifier_spell_block_oaa:RemoveOnDeath()
-  return false
+  local parent = self:GetParent()
+  if parent:IsRealHero() and not parent:IsOAABoss() then
+    return false
+  end
+  return true
 end
 
 function modifier_spell_block_oaa:OnCreated()
@@ -62,7 +66,7 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
     return 0
   end
 
-  local chance = self.spell_block_chance/100
+  local chance = self.spell_block_chance / 100
   local cooldown = self.spell_block_cd
 
   -- Get number of failures

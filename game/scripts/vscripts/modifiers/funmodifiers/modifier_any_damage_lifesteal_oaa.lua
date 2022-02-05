@@ -9,7 +9,11 @@ function modifier_any_damage_lifesteal_oaa:IsPurgable()
 end
 
 function modifier_any_damage_lifesteal_oaa:RemoveOnDeath()
-  return false
+  local parent = self:GetParent()
+  if parent:IsRealHero() and not parent:IsOAABoss() then
+    return false
+  end
+  return true
 end
 
 function modifier_any_damage_lifesteal_oaa:DeclareFunctions()
