@@ -222,22 +222,6 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       mana_pool_damage_pct = mana_pool_damage_pct + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
     end
 
-    local bonusDamage = attacker:GetMana() * mana_pool_damage_pct/100
-    local player = attacker:GetPlayerOwner()
-    local point = target:GetAbsOrigin()
-
-    local damage_table = {}
-    damage_table.attacker = attacker
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = bonusDamage
-    damage_table.victim = target
-
-    -- Apply bonus damage to the attacked target
-    ApplyDamage(damage_table)
-    SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
-    target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
-
     -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
     if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) then
       local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
@@ -267,19 +251,38 @@ function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
       end
     end
 
-    -- Splash damage around the target
+    local bonus_damage = attacker:GetMana() * mana_pool_damage_pct * 0.01
+    local player = attacker:GetPlayerOwner()
+    local point = target:GetAbsOrigin() -- store the location before we apply damage to the target
+
+    local damage_table = {}
+    damage_table.attacker = attacker
+    damage_table.damage_type = ability:GetAbilityDamageType()
+    damage_table.ability = ability
+    damage_table.damage = bonus_damage
+    damage_table.victim = target
+
+    -- Apply bonus damage to the attacked target (after all Arcane Orb debuffs)
+    ApplyDamage(damage_table)
+    SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, player)
+    target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
+
+    -- Splash damage around the target (after dealing damage to the attacked target)
     local radius = ability:GetSpecialValueFor("radius")
-    if radius ~= 0 then
+    local splash_pct = ability:GetSpecialValueFor("splash_damage_percent")
+    if radius ~= 0 and splash_pct ~= 0 then
       local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
       local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
       local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
+      local splash_damage = bonus_damage * splash_pct * 0.01
+      damage_table.damage = splash_damage
 
       local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
       for _, enemy in ipairs(enemies) do
         if enemy ~= target then
           damage_table.victim = enemy
           ApplyDamage(damage_table)
-          SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, bonusDamage, player)
+          SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, splash_damage, player)
         end
       end
     end
