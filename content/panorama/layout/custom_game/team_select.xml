@@ -84,29 +84,23 @@
                 <DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">
                   <Label text="#game_option_none" id="BMN"/>
                   <Label text="#game_option_random" id="BMR"/>
-                  <Label text="#game_option_lifesteal" id="BM01"/>
-                  <Label text="#game_option_echo_strike" id="BM02"/>
-                  <Label text="#game_option_physical_immune" id="BM03"/>
-                  <Label text="#game_option_spell_block" id="BM04"/>
+                  <Label text="#game_option_lifesteal" id="BM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_echo_strike" id="BM02" onmouseover="UIShowTextTooltip(#game_option_echo_strike_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_physical_immune" id="BM03" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_spell_block" id="BM04" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_no_cast_points" id="BM05" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#units_options_title"/>
                 <DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
                   <Label text="#game_option_none" id="GMN"/>
                   <Label text="#game_option_random" id="GMR"/>
-                  <Label text="#game_option_lifesteal" id="GM01"/>
-                  <Label text="#game_option_aoe_radius" id="GM02"/>
-                  <Label text="#game_option_blood_magic" id="GM03"/>
-                  <Label text="#game_option_timeless_relic" id="GM04"/>
-                  <Label text="#game_option_echo_strike" id="GM05"/>
-                  <Label text="#game_option_hyper_active" id="GM06"/>
-                  <Label text="#game_option_no_cast_points" id="GM07"/>
-                  <Label text="#game_option_physical_immune" id="GM08"/>
-                  <Label text="#game_option_pro_active" id="GM09"/>
-                  <Label text="#game_option_spell_block" id="GM10"/>
-                  <Label text="#game_option_troll_switch" id="GM11"/>
+                  <Label text="#game_option_lifesteal" id="GM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_aoe_radius" id="GM02" onmouseover="UIShowTextTooltip(#game_option_aoe_radius_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_physical_immune" id="GM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_pro_active" id="GM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Button id="RANDOMIZE" class="SettingsItem" onactivate="onPanelChange('RANDOMIZE')">
-                  <Label text="Randomize Modifiers" />
+                  <Label text="#game_options_randomize" />
                 </Button>
               </Panel>
             </Panel>

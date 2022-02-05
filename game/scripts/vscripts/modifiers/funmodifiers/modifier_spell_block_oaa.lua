@@ -18,10 +18,18 @@ function modifier_spell_block_oaa:RemoveOnDeath()
   return false
 end
 
+function modifier_spell_block_oaa:OnCreated()
+  self.spell_block_chance = 25
+  self.spell_block_cd = 10
+  self.magic_resist = 25
+  self.status_resist = 25
+end
+
 function modifier_spell_block_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSORB_SPELL,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
 end
 
@@ -54,8 +62,8 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
     return 0
   end
 
-  local chance = 25/100
-  local cooldown = 10
+  local chance = self.spell_block_chance/100
+  local cooldown = self.spell_block_cd
 
   -- Get number of failures
   local prngMult = self:GetStackCount() + 1
@@ -85,7 +93,11 @@ function modifier_spell_block_oaa:GetAbsorbSpell(event)
 end
 
 function modifier_spell_block_oaa:GetModifierStatusResistanceStacking()
-  return 25
+  return self.status_resist
+end
+
+function modifier_spell_block_oaa:GetModifierMagicalResistanceBonus()
+  return self.magic_resist
 end
 
 function modifier_spell_block_oaa:GetTexture()

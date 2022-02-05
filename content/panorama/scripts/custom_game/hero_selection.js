@@ -90,7 +90,7 @@ var hilariousLoadingPhrases = [
   'Each capture point is worth more points than the previous',
   'Each hero on a capture point speeds up the capture time',
   'Use your glyph hotkey to drop a free ward',
-  'Before -0:10 on the clock, you cannot leave base',
+  'Before -0:10 on the clock, you cannot leave the base',
   'Bosses spawn into the map at 3:00',
   'First Wanderer spawns between 12:00 and 15:00',
   'If you think you found a bug or a weird interaction, please share it on our discord server. Thank you',
@@ -165,12 +165,12 @@ function init () {
   $('#ARDMLoading').style.opacity = 0;
 }
 
-function handleOAASettingsChange(n, key, settings) {
-  if (key !== "locked") {
+function handleOAASettingsChange (n, key, settings) {
+  if (key !== 'locked') {
     return;
   }
 
-  const infoPanel = $("#ExtraInfo");
+  const infoPanel = $('#ExtraInfo');
 
   if (!infoPanel) {
     return;
@@ -179,23 +179,23 @@ function handleOAASettingsChange(n, key, settings) {
   const lines = [];
 
   lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
-  lines.push('')
+  lines.push('');
 
-    const heroModifierNames = {
-      HM01: "#game_option_lifesteal",
-      HM02: "#game_option_aoe_radius",
-      HM03: "#game_option_blood_magic",
-      HM04: "#game_option_timeless_relic",
-      HM05: "#game_option_echo_strike",
-      HM06: "#game_option_hyper_active",
-      HM07: "#game_option_no_cast_points",
-      HM08: "#game_option_physical_immune",
-      HM09: "#game_option_pro_active",
-      HM10: "#game_option_spell_block",
-      HM11: "#game_option_troll_switch",
-      HM12: "#game_option_hyper_experience",
-      HM13: "#game_option_diarrhetic",
-    };
+  const heroModifierNames = {
+    HM01: '#game_option_lifesteal',
+    HM02: '#game_option_aoe_radius',
+    HM03: '#game_option_blood_magic',
+    HM04: '#game_option_timeless_relic',
+    HM05: '#game_option_echo_strike',
+    HM06: '#game_option_hyper_active',
+    HM07: '#game_option_no_cast_points',
+    HM08: '#game_option_physical_immune',
+    HM09: '#game_option_pro_active',
+    HM10: '#game_option_spell_block',
+    HM11: '#game_option_troll_switch',
+    HM12: '#game_option_hyper_experience',
+    HM13: '#game_option_diarrhetic'
+  };
 
   if (settings.HEROES_MODS !== 'HMN') {
     const modifierNames = heroModifierNames;
@@ -210,10 +210,11 @@ function handleOAASettingsChange(n, key, settings) {
   }
   if (settings.BOSSES_MODS !== 'BMN') {
     const modifierNames = {
-      BM01: "#game_option_lifesteal",
-      BM02: "#game_option_echo_strike",
-      BM03: "#game_option_physical_immune",
-      BM04: "#game_option_spell_block",
+      BM01: '#game_option_lifesteal',
+      BM02: '#game_option_echo_strike',
+      BM03: '#game_option_physical_immune',
+      BM04: '#game_option_spell_block',
+      BM05: '#game_option_no_cast_points'
     };
 
     lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));
@@ -221,17 +222,10 @@ function handleOAASettingsChange(n, key, settings) {
   }
   if (settings.GLOBAL_MODS !== 'GMN') {
     const modifierNames = {
-      GM01: "#game_option_lifesteal",
-      GM02: "#game_option_aoe_radius",
-      GM03: "#game_option_blood_magic",
-      GM04: "#game_option_timeless_relic",
-      GM05: "#game_option_echo_strike",
-      GM06: "#game_option_hyper_active",
-      GM07: "#game_option_no_cast_points",
-      GM08: "#game_option_physical_immune",
-      GM09: "#game_option_pro_active",
-      GM10: "#game_option_spell_block",
-      GM11: "#game_option_troll_switch",
+      GM01: '#game_option_lifesteal',
+      GM02: '#game_option_aoe_radius',
+      GM08: '#game_option_physical_immune',
+      GM09: '#game_option_pro_active'
     };
 
     lines.push($.Localize('#units_options_title') + ' ' + $.Localize(modifierNames[settings.GLOBAL_MODS] + '_description'));

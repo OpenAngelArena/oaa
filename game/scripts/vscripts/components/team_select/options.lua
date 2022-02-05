@@ -28,20 +28,21 @@ local boss_mods = {
   BM02 = "modifier_echo_strike_oaa",
   BM03 = "modifier_physical_immunity_oaa",
   BM04 = "modifier_spell_block_oaa",
+  BM05 = "modifier_no_cast_points_oaa",
 }
 local global_mods = {
   GMN  = false,
   GM01 = false,--"modifier_any_damage_lifesteal_oaa",
   GM02 = "modifier_aoe_radius_increase_oaa",
-  GM03 = "modifier_blood_magic_oaa",
-  GM04 = "modifier_debuff_duration_oaa",
-  GM05 = false, --"modifier_echo_strike_oaa",
-  GM06 = "modifier_ham_oaa",
-  GM07 = "modifier_no_cast_points_oaa",
+  --GM03 = "modifier_blood_magic_oaa",                    -- lags
+  --GM04 = "modifier_debuff_duration_oaa",                -- doesn't work on non-hero units
+  --GM05 = false, --"modifier_echo_strike_oaa",           -- lags
+  --GM06 = "modifier_ham_oaa",                            -- mostly useless for neutral creeps
+  --GM07 = "modifier_no_cast_points_oaa",                 -- mostly useless for any creep
   GM08 = "modifier_physical_immunity_oaa",
   GM09 = "modifier_pro_active_oaa",
-  GM10 = "modifier_spell_block_oaa",
-  GM11 = "modifier_troll_switch_oaa",
+  --GM10 = "modifier_spell_block_oaa",                    -- lags
+  --GM11 = "modifier_troll_switch_oaa",                   -- lags
 }
 
 function OAAOptions:Init ()
@@ -70,10 +71,10 @@ function OAAOptions:Init ()
       return
     end
     if name == "RANDOMIZE" then
-      self.settings.HEROES_MODS = self:GetRandomHeroModifier()
-      self.settings.HEROES_MODS_2 = self:GetRandomHeroModifier()
-      self.settings.BOSSES_MODS = self:GetRandomBossModifier()
-      self.settings.GLOBAL_MODS = self:GetRandomGlobalModifier()
+      self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
+      self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
+      self.settings.BOSSES_MODS = self:GetRandomModifier(boss_mods)
+      self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
       self:SaveSettings()
       return
     end
@@ -151,28 +152,28 @@ function OAAOptions:AdjustGameMode()
 
   if self.settings.HEROES_MODS ~= "HMN" then
     if self.settings.HEROES_MODS == "HMR" then
-      self.settings.HEROES_MODS = self:GetRandomHeroModifier()
+      self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
     end
     self.heroes_mod = hero_mods[self.settings.HEROES_MODS]
   end
 
   if self.settings.HEROES_MODS_2 ~= "HMN" and self.settings.HEROES_MODS_2 ~= self.settings.HEROES_MODS then
     if self.settings.HEROES_MODS_2 == "HMR" then
-      self.settings.HEROES_MODS_2 = self:GetRandomHeroModifier()
+      self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
     end
     self.heroes_mod_2 = hero_mods[self.settings.HEROES_MODS_2]
   end
 
   if self.settings.BOSSES_MODS ~= "BMN" then
     if self.settings.BOSSES_MODS == "BMR" then
-      self.settings.BOSSES_MODS = self:GetRandomBossModifier()
+      self.settings.BOSSES_MODS = self:GetRandomModifier(boss_mods)
     end
     self.bosses_mod = boss_mods[self.settings.BOSSES_MODS]
   end
 
   if self.settings.GLOBAL_MODS ~= "GMN" then
     if self.settings.GLOBAL_MODS == "GMR" then
-      self.settings.GLOBAL_MODS = self:GetRandomGlobalModifier()
+      self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
     end
     self.global_mod = global_mods[self.settings.GLOBAL_MODS]
 
@@ -193,27 +194,14 @@ function OAAOptions:AdjustGameMode()
   self:SaveSettings()
 end
 
-function OAAOptions:GetRandomHeroModifier()
+function OAAOptions:GetRandomModifier(mod_list)
   local options = {}
-  for k,v in pairs(hero_mods) do
+  for k, v in pairs(mod_list) do
     table.insert(options, k)
   end
   return self:GetRandomModifierFromOptions(options)
 end
-function OAAOptions:GetRandomBossModifier()
-  local options = {}
-  for k,v in pairs(boss_mods) do
-    table.insert(options, k)
-  end
-  return self:GetRandomModifierFromOptions(options)
-end
-function OAAOptions:GetRandomGlobalModifier()
-  local options = {}
-  for k,v in pairs(global_mods) do
-    table.insert(options, k)
-  end
-  return self:GetRandomModifierFromOptions(options)
-end
+
 function OAAOptions:GetRandomModifierFromOptions(options)
   return options[RandomInt(1, #options)]
 end
@@ -231,7 +219,7 @@ function OAAOptions:OnUnitSpawn(event)
     -- npc is not an npc
     return
   end
-  
+
   if npc:HasModifier("modifier_minimap") or npc:HasModifier("modifier_oaa_thinker") then
     return
   end

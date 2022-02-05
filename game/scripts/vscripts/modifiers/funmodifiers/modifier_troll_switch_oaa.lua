@@ -24,7 +24,7 @@ function modifier_troll_switch_oaa:OnCreated()
 
   local parent = self:GetParent()
 
-  -- Check if parent has Berserkers Rage,
+  -- Check if parent has Berserkers Rage
   if parent:HasAbility("troll_warlord_berserkers_rage") then
     return
   end
