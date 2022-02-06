@@ -1,22 +1,24 @@
 "dota_shops"
 {
-  "consumables"
+  "consumables" // 17 is max if sorted by columns
   {
     "item"                                                "item_clarity"
-    "item"                                                "item_faerie_fire"
     "item"                                                "item_smoke_of_deceit"
-    "item"                                                "item_ward_stack"
     "item"                                                "item_enchanted_mango"
-    "item"                                                "item_flask"
-    "item"                                                "item_tango"
-    "item"                                                "item_dust"
-    "item"                                                "item_gem"
+    "item"                                                "item_faerie_fire"
     "item"                                                "item_tome_of_knowledge"
+    "item"                                                "item_dust"
+    "item"                                                "item_tango"
+    "item"                                                "item_flask"
+    "item"                                                "item_infused_raindrop"
     "item"                                                "item_magic_wand"
-    "item"                                                "item_null_talisman"
-    "item"                                                "item_wraith_band"
     "item"                                                "item_bracer"
+    "item"                                                "item_wraith_band"
+    "item"                                                "item_null_talisman"
+    "item"                                                "item_ward_stack"
+    "item"                                                "item_gem"
     "item"                                                "item_aghanims_shard"
+    "item"                                                "item_core_info"
   }
 
   "attributes"
@@ -39,18 +41,17 @@
     "item"                                                "item_blade_of_alacrity"
     "item"                                                "item_staff_of_wizardry"
 
-    "item"                                                "item_ultimate_orb" // moved from secretshop
+    "item"                                                "item_ultimate_orb"
 
-    "item"                                                "item_reaver" // moved from secretshop
-    "item"                                                "item_eagle" // moved from secretshop
-    "item"                                                "item_mystic_staff" // moved from secretshop
+    "item"                                                "item_reaver"
+    "item"                                                "item_eagle"
+    "item"                                                "item_mystic_staff"
   }
 
   "weapons_armor"
   {
     "item"                                                "item_quelling_blade"
     "item"                                                "item_ring_of_protection"
-    "item"                                                "item_infused_raindrop"
     "item"                                                "item_orb_of_venom"
     "item"                                                "item_blight_stone"
     "item"                                                "item_blades_of_attack"
@@ -59,14 +60,14 @@
     "item"                                                "item_quarterstaff"
     "item"                                                "item_helm_of_iron_will"
     "item"                                                "item_broadsword"
-    "item"                                                "item_blitz_knuckles"
+    //"item"                                                "item_blitz_knuckles"
     "item"                                                "item_javelin"
-    "item"                                                "item_talisman_of_evasion" // moved from secretshop
-    "item"                                                "item_platemail" // moved from secretshop
+    "item"                                                "item_talisman_of_evasion"
     "item"                                                "item_claymore"
+    "item"                                                "item_platemail"
     "item"                                                "item_mithril_hammer"
-    "item"                                                "item_hyperstone" // moved from secretshop
-    "item"                                                "item_demon_edge" // moved from secretshop
+    "item"                                                "item_hyperstone"
+    "item"                                                "item_demon_edge"
   }
 
   "misc"
@@ -75,19 +76,19 @@
     "item"                                                "item_sobi_mask"
     "item"                                                "item_fluffy_hat"
     "item"                                                "item_wind_lace"
-    "item"                                                "item_cloak"
     "item"                                                "item_boots"
-    "item"                                                "item_energy_booster" // moved from secretshop
-    "item"                                                "item_ring_of_health" // moved from secretshop
-    "item"                                                "item_void_stone" // moved from secretshop
-    "item"                                                "item_lifesteal"
+    "item"                                                "item_cloak"
     "item"                                                "item_voodoo_mask"
-    "item"                                                "item_vitality_booster" // moved from secretshop
+    "item"                                                "item_energy_booster"
+    "item"                                                "item_ring_of_health"
+    "item"                                                "item_void_stone"
+    "item"                                                "item_lifesteal"
     "item"                                                "item_shadow_amulet"
-    "item"                                                "item_point_booster" // moved from secretshop
+    "item"                                                "item_vitality_booster"
+    "item"                                                "item_point_booster"
     "item"                                                "item_ghost"
     "item"                                                "item_blink"
-    "item"                                                "item_relic" // moved from secretshop
+    "item"                                                "item_relic"
   }
 
   "secretshop"
