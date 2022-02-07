@@ -363,8 +363,13 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
+      local previewHero = self:GetPreviewHero(event.PlayerID)
       local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
+      if choice == previewHero then
+        GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
+      else
+        GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
+      end
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
@@ -848,17 +853,25 @@ function HeroSelection:ForceRandomHero (playerId)
     DebugPrint("ForceRandomHero - Doing normal random for AR or ARDM")
     return HeroSelection:RandomHero()
   end
+  local previewHero = HeroSelection:GetPreviewHero(playerId)
+  local team = tostring(PlayerResource:GetTeam(playerId))
+  DebugPrint("GetPreviewHero - Started force random for player " .. playerId .. " on team " .. team)
+  if previewHero and not HeroSelection:IsHeroDisabled(previewHero) then
+    DebugPrint("GetPreviewHero - Force picking highlighted hero")
+    return previewHero
+  end
+  DebugPrint("ForceRandomHero - Bad preview hero, falling back to normal random")
+  return HeroSelection:RandomHero()
+end
+
+function HeroSelection:GetPreviewHero (playerId)
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
   local team = tostring(PlayerResource:GetTeam(playerId))
   local steamid = HeroSelection:GetSteamAccountID(playerId)
-  DebugPrint("ForceRandomHero - Started force random for player " .. playerId .. " on team " .. team)
-  if previewTable[team] and previewTable[team][steamid] and not HeroSelection:IsHeroDisabled(previewTable[team][steamid]) then
-    DebugPrint("ForceRandomHero - Force picking highlighted hero")
+  if previewTable[team] and previewTable[team][steamid] then
     return previewTable[team][steamid]
   end
-
-  DebugPrint("ForceRandomHero - Bad preview hero, falling back to normal random")
-  return HeroSelection:RandomHero()
+  return nil
 end
 
 function HeroSelection:RandomHero ()

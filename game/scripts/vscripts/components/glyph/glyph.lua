@@ -73,6 +73,13 @@ function Glyph:CastWard(playerID)
   ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", { })
 end
 
+function Glyph:ResetWardCooldowns()
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+    self:ResetWardCooldown(playerID)
+  end)
+  GameRules:GetGameModeEntity():SetCustomGlyphCooldown(self:GetWardCooldown())
+end
+
 function Glyph:ResetWardCooldown(playerID)
   self:SetWardCooldown(playerID, self:GetWardCooldown())
 end

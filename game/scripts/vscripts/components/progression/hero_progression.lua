@@ -210,12 +210,21 @@ function HeroProgression:ProcessAbilityPointGain(hero, level)
   end
 end
 
+DOTA_ModifyXP_BonusExperience = 4
+
 function HeroProgression:ExperienceFilter(keys)
   local playerID = keys.player_id_const
   local experience = keys.experience
 
-  if experience then
+  if experience > 0 then
     if PlayerResource:GetConnectionState(playerID) == DOTA_CONNECTION_STATE_CONNECTED then
+      local player = PlayerResource:GetPlayer(playerID)
+      local hero = player:GetAssignedHero()
+
+      if hero:HasModifier("modifier_hyper_experience_oaa") and keys.reason_const ~= DOTA_ModifyXP_BonusExperience then
+        hero:AddExperience(experience * 2, DOTA_ModifyXP_BonusExperience, false, true)
+      end
+
       return true
     else
       if not self.XPStorage[playerID] then

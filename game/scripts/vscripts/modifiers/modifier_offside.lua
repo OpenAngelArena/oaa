@@ -143,18 +143,30 @@ function modifier_offside:DrawParticles()
   if self.stackOffset == 0 then
     local stackCount = self:GetStackCount()
     local parent = self:GetParent()
-    local isInOffside = parent:HasModifier("modifier_is_in_offside")
+    local origin = parent:GetAbsOrigin()
+    local team = parent:GetTeamNumber()
 
-    local alpha = (stackCount - 8) * 255/15
+    local isEnemyOffside = true -- we assume that the offside is an enemy zone
+    local radiantOffside = IsLocationInRadiantOffside(origin)
+    local direOffside = IsLocationInDireOffside(origin)
 
-    if alpha >= 0 and isInOffside then
+    -- Check if it's enemy offside
+    if (team == DOTA_TEAM_GOODGUYS and radiantOffside) or (team == DOTA_TEAM_BADGUYS and direOffside) then
+      isEnemyOffside = false -- this is possible when teleporting directly from enemy base to ally base
+    end
+
+    local isDamageable = parent:IsAlive() and not parent:IsInvulnerable() and not parent:IsOutOfGame()
+    local isInOffside = (radiantOffside or direOffside) and isEnemyOffside == true
+    local alpha = (stackCount - 7) * 255/15
+
+    if alpha >= 0 and isInOffside and isDamageable then
       if self.BloodOverlay == nil then
         -- Creates a new particle effect
         self.BloodOverlay = ParticleManager:CreateParticleForPlayer( "particles/misc/screen_blood_overlay.vpcf", PATTACH_WORLDORIGIN, parent, parent:GetPlayerOwner() )
         ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
       end
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( alpha, 0, 0 ) )
-    elseif self.BloodOverlay and not isInOffside then
+    elseif self.BloodOverlay then
       ParticleManager:SetParticleControl( self.BloodOverlay, 1, Vector( 0, 0, 0 ) )
     end
 
@@ -181,6 +193,9 @@ function modifier_offside:OnIntervalThink()
   -- Don't continue (don't do location checks, don't increment or decrement the stacks, don't do damage etc.) if the parent is dead
   -- It also prevents parent's corpse from gaining more stacks if the parent died in offside
   if not parent:IsAlive() then
+    if self.BloodOverlay then
+      ParticleManager:SetParticleControl(self.BloodOverlay, 1, Vector( 0, 0, 0 ))
+    end
     return
   end
 

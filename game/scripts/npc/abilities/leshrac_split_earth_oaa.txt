@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Leshrac: Split Earth (OAA Rework)
+  //=================================================================================================================
+  "leshrac_split_earth_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85241"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_leshrac_split_earth.lua"
+    "AbilityTextureName"                                  "leshrac_split_earth"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasShardUpgrade"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.7"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "9"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 100 120 140 160 180"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "120 180 240 300 600 1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "0.35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "150 175 200 225 225 225"
+        "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "2.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_extra_instances"                           "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_extra_radius_per_instance"                 "75"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_interval"                                  "5.0"
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@
     "BaseClass"                     "ability_lua"
     "ScriptFile"                    "abilities/boss/spider_boss/spider_boss_rage.lua"
     "AbilityTextureName"            "broodmother_insatiable_hunger"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
 
     // Stats
