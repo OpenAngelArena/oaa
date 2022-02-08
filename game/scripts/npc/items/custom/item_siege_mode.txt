@@ -38,17 +38,17 @@
     "ID"                                                  "3555"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/siege_mode.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/siege_mode_1"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "16"
+    //"AbilityCastRange"                                    "1100" // equal to attack range
+    "AbilityManaCost"                                     "200"
+    "AbilityCooldown"                                     "18"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -66,9 +66,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
+      //"particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
       "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
       "particle"                                          "particles/base_attacks/ranged_tower_bad.vpcf"
+      "particle"                                          "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
     }
 
     // Special
@@ -97,7 +98,7 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
+        "var_type"                                        "FIELD_INTEGER"
         "bonus_health_regen"                              "12 15"
       }
       "06" // ranged only
@@ -108,17 +109,47 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_splash_radius"                            "300"
+        "bonus_damage"                                    "100 150"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_splash_damage"                            "150"
+        "passive_splash_radius"                           "250"
       }
       "09"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "passive_splash_percent"                          "40"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_damage"                                   "700 1000"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_radius"                                   "500"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "active_splash_percent"                           "150"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_distance"                              "250"
+      }
+      "14"
+      {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8"
+        "knockback_duration"                              "0.5"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "projectile_speed_multiplier"                     "0.5"
       }
     }
   }
