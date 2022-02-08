@@ -1,19 +1,20 @@
 "DOTAAbilities"
 {
-  "item_ultimate_orb"
+  "item_energy_booster"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "24"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "59"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2050"
-    "ItemShopTags"                                        "agi;int;str"
+    "ItemCost"                                            "800"
+    "ItemShopTags"                                        "mana_pool"
     "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "ultimate orb"
-    "SecretShop"                                          "0"
+    "ItemAliases"                                         "energy booster"
+    "SecretShop"                                          "0" //OAA
+    "SideShop"                                            "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +23,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10"
+        "bonus_mana"                                      "250"
       }
     }
   }
