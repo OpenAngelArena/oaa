@@ -4,6 +4,10 @@ function modifier_pro_active_oaa:IsHidden()
   return false
 end
 
+function modifier_pro_active_oaa:IsDebuff()
+  return false
+end
+
 function modifier_pro_active_oaa:IsPurgable()
   return false
 end

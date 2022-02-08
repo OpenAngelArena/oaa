@@ -4,6 +4,10 @@ function modifier_debuff_duration_oaa:IsHidden()
   return false
 end
 
+function modifier_debuff_duration_oaa:IsDebuff()
+  return false
+end
+
 function modifier_debuff_duration_oaa:IsPurgable()
   return false
 end

@@ -4,6 +4,10 @@ function modifier_aoe_radius_increase_oaa:IsHidden()
   return false
 end
 
+function modifier_aoe_radius_increase_oaa:IsDebuff()
+  return false
+end
+
 function modifier_aoe_radius_increase_oaa:IsPurgable()
   return false
 end

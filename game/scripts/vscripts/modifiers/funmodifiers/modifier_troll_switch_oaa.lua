@@ -4,6 +4,10 @@ function modifier_troll_switch_oaa:IsHidden()
   return false
 end
 
+function modifier_troll_switch_oaa:IsDebuff()
+  return not self:GetParent():IsRangedAttacker()
+end
+
 function modifier_troll_switch_oaa:IsPurgable()
   return true
 end
@@ -60,7 +64,7 @@ function modifier_troll_switch_oaa:OnIntervalThink()
   if hasTrueForm and self.set_attack_capability == DOTA_UNIT_CAP_MELEE_ATTACK and not parent:IsRangedAttacker() then
     parent:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
     -- this updates the stacks so the client side range updates correctly
-    -- otherwise you need to attack ot a-click something/somewhere
+    -- otherwise you need to attack or a-click something/somewhere
     self:GetModifierAttackRangeBonus()
     return
   end
@@ -68,7 +72,7 @@ function modifier_troll_switch_oaa:OnIntervalThink()
   if self.set_attack_capability ~= parent:GetAttackCapability() and not hasTrueForm then
     parent:SetAttackCapability(self.set_attack_capability)
     -- this updates the stacks so the client side range updates correctly
-    -- otherwise you need to attack ot a-click something/somewhere
+    -- otherwise you need to attack or a-click something/somewhere
     self:GetModifierAttackRangeBonus()
   end
 end

@@ -4,6 +4,10 @@ function modifier_any_damage_lifesteal_oaa:IsHidden()
   return false
 end
 
+function modifier_any_damage_lifesteal_oaa:IsDebuff()
+  return false
+end
+
 function modifier_any_damage_lifesteal_oaa:IsPurgable()
   return false
 end

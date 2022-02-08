@@ -6,6 +6,10 @@ function modifier_echo_strike_oaa:IsHidden()
   return false
 end
 
+function modifier_echo_strike_oaa:IsDebuff()
+  return false
+end
+
 function modifier_echo_strike_oaa:IsPurgable()
   return false
 end

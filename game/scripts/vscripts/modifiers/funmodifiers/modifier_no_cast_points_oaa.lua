@@ -4,6 +4,10 @@ function modifier_no_cast_points_oaa:IsHidden()
   return false
 end
 
+function modifier_no_cast_points_oaa:IsDebuff()
+  return false
+end
+
 function modifier_no_cast_points_oaa:IsPurgable()
   return false
 end
