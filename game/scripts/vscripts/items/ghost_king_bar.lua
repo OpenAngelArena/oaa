@@ -301,7 +301,7 @@ function modifier_item_ghost_king_bar_active:StatusEffectPriority()
 end
 
 function modifier_item_ghost_king_bar_active:GetTexture()
-  return "custom/ghoststaff_5"
+  return "custom/ghoststaff_1"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -323,13 +323,41 @@ end
 function modifier_item_ghost_king_bar_buff:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-
+    self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
+    self.status_resist = ability:GetSpecialValueFor("buff_status_resistance")
+    self.move_speed = ability:GetSpecialValueFor("buff_move_speed")
   end
 end
 
 function modifier_item_ghost_king_bar_buff:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-
+    self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
+    self.status_resist = ability:GetSpecialValueFor("buff_status_resistance")
+    self.move_speed = ability:GetSpecialValueFor("buff_move_speed")
   end
+end
+
+function modifier_item_ghost_king_bar_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+end
+
+function modifier_item_ghost_king_bar_buff:GetModifierMagicalResistanceBonus()
+  return self.magic_resist or self:GetAbility():GetSpecialValueFor("buff_magic_resistance")
+end
+
+function modifier_item_ghost_king_bar_buff:GetModifierStatusResistanceStacking()
+  return self.status_resist or self:GetAbility():GetSpecialValueFor("buff_status_resistance")
+end
+
+function modifier_item_ghost_king_bar_buff:GetModifierMoveSpeedBonus_Percentage()
+  return self.move_speed or self:GetAbility():GetSpecialValueFor("buff_move_speed")
+end
+
+function modifier_item_ghost_king_bar_buff:GetTexture()
+  return "custom/ghoststaff_1"
 end
