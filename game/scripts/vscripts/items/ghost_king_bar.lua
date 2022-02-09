@@ -1,16 +1,24 @@
 item_ghost_king_bar = class(ItemBaseClass)
 
-LinkLuaModifier("modifier_item_ghost_king_bar_passive", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ghost_king_bar_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ghost_king_bar_non_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_active", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_ghost_king_bar:GetIntrinsicModifierName()
-  return "modifier_item_ghost_king_bar_passive"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_ghost_king_bar:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_ghost_king_bar_stacking_stats",
+    "modifier_item_ghost_king_bar_non_stacking_stats"
+  }
 end
 
 function item_ghost_king_bar:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Apply Basic Dispel (its before applying actual effect on purpose!)
+  -- Apply Basic Dispel
   caster:Purge(false, true, false, false, false)
 
   -- Apply Ghost King Bar buff to caster (but only if he doesnt have spell immunity)
@@ -27,25 +35,25 @@ item_ghost_king_bar_3 = item_ghost_king_bar
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_ghost_king_bar_passive = class(ModifierBaseClass)
+modifier_item_ghost_king_bar_stacking_stats = class(ModifierBaseClass)
 
-function modifier_item_ghost_king_bar_passive:IsHidden()
+function modifier_item_ghost_king_bar_stacking_stats:IsHidden()
   return true
 end
 
-function modifier_item_ghost_king_bar_passive:IsDebuff()
+function modifier_item_ghost_king_bar_stacking_stats:IsDebuff()
   return false
 end
 
-function modifier_item_ghost_king_bar_passive:IsPurgable()
+function modifier_item_ghost_king_bar_stacking_stats:IsPurgable()
   return false
 end
 
-function modifier_item_ghost_king_bar_passive:GetAttributes()
+function modifier_item_ghost_king_bar_stacking_stats:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_ghost_king_bar_passive:OnCreated()
+function modifier_item_ghost_king_bar_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.str = ability:GetSpecialValueFor("bonus_strength")
@@ -54,7 +62,7 @@ function modifier_item_ghost_king_bar_passive:OnCreated()
   end
 end
 
-function modifier_item_ghost_king_bar_passive:OnRefresh()
+function modifier_item_ghost_king_bar_stacking_stats:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.str = ability:GetSpecialValueFor("bonus_strength")
@@ -63,7 +71,7 @@ function modifier_item_ghost_king_bar_passive:OnRefresh()
   end
 end
 
-function modifier_item_ghost_king_bar_passive:DeclareFunctions()
+function modifier_item_ghost_king_bar_stacking_stats:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
@@ -73,16 +81,58 @@ function modifier_item_ghost_king_bar_passive:DeclareFunctions()
   return funcs
 end
 
-function modifier_item_ghost_king_bar_passive:GetModifierBonusStats_Strength()
+function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Strength()
   return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
-function modifier_item_ghost_king_bar_passive:GetModifierBonusStats_Agility()
+function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Agility()
   return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agility")
 end
 
-function modifier_item_ghost_king_bar_passive:GetModifierBonusStats_Intellect()
+function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Intellect()
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_ghost_king_bar_non_stacking_stats = class(ModifierBaseClass)
+
+function modifier_item_ghost_king_bar_non_stacking_stats:IsHidden()
+  return true
+end
+
+function modifier_item_ghost_king_bar_non_stacking_stats:IsDebuff()
+  return false
+end
+
+function modifier_item_ghost_king_bar_non_stacking_stats:IsPurgable()
+  return false
+end
+
+function modifier_item_ghost_king_bar_non_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+  end
+end
+
+function modifier_item_ghost_king_bar_non_stacking_stats:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+  end
+end
+
+function modifier_item_ghost_king_bar_non_stacking_stats:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+  }
+
+  return funcs
+end
+
+function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -98,7 +148,7 @@ function modifier_item_ghost_king_bar_active:IsDebuff()
 end
 
 function modifier_item_ghost_king_bar_active:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_item_ghost_king_bar_active:OnCreated()
@@ -109,7 +159,7 @@ function modifier_item_ghost_king_bar_active:OnCreated()
     self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
   end
 
-  self:StartIntervalThink(FrameTime())
+  --self:StartIntervalThink(FrameTime())
 end
 
 function modifier_item_ghost_king_bar_active:OnRefresh()
@@ -121,16 +171,17 @@ function modifier_item_ghost_king_bar_active:OnRefresh()
   end
 end
 
-function modifier_item_ghost_king_bar_active:OnIntervalThink()
-  local parent = self:GetParent()
+--function modifier_item_ghost_king_bar_active:OnIntervalThink()
+  --local parent = self:GetParent()
   -- To prevent invicibility:
-  if parent:IsMagicImmune() then
-    self:Destroy()
-  end
-end
+  --if parent:IsMagicImmune() then
+    --self:Destroy()
+  --end
+--end
 
 function modifier_item_ghost_king_bar_active:DeclareFunctions()
   local funcs = {
+    MODIFIER_PROPERTY_AVOID_DAMAGE,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
@@ -139,6 +190,14 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
   }
 
   return funcs
+end
+
+function modifier_item_ghost_king_bar_active:GetModifierAvoidDamage(event)
+  if event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
+    return 1
+  end
+
+  return 0
 end
 
 function modifier_item_ghost_king_bar_active:GetModifierMagicalResistanceDecrepifyUnique()
