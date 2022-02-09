@@ -3,6 +3,7 @@ item_ghost_king_bar = class(ItemBaseClass)
 LinkLuaModifier("modifier_item_ghost_king_bar_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_non_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_active", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ghost_king_bar_buff", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_ghost_king_bar:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
@@ -187,6 +188,7 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_EVENT_ON_HEAL_RECEIVED,
   }
 
   return funcs
@@ -220,6 +222,66 @@ function modifier_item_ghost_king_bar_active:GetModifierSpellLifestealRegenAmpli
   return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("active_spell_lifesteal_amp")
 end
 
+function modifier_item_ghost_king_bar_active:OnHealReceived(event)
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local inflictor = event.inflictor -- Heal ability
+  local unit = event.unit -- Healed unit
+  --local amount = event.gain -- Amount healed
+
+  local ghost_king_bar = self:GetAbility()
+  if not ghost_king_bar or ghost_king_bar:IsNull() then
+    return
+  end
+
+  -- Don't continue if healing entity/ability doesn't exist
+  if not inflictor or inflictor:IsNull() then
+    return
+  end
+
+  -- Don't continue if healed unit doesn't exist
+  if not unit or unit:IsNull() then
+    return
+  end
+
+  local function BuffHealedUnit()
+    if not unit:HasModifier("modifier_item_ghost_king_bar_buff") then
+      unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("duration")})
+    end
+  end
+
+  if inflictor.GetAbilityName == nil then
+    -- Inflictor is not an ability or item
+    if parent ~= inflictor then
+      -- Inflictor is not the parent -> parent is not the healer
+      return
+    end
+
+    -- Apply buff to the unit
+    BuffHealedUnit()
+  else
+    -- Inflictor is an ability
+    local name = inflictor:GetAbilityName()
+    local ability = parent:FindAbilityByName(name)
+    if not ability then
+      -- Parent doesn't have this ability or item -> parent is not the healer
+      return
+    end
+    if ability:GetLevel() > 0 or ability:IsItem() then
+      -- Parent has this ability or item with the same name as inflictor
+      -- Check if it's exactly the same by comparing indexes
+      if ability:entindex() == inflictor:entindex() then
+        -- Indexes are the same -> parent is the healer
+        -- if index of the ability changes randomly and this never happens, then thank you Valve
+        -- Apply buff to the unit
+        BuffHealedUnit()
+      end
+    end
+  end
+end
+
 function modifier_item_ghost_king_bar_active:CheckState()
   local state = {
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
@@ -240,4 +302,34 @@ end
 
 function modifier_item_ghost_king_bar_active:GetTexture()
   return "custom/ghoststaff_5"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_ghost_king_bar_buff = class(ModifierBaseClass)
+
+function modifier_item_ghost_king_bar_buff:IsHidden()
+  return false
+end
+
+function modifier_item_ghost_king_bar_buff:IsDebuff()
+  return false
+end
+
+function modifier_item_ghost_king_bar_buff:IsPurgable()
+  return true
+end
+
+function modifier_item_ghost_king_bar_buff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+
+  end
+end
+
+function modifier_item_ghost_king_bar_buff:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+
+  end
 end
