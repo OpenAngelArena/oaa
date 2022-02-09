@@ -35,6 +35,9 @@ function item_siege_mode:OnSpellStart()
     return
   end
 
+  -- 'Fix' for the caster not turning to cast this item at the location
+  -- Items are weird because they are not supposed to have cast points or to require facing
+  -- See Gleipnir in vanilla for reference
   caster:FaceTowards(target)
 
   -- KVs
@@ -46,10 +49,6 @@ function item_siege_mode:OnSpellStart()
   -- Other variables
   local caster_team = caster:GetTeamNumber()
   local caster_loc = caster:GetAbsOrigin()
-
-  if not attack_projectile_speed or attack_projectile_speed <= 0 then
-    attack_projectile_speed = 900
-  end
 
   -- Calculate projectile stuff
   local distance = (caster_loc - target):Length2D()
@@ -78,7 +77,7 @@ function item_siege_mode:OnSpellStart()
 
   -- Sound
   caster:EmitSound("Splash_Cannon.Launch")
-  
+
   -- Initialize knockback table for recoil
   local knockback_table = {
     should_stun = 0,
@@ -90,7 +89,7 @@ function item_siege_mode:OnSpellStart()
     knockback_distance = recoil_distance,
     --knockback_height = recoil_distance / 2,
   }
-  
+
   -- Apply Recoil to the caster
   caster:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
 end
@@ -445,10 +444,6 @@ function modifier_item_siege_mode_thinker:OnDestroy()
     return
   end
   local parent = self:GetParent()
-  if self.particle then
-    ParticleManager:DestroyParticle(self.particle, true)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-  end
   if parent and not parent:IsNull() then
     parent:ForceKill(false)
   end
