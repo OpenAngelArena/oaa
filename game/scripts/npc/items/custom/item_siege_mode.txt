@@ -46,7 +46,7 @@
     "AbilityTextureName"                                  "custom/siege_mode_1"
 
     "AbilityCastPoint"                                    "0.0"
-    //"AbilityCastRange"                                    "1100" // equal to attack range
+    "AbilityCastRange"                                    "1100"
     "AbilityManaCost"                                     "200"
     "AbilityCooldown"                                     "18"
 
@@ -69,7 +69,8 @@
       //"particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
       "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
       "particle"                                          "particles/base_attacks/ranged_tower_bad.vpcf"
-      "particle"                                          "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+      "particle"                                          "particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf"
+      "soundfile"                                         "soundevents/items/oaa_items_sfx.vsndevts"
     }
 
     // Special
@@ -148,8 +149,8 @@
       }
       "15"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed_multiplier"                     "0.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1800"
       }
     }
   }

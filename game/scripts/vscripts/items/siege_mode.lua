@@ -8,10 +8,6 @@ LinkLuaModifier("modifier_item_siege_mode_thinker", "items/siege_mode.lua", LUA_
 
 item_siege_mode = class(ItemBaseClass)
 
-function item_siege_mode:GetCastRange(location, target)
-  return self:GetCaster():GetAttackRange()
-end
-
 function item_siege_mode:GetAOERadius()
   return self:GetSpecialValueFor("active_radius")
 end
@@ -40,11 +36,10 @@ function item_siege_mode:OnSpellStart()
   end
 
   -- KVs
-  local projectile_speed_multiplier = self:GetSpecialValueFor("projectile_speed_multiplier")
+  local projectile_speed = self:GetSpecialValueFor("projectile_speed")
   local projectile_vision_radius = self:GetSpecialValueFor("knockback_distance")
 
   -- Other variables
-  local attack_projectile_speed = caster:GetProjectileSpeed()
   local caster_team = caster:GetTeamNumber()
   local caster_loc = caster:GetAbsOrigin()
 
@@ -53,7 +48,6 @@ function item_siege_mode:OnSpellStart()
   end
 
   -- Calculate projectile stuff
-  local projectile_speed = attack_projectile_speed * projectile_speed_multiplier
   local distance = (caster_loc - target):Length2D()
   local projectile_duration = distance / projectile_speed + 0.1
 
@@ -73,13 +67,14 @@ function item_siege_mode:OnSpellStart()
     bProvidesVision = true,
     iVisionRadius = projectile_vision_radius,
     iVisionTeamNumber = caster_team,
+    iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
   }
 
   -- Create a tracking projectile
   ProjectileManager:CreateTrackingProjectile(projectile)
 
   -- Sound
-  --caster:EmitSound("")
+  caster:EmitSound("Splash_Cannon.Launch")
 end
 
 function item_siege_mode:OnProjectileHit(target, location)
@@ -112,6 +107,7 @@ function item_siege_mode:OnProjectileHit(target, location)
     duration = duration,
     knockback_duration = duration,
     knockback_distance = distance,
+    knockback_height = distance / 2,
   }
 
   -- Initialize damage table
@@ -147,9 +143,9 @@ function item_siege_mode:OnProjectileHit(target, location)
   local part = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(part, 3, origin)
   ParticleManager:ReleaseParticleIndex(part)
-  local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, caster)
-  ParticleManager:SetParticleControl(explosion, 0, origin)
-  ParticleManager:SetParticleControl(explosion, 3, origin)
+  local explosion = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
+  --ParticleManager:SetParticleControl(explosion, 0, origin)
+  ParticleManager:SetParticleControl(explosion, 5, origin)
   ParticleManager:ReleaseParticleIndex(explosion)
 
   -- iterate through all targets
@@ -165,6 +161,9 @@ function item_siege_mode:OnProjectileHit(target, location)
       ApplyDamage(damage_table)
     end
   end
+
+  -- Sound
+  EmitSoundOnLocationWithCaster(location, "Splash_Cannon.Explosion", caster)
 
   return true
 end
