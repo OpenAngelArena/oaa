@@ -3,7 +3,7 @@
 //==================================================================
 "DOTA_Tooltip_Ability_item_siege_mode"                          "Splash Cannon"
 "DOTA_Tooltip_Ability_item_recipe_siege_mode"                   "Splash Cannon Recipe"
-"DOTA_Tooltip_Ability_item_siege_mode_Description"              "<h1>Active: Splash Mode</h1> Causes your attacks to deal %active_splash_damage%%% splash damage in a %siege_splash_radius% radius. Lasts %duration% seconds."
+"DOTA_Tooltip_Ability_item_siege_mode_Description"              "<h1>Active: Cannon Fire</h1> Bombard an area with a cannoball. Enemies in the area will be damaged and knocked back. Damage is equal to %active_damage% + %active_splash_percent%%% of your attack damage. Using Cannon Fire will cause a powerful recoil, pushing you backwards.<br><br>Radius: %active_radius%<br>Knockback distance: %knockback_distance%<br>Range: %abilitycastrange% \n\n<h1>Passive: Splash Attack</h1> Causes your attacks to deal %passive_splash_percent%%% splash damage in a %passive_splash_radius% radius."
 "DOTA_Tooltip_Ability_item_siege_mode_Lore"                     "A lost Hero's equipment. Its user becomes the bastion of the battlefield, repelling even the most formidable enemy forces."
 "DOTA_Tooltip_Ability_item_siege_mode_Note0"                    "Splash Cannon bonus attack range doesn't stack with Dragon Lance, Hurricane Pike or with another Splash Cannon."
 //"DOTA_Tooltip_Ability_item_siege_mode_Note1"                    ""
@@ -13,6 +13,7 @@
 "DOTA_Tooltip_Ability_item_siege_mode_bonus_health"             "+$health"
 "DOTA_Tooltip_Ability_item_siege_mode_bonus_health_regen"       "+$hp_regen"
 "DOTA_Tooltip_Ability_item_siege_mode_bonus_attack_range"       "+$attack_range"
+"DOTA_Tooltip_Ability_item_siege_mode_bonus_damage"             "+$damage"
 
 "DOTA_Tooltip_Ability_item_siege_mode_2"                        "#{DOTA_Tooltip_Ability_item_siege_mode}"
 "DOTA_Tooltip_Ability_item_recipe_siege_mode_2"                 "#{DOTA_Tooltip_Ability_item_recipe_siege_mode}"
@@ -26,6 +27,7 @@
 "DOTA_Tooltip_Ability_item_siege_mode_2_bonus_health"           "#{DOTA_Tooltip_Ability_item_siege_mode_bonus_health}"
 "DOTA_Tooltip_Ability_item_siege_mode_2_bonus_health_regen"     "#{DOTA_Tooltip_Ability_item_siege_mode_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_siege_mode_2_bonus_attack_range"     "#{DOTA_Tooltip_Ability_item_siege_mode_bonus_attack_range}"
+"DOTA_Tooltip_Ability_item_siege_mode_2_bonus_damage"           "#{DOTA_Tooltip_Ability_item_siege_mode_bonus_damage}"
 
-"DOTA_Tooltip_modifier_item_siege_mode_active"                   "Splash Mode"
-"DOTA_Tooltip_modifier_item_siege_mode_active_Description"       "Attacks do splash damage in an area."
+//"DOTA_Tooltip_modifier_item_siege_mode_active"                   "Splash Mode"
+//"DOTA_Tooltip_modifier_item_siege_mode_active_Description"       "Attacks do splash damage in an area."
