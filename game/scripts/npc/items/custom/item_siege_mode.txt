@@ -38,7 +38,7 @@
     "ID"                                                  "3555"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/siege_mode.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -151,6 +151,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "projectile_speed"                                "1800"
+      }
+      "16"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "recoil_distance"                                 "250"
+      }
+      "17"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "recoil_duration"                                 "0.2"
       }
     }
   }

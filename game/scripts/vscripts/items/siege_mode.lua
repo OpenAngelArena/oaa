@@ -35,9 +35,13 @@ function item_siege_mode:OnSpellStart()
     return
   end
 
+  caster:FaceTowards(target)
+
   -- KVs
   local projectile_speed = self:GetSpecialValueFor("projectile_speed")
   local projectile_vision_radius = self:GetSpecialValueFor("knockback_distance")
+  local recoil_distance = self:GetSpecialValueFor("recoil_distance")
+  local recoil_duration = self:GetSpecialValueFor("recoil_duration")
 
   -- Other variables
   local caster_team = caster:GetTeamNumber()
@@ -69,12 +73,26 @@ function item_siege_mode:OnSpellStart()
     iVisionTeamNumber = caster_team,
     iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
   }
-
   -- Create a tracking projectile
   ProjectileManager:CreateTrackingProjectile(projectile)
 
   -- Sound
   caster:EmitSound("Splash_Cannon.Launch")
+  
+  -- Initialize knockback table for recoil
+  local knockback_table = {
+    should_stun = 0,
+    center_x = target.x,
+    center_y = target.y,
+    center_z = target.z,
+    duration = recoil_duration,
+    knockback_duration = recoil_duration,
+    knockback_distance = recoil_distance,
+    --knockback_height = recoil_distance / 2,
+  }
+  
+  -- Apply Recoil to the caster
+  caster:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
 end
 
 function item_siege_mode:OnProjectileHit(target, location)
