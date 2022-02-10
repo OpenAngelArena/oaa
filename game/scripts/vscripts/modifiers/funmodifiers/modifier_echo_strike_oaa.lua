@@ -75,8 +75,8 @@ function modifier_echo_strike_oaa:OnAttackLanded(event)
     return
   end
 
-  -- No need to proc if target is invulnerable
-  if target:IsInvulnerable() or target:IsOutOfGame() then
+  -- No need to proc if target is invulnerable or dead
+  if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() then
     return
   end
 
