@@ -9,7 +9,7 @@ function modifier_hyper_experience_oaa:IsDebuff()
 end
 
 function modifier_hyper_experience_oaa:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_hyper_experience_oaa:RemoveOnDeath()

@@ -9,7 +9,7 @@ function modifier_diarrhetic_oaa:IsDebuff()
 end
 
 function modifier_diarrhetic_oaa:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_diarrhetic_oaa:RemoveOnDeath()
