@@ -248,7 +248,7 @@ function modifier_item_ghost_king_bar_active:OnHealReceived(event)
 
   local function BuffHealedUnit()
     if not unit:HasModifier("modifier_item_ghost_king_bar_buff") then
-      unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("duration")})
+      unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("buff_duration")})
     end
   end
 
