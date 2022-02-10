@@ -93,20 +93,25 @@ function modifier_any_damage_lifesteal_oaa:OnTakeDamage(event)
     return
   end
 
-  -- Ignore damage that has the no-reflect flag
-  --if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-    --return
-  --end
+  -- Ignore damage with no-reflect flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+    return
+  end
 
-  -- Ignore damage that has the no-spell-lifesteal flag
-  --if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
-    --return
-  --end
+  -- Ignore damage with HP removal flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
+    return
+  end
 
-  -- Ignore damage that has the no-spell-amplification flag
-  --if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-    --return
-  --end
+  -- Ignore damage with no-spell-lifesteal flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
+    return
+  end
+
+  -- Ignore damage with no-spell-amplification flag
+  if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
+    return
+  end
 
   -- Calculate the lifesteal (heal) amount
   local heal_amount = 0
