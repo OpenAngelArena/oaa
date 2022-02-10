@@ -194,7 +194,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM10: '#game_option_spell_block',
     HM11: '#game_option_troll_switch',
     HM12: '#game_option_hyper_experience',
-    HM13: '#game_option_diarrhetic'
+    HM13: '#game_option_diarrhetic',
+    HM14: '#game_option_rend'
   };
 
   if (settings.HEROES_MODS !== 'HMN') {

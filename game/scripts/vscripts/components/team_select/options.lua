@@ -20,7 +20,8 @@ local hero_mods = {
   HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
-  HM13 = "modifier_diarrhetic_oaa"
+  HM13 = "modifier_diarrhetic_oaa",
+  HM14 = "modifier_rend_oaa"
 }
 local boss_mods = {
   BMN  = false,
@@ -96,6 +97,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_troll_switch_oaa", "modifiers/funmodifiers/modifier_troll_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hyper_experience_oaa", "modifiers/funmodifiers/modifier_hyper_experience_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_diarrhetic_oaa", "modifiers/funmodifiers/modifier_diarrhetic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_rend_oaa", "modifiers/funmodifiers/modifier_rend_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
