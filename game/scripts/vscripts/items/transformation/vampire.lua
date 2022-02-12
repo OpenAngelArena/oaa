@@ -43,7 +43,6 @@ modifier_item_vampire.OnRefresh = modifier_item_vampire.OnCreated
 
 function modifier_item_vampire:DeclareFunctions()
   local funcs = {
-    -- MODIFIER_EVENT_ON_HEALTH_GAINED,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
@@ -64,11 +63,7 @@ function modifier_item_vampire:GetModifierBonusStats_Strength()
 end
 
 function modifier_item_vampire:GetModifierStatusResistanceStacking()
-  if not self:GetParent():HasModifier( "modifier_item_vampire_active" ) then
-    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
-  else
-    return 0
-  end
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
 end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
@@ -170,7 +165,6 @@ end
 
 function modifier_item_vampire_active:DeclareFunctions()
   local funcs = {
-    -- MODIFIER_EVENT_ON_HEALTH_GAINED,
     MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
