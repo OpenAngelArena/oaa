@@ -23,8 +23,10 @@ function modifier_debuff_duration_oaa:DeclareFunctions()
   }
 end
 
-function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster()
-  return -25
+if IsServer() then
+  function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster()
+    return -25
+  end
 end
 
 function modifier_debuff_duration_oaa:GetModifierSpellAmplify_Percentage()

@@ -43,62 +43,60 @@ function modifier_echo_strike_oaa:OnCreated(kv)
   end
 end
 
-function modifier_echo_strike_oaa:OnAttackLanded(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_echo_strike_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-  local parent = self:GetParent()
-  local attacker = event.attacker
-  local target = event.target
-
-  -- Check if attacker exists
-  if not attacker or attacker:IsNull() then
-    return
-  end
-
-  -- Check if attacker has this modifier
-  if not self.global then
-    if attacker ~= parent then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
-  end
 
-  -- Check if attacked unit exists
-  if not target or target:IsNull() then
-    return
-  end
+    -- Check if attacker has this modifier
+    if not self.global then
+      if attacker ~= parent then
+        return
+      end
+    end
 
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
 
-  -- No need to proc if target is invulnerable or dead
-  if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() then
-    return
-  end
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
 
-  -- Don't proc if passive is on cooldown
-  if attacker:HasModifier("modifier_echo_strike_cooldown_oaa") then
-    return
-  end
+    -- No need to proc if target is invulnerable or dead
+    if target:IsInvulnerable() or target:IsOutOfGame() or not target:IsAlive() then
+      return
+    end
 
-  if RandomInt(1, 100) <= self.chance then
-    local useCastAttackOrb = false
-    local processProcs = true
-    local skipCooldown = false
-    local ignoreInvis = false
-    local useProjectile = attacker:IsRangedAttacker() -- only ranged units need a projectile
-    local fakeAttack = false
-    local neverMiss = not attacker:IsRangedAttacker() -- only ranged units can miss
+    -- Don't proc if passive is on cooldown
+    if attacker:HasModifier("modifier_echo_strike_cooldown_oaa") then
+      return
+    end
 
-    -- Perform the second attack (can trigger attack modifiers)
-    attacker:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+    if RandomInt(1, 100) <= self.chance then
+      local useCastAttackOrb = false
+      local processProcs = true
+      local skipCooldown = false
+      local ignoreInvis = false
+      local useProjectile = attacker:IsRangedAttacker() -- only ranged units need a projectile
+      local fakeAttack = false
+      local neverMiss = not attacker:IsRangedAttacker() -- only ranged units can miss
 
-    -- Start cooldown by adding a modifier
-    attacker:AddNewModifier(attacker, nil, "modifier_echo_strike_cooldown_oaa", {duration = self.cooldown})
+      -- Perform the second attack (can trigger attack modifiers)
+      attacker:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
+
+      -- Start cooldown by adding a modifier
+      attacker:AddNewModifier(attacker, nil, "modifier_echo_strike_cooldown_oaa", {duration = self.cooldown})
+    end
   end
 end
 

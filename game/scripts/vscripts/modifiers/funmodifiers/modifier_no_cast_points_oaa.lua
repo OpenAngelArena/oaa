@@ -26,8 +26,10 @@ function modifier_no_cast_points_oaa:DeclareFunctions()
   }
 end
 
-function modifier_no_cast_points_oaa:GetModifierPercentageCasttime()
-  return 100
+if IsServer() then
+  function modifier_no_cast_points_oaa:GetModifierPercentageCasttime()
+    return 100
+  end
 end
 
 function modifier_no_cast_points_oaa:GetTexture()

@@ -41,7 +41,11 @@ function modifier_troll_switch_oaa:OnCreated()
     -- Parent is melee -> turn to ranged
     parent:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
     -- Change attack projectile only if parent doesn't have Metamorphosis and Dragon Form
-    if not parent:HasAbility("dragon_knight_elder_dragon_form") and not parent:HasAbility("dragon_knight_elder_dragon_form_oaa") and not parent:HasAbility("terrorblade_metamorphosis") then
+    if parent:HasAbility("dragon_knight_elder_dragon_form") and parent:HasAbility("dragon_knight_elder_dragon_form_oaa") then
+      parent:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf")
+    elseif parent:HasAbility("terrorblade_metamorphosis") then
+      parent:SetRangedProjectileName("particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf")
+    else
       parent:SetRangedProjectileName("particles/base_attacks/ranged_tower_good.vpcf")
     end
     self.set_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
@@ -134,26 +138,28 @@ function modifier_troll_switch_oaa:GetModifierAttackRangeBonus()
   return 0
 end
 
-function modifier_troll_switch_oaa:GetModifierProjectileSpeedBonus()
-  local parent = self:GetParent()
-  if not IsServer() or parent:HasModifier("modifier_item_princes_knife") then
-    return 0
-  end
-
-  if self.ps_lock then
-    return 0
-  else
-    self.ps_lock = true
-    local projectile_speed = parent:GetProjectileSpeed()
-    self.ps_lock = false
-    if projectile_speed <= self.projectileSpeed then
-      return self.projectileSpeed - projectile_speed
-    --elseif projectile_speed > self.projectileSpeed then
-      --return self.projectileSpeed - projectile_speed
+if IsServer() then
+  function modifier_troll_switch_oaa:GetModifierProjectileSpeedBonus()
+    local parent = self:GetParent()
+    if parent:HasModifier("modifier_item_princes_knife") then
+      return 0
     end
-  end
 
-  return 0
+    if self.ps_lock then
+      return 0
+    else
+      self.ps_lock = true
+      local projectile_speed = parent:GetProjectileSpeed()
+      self.ps_lock = false
+      if projectile_speed <= self.projectileSpeed then
+        return self.projectileSpeed - projectile_speed
+      --elseif projectile_speed > self.projectileSpeed then
+        --return self.projectileSpeed - projectile_speed
+      end
+    end
+
+    return 0
+  end
 end
 
 function modifier_troll_switch_oaa:GetModifierHealthBonus()

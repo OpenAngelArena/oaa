@@ -24,42 +24,40 @@ function modifier_rend_oaa:DeclareFunctions()
   }
 end
 
-function modifier_rend_oaa:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
+if IsServer() then
+  function modifier_rend_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local target = event.target
 
-  -- Doesn't work on units that dont have this modifier, doesn't work on illusions
-  if parent ~= event.attacker or parent:IsIllusion() then
-    return
+    -- Doesn't work on units that dont have this modifier, doesn't work on illusions
+    if parent ~= event.attacker or parent:IsIllusion() then
+      return
+    end
+
+    -- To prevent crashes:
+    if not target then
+      return
+    end
+
+    if target:IsNull() then
+      return
+    end
+
+    -- Doesn't work on allies, towers, or wards
+    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
+      return
+    end
+
+    -- Get duration
+    local duration = 3
+
+    target:AddNewModifier(parent, ability, "modifier_rend_armor_reduction_oaa", {duration = duration})
   end
-
-  -- To prevent crashes:
-  if not target then
-    return
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  if not IsServer() then
-    return
-  end
-
-  -- Doesn't work on allies, towers, or wards
-  if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
-    return
-  end
-
-  -- Get duration
-  local duration = 3
-
-  target:AddNewModifier(parent, ability, "modifier_rend_armor_reduction_oaa", {duration = duration})
 end
 
 function modifier_rend_oaa:GetTexture()
-  return "item_desolator"
+  return "item_blight_stone"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -113,5 +111,5 @@ function modifier_rend_armor_reduction_oaa:GetModifierPhysicalArmorBonus()
 end
 
 function modifier_rend_armor_reduction_oaa:GetTexture()
-  return "item_desolator"
+  return "item_blight_stone"
 end

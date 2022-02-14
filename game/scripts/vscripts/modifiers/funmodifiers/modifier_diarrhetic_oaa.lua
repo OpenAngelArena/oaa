@@ -16,6 +16,6 @@ function modifier_diarrhetic_oaa:RemoveOnDeath()
   return false
 end
 
--- function modifier_diarrhetic_oaa:GetTexture()
---   return ""
--- end
+function modifier_diarrhetic_oaa:GetTexture()
+  return "item_ward_observer"
+end
