@@ -306,7 +306,6 @@ function Duels:SplitDuelPlayers(options)
             badPlayers[badPlayerIndex].team = 'bad'
             badPlayerIndex = badPlayerIndex + 1
             validBadPlayerIndex = validBadPlayerIndex + 1
-
           elseif player:GetTeam() == DOTA_TEAM_GOODGUYS then
             goodPlayers[goodPlayerIndex] = HeroState.SaveState(player:GetAssignedHero())
             goodPlayers[goodPlayerIndex].id = playerId
@@ -431,7 +430,7 @@ function Duels:SpawnPlayerOnArena(playerSplit, arenaIndex, duelNumber)
     guy.duelNumber = duelNumber
     Duels.zones[arenaIndex].addPlayer(guy.id)
 
-    SafeTeleportAll(hero, spawn, 250)
+    SafeTeleportAll(hero, spawn, 350)
     MoveCameraToPlayer(hero)
     hero:Stop()
     --hero:SetRespawnsDisabled(true) -- not working properly thanks to Aghs Lab 2

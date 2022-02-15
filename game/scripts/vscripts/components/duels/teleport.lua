@@ -67,32 +67,37 @@ end
 
 local function SafeTeleportAll(mainUnit, location, maxDistance)
   SafeTeleport(mainUnit, location, maxDistance)
-  local playerAdditionalUnits
+  local playerAdditionalUnits = {}
   -- GetAdditionalOwnedUnits is unsuitable here as it apparently only returns hero-like units, like Lone Druid's Bear and such.
   -- It definitely does not return most normal unit summons, including Necronomicon and Broodmother Spiderlings.
   -- if mainUnit.GetAdditionalOwnedUnits then
-  --   playerAdditionalUnits = mainUnit:GetAdditionalOwnedUnits() or {} -- assign empty table instead of nil so iter can be called without errors
-  -- else
-  playerAdditionalUnits = FindUnitsInRadius(mainUnit:GetTeam(),
-                                            mainUnit:GetAbsOrigin(),
-                                            nil,
-                                            FIND_UNITS_EVERYWHERE,
-                                            DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-                                            bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-                                            DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED,
-                                            FIND_ANY_ORDER,
-                                            false)
-  playerAdditionalUnits = playerAdditionalUnits or {} -- assign empty table instead of nil so iter can be called without errors
-  playerAdditionalUnits = iter(playerAdditionalUnits):filter(function (unit)
-    return unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID() and (not unit:IsCourier())
-  end)
-  -- end
+  --   playerAdditionalUnits = mainUnit:GetAdditionalOwnedUnits() or {}
 
-  iter(playerAdditionalUnits)
-    :filter(CallMethod("HasMovementCapability"))
-    :foreach(function (unit)
+  playerAdditionalUnits = FindUnitsInRadius(
+    mainUnit:GetTeam(),
+    mainUnit:GetAbsOrigin(),
+    nil,
+    FIND_UNITS_EVERYWHERE,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+    FIND_ANY_ORDER,
+    false
+  )
+
+  playerAdditionalUnits = iter(playerAdditionalUnits):filter(
+    function (unit)
+      return unit ~= mainUnit and unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID() and not unit:IsCourier() and not unit:HasModifier("modifier_oaa_thinker") and not unit:GetUnitName() == "npc_dota_custom_dummy_unit" and not unit:IsZombie()
+    end
+  )
+
+  iter(playerAdditionalUnits):filter(CallMethod("HasMovementCapability")):foreach(
+    function (unit)
       SafeTeleport(unit, location, maxDistance)
-    end)
+      unit:SetHealth(unit:GetMaxHealth())
+      unit:SetMana(unit:GetMaxMana())
+    end
+  )
 end
 
 -- Test SafeTeleport function
