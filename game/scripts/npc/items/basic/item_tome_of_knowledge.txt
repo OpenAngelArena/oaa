@@ -22,7 +22,7 @@
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemDisplayCharges"                                  "1"
-    "ItemStockMax"                                        "3"
+    "ItemStockMax"                                        "5" //OAA
     "ItemStockInitial"                                    "0"
     "ItemStockTime"                                       "480" //OAA (8 minutes)
     "ItemInitialStockTime"                                "335" //OAA (5 minutes)
@@ -37,13 +37,13 @@
     {
       "01"
       {
-        "var_type"				"FIELD_INTEGER"
-        "xp_bonus"				"700"
+        "var_type"                                        "FIELD_INTEGER"
+        "xp_bonus"                                        "700"
       }
       "02" // Bonus experience gained per previous tome starts with the third used tome, not with the second
       {
-        "var_type"				"FIELD_INTEGER"
-        "xp_per_use"			"270" // OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "xp_per_use"                                      "270" // OAA
       }
     }
   }

@@ -24,9 +24,7 @@
     "AbilityTextureName"                                  "item_recipe"
     "ItemRequirements"
     {
-      "01"                                                "item_crimson_guard_2;item_pipe_2;item_upgrade_core_2"
-      "02"                                                "item_crimson_guard_2;item_pipe_2;item_upgrade_core_3"
-      "03"                                                "item_crimson_guard_2;item_pipe_2;item_upgrade_core_4"
+      "01"                                                "item_crimson_guard_5;item_pipe_5;item_upgrade_core_4"
     }
   }
 
@@ -48,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "13578"
+    "ItemCost"                                            "76584"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson pipe"
