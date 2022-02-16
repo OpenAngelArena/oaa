@@ -16,5 +16,37 @@
     volume_fade_out = "0.600000"
     spread_radius = "300.000000"
   }
+  
+  Splash_Cannon.Launch = {
+    type = "dota_src1_3d"
+    volume = 1.000000
+    pitch_rand_min = -0.050000
+    pitch_rand_max = 0.050000
+    pitch = 1.000000
+    soundlevel = 78.000000
+    distance_max = 2500.000000
+    vsnd_files = 
+    [
+      "sounds/weapons/hero/gyrocopter/rocket_barrage_fire.vsnd",
+    ]
+    vsnd_duration = 1.002857
+  }
+  
+  Splash_Cannon.Explosion = {
+    type = "dota_update_default"
+    volume = 0.800000
+    pitch_rand_min = -0.050000
+    pitch_rand_max = 0.050000
+    pitch = 1.000000
+    soundlevel = 81.000000
+    mixgroup = "Weapons"
+    volume_fade_out = 0.600000
+    spread_radius = 500.000000
+    vsnd_files = 
+    [
+      "sounds/weapons/hero/gyrocopter/call_down_impact.vsnd",
+    ]
+    vsnd_duration = 1.0
+  }
 
 }

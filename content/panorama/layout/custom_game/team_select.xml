@@ -62,6 +62,7 @@
                   <Label text="#game_option_troll_switch" id="HM11" onmouseover="UIShowTextTooltip(#game_option_troll_switch_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_experience" id="HM12" onmouseover="UIShowTextTooltip(#game_option_hyper_experience_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_diarrhetic" id="HM13" onmouseover="UIShowTextTooltip(#game_option_diarrhetic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>

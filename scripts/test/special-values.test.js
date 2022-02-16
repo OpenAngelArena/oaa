@@ -179,7 +179,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   t.notOk(itemsFound[item], 'can only be defined once');
   if (item !== 'ability_base_datadriven') {
     t.notOk(idsFound[values.ID], 'must have a unique ID');
-    if (!isBuiltIn && item !== 'item_dummy_datadriven') {
+    if (!isBuiltIn) {
       t.ok(values.ID, 'must have an item id');
       t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
       t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota ' + usedIDs[values.ID]);

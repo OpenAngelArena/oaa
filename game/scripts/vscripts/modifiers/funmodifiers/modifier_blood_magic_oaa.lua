@@ -3,9 +3,11 @@ modifier_blood_magic_oaa = class(ModifierBaseClass)
 function modifier_blood_magic_oaa:IsHidden()
   return false
 end
+
 function modifier_blood_magic_oaa:IsDebuff()
   return false
 end
+
 function modifier_blood_magic_oaa:IsPurgable()
   return false
 end
@@ -80,5 +82,5 @@ function modifier_blood_magic_oaa:GetModifierSpellsRequireHP()
 end
 
 function modifier_blood_magic_oaa:GetTexture()
-  return "custom/stonework_pendant"
+  return "custom/blood_magic"
 end

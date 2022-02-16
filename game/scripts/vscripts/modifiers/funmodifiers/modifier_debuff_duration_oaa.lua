@@ -4,6 +4,10 @@ function modifier_debuff_duration_oaa:IsHidden()
   return false
 end
 
+function modifier_debuff_duration_oaa:IsDebuff()
+  return false
+end
+
 function modifier_debuff_duration_oaa:IsPurgable()
   return false
 end
@@ -19,8 +23,10 @@ function modifier_debuff_duration_oaa:DeclareFunctions()
   }
 end
 
-function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster()
-  return -25
+if IsServer() then
+  function modifier_debuff_duration_oaa:GetModifierStatusResistanceCaster()
+    return -25
+  end
 end
 
 function modifier_debuff_duration_oaa:GetModifierSpellAmplify_Percentage()

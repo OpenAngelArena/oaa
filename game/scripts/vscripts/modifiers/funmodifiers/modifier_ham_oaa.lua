@@ -4,6 +4,10 @@ function modifier_ham_oaa:IsHidden()
   return false
 end
 
+function modifier_ham_oaa:IsDebuff()
+  return false
+end
+
 function modifier_ham_oaa:IsPurgable()
   return false
 end
@@ -39,7 +43,7 @@ function modifier_ham_oaa:DeclareFunctions()
 end
 
 function modifier_ham_oaa:GetModifierPercentageCooldown(keys)
-  if keys.ability and self.ignore_abilities[keys.ability:GetName()] then
+  if (keys.ability and self.ignore_abilities[keys.ability:GetName()]) or self:GetParent():HasModifier("modifier_pro_active_oaa") then
     return 0
   else
     return self.cdr
@@ -55,5 +59,5 @@ function modifier_ham_oaa:GetModifierStatusResistanceStacking()
 end
 
 function modifier_ham_oaa:GetTexture()
-  return "modifier_rune_arcane"
+  return "rune_arcane"
 end
