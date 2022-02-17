@@ -221,7 +221,7 @@ function OAAOptions:OnUnitSpawn(event)
     return
   end
 
-  if npc:HasModifier("modifier_minimap") or npc:HasModifier("modifier_oaa_thinker") then
+  if npc:HasModifier("modifier_minimap") or npc:HasModifier("modifier_oaa_thinker") or npc:GetUnitName() == "npc_dota_custom_dummy_unit" then
     return
   end
 

@@ -8,15 +8,39 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5433"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "DisplayAdditionalHeroes"                             "1"
     "LevelsBetweenUpgrades"                               "7"
     "RequiredLevel"                                       "4"
+    "MaxLevel"                                            "3"
+
+    "HasShardUpgrade"                                     "1"
+
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
-    "HasShardUpgrade"                                     "0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "18 16 14"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDamage"                                       "100"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,11 +76,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "movement_slow"                                   "-50"
-      }
-      "08" //OAA, for picking screen tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_dmg_reduction_pct"                         "5 5 5 8 11"
       }
     }
   }
