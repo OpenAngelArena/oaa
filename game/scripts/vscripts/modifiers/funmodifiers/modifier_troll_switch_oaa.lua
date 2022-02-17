@@ -9,7 +9,7 @@ function modifier_troll_switch_oaa:IsDebuff()
 end
 
 function modifier_troll_switch_oaa:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_troll_switch_oaa:RemoveOnDeath()
