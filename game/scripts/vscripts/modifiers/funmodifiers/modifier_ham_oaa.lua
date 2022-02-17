@@ -19,6 +19,7 @@ end
 function modifier_ham_oaa:OnCreated()
   self.ignore_abilities = {
     brewmaster_primal_split = true,
+    dark_willow_shadow_realm = true,
     obsidian_destroyer_astral_imprisonment = true,
     phantom_lancer_doppelwalk = true,
     puck_phase_shift = true,
@@ -29,6 +30,7 @@ function modifier_ham_oaa:OnCreated()
     void_spirit_dissimilate = true,
   }
 
+  self.cdr_penalty = 25
   self.cdr = 35
   self.mana_cost_reduction = 35
   self.status_resist = 35
@@ -43,8 +45,11 @@ function modifier_ham_oaa:DeclareFunctions()
 end
 
 function modifier_ham_oaa:GetModifierPercentageCooldown(keys)
-  if (keys.ability and self.ignore_abilities[keys.ability:GetName()]) or self:GetParent():HasModifier("modifier_pro_active_oaa") then
+  if self:GetParent():HasModifier("modifier_pro_active_oaa") then
     return 0
+  end
+  if keys.ability and self.ignore_abilities[keys.ability:GetName()] then
+    return self.cdr_penalty
   else
     return self.cdr
   end

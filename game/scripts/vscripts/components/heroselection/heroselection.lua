@@ -209,6 +209,15 @@ function HeroSelection:StartSelection ()
         end
       end
     end
+    if OAAOptions.settings.HEROES_MODS == "HM03" or OAAOptions.settings.HEROES_MODS_2 == "HM03" then
+      local herolistFile = 'scripts/npc/herolist_blood_magic.txt'
+      local herolistTable = LoadKeyValues(herolistFile)
+      for key, value in pairs(herolistTable) do
+        if value == 0 then
+          table.insert(rankedpickorder.bans, key)
+        end
+      end
+    end
   end
 
   if self.isCM then

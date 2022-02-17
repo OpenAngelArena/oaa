@@ -18,6 +18,10 @@ function modifier_rend_oaa:RemoveOnDeath()
   return false
 end
 
+function modifier_rend_oaa:OnCreated()
+  self.duration = 5
+end
+
 function modifier_rend_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -50,7 +54,7 @@ if IsServer() then
     end
 
     -- Get duration
-    local duration = 3
+    local duration = self.duration
 
     target:AddNewModifier(parent, ability, "modifier_rend_armor_reduction_oaa", {duration = duration})
   end

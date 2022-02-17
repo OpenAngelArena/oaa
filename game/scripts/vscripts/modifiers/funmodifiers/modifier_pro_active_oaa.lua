@@ -23,6 +23,7 @@ end
 function modifier_pro_active_oaa:OnCreated()
   self.ignore_abilities = {
     brewmaster_primal_split = true,
+    dark_willow_shadow_realm = true,
     obsidian_destroyer_astral_imprisonment = true,
     phantom_lancer_doppelwalk = true,
     puck_phase_shift = true,
@@ -33,6 +34,7 @@ function modifier_pro_active_oaa:OnCreated()
     void_spirit_dissimilate = true,
   }
 
+  self.cdr_penalty = 30
   self.cdr = 50
 end
 
@@ -51,7 +53,7 @@ end
 
 function modifier_pro_active_oaa:GetModifierPercentageCooldown(keys)
   if keys.ability and self.ignore_abilities[keys.ability:GetName()] then
-    return 0
+    return self.cdr_penalty
   else
     return self.cdr
   end
