@@ -9,6 +9,9 @@ function MMRShuffle:Init ()
 
   ListenToGameEvent("player_team", Dynamic_Wrap(MMRShuffle, 'UpdateAverageMMRs'), MMRShuffle)
   self:UpdateAverageMMRs();
+  Timers:CreateTimer(2.0, function()
+    self:UpdateAverageMMRs();
+  end)
 end
 
 function MMRShuffle:UpdateAverageMMRs ()
