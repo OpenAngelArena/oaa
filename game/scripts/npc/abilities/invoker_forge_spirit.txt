@@ -23,13 +23,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "spirit_damage"     
+      "spirit_damage"
       {
         "value"     "22 32 42 52 62 72 82 92 102 120 138 170 190 220 250"
         "levelkey"    "exortlevel"
       }
-      "spirit_mana"     
-      { 
+      "spirit_mana"
+      {
         "value"     "100 150 200 250 300 350 400 450 500 550 600 650 700 750 800"
         "levelkey"    "exortlevel"
       }
@@ -38,13 +38,14 @@
         "value"     "0 1 2 3 4 5 6 7 9 11 13 15 17 19 21"
         "levelkey"    "exortlevel"
       }
-      "spirit_attack_range" 
+      "spirit_attack_range"
       {
         "value"     "300 365 430 495 560 625 690 755 765 775 785 795 805 825 850"
         "levelkey"    "quaslevel"
       }
-      "spirit_hp"       
-      { "value"     "300 500 700 900 1100 1300 1500 1700 2100 2500 2900 3300 3700 4100 4500" //OAA
+      "spirit_hp"
+      {
+        "value"     "300 500 700 900 1100 1300 1500 1700 2100 2500 2900 3300 3700 4100 4500" //OAA
         "levelkey"    "quaslevel"
       }
       "spirit_duration"
