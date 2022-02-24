@@ -226,3 +226,7 @@ if IsServer() then
     end
   end
 end
+
+function oaa_rearm:IsStealable()
+  return false
+end

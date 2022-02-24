@@ -62,12 +62,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "minimum_range"                                   "0"
       }
-      // "05"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "cooldown_scepter"                                "60"
-        // "RequiresScepter"                                 "1"
-      // }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_scepter"                                "80 75 70 65 60"
+        "RequiresScepter"                                 "1"
+      }
     }
 
     "Precache"

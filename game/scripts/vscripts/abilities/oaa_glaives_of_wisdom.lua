@@ -484,10 +484,10 @@ if IsServer() then
     )
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
-    -- Check for +2 Int Steal Talent
-    --if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
-      --stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
-    --end
+    -- Check for Shard (+2 Int Steal)
+    if parent:HasShardOAA() then
+      stealAmount = stealAmount + 2
+    end
 
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
       local oldIntellect = unit:GetBaseIntellect()
