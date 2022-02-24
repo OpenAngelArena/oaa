@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Primal Beast: Trample
+  //=================================================================================================================
+  "primal_beast_trample"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "994"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30 28 26 24 22 20"
+    "AbilityManaCost"                                     "90 95 100 105 110 115"
+
+    // Damage.
+    //-------------------------------------------------------------------------------------------------------------
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "effect_radius"       "230"
+      "step_distance"       "140"
+      "base_damage"       "20 30 40 50 150 250"
+      "duration"          "5.5"
+      "attack_damage"
+      {
+        "value"         "40"
+        "special_bonus_unique_primal_beast_trample_attack_damage" "+20"
+      }
+    }
+  }
+}
