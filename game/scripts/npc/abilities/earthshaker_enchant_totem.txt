@@ -38,56 +38,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "totem_damage_percentage" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "totem_damage_percentage"                         "100 200 300 400 500 600"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"   "100 200 300 400 500 600"
+        "CalculateSpellDamageTooltip" "0"
+        "special_bonus_unique_earthshaker_totem_damage" "+50"
       }
-      "02"
+      "distance_scepter"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance_scepter"                                "950"
-        "RequiresScepter"                                 "1"
+        "value"   "950"
+        "RequiresScepter"   "1"
       }
-      "03"
+      "aftershock_range"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aftershock_range"                                "300"
-        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
+        "value"   "300"
+        "LinkedSpecialBonus"    "special_bonus_unique_earthshaker_5"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_height"                                  "950"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_height_arcbuffer"                        "100"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_acceleration_z"                          "4000"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_acceleration_horizontal"                 "3000"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_leap_duration"                           "0.8"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "75"
-      }
+      "scepter_height"      "950"
+      "scepter_height_arcbuffer"  "100"
+      "scepter_acceleration_z"  "4000"
+      "scepter_acceleration_horizontal" "3000"
+      "scepter_leap_duration"   "0.8"
+      "bonus_attack_range"    "75"
     }
   }
 }

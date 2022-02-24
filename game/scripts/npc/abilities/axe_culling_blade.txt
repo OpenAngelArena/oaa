@@ -41,43 +41,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "kill_threshold"                                  "250 450 650 1250 2250" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_axe_5"
+      "damage"          
+      { 
+        "value"     "250 450 650 1250 2250" //OAA
+        "special_bonus_unique_axe_5"  "+150"
       }
-      "02"
+      "speed_bonus"       "30 35 40 45 50" //OAA
+      "atk_speed_bonus"       "30 40 50 60 70" //OAA
+      "speed_duration"      "6"
+      "speed_aoe"         "900"
+      "charge_speed"        "1200"
+      "armor_per_stack"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 350 550 950 1750" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "30 35 40 45 50" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "atk_speed_bonus"                                 "30 40 50 60 70" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "speed_duration"                                  "6"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_aoe"                                       "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_speed"                                    "1200"
+        "value"         "1 1.5 2 2.5 3"
+        "special_bonus_unique_axe_3"  "+1"
       }
     }
   }

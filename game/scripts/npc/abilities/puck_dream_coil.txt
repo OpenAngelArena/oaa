@@ -40,61 +40,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "coil_duration"       "6.0"
+      "coil_break_radius"     "600"
+      "stun_duration"       "0.5"
+      "coil_initial_damage"   "125 275 425 875 1625" //OAA
+      "coil_stun_duration"    
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "coil_duration"                                   "6.0"
+        "value"     "1.8 2.4 3.0 3.5 4.0"
+        "special_bonus_unique_puck_4" "+1"
       }
-      "02"
+      "coil_break_damage"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_break_radius"                               "600"
+        "value"         "200 400 600 1200 2200" //OAA
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.0" //OAA, Valve has it wrong
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_initial_damage"                             "125 275 425 875 1625" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration"                              "1.8 2.4 3.0 3.5 4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage"                               "200 400 600 1200 2200" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_radius"                                     "375"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "coil_duration_scepter"                           "8"
-        "RequiresScepter"                                 "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "coil_break_damage_scepter"                       "300 600 900 1800 3300" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "coil_stun_duration_scepter"                      "2 3 4 4.5 5"
-        "RequiresScepter"                                 "1"
-      }
+      "coil_radius"       "375"
     }
   }
 }

@@ -34,34 +34,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "225"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "1950"
-        "LinkedSpecialBonus"                              "special_bonus_unique_puck"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "orb_speed"                                       "651"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "orb_vision"                                      "450"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.34"
-      }
+      "radius"          "225"   
+      "max_distance"        "1950"
+      "orb_speed"         "651"
+      "orb_vision"        "450"
+      "vision_duration"     "3.34"
     }
   }
 }
