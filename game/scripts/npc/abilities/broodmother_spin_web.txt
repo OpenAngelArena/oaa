@@ -24,7 +24,7 @@
 
     "AbilityCooldown"                                     "0.0"
     "AbilityCharges"                                      "4 6 8 10 12 14"
-    "AbilityChargeRestoreTime"                            "30"
+    //"AbilityChargeRestoreTime"                            "30"
 
     "AbilityManaCost"                                     "50"
 
@@ -32,18 +32,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"        "900"
-      "count"         
+      "radius"                                            "900"
+      "count"
       {
-        "value"       "4 6 8 10 12 14" //OAA
-        "special_bonus_unique_broodmother_6" "+3"
+        "value"                                           "4 6 8 10 12 14" //OAA
+        "special_bonus_unique_broodmother_6"              "+3"
       }
-      "heath_regen"     "3 7 11 15 23 47" //OAA
-      "bonus_movespeed"   "18 30 42 54 66 78"
-      "AbilityChargeRestoreTime"  
+      "heath_regen"                                       "3 7 11 15 23 47" //OAA
+      "bonus_movespeed"                                   "18 30 42 54 66 78"
+      "AbilityChargeRestoreTime"
       {
-        "value"       "30"
-        "special_bonus_unique_broodmother_5" "-10"
+        "value"                                           "30"
+        "special_bonus_unique_broodmother_5"              "-10"
       }
     }
   }

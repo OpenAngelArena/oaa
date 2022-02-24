@@ -50,6 +50,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "cast_range"                                      "600 1000 1400 1800 2200 2600"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "silence_duration"                                "0"
+      }
     }
   }
 }

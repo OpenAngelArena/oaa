@@ -457,7 +457,8 @@ var keyWhiteList = [
   'RequiresScepter',
   'RequiresShard',
   'ad_linked_ability',
-  'linked_ad_abilities'
+  'linked_ad_abilities',
+  'ad_linked_abilities'
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
   return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);

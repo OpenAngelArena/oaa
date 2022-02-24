@@ -10,12 +10,12 @@
     "ID"                                                  "995"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityCooldown"                                     "30 28 26 24 22 20"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "AbilityCooldown"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

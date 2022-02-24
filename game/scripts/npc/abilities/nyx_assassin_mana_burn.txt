@@ -7,12 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5463"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "ID"                                                  "5463"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
+
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -35,15 +37,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "float_multiplier"    
+      "float_multiplier"
       {
-        "value"   "2.4 3 3.6 4.2 4.8 5.4" //OAA
-        "special_bonus_unique_nyx_5"      "+0.5"
+        "value"                                           "2.4 3 3.6 4.2 4.8 5.4" //OAA
+        "special_bonus_unique_nyx_5"                      "+0.5"
       }
       "aoe"
       {
-        "value"   "0"
-        "special_bonus_unique_nyx"    "+300"
+        "value"                                           "0"
+        "special_bonus_unique_nyx"                        "+300"
       }
     }
   }
