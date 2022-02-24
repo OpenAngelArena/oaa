@@ -72,6 +72,11 @@
         "radius"                                          "250"
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed"                                      "5 10 15 20 25 30"
+      }
     }
   }
 }
