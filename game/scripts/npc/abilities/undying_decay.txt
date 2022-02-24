@@ -70,6 +70,11 @@
         "str_steal_scepter"                               "9 10 11 12 14 16" //OAA
         "RequiresScepter"                                 "1"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_damage_multiplier"                         "2.0"
+      }
     }
   }
 }
