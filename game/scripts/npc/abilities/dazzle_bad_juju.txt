@@ -14,15 +14,19 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "FightRecapLevel"                                     "2"
 
+    "LinkedAbility"                                      "dazzle_good_juju"
+
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
+    "AbilityCastPoint"                                    "0.2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
+    "AbilityCooldown"                                     "15"
+    "AbilityManaCost"                                     "50 75 100 125 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
