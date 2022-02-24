@@ -36,23 +36,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "30"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_range"                                 "1200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_range"                                    "150"
-      }
+      "lifesteal_percent"   "30"    
+      "lifesteal_range"   "1200"    
+      "attack_range"    "150"
     }
   }
 }

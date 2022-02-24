@@ -31,64 +31,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"          
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "425"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_8"
+        "value"         "425"
+        "LinkedSpecialBonus"      "special_bonus_unique_underlord_8"
       }
-      "02"
+      "wave_duration"         "7.0"
+      "wave_count"          "6"
+      "wave_damage"         "25 40 55 70 140 280"
+      "wave_interval"         "1.0"
+      "burn_damage"         
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_duration"                                   "7.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_7"
+        "value"         "1 2 3 4 5 6"
+        "LinkedSpecialBonus"      "special_bonus_unique_underlord_4"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_count"                                      "6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_damage"                                     "25 40 55 70 140 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_interval"                                   "1.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_damage"                                     "1 2 3 4 5 6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_4"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "1.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_duration"                                   "2.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "first_wave_delay"                                "0.0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "building_damage"                                 "33"
-      }
+      "burn_interval"         "1.0"
+      "burn_duration"         "2.0"
     }
   }
 }
