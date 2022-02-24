@@ -5,23 +5,23 @@
   //=================================================================================================================
   "npc_dota_hero_axe"
   {
-    "Ability10"                                           "special_bonus_mp_regen_150"
-    "Ability11"                                           "special_bonus_magic_resistance_12"
+    //"Ability10"                                           "special_bonus_mp_regen_150"
+    //"Ability11"                                           "special_bonus_movement_speed_20"
 
-    "Ability12"                                           "special_bonus_movement_speed_25"
-    "Ability13"                                           "special_bonus_unique_axe_4"
+    //"Ability12"                                           "special_bonus_unique_axe_6"
+    //"Ability13"                                           "special_bonus_unique_axe_4"
 
-    "Ability14"                                           "special_bonus_unique_axe_5"
-    "Ability15"                                           "special_bonus_hp_regen_25" // replaces special_bonus_hp_regen_20
+    //"Ability14"                                           "special_bonus_unique_axe_5"
+    //"Ability15"                                           "special_bonus_unique_axe_3"
 
-    "Ability16"                                           "special_bonus_unique_axe_2"
-    "Ability17"                                           "special_bonus_unique_axe"
+    //"Ability16"                                           "special_bonus_unique_axe_2"
+    //"Ability17"                                           "special_bonus_unique_axe"
 
     // special_bonus_unique_axe - "+{s:value} Battle Hunger DPS"
     // special_bonus_unique_axe_2 - "+{s:value} Berserker's Call AoE"
-    // special_bonus_unique_axe_3 - "Attacking Procs Counter Helix"
+    // special_bonus_unique_axe_3 - "+{s:value} Bonus Armor per Culling Blade Stack
     // special_bonus_unique_axe_4 - "+{s:value} Counter Helix Damage"
     // special_bonus_unique_axe_5 - "+{s:value} Culling Blade Threshold"
-    // special_bonus_unique_axe_6 - "-{s:value}s Berserker's Call Cooldown"   - scepter does this
+    // special_bonus_unique_axe_6 - "+{s:value}% Battle Hunger Slow"   
   }
 }
